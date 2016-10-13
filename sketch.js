@@ -156,7 +156,7 @@ window.onload = function () {
   $(".CodeMirror").css('font-size',"16pt")
   myCodeMirror.on("change", run0)
 
-  help = createA('https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md', 'help', 'blank')
+  help = createA('https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md', 'help', '_blank')
   help.position(10,638)
   
   background(128)
@@ -188,12 +188,12 @@ function run0() {
   data[chapter][exercise]["b"] = b
   run1()
   run2()
-  run(0, b + call)
+  run(0, b + ";" + call)
 }
 
 function run1() {
   a = data[chapter][exercise]["a"] 
-  run(1, a + call)
+  run(1, a + ";" + call)
 }
 
 function run2() {
