@@ -4,7 +4,7 @@
 
 * Du ritar på den översta bitmappen
 * Den andra bitmappen ska du efterlikna
-* Den tredje bitmappen visar skillnaden. Ska bli svart
+* Den tredje bitmappen visar skillnaden. Ska bli helt svart
 
 [p5Dojo](https://christernilsson.github.io/p5Dojo)
 
@@ -58,11 +58,11 @@
   
 ### for loop:
   - **for** (**var** i=0; i<10; i+=1) { ... } => [0,1,2,3,4,5,6,7,8,9]
-  - **for** (**var** i **of** [0,1,2,3,4,5,6,7,8,9] { ... } => [0,1,2,3,4,5,6,7,8,9]
-  - **for** (**var** i **of** range(10) { ... } => [0,1,2,3,4,5,6,7,8,9]
-  - **for** (**var** i **of** range(1,11) { ... } => [1,2,3,4,5,6,7,8,9,10]
-  - **for** (**var** i **of** range(0,10,2) { ... } => [0,2,4,6,8]
-  - **for** (**var** i **of** range(10,0,-2) { ... } => [10,8,6,4,2]  
+  - **for** (**var** i **of** [0,1,2,3,4,5,6,7,8,9]) { ... } => [0,1,2,3,4,5,6,7,8,9]
+  - **for** (**var** i **of** range(10)) { ... } => [0,1,2,3,4,5,6,7,8,9]
+  - **for** (**var** i **of** range(1,11)) { ... } => [1,2,3,4,5,6,7,8,9,10]
+  - **for** (**var** i **of** range(0,10,2)) { ... } => [0,2,4,6,8]
+  - **for** (**var** i **of** range(10,0,-2)) { ... } => [10,8,6,4,2]  
 
 ### koordinatsystemet:
   - **translate**(x,y)         

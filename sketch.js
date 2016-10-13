@@ -156,6 +156,10 @@ window.onload = function () {
   
   myCodeMirror.on("change", run0)
   myCodeMirror.setSize(500, 620)
+  
+  help = createA('https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md', 'help', 'blank')
+  help.position(600,626)
+  
   background(128)
   run(0, "")
   run(1, "")
