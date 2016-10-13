@@ -163,7 +163,15 @@ window.onload = function () {
   background(128)
   run(0, "")
   run(1, "")
-  run(2, "")
+  run(2, "bg(1,1,0)")
+
+  chapter = 'Lektion1'
+  sel1.val(chapter).change()
+  exercise = 'whiteBackground'
+  sel2.val(exercise).change()
+  
+  myCodeMirror.focus()
+
 }
 
 function run0() {

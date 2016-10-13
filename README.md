@@ -90,5 +90,5 @@
     * CENTER
     * BOTTOM
   - **textSize**(n)
-  - **text**("Python",x,y)
+  - **text**("p5",x,y)
 
