@@ -1,47 +1,47 @@
 # p5Dojo
 
-## Grafiska Övningar för Processing med p5 (Javascript).
+## Grafiska Ã–vningar fÃ¶r Processing med p5 (Javascript).
 
-* Du ritar på den översta bitmappen
+* Du ritar pÃ¥ den Ã¶versta bitmappen
 * Den andra bitmappen ska du efterlikna
 * Den tredje bitmappen visar skillnaden. Ska bli helt svart
 
-[p5Dojo](https://christernilsson.github.io/p5Dojo)
+[p5Dojo](https://christernilsson.github.io/p5Dojo) christernilsson.github.io/p5Dojo
 
-### Färger:
-  - 0,0,1 blå
-  - 0,1,0 grön
+### FÃ¤rger:
+  - 0,0,1 blÃ¥
+  - 0,1,0 grÃ¶n
   - 0,1,1 cyan
-  - 1,0,0 röd
+  - 1,0,0 rÃ¶d
   - 1,0,1 magenta
   - 1,1,0 gul
   - 0 svart
-  - 0.5 grå
+  - 0.5 grÃ¥
   - 1 vit
   
-### bakgrundsfärg:
+### bakgrundsfÃ¤rg:
   - **bg**(1)   vit
   - **bg**(1,1,0) gul
 
-### fyllningsfärg:
+### fyllningsfÃ¤rg:
   - **fc**()  ingen
   - **fc**(1)   vit
   - **fc**(1,1,0)   gul
-  - **fc**(1,0,0,0.5) röd, halvgenomskinlig
+  - **fc**(1,0,0,0.5) rÃ¶d, halvgenomskinlig
 
-### streckfärg:
+### streckfÃ¤rg:
   - **sc**()    ingen
   - **sc**(1)   vit
   - **sc**(1,1,0)   gul
-  - **sc**(1,0,0,0.5)   röd, halvgenomskinlig
+  - **sc**(1,0,0,0.5)   rÃ¶d, halvgenomskinlig
   
-### skapa en färg:
+### skapa en fÃ¤rg:
   - **co**(1)   vit
   - **co**(1,1,0)   gul
-  - **co**(1,0,0,0.5)   röd, halvgenomskinlig
+  - **co**(1,0,0,0.5)   rÃ¶d, halvgenomskinlig
   - **color**(255)   vit
   - **color**(255,255,0)   gul
-  - **color**(255,0,0,128)   röd, halvgenomskinlig
+  - **color**(255,0,0,128)   rÃ¶d, halvgenomskinlig
 
 ### strecktjocklek:
   - **sw**(pixlar)
