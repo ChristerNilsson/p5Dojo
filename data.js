@@ -1,6 +1,9 @@
 // a : facit
 // b : student
 // c : call
+// Observe:  local variables a,b and c must be declared var. e.g. r,g,b
+// Eventually, skip a,b and c and use a list instead
+
 data = {
   Lektion1: {
     whiteBackground: {a: "bg(1)",b: ""},
@@ -33,7 +36,7 @@ data = {
     for08: {a:"for (i of range(10,0,-1)) {fc(i/10.0,0,0);r = 10 * i;circle(100,100, r);}", b:""},
     for09: {a:"for (i of range(10,0,-1)) {fc(i/10.0,0,0);x = 10*i;y = 10*i;r = 10*i;circle(x,y,r);}", b:""},
     for10: {a:"for (i of range(10)) {for (j of range(10)) {fc(i/10.0,j/10.0,0);x = 10+20*i;y = 10+20*j;r = (i+j)/2;circle(x,y,r);}}", b:""},
-    for11: {a:"rectMode(CENTER); sc(); for (i of range(10)) { for (j of range(10)) { push(); translate(10+20*i,10+20*j); rd(5*(i+j)); r = i/9.0;g = j/9.0;b = 0; fc(r,g,b); rect(0,0, 10,10); pop()}}", b:""},
+    for11: {a:"rectMode(CENTER); sc(); for (i of range(10)) { for (j of range(10)) { push(); translate(10+20*i,10+20*j); rd(5*(i+j)); var r = i/9.0; var g = j/9.0; var b = 0; fc(r,g,b);rect(0,0, 10,10); pop()}}", b:""},
     for12: {a:"rectMode(CENTER);sc(1);translate(100,100);for (i of range(18,-1,-1)) {r = 1.0*i/18;fc(r,0,0);w = 70+5*i;h = 70+5*i;rect(0,0, w,h);rd(5);}", b:""},
   },
   Lektion4: {
