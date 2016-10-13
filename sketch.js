@@ -193,7 +193,7 @@ function run0() {
 
 function run1() {
   a = data[chapter][exercise]["a"] 
-  run(1, a + ";" + call)
+  run(1, a + ";" +  call)
 }
 
 function run2() {
