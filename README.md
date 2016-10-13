@@ -34,6 +34,14 @@
   - **sc**(1)   vit
   - **sc**(1,1,0)   gul
   - **sc**(1,0,0,0.5)   röd, halvgenomskinlig
+  
+### skapa en färg:
+  - **co**(1)   vit
+  - **co**(1,1,0)   gul
+  - **co**(1,0,0,0.5)   röd, halvgenomskinlig
+  - **color**(255)   vit
+  - **color**(255,255,0)   gul
+  - **color**(255,0,0,128)   röd, halvgenomskinlig
 
 ### strecktjocklek:
   - **sw**(pixlar)
@@ -47,6 +55,12 @@
   - **triangle**(x1,y1, x2,y2, x3,y3)
   - **quad**(x1,y1, x2,y2, x3,y3, x4,y4)
   - **arc**(x,y, w,h, start,stopp, PIE)
+  
+### for loop:
+  - for (var i of range(10) { ... } => [0,1,2,3,4,5,6,7,8,9]
+  - for (var i of range(1,11) { ... } => [1,2,3,4,5,6,7,8,9,10]
+  - for (var i of range(0,10,2) { ... } => [0,2,4,6,8]
+  - for (var i of range(10,0,-2) { ... } => [10,8,6,4,2]  
 
 ### koordinatsystemet:
   - **translate**(x,y)         
