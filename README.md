@@ -1,16 +1,14 @@
 # p5Dojo
 
-## Graphic exercises for p5
+## Grafiska Övningar för Processing med p5 (Javascript).
 
 * Du ritar på den översta bitmappen
 * Den andra bitmappen ska du efterlikna
 * Den tredje bitmappen visar skillnaden. Ska bli svart
 
-[Bitmap Assert](https://github.com/ChristerNilsson/Kosmos/tree/master/ZZ/A78_Grafisk_Assert)
+[p5Dojo](https://christernilsson.github.io/p5Dojo)
 
-Används för att lära ut grundläggande Processing med p5 (Javascript).
-
-Färger:
+### Färger:
   - 0,0,1 blå
   - 0,1,0 grön
   - 0,1,1 cyan
@@ -21,26 +19,26 @@ Färger:
   - 0.5 grå
   - 1 vit
   
-bakgrundsfärg:
+### bakgrundsfärg:
   - **bg**(1)   vit
   - **bg**(1,1,0) gul
 
-fyllningsfärg:
+### fyllningsfärg:
   - **fc**()  ingen
   - **fc**(1)   vit
   - **fc**(1,1,0)   gul
   - **fc**(1,0,0,0.5) röd, halvgenomskinlig
 
-streckfärg:
+### streckfärg:
   - **sc**()    ingen
   - **sc**(1)   vit
   - **sc**(1,1,0)   gul
   - **sc**(1,0,0,0.5)   röd, halvgenomskinlig
 
-strecktjocklek:
+### strecktjocklek:
   - **sw**(pixlar)
 
-ritkommandon:
+### ritkommandon:
   - **point**(x,y)
   - **line**(x1,y1, x2,y2)
   - **ellipse**(x,y, w,h)
@@ -50,12 +48,12 @@ ritkommandon:
   - **quad**(x1,y1, x2,y2, x3,y3, x4,y4)
   - **arc**(x,y, w,h, start,stopp, PIE)
 
-koordinatsystemet:
+### koordinatsystemet:
   - **translate**(x,y)         
   - **rd**(degrees)      
   - **scale**(n)
 
-modes: 
+### modes: 
   - **rectMode**(CENTER)
     * CORNER
     * CORNERS
@@ -67,7 +65,7 @@ modes:
     * CENTER
     * RADIUS
 
-text:
+### text:
   - **textAlign**(CENTER,CENTER)  
     * LEFT
     * CENTER
