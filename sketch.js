@@ -83,7 +83,6 @@ function range() {
   } else if (n==2) {
     return _.range(arguments[0],arguments[1])
   } else if (n==3) {
-    //console.log(_.range(arguments[0],arguments[1],arguments[2]))
     return _.range(arguments[0],arguments[1],arguments[2])
   }
 }
@@ -113,6 +112,7 @@ function sel2change(sel) {
   b = data[chapter][exercise]["b"]
   myCodeMirror.setValue(b)
   myCodeMirror.focus() 
+  compare()
 }
 
 function sel3change(sel) {
@@ -123,7 +123,8 @@ function sel3change(sel) {
 
   b = data[chapter][exercise]["b"]
   run(0, b + call)
-  myCodeMirror.focus() 
+  myCodeMirror.focus()
+  compare()
 }
 
 function setup() {
@@ -162,7 +163,7 @@ window.onload = function () {
   background(128)
   run(0, "")
   run(1, "")
-  run(2, "bg(1,1,0)")
+  //run(2, "bg(1,1,0)")
 
   chapter = 'Lektion1'
   sel1.val(chapter).change()
@@ -187,8 +188,9 @@ function run0() {
   b = myCodeMirror.getValue()
   data[chapter][exercise]["b"] = b
   run1()
-  run2()
+  //run2()
   run(0, b + ";" + call)
+  if (msg.val()=='') compare()
 }
 
 function run1() {
@@ -197,7 +199,7 @@ function run1() {
 }
 
 function run2() {
-  run(2, "bg(1,1,0)")
+  //run(2, "bg(1,1,0)")
 }
 
 function reset() {
@@ -219,8 +221,53 @@ function run(n, code) {
     eval(code)
     pop()
   } catch (err) {
-    console.log(err)
     pop()
     setMsg(err.stack)
   }
+}
+
+function compare() {
+  GAP = 5
+  WIDTH = 201
+  HEIGHT = 201
+  
+  loadPixels()
+  
+  var area1 = new Area(pixels,GAP,GAP,                WIDTH,HEIGHT)
+  var area2 = new Area(pixels,GAP,1*(GAP+HEIGHT)+GAP, WIDTH,HEIGHT)
+  var area3 = new Area(pixels,GAP,2*(GAP+HEIGHT)+GAP, WIDTH,HEIGHT)
+ 
+  var count = 0
+  
+  for (var i of range(WIDTH+1)) {
+    for (var j of range(HEIGHT+1)) {
+    
+      var lst1 = area1.getPixel(i,j)
+      var r1 = lst1[0]
+      var g1 = lst1[1]
+      var b1 = lst1[2]
+      var lst2 = area2.getPixel(i,j)
+      var r2 = lst2[0]
+      var g2 = lst2[1]
+      var b2 = lst2[2]
+      var r = abs(r1-r2) 
+      var g = abs(g1-g2)
+      var b = abs(b1-b2) 
+
+      area3.setPixel(i,j,[r,g,b,255]) 
+      if (r+g+b > 9) { // t ex whiteTriangle i motsatt riktning
+        count += 1
+        //if (count < 10) console.log(i,j,":",r,g,b)
+      }
+    }
+  } 
+  updatePixels()
+  if (count > 0) { 
+    console.log(count)
+  }
+  return count
+}
+
+function mousePressed() {
+  compare()
 }
