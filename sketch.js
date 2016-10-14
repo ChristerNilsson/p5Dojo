@@ -224,13 +224,10 @@ function setMsg(txt) {
 
 function run0() {
   background(128)
-  b = myCodeMirror.getValue()
+  var b = myCodeMirror.getValue()
   data[chapter][exercise]["b"] = b
-  //run2()
   console.log(transpile(b))
-  if (window.f != null) {
-    window.f = null
-  }
+  if (window.f != null) window.f = null
   if (chapter.indexOf('Assert') == -1) {
     run1()
     run(0, transpile(b) + ";" + call)
@@ -238,6 +235,7 @@ function run0() {
     result = null
     run(0, transpile(b) + "\n; result = " + call)    
     if (result != null) {
+      console.log(result)
       if (result == expectedResult) {
         run(0,"bg(0,1,0)")
       } else {
@@ -249,13 +247,11 @@ function run0() {
     }
   }
 
-  
-  console.log(result)
   if (msg.val()=='') compare()
 }
 
 function run1() {
-  a = data[chapter][exercise]["a"] 
+  var a = data[chapter][exercise]["a"] 
   run(1, a + ";" + call)
 }
 
