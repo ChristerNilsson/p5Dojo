@@ -1,7 +1,3 @@
-// underscore
-
-//var canvas
-//var code
 var myCodeMirror
 var msg
 var sel1, sel2, sel3
@@ -119,14 +115,28 @@ function sel2change(sel) {
   } else {
     fillSelect(sel3, data[chapter][exercise]["c"])    
   }
+  /*
+  console.log(chapter)
+  console.log(exercise)
+  var d = data[chapter][exercise]["c"]
+  var keys = Object.keys(d)
+  console.log(d)
+  console.log(keys.length)
+  if (keys.length > 0) {
+    sel3.val(keys[0])
+    sel3change(sel3)
+  } else {
+    */
+    
+    var a = data[chapter][exercise]["a"]
+    run(1, a)
+  
+    var b = data[chapter][exercise]["b"]
+    myCodeMirror.setValue(b)
+    myCodeMirror.focus() 
+    compare()
+  //}
 
-  var a = data[chapter][exercise]["a"]
-  run(1, a)
-
-  var b = data[chapter][exercise]["b"]
-  myCodeMirror.setValue(b)
-  myCodeMirror.focus() 
-  compare()
 }
 
 function sel3change(sel) {
@@ -216,18 +226,26 @@ function run0() {
   background(128)
   b = myCodeMirror.getValue()
   data[chapter][exercise]["b"] = b
-  run1()
   //run2()
   console.log(transpile(b))
+  if (window.f != null) {
+    window.f = null
+  }
   if (chapter.indexOf('Assert') == -1) {
+    run1()
     run(0, transpile(b) + ";" + call)
   } else {
+    result = null
     run(0, transpile(b) + "\n; result = " + call)    
-    if (result == expectedResult) {
-      run(0,"bg(0,1,0)")
+    if (result != null) {
+      if (result == expectedResult) {
+        run(0,"bg(0,1,0)")
+      } else {
+        run(0,"bg(1,0,0)")
+        setMsg('Unexpected result was: ' + result)
+      }
     } else {
-      run(0,"bg(1,0,0)")
-      setMsg('Unexpected result was: ' + result)
+        setMsg('')
     }
   }
 
