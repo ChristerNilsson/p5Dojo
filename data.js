@@ -166,7 +166,33 @@ data = {
         "hypnoticB(1)":0, 
         "hypnoticB(5)":0,
       }
-    }
+    },
+    
+    square : {
+      a: "function square(x,y,size) { rect(x,y,size,size) }",
+      b: "",
+      c: {
+        "square(100,90,50)":0, 
+        "square(100,100,60)":0,
+      }
+    },
+  },
+    
+  Assert1: {
+    Operator1: { a:"function f(x) { return x }", b:"// + - * / % ", c: { "f(2)":2, "f(3)":3, }}, 
+    Operator2: { a:"function f(x) { return -x }", b:"// + - * / % ", c: { "f(-4)":4, "f(3)":-3, }}, 
+    Operator3: { a:"function f(x) { return x+1 }", b:"// + - * / % ", c: { "f(7)":8, "f(8)":9, }}, 
+    Operator4: { a:"function f(x) { return x }", b:"// + - * / % ", c: { "f(2)":2, "f(3)":3, }}, 
+    Operator5: { a:"function f(x) { return 2*x }", b:"// + - * / % ", c: { "f(5)":10, "f(6)":12, }}, 
+    Operator6: { a:"function f(x) { return x*x }", b:"// + - * / % ", c: { "f(5)":25, "f(6)":36, }}, 
+    Operator7: { a:"function f(x) { return x-2 }", b:"// + - * / % ", c: { "f(7)":5, "f(17)":15, }}, 
+    Operator8: { a:"function f(x) { return x/2 }", b:"// + - * / % ", c: { "f(8)":4, "f(6)":3, }}, 
+    Operator9: { a:"function f(x) { return x%2 }", b:"// + - * / % ", c: { "f(7)":1, "f(8)":0, "f(10)":0, "f(11)":1,}}, 
+    Operator10: { a:"function f(a,b) { return a*b }", b:"// + - * / % ", c: { "f(3,4)":12, "f(4,6)":24, }}, 
+    Operator11: { a:"function f(a,b) { return a+b }", b:"// + - * / % ", c: { "f(3,4)":7, "f(4,6)":10, }}, 
+    Operator12: { a:"function f(a,b) { return b-a }", b:"// + - * / % ", c: { "f(3,4)":1, "f(4,6)":2, }}, 
+    Operator13: { a:"function f(a,b) { return a/b }", b:"// + - * / % ", c: { "f(8,4)":2, "f(12,3)":4, }}, 
+    Operator14: { a:"function f(a,b) { return a%b }", b:"// + - * / % ", c: { "f(8,4)":0, "f(9,4)":1, "f(10,4)":3, "f(11,4)":3, }}, 
   }
 }
 

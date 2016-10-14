@@ -6,6 +6,7 @@ var myCodeMirror
 var msg
 var sel1, sel2, sel3
 var chapter, exercise, call = ''
+var expectedResult
 
 function grid() {
   push()
@@ -94,6 +95,14 @@ function fillSelect(sel, dict) {
   }
 }
 
+function fillSelectAssert(sel, dict) { 
+  sel.empty()
+  for (key in dict) {
+    var val = dict[key]
+    sel.append($("<option>").attr('value', key).text(key + ' == ' + val))
+  }
+}
+
 function sel1change(sel) {
   chapter = sel.value
   exercise = ""
@@ -105,11 +114,16 @@ function sel1change(sel) {
 function sel2change(sel) {
   exercise = sel.value
   call = ""
-  fillSelect(sel3, data[chapter][exercise]["c"])
-  code1 = data[chapter][exercise]["a"]
-  run(1, code1)
+  if (chapter.indexOf("Assert")==0) {
+    fillSelectAssert(sel3, data[chapter][exercise]["c"])    
+  } else {
+    fillSelect(sel3, data[chapter][exercise]["c"])    
+  }
 
-  b = data[chapter][exercise]["b"]
+  var a = data[chapter][exercise]["a"]
+  run(1, a)
+
+  var b = data[chapter][exercise]["b"]
   myCodeMirror.setValue(b)
   myCodeMirror.focus() 
   compare()
@@ -117,15 +131,30 @@ function sel2change(sel) {
 
 function sel3change(sel) {
   call = sel.value
+  expectedResult = data[chapter][exercise]["c"][sel.value]
 
-  a = data[chapter][exercise]["a"]
+  var a = data[chapter][exercise]["a"]
   run(1, a + call)
 
-  b = data[chapter][exercise]["b"]
-  run(0, b + call)
+  var b = data[chapter][exercise]["b"]
+  //run(0, b + call)
+  run0()
   myCodeMirror.focus()
   compare()
 }
+
+function changeLayout() {
+    var w = $(window).width()
+    $(".CodeMirror").width(w-430)
+    $("#canvas").css({top: 0, left: w-215, position:'absolute'});    
+    $("#msg").width(w-435)
+};
+
+var resizeTimer;
+$(window).resize(function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(changeLayout, 10);
+});
 
 function setup() {
 
@@ -163,7 +192,6 @@ window.onload = function () {
   background(128)
   run(0, "")
   run(1, "")
-  //run(2, "bg(1,1,0)")
 
   chapter = 'Lektion1'
   sel1.val(chapter).change()
@@ -171,7 +199,8 @@ window.onload = function () {
   sel2.val(exercise).change()
   
   myCodeMirror.focus()
-
+  window.resizeTo(1000,750)
+  changeLayout()
 }
 
 function setMsg(txt) {
@@ -190,17 +219,26 @@ function run0() {
   run1()
   //run2()
   console.log(transpile(b))
-  run(0, transpile(b) + ";" + call)
+  if (chapter.indexOf('Assert') == -1) {
+    run(0, transpile(b) + ";" + call)
+  } else {
+    run(0, transpile(b) + "\n; result = " + call)    
+    if (result == expectedResult) {
+      run(0,"bg(0,1,0)")
+    } else {
+      run(0,"bg(1,0,0)")
+      setMsg('Unexpected result was: ' + result)
+    }
+  }
+
+  
+  console.log(result)
   if (msg.val()=='') compare()
 }
 
 function run1() {
   a = data[chapter][exercise]["a"] 
   run(1, a + ";" + call)
-}
-
-function run2() {
-  //run(2, "bg(1,1,0)")
 }
 
 function reset() {
@@ -219,6 +257,7 @@ function run(n, code) {
 
   try {
     setMsg('')
+    console.log(code)
     eval(code)
     pop()
   } catch (err) {

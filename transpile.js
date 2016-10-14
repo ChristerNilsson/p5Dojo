@@ -27,6 +27,10 @@ function transpile(code) {
     var firstWord = s.split(' ')[0]
     if (s=='' || s[0]=='/') {
       res.push(Array(indents[i]).join("  ")+s)
+    } else if (s.indexOf('=>') != -1)  {
+      // arrow function
+      var arr = s.split('=>')
+      res.push('function f(' + arr[0] + ') { return ' + arr[1] +'}')
     } else {
       var indent = indents[i+1] - indents[i]
       if (firstWord!='function') {

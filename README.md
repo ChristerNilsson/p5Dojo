@@ -8,6 +8,9 @@
 * Kodblock indenteras med tab (som Python) istf  blockparenteser {}
 * Semikolon används ej
 * Parenteser används ej för att anropa funktioner, på högsta nivån.
+* Arrow functions kan användas. Parenteser ska ej användas.
+** x => x*x
+** a,b => a+b
 
 ### Målsättning
 * Du ritar på den översta bitmappen
