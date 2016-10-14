@@ -190,7 +190,9 @@ window.onload = function () {
     keyMap: "sublime",
     theme: "dracula",
     autoCloseBrackets: true,
-    lineWiseCopyCut: true
+    lineWiseCopyCut: true,
+    tabSize: 2,
+    indentWithTabs: true,
   });
   
   $(".CodeMirror").css('font-size',"16pt")
