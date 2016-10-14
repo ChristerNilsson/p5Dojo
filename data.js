@@ -94,19 +94,19 @@ data = {
         "korg(5,1,co(1,0,0),co(1,1,0))":0, 
       }      
     },
-    textPythonA: {
+    textA: {
       a:"fc(1,1,0);textSize(40);text('Javascript',100,100)", 
       b:""
     },
-    textPythonB: {
+    textB: {
       a:"fc(1,1,0);textSize(40);textAlign(CENTER,CENTER);text('Javascript',100,100)", 
       b:""
     },
-    textPythonC: {
+    textC: {
       a:"fc(1,1,0);textSize(40);textAlign(CENTER,CENTER);translate(100,100);rd(90);text('Javascript',0,0)",
       b:""
     },
-    textPythonD: {
+    textD: {
       a:"fc(1,1,0);textSize(40);textAlign(CENTER,CENTER);translate(100,100);rd(180);text('Javascript',0,0)",
       b:""
     },

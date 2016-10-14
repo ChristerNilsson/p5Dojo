@@ -189,7 +189,8 @@ function run0() {
   data[chapter][exercise]["b"] = b
   run1()
   //run2()
-  run(0, b + ";" + call)
+  console.log(transpile(b))
+  run(0, transpile(b) + ";" + call)
   if (msg.val()=='') compare()
 }
 
