@@ -4,20 +4,22 @@
 
 ## Grafiska Övningar för Processing med p5 (Förenklad Javascript).
 
-### Förenklad Javascript
-* Kodblock indenteras med tab (som Python) istf  blockparenteser {}
+### förenklad javascript
+* Kodblock indenteras med tab (som Python) istf blockparenteser {}
+** Tabstorlek alltid två mellanslag
 * Semikolon används ej
+* Python-kolon används ej
 * Parenteser används ej för att anropa funktioner, på högsta nivån.
-* Arrow functions kan användas. Parenteser ska ej användas.
+* Arrow functions kan användas för att hantera asserts. Parenteser ska ej användas.
 ** x => x*x
 ** a,b => a+b
 
-### Målsättning
+### målsättning
 * Du ritar på den översta bitmappen
 * Den andra bitmappen ska du efterlikna
 * Den tredje bitmappen visar skillnaden. Ska bli helt svart
 
-### Färger:
+### färger:
   - 0,0,1 blå
   - 0,1,0 grön
   - 0,1,1 cyan
@@ -72,7 +74,10 @@
   - **for** **var** i **of** range(0,10,2)  => [0,2,4,6,8]
   - **for** **var** i **of** range(10,0,-2)  => [10,8,6,4,2]  
   - **for** **var** i=0; i<10; i+=1  => [0,1,2,3,4,5,6,7,8,9]
-  - **for** **var** i **of** [0,1,2,3,4,5,6,7,8,9]  => [0,1,2,3,4,5,6,7,8,9]
+  - **for** **var** i **of** [0,1,2,3,4,5,6,7,8,9]  => [0,1,2,3,4,5,6,7,8,9] 
+  
+### if:   
+  - Samma syntax som Python, dvs if/elif/else
 
 ### koordinatsystemet:
   - **translate** x,y         
