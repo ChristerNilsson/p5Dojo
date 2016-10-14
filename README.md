@@ -1,5 +1,7 @@
 # p5Dojo
 
+[p5Dojo](https://christernilsson.github.io/p5Dojo) christernilsson.github.io/p5Dojo
+
 ## Grafiska Övningar för Processing med p5 (Förenklad Javascript).
 
 ### Förenklad Javascript
@@ -7,11 +9,10 @@
 * Semikolon används ej
 * Parenteser används ej för att anropa funktioner, på högsta nivån.
 
+### Målsättning
 * Du ritar på den översta bitmappen
 * Den andra bitmappen ska du efterlikna
 * Den tredje bitmappen visar skillnaden. Ska bli helt svart
-
-[p5Dojo](https://christernilsson.github.io/p5Dojo) christernilsson.github.io/p5Dojo
 
 ### Färger:
   - 0,0,1 blå
@@ -63,12 +64,12 @@
   
 ### for loop:
   - Glöm ej att indentera innehållet med ett tabsteg!
-  - **for** **var** i=0; i<10; i+=1  => [0,1,2,3,4,5,6,7,8,9]
-  - **for** **var** i **of** [0,1,2,3,4,5,6,7,8,9]  => [0,1,2,3,4,5,6,7,8,9]
   - **for** **var** i **of** range(10)  => [0,1,2,3,4,5,6,7,8,9]
   - **for** **var** i **of** range(1,11)  => [1,2,3,4,5,6,7,8,9,10]
   - **for** **var** i **of** range(0,10,2)  => [0,2,4,6,8]
   - **for** **var** i **of** range(10,0,-2)  => [10,8,6,4,2]  
+  - **for** **var** i=0; i<10; i+=1  => [0,1,2,3,4,5,6,7,8,9]
+  - **for** **var** i **of** [0,1,2,3,4,5,6,7,8,9]  => [0,1,2,3,4,5,6,7,8,9]
 
 ### koordinatsystemet:
   - **translate** x,y         
@@ -76,25 +77,26 @@
   - **scale** n
 
 ### modes: 
-  - **rectMode** CENTER
-    * CORNER
+  - **rectMode** CORNER
+    * CORNER (default)
     * CORNERS
     * CENTER
     * RADIUS
   - **ellipseMode** CENTER
     * CORNER
     * CORNERS
-    * CENTER
+    * CENTER (default)
     * RADIUS
 
 ### text:
-  - **textAlign** CENTER,CENTER  
-    * LEFT
+  - **textAlign** LEFT,BASELINE  
+    * LEFT (default)
     * CENTER
     * RIGHT
     * TOP
     * CENTER
     * BOTTOM
+    * BASELINE (default)
   - **textSize** n
   - **text** "p5",x,y
 
