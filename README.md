@@ -116,11 +116,11 @@ else
   * Python-kolon används ej
  - Semikolon används ej
  - Parenteser används ej för att anropa funktioner, på högsta nivån.
- - Arrow functions kan användas för att hantera asserts. Parenteser ska ej användas.
+ - Pilfunktioner kan användas för att hantera asserts. Parenteser ska ej användas.
   * x => x*x
   * a,b => a+b
   
-### exempel: förenklad Javascript
+### exempel 1: förenklad Javascript
 ```javascript
 bg 1,0.5,1
 sw 2
@@ -131,7 +131,7 @@ loopa i
   rect 20*i + 5,5, 10,10
 ```    
 
-### exempel: normal Javascript
+### exempel 1: normal Javascript
 ```javascript
 background(255,127,255)
 strokeWeight(2)
@@ -140,6 +140,18 @@ for (var i=0; i<10; i++) {
   fill((i%2)*255)
   rotate(radians(5))
   rectangle(20*i + 5,5, 10,10)
+}
+```    
+
+### exempel 2: arrow funktion
+```javascript
+a,b => a+b
+```    
+
+### exempel 2: vanlig funktion
+```javascript
+function (a,b) {
+  return a+b
 }
 ```    
 
