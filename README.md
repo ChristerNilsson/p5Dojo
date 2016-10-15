@@ -69,7 +69,8 @@
   
 ### if:   
   - Pythonsyntax minus kolon:
-```if i%3==0
+```javascript
+if i%3==0
     fc 0
   elif i%3==1
     fc 1
@@ -119,7 +120,8 @@
   * a,b => a+b
   
 ### exempel: förenklad Javascript
-```bg 1,0.5,1
+```javascript
+bg 1,0.5,1
 sw 2
 sc 0.5
 loopa i
@@ -128,7 +130,8 @@ loopa i
   rect 20*i + 5,5, 10,10```    
 
 ### exempel: normal Javascript
-```background(255,127,255)
+```javascript
+background(255,127,255)
 strokeWeight(2)
 stroke(127)
 for (var i=0; i<10; i++) {
