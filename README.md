@@ -120,34 +120,27 @@
   * x => x*x
   * a,b => a+b
   
-### förenklad Javascript
+### exempel: förenklad Javascript
 ```    
 bg 1,0.5,1
 sw 2
 sc 0.5
 loopa i
-  x = 20*i + 5
-  y = 5
-  w = 10
-  h = 10
   fc i%2
   rd 5
-  rect x,y,w,h
+  rect 20*i + 5,5, 10,10
+
 ```    
 
-### normal Javascript
+### exempel: normal Javascript
 ```    
 background(255,127,255)
 strokeWeight(2)
 stroke(127)
 for (var i=0; i<10; i++) {
-  x = 20*i + 5
-  y = 5
-  w = 10
-  h = 10
   fill((i%2)*255)
   rotate(radians(5))
-  rectangle(x,y,w,h)
+  rectangle(20*i + 5,5, 10,10)
 }
 ```    
 
