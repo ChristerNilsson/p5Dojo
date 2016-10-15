@@ -68,14 +68,14 @@
   
 ### if:   
   - Nästan samma syntax som Python:
-  ~~~~
+```
   if i%3==0
     fc 0
   elif i%3==1
     fc 1
   else
     fc 2
-  ~~~~    
+```    
 
 ### koordinatsystemet:
   - **translate** x,y         
