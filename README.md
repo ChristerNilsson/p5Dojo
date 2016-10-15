@@ -69,14 +69,12 @@
   
 ### if:   
   - Pythonsyntax minus kolon:
-```
-  if i%3==0
+```if i%3==0
     fc 0
   elif i%3==1
     fc 1
   else
-    fc 2
-```    
+    fc 2```    
 
 ### koordinatsystemet:
   - **translate** x,y   flytta origo      
@@ -121,28 +119,23 @@
   * a,b => a+b
   
 ### exempel: förenklad Javascript
-```    
-bg 1,0.5,1
+```bg 1,0.5,1
 sw 2
 sc 0.5
 loopa i
   fc i%2
   rd 5
-  rect 20*i + 5,5, 10,10
-
-```    
+  rect 20*i + 5,5, 10,10```    
 
 ### exempel: normal Javascript
-```    
-background(255,127,255)
+```background(255,127,255)
 strokeWeight(2)
 stroke(127)
 for (var i=0; i<10; i++) {
   fill((i%2)*255)
   rotate(radians(5))
   rectangle(20*i + 5,5, 10,10)
-}
-```    
+}```    
 
 ### mera information
 
