@@ -29,6 +29,7 @@ function spacesToTabs(line) {
 
 function transpile(code) {
   var lines = code.split('\n')
+  if (lines[0].indexOf('//ECMA')==0) return code
   var res = []
   var indents = []
   for (var line of lines) {

@@ -58,6 +58,13 @@
   - **quad** x1,y1, x2,y2, x3,y3, x4,y4
   - **arc** x,y, w,h, start,stopp, PIE 
   
+### lerp  
+ - linjär extrapolation
+ - lerp(11,12,-1) == 10
+ - lerp(11,12,0) == 11
+ - lerp(11,12,1) == 12
+ - lerp(11,12,2) == 13
+  
 ### for loop:
   - Glöm ej att indentera innehållet med ett tabsteg!
   - **loopa** i    => [0,1,2,3,4,5,6,7,8,9]
@@ -119,6 +126,7 @@ else
  - Pilfunktioner kan användas för att hantera asserts. Parenteser ska ej användas.
   * x => x*x
   * a,b => a+b
+ - Stäng av förenklad Javascript med //ECMA på första raden
   
 ### exempel 1: förenklad Javascript
 ```javascript
