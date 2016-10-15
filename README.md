@@ -5,9 +5,10 @@
 ## Grafiska Övningar för Processing med p5 (Förenklad Javascript).
 
 ### målsättning
-* Du ritar på den översta bitmappen
+* Den första bitmappen ritar du på, genom att programmera.
 * Den andra bitmappen ska du efterlikna
-* Den tredje bitmappen visar skillnaden. Ska bli helt svart
+* Den tredje bitmappen visar skillnaden. 
+* De två bitmapparna är lika när den tredje är helt svart (0,0,0)
 
 ### färger:
   - 0,0,1 blå
@@ -117,4 +118,14 @@
  - Arrow functions kan användas för att hantera asserts. Parenteser ska ej användas.
   * x => x*x
   * a,b => a+b
-
+  
+### exempel
+```    
+loopa i
+  x = 20*i + 5
+  y = 5
+  w = 10
+  h = 10
+  fc i%2
+  rect x,y,w,h
+```    
