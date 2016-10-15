@@ -14,8 +14,20 @@ function grid() {
   pop()
 }
 
+function myprint() {
+  console.log(Array.prototype.slice.call(arguments).join(" "))
+}
+
 function co() {
   return fixColor(arguments)
+}
+
+function ip(y1,y2,x,x1,x2) {
+  if (arguments.length==3) {
+    x1=0
+    x2=9
+  }
+  return map(x,x1,x2,y1,y2)
 }
 
 function fixColor(args) {
@@ -318,9 +330,7 @@ function compare() {
     }
   } 
   updatePixels()
-  if (count > 0) { 
-    console.log(count)
-  }
+  //if (count > 0) console.log(count)
   return count
 }
 

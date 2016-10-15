@@ -47,11 +47,18 @@ function transpile(code) {
       res.push('function f(' + arr[0] + ') { return ' + arr[1] +'}')
     } else {
       var indent = indents[i+1] - indents[i]
-      if (firstWord!='function' && firstWord!='else') {
+      if (firstWord!='function' && firstWord!='else'  && firstWord!='loopa') {
         s = Array(indents[i]+1).join("  ") + enclose(s)
       }
       if (firstWord == 'elif') {
         s = s.replace('elif','else if')
+      } else if (firstWord == 'loopa') {
+        var arr = s.split(" ")
+        var n = 10
+        if (arr.length>=3) {
+          n=arr[2]
+        }
+        s = "for (var " + arr[1] + " of range(" + n + "))"
       }
       if (indent==0) res.push(s)
       if (indent==1) res.push(s + ' {')                   

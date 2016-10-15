@@ -4,16 +4,6 @@
 
 ## Grafiska Övningar för Processing med p5 (Förenklad Javascript).
 
-### förenklad javascript
- - Kodblock indenteras med tab (som Python) istf blockparenteser {}
-  * Tabstorlek alltid två mellanslag
- - Semikolon används ej
- - Python-kolon används ej
- - Parenteser används ej för att anropa funktioner, på högsta nivån.
- - Arrow functions kan användas för att hantera asserts. Parenteser ska ej användas.
-  * x => x*x
-  * a,b => a+b
-
 ### målsättning
 * Du ritar på den översta bitmappen
 * Den andra bitmappen ska du efterlikna
@@ -69,20 +59,30 @@
   
 ### for loop:
   - Glöm ej att indentera innehållet med ett tabsteg!
-  - **for** **var** i **of** range(10)  => [0,1,2,3,4,5,6,7,8,9]
-  - **for** **var** i **of** range(1,11)  => [1,2,3,4,5,6,7,8,9,10]
-  - **for** **var** i **of** range(0,10,2)  => [0,2,4,6,8]
-  - **for** **var** i **of** range(10,0,-2)  => [10,8,6,4,2]  
-  - **for** **var** i=0; i<10; i+=1  => [0,1,2,3,4,5,6,7,8,9]
-  - **for** **var** i **of** [0,1,2,3,4,5,6,7,8,9]  => [0,1,2,3,4,5,6,7,8,9] 
+  - **loopa** i    => [0,1,2,3,4,5,6,7,8,9]
+  - **loopa** i 5  => [0,1,2,3,4]
+  - **loopa** i 1,11  => [1,2,3,4,5,6,7,8,9,10]
+  - **loopa** i 0,10,2  => [0,2,4,6,8]
+  - **loopa** i 10,0,-2  => [10,8,6,4,2]
+  - **for** **var** i **of** [1,1,2,3,5,8,13,21] => [1,1,2,3,5,8,13,21]
   
 ### if:   
-  - Samma syntax som Python, dvs if/elif/else
+  - Nästan samma syntax som Python:
+  ~~~~
+  if i%3==0
+    fc 0
+  elif i%3==1
+    fc 1
+  else
+    fc 2
+  ~~~~    
 
 ### koordinatsystemet:
   - **translate** x,y         
   - **rd** degrees      
   - **scale** n
+  - **push**  spara translation,rotation,skalning, mm
+  - **pop**   återställ translation,rotation,skalning, mm
 
 ### modes: 
   - **rectMode** CORNER
@@ -107,4 +107,14 @@
     * BASELINE (default)
   - **textSize** n
   - **text** "p5",x,y
+
+### förenklad javascript
+ - Kodblock indenteras med tab (som Python) istf blockparenteser {}
+  * Tabstorlek alltid två mellanslag
+  * Python-kolon används ej
+ - Semikolon används ej
+ - Parenteser används ej för att anropa funktioner, på högsta nivån.
+ - Arrow functions kan användas för att hantera asserts. Parenteser ska ej användas.
+  * x => x*x
+  * a,b => a+b
 
