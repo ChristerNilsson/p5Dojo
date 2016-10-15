@@ -143,12 +143,12 @@ for (var i=0; i<10; i++) {
 }
 ```    
 
-### exempel 2: arrow funktion
+### exempel 2: pilfunktion
 ```javascript
 a,b => a+b
 ```    
 
-### exempel 2: vanlig funktion
+### exempel 2: normal funktion
 ```javascript
 function (a,b) {
   return a+b
