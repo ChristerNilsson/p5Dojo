@@ -2,7 +2,7 @@
 
 [p5Dojo](https://christernilsson.github.io/p5Dojo) christernilsson.github.io/p5Dojo
 
-## Grafiska Övningar för Processing med p5 (Förenklad Javascript).
+## grundläggande programmering med processing och p5
 
 ### målsättning
 * Den första bitmappen ritar du på, genom att programmera.
@@ -79,11 +79,11 @@
 ```    
 
 ### koordinatsystemet:
-  - **translate** x,y         
-  - **rd** degrees      
-  - **scale** n
-  - **push**  spara translation,rotation,skalning, mm
-  - **pop**   återställ translation,rotation,skalning, mm
+  - **translate** x,y   flytta origo      
+  - **rd** degrees      rotera runt origo
+  - **scale** n         skala upp eller ner
+  - **push**  spara translation,rotation,skalning mm
+  - **pop**   återställ translation,rotation,skalning mm
 
 ### modes: 
   - **rectMode** CORNER
@@ -129,3 +129,13 @@ loopa i
   fc i%2
   rect x,y,w,h
 ```    
+
+### mera information
+
+ - [manual](https://p5js.org/reference)
+ - [funprogramming](http://funprogramming.org/)
+ - [p5.js tutorial](https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=14)
+
+### kontakt, synpunkter, felrapportering mm
+
+[kontakt](https://github.com/ChristerNilsson/p5Dojo/issues) https://github.com/ChristerNilsson/p5Dojo/issues
