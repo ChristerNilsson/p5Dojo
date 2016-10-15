@@ -8,7 +8,7 @@
 * Den första bitmappen ritar du på, genom att programmera.
 * Den andra bitmappen ska du efterlikna
 * Den tredje bitmappen visar skillnaden. 
-* De två bitmapparna är lika när den tredje är helt svart (0,0,0)
+* De två bitmapparna är lika när den tredje är helt svart (dvs 0,0,0)
 
 ### färger:
   - 0,0,1 blå
@@ -68,7 +68,7 @@
   - **for** **var** i **of** [1,1,2,3,5,8,13,21] => [1,1,2,3,5,8,13,21]
   
 ### if:   
-  - Nästan samma syntax som Python:
+  - Pythonsyntax minus kolon:
 ```
   if i%3==0
     fc 0
@@ -110,6 +110,7 @@
   - **text** "p5",x,y
 
 ### förenklad javascript
+ - Orsak: Programmering ska vara så enkelt som möjligt
  - Kodblock indenteras med tab (som Python) istf blockparenteser {}
   * Tabstorlek alltid två mellanslag
   * Python-kolon används ej
@@ -132,10 +133,12 @@ loopa i
 
 ### mera information
 
+ - [download](https://p5js.org)
  - [manual](https://p5js.org/reference)
- - [funprogramming](http://funprogramming.org/)
- - [p5.js tutorial](https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=14)
+ - [e-bok av Lauren McCarthy, SEK 55](https://play.google.com/store/books/details?id=iP3GCgAAQBAJ&rdid=book-iP3GCgAAQBAJ&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb)
+ - [funprogramming](http://funprogramming.org)
+ - [p5.js video tutorial](https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=14)
 
 ### kontakt, synpunkter, felrapportering mm
 
-[kontakt](https://github.com/ChristerNilsson/p5Dojo/issues) https://github.com/ChristerNilsson/p5Dojo/issues
+https://github.com/ChristerNilsson/p5Dojo/issues
