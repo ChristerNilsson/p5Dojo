@@ -16,7 +16,7 @@ data = {
     greenPoint: {a: "sc(0,1,0); point(30,10)", b: ""},
   },
   Lektion2: {
-    dices: {a: "fc(0);point(10,10);point(28,8);point(32,12);point(48,8);point(50,10);point(52,12);point(68,8);point(68,12);point(72,8);point(72,12);point(88,8);point(88,12);point(90,10);point(92,8);point(92,12);point(108,8);point(108,10);point(108,12);point(112,8);point(112,10);point(112,12)",      b: "" },
+    dices: {a: "fc(0);point(10,10);    sc(1,0,0);point(25,5);point(35,15);    sc(0,1,0); point(45,5);point(50,10);point(55,15);     sc(1,1,0);point(65,5);point(65,15);point(75,5);point(75,15);     sc(1,0,1);point(85,5);point(85,15);point(90,10);point(95,5);point(95,15);    sc(0,1,1);point(105,5);point(105,10);point(105,15);point(115,5);point(115,10);point(115,15)",      b: "" },
   },
   Lektion3: {
     horizontalLine: {a: "sc(1,0,1); line(10,70, 190,70)",b: ""},
