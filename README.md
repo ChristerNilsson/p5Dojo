@@ -5,14 +5,14 @@
 ## Grafiska Övningar för Processing med p5 (Förenklad Javascript).
 
 ### förenklad javascript
-- Kodblock indenteras med tab (som Python) istf blockparenteser {}
-* Tabstorlek alltid två mellanslag
-- Semikolon används ej
-- Python-kolon används ej
-- Parenteser används ej för att anropa funktioner, på högsta nivån.
-- Arrow functions kan användas för att hantera asserts. Parenteser ska ej användas.
-* x => x*x
-* a,b => a+b
+ - Kodblock indenteras med tab (som Python) istf blockparenteser {}
+  * Tabstorlek alltid två mellanslag
+ - Semikolon används ej
+ - Python-kolon används ej
+ - Parenteser används ej för att anropa funktioner, på högsta nivån.
+ - Arrow functions kan användas för att hantera asserts. Parenteser ska ej användas.
+  * x => x*x
+  * a,b => a+b
 
 ### målsättning
 * Du ritar på den översta bitmappen
