@@ -27,6 +27,10 @@ function spacesToTabs(line) {
   }
 }
 
+function rtrim (str) {
+  return str.replace(/\s\s*$/, '');
+}
+
 function transpile(code) {
   var lines = code.split('\n')
   if (lines[0].indexOf('//ECMA')==0) return code
@@ -39,7 +43,9 @@ function transpile(code) {
   indents.push(0)
   
   for (var i=0; i<lines.length; i++) {
-    var s = lines[i].split('\t').join("")
+    var line = lines[i]
+    line = rtrim(line) 
+    var s = line.split('\t').join("")
     var firstWord = s.split(' ')[0]
     if (s=='' || s[0]=='/') {
       res.push(Array(indents[i]).join("  ")+s)
