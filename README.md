@@ -172,7 +172,9 @@ function (a,b) {
 ### mera information
 
  - [download](https://p5js.org)
- - [manual](https://p5js.org/reference)
+ - [manual p5.js](https://p5js.org/reference)
+ - [manual processing java](https://processing.org/reference)
+ - [manual processing python](http://py.processing.org/reference)
  - [engelsk e-bok i färg (om fem minuter) av Lauren McCarthy, SEK 55](https://play.google.com/store/books/details?id=iP3GCgAAQBAJ&rdid=book-iP3GCgAAQBAJ&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb)
  - [svartvit pappersbok (om fem dagar), 130 SEK](https://www.adlibris.com/se/bok/getting-started-with-p5js-making-interactive-graphics-in-javascript-and-processing-9781457186776)
  - [funprogramming](http://funprogramming.org)
