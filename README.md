@@ -5,12 +5,12 @@
 ## grundläggande programmering med processing och p5
 
 ### målsättning
-* Den första bitmappen ritar du på, genom att programmera.
+* Den första bitmappen ritar du, genom att programmera
 * Den andra bitmappen ska du efterlikna
-* Den tredje bitmappen visar skillnaden. 
+* Den tredje bitmappen visar skillnaden
 * De två bitmapparna är lika när den tredje är helt svart (dvs 0,0,0)
 
-### färger:
+### färger
   - 0,0,1 blå
   - 0,1,0 grön
   - 0,1,1 cyan
@@ -21,23 +21,23 @@
   - 0.5 grå
   - 1 vit
   
-### bakgrundsfärg:
+### bakgrundsfärg
   - **bg** 1   vit
   - **bg** 1,1,0 gul
 
-### fyllningsfärg:
+### fyllningsfärg
   - **fc**  ingen
   - **fc** 1   vit
   - **fc** 1,1,0   gul
   - **fc** 1,0,0,0.5 röd, halvgenomskinlig
 
-### streckfärg:
+### streckfärg
   - **sc**    ingen
   - **sc** 1   vit
   - **sc** 1,1,0   gul
   - **sc** 1,0,0,0.5   röd, halvgenomskinlig
   
-### skapa en färg:
+### skapa en färg
   - **co** 1   vit
   - **co** 1,1,0   gul
   - **co** 1,0,0,0.5   röd, halvgenomskinlig
@@ -45,10 +45,10 @@
   - **color** 255,255,0   gul
   - **color** 255,0,0,128   röd, halvgenomskinlig
 
-### strecktjocklek:
+### strecktjocklek
   - **sw** pixlar
 
-### ritkommandon:
+### ritkommandon
   - **point** x,y
   - **line** x1,y1, x2,y2
   - **ellipse** x,y, w,h
@@ -66,7 +66,7 @@
  - lerp(10,12,1) == 12
  - lerp(10,12,2) == 14
   
-### for loop:
+### for loop
   - Glöm ej att indentera innehållet med ett tabsteg!
   - **loopa** i    => [0,1,2,3,4,5,6,7,8,9]
   - **loopa** i 5  => [0,1,2,3,4]
@@ -75,8 +75,8 @@
   - **loopa** i 10,0,-2  => [10,8,6,4,2]
   - **for** **var** i **of** [1,1,2,3,5,8,13,21] => [1,1,2,3,5,8,13,21]
   
-### if:   
-  - Pythonsyntax minus kolon:
+### if
+  - Pythonsyntax. Kolon används ej
 ```javascript
 if i%3==0
   fc 0
@@ -86,12 +86,12 @@ else
   fc 2
 ```    
 
-### koordinatsystemet:
+### koordinatsystemet
   - **translate** x,y   flytta origo      
   - **rd** degrees      rotera runt origo
   - **scale** n         skala upp eller ner
   
-### modes: 
+### modes
   - **rectMode** CORNER
     * CORNER (default)
     * CORNERS
@@ -103,7 +103,7 @@ else
     * CENTER (default)
     * RADIUS
 
-### text:
+### text
   - **textAlign** LEFT,BASELINE  
     * LEFT (default)
     * CENTER
@@ -173,7 +173,8 @@ function (a,b) {
 
  - [download](https://p5js.org)
  - [manual](https://p5js.org/reference)
- - [engelsk e-bok av Lauren McCarthy, SEK 55](https://play.google.com/store/books/details?id=iP3GCgAAQBAJ&rdid=book-iP3GCgAAQBAJ&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb)
+ - [engelsk e-bok i färg (om fem minuter) av Lauren McCarthy, SEK 55](https://play.google.com/store/books/details?id=iP3GCgAAQBAJ&rdid=book-iP3GCgAAQBAJ&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb)
+ - [svartvit pappersbok (om fem dagar), 130 SEK](https://www.adlibris.com/se/bok/getting-started-with-p5js-making-interactive-graphics-in-javascript-and-processing-9781457186776)
  - [funprogramming](http://funprogramming.org)
  - [p5.js video tutorial](https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=14)
 
