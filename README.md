@@ -179,4 +179,5 @@ function (a,b) {
 
 ### kontakt, synpunkter, felrapportering, förslag till exempelkod mm
 
-https://github.com/ChristerNilsson/p5Dojo/issues
+ - https://github.com/ChristerNilsson/p5Dojo/issues
+ - janchrister.nilsson snabela gmail.com
