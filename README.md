@@ -59,11 +59,12 @@
   - **arc** x,y, w,h, start,stopp, PIE 
   
 ### lerp  
- - linjär extrapolation
- - lerp(11,12,-1) == 10
- - lerp(11,12,0) == 11
- - lerp(11,12,1) == 12
- - lerp(11,12,2) == 13
+ - linjär interpolation och extrapolation
+ - lerp(10,12,-1) == 8
+ - lerp(10,12,0) == 10
+ - lerp(10,12,0.5) == 11
+ - lerp(10,12,1) == 12
+ - lerp(10,12,2) == 14
   
 ### for loop:
   - Glöm ej att indentera innehållet med ett tabsteg!
