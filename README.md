@@ -90,9 +90,7 @@ else
   - **translate** x,y   flytta origo      
   - **rd** degrees      rotera runt origo
   - **scale** n         skala upp eller ner
-  - **push**  spara translation,rotation,skalning mm
-  - **pop**   återställ translation,rotation,skalning mm
-
+  
 ### modes: 
   - **rectMode** CORNER
     * CORNER (default)
@@ -116,6 +114,13 @@ else
     * BASELINE (default)
   - **textSize** n
   - **text** "p5",x,y
+
+### push & pop
+Sparar och återställer följande kommandon:
+ - translate rotate scale fc sc sw rectMode
+ - tint strokeCap strokeJoin imageMode ellipseMode colorMode
+ - textAlign textFont textMode textSize textLeading
+ - [information](https://www.processing.org/tutorials/transform2d)
 
 ### förenklad javascript
  - Orsak: Programmering ska vara så enkelt som möjligt
@@ -172,6 +177,6 @@ function (a,b) {
  - [funprogramming](http://funprogramming.org)
  - [p5.js video tutorial](https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=14)
 
-### kontakt, synpunkter, felrapportering mm
+### kontakt, synpunkter, felrapportering, förslag till exempelkod mm
 
 https://github.com/ChristerNilsson/p5Dojo/issues
