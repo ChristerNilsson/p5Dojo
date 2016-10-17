@@ -31,21 +31,39 @@ function rtrim (str) {
   return str.replace(/\s\s*$/, '');
 }
 
+// tar bort alla blanka, tabbar och kommentarer
+function clean(s) {
+  s = s.split(' ').join("")
+  s = s.split('\t').join("")
+  var pos = s.indexOf("//")
+  if (pos>=0) s = s.substr(0,pos)
+  return s
+}
+
 function transpile(code) {
   var lines = code.split('\n')
   if (lines[0].indexOf('//ECMA')==0) return code
   var res = []
   var indents = []
+  var temp = []
   for (var line of lines) {
     line = spacesToTabs(line)
-    indents.push(tabcount(line))
-  }  
+    tabs = tabcount(line)
+    if (clean(line).length > 0) {
+      indents.push(tabs)
+      temp.push(line.substr(tabs))
+    }
+  } 
+  lines = temp
   indents.push(0)
   
   for (var i=0; i<lines.length; i++) {
     var line = lines[i]
-    line = rtrim(line) 
+    var pos = line.indexOf("//")
+    if (pos>=0) line = line.substr(0,pos)
+    console.log('['+line+']')
     var s = line.split('\t').join("")
+    s = rtrim(s) 
     var firstWord = s.split(' ')[0]
     if (s=='' || s[0]=='/') {
       res.push(Array(indents[i]).join("  ")+s)
