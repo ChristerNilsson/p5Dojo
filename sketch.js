@@ -240,7 +240,7 @@ function run0() {
   background(128)
   var b = myCodeMirror.getValue()
   data[chapter][exercise]["b"] = b
-  console.log(transpile(b))
+  //console.log(transpile(b))
   if (window.f != null) window.f = null
   if (chapter.indexOf('Assert') == -1) {
     run1()
