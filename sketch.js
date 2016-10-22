@@ -181,6 +181,7 @@ $(window).resize(function() {
 function setup() {
 
   c = createCanvas(5+201+5, 5+201+5+201+5+201+5)
+  pixelDensity(1)
   c.parent('canvas')
   
   msg = $('#msg')

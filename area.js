@@ -7,6 +7,9 @@ function Area(pixels,x0,y0,w,h) {
     this.w=w
     this.h=h
     this.W = 5+201+5
+    d = 2
+    
+    //  idx = 4*((y * d + j) * width * d + (x * d + i));
 
     this.getPixel = function(i,j) {
       index = 4 * ((this.y0 + j) * this.W + this.x0 + i)
