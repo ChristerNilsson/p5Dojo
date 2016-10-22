@@ -179,6 +179,7 @@ function (a,b) {
  - [svartvit pappersbok (om fem dagar), 130 SEK](https://www.adlibris.com/se/bok/getting-started-with-p5js-making-interactive-graphics-in-javascript-and-processing-9781457186776)
  - [funprogramming](http://funprogramming.org)
  - [p5.js video tutorial](https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=14)
+ - //IOS på någon rad stänger av differensbitmappen. Workaround för Apple datorer.
 
 ### kontakt, synpunkter, felrapportering, förslag till exempelkod mm
 
