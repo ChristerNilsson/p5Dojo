@@ -22,6 +22,7 @@ data = {
     horizontalLine: {a: "sc(1,0,1); line(10,70, 190,70)",b: "//LOC:2 line"},
     verticalLine: {a: "sc(1,1,0);sw(10);line(110,30, 110,170)",b: "//LOC:3 sw"},
     yellowLine: {a: "sc(1,1,0);line(20,0, 200,20)",b: "//LOC:2"},
+    grid: {a:"sc(1,1,0); sw(2); for (var i=10; i<200; i+=10) { line(10,i,190,i);line(i,190,i,10);}", b:"//LOC:5 loopa line"},
     skislope:{a: "bg(0);sc(1,0,0);for (i of range(21)) line(i*10,0,200,i*10)",b: "//LOC:4 loopa line"},
     sunshine:{a: "bg(0);sc(1,1,0);for (i of range(10)) {line(i*20,0,200-i*20,200);line(0,20+i*20,200,180-i*20)}",b: "//LOC:5 lerp"},
   },

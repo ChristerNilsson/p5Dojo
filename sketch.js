@@ -297,9 +297,6 @@ function run(n, code) {
 
 function compare() {
   
-  // the third bitmap is erroneously shown on top of the first bitmap on iOS machines
-  if (myCodeMirror.getValue().indexOf("//IOS")!=-1) return
-  
   GAP = 5
   WIDTH = 201
   HEIGHT = 201
