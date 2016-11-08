@@ -177,6 +177,11 @@ data = {
         "square(100,100,60)":0,
       }
     },
+
+    gravity : {
+      a: "fc(1); for (i of range(15)) { x=5+10*i; y=5+lerp(0,lerp(0,1,i),i); circle(x,y,5);}",
+      b: "//LOC:5 lerp lerp",
+    },
   },
     
   Assert1: {
