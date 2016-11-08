@@ -16,7 +16,7 @@ data = {
     greenPoint: {a: "sc(0,1,0); point(30,10)", b: "//LOC:2"},
   },
   Lektion2: {
-    dices: {a: "point(10,10); sc(1,0,0); point(25,5); point(35,15); sc(0,1,0);point(45,5);point(50,10);point(55,15); sc(1,1,0);point(65,5);point(65,15);point(75,5);point(75,15); sc(1,0,1);point(85,5);point(85,15);point(90,10);point(95,5);point(95,15); sc(0,1,1);point(105,5);point(105,10);point(105,15);point(115,5);point(115,10);point(115,15)",  b: "//LOC:26" },
+    dices: {a: "point(10,10); sc(1,0,0);point(25,5);point(35,15); sc(0,1,0);point(45,5);point(50,10);point(55,15); sc(1,1,0);point(65,5);point(65,15);point(75,5);point(75,15); sc(1,0,1);point(85,5);point(85,15);point(90,10);point(95,5);point(95,15); sc(0,1,1);point(105,5);point(105,10);point(105,15);point(115,5);point(115,10);point(115,15)",  b: "//LOC:26" },
   },
   Lektion3: {
     horizontalLine: {a: "sc(1,0,1); line(10,70, 190,70)",b: "//LOC:2 line"},
@@ -180,10 +180,31 @@ data = {
 
     gravity : {
       a: "fc(1); for (i of range(15)) { x=5+10*i; y=5+lerp(0,lerp(0,1,i),i); circle(x,y,5);}",
-      b: "//LOC:5 lerp lerp",
+      b: "//LOC:6 lerp lerp",
     },
   },
-    
+  LektionN: {
+  	zero: { 
+  		a:"for(var i = 0; i <20;i++){colorMode(HSB);fill(map(i,0,20,0,255),255,255);noStroke();ellipse(10*i+5,map(sin(i/PI),-1,1,0,200),5,5);}", 
+  		b:"//LOC:7 sin,map och PI\n", 
+  	}, 
+  	one: { 
+  		a:"for(var i = 0; i <20;i++){colorMode(HSB);fill(map(i,0,20,0,255),255,255);noStroke();ellipse(map(cos(i/PI),-1,1,0,200),map(sin(i/PI),-1,1,0,200),5,5);}", 
+  		b:"//LOC:8 sin,cos,map och PI\n", 
+  	},
+  	two: { 
+  		a:"translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){colorMode(HSB);fill(map(i,0,20,0,255),255,255);noStroke();ellipse(map(cos(i/PI),-1,1,-j*10,j*10),map(sin(i/PI),-1,1,-j*10,j*10),5,5);}}", 
+  		b:"//LOC:9 translate,sin,cos,map och PI\n", 
+  	},
+  	three: { 
+  		a:"translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){colorMode(HSB);fill(map(i,0,20,0,255),255,255);noStroke();ellipse(map(cos(i/PI),-1,1,-j*10,j*10),map(sin(i/PI),-1,1,-j*10,j*10),map(j,0,10,0,10),map(j,0,10,0,10));}}", 
+  		b:"//LOC:10 translate,sin,cos,map och PI\n", 
+  	},
+  	four: { 
+  		a:"translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){push();rotate(map(j,0,10,0,360));colorMode(HSB);fill(map(i,0,20,0,255),255,255);noStroke();ellipse(map(cos(i/PI),-1,1,-j*10,j*10),map(sin(i/PI),-1,1,-j*10,j*10),map(j,0,10,0,10),map(j,0,10,0,10));pop();}}", 
+  		b:"//LOC:13 translate,rotate,sin,cos,map och PI\n", 
+  	},
+  },
   Assert1: {
     Operator1: { a:"function f(x) { return x }", b:"// + - * / %\n", c: { "f(2)":2, "f(3)":3, }}, 
     Operator2: { a:"function f(x) { return -x }", b:"// + - * / %\n", c: { "f(-4)":4, "f(3)":-3, }}, 
