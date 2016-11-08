@@ -271,6 +271,7 @@ function run1() {
 }
 
 function reset() {
+  colorMode(RGB,255)
   bg(0)
   fc(0)
   sc(1)
