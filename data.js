@@ -184,6 +184,10 @@ data = {
 		},
 	},
 	LektionN: {
+		lines: { 
+			a:"background(0);for(var y = 0;y<30;y++){fill(255);strokeWeight(1);stroke(255);line(0,0,200,y*200/(30-1));line(0,100,200,y*200/(30-1));line(0,200,200,y*200/(30-1));}", 
+			b:"//LOC:?\n", 
+		},
 		dist: { 
 			a:"background(0);for(var x = 0;x<10;x++){for(var y = 0;y<10;y++){fill(255);noStroke();ellipse(x*200/10+10,y*200/10+10,map(dist(100,100,x*200/10+10,y*200/10+10),0,150,1,20),map(dist(100,100,x*200/10+10,y*200/10+10),0,150,1,20));}}", 
 			b:"//LOC:? dist\n", 
