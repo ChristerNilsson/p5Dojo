@@ -184,6 +184,10 @@ data = {
 		},
 	},
 	LektionN: {
+		lines: { 
+			a:"background(0);for(var y = 0;y<30;y++){fill(255);strokeWeight(1);stroke(255);line(0,0,200,y*200/(30-1));line(0,100,200,y*200/(30-1));line(0,200,200,y*200/(30-1));}", 
+			b:"//LOC:?\n", 
+		},
 		dist: { 
 			a:"background(0);for(var x = 0;x<10;x++){for(var y = 0;y<10;y++){fill(255);noStroke();ellipse(x*200/10+10,y*200/10+10,map(dist(100,100,x*200/10+10,y*200/10+10),0,150,1,20),map(dist(100,100,x*200/10+10,y*200/10+10),0,150,1,20));}}", 
 			b:"//LOC:? dist\n", 
@@ -211,6 +215,28 @@ data = {
 		rotated_circles: { 
 			a:"background(0);translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){push();rotate(map(j,0,10,0,360));colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),255,255);noStroke();var a=map(i,0,20,0,2*PI);ellipse(map(cos(a),-1,1,-j*10,j*10),map(sin(a),-1,1,-j*10,j*10),j,j);pop();}}", 
 			b:"//LOC:? translate rotate sin cos map push pop PI\n", 
+		},
+		linecircles: { 
+			a:"function linecircles(ky){background(0);fill(255);strokeWeight(1);stroke(255);for(var y = 0;y<ky;y++){line(map(cos(y),-1,1,0,200),map(sin(y),-1,1,0,200),map(cos(y+ky+ky),-1,1,0,200),map(sin(y+ky+ky),-1,1,0,200));}}", 
+			b:"//LOC:? sin cos function\n", 
+			c: {
+				"linecircles(1)":0, 
+				"linecircles(10)":0,
+				"linecircles(20)":0, 
+				"linecircles(40)":0,
+			}
+		},
+		linechaos: { 
+			a:"function grid(x,y,w,h,a,s){strokeWeight(s);for(var i = 0;i<a+1;i++){stroke(255);line(x,y+i*h/a,x+w,y+i*h/a);line(x+i*w/a,y,x+i*w/a,y+h);}};function grids(x,y,w,h,a,s){strokeWeight(s);for(var i = 0;i<a+1;i++){stroke(255);grid(x,y+i*h/a,x+w,y+i*h/a,a,s);grid(x+i*w/a,y,x+i*w/a,y+h,a,s)}};function linechaos(k){background(0);grids(0,0,200,200,k,1);};", 
+			b:"//LOC:? line\n", 
+			c: {
+				"linechaos(1)":0, 
+				"linechaos(3)":0, 
+				"linechaos(7)":0,
+				"linechaos(10)":0, 
+				"linechaos(20)":0,
+			}	
+
 		},
 	},
 	Assert1: {
