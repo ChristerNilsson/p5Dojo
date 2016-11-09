@@ -190,27 +190,27 @@ data = {
     }, 
     bulge: { 
       a:"background(0);for(var x = 0;x<20;x++){for(var y = 0;y<20;y++){fill(255);noStroke();ellipse(x*200/20+5,y*200/20+5,map(sin(x*PI/20),-1,1,1,3)*map(sin(y*PI/20),-1,1,1,3),map(sin(x*PI/20),-1,1,1,3)*map(sin(y*PI/20),-1,1,1,3));}}", 
-      b:"//LOC:? dist,sin\n", 
+      b:"//LOC:? dist sin\n", 
     },
   	wave: { 
   		a:"background(0);for(var i = 0; i <21;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),100,100);var a=map(i,0,20,0,2*PI);noStroke();ellipse(10*i,map(sin(a),-1,1,0,200),5,5);}", 
-  		b:"//LOC:9 sin,map och PI\n", 
+  		b:"//LOC:9 sin map PI\n", 
   	}, 
   	circle: { 
   		a:"background(0);for(var i = 0; i <20;i++){colorMode(HSB,360,100,100);fill(map(i,0,19,0,360),255,255);var a=map(i,0,20,0,2*PI);noStroke();ellipse(map(cos(a),-1,1,0,200),map(sin(a),-1,1,0,200),5,5);}", 
-  		b:"//LOC:? sin,cos,map och PI\n", 
+  		b:"//LOC:? sin cos map PI\n", 
   	},
   	circles: { 
   		a:"background(0);translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),255,255);var a=map(i,0,20,0,2*PI);noStroke();ellipse(map(cos(a),-1,1,-j*10,j*10),map(sin(a),-1,1,-j*10,j*10),5,5);}}", 
-  		b:"//LOC:? translate,sin,cos,map och PI\n", 
+  		b:"//LOC:? translate sin cos map PI\n", 
   	},
   	sized_circles: { 
   		a:"background(0);translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),255,255);var a=map(i,0,20,0,2*PI);noStroke();ellipse(map(cos(a),-1,1,-j*10,j*10),map(sin(a),-1,1,-j*10,j*10),map(j,0,10,0,10),map(j,0,10,0,10));}}", 
-  		b:"//LOC:? translate,sin,cos,map och PI\n", 
+  		b:"//LOC:? translate sin cos map PI\n", 
   	},
   	rotated_circles: { 
   		a:"background(0);translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){push();rotate(map(j,0,10,0,360));colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),255,255);noStroke();var a=map(i,0,20,0,2*PI);ellipse(map(cos(a),-1,1,-j*10,j*10),map(sin(a),-1,1,-j*10,j*10),j,j);pop();}}", 
-  		b:"//LOC:? translate,rotate,sin,cos,map,push,pop och PI\n", 
+  		b:"//LOC:? translate rotate sin cos map push pop PI\n", 
   	},
   },
   Assert1: {
