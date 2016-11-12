@@ -76,7 +76,7 @@
   - **for** i in range(0,10,2)  => [0,2,4,6,8]
   - **for** i in [0..10] by 2 => [0,2,4,6,8]
   - **for** i in range(10,0,-2)  => [10,8,6,4,2]
-  - **for** i **of** [1,1,2,3,5,8,13,21] => [1,1,2,3,5,8,13,21]
+  - **for** i in [1,1,2,3,5,8,13,21] => [1,1,2,3,5,8,13,21]
   
   
 ### if
@@ -133,8 +133,8 @@ Sparar och återställer följande kommandon:
  - Semikolon används ej
  - Parenteser behövs ej för att anropa funktioner
  - Funktioner skapas med ->
-  * f = x -> x*x
-  * g = a,b -> a+b
+  * f = (x) -> x*x
+  * g = (a,b) -> a+b
  - Genom att skriva //ECMA på första raden går du över till Javascript.
   
 ### exempel 1: CoffeeScript
