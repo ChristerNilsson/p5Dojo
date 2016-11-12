@@ -9,6 +9,7 @@
 * Den andra bitmappen ska du efterlikna
 * Den tredje bitmappen visar skillnaden
 * De två bitmapparna är lika när den tredje är helt svart (dvs 0,0,0)
+* Du kan programmera i CoffeeScript eller JavaScript
 
 ### färger
   - 0,0,1 blå
@@ -29,18 +30,19 @@
   - **fc**  ingen
   - **fc** 1   vit
   - **fc** 1,1,0   gul
+  - **fc** 1,0,0   röd 
   - **fc** 1,0,0,0.5 röd, halvgenomskinlig
 
 ### streckfärg
   - **sc**    ingen
   - **sc** 1   vit
   - **sc** 1,1,0   gul
-  - **sc** 1,0,0,0.5   röd, halvgenomskinlig
+  - **sc** 1,0,0   röd
   
 ### skapa en färg
   - **co** 1   vit
   - **co** 1,1,0   gul
-  - **co** 1,0,0,0.5   röd, halvgenomskinlig
+  - **co** 1,0,0   röd
   - **color** 255   vit
   - **color** 255,255,0   gul
   - **color** 255,0,0,128   röd, halvgenomskinlig
@@ -60,27 +62,28 @@
   
 ### lerp  
  - linjär interpolation och extrapolation
- - lerp(10,12,-1) == 8
- - lerp(10,12,0) == 10
- - lerp(10,12,0.5) == 11
- - lerp(10,12,1) == 12
- - lerp(10,12,2) == 14
+ - lerp 10,12,-1 == 8
+ - lerp 10,12,0 == 10
+ - lerp 10,12,0.5 == 11
+ - lerp 10,12,1 == 12
+ - lerp 10,12,2 == 14
   
 ### for loop
   - Glöm ej att indentera innehållet med ett tabsteg!
-  - **loopa** i    => [0,1,2,3,4,5,6,7,8,9]
-  - **loopa** i 5  => [0,1,2,3,4]
-  - **loopa** i 1,11  => [1,2,3,4,5,6,7,8,9,10]
-  - **loopa** i 0,10,2  => [0,2,4,6,8]
-  - **loopa** i 10,0,-2  => [10,8,6,4,2]
-  - **for** **var** i **of** [1,1,2,3,5,8,13,21] => [1,1,2,3,5,8,13,21]
+  - **for** i in range(10)   => [0,1,2,3,4,5,6,7,8,9]
+  - **for** i in range(5)  => [0,1,2,3,4]
+  - **for** i in range(1,11)  => [1,2,3,4,5,6,7,8,9,10]
+  - **for** i in range(0,10,2)  => [0,2,4,6,8]
+  - **for** i in [0..10] by 2 => [0,2,4,6,8]
+  - **for** i in range(10,0,-2)  => [10,8,6,4,2]
+  - **for** i **of** [1,1,2,3,5,8,13,21] => [1,1,2,3,5,8,13,21]
+  
   
 ### if
-  - Pythonsyntax. Kolon används ej
 ```javascript
 if i%3==0
   fc 0
-elif i%3==1
+else if i%3==1
   fc 1
 else
   fc 2
@@ -122,24 +125,24 @@ Sparar och återställer följande kommandon:
  - textAlign textFont textMode textSize textLeading
  - [information](https://www.processing.org/tutorials/transform2d)
 
-### förenklad javascript
+### coffeescript
  - Orsak: Programmering ska vara så enkelt som möjligt
  - Kodblock indenteras med tab (som Python) istf blockparenteser {}
   * Tabstorlek alltid två mellanslag
   * Python-kolon används ej
  - Semikolon används ej
- - Parenteser används ej för att anropa funktioner, på högsta nivån.
- - Pilfunktioner kan användas för att hantera asserts. Parenteser ska ej användas.
-  * x => x*x
-  * a,b => a+b
- - Stäng av förenklad Javascript med //ECMA på första raden
+ - Parenteser behövs ej för att anropa funktioner
+ - Funktioner skapas med ->
+  * f = x -> x*x
+  * g = a,b -> a+b
+ - Genom att skriva //ECMA på första raden går du över till Javascript.
   
-### exempel 1: förenklad Javascript
+### exempel 1: CoffeeScript
 ```javascript
 bg 1,0.5,1
 sw 2
 sc 0.5
-loopa i
+for i in range(10)
   fc i%2
   rd 5
   rect 20*i + 5,5, 10,10
@@ -157,14 +160,14 @@ for (var i=0; i<10; i++) {
 }
 ```    
 
-### exempel 2: pilfunktion
+### exempel 2: funktion i Coffeescript
 ```javascript
-a,b => a+b
+f = (a,b) -> a+b
 ```    
 
-### exempel 2: normal funktion
+### exempel 2: funktion i Javascript
 ```javascript
-function (a,b) {
+function f(a,b) {
   return a+b
 }
 ```    
@@ -174,7 +177,7 @@ function (a,b) {
  - [download](https://p5js.org)
  - [manual p5.js](https://p5js.org/reference)
  - [manual processing java](https://processing.org/reference)
- - [manual processing python](http://py.processing.org/reference)
+ - [coffeescript](http://coffeescript.org)
  - [engelsk e-bok i färg (om fem minuter) av Lauren McCarthy, SEK 55](https://play.google.com/store/books/details?id=iP3GCgAAQBAJ&rdid=book-iP3GCgAAQBAJ&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb)
  - [svartvit pappersbok (om fem dagar), 130 SEK](https://www.adlibris.com/se/bok/getting-started-with-p5js-making-interactive-graphics-in-javascript-and-processing-9781457186776)
  - [funprogramming](http://funprogramming.org)

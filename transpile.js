@@ -1,3 +1,9 @@
+function assert(a,b) {
+  if (a!=b) {
+    console.log(a + " != " + b)
+  }
+}
+
 function tabcount(s) {
   var i=0;
   while (s[i]=='\t') i+=1
@@ -16,16 +22,15 @@ function enclose(s) {
 }
 
 function spacesToTabs(line) {
-  while (true) {
-    if (line.indexOf('  ')==0) {
-      line = line.replace('  ','\t')
-    } else if (line.indexOf(' \t')==0) {
-      line = line.replace(' \t','\t')
-    } else {
-      return line
-    }
-  }
-}
+  if (line.indexOf('  ')==0) return '\t' + spacesToTabs(line.substring(2))
+  if (line.indexOf('\t')==0) return '\t' + spacesToTabs(line.substring(1))
+  if (line.indexOf(' \t')==0) return '\t' + spacesToTabs(line.substring(2))
+  return line
+}  
+assert(spacesToTabs('    '),'\t\t')
+assert(spacesToTabs('\t  '),'\t\t')
+assert(spacesToTabs('  \t'),'\t\t')
+assert(spacesToTabs(' \t  '),'\t\t')
 
 function rtrim (str) {
   return str.replace(/\s\s*$/, '');
@@ -35,12 +40,30 @@ function rtrim (str) {
 function clean(s) {
   s = s.split(' ').join("")
   s = s.split('\t').join("")
-  var pos = s.indexOf("//")
+  var pos = s.indexOf("#")
   if (pos>=0) s = s.substr(0,pos)
   return s
 }
 
 function transpile(code) {
+  var lines = code.split('\n')
+  if (lines[0].indexOf('//ECMA') == 0) return code
+  var temp = []
+  for (var line of lines) {
+    line = spacesToTabs(line)
+    tabs = tabcount(line)
+    if (clean(line).length > 0) {
+      //indents.push(tabs)
+      //temp.push(line.substr(tabs))
+      temp.push(line)
+    }
+  } 
+  code = temp.join('\n')
+  console.log(code)
+  return CoffeeScript.compile(code)
+}
+
+function xxx_transpile(code) {
   var lines = code.split('\n')
   if (lines[0].indexOf('//ECMA')==0) return code
   var res = []

@@ -245,10 +245,11 @@ function run0() {
   if (window.f != null) window.f = null
   if (chapter.indexOf('Assert') == -1) {
     run1()
-    run(0, transpile(b) + ";" + call)
+    run(0, transpile(b + "\n" + call))
   } else {
+    console.log(transpile(b))
     result = null
-    run(0, transpile(b) + "\n; result = " + call)    
+    run(0, "result = " + transpile(b + "\nreturn " + call))    
     if (result != null) {
       console.log(result)
       if (result == expectedResult) {
@@ -258,7 +259,7 @@ function run0() {
         setMsg('Unexpected result was: ' + result)
       }
     } else {
-        setMsg('')
+        setMsg('No Result')
     }
   }
 
