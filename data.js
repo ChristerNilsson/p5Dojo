@@ -16,7 +16,44 @@ data = {
 		greenPoint: {a: "sc(0,1,0); point(30,10)", b: "# LOC:2 point sc\n"},
 	},
 	Lektion2: {
-		dices: {a: "point(10,10); sc(1,0,0);point(25,5);point(35,15); sc(0,1,0);point(45,5);point(50,10);point(55,15); sc(1,1,0);point(65,5);point(65,15);point(75,5);point(75,15); sc(1,0,1);point(85,5);point(85,15);point(90,10);point(95,5);point(95,15); sc(0,1,1);point(105,5);point(105,10);point(105,15);point(115,5);point(115,10);point(115,15)",	b: "# LOC:26 point sc\n" },
+		dices: {a: "\
+		point(10,10);\
+		sc(1,0,0);\
+		point(25,5);\
+		point(35,15);\
+		sc(0,1,0);\
+		point(45,5);\
+		point(50,10);\
+		point(55,15);\
+		sc(1,1,0);\
+		point(65,5);\
+		point(65,15);\
+		point(75,5);\
+		point(75,15);\
+		sc(1,0,1);\
+		point(85,5);\
+		point(85,15);\
+		point(90,10);\
+		point(95,5);\
+		point(95,15);\
+		sc(0,1,1);\
+		point(105,5);\
+		point(105,10);\
+		point(105,15);\
+		point(115,5);\
+		point(115,10);\
+		point(115,15)",	
+		b: "# LOC:26 point sc\n" },
+
+		Five: {a: "\
+		bg(1);\
+		fc(0);\
+		circle(100,100,20);\
+		circle(40,40,20);\
+		circle(40,160,20);\
+		circle(160,160,20);\
+		circle(160,40,20)", 
+		b: "# LOC:7 bg circle fc\n" },
 	},
 	Lektion3: {
 		horizontalLine: {a: "sc(1,0,1); line(10,70, 190,70)",b: "# LOC:2 line sc\n"},
@@ -24,7 +61,15 @@ data = {
 		yellowLine: {a: "sc(1,1,0);line(20,0, 200,20)",b: "# LOC:2 line sc\n"},
 		grid: {a:"sc(1,1,0); sw(2); for (var i=10; i<200; i+=10) { line(10,i,190,i);line(i,190,i,10);}", b:"# LOC:5 for line sc sw\n"},
 		skislope:{a: "bg(0);sc(1,0,0);for (i of range(21)) line(i*10,0,200,i*10)",b: "# LOC:4 bg for lerp line sc"},
-		sunshine:{a: "bg(0);sc(1,1,0);for (i of range(10)) {line(i*20,0,200-i*20,200);line(0,20+i*20,200,180-i*20)}",b: "# LOC:5 bg for lerp line sc\n"},
+
+		sunshine:{a: "\
+		bg(0);\
+		sc(1,1,0);\
+		for (i of range(10)) {\
+		  line(i*20,0,200-i*20,200);\
+		  line(0,20+i*20,200,180-i*20)\
+		}",
+		b: "# LOC:5 bg for lerp line sc\n"},
 	},
 	Lektion3_5: {
 		for01: {a:"for (i of range(10)) {x = 5+20*i; rect(x,5, 10,10);}", b:"# LOC:2 for lerp rect\n"},
@@ -37,8 +82,38 @@ data = {
 		for08: {a:"for (i of range(10,0,-1)) {fc(i/10.0,0,0);r = 10 * i;circle(100,100, r);}", b:"# LOC:3 for fc circle lerp\n"},
 		for09: {a:"for (i of range(10,0,-1)) {fc(i/10.0,0,0);x = 10*i;y = 10*i;r = 10*i;circle(x,y,r);}", b:"# LOC:3 for fc circle lerp\n"},
 		for10: {a:"for (i of range(10)) {for (j of range(10)) {fc(i/10.0,j/10.0,0);x = 10+20*i;y = 10+20*j;r = (i+j)/2;circle(x,y,r);}}", b:"# LOC:4 for fc circle lerp\n"},
-		for11: {a:"rectMode(CENTER);sc(1); translate(100,100);for (i of range(18,-1,-1)) {r = 1.0*i/18;fc(r,0,0);w = 70+5*i;h = 70+5*i;rect(0,0, w,h);rd(5);}", b:"# LOC:7 for fc circle lerp rd rectMode translate\n"},
-		for12: {a:"rectMode(CENTER); sc(); for (i of range(10)) { for (j of range(10)) { push(); translate(10+20*i,10+20*j); rd(5*(i+j)); var r = i/9.0; var g = j/9.0; var b = 0; fc(r,g,b);rect(0,0, 10,10); pop()}}", b:"# LOC:10 fc for lerp push pop rect rectMode sc translate\n"},
+
+		for11: {a:"\
+		rectMode(CENTER);\
+		sc(1); \
+		translate(100,100);\
+		for (i of range(18,-1,-1)) {\
+		  r = 1.0*i/18;\
+		  fc(r,0,0);\
+		  w = 70+5*i;\
+		  h = 70+5*i;\
+		  rect(0,0, w,h);\
+		  rd(5);\
+		}", 
+		b:"# LOC:7 for fc circle lerp rd rectMode translate\n"},
+
+		for12: {a:"\
+		rectMode(CENTER);\
+		sc(); \
+		for (i of range(10)) {\
+		  for (j of range(10)) {\
+		    push();\
+		    translate(10+20*i,10+20*j);\
+		    rd(5*(i+j)); \
+		    var r = i/9.0; \
+		    var g = j/9.0; \
+		    var b = 0; \
+		    fc(r,g,b);\
+		    rect(0,0, 10,10);\
+		    pop()\
+		  }\
+		}", 
+		b:"# LOC:10 fc for lerp push pop rect rectMode sc translate\n"},
 	},
 	Lektion4: {
 		whiteCircle: {a:" fc(1);circle(60,80,30)", b:"# LOC:2 circle fc\n"},
@@ -57,7 +132,22 @@ data = {
 		greenRect: {a:" fc(0,1,0);rect(60,80, 40,50) ", b:"# LOC:2 fc rect\n"},
 		redRect: {a:"fc(1,0,0);rect(80,70, 40,100)", b:"# LOC:2 fc rect\n"},
 		cross: {a:"fc(1,0,0);sc();rect(85,70, 70,10);rect(115,40, 10,100)", b:"# LOC:3 fc rect\n"},
-		squareHole: {a:"fc(0,1,1);sc();rect(60,60, 80,20);rect(60,120, 80,20);rect(60,60, 20,80);rect(120,60, 20,80);sc(0);fc();sc(1,0,0);sw(3);rect(60,60, 80,80);rect(80,80, 40,40)", b:"# LOC:12 fc rect sc\n"},
+
+		squareHole: {a:"\
+		fc(0,1,1);\
+		sc();\
+		rect(60,60, 80,20);\
+		rect(60,120, 80,20);\
+		rect(60,60, 20,80);\
+		rect(120,60, 20,80);\
+		sc(0);\
+		fc();\
+		sc(1,0,0);\
+		sw(3);\
+		rect(60,60, 80,80);\
+		rect(80,80, 40,40)\
+		", 
+		b:"# LOC:12 fc rect sc\n"},
 	},
 	Lektion6: {
 		whiteTriangle: {a:"fc(1);triangle(20,40, 160,100, 100,140)", b:"# LOC:2 fc triangle\n"}, 
@@ -74,7 +164,18 @@ data = {
 			b:"# LOC:5 bg fc for rect\n"
 		},
 		colorCube: {		
-			a: "function colorCube(n,b) {;bg(0);d = 200.0/n;m = n-1.0;for (r of range(n)) {;for (g of range(n)) {;fc(r/m,g/m,b/m);rect(r*d,g*d,d,d)}}}",
+			a: "\
+			function colorCube(n,b) {\
+				bg(0);\
+				d = 200.0/n;\
+				m = n-1.0;\
+				for (r of range(n)) {\
+					for (g of range(n)) {\
+						fc(r/m,g/m,b/m);\
+						rect(r*d,g*d,d,d)\
+					}\
+				}\
+			}",
 			b: "# LOC:8 -> bg fc for rect\n",
 			c: {
 				"colorCube(2,0)":0, 
@@ -85,7 +186,30 @@ data = {
 			}
 		},
 		korg: {		
-			a: "function korg(n,w,c1,c2) {bg(0);sw(w);fill(c1);stroke(c2);q = 2*n+1;d = 200.0/q;for (i of range(n)) { ;rect(d+i*2*d,0,d,200);};for (j of range(n)) { ;rect(0,d+j*2*d,200,d);};for (i of range(n)) { ;for (j of range(n)) {;if ((i+j) % 2 == 1) {;rect(i*2*d,d+j*2*d,3*d,d);} else {;rect(d+i*2*d,j*2*d,d,3*d)}}}}", 
+			a: "\
+			function korg(n,w,c1,c2) {\
+				bg(0);\
+				sw(w);\
+				fill(c1);\
+				stroke(c2);\
+				q = 2*n+1;\
+				d = 200.0/q;\
+				for (i of range(n)) {\
+					rect(d+i*2*d,0,d,200);\
+				};\
+				for (j of range(n)) {\
+					rect(0,d+j*2*d,200,d);\
+				};\
+				for (i of range(n)) {\
+					for (j of range(n)) {\
+						if ((i+j) % 2 == 1) {\
+							rect(i*2*d,d+j*2*d,3*d,d);\
+						} else {\
+							rect(d+i*2*d,j*2*d,d,3*d)\
+						}\
+					}\
+				}\
+			}", 
 			b:"# LOC:17 -> bg fc for if else rect sc sw\n",
 			c: {
 				"korg(1,5,co(1,0,0),co(1,1,0))":0, 
@@ -130,19 +254,70 @@ data = {
 		},
 		
 		manyDices: {
-			a:"function dots(x,y,dots) { for (dot of dots) { if (dot==1) point(x+8,y+8); if (dot==2) point(x+8,y+10); if (dot==3) point(x+8,y+12); if (dot==4) point(x+10,y+10); if (dot==5) point(x+12,y+8); if (dot==6) point(x+12,y+10); if (dot==7) point(x+12,y+12);}}" +
-				"function dice(x,y,d) {if (d==1) dots(x,y,[4]);if (d==2) dots(x,y,[1,7]);if (d==3) dots(x,y,[1,4,7]);if (d==4) dots(x,y,[1,3,5,7]);if (d==5) dots(x,y,[1,3,4,5,7]);if (d==6) dots(x,y,[1,2,3,5,6,7]); }" +
-				"function manyDices() {fc(0); for (i of range(10)) { for (j of range(10)) { dice(20*i,20*j,1+(i+j)%6) } } }", 
+			a:"function dots(x,y,dots) {\
+				for (dot of dots) {\
+					if (dot==1) point(x+8,y+8); \
+					if (dot==2) point(x+8,y+10);\
+					if (dot==3) point(x+8,y+12); \
+					if (dot==4) point(x+10,y+10);\
+					if (dot==5) point(x+12,y+8);\
+					if (dot==6) point(x+12,y+10); \
+					if (dot==7) point(x+12,y+12);\
+				}\
+			}\
+			function dice(x,y,d) {\
+				if (d==1) dots(x,y,[4]);\
+				if (d==2) dots(x,y,[1,7]);\
+				if (d==3) dots(x,y,[1,4,7]);\
+				if (d==4) dots(x,y,[1,3,5,7]);\
+				if (d==5) dots(x,y,[1,3,4,5,7]);\
+				if (d==6) dots(x,y,[1,2,3,5,6,7]);\
+			}\
+			function manyDices() {\
+				fc(0); \
+				for (i of range(10)) { \
+					for (j of range(10)) { \
+						dice(20*i,20*j,1+(i+j)%6)\
+					}\
+				}\
+			}", 
 			b:"# LOC:34 -> fc if [] % for\n",
 			c:{"manyDices()":0} 
 		},
 		
 		klocka: {
-			a: "function visare(v,w,l,r,g,b) {push();rd(v-90);translate(l/2,0);fc(r,g,b);rect(0,0,l,w);pop()};" +
-				 "function klocka(h,m,s) {rectMode(CENTER);translate(100,100);urtavla();visare((h+m/60.0)*30, 7,60,1,0,0);visare((m+s/60.0)*6,5,80,0,1,0);visare(s*6,2,80,0,0,1)}" +
-				 "function urtavla() {fc(0);sc(1);circle(0,0,90);fc(1);for (i of range(60)) {if (i%5==0) {	circle(85,0,2)} else {	point(85,0)}rd(6)}};" +
-				 "function visare(v,w,l,r,g,b) {push();rd(v-90);translate(l/2,0);fc(r,g,b);rect(0,0,l,w);pop()};function klocka(h,m,s) {rectMode(CENTER);translate(100,100);urtavla();visare((h+m/60.0)*30,7,60,1,0,0);visare((m+s/60.0)*6,5,80,0,1,0);visare(s*6,2,80,0,0,1)}",
-			b: "# LOC:37 -> push pop translate rd rectMode if else\n",
+			a: "\
+			function visare(v,w,l,r,g,b) {\
+				push();\
+				rd(v-90);\
+				translate(l/2,0);\
+				fc(r,g,b);\
+				rect(0,0,l,w);\
+				pop()\
+			};\
+			function klocka(h,m,s) {\
+				rectMode(CENTER);\
+				translate(100,100);\
+				urtavla();\
+				visare((h+m/60.0)*30, 7,60,1,0,0);\
+				visare((m+s/60.0)*6,5,80,0,1,0);\
+				visare(s*6,2,80,0,0,1)\
+			}\
+			function urtavla() {\
+				fc(0);\
+				sc(1);\
+				circle(0,0,90);\
+				fc(1);\
+				for (i of range(60)) {\
+					if (i%5==0) {\
+						circle(85,0,2)\
+					} else {\
+						point(85,0)\
+					}\
+					rd(6)\
+				}\
+			}",
+			b: "# LOC:37 -> circle else fc for if point push pop rd rect rectMode sc translate \n",
 			c: {
 				"klocka(10,9,30)":0, 
 				"klocka(11,30,15)":0
@@ -150,18 +325,48 @@ data = {
 		},
 		
 		recursiveCircles: {
-			a: "sc(1); function circles(x,y,r) {circle(x,y,r);if (r < 10) return;circles(x-r/2,y,r/2);circles(x+r/2,y,r/2)}",
+			a: "\
+			sc(1); \
+			function circles(x,y,r) {\
+				circle(x,y,r);\
+				if (r < 10) return;\
+				circles(x-r/2,y,r/2);\
+				circles(x+r/2,y,r/2)\
+			}\
+			",
 			b: "# LOC:7 -> if\n",
 			c: {"circles(100,100,100)":0}
 		},
 		
 		hypnoticA : {
-			a: "function hypnoticA() {bg(0.5, 0, 0);noStroke();fc(1);for (i of range(100)) {x = 100 + cos(i) * i;y = 100 + sin(i) * i;circle(x, y, 5)}		}",
+			a: "\
+			function hypnoticA() {\
+				bg(0.5, 0, 0);\
+				noStroke();\
+				fc(1);\
+				for (i of range(100)) {\
+					x = 100 + cos(i) * i;\
+					y = 100 + sin(i) * i;\
+					circle(x, y, 5)\
+				}\
+			}",
 			b: "# LOC:6 -> cos sin\n",
 			c: {"hypnoticA()":0}
 		},
 		hypnoticB : {
-			a: "function hypnoticB(t) {bg(0.5, 0, 0);noStroke();fc(1);for (i of range(100)) {x = 100 + cos(i) * i;y = 100 + sin(i) * i;speed = i/10.0;r = map(sin(t*speed), -1, 1, 2, 5);circle(x, y, r)}}",
+			a: "\
+			function hypnoticB(t) {\
+				bg(0.5, 0, 0);\
+				noStroke();\
+				fc(1);\
+				for (i of range(100)) {\
+					x = 100 + cos(i) * i;\
+					y = 100 + sin(i) * i;\
+					speed = i/10.0;\
+					r = map(sin(t*speed), -1, 1, 2, 5);\
+					circle(x, y, r)\
+				}\
+			}",
 			b: "# LOC:7 -> map\n",
 			c: {
 				"hypnoticB(1)":0, 
@@ -185,40 +390,89 @@ data = {
 	},
 	LektionN: {
 		lines: { 
-			a:"background(0);for(var y = 0;y<30;y++){fill(255);strokeWeight(1);stroke(255);line(0,0,200,y*200/(30-1));line(0,100,200,y*200/(30-1));line(0,200,200,y*200/(30-1));}", 
-			b:"//LOC:?\n", 
+			a:"\
+			bg(0);\
+			fc(1);\
+			sw(1);\
+			sc(1);\
+			for(var y = 0;y<30;y++){\
+				line(0,0,200,y*200/(30-1));\
+				line(0,100,200,y*200/(30-1));\
+				line(0,200,200,y*200/(30-1));\
+			}", 
+			b:"# LOC:9 bg fc for line sc sw\n", 
 		},
 		dist: { 
-			a:"background(0);for(var x = 0;x<10;x++){for(var y = 0;y<10;y++){fill(255);noStroke();ellipse(x*200/10+10,y*200/10+10,map(dist(100,100,x*200/10+10,y*200/10+10),0,150,1,20),map(dist(100,100,x*200/10+10,y*200/10+10),0,150,1,20));}}", 
-			b:"# LOC:? dist\n", 
+			a:"\
+			bg(0);\
+			for (var i = 0;i<10;i++){\
+				for (var j = 0;j<10;j++){\
+					fc(1);\
+					sc();\
+					x=lerp(10,30,i);\
+					y=lerp(10,30,j);\
+					d=dist(100,100,x,y);\
+					w=map(d,0,150,1,20);\
+					ellipse(x,y,w,w);\
+				}\
+			}", 
+			b:"# LOC:? dist lerp\n", 
 		}, 
 		bulge: { 
-			a:"background(0);for(var x = 0;x<20;x++){for(var y = 0;y<20;y++){fill(255);noStroke();ellipse(x*200/20+5,y*200/20+5,map(sin(x*PI/20),-1,1,1,3)*map(sin(y*PI/20),-1,1,1,3),map(sin(x*PI/20),-1,1,1,3)*map(sin(y*PI/20),-1,1,1,3));}}", 
+			a:"bg(0);for(var x = 0;x<20;x++){for(var y = 0;y<20;y++){fill(255);noStroke();ellipse(x*200/20+5,y*200/20+5,map(sin(x*PI/20),-1,1,1,3)*map(sin(y*PI/20),-1,1,1,3),map(sin(x*PI/20),-1,1,1,3)*map(sin(y*PI/20),-1,1,1,3));}}", 
 			b:"# LOC:? dist sin\n", 
 		},
 		wave: { 
-			a:"background(0);for(var i = 0; i <21;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),100,100);var a=map(i,0,20,0,2*PI);noStroke();ellipse(10*i,map(sin(a),-1,1,0,200),5,5);}", 
+			a:"bg(0);for(var i = 0; i <21;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),100,100);var a=map(i,0,20,0,2*PI);noStroke();ellipse(10*i,map(sin(a),-1,1,0,200),5,5);}", 
 			b:"# LOC:9 sin map PI\n", 
 		}, 
 		circle: { 
-			a:"background(0);for(var i = 0; i <20;i++){colorMode(HSB,360,100,100);fill(map(i,0,19,0,360),255,255);var a=map(i,0,20,0,2*PI);noStroke();ellipse(map(cos(a),-1,1,0,200),map(sin(a),-1,1,0,200),5,5);}", 
-			b:"# LOC:? sin cos map PI\n", 
+			a:"\
+			bg(0);\
+			for(var i = 0; i <20;i++){\
+				colorMode(HSB,360,100,100);\
+				var r=map(i,0,19,0,360);\
+				fill(r,255,255);\
+				var a=map(i,0,20,0,2*PI);\
+				sc();\
+				var x=map(cos(a),-1,1,0,200);\
+				var y=map(sin(a),-1,1,0,200);\
+				circle(x,y,3);\
+			}", 
+			b:"# LOC:10 circle colorMode cos fc map PI sc sin\n", 
 		},
 		circles: { 
-			a:"background(0);translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),255,255);var a=map(i,0,20,0,2*PI);noStroke();ellipse(map(cos(a),-1,1,-j*10,j*10),map(sin(a),-1,1,-j*10,j*10),5,5);}}", 
+			a:"bg(0);translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),255,255);var a=map(i,0,20,0,2*PI);noStroke();ellipse(map(cos(a),-1,1,-j*10,j*10),map(sin(a),-1,1,-j*10,j*10),5,5);}}", 
 			b:"# LOC:? translate sin cos map PI\n", 
 		},
 		sized_circles: { 
-			a:"background(0);translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),255,255);var a=map(i,0,20,0,2*PI);noStroke();ellipse(map(cos(a),-1,1,-j*10,j*10),map(sin(a),-1,1,-j*10,j*10),map(j,0,10,0,10),map(j,0,10,0,10));}}", 
+			a:"bg(0);translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),255,255);var a=map(i,0,20,0,2*PI);noStroke();ellipse(map(cos(a),-1,1,-j*10,j*10),map(sin(a),-1,1,-j*10,j*10),map(j,0,10,0,10),map(j,0,10,0,10));}}", 
 			b:"# LOC:? translate sin cos map PI\n", 
 		},
 		rotated_circles: { 
-			a:"background(0);translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){push();rotate(map(j,0,10,0,360));colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),255,255);noStroke();var a=map(i,0,20,0,2*PI);ellipse(map(cos(a),-1,1,-j*10,j*10),map(sin(a),-1,1,-j*10,j*10),j,j);pop();}}", 
-			b:"# LOC:? translate rotate sin cos map push pop PI\n", 
+			a:"\
+			bg(0);\
+			translate(100,100);\
+			for (var j = 0; j <11;j++){\
+				for (var i = 0; i <20;i++){\
+					push();\
+					rotate(map(j,0,10,0,360));\
+					colorMode(HSB,360,100,100);\
+					var r = map(i,0,20,0,360);\
+					fill(r,255,255);\
+					sc();\
+					var a=map(i,0,20,0,2*PI);\
+					var x=map(cos(a),-1,1,-j*10,j*10);\
+					var y=map(sin(a),-1,1,-j*10,j*10);\
+					circle(x,y,j/2);\
+					pop();\
+				}\
+			}", 
+			b:"# LOC:17 circle cos map PI push pop rotate sin translate \n", 
 		},
 		linecircles: { 
-			a:"function linecircles(ky){background(0);fill(255);strokeWeight(1);stroke(255);for(var y = 0;y<ky;y++){line(map(cos(y),-1,1,0,200),map(sin(y),-1,1,0,200),map(cos(y+ky+ky),-1,1,0,200),map(sin(y+ky+ky),-1,1,0,200));}}", 
-			b:"//LOC:? sin cos function\n", 
+			a:"function linecircles(ky){bg(0);fill(255);strokeWeight(1);stroke(255);for(var y = 0;y<ky;y++){line(map(cos(y),-1,1,0,200),map(sin(y),-1,1,0,200),map(cos(y+ky+ky),-1,1,0,200),map(sin(y+ky+ky),-1,1,0,200));}}", 
+			b:"# LOC:? sin cos function\n", 
 			c: {
 				"linecircles(1)":0, 
 				"linecircles(10)":0,
@@ -228,7 +482,7 @@ data = {
 		},
 		linechaos: { 
 			a:"function grid(x,y,w,h,a,s){strokeWeight(s);for(var i = 0;i<a+1;i++){stroke(255);line(x,y+i*h/a,x+w,y+i*h/a);line(x+i*w/a,y,x+i*w/a,y+h);}};function grids(x,y,w,h,a,s){strokeWeight(s);for(var i = 0;i<a+1;i++){stroke(255);grid(x,y+i*h/a,x+w,y+i*h/a,a,s);grid(x+i*w/a,y,x+i*w/a,y+h,a,s)}};function linechaos(k){background(0);grids(0,0,200,200,k,1);};", 
-			b:"//LOC:? line\n", 
+			b:"# LOC:? line\n", 
 			c: {
 				"linechaos(1)":0, 
 				"linechaos(3)":0, 
