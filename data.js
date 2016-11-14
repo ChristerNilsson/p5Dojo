@@ -14,8 +14,7 @@ data = {
 		Point: {a: "point(10,30)", b: "# LOC:1 point\n"},
 		redPoint: {a: "sc(1,0,0); point(20,40)", b: "# LOC:2 point sc\n"},
 		greenPoint: {a: "sc(0,1,0); point(30,10)", b: "# LOC:2 point sc\n"},
-	},
-	Lektion2: {
+
 		dices: {a: "\
 		point(10,10);\
 		sc(1,0,0);\
@@ -55,7 +54,41 @@ data = {
 		circle(160,40,20)", 
 		b: "# LOC:7 bg circle fc\n" },
 	},
+	Lektion2: {
+		whiteCircle: {a:" fc(1);circle(60,80,30)", b:"# LOC:2 circle fc\n"},
+		whiteEmptyCircle: {a:"sc(1); fc(); sw(2);circle(70,90,40)", b:"# LOC:2 circle fc sc\n"},
+		twoDiscsA: {a:"fc(1,0,0);circle(80,100,40);fc(0,1,0);circle(100,120,50)", b:"# LOC:3 circle fc\n"},
+		twoDiscsB: {a:"fc(0,1,0);circle(140,120,60);fc(1,0,0);circle(60,80,50)", b:"# LOC:3 circle fc\n"},
+		twoDiscsC: {a:"fc(1,0,0);circle(80,100,40);fc(0,1,0, 0.5);circle(120,100,50)", b:"# LOC:3 circle fc\n"},
+		twoDiscsD: {a:"fc(1,0,0, 0.5);circle(80,90,60);fc(0,1,0);circle(110,120,50)", b:"# LOC:3 circle fc\n"},
+		twoDiscsE: {a:"fc(1,0,0, 0.5);circle(70,90,50);fc(0,1,0, 0.5);circle(100,130,70)", b:"# LOC:3 circle fc\n"},
+		twoDiscsF: {a:"fc(0,1,0, 0.5);circle(120,140,40);fc(1,0,0);circle(80,70,50)", b:"# LOC:3 circle fc\n"},
+		twoDiscsG: {a:"fc(0,1,0);circle(110,120,40);fc(1,0,0, 0.5);circle(80,100,60)", b:"# LOC:3 circle fc\n"},
+		twoDiscsH: {a:"fc(0,1,0, 0.5);circle(120,100,40);fc(1,0,0, 0.5);circle(80,90,60)", b:"# LOC:3 circle fc\n"},
+	},
 	Lektion3: {
+		greenEllipse: {a:"fc(0,1,0);ellipse(120,60, 60,40)", b:"# LOC:2 ellipse fc\n"}, 
+		greenRect: {a:" fc(0,1,0);rect(60,80, 40,50) ", b:"# LOC:2 fc rect\n"},
+		redRect: {a:"fc(1,0,0);rect(80,70, 40,100)", b:"# LOC:2 fc rect\n"},
+		cross: {a:"fc(1,0,0);sc();rect(85,70, 70,10);rect(115,40, 10,100)", b:"# LOC:3 fc rect\n"},
+
+		squareHole: {a:"\
+		fc(0,1,1);\
+		sc();\
+		rect(60,60, 80,20);\
+		rect(60,120, 80,20);\
+		rect(60,60, 20,80);\
+		rect(120,60, 20,80);\
+		sc(0);\
+		fc();\
+		sc(1,0,0);\
+		sw(3);\
+		rect(60,60, 80,80);\
+		rect(80,80, 40,40)\
+		", 
+		b:"# LOC:12 fc rect sc\n"},
+	},
+	Lektion4: {
 		horizontalLine: {a: "sc(1,0,1); line(10,70, 190,70)",b: "# LOC:2 line sc\n"},
 		verticalLine: {a: "sc(1,1,0);sw(10);line(110,30, 110,170)",b: "# LOC:3 line sc sw\n"},
 		yellowLine: {a: "sc(1,1,0);line(20,0, 200,20)",b: "# LOC:2 line sc\n"},
@@ -71,7 +104,7 @@ data = {
 		}",
 		b: "# LOC:5 bg for lerp line sc\n"},
 	},
-	Lektion3_5: {
+	Lektion5: {
 		for01: {a:"for (i of range(10)) {x = 5+20*i; rect(x,5, 10,10);}", b:"# LOC:2 for lerp rect\n"},
 		for02: {a:"for (i of range(10)) {y = 5+20*i; rect(5,y, 10,10);}", b:"# LOC:2 for lerp rect\n"},
 		for03: {a:"for (i of range(10)) {x = 5+20*i; y = 5+20*i; rect(x,y, 10,10);}", b:"# LOC:2 for lerp rect\n"},
@@ -114,40 +147,6 @@ data = {
 		  }\
 		}", 
 		b:"# LOC:10 fc for lerp push pop rect rectMode sc translate\n"},
-	},
-	Lektion4: {
-		whiteCircle: {a:" fc(1);circle(60,80,30)", b:"# LOC:2 circle fc\n"},
-		whiteEmptyCircle: {a:"sc(1); fc(); sw(2);circle(70,90,40)", b:"# LOC:2 circle fc sc\n"},
-		twoDiscsA: {a:"fc(1,0,0);circle(80,100,40);fc(0,1,0);circle(100,120,50)", b:"# LOC:3 circle fc\n"},
-		twoDiscsB: {a:"fc(0,1,0);circle(140,120,60);fc(1,0,0);circle(60,80,50)", b:"# LOC:3 circle fc\n"},
-		twoDiscsC: {a:"fc(1,0,0);circle(80,100,40);fc(0,1,0, 0.5);circle(120,100,50)", b:"# LOC:3 circle fc\n"},
-		twoDiscsD: {a:"fc(1,0,0, 0.5);circle(80,90,60);fc(0,1,0);circle(110,120,50)", b:"# LOC:3 circle fc\n"},
-		twoDiscsE: {a:"fc(1,0,0, 0.5);circle(70,90,50);fc(0,1,0, 0.5);circle(100,130,70)", b:"# LOC:3 circle fc\n"},
-		twoDiscsF: {a:"fc(0,1,0, 0.5);circle(120,140,40);fc(1,0,0);circle(80,70,50)", b:"# LOC:3 circle fc\n"},
-		twoDiscsG: {a:"fc(0,1,0);circle(110,120,40);fc(1,0,0, 0.5);circle(80,100,60)", b:"# LOC:3 circle fc\n"},
-		twoDiscsH: {a:"fc(0,1,0, 0.5);circle(120,100,40);fc(1,0,0, 0.5);circle(80,90,60)", b:"# LOC:3 circle fc\n"},
-	},
-	Lektion5: {
-		greenEllipse: {a:"fc(0,1,0);ellipse(120,60, 60,40)", b:"# LOC:2 ellipse fc\n"}, 
-		greenRect: {a:" fc(0,1,0);rect(60,80, 40,50) ", b:"# LOC:2 fc rect\n"},
-		redRect: {a:"fc(1,0,0);rect(80,70, 40,100)", b:"# LOC:2 fc rect\n"},
-		cross: {a:"fc(1,0,0);sc();rect(85,70, 70,10);rect(115,40, 10,100)", b:"# LOC:3 fc rect\n"},
-
-		squareHole: {a:"\
-		fc(0,1,1);\
-		sc();\
-		rect(60,60, 80,20);\
-		rect(60,120, 80,20);\
-		rect(60,60, 20,80);\
-		rect(120,60, 20,80);\
-		sc(0);\
-		fc();\
-		sc(1,0,0);\
-		sw(3);\
-		rect(60,60, 80,80);\
-		rect(80,80, 40,40)\
-		", 
-		b:"# LOC:12 fc rect sc\n"},
 	},
 	Lektion6: {
 		whiteTriangle: {a:"fc(1);triangle(20,40, 160,100, 100,140)", b:"# LOC:2 fc triangle\n"}, 
