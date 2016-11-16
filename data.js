@@ -149,13 +149,7 @@ data = {
 		b: "# LOC:5 bg for lerp line sc\n"},
 		
 		lines: { 
-			a:"\
-			bg(0);\
-			for(var y = 0;y<30;y++){\
-				line(0,0,200,y*200/(30-1));\
-				line(0,100,200,y*200/(30-1));\
-				line(0,200,200,y*200/(30-1));\
-			}", 
+			a:"bg(0); for (i in range(37)) { line(10,10,190,10+i*5); line(10,100,190,10+i*5); line(10,190,190,10+i*5) }",
 			b:"# LOC:5 bg for lerp line (by Noel Watson)\n", 
 		},
 		
@@ -190,6 +184,26 @@ data = {
 			a:";bg(0.5);for (i of range(1,9))	{;for (j of range(1,9)) {;fc((i+j)%2);rect(20*i,20*j, 20,20)}}",
 			b:"# LOC:5 bg fc for rect\n"
 		},
+		
+		multimoire: {
+			a: "\
+			function moire(k) {\
+				background(0);\
+				for (i of range(k)) {\
+					for (j of range(37)) {\
+						line(10,map(i,0,k-1,10,190),190,10+j*5)\
+					}\
+				}\
+			}",
+			b:"# LOC:5 bg for line map\n",
+			c: {
+				"moire(2)":0, 
+				"moire(3)":0,
+				"moire(4)":0,
+				"moire(5)":0
+			}
+		},
+		
 		colorCube: {		
 			a: "\
 			function colorCube(n,b) {\
