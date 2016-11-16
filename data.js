@@ -89,34 +89,6 @@ data = {
 		b:"# LOC:12 fc rect sc\n"},
 	},
 	Lektion4: {
-		horizontalLine: {a: "sc(1,0,1); line(10,70, 190,70)",b: "# LOC:2 line sc\n"},
-		verticalLine: {a: "sc(1,1,0);sw(10);line(110,30, 110,170)",b: "# LOC:3 line sc sw\n"},
-		yellowLine: {a: "sc(1,1,0);line(20,0, 200,20)",b: "# LOC:2 line sc\n"},
-		grid: {a:"sc(1,1,0); sw(2); for (var i=10; i<200; i+=10) { line(10,i,190,i);line(i,190,i,10);}", b:"# LOC:5 for line sc sw\n"},
-		skislope:{a: "bg(0);sc(1,0,0);for (i of range(21)) line(i*10,0,200,i*10)",b: "# LOC:4 bg for lerp line sc"},
-
-		sunshine:{a: "\
-		bg(0);\
-		sc(1,1,0);\
-		for (i of range(10)) {\
-		  line(i*20,0,200-i*20,200);\
-		  line(0,20+i*20,200,180-i*20)\
-		}",
-		b: "# LOC:5 bg for lerp line sc\n"},
-		
-		lines: { 
-			a:"\
-			bg(0);\
-			for(var y = 0;y<30;y++){\
-				line(0,0,200,y*200/(30-1));\
-				line(0,100,200,y*200/(30-1));\
-				line(0,200,200,y*200/(30-1));\
-			}", 
-			b:"# LOC:5 bg for lerp line\n", 
-		},
-		
-	},
-	Lektion5: {
 		for01: {a:"for (i of range(10)) {x = 5+20*i; rect(x,5, 10,10);}", b:"# LOC:2 for lerp rect\n"},
 		for02: {a:"for (i of range(10)) {y = 5+20*i; rect(5,y, 10,10);}", b:"# LOC:2 for lerp rect\n"},
 		for03: {a:"for (i of range(10)) {x = 5+20*i; y = 5+20*i; rect(x,y, 10,10);}", b:"# LOC:2 for lerp rect\n"},
@@ -159,6 +131,34 @@ data = {
 		  }\
 		}", 
 		b:"# LOC:10 fc for lerp push pop rect rectMode sc translate\n"},
+	},
+	Lektion5: {
+		horizontalLine: {a: "sc(1,0,1); line(10,70, 190,70)",b: "# LOC:2 line sc\n"},
+		verticalLine: {a: "sc(1,1,0);sw(10);line(110,30, 110,170)",b: "# LOC:3 line sc sw\n"},
+		yellowLine: {a: "sc(1,1,0);line(20,0, 200,20)",b: "# LOC:2 line sc\n"},
+		grid: {a:"sc(1,1,0); sw(2); for (var i=10; i<200; i+=10) { line(10,i,190,i);line(i,190,i,10);}", b:"# LOC:5 for line sc sw\n"},
+		skislope:{a: "bg(0);sc(1,0,0);for (i of range(21)) line(i*10,0,200,i*10)",b: "# LOC:4 bg for lerp line sc"},
+
+		sunshine:{a: "\
+		bg(0);\
+		sc(1,1,0);\
+		for (i of range(10)) {\
+		  line(i*20,0,200-i*20,200);\
+		  line(0,20+i*20,200,180-i*20)\
+		}",
+		b: "# LOC:5 bg for lerp line sc\n"},
+		
+		lines: { 
+			a:"\
+			bg(0);\
+			for(var y = 0;y<30;y++){\
+				line(0,0,200,y*200/(30-1));\
+				line(0,100,200,y*200/(30-1));\
+				line(0,200,200,y*200/(30-1));\
+			}", 
+			b:"# LOC:5 bg for lerp line (by Noel Watson)\n", 
+		},
+		
 	},
 	Lektion6: {
 		whiteTriangle: {a:"fc(1);triangle(20,40, 160,100, 100,140)", b:"# LOC:2 fc triangle\n"}, 
