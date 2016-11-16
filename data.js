@@ -103,6 +103,18 @@ data = {
 		  line(0,20+i*20,200,180-i*20)\
 		}",
 		b: "# LOC:5 bg for lerp line sc\n"},
+		
+		lines: { 
+			a:"\
+			bg(0);\
+			for(var y = 0;y<30;y++){\
+				line(0,0,200,y*200/(30-1));\
+				line(0,100,200,y*200/(30-1));\
+				line(0,200,200,y*200/(30-1));\
+			}", 
+			b:"# LOC:5 bg for lerp line\n", 
+		},
+		
 	},
 	Lektion5: {
 		for01: {a:"for (i of range(10)) {x = 5+20*i; rect(x,5, 10,10);}", b:"# LOC:2 for lerp rect\n"},
@@ -152,6 +164,22 @@ data = {
 		whiteTriangle: {a:"fc(1);triangle(20,40, 160,100, 100,140)", b:"# LOC:2 fc triangle\n"}, 
 		yellowQuad: {a:"fc(1,1,0);quad(150,100, 180,20, 40,20, 100,140)", b:"# LOC:2 fc quad\n"}, 
 		pacMan: {a:"fc(1,1,0);arc(100,100, 80,80, radians(-135),radians(135), PIE)", b:"# LOC:2 arc fc radians PIE\n"}, 
+	},
+	Assert1: {
+		Operator1: { a:"function f(x) { return x }", b:"# + - * / %\nf = (x) -> 0", c: { "f(2)":2, "f(3)":3, }}, 
+		Operator2: { a:"function f(x) { return -x }", b:"# + - * / %\n", c: { "f(-4)":4, "f(3)":-3, }}, 
+		Operator3: { a:"function f(x) { return x+1 }", b:"# + - * / %\n", c: { "f(7)":8, "f(8)":9, }}, 
+		Operator4: { a:"function f(x) { return x }", b:"# + - * / %\n", c: { "f(2)":2, "f(3)":3, }}, 
+		Operator5: { a:"function f(x) { return 2*x }", b:"# + - * / %\n", c: { "f(5)":10, "f(6)":12, }}, 
+		Operator6: { a:"function f(x) { return x*x }", b:"# + - * / %\n", c: { "f(5)":25, "f(6)":36, }}, 
+		Operator7: { a:"function f(x) { return x-2 }", b:"# + - * / %\n" , c: { "f(7)":5, "f(17)":15, }}, 
+		Operator8: { a:"function f(x) { return x/2 }", b:"# + - * / %\n", c: { "f(8)":4, "f(6)":3, }}, 
+		Operator9: { a:"function f(x) { return x%2 }", b:"# + - * / %\n", c: { "f(7)":1, "f(8)":0, "f(10)":0, "f(11)":1,}}, 
+		Operator10: { a:"function f(a,b) { return a*b }", b:"# + - * / %\n", c: { "f(3,4)":12, "f(4,6)":24, }}, 
+		Operator11: { a:"function f(a,b) { return a+b }", b:"# + - * / %\n", c: { "f(3,4)":7, "f(4,6)":10, }}, 
+		Operator12: { a:"function f(a,b) { return b-a }", b:"# + - * / %\n", c: { "f(3,4)":1, "f(4,6)":2, }}, 
+		Operator13: { a:"function f(a,b) { return a/b }", b:"# + - * / %\n", c: { "f(8,4)":2, "f(12,3)":4, }}, 
+		Operator14: { a:"function f(a,b) { return a%b }", b:"# + - * / %\n", c: { "f(8,4)":0, "f(9,4)":1, "f(10,4)":2, "f(11,4)":3, }}, 
 	},
 	LektionZ: {
 		chessRow: {
@@ -388,19 +416,6 @@ data = {
 		},
 	},
 	LektionN: {
-		lines: { 
-			a:"\
-			bg(0);\
-			fc(1);\
-			sw(1);\
-			sc(1);\
-			for(var y = 0;y<30;y++){\
-				line(0,0,200,y*200/(30-1));\
-				line(0,100,200,y*200/(30-1));\
-				line(0,200,200,y*200/(30-1));\
-			}", 
-			b:"# LOC:9 bg fc for line sc sw\n", 
-		},
 		dist: { 
 			a:"\
 			bg(0);\
@@ -492,21 +507,5 @@ data = {
 
 		},
 	},
-	Assert1: {
-		Operator1: { a:"function f(x) { return x }", b:"#  + - * / %\nf = (x) -> 0", c: { "f(2)":2, "f(3)":3, }}, 
-		Operator2: { a:"function f(x) { return -x }", b:"#  + - * / %\n", c: { "f(-4)":4, "f(3)":-3, }}, 
-		Operator3: { a:"function f(x) { return x+1 }", b:"#  + - * / %\n", c: { "f(7)":8, "f(8)":9, }}, 
-		Operator4: { a:"function f(x) { return x }", b:"#  + - * / %\n", c: { "f(2)":2, "f(3)":3, }}, 
-		Operator5: { a:"function f(x) { return 2*x }", b:"#  + - * / %\n", c: { "f(5)":10, "f(6)":12, }}, 
-		Operator6: { a:"function f(x) { return x*x }", b:"#  + - * / %\n", c: { "f(5)":25, "f(6)":36, }}, 
-		Operator7: { a:"function f(x) { return x-2 }", b:"#  + - * / %\n" , c: { "f(7)":5, "f(17)":15, }}, 
-		Operator8: { a:"function f(x) { return x/2 }", b:"#  + - * / %\n", c: { "f(8)":4, "f(6)":3, }}, 
-		Operator9: { a:"function f(x) { return x%2 }", b:"#  + - * / %\n", c: { "f(7)":1, "f(8)":0, "f(10)":0, "f(11)":1,}}, 
-		Operator10: { a:"function f(a,b) { return a*b }", b:"#  + - * / %\n", c: { "f(3,4)":12, "f(4,6)":24, }}, 
-		Operator11: { a:"function f(a,b) { return a+b }", b:"#  + - * / %\n", c: { "f(3,4)":7, "f(4,6)":10, }}, 
-		Operator12: { a:"function f(a,b) { return b-a }", b:"#  + - * / %\n", c: { "f(3,4)":1, "f(4,6)":2, }}, 
-		Operator13: { a:"function f(a,b) { return a/b }", b:"#  + - * / %\n", c: { "f(8,4)":2, "f(12,3)":4, }}, 
-		Operator14: { a:"function f(a,b) { return a%b }", b:"#  + - * / %\n", c: { "f(8,4)":0, "f(9,4)":1, "f(10,4)":2, "f(11,4)":3, }}, 
-	}
 }
 

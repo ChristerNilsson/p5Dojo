@@ -209,6 +209,7 @@ window.onload = function () {
   });
   
   $(".CodeMirror").css('font-size',"16pt")
+  //$(".CodeMirror").css('font-family',"Webdings")
   myCodeMirror.on("change", run0)
 
   help = createA('https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md', 'help', '_blank')
