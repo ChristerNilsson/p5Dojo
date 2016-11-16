@@ -189,7 +189,7 @@ data = {
 
 		linearequation2: { 
 		a:"function f(x) { return 3 + 2 * x }", 
-		b:"# + *\nf = (x) -> 0", 
+		b:"# * +\nf = (x) -> 0", 
 		c: { 
 			"f(2)" : 7,
 			"f(3)" : 9,
@@ -198,7 +198,7 @@ data = {
 
 		lerp: { 
 		a:"function lerp(y1,y2,x) { return y1 + (y2-y1) * x }", 
-		b:"# + - *\nlerp = (y1,y2,x) -> 0", 
+		b:"# * + -\nlerp = (y1,y2,x) -> 0", 
 		c: { 
 			"lerp(10,20,-1)" : 0,
 			"lerp(10,20,0)" : 10,
@@ -210,7 +210,7 @@ data = {
 		
 		map: { 
 		a:"function map(x,x1,x2,y1,y2) { return y1 + (y2-y1) * (x-x1)/(x2-x1) }", 
-		b:"# + - * /\nmap = (x,x1,x2,y1,y2) -> 0", 
+		b:"# * + - /\nmap = (x,x1,x2,y1,y2) -> 0", 
 		c: { 
 			"map(0,1,3,20,40)" : 10, 
 			"map(1,1,3,20,40)" : 20, 
