@@ -2,7 +2,7 @@
 
 [p5Dojo](https://christernilsson.github.io/p5Dojo) christernilsson.github.io/p5Dojo
 
-## grundläggande programmering med processing och p5
+## 2D och 3D grafik med Javascript
 
 ### målsättning
 * Den första bitmappen ritar du, genom att programmera
@@ -62,20 +62,20 @@
   
 ### lerp  
  - linjär interpolation och extrapolation
- - lerp 10,12,-1 == 8
- - lerp 10,12,0 == 10
- - lerp 10,12,0.5 == 11
- - lerp 10,12,1 == 12
- - lerp 10,12,2 == 14
+ - **lerp** 10,12,-1 == 8
+ - **lerp** 10,12,0 == 10
+ - **lerp** 10,12,0.5 == 11
+ - **lerp** 10,12,1 == 12
+ - **lerp** 10,12,2 == 14
   
 ### for loop
   - Glöm ej att indentera innehållet med ett tabsteg!
-  - **for** i in range(10)   => [0,1,2,3,4,5,6,7,8,9]
-  - **for** i in range(5)  => [0,1,2,3,4]
-  - **for** i in range(1,11)  => [1,2,3,4,5,6,7,8,9,10]
-  - **for** i in range(0,10,2)  => [0,2,4,6,8]
+  - **for** i in range 10   => [0,1,2,3,4,5,6,7,8,9]
+  - **for** i in range 5  => [0,1,2,3,4]
+  - **for** i in range 1,11  => [1,2,3,4,5,6,7,8,9,10]
+  - **for** i in range 0,10,2  => [0,2,4,6,8]
   - **for** i in [0..10] by 2 => [0,2,4,6,8,10]
-  - **for** i in range(10,0,-2)  => [10,8,6,4,2]
+  - **for** i in range 10,0,-2  => [10,8,6,4,2]
   - **for** i in [1,1,2,3,5,8,13,21] => [1,1,2,3,5,8,13,21]
   
   
@@ -142,7 +142,7 @@ Sparar och återställer följande kommandon:
 bg 1,0.5,1
 sw 2
 sc 0.5
-for i in range(10)
+for i in range 10
   fc i%2
   rd 5
   rect 20*i + 5,5, 10,10
