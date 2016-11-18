@@ -80,7 +80,7 @@ data =
 			b:"# LOC:2 circle fc\n"
 		whiteEmptyCircle: 
 			a:"sc(1); fc(); sw(2);circle(70,90,40)"
-			b:"# LOC:2 circle fc sc\n"
+			b:"# LOC:2 circle fc sc sw\n"
 		twoDiscsA: 
 			a:"fc(1,0,0);circle(80,100,40);fc(0,1,0);circle(100,120,50)"
 			b:"# LOC:3 circle fc\n"
@@ -135,7 +135,7 @@ data =
 				rect(60,60, 80,80);
 				rect(80,80, 40,40)
 				""" 
-			b : "# LOC:12 fc rect sc\n"
+			b : "# LOC:12 fc rect sc sw \n"
 	
 	Lektion4: 
 		for01: 
@@ -181,8 +181,9 @@ data =
 				  h = 70+5*i;
 				  rect(0,0, w,h);
 				  rd(5);
-				}""" 
-			b:"# LOC:7 for fc circle lerp rd rectMode translate\n"
+				}
+				""" 
+			b:"# LOC:7 for fc circle lerp rd rectMode sc translate\n"
 
 		for12: 
 			a:"""
@@ -200,8 +201,9 @@ data =
 				    rect(0,0, 10,10);
 				    pop()
 				  }
-				}""" 
-			b:"# LOC:10 fc for lerp push pop rect rectMode sc translate\n"
+				}
+				""" 
+			b:"# LOC:10 fc for lerp push pop rd rect rectMode sc translate\n"
 	
 	Lektion5:
 		horizontalLine: 
@@ -227,22 +229,30 @@ data =
 				for (i of range(10)) {
 		  		line(i*20,0,200-i*20,200);
 		  		line(0,20+i*20,200,180-i*20)
-				}"""
+				}
+				"""
 			b: "# LOC:5 bg for lerp line sc\n"
 		
 		lines:  
-			a:"bg(0); for (i in range(37)) { line(10,10,190,10+i*5); line(10,100,190,10+i*5); line(10,190,190,10+i*5) }",
+			a:"""
+				bg(0)
+				for (i in range(37)) {
+					line(10,10,190,10+i*5)
+					line(10,100,190,10+i*5)
+					line(10,190,190,10+i*5) 
+				}
+				"""
 			b:"# LOC:5 bg for lerp line (by Noel Watson)\n"
 
 	Lektion6:
 		whiteTriangle: 
-			a:"fc(1);triangle(20,40, 160,100, 100,140)"
+			a:"fc(1); triangle(20,40, 160,100, 100,140)"
 			b:"# LOC:2 fc triangle\n" 
 		yellowQuad: 
-			a:"fc(1,1,0);quad(150,100, 180,20, 40,20, 100,140)"
+			a:"fc(1,1,0); quad(150,100, 180,20, 40,20, 100,140)"
 			b:"# LOC:2 fc quad\n"
 		pacMan: 
-			a:"fc(1,1,0);arc(100,100, 80,80, radians(-135),radians(135), PIE)"
+			a:"fc(1,1,0); arc(100,100, 80,80, radians(-135),radians(135), PIE)"
 			b:"# LOC:2 arc fc radians PIE\n"
 	
 	Assert1: 
@@ -369,24 +379,39 @@ data =
 	
 	LektionZ: 
 		chessRow: 
-			a:"bg(0.5);for (i of range(8)) {;fc(i%2);rect(20+20*i,20, 20,20)}"
-			b:"# LOC:4 % bg fc for rect\n"
+			a:"""
+				bg(0.5)
+				for (i of range(8)) {
+					fc(i%2)
+					var x = 20+20*i 
+					rect(x,20, 20,20)
+				}
+				"""
+			b:"# LOC:5 % bg fc for rect\n"
 		
 		chessBoard: 
-			a:";bg(0.5);for (i of range(1,9))	{;for (j of range(1,9)) {;fc((i+j)%2);rect(20*i,20*j, 20,20)}}"
+			a:"""
+				bg(0.5)
+				for (i of range(1,9))	{
+					for (j of range(1,9)) {
+						fc((i+j)%2)
+						rect(20*i,20*j, 20,20)
+					}
+				}
+				"""
 			b:"# LOC:5 bg fc for rect\n"
 		
 		multimoire: 
-			a: 
-				"""
+			a: """
 				function moire(k) {
-					background(0);
+					background(0)
 					for (i of range(k)) {
 						for (j of range(37)) {
 							line(10,map(i,0,k-1,10,190),190,10+j*5)
 						}
 					}
-				}"""
+				}
+				"""
 			b:"# LOC:5 bg for line map\n"
 			c: 
 				"moire(2)":0
@@ -396,17 +421,18 @@ data =
 		
 		colorCube:
 			a: """
-			function colorCube(n,b) {
-				bg(0);
-				d = 200.0/n;
-				m = n-1.0;
-				for (r of range(n)) {
-					for (g of range(n)) {
-						fc(r/m,g/m,b/m);
-						rect(r*d,g*d,d,d)
+				function colorCube(n,b) {
+					bg(0)
+					d = 200.0/n
+					m = n-1.0
+					for (r of range(n)) {
+						for (g of range(n)) {
+							fc(r/m,g/m,b/m)
+							rect(r*d,g*d,d,d)
+						}
 					}
 				}
-			}"""
+				"""
 			b: "# LOC:8 -> bg fc for rect\n"
 			c:
 				"colorCube(2,0)":0
@@ -417,29 +443,30 @@ data =
 
 		korg: 
 			a: """
-			function korg(n,w,c1,c2) {
-				bg(0);
-				sw(w);
-				fill(c1);
-				stroke(c2);
-				q = 2*n+1;
-				d = 200.0/q;
-				for (i of range(n)) {
-					rect(d+i*2*d,0,d,200);
-				};
-				for (j of range(n)) {
-					rect(0,d+j*2*d,200,d);
-				};
-				for (i of range(n)) {
+				function korg(n,w,c1,c2) {
+					bg(0)
+					sw(w)
+					fill(c1)
+					stroke(c2)
+					q = 2*n+1
+					d = 200.0/q
+					for (i of range(n)) {
+						rect(d+i*2*d,0,d,200)
+					}
 					for (j of range(n)) {
-						if ((i+j) % 2 == 1) {
-							rect(i*2*d,d+j*2*d,3*d,d);
-						} else {
-							rect(d+i*2*d,j*2*d,d,3*d)
+						rect(0,d+j*2*d,200,d)
+					}
+					for (i of range(n)) {
+						for (j of range(n)) {
+							if ((i+j) % 2 == 1) {
+								rect(i*2*d,d+j*2*d,3*d,d)
+							} else {
+								rect(d+i*2*d,j*2*d,d,3*d)
+							}
 						}
 					}
 				}
-			}"""
+				"""
 			b:"# LOC:17 -> bg fc for if else rect sc sw\n"
 			c: 
 				"korg(1,5,co(1,0,0),co(1,1,0))":0
@@ -477,57 +504,58 @@ data =
 			a:"""
 				function dots(x,y,dots) {
 					for (dot of dots) {
-						if (dot==1) point(x+8,y+8); 
-						if (dot==2) point(x+8,y+10);
-						if (dot==3) point(x+8,y+12);
-						if (dot==4) point(x+10,y+10);
-						if (dot==5) point(x+12,y+8);
-						if (dot==6) point(x+12,y+10);
-						if (dot==7) point(x+12,y+12);
+						if (dot==1) point(x+8,y+8) 
+						if (dot==2) point(x+8,y+10)
+						if (dot==3) point(x+8,y+12)
+						if (dot==4) point(x+10,y+10)
+						if (dot==5) point(x+12,y+8)
+						if (dot==6) point(x+12,y+10)
+						if (dot==7) point(x+12,y+12)
 					}
 				}
 				function dice(x,y,d) {
-					if (d==1) dots(x,y,[4]);
-					if (d==2) dots(x,y,[1,7]);
-					if (d==3) dots(x,y,[1,4,7]);
-					if (d==4) dots(x,y,[1,3,5,7]);
-					if (d==5) dots(x,y,[1,3,4,5,7]);
-					if (d==6) dots(x,y,[1,2,3,5,6,7]);
+					if (d==1) dots(x,y,[4])
+					if (d==2) dots(x,y,[1,7])
+					if (d==3) dots(x,y,[1,4,7])
+					if (d==4) dots(x,y,[1,3,5,7])
+					if (d==5) dots(x,y,[1,3,4,5,7])
+					if (d==6) dots(x,y,[1,2,3,5,6,7])
 				}
 				function manyDices() {
-					fc(0); 
+					fc(0)
 					for (i of range(10)) { 
 						for (j of range(10)) { 
 							dice(20*i,20*j,1+(i+j)%6)
 						}
 					}
-				}"""
-			b : "# LOC:34 -> fc if [] % for\n"
+				}
+				"""
+			b : "# LOC:34 -> fc for if point [] % \n"
 			c : "manyDices()":0
 		
 		klocka: 
 			a: """
 				function visare(v,w,l,r,g,b) {
-					push();
-					rd(v-90);
-					translate(l/2,0);
-					fc(r,g,b);
-					rect(0,0,l,w);
+					push()
+					rd(v-90)
+					translate(l/2,0)
+					fc(r,g,b)
+					rect(0,0,l,w)
 					pop()
-				};
+				}
 				function klocka(h,m,s) {
-					rectMode(CENTER);
-					translate(100,100);
-					urtavla();
-					visare((h+m/60.0)*30, 7,60,1,0,0);
-					visare((m+s/60.0)*6,5,80,0,1,0);
+					rectMode(CENTER)
+					translate(100,100)
+					urtavla()
+					visare((h+m/60.0)*30, 7,60,1,0,0)
+					visare((m+s/60.0)*6,5,80,0,1,0)
 					visare(s*6,2,80,0,0,1)
 				}
 				function urtavla() {
-					fc(0);
-					sc(1);
-					circle(0,0,90);
-					fc(1);
+					fc(0)
+					sc(1)
+					circle(0,0,90)
+					fc(1)
 					for (i of range(60)) {
 						if (i%5==0) {
 							circle(85,0,2)
@@ -536,7 +564,8 @@ data =
 						}
 						rd(6)
 					}
-				}"""
+				}
+				"""
 			b: "# LOC:37 -> circle else fc for if point push pop rd rect rectMode sc translate \n"
 			c: 
 				"klocka(10,9,30)":0
@@ -544,123 +573,181 @@ data =
 		
 		recursiveCircles: 
 			a: """
-				sc(1);
+				sc(1)
 				function circles(x,y,r) {
-					circle(x,y,r);
-					if (r < 10) return;
-					circles(x-r/2,y,r/2);
+					circle(x,y,r)
+					if (r < 10) return
+					circles(x-r/2,y,r/2)
 					circles(x+r/2,y,r/2)
 				}
 				"""
-			b: "# LOC:7 -> if\n"
+			b: "# LOC:7 -> circle if return sc < \n"
 			c: "circles(100,100,100)":0
 		
 		hypnoticA : 
 			a: """
 				function hypnoticA() {
-					bg(0.5, 0, 0);
-					noStroke();
-					fc(1);
+					bg(0.5, 0, 0)
+					sc()
+					fc(1)
 					for (i of range(100)) {
-						x = 100 + cos(i) * i;
-						y = 100 + sin(i) * i;
+						x = 100 + cos(i) * i
+						y = 100 + sin(i) * i
 						circle(x, y, 5)
 					}
-				}"""
-			b: "# LOC:6 -> cos sin\n"
+				}
+				"""
+			b: "# LOC:6 -> bg circle cos fc sc sin\n"
 			c: "hypnoticA()":0
 
 		hypnoticB : 
 			a: """
 				function hypnoticB(t) {
-					bg(0.5, 0, 0);
-					noStroke();
-					fc(1);
+					bg(0.5, 0, 0)
+					sc()
+					fc(1)
 					for (i of range(100)) {
-						x = 100 + cos(i) * i;
-						y = 100 + sin(i) * i;
-						speed = i/10.0;
-						r = map(sin(t*speed), -1, 1, 2, 5);
+						x = 100 + cos(i) * i
+						y = 100 + sin(i) * i
+						speed = i/10.0
+						r = map(sin(t*speed), -1, 1, 2, 5)
 						circle(x, y, r)
 					}
-				}"""
-			b: "# LOC:7 -> map\n"
+				}
+				"""
+			b: "# LOC:7 -> bg circle cos fc map sc sin \n"
 			c: 
 				"hypnoticB(1)":0
 				"hypnoticB(5)":0
 		
 		square : 
 			a: "function square(x,y,size) { rect(x,y,size,size) }"
-			b: "# LOC:2 ->\n"
+			b: "# LOC:2 -> rect \n"
 			c: 
 				"square(100,90,50)":0 
 				"square(100,100,60)":0
 
 		gravity : 
 			a: "fc(1); for (i of range(15)) { x=5+10*i; y=5+lerp(0,lerp(0,1,i),i); circle(x,y,5);}"
-			b: "# LOC:6 lerp lerp\n"
+			b: "# LOC:6 circle lerp\n"
 
 	LektionN: 
+
 		dist: 
 			a:"""
-				bg(0);
-				for (var i = 0;i<10;i++){
-					for (var j = 0;j<10;j++){
-						fc(1);
-						sc();
-						x=lerp(10,30,i);
-						y=lerp(10,30,j);
-						d=dist(100,100,x,y);
-						w=map(d,0,150,1,20);
-						ellipse(x,y,w,w);
+				bg(0)
+				fc(1)
+				sc()
+				for (var i=0; i<10; i++) {
+					var x = lerp(10,30,i)
+					for (var j=0; j<10; j++) {
+						var y = lerp(10,30,j)
+						var d = dist(100,100,x,y)
+						var r = map(d,0,150,1,20)/2
+						circle(x,y,r)
 					}
 				}
 				""" 
-			b:"# LOC:? dist lerp\n"
+			b:"# LOC:10 bg circle dist fc lerp map sc\n"
 		
 		bulge: 
-			a:"bg(0);for(var x = 0;x<20;x++){for(var y = 0;y<20;y++){fill(255);noStroke();ellipse(x*200/20+5,y*200/20+5,map(sin(x*PI/20),-1,1,1,3)*map(sin(y*PI/20),-1,1,1,3),map(sin(x*PI/20),-1,1,1,3)*map(sin(y*PI/20),-1,1,1,3));}}"
-			b:"# LOC:? dist sin\n"
-		wave: 
-			a:"bg(0);for(var i = 0; i <21;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),100,100);var a=map(i,0,20,0,2*PI);noStroke();ellipse(10*i,map(sin(a),-1,1,0,200),5,5);}"
-			b:"# LOC:9 sin map PI\n"
-		circle: 
 			a:"""
-				bg(0);
-				for(var i = 0; i <20;i++){
-					colorMode(HSB,360,100,100);
-					var r=map(i,0,19,0,360);
-					fill(r,255,255);
-					var a=map(i,0,20,0,2*PI);
-					sc();
-					var x=map(cos(a),-1,1,0,200);
-					var y=map(sin(a),-1,1,0,200);
-					circle(x,y,3);
+				bg(0)
+				fill(255)
+				noStroke()
+				for (var i=0; i<20; i++) {
+					for (var j=0; j<20; j++) {
+						x = i*200/20+5
+						y = j*200/20+5
+						r = map(sin(i*PI/20),-1,1,1,3) * map(sin(j*PI/20),-1,1,1,3) / 2
+						circle(x,y,r)
+					}
 				}
 				"""
-			b:"# LOC:10 circle colorMode cos fc map PI sc sin\n"
+			b:"# LOC:10 bg circle dist fill map noStroke sin\n"
+
+		wave: 
+			a:"""
+				colorMode(HSB,360,100,100)
+				noStroke()
+				bg(0)
+				for (var i=0; i<21; i++) {
+					fill(map(i,0,20,0,360),100,100)
+					var a = map(i,0,20,0,2*PI)
+					var x = 10*i
+					var y = map(sin(a),-1,1,0,200)
+					circle(x,y,3)
+				}
+				"""
+			b:"# LOC:9 circle colorMode fill map noStroke sin PI\n"
+
+		circle: 
+			a:"""
+				bg(0)
+				colorMode(HSB,360,100,100)
+				for (var i=0; i<20; i++){
+					var r=map(i,0,19,0,360)
+					fill(r,255,255)
+					var a=map(i,0,20,0,2*PI)
+					sc()
+					var x=map(cos(a),-1,1,0,200)
+					var y=map(sin(a),-1,1,0,200)
+					circle(x,y,3)
+				}
+				"""
+			b:"# LOC:10 bg circle colorMode cos fc map PI sc sin\n"
 	
 		circles: 
-			a:"bg(0);translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),255,255);var a=map(i,0,20,0,2*PI);noStroke();ellipse(map(cos(a),-1,1,-j*10,j*10),map(sin(a),-1,1,-j*10,j*10),5,5);}}"
-			b:"# LOC:? translate sin cos map PI\n"
+			a:"""
+				bg(0)
+				noStroke()
+				colorMode(HSB,360,100,100)
+				translate(100,100)
+				for (var i=0; i<20; i++) {
+					for (var j=0; j<11; j++) {
+						fill(map(i,0,20,0,360),255,255)
+						var a = map(i,0,20,0,2*PI)
+						var x = map(cos(a),-1,1,-j*10,j*10)
+						var y = map(sin(a),-1,1,-j*10,j*10)
+						var r = 3
+						circle(x,y,r)
+					}
+				}
+				"""
+			b:"# LOC:12 bg circle colorMode cos fill map noStroke translate sin PI\n"
 		
 		sized_circles: 
-			a:"bg(0);translate(100,100);for(var j = 0; j <11;j++){for(var i = 0; i <20;i++){colorMode(HSB,360,100,100);fill(map(i,0,20,0,360),255,255);var a=map(i,0,20,0,2*PI);noStroke();ellipse(map(cos(a),-1,1,-j*10,j*10),map(sin(a),-1,1,-j*10,j*10),map(j,0,10,0,10),map(j,0,10,0,10));}}"
-			b:"# LOC:? translate sin cos map PI\n"
+			a:"""
+				bg(0)
+				noStroke()
+				colorMode(HSB,360,100,100)
+				translate(100,100)
+				for (var i=0; i<20; i++) { 
+					fill(map(i,0,20,0,360),255,255)
+					var a = map(i,0,20,0,2*PI)
+					for (var j=0; j<11; j++) {
+						var x = map(cos(a),-1,1,-j*10,j*10)
+						var y = map(sin(a),-1,1,-j*10,j*10)
+						var r = map(j,0,10,0,10)/2
+						circle(x,y,r)
+					}
+				}
+				"""
+			b:"# LOC:12 circle colorMode cos fill map noStroke PI sin translate \n"
 		
 		rotated_circles: 
 			a:"""
+				colorMode(HSB,360,100,100);
+				sc();
 				bg(0);
 				translate(100,100);
-				for (var j = 0; j <11;j++){
-					for (var i = 0; i <20;i++){
+				for (var i=0; i<20; i++){
+					var r = map(i,0,20,0,360);
+					var a=map(i,0,20,0,2*PI);
+					for (var j=0; j<11; j++){
 						push();
 						rotate(map(j,0,10,0,360));
-						colorMode(HSB,360,100,100);
-						var r = map(i,0,20,0,360);
 						fill(r,255,255);
-						sc();
-						var a=map(i,0,20,0,2*PI);
 						var x=map(cos(a),-1,1,-j*10,j*10);
 						var y=map(sin(a),-1,1,-j*10,j*10);
 						circle(x,y,j/2);
@@ -669,22 +756,3 @@ data =
 				}
 				"""
 			b:"# LOC:17 circle cos map PI push pop rotate sin translate \n"
-
-		linecircles: 
-			a:"function linecircles(ky){bg(0);fill(255);strokeWeight(1);stroke(255);for(var y = 0;y<ky;y++){line(map(cos(y),-1,1,0,200),map(sin(y),-1,1,0,200),map(cos(y+ky+ky),-1,1,0,200),map(sin(y+ky+ky),-1,1,0,200));}}"
-			b:"# LOC:? sin cos function\n"
-			c: 
-				"linecircles(1)":0
-				"linecircles(10)":0
-				"linecircles(20)":0
-				"linecircles(40)":0
-
-		linechaos: 
-			a:"function grid(x,y,w,h,a,s){strokeWeight(s);for(var i = 0;i<a+1;i++){stroke(255);line(x,y+i*h/a,x+w,y+i*h/a);line(x+i*w/a,y,x+i*w/a,y+h);}};function grids(x,y,w,h,a,s){strokeWeight(s);for(var i = 0;i<a+1;i++){stroke(255);grid(x,y+i*h/a,x+w,y+i*h/a,a,s);grid(x+i*w/a,y,x+i*w/a,y+h,a,s)}};function linechaos(k){background(0);grids(0,0,200,200,k,1);};"
-			b:"# LOC:? line\n"
-			c: 
-				"linechaos(1)":0
-				"linechaos(3)":0
-				"linechaos(7)":0
-				"linechaos(10)":0
-				"linechaos(20)":0
