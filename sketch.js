@@ -199,7 +199,7 @@ window.onload = function () {
 
   myCodeMirror = CodeMirror.fromTextArea(document.getElementById("code"), {
     lineNumbers: true,
-    mode: "javascript",
+    mode: "coffeescript",
     keyMap: "sublime",
     theme: "dracula",
     autoCloseBrackets: true,
