@@ -323,9 +323,9 @@ function compare() {
       var r2 = lst2[0]
       var g2 = lst2[1]
       var b2 = lst2[2]
-      var r = abs(r1-r2) 
+      var r = abs(r1-r2)
       var g = abs(g1-g2)
-      var b = abs(b1-b2) 
+      var b = abs(b1-b2)
 
       area3.setPixel(i,j,[r,g,b,255]) 
       if (r+g+b > 9) { // t ex whiteTriangle i motsatt riktning
