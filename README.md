@@ -2,7 +2,7 @@
 
 [p5Dojo](https://christernilsson.github.io/p5Dojo) christernilsson.github.io/p5Dojo
 
-## 2D och 3D grafik med Javascript
+## 2D och 3D grafik med p5.js och Coffeescript
 
 ### målsättning
 * Den första bitmappen ritar du, genom att programmera
