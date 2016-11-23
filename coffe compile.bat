@@ -1,1 +1,1 @@
-coffee -b -o . -cw .
+coffee -M -b -o . -cw .
