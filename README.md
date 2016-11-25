@@ -183,7 +183,51 @@ function f(a,b) {
  - [funprogramming](http://funprogramming.org)
  - [p5.js video tutorial](https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=14)
 
-### kontakt, synpunkter, felrapportering, förslag till exempelkod mm
+### kontakt, synpunkter, felrapportering, förslag till exempelkod
 
- - https://github.com/ChristerNilsson/p5Dojo/issues
  - janchrister.nilsson snabela gmail.com
+
+## Installation
+
+### Javascript
+
+* Använd valfri texteditor t ex Sublime eller Notepad.
+* Du måste ha följande filer
+** p5.js
+** p5.dom.js
+** underscore.js
+** nilsson.js
+** sketch.js
+* Du måste ha filen index.html
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
+    <script src="libraries/underscore.js"></script>
+    <script src="libraries/nilsson.js"></script>
+    <script src="sketch.js"></script>
+  </head>
+  <body></body>
+</html>
+```
+### Så här arbetar du
+
+* Den eller de javascriptfiler du använder måste anges i index.html
+* Dubbelklicka på index.html. Då startar applikationen.
+* Vid problem: Tryck på F12 i Chrome och läs eventuella felmeddelanden eller debugga.
+
+### Coffeescript
+
+* download node.js [.msi-fil i Windows](https://nodejs.org/en/download)
+* Skriv in följande kommando i ett terminalfönster
+```javascript
+npm install -g coffee-script
+```
+* Starta transpilering i bakgrunden med detta kommando. Då du sparar skapas .js-filen.
+```javascript
+coffee -M -b -o . -cw .
+```
