@@ -222,7 +222,7 @@ function f(a,b) {
 
 ### Coffeescript
 
-- download node.js [.msi-fil i Windows](https://nodejs.org/en/download)
+- download [node.js](https://nodejs.org/en/download)
 - Skriv in följande kommando i ett terminalfönster
 ```javascript
 npm install -g coffee-script
