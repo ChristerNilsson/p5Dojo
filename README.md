@@ -191,14 +191,14 @@ function f(a,b) {
 
 ### Javascript
 
-* Använd valfri texteditor t ex Sublime eller Notepad.
-* Du måste ha följande filer
-** p5.js
-** p5.dom.js
-** underscore.js
-** nilsson.js
-** sketch.js
-* Du måste ha filen index.html
+- Använd valfri texteditor t ex Sublime eller Notepad.
+- Du måste ha följande filer
+ * p5.js
+ * p5.dom.js
+ * underscore.js
+ * nilsson.js
+ * sketch.js
+- Du måste ha filen index.html
 ```html
 <!DOCTYPE html>
 <html>
@@ -216,18 +216,18 @@ function f(a,b) {
 ```
 ### Så här arbetar du
 
-* Den eller de javascriptfiler du använder måste anges i index.html
-* Dubbelklicka på index.html. Då startar applikationen.
-* Vid problem: Tryck på F12 i Chrome och läs eventuella felmeddelanden eller debugga.
+- Den eller de javascriptfiler du använder måste anges i index.html
+- Dubbelklicka på index.html. Då startar applikationen.
+- Vid problem: Tryck på F12 i Chrome och läs eventuella felmeddelanden eller debugga.
 
 ### Coffeescript
 
-* download node.js [.msi-fil i Windows](https://nodejs.org/en/download)
-* Skriv in följande kommando i ett terminalfönster
+- download [node.js](https://nodejs.org/en/download)
+- Skriv in följande kommando i ett terminalfönster
 ```javascript
 npm install -g coffee-script
 ```
-* Starta transpilering i bakgrunden med detta kommando. Då du sparar skapas .js-filen.
+- Starta transpilering i bakgrunden med detta kommando. Då du sparar skapas .js-filen.
 ```javascript
 coffee -M -b -o . -cw .
 ```
