@@ -756,3 +756,43 @@ data =
 				}
 				"""
 			b:"# LOC:17 circle cos map PI push pop rotate sin translate \n"
+
+		christmasTree:
+			a:"""
+				bg(0);
+				fc(0, 1, 0);
+				sc(0, 1, 0);
+				triangle(100, 100, 180, 160, 20, 160);
+				triangle(100, 60, 160, 120, 40, 120);
+				triangle(100, 40, 140, 80, 60, 80);
+				fc(0.5);
+				rect(80, 160, 40, 20);
+				fc(1, 1, 0);
+				sc(1, 1, 0);
+				quad(100, 0, 120, 20, 100, 40, 80, 20);
+				rect(85, 5, 30, 30);
+				sc(1, 1, 0);
+				line(80, 60, 140, 120);
+				line(60, 100, 120, 160);
+				fc(1, 0, 0);
+				sc(1, 0, 0);
+				circle(80, 100, 5);
+				circle(140, 140, 5);
+				circle(100, 60, 5);
+				circle(60, 160, 5);
+				circle(100, 120, 5);
+				fc(1);
+				sc(1);
+				rect(0, 180, 200, 20);
+				circle(20, 20, 5);
+				circle(40, 40, 5);
+				circle(10, 80, 5);
+				circle(30, 140, 5);
+				circle(50, 100, 5);
+				circle(120, 50, 5);
+				circle(160, 20, 5);
+				circle(180, 80, 5);
+				circle(160, 130, 5);
+				circle(190, 180, 5);
+				"""
+			b:"# LOC:35 bg circle fc line rect quad sc triangle (by Sab Lar)\n"
