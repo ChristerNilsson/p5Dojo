@@ -1,15 +1,17 @@
-# p5Dojo
+# p5Dojo - 2D och 3D grafik med p5.js och Coffeescript
 
 [p5Dojo](https://christernilsson.github.io/p5Dojo) christernilsson.github.io/p5Dojo
 
-## 2D och 3D grafik med p5.js och Coffeescript
-
-### målsättning
-* Den första bitmappen ritar du, genom att programmera
-* Den andra bitmappen ska du efterlikna
-* Den tredje bitmappen visar skillnaden
-* De två bitmapparna är lika när den tredje är helt svart (dvs 0,0,0)
-* Du kan programmera i CoffeeScript eller JavaScript
+p5Dojo innehåller mängder av övningar för den som snabbt vill komma igång med grafisk programmering.
+- Uppgifterna som ska programmeras ges av bitmappar.
+- Minimal mängd kod behöver skrivas, tack vare Coffeescript-syntax.
+- Även Javascript kan användas.
+- Omedelbar feedback i form av skillnadsbitmapp.
+- p5 kan användas för att skapa rörlig 3D-grafik för 
+ * web
+ * iPhone och iPad
+ * Android 
+ * Windows Phone
 
 ### färger
   - 0,0,1 blå
