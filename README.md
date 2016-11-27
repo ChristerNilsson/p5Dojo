@@ -27,14 +27,14 @@
   - **bg** 1,1,0 gul
 
 ### fyllningsfärg
-  - **fc**  ingen
+  - **fc()**  ingen
   - **fc** 1   vit
   - **fc** 1,1,0   gul
   - **fc** 1,0,0   röd 
   - **fc** 1,0,0,0.5 röd, halvgenomskinlig
 
 ### streckfärg
-  - **sc**    ingen
+  - **sc()**    ingen
   - **sc** 1   vit
   - **sc** 1,1,0   gul
   - **sc** 1,0,0   röd
@@ -90,9 +90,9 @@ else
 ```    
 
 ### koordinatsystemet
-  - **translate** x,y   flytta origo      
   - **rd** degrees      rotera runt origo
   - **scale** n         skala upp eller ner
+  - **translate** x,y   flytta origo      
   
 ### modes
   - **rectMode** CORNER
@@ -120,7 +120,7 @@ else
 
 ### push & pop
 Sparar och återställer följande kommandon:
- - translate rotate scale fc sc sw rectMode
+ - rotate scale translate fc sc sw rectMode
  - tint strokeCap strokeJoin imageMode ellipseMode colorMode
  - textAlign textFont textMode textSize textLeading
  - [information](https://www.processing.org/tutorials/transform2d)
@@ -131,7 +131,7 @@ Sparar och återställer följande kommandon:
   * Tabstorlek alltid två mellanslag
   * Python-kolon används ej
  - Semikolon används ej
- - Parenteser behövs ej för att anropa funktioner
+ - Parenteser behövs ej för att anropa funktioner, om de har parametrar.
  - Funktioner skapas med ->
   * f = (x) -> x*x
   * g = (a,b) -> a+b
