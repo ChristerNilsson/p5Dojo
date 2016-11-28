@@ -1,15 +1,17 @@
-# p5Dojo
+# p5Dojo - 2D och 3D grafik med p5.js och Coffeescript
 
 [p5Dojo](https://christernilsson.github.io/p5Dojo) christernilsson.github.io/p5Dojo
 
-## 2D och 3D grafik med p5.js och Coffeescript
-
-### målsättning
-* Den första bitmappen ritar du, genom att programmera
-* Den andra bitmappen ska du efterlikna
-* Den tredje bitmappen visar skillnaden
-* De två bitmapparna är lika när den tredje är helt svart (dvs 0,0,0)
-* Du kan programmera i CoffeeScript eller JavaScript
+p5Dojo innehåller mängder av övningar för den som snabbt vill komma igång med grafisk programmering.
+- Uppgifterna som ska programmeras ges av bitmappar.
+- Minimal mängd kod behöver skrivas, tack vare Coffeescript-syntax.
+- Även Javascript kan användas.
+- Omedelbar feedback i form av skillnadsbitmapp.
+- p5 kan användas för att skapa rörlig 3D-grafik för 
+ * web
+ * iPhone och iPad
+ * Android 
+ * Windows Phone
 
 ### färger
   - 0,0,1 blå
@@ -27,14 +29,14 @@
   - **bg** 1,1,0 gul
 
 ### fyllningsfärg
-  - **fc**  ingen
+  - **fc()**  ingen
   - **fc** 1   vit
   - **fc** 1,1,0   gul
   - **fc** 1,0,0   röd 
   - **fc** 1,0,0,0.5 röd, halvgenomskinlig
 
 ### streckfärg
-  - **sc**    ingen
+  - **sc()**    ingen
   - **sc** 1   vit
   - **sc** 1,1,0   gul
   - **sc** 1,0,0   röd
@@ -90,9 +92,9 @@ else
 ```    
 
 ### koordinatsystemet
-  - **translate** x,y   flytta origo      
   - **rd** degrees      rotera runt origo
   - **scale** n         skala upp eller ner
+  - **translate** x,y   flytta origo      
   
 ### modes
   - **rectMode** CORNER
@@ -120,7 +122,7 @@ else
 
 ### push & pop
 Sparar och återställer följande kommandon:
- - translate rotate scale fc sc sw rectMode
+ - rotate scale translate fc sc sw rectMode
  - tint strokeCap strokeJoin imageMode ellipseMode colorMode
  - textAlign textFont textMode textSize textLeading
  - [information](https://www.processing.org/tutorials/transform2d)
@@ -131,7 +133,7 @@ Sparar och återställer följande kommandon:
   * Tabstorlek alltid två mellanslag
   * Python-kolon används ej
  - Semikolon används ej
- - Parenteser behövs ej för att anropa funktioner
+ - Parenteser behövs ej för att anropa funktioner, om de har parametrar.
  - Funktioner skapas med ->
   * f = (x) -> x*x
   * g = (a,b) -> a+b
