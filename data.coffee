@@ -376,6 +376,57 @@ data =
 				"map(3,1,3,20,40)" : 40
 				"map(75,50,100,0,1)" : 0.5
 				"map(16,0,40,0,200)" : 80
+
+	Assert4: 
+		complex1: 
+			a:"""
+				class Cpx
+					constructor : (@x,@y) ->
+					add : (other) ->
+						new Complex @x+other.x, @y+other.y
+					mul : (other) ->
+						a = @x
+						b = @y
+						c = other.x
+						d = other.y
+						new Complex a*c-b*d, b*c+a*d
+					tos : ->
+						sx = "" if @x == 0
+						sx = "#{@x}" if @x > 0
+						sx = "#{@x}" if @x < 0
+
+						sy = "" if @y == 0
+						sy = "-i" if @y == -1
+						sy = "i" if @y == 1
+						sy = "#{@y}i" if @y > 1
+						sy = "#{@y}i" if @y < -1
+
+						if sx!="" and sy!=""
+							if @y < 0
+								s = sx+sy
+							else if @y==0
+								s = sx
+							else
+								s = sx + "+" + sy
+						else if @x==0 and @y==0
+							s = "0"
+						else 
+							s = sx + sy
+						s
+
+						"""
+			b:""
+			c:  
+				"new Cpx(-1,0).tos()" :"-1"
+				"new Cpx(-1,-1).tos()" : "-1-i"
+				"new Cpx(0,-1).tos()" : "-i"
+				"new Cpx(0,0).tos()" : "0"
+				"new Cpx(0,1).tos()" : "i"
+				"new Cpx(1,-2).tos()" : "1-2i"
+				"new Cpx(1,-1).tos()" : "1-i"
+				"new Cpx(1,0).tos()" : "1"
+				"new Cpx(1,1).tos()" : "1+i"
+				"new Cpx(1,2).tos()" : "1+2i"
 	
 	LektionZ: 
 		chessRow: 
