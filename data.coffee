@@ -415,7 +415,7 @@ data =
 						s
 
 						"""
-			b:""
+			b:"# LOC:23 class constructor -> if"
 			c:  
 				"new Cpx(-1,0).tos()" :"-1"
 				"new Cpx(-1,-1).tos()" : "-1-i"
