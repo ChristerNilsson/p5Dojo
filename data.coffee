@@ -1,6 +1,6 @@
-# a : facit
-# b : student
-# c : call
+# a : facit, might be any language. Not used by p5Dojo.
+# b : comment line. LOC and keyword clues
+# c : call in Javascript syntax
 # Observe:	local variables a,b and c must be declared var. e.g. r,g,b
 # Eventually, skip a,b and c and use a list instead
 
