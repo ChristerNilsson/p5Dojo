@@ -428,6 +428,13 @@ data =
 				"new Cpx(1,1).tos()" : "1+i"
 				"new Cpx(1,2).tos()" : "1+2i"
 	
+		split1: 
+			a:"g = (h) -> _.object(f.split '=' for f in h.split('?')[1].split('&'))"
+			b:"# LOC:1 split for in _.object"
+			c:  
+				"g('url?x=0&y=1')" : {x:'0', y:'1'}
+				"g('url?page=7')" : {page : '7'}
+
 	LektionZ: 
 		chessRow: 
 			a:"""

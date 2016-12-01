@@ -107,7 +107,7 @@ function fillSelectAssert(sel, dict) {
   sel.empty()
   for (key in dict) {
     var val = dict[key]
-    sel.append($("<option>").attr('value', key).text(key + ' == ' + val))
+    sel.append($("<option>").attr('value', key).text(key + '==' + JSON.stringify(val)))
   }
 }
 
@@ -253,7 +253,7 @@ function run0() {
     run(0, "result = " + transpile(b + "\nreturn " + call))    
     if (result != null) {
       console.log(result)
-      if (result == expectedResult) {
+      if (_.isEqual(result, expectedResult)) {
         run(0,"bg(0,1,0)")
       } else {
         run(0,"bg(1,0,0)")
