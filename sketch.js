@@ -214,6 +214,9 @@ window.onload = function () {
 
   help = createA('https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md', 'help', '_blank')
   help.position(10,638)
+
+  p5Color = createA('https://christernilsson.github.io/p5Color/', 'p5Color', '_blank')
+  p5Color.position(50,638)
   
   background(128)
   run(0, "")
