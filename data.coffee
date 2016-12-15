@@ -708,3 +708,25 @@ circle(100,60,10)
 				circle(160, 130, 5);
 				circle(190, 180, 5);
 				"""
+		santa:
+			b:"# LOC:18 bg circle ellipse fc rect quad sc triangle (by Sabrina Larsson)\n"
+			a:"""
+bg(0,0,1)
+fc(1,0,0)
+sc(1,0,0)
+ellipse(100,50,60,70)
+rect(60,20,30,10)
+quad(140,10,145,20,120,25,115,20)
+fc(0)
+sc(0)
+circle(50,25,10)
+rect(70,40,60,10)
+circle(140,20,10)
+sc(1,1,0)
+rect(100,45,5,5)
+fc(0.5)
+sc(0.5)
+rect(60,80,80,20)
+rect(80,100,40,60)
+triangle(100,140,0,200,200,200)
+"""
