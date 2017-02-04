@@ -660,6 +660,7 @@ for (var i=0; i<8; i++) {
 	sc(0)
 	rect(x,y,w,h)
 	fc(0)
+	sc()
 	text(i,x,y)
 }
 			"""
@@ -682,6 +683,7 @@ for (var i=0; i<8; i++) {
 		sc(0)
 		rect(x,y,w,h)
 		fc(0)
+		sc()
 		text(i+8*j,x,y)
 	}
 }
@@ -710,6 +712,7 @@ function f(nx,ny) {
 			sc(0)
 			rect(x,y,w,h)
 			fc(0)
+			sc()
 			text(i+nx*j,x,y)
 		}
 	}
