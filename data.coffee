@@ -625,6 +625,180 @@ circle(160,40,20)
 				"""
 			b:"# LOC:17 circle cos map PI push pop rotate sin translate \n"
 
+	Lektion8:
+		guess1:
+			b:"# LOC:10 bg rectMode for range rect\n"
+			a:"""
+bg(1)
+rectMode(CENTER,CENTER)
+n = 200
+size = n / 8
+sc(0)
+for (var i=0; i<8; i++) {
+	x = i * size + size/2
+	y = size/2
+	w = size
+	h = size
+	rect(x,y,w,h)
+}			
+			"""
+
+		guess2:
+			b:"# LOC:15 bg rectMode for range rect textAlign text sc fc\n"
+			a:"""
+bg(1)
+rectMode(CENTER,CENTER)
+textAlign(CENTER,CENTER)
+n = 200
+size = n / 8
+for (var i=0; i<8; i++) {
+	x = i * size + size/2
+	y = size/2
+	w = size
+	h = size
+	fc()
+	sc(0)
+	rect(x,y,w,h)
+	fc(0)
+	text(i,x,y)
+}
+			"""
+
+		guess3:
+			b:"# LOC:15 bg rectMode for range rect textAlign text sc fc\n"
+			a:"""
+bg(1)
+rectMode(CENTER,CENTER)
+textAlign(CENTER,CENTER)
+n = 200
+size = n / 8
+for (var i=0; i<8; i++) {
+	for (var j=0; j<8; j++) {
+		x = i * size + size/2
+		y = j * size + size/2
+		w = size
+		h = size
+		fc()
+		sc(0)
+		rect(x,y,w,h)
+		fc(0)
+		text(i+8*j,x,y)
+	}
+}
+			"""
+
+		guess4:
+			b:"""
+# LOC:20 bg rectMode for range rect textAlign text sc fc
+f = (nx,ny) ->
+"""
+			a:"""
+function f(nx,ny) {
+	bg(1)
+	rectMode(CENTER,CENTER)
+	textAlign(CENTER,CENTER)
+	n = 200
+	px = n/nx
+	py = n/ny
+	for (var i=0; i<nx; i++) {
+		for (var j=0; j<ny; j++) {
+			x = i * px + px/2
+			y = j * py + py/2
+			w = px
+			h = py
+			fc()
+			sc(0)
+			rect(x,y,w,h)
+			fc(0)
+			text(i+nx*j,x,y)
+		}
+	}
+}
+			"""
+			c:
+				"f(8,6)":0
+				"f(6,6)":0
+
+		guess5:
+			b:"""
+# LOC:26 bg rectMode for range rect textAlign text sc fc if else
+f = (nx,ny,start,stopp) ->
+"""
+			a:"""
+function f(nx,ny,start,stopp) {
+	bg(1)
+	rectMode(CENTER,CENTER)
+	textAlign(CENTER,CENTER)
+	n = 200
+	px = n/nx
+	py = n/ny
+	for (var i=0; i<nx; i++) {
+		for (var j=0; j<ny; j++) {
+			x = i * px + px/2
+			y = j * py + py/2
+			w = px
+			h = py
+			fc()
+			sc(0)
+			rect(x,y,w,h)
+			index = i+nx*j
+			sc()
+			if (start <= index && index <= stopp) {
+				fc(0)
+			} else {
+				fc(0.8)
+			}
+			text(index,x,y)
+		}
+	}
+}		
+			"""
+			c:
+				"f(8,8,18,45)" : 0
+				"f(6,6,10,25)" : 0
+
+		guess6:
+			b:"""
+# LOC:30 bg rectMode for range rect textAlign text sc fc if else
+f = (nx,ny,start,stopp,mx,my,target) ->
+"""
+			a:"""
+function f(nx,ny,start,stopp,mx,my,target) {
+	bg(1)
+	rectMode(CENTER,CENTER)
+	textAlign(CENTER,CENTER)
+	n = 200
+	px = n/nx
+	py = n/ny
+	i = int(mx/px)
+	j = int(my/py) 
+	clicked = i+nx*j
+	if (clicked <= target) start = clicked + 1
+	if (clicked >= target) stopp = clicked - 1
+	for (var i=0; i<nx; i++) {
+		for (var j=0; j<ny; j++) {
+			x = i * px + px/2
+			y = j * py + py/2
+			w = px
+			h = py
+			fc()
+			sc(0)
+			rect(x,y,w,h)
+			index = i+nx*j
+			sc()
+			if (start <= index && index <= stopp)
+				fc(0)
+			else
+				fc(0.8)
+			text(index,x,y)
+		}
+	}
+}		
+			"""
+			c:
+				"f(8,8,18,45,70,90,28)":0
+				"f(6,6,10,25,90,90,20)":0
+
 	Exhibition :
 		tomteluva:
 			b:"# LOC:12 circle fc sc triangle (by Sabrina Larsson)\n"
