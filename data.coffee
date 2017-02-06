@@ -803,6 +803,43 @@ function f(nx,ny,start,stopp,mx,my,target) {
 				"f(6,6,10,25,90,90,20)":0
 
 	Exhibition :
+		clown:
+			b:"# LOC:32 bg circle fc sc sw line lerp (by David Larsson)\n"
+			a:"""
+//ECMA
+bg(0, 1, 0, 0.5);
+fc(1, 0, 0);
+circle(10, 10, 5);
+circle(20, 20, 10);
+for (i=0; i<10; i++) {
+	x = lerp(10, 20, i);
+	y = x;
+	r = lerp(5, 10, i);
+	circle(x, y, r);
+}
+fc(0, 1, 1);
+circle(190, 10, 5);
+circle(180, 20, 10);
+for (i = 0; i<10; i++) {
+	x = lerp(190, 180, i);
+	y = lerp(10, 20, i);
+	r = lerp(5, 10, i);
+	circle(x, y, r);
+}
+fc(1);
+circle(100, 100, 50);
+fc(0);
+circle(80, 80, 10);
+circle(120, 80, 10);
+sc(1, 1, 0);
+sw(5);
+line(70, 105, 80, 120);
+line(80, 120, 115, 120);
+line(115, 120, 130, 105);
+fc(1, 0, 0);
+sc(1, 0, 0);
+circle(100, 100, 10);			
+			"""
 		tomteluva:
 			b:"# LOC:12 circle fc sc triangle (by Sabrina Larsson)\n"
 			a:"""
