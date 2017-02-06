@@ -277,6 +277,7 @@ function run1() {
 
 function reset() {
   colorMode(RGB,255)
+  angleMode(RADIANS)
   bg(0)
   fc(0)
   sc(1)
