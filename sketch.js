@@ -141,6 +141,7 @@ function sel2change(sel) {
     */
     
     var a = data[chapter][exercise]["a"]
+    a = transpile(a)
     run(1, a)
   
     var b = data[chapter][exercise]["b"]
@@ -156,7 +157,8 @@ function sel3change(sel) {
   expectedResult = data[chapter][exercise]["c"][sel.value]
 
   var a = data[chapter][exercise]["a"]
-  run(1, a + call)
+  a = transpile(a)
+  run(1, a + "\n" + transpile(call))
 
   var b = data[chapter][exercise]["b"]
   //run(0, b + call)
@@ -212,19 +214,22 @@ window.onload = function () {
   //$(".CodeMirror").css('font-family',"Webdings")
   myCodeMirror.on("change", run0)
 
-  help = createA('https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md', 'help', '_blank')
-  help.position(10,638)
+  help = createA('https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md', 'Help', '_blank')
+  help.position(10,640)
 
-  p5Color = createA('https://christernilsson.github.io/p5Color/', 'p5Color', '_blank')
-  p5Color.position(50,638)
+  p5Color = createA('https://christernilsson.github.io/p5Color', 'Color', '_blank')
+  p5Color.position(50,640)
+
+  ref = createA('https://p5js.org/reference', 'Reference', '_blank')
+  ref.position(90,640)
   
   background(128)
   run(0, "")
   run(1, "")
 
-  chapter = 'Lektion1'
+  chapter = 'L1: bg point sc sw'
   sel1.val(chapter).change()
-  exercise = 'whiteBackground'
+  exercise = 'Background1'
   sel2.val(exercise).change()
   
   myCodeMirror.focus()
@@ -272,7 +277,7 @@ function run0() {
 
 function run1() {
   var a = data[chapter][exercise]["a"] 
-  run(1, a + ";" + call)
+  run(1, transpile(a + "\n" + call))
 }
 
 function reset() {

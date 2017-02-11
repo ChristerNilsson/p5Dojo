@@ -5,689 +5,982 @@
 # Eventually, skip a,b and c and use a list instead
 
 data = 
-	Lektion1 : 
-		whiteBackground: 
-			a: "bg(1)"
+	"L1: bg point sc sw": 
+		Background1: 
+			a: "bg 1"
 			b: "# Lines Of Code:1 bg\n"
-		grayBackground: 
-			a: "bg(0.5)"
+		Background2: 
+			a: "bg 0.5"
 			b: "# LOC:1 bg\n"
-		redBackground: 
-			a: "bg(1,0,0)"
+		Background3: 
+			a: "bg 1,0,0"
 			b: "# LOC:1 bg\n"
-		yellowBackground: 
-			a: "bg(1,1,0)"
+		Background4: 
+			a: "bg 1,1,0"
 			b: "# LOC:1 bg\n"
-		Point: 
-			a: "point(10,30)"
-			b: "# LOC:1 point\n"
-		redPoint: 
-			a: "sc(1,0,0); point(20,40)"
-			b: "# LOC:2 point sc\n"
-		greenPoint: 
-			a: "sc(0,1,0); point(30,10)"
-			b: "# LOC:2 point sc\n"
 
+		CornerPoints: 
+			a: """
+sw 5
+sc 1,0,0
+point 0,0
+sc 0,1,0
+point 200,0
+sc 1,1,0
+point 0,200
+sc 0
+point 200,200			
+"""
+			b: """
+# LOC:9 sc sw point
+sw 5
+sc 1,0,0
+point 0,0
+"""
+
+		MidPoints: 
+			a: """
+sw 5
+sc 1,0,0
+point 100,100
+sc 0,1,0
+point 100,0
+sc 1,1,0
+point 0,100
+sc 0
+point 200,100
+sc 1
+point 100,200
+"""
+			b: "# LOC:11 sc sw point\n"
+
+		CornerPoints3: 
+			a: """
+sw 5
+sc 1,0,0
+point 20,0
+point 20,20
+point 0,20
+
+sc 0,1,0
+point 180,0
+point 180,20
+point 200,20
+
+sc 1,1,0
+point 20,180
+point 20,200
+point 0,180
+
+sc 1
+point 180,180
+point 180,200
+point 200,180
+"""
+			b: "# LOC:17 sc sw point\n"
+
+		CornerPoints7: 
+			a: """
+sw 5
+sc 1,0,0
+point 30,0
+point 30,10
+point 30,20
+point 30,30
+point 10,30
+point 20,30
+point 0,30
+
+sc 0,1,0
+point 170,200
+point 170,190
+point 170,180
+point 170,170
+point 190,170
+point 180,170
+point 200,170
+"""
+			b: "# LOC:15 sc sw point\n"
+
+		Diagonal: 
+			a: """
+sc 1,0,0
+sw 11
+point 200,0
+sw 10
+point 180,20
+sw 9
+point 160,40
+sw 8
+point 140,60
+sw 7
+point 120,80
+sw 6
+point 100,100
+sw 5
+point 80,120
+sw 4
+point 60,140
+sw 3
+point 40,160
+sw 2
+point 20,180
+sw 1
+point 0,200
+"""
+			b: "# LOC:23 sc sw point\n"
+
+
+	"L2: circle fc text" : 
 		dices : 
 			a: """
-				point(10,10)
-	
-				sc(1,0,0)
-				point(185,5)
-				point(195,15)
-				
-				sc(0,1,0)
-				point(85,65)
-				point(90,70)
-				point(95,75)
-				
-				sc(1,1,0)
-				point(165,105)
-				point(165,115)
-				point(175,105)
-				point(175,115)
-				
-				sc(1,0,1)
-				point(45,125)
-				point(45,135)
-				point(50,130)
-				point(55,125)
-				point(55,135)
-				
-				sc(0,1,1);
-				point(105,165)
-				point(105,170)
-				point(105,175)
-				point(115,165)
-				point(115,170)
-				point(115,175)
-				"""	
+point 10,10
+
+sc 1,0,0 
+point 185,5 
+point 195,15 
+
+sc 0,1,0 
+point 85,65 
+point 90,70 
+point 95,75 
+
+sc 1,1,0 
+point 165,105 
+point 165,115 
+point 175,105 
+point 175,115 
+
+sc 1,0,1 
+point 45,125 
+point 45,135 
+point 50,130 
+point 55,125 
+point 55,135 
+
+sc 0,1,1 
+point 105,165 
+point 105,170 
+point 105,175 
+point 115,165 
+point 115,170 
+point 115,175 
+"""	
 			b : "# LOC:26 point sc\n" 
 		
 		Five: 
 			a: """
-bg(0.5)
+bg 0.5
 sc()
-fc(1)
-circle(100,100,20)
-fc(1,0,0)
-circle(40,40,20)
-fc(1,1,0)
-circle(40,160,20)
-fc(0,1,0)
-circle(160,160,20)
-fc(0,0,1)
-circle(160,40,20)
-				""" 
+fc 1
+circle 100,100,20
+fc 1,0,0
+circle 40,40,20
+fc 1,1,0
+circle 40,160,20
+fc 0,1,0
+circle 160,160,20
+fc 0,0,1
+circle 160,40,20
+""" 
 			b: "# LOC:7 bg circle fc sc\n" 
 
-	Lektion2: 
 		whiteCircle: 
-			a:" fc(1);circle(60,80,30)"
+			a:"""
+fc 1
+circle 60,80,30
+"""
 			b:"# LOC:2 circle fc\n"
 		whiteEmptyCircle: 
-			a:"sc(1); fc(); sw(2);circle(70,90,40)"
+			a:"""
+sc 1
+fc()
+sw 2
+circle 70,90,40
+"""
 			b:"# LOC:2 circle fc sc sw\n"
 		twoDiscsA: 
-			a:"fc(1,0,0);circle(80,100,40);fc(0,1,0);circle(100,120,50)"
+			a:"""
+fc 1,0,0 
+circle 80,100,40
+fc 0,1,0
+circle 100,120,50
+"""
 			b:"# LOC:3 circle fc\n"
 		twoDiscsB:
-			a:"fc(1,0,0);circle(80,100,40);fc(0,1,0, 0.5);circle(120,100,50)"
+			a:"""
+fc 1,0,0
+circle 80,100,40
+fc 0,1,0, 0.5
+circle 120,100,50
+"""
 			b:"# LOC:3 circle fc\n"
 		textA: 
-			a:"fc(1,1,0);textSize(40);text('Javascript',100,100)"
+			a:"""
+fc 1,1,0
+textSize 40
+text 'Javascript',100,100
+"""
 			b:"# LOC:3 text textSize\n"
 		textB: 
-			a:"fc(1,1,0);textSize(40);textAlign(CENTER,CENTER);text('Coffeescript',100,100)"
+			a:"""
+fc 1,1,0
+textSize 40
+textAlign CENTER,CENTER
+text 'Coffeescript',100,100
+"""
 			b:"# LOC:4 text textAlign textSize\n"
 	
-	Lektion3: 
+	"L3: ellipse rect" : 
 		greenEllipse: 
-			a:"fc(0,1,0);ellipse(120,60, 60,40)"
+			a:"""
+fc 0,1,0
+ellipse 120,60, 60,40
+"""
 			b:"# LOC:2 ellipse fc\n"
 		greenRect: 
-			a:" fc(0,1,0);rect(60,80, 40,50) "
+			a:"""
+fc 0,1,0
+rect 60,80, 40,50
+"""
 			b:"# LOC:2 fc rect\n"
 		redRect:
-			a:"fc(1,0,0);rect(80,70, 40,100)"
+			a:"""
+fc 1,0,0
+rect 80,70, 40,100
+"""
 			b:"# LOC:2 fc rect\n"
 		cross: 
-			a:"fc(1,0,0);sc();rect(85,70, 70,10);rect(115,40, 10,100)"
+			a:"""
+fc 1,0,0
+sc()
+rect 85,70, 70,10
+rect 115,40, 10,100
+"""
 			b:"# LOC:3 fc rect\n"
 
 		squareHole: 
 			a:"""
-				fc(0,1,1);
-				sc();
-				rect(60,60, 80,20);
-				rect(60,120, 80,20);
-				rect(60,60, 20,80);
-				rect(120,60, 20,80);
-				sc(0);
-				fc();
-				sc(1,0,0);
-				sw(3);
-				rect(60,60, 80,80);
-				rect(80,80, 40,40)
-				""" 
+fc 0,1,1
+sc()
+rect 60,60, 80,20
+rect 60,120, 80,20
+rect 60,60, 20,80
+rect 120,60, 20,80
+sc0
+fc()
+sc 1,0,0
+sw 3
+rect 60,60, 80,80
+rect 80,80, 40,40
+""" 
 			b : "# LOC:12 fc rect sc sw \n"
 	
-	Lektion4: 
+	"L4: for lerp rect" : 
 		for01: 
-			a:"for (i of range(10)) {x = 5+20*i; rect(x,5, 10,10);}"
+			a:"""
+for i in range 10
+	x = 5+20*i
+	rect x,5, 10,10
+"""
 			b:"# LOC:2 for lerp rect\n"
 		for02: 
-			a:"for (i of range(10)) {y = 5+20*i; rect(5,y, 10,10);}"
+			a:"""
+for i in range 10
+	y = 5+20*i
+	rect 5,y, 10,10
+"""
 			b:"# LOC:2 for lerp rect\n"
 		for03: 
-			a:"for (i of range(10)) {x = 5+20*i; y = 5+20*i; rect(x,y, 10,10);}"
+			a:"""
+for i in range 10
+	x = 5+20*i
+	y = 5+20*i
+	rect x,y, 10,10
+"""
 			b:"# LOC:2 for lerp rect\n"
 		for04: 
-			a:"for (i of range(10)) {for (j of range(10)) {x = 5+20*i;y = 5+20*j;rect(x,y, 10,10);}}"
+			a:"""
+for i in range 10
+	for j in range 10
+		x = 5+20*i
+		y = 5+20*j
+		rect x,y, 10,10
+"""
 			b:"# LOC:3 for lerp rect\n"
 		for05: 
-			a:"rectMode(CENTER);for (i of range(10)) {x = 10+20*i;y = 10;w = 2*i;h = 2*i;rect(x,y, w,h);}"
+			a:"""
+rectMode CENTER
+for i in range 10
+	x = 10+20*i
+	y = 10
+	w = 2*i
+	h = 2*i
+	rect x,y, w,h
+"""
 			b:"# LOC:3 for lerp rect rectMode\n"
 		for06: 
-			a:"rectMode(CENTER);for (i of range(10)) {fc(i/10.0,0,0);x = 10+20*i;y = 10;w = 2*i;h = 2*i;rect(x,y,w,h);}"
+			a:"""
+rectMode CENTER
+for i in range 10
+	fc i/10.0,0,0
+	x = 10+20*i
+	y = 10
+	w = 2*i
+	h = 2*i
+	rect x,y,w,h
+"""
 			b:"# LOC:4 fc for lerp rect rectMode\n"
 		for07: 
-			a:"for (i of range(10)) {fc(i/10.0,0,0);x = 10+20*i;y = 10;r = i;circle(x,y,r);}"
+			a:"""
+for i in range 10
+	fc i/10.0,0,0
+	x = 10+20*i
+	y = 10
+	r = i
+	circle x,y,r
+"""
 			b:"# LOC:3 for fc circle lerp\n"
 		for08: 
-			a:"for (i of range(10,0,-1)) {fc(i/10.0,0,0);r = 10 * i;circle(100,100, r);}"
+			a:"""
+for i in range 10,0,-1
+	fc i/10.0,0,0
+	r = 10 * i
+	circle 100,100, r
+"""
 			b:"# LOC:3 for fc circle lerp\n"
 		for09: 
-			a:"for (i of range(10,0,-1)) {fc(i/10.0,0,0);x = 10*i;y = 10*i;r = 10*i;circle(x,y,r);}"
+			a:"""
+for i in range 10,0,-1
+	fc i/10.0,0,0
+	x = 10*i
+	y = 10*i
+	r = 10*i
+	circle x,y,r
+"""
 			b:"# LOC:3 for fc circle lerp\n"
 		for10: 
-			a:"for (i of range(10)) {for (j of range(10)) {fc(i/10.0,j/10.0,0);x = 10+20*i;y = 10+20*j;r = (i+j)/2;circle(x,y,r);}}"
+			a:"""
+for i in range 10
+	for j in range 10
+		fc i/10.0,j/10.0,0
+		x = 10+20*i
+		y = 10+20*j
+		r = (i+j)/2
+		circle x,y,r
+"""
 			b:"# LOC:4 for fc circle lerp\n"
 
 	
-	Lektion5:
-		horizontalLine: 
-			a: "sc(1,0,1); line(10,70, 190,70)"
+	"L5: line for lerp" :
+		HorizontalLine: 
+			a: """
+sc 1,0,1
+line 10,70, 190,70
+"""
 			b: "# LOC:2 line sc\n"
-		verticalLine: 
-			a: "sc(1,1,0);sw(10);line(110,30, 110,170)"
+		VerticalLine: 
+			a: """
+sc 1,1,0
+sw 10
+line 110,30, 110,170
+"""
 			b: "# LOC:3 line sc sw\n"
-		yellowLine: 
-			a: "sc(1,1,0);line(20,0, 200,20)"
+		Line: 
+			a: """
+sc 1,1,0
+line 20,0, 200,20
+"""
 			b: "# LOC:2 line sc\n"
-		grid: 
-			a:"sc(1,1,0); sw(2); for (var i=10; i<200; i+=10) { line(10,i,190,i);line(i,190,i,10);}"
+		Grid: 
+			a:"""
+sc 1,1,0
+sw 2
+for i in range 10,200,10
+	line 10,i,190,i
+	line i,190,i,10
+"""
 			b:"# LOC:5 for line sc sw\n"
-		skislope:
-			a: "bg(0);sc(1,0,0);for (i of range(21)) line(i*10,0,200,i*10)"
+		Skislope:
+			a: """
+bg 0
+sc 1,0,0
+for i in range 21
+	line i*10,0,200,i*10
+"""
 			b: "# LOC:4 bg for lerp line sc"
 
-		sunshine:
+		Sunshine:
 			a: """
-				bg(0);
-				sc(1,1,0);
-				for (i of range(10)) {
-		  		line(i*20,0,200-i*20,200);
-		  		line(0,20+i*20,200,180-i*20)
-				}
-				"""
+bg 0
+sc 1,1,0
+for i in range 10
+	line i*20,0,200-i*20,200
+	line 0,20+i*20,200,180-i*20
+"""
 			b: "# LOC:5 bg for lerp line sc\n"
 		
-		lines:  
+		Lines:  
 			a:"""
-				bg(0)
-				for (i in range(37)) {
-					line(10,10,190,10+i*5)
-					line(10,100,190,10+i*5)
-					line(10,190,190,10+i*5) 
-				}
-				"""
+bg 0
+for i in range 37
+	line 10,10,190,10+i*5
+	line 10,100,190,10+i*5
+	line 10,190,190,10+i*5
+"""
 			b:"# LOC:5 bg for lerp line (by Noel Watson)\n"
 
-	Lektion6:
-		whiteTriangle: 
-			a:"fc(1); triangle(20,40, 160,100, 100,140)"
+	"L6: triangle quad arc" :
+		Triangle: 
+			a:"""
+fc 1
+triangle 20,40, 160,100, 100,140
+"""
 			b:"# LOC:2 fc triangle\n" 
-		yellowQuad: 
-			a:"fc(1,1,0); quad(150,100, 180,20, 40,20, 100,140)"
+		Quad: 
+			a:"""
+fc 1,1,0
+quad 150,100, 180,20, 40,20, 100,140
+"""
 			b:"# LOC:2 fc quad\n"
-		pacMan: 
-			a:"fc(1,1,0); arc(100,100, 80,80, radians(-135),radians(135), PIE)"
+		PacMan: 
+			a:"""
+fc 1,1,0
+arc 100,100, 80,80, radians(-135),radians(135), PIE
+"""
 			b:"# LOC:2 arc fc radians PIE\n"
 		for11: 
 			a:"""
-				rectMode(CENTER);
-				sc(1);
-				translate(100,100);
-				for (i of range(18,-1,-1)) {
-				  r = 1.0*i/18;
-				  fc(r,0,0);
-				  w = 70+5*i;
-				  h = 70+5*i;
-				  rect(0,0, w,h);
-				  rd(5);
-				}
-				""" 
+rectMode CENTER
+sc 1
+translate 100,100
+for i in range 18,-1,-1
+  r = 1.0*i/18
+  fc r,0,0
+  w = 70+5*i
+  h = 70+5*i
+  rect 0,0, w,h
+  rd 5
+""" 
 			b:"# LOC:7 for fc circle lerp rd rectMode sc translate\n"
 
 		for12: 
 			a:"""
-				rectMode(CENTER);
-				sc();
-				for (i of range(10)) {
-				  for (j of range(10)) {
-				    push();
-				    translate(10+20*i,10+20*j);
-				    rd(5*(i+j));
-				    var r = i/9.0;
-				    var g = j/9.0;
-				    var b = 0;
-				    fc(r,g,b);
-				    rect(0,0, 10,10);
-				    pop()
-				  }
-				}
-				""" 
+rectMode CENTER
+sc()
+for i in range 10
+  for j in range 10
+    push()
+    translate 10+20*i,10+20*j
+    rd 5*(i+j)
+    r = i/9.0
+    g = j/9.0
+    b = 0
+    fc r,g,b
+    rect 0,0, 10,10
+    pop()
+""" 
 			b:"# LOC:10 fc for lerp push pop rd rect rectMode sc translate\n"
-	
 
-	LektionZ: 
+		"Olympic Ring Prep":
+			a:"""
+ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
+	hour = PI/6
+	strokeCap SQUARE
+	fc()
+	sw w
+	sc r,g,b
+	arc x,y,2*radius,2*radius,(start-3)*hour,(stopp-3)*hour
+"""
+			b:"""
+# LOC:7 sc arc fc sw strokeCap
+ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
+"""
+			c: 
+				"ring 100,100,60,20, 1,1,0":0
+				"ring 100,100,80,10, 1,0,0, 3,6":0
+				"ring 100,100,80,10, 0,1,0, 2,4":0
+				"ring 100,100,80,10, 0,1,0, 4,2":0
+
+		"Olympic Rings":
+			a:"""
+class Ring
+	constructor : (@x,@y,@r,@g,@b) ->
+	draw : (start=3,stopp=3,hour=PI/6) ->
+		sc @r,@g,@b
+		arc @x,@y,50,50,(start-3)*hour,(stopp-3)*hour
+
+a = new Ring  40,100, 0,0,1
+b = new Ring 100,100, 0,0,0
+c = new Ring 160,100, 1,0,0
+d = new Ring  70,120, 1,1,0
+e = new Ring 130,120, 0,1,0
+
+strokeCap SQUARE
+bg 0.5
+fc()
+sw 10
+
+a.draw()
+c.draw()
+d.draw()
+e.draw()
+a.draw 2,4
+b.draw()
+d.draw 12,2
+e.draw 8,10
+c.draw 6,8			
+"""	
+			b:"# LOC:23 class constructor sc arc bg fc sw strokeCap"
+
+	"LZ:" : 
 		chessRow: 
 			a:"""
-				bg(0.5)
-				for (i of range(8)) {
-					fc(i%2)
-					var x = 20+20*i 
-					rect(x,20, 20,20)
-				}
-				"""
+bg 0.5
+for i in range 8
+	fc i%2
+	x = 20+20*i 
+	rect x,20, 20,20
+"""
 			b:"# LOC:5 % bg fc for rect\n"
 		
 		chessBoard: 
 			a:"""
-				bg(0.5)
-				for (i of range(1,9))	{
-					for (j of range(1,9)) {
-						fc((i+j)%2)
-						rect(20*i,20*j, 20,20)
-					}
-				}
-				"""
+bg 0.5
+for i in range 1,9
+	for j in range 1,9
+		fc (i+j)%2
+		rect 20*i,20*j, 20,20
+"""
 			b:"# LOC:5 bg fc for rect\n"
 		
 		multimoire: 
 			a: """
-				function moire(k) {
-					background(0)
-					for (i of range(k)) {
-						for (j of range(37)) {
-							line(10,map(i,0,k-1,10,190),190,10+j*5)
-						}
-					}
-				}
-				"""
+moire = (k) ->
+	background 0
+	for i in range k
+		for j in range 37
+			line 10,map(i,0,k-1,10,190),190,10+j*5
+"""
 			b:"# LOC:5 bg for line map\n"
 			c: 
-				"moire(2)":0
-				"moire(3)":0
-				"moire(4)":0
-				"moire(5)":0
+				"moire 2":0
+				"moire 3":0
+				"moire 4":0
+				"moire 5":0
 		
 		colorCube:
 			a: """
-				function colorCube(n,b) {
-					bg(0)
-					d = 200.0/n
-					m = n-1.0
-					for (r of range(n)) {
-						for (g of range(n)) {
-							fc(r/m,g/m,b/m)
-							rect(r*d,g*d,d,d)
-						}
-					}
-				}
-				"""
+colorCube = (n,b) ->
+	bg 0
+	d = 200.0/n
+	m = n-1.0
+	for r in range n
+		for g in range n
+			fc r/m,g/m,b/m
+			rect r*d,g*d,d,d
+"""
 			b: "# LOC:8 -> bg fc for rect\n"
 			c:
-				"colorCube(2,0)":0
-				"colorCube(2,1)":0
-				"colorCube(3,0)":0
-				"colorCube(3,1)":0
-				"colorCube(3,2)":0
+				"colorCube 2,0":0
+				"colorCube 2,1":0
+				"colorCube 3,0":0
+				"colorCube 3,1":0
+				"colorCube 3,2":0
 
 		korg: 
 			a: """
-				function korg(n,w,c1,c2) {
-					bg(0)
-					sw(w)
-					fill(c1)
-					stroke(c2)
-					q = 2*n+1
-					d = 200.0/q
-					for (i of range(n)) {
-						rect(d+i*2*d,0,d,200)
-					}
-					for (j of range(n)) {
-						rect(0,d+j*2*d,200,d)
-					}
-					for (i of range(n)) {
-						for (j of range(n)) {
-							if ((i+j) % 2 == 1) {
-								rect(i*2*d,d+j*2*d,3*d,d)
-							} else {
-								rect(d+i*2*d,j*2*d,d,3*d)
-							}
-						}
-					}
-				}
-				"""
+korg = (n,w,c1,c2) ->
+	bg 0
+	sw w
+	fill c1
+	stroke c2
+	q = 2*n+1
+	d = 200.0/q
+	for i in range n
+		rect d+i*2*d,0,d,200
+	for j in range n
+		rect 0,d+j*2*d,200,d
+	for i in range n
+		for j in range n
+			if (i+j) % 2 == 1
+				rect i*2*d,d+j*2*d,3*d,d
+			else
+				rect d+i*2*d,j*2*d,d,3*d
+"""
 			b:"# LOC:17 -> bg fc for if else rect sc sw\n"
 			c: 
-				"korg(1,5,co(1,0,0),co(1,1,0))":0
-				"korg(2,4,co(0.5),co(1))":0
-				"korg(3,3,co(1,1,0),co(1,0,0))":0
-				"korg(4,2,co(1),co(0.5))":0
-				"korg(5,1,co(1,0,0),co(1,1,0))":0
+				"korg 1,5,co(1,0,0),co(1,1,0)":0
+				"korg 2,4,co(0.5),co(1)":0
+				"korg 3,3,co(1,1,0),co(1,0,0)":0
+				"korg 4,2,co(1),co(0.5)":0
+				"korg 5,1,co(1,0,0),co(1,1,0)":0
 
 		textC: 
-			a:"fc(1,1,0);textSize(40);textAlign(CENTER,CENTER);translate(100,100);rd(90);text('Javascript',0,0)"
+			a:"""
+fc 1,1,0
+textSize 40
+textAlign CENTER,CENTER
+translate 100,100
+rd 90
+text 'Javascript',0,0
+"""
 			b:"# LOC:6 rd text textAlign textSize translate\n"
 		textD: 
-			a:"fc(1,1,0);textSize(40);textAlign(CENTER,CENTER);translate(100,100);rd(180);text('Javascript',0,0)"
+			a:"""
+fc 1,1,0
+textSize 40
+textAlign CENTER,CENTER
+translate 100,100
+rd 180
+text 'Javascript',0,0
+"""
 			b:"# LOC:6 rd text textAlign textSize translate\n"
 		
 		rotatedEllipse: 
-			a:"fc(1,0,0);sc();translate(100,100);rd(45);ellipse(0,0, 80,40)"
+			a:"""
+fc 1,0,0
+sc()
+translate 100,100
+rd 45
+ellipse 0,0, 80,40
+"""
 			b:"# LOC:5 ellipse rd translate\n"
 		rotatedRectA: 
-			a:"fc(1,0,0);rect(60,100, 40,40);fc(0,1,0);rect(140,100, 40,40)"
+			a:"""
+fc 1,0,0
+rect 60,100, 40,40
+fc 0,1,0
+rect 140,100, 40,40
+"""
 			b:"# LOC:4 fc rect\n"
 		rotatedRectB: 
-			a:"push();fc(1,0,0);translate(60,100);rd(45);rect(0,0, 40,40);pop();push();fc(0,1,0);translate(140,100);rd(45);rect(0,0, 40,40);pop()"
+			a:"""
+push()
+fc 1,0,0
+translate 60,100
+rd 45
+rect 0,0, 40,40
+pop()
+push()
+fc 0,1,0
+translate 140,100
+rd 45
+rect 0,0, 40,40
+pop()
+"""
 			b:"# LOC:10 push pop rd rect translate\n"
 		rotatedRectC: 
-			a:";rectMode(CENTER);push();fc(1,0,0);translate(80,120);rd(45);rect(0,0, 40,40);pop();push();fc(0,1,0);translate(160,120);rd(45);rect(0,0, 40,40);pop()"
+			a:"""
+rectMode CENTER
+push()
+fc 1,0,0
+translate 80,120
+rd 45
+rect 0,0, 40,40
+pop()
+push()
+fc 0,1,0
+translate 160,120
+rd 45
+rect 0,0, 40,40
+pop()
+"""
 			b:"# LOC:11 fc push pop rd rect translate\n"
 		manyDices: 
 			a:"""
-				function dots(x,y,dots) {
-					for (dot of dots) {
-						if (dot==1) point(x+8,y+8) 
-						if (dot==2) point(x+8,y+10)
-						if (dot==3) point(x+8,y+12)
-						if (dot==4) point(x+10,y+10)
-						if (dot==5) point(x+12,y+8)
-						if (dot==6) point(x+12,y+10)
-						if (dot==7) point(x+12,y+12)
-					}
-				}
-				function dice(x,y,d) {
-					if (d==1) dots(x,y,[4])
-					if (d==2) dots(x,y,[1,7])
-					if (d==3) dots(x,y,[1,4,7])
-					if (d==4) dots(x,y,[1,3,5,7])
-					if (d==5) dots(x,y,[1,3,4,5,7])
-					if (d==6) dots(x,y,[1,2,3,5,6,7])
-				}
-				function manyDices() {
-					fc(0)
-					for (i of range(10)) { 
-						for (j of range(10)) { 
-							dice(20*i,20*j,1+(i+j)%6)
-						}
-					}
-				}
-				"""
+dots = (x,y,dots) ->
+	for dot in dots
+		if dot==1 then point x+8,y+8
+		if dot==2 then point x+8,y+10
+		if dot==3 then point x+8,y+12
+		if dot==4 then point x+10,y+10
+		if dot==5 then point x+12,y+8
+		if dot==6 then point x+12,y+10
+		if dot==7 then point x+12,y+12
+dice = (x,y,d) ->
+	if d==1 then dots x,y,[4]
+	if d==2 then dots x,y,[1,7]
+	if d==3 then dots x,y,[1,4,7]
+	if d==4 then dots x,y,[1,3,5,7]
+	if d==5 then dots x,y,[1,3,4,5,7]
+	if d==6 then dots x,y,[1,2,3,5,6,7]
+manyDices = () ->
+	fc(0)
+	for i in range 10
+		for j in range 10
+			dice 20*i,20*j,1+(i+j)%6
+"""
 			b : "# LOC:34 -> fc for if point [] % \n"
 			c : "manyDices()":0
 		
 		klocka: 
 			a: """
-				function visare(v,w,l,r,g,b) {
-					push()
-					rd(v-90)
-					translate(l/2,0)
-					fc(r,g,b)
-					rect(0,0,l,w)
-					pop()
-				}
-				function klocka(h,m,s) {
-					rectMode(CENTER)
-					translate(100,100)
-					urtavla()
-					visare((h+m/60.0)*30, 7,60,1,0,0)
-					visare((m+s/60.0)*6,5,80,0,1,0)
-					visare(s*6,2,80,0,0,1)
-				}
-				function urtavla() {
-					fc(0)
-					sc(1)
-					circle(0,0,90)
-					fc(1)
-					for (i of range(60)) {
-						if (i%5==0) {
-							circle(85,0,2)
-						} else {
-							point(85,0)
-						}
-						rd(6)
-					}
-				}
-				"""
+visare = (v,w,l,r,g,b) ->
+	push()
+	rd v-90
+	translate l/2,0
+	fc r,g,b
+	rect 0,0,l,w
+	pop()
+klocka = (h,m,s) ->
+	rectMode CENTER
+	translate 100,100
+	urtavla()
+	visare (h+m/60.0)*30, 7,60,1,0,0
+	visare (m+s/60.0)*6,5,80,0,1,0
+	visare s*6,2,80,0,0,1
+urtavla = () ->
+	fc 0
+	sc 1
+	circle 0,0,90
+	fc 1
+	for i in range 60
+		if i%5==0
+			circle 85,0,2
+		else
+			point 85,0
+		rd 6
+"""
 			b: "# LOC:37 -> circle else fc for if point push pop rd rect rectMode sc translate \n"
 			c: 
-				"klocka(10,9,30)":0
-				"klocka(11,30,15)":0
+				"klocka 10,9,30":0
+				"klocka 11,30,15":0
 		
 		recursiveCircles: 
 			a: """
-				sc(1)
-				function circles(x,y,r) {
-					circle(x,y,r)
-					if (r < 10) return
-					circles(x-r/2,y,r/2)
-					circles(x+r/2,y,r/2)
-				}
-				"""
+sc 1
+circles = (x,y,r) ->
+	circle x,y,r
+	if r < 10 then return
+	circles x-r/2,y,r/2
+	circles x+r/2,y,r/2
+"""
 			b: "# LOC:7 -> circle if return sc < \n"
-			c: "circles(100,100,100)":0
+			c: "circles 100,100,100":0
 		
 		hypnoticA : 
 			a: """
-				function hypnoticA() {
-					bg(0.5, 0, 0)
-					sc()
-					fc(1)
-					for (i of range(100)) {
-						x = 100 + cos(i) * i
-						y = 100 + sin(i) * i
-						circle(x, y, 5)
-					}
-				}
-				"""
+hypnoticA = () ->
+	bg 0.5, 0, 0
+	sc()
+	fc 1
+	for i in range 100
+		x = 100 + cos(i) * i
+		y = 100 + sin(i) * i
+		circle x, y, 5
+"""
 			b: "# LOC:6 -> bg circle cos fc sc sin\n"
 			c: "hypnoticA()":0
 
 		hypnoticB : 
 			a: """
-				function hypnoticB(t) {
-					bg(0.5, 0, 0)
-					sc()
-					fc(1)
-					for (i of range(100)) {
-						x = 100 + cos(i) * i
-						y = 100 + sin(i) * i
-						speed = i/10.0
-						r = map(sin(t*speed), -1, 1, 2, 5)
-						circle(x, y, r)
-					}
-				}
-				"""
+hypnoticB = (t) ->
+	bg 0.5, 0, 0
+	sc()
+	fc 1
+	for i in range 100
+		x = 100 + cos(i) * i
+		y = 100 + sin(i) * i
+		speed = i/10.0
+		r = map sin(t*speed), -1, 1, 2, 5
+		circle x, y, r
+"""
 			b: "# LOC:7 -> bg circle cos fc map sc sin \n"
 			c: 
-				"hypnoticB(1)":0
-				"hypnoticB(5)":0
+				"hypnoticB 1":0
+				"hypnoticB 5":0
 		
 		square : 
-			a: "function square(x,y,size) { rect(x,y,size,size) }"
+			a: "square = (x,y,size) -> rect x,y,size,size"
 			b: "# LOC:2 -> rect \n"
 			c: 
-				"square(100,90,50)":0 
-				"square(100,100,60)":0
+				"square 100,90,50":0 
+				"square 100,100,60":0
 
 		gravity : 
-			a: "fc(1); for (i of range(15)) { x=5+10*i; y=5+lerp(0,lerp(0,1,i),i); circle(x,y,5);}"
+			a: """
+fc 1
+for i in range 15
+	x=5+10*i
+	y=5+lerp(0,lerp(0,1,i),i)
+	circle x,y,5
+"""
 			b: "# LOC:6 circle lerp\n"
 
-	LektionN: 
+	"LN:" : 
 
 		dist: 
 			a:"""
-				bg(0)
-				fc(1)
-				sc()
-				for (var i=0; i<10; i++) {
-					var x = lerp(10,30,i)
-					for (var j=0; j<10; j++) {
-						var y = lerp(10,30,j)
-						var d = dist(100,100,x,y)
-						var r = map(d,0,150,1,20)/2
-						circle(x,y,r)
-					}
-				}
-				""" 
+bg 0
+fc 1
+sc()
+for i in range 10
+	x = lerp 10,30,i
+	for j in range 10
+		y = lerp 10,30,j
+		d = dist 100,100,x,y
+		r = map(d,0,150,1,20)/2
+		circle x,y,r
+""" 
 			b:"# LOC:10 bg circle dist fc lerp map sc\n"
 		
 		bulge: 
 			a:"""
-				bg(0)
-				fill(255)
-				noStroke()
-				for (var i=0; i<20; i++) {
-					for (var j=0; j<20; j++) {
-						x = i*200/20+5
-						y = j*200/20+5
-						r = map(sin(i*PI/20),-1,1,1,3) * map(sin(j*PI/20),-1,1,1,3) / 2
-						circle(x,y,r)
-					}
-				}
-				"""
+bg 0
+fill 255
+noStroke()
+for i in range 20
+	for j in range 20
+		x = i*200/20+5
+		y = j*200/20+5
+		r = map(sin(i*PI/20),-1,1,1,3) * map(sin(j*PI/20),-1,1,1,3) / 2
+		circle x,y,r
+"""
 			b:"# LOC:10 bg circle dist fill map noStroke sin\n"
 
 		wave: 
 			a:"""
-				colorMode(HSB,360,100,100)
-				noStroke()
-				bg(0)
-				for (var i=0; i<21; i++) {
-					fill(map(i,0,20,0,360),100,100)
-					var a = map(i,0,20,0,2*PI)
-					var x = 10*i
-					var y = map(sin(a),-1,1,0,200)
-					circle(x,y,3)
-				}
-				"""
+colorMode HSB,360,100,100
+noStroke()
+bg 0
+for i in range 21
+	fill map(i,0,20,0,360),100,100
+	a = map i,0,20,0,2*PI
+	x = 10*i
+	y = map sin(a),-1,1,0,200
+	circle x,y,3
+"""
 			b:"# LOC:9 circle colorMode fill map noStroke sin PI\n"
 
 		circle: 
 			a:"""
-				bg(0)
-				colorMode(HSB,360,100,100)
-				for (var i=0; i<20; i++){
-					var r=map(i,0,19,0,360)
-					fill(r,255,255)
-					var a=map(i,0,20,0,2*PI)
-					sc()
-					var x=map(cos(a),-1,1,0,200)
-					var y=map(sin(a),-1,1,0,200)
-					circle(x,y,3)
-				}
-				"""
+bg 0
+colorMode HSB,360,100,100
+for i in range 20
+	r=map i,0,19,0,360
+	fill r,255,255
+	a=map i,0,20,0,2*PI
+	sc()
+	x=map cos(a),-1,1,0,200
+	y=map sin(a),-1,1,0,200
+	circle x,y,3
+"""
 			b:"# LOC:10 bg circle colorMode cos fc map PI sc sin\n"
 	
 		circles: 
 			a:"""
-				bg(0)
-				noStroke()
-				colorMode(HSB,360,100,100)
-				translate(100,100)
-				for (var i=0; i<20; i++) {
-					for (var j=0; j<11; j++) {
-						fill(map(i,0,20,0,360),255,255)
-						var a = map(i,0,20,0,2*PI)
-						var x = map(cos(a),-1,1,-j*10,j*10)
-						var y = map(sin(a),-1,1,-j*10,j*10)
-						var r = 3
-						circle(x,y,r)
-					}
-				}
-				"""
+bg 0
+noStroke()
+colorMode HSB,360,100,100
+translate 100,100
+for i in range 20
+	for j in range 11
+		fill map(i,0,20,0,360),255,255
+		a = map i,0,20,0,2*PI
+		x = map cos(a),-1,1,-j*10,j*10
+		y = map sin(a),-1,1,-j*10,j*10
+		r = 3
+		circle x,y,r
+"""
 			b:"# LOC:12 bg circle colorMode cos fill map noStroke translate sin PI\n"
 		
 		sized_circles: 
 			a:"""
-				bg(0)
-				noStroke()
-				colorMode(HSB,360,100,100)
-				translate(100,100)
-				for (var i=0; i<20; i++) { 
-					fill(map(i,0,20,0,360),255,255)
-					var a = map(i,0,20,0,2*PI)
-					for (var j=0; j<11; j++) {
-						var x = map(cos(a),-1,1,-j*10,j*10)
-						var y = map(sin(a),-1,1,-j*10,j*10)
-						var r = map(j,0,10,0,10)/2
-						circle(x,y,r)
-					}
-				}
-				"""
+bg 0
+noStroke()
+colorMode HSB,360,100,100
+translate 100,100
+for i in range 20
+	fill map(i,0,20,0,360),255,255
+	a = map i,0,20,0,2*PI
+	for j in range 11
+		x = map cos(a),-1,1,-j*10,j*10
+		y = map sin(a),-1,1,-j*10,j*10
+		r = map(j,0,10,0,10)/2
+		circle x,y,r
+"""
 			b:"# LOC:12 circle colorMode cos fill map noStroke PI sin translate \n"
 		
 		rotated_circles: 
 			a:"""
-				colorMode(HSB,360,100,100);
-				sc();
-				bg(0);
-				translate(100,100);
-				for (var i=0; i<20; i++){
-					var r = map(i,0,20,0,360);
-					var a=map(i,0,20,0,2*PI);
-					for (var j=0; j<11; j++){
-						push();
-						rotate(map(j,0,10,0,360));
-						fill(r,255,255);
-						var x=map(cos(a),-1,1,-j*10,j*10);
-						var y=map(sin(a),-1,1,-j*10,j*10);
-						circle(x,y,j/2);
-						pop();
-					}
-				}
-				"""
+colorMode HSB,360,100,100
+sc()
+bg 0
+translate 100,100
+for i in range 20
+	r = map i,0,20,0,360
+	a=map i,0,20,0,2*PI
+	for j in range 11
+		push()
+		rotate map j,0,10,0,360
+		fill r,255,255
+		x=map cos(a),-1,1,-j*10,j*10
+		y=map sin(a),-1,1,-j*10,j*10
+		circle x,y,j/2
+		pop()
+"""
 			b:"# LOC:17 circle cos map PI push pop rotate sin translate \n"
 
-	Lektion8:
+	"L8: Guess a Number" :
 		guess1:
 			b:"# LOC:10 bg rectMode for range rect\n"
 			a:"""
-bg(1)
-rectMode(CENTER,CENTER)
+bg 1
+rectMode CENTER,CENTER
 n = 200
 size = n / 8
-sc(0)
-for (var i=0; i<8; i++) {
+sc 0
+for i in range 8
 	x = i * size + size/2
 	y = size/2
 	w = size
 	h = size
-	rect(x,y,w,h)
-}			
-			"""
+	rect x,y,w,h
+"""
 
 		guess2:
 			b:"# LOC:15 bg rectMode for range rect textAlign text sc fc\n"
 			a:"""
-bg(1)
-rectMode(CENTER,CENTER)
-textAlign(CENTER,CENTER)
+bg 1
+rectMode CENTER,CENTER
+textAlign CENTER,CENTER
 n = 200
 size = n / 8
-for (var i=0; i<8; i++) {
+for i in range 8
 	x = i * size + size/2
 	y = size/2
 	w = size
 	h = size
 	fc()
-	sc(0)
-	rect(x,y,w,h)
-	fc(0)
+	sc 0
+	rect x,y,w,h
+	fc 0
 	sc()
-	text(i,x,y)
-}
-			"""
+	text i,x,y
+"""
 
 		guess3:
 			b:"# LOC:15 bg rectMode for range rect textAlign text sc fc\n"
 			a:"""
-bg(1)
-rectMode(CENTER,CENTER)
-textAlign(CENTER,CENTER)
+bg 1
+rectMode CENTER,CENTER
+textAlign CENTER,CENTER
 n = 200
 size = n / 8
-for (var i=0; i<8; i++) {
-	for (var j=0; j<8; j++) {
+for i in range 8
+	for j in range 8
 		x = i * size + size/2
 		y = j * size + size/2
 		w = size
 		h = size
 		fc()
-		sc(0)
-		rect(x,y,w,h)
-		fc(0)
+		sc 0
+		rect x,y,w,h
+		fc 0
 		sc()
-		text(i+8*j,x,y)
-	}
-}
-			"""
+		text i+8*j,x,y
+"""
 
 		guess4:
 			b:"""
@@ -695,32 +988,29 @@ for (var i=0; i<8; i++) {
 f = (nx,ny) ->
 """
 			a:"""
-function f(nx,ny) {
-	bg(1)
-	rectMode(CENTER,CENTER)
-	textAlign(CENTER,CENTER)
+f = (nx,ny) ->
+	bg 1
+	rectMode CENTER,CENTER
+	textAlign CENTER,CENTER
 	n = 200
 	px = n/nx
 	py = n/ny
-	for (var i=0; i<nx; i++) {
-		for (var j=0; j<ny; j++) {
+	for i in range nx
+		for j in range ny
 			x = i * px + px/2
 			y = j * py + py/2
 			w = px
 			h = py
 			fc()
-			sc(0)
-			rect(x,y,w,h)
-			fc(0)
+			sc 0
+			rect x,y,w,h
+			fc 0
 			sc()
-			text(i+nx*j,x,y)
-		}
-	}
-}
-			"""
+			text i+nx*j,x,y
+"""
 			c:
-				"f(8,6)":0
-				"f(6,6)":0
+				"f 8,6":0
+				"f 6,6":0
 
 		guess5:
 			b:"""
@@ -728,37 +1018,33 @@ function f(nx,ny) {
 f = (nx,ny,start,stopp) ->
 """
 			a:"""
-function f(nx,ny,start,stopp) {
-	bg(1)
-	rectMode(CENTER,CENTER)
-	textAlign(CENTER,CENTER)
+f = (nx,ny,start,stopp) ->
+	bg 1
+	rectMode CENTER,CENTER
+	textAlign CENTER,CENTER
 	n = 200
 	px = n/nx
 	py = n/ny
-	for (var i=0; i<nx; i++) {
-		for (var j=0; j<ny; j++) {
+	for i in range nx
+		for j in range ny
 			x = i * px + px/2
 			y = j * py + py/2
 			w = px
 			h = py
 			fc()
-			sc(0)
-			rect(x,y,w,h)
+			sc 0
+			rect x,y,w,h
 			index = i+nx*j
 			sc()
-			if (start <= index && index <= stopp) {
-				fc(0)
-			} else {
-				fc(0.8)
-			}
-			text(index,x,y)
-		}
-	}
-}		
-			"""
+			if start <= index && index <= stopp
+				fc 0
+			else
+				fc 0.8
+			text index,x,y
+"""
 			c:
-				"f(8,8,18,45)" : 0
-				"f(6,6,10,25)" : 0
+				"f 8,8,18,45" : 0
+				"f 6,6,10,25" : 0
 
 		guess6:
 			b:"""
@@ -766,181 +1052,175 @@ function f(nx,ny,start,stopp) {
 f = (nx,ny,start,stopp,mx,my,target) ->
 """
 			a:"""
-function f(nx,ny,start,stopp,mx,my,target) {
-	bg(1)
-	rectMode(CENTER,CENTER)
-	textAlign(CENTER,CENTER)
+f = (nx,ny,start,stopp,mx,my,target) ->
+	bg 1
+	rectMode CENTER,CENTER
+	textAlign CENTER,CENTER
 	n = 200
 	px = n/nx
 	py = n/ny
-	i = int(mx/px)
-	j = int(my/py) 
+	i = int mx/px
+	j = int my/py 
 	clicked = i+nx*j
-	if (clicked <= target) start = clicked + 1
-	if (clicked >= target) stopp = clicked - 1
-	for (var i=0; i<nx; i++) {
-		for (var j=0; j<ny; j++) {
+	if clicked <= target then start = clicked + 1
+	if clicked >= target then stopp = clicked - 1
+	for i in range nx
+		for j in range ny
 			x = i * px + px/2
 			y = j * py + py/2
 			w = px
 			h = py
 			fc()
-			sc(0)
-			rect(x,y,w,h)
+			sc 0
+			rect x,y,w,h
 			index = i+nx*j
 			sc()
-			if (start <= index && index <= stopp)
-				fc(0)
+			if start <= index and index <= stopp
+				fc 0
 			else
-				fc(0.8)
-			text(index,x,y)
-		}
-	}
-}		
-			"""
+				fc 0.8
+			text index,x,y
+"""
 			c:
-				"f(8,8,18,45,70,90,28)":0
-				"f(6,6,10,25,90,90,20)":0
+				"f 8,8,18,45,70,90,28":0
+				"f 6,6,10,25,90,90,20":0
 
 	Exhibition :
 		clown:
 			b:"# LOC:32 bg circle fc sc sw line lerp (by David Larsson)\n"
 			a:"""
-//ECMA
-bg(0, 1, 0, 0.5);
-fc(1, 0, 0);
-circle(10, 10, 5);
-circle(20, 20, 10);
-for (i=0; i<10; i++) {
-	x = lerp(10, 20, i);
-	y = x;
-	r = lerp(5, 10, i);
-	circle(x, y, r);
-}
-fc(0, 1, 1);
-circle(190, 10, 5);
-circle(180, 20, 10);
-for (i = 0; i<10; i++) {
-	x = lerp(190, 180, i);
-	y = lerp(10, 20, i);
-	r = lerp(5, 10, i);
-	circle(x, y, r);
-}
-fc(1);
-circle(100, 100, 50);
-fc(0);
-circle(80, 80, 10);
-circle(120, 80, 10);
-sc(1, 1, 0);
-sw(5);
-line(70, 105, 80, 120);
-line(80, 120, 115, 120);
-line(115, 120, 130, 105);
-fc(1, 0, 0);
-sc(1, 0, 0);
-circle(100, 100, 10);			
-			"""
+bg 0, 1, 0, 0.5
+fc 1, 0, 0
+circle 10, 10, 5
+circle 20, 20, 10
+for i in range 10
+	x = lerp 10, 20, i
+	y = x
+	r = lerp 5, 10, i
+	circle x, y, r
+fc 0, 1, 1
+circle 190, 10, 5
+circle 180, 20, 10
+for i in range 10
+	x = lerp 190, 180, i
+	y = lerp 10, 20, i
+	r = lerp 5, 10, i
+	circle x, y, r
+fc 1
+circle 100, 100, 50
+fc 0
+circle 80, 80, 10
+circle 120, 80, 10
+sc 1, 1, 0
+sw 5
+line 70, 105, 80, 120
+line 80, 120, 115, 120
+line 115, 120, 130, 105
+fc 1, 0, 0
+sc 1, 0, 0
+circle 100, 100, 10
+"""
 		tomteluva:
 			b:"# LOC:12 circle fc sc triangle (by Sabrina Larsson)\n"
 			a:"""
-bg(0,1,0)
-fc(1,0,0)
-sc(1,0,0)
-triangle(60,140,100,60,140,140)
-fc(1)
-sc(1)
-circle(60,140,10)
-circle(80,140,10)
-circle(100,140,10)
-circle(120,140,10)
-circle(140,140,10)
-circle(100,60,10)		
+bg 0,1,0
+fc 1,0,0
+sc 1,0,0
+triangle 60,140,100,60,140,140
+fc 1
+sc 1
+circle 60,140,10
+circle 80,140,10
+circle 100,140,10
+circle 120,140,10
+circle 140,140,10
+circle 100,60,10		
 """
 		snowman:
 			b:"# LOC:21 circle fc line sc triangle (by David Larsson)\n"
 			a:"""
-				fc(1);
-			  circle(100, 150, 50);
-			  circle(100, 70, 40);
-			  fc(0);
-			  circle(80, 60, 8);
-			  circle(120, 60, 8);
-			  circle(85, 90, 6);
-			  circle(95, 95, 6);
-			  circle(115, 90, 6);
-			  circle(105, 95, 6);
-			  fc(1, 0, 0, 0.5);
-			  triangle(100, 65, 90, 80, 105, 75);
-			  sc(1, 1, 0);
-			  sw(3);
-			  line(50, 140, 30, 90);
-			  line(35, 100, 40, 80);
-			  line(140, 140, 170, 90);
-			  line(160, 105, 155, 100);
-			  fc(1);
-			  sc(1);
-			  rect(2, 180, 196, 20);
-			"""
+fc 1
+circle 100, 150, 50
+circle 100, 70, 40
+fc 0
+circle 80, 60, 8
+circle 120, 60, 8
+circle 85, 90, 6
+circle 95, 95, 6
+circle 115, 90, 6
+circle 105, 95, 6
+fc 1, 0, 0, 0.5
+triangle 100, 65, 90, 80, 105, 75
+sc 1, 1, 0
+sw 3
+line 50, 140, 30, 90
+line 35, 100, 40, 80
+line 140, 140, 170, 90
+line 160, 105, 155, 100
+fc 1
+sc 1
+rect 2, 180, 196, 20
+"""
 
 		christmasTree:
 			b:"# LOC:35 bg circle fc line rect quad sc triangle (by Sabrina Larsson)\n"
 			a:"""
-				bg(0);
-				fc(0, 1, 0);
-				sc(0, 1, 0);
-				triangle(100, 100, 180, 160, 20, 160);
-				triangle(100, 60, 160, 120, 40, 120);
-				triangle(100, 40, 140, 80, 60, 80);
-				fc(0.5);
-				sc(0.5);
-				rect(80, 160, 40, 20);
-				fc(1, 1, 0);
-				sc(1, 1, 0);
-				quad(100, 0, 120, 20, 100, 40, 80, 20);
-				rect(85, 5, 30, 30);
-				sc(1, 1, 0);
-				line(80, 60, 140, 120);
-				line(60, 100, 120, 160);
-				fc(1, 0, 0);
-				sc(1, 0, 0);
-				circle(80, 100, 5);
-				circle(140, 140, 5);
-				circle(100, 60, 5);
-				circle(60, 160, 5);
-				circle(100, 120, 5);
-				fc(1);
-				sc(1);
-				rect(0, 180, 200, 20);
-				circle(20, 20, 5);
-				circle(40, 40, 5);
-				circle(10, 80, 5);
-				circle(30, 140, 5);
-				circle(50, 100, 5);
-				circle(120, 50, 5);
-				circle(160, 20, 5);
-				circle(180, 80, 5);
-				circle(160, 130, 5);
-				circle(190, 180, 5);
-				"""
+bg 0 
+fc 0, 1, 0 
+sc 0, 1, 0 
+triangle 100, 100, 180, 160, 20, 160 
+triangle 100, 60, 160, 120, 40, 120 
+triangle 100, 40, 140, 80, 60, 80 
+fc 0.5 
+sc 0.5 
+rect 80, 160, 40, 20 
+fc 1, 1, 0 
+sc 1, 1, 0 
+quad 100, 0, 120, 20, 100, 40, 80, 20 
+rect 85, 5, 30, 30 
+sc 1, 1, 0 
+line 80, 60, 140, 120 
+line 60, 100, 120, 160 
+fc 1, 0, 0 
+sc 1, 0, 0 
+circle 80, 100, 5 
+circle 140, 140, 5 
+circle 100, 60, 5 
+circle 60, 160, 5 
+circle 100, 120, 5 
+fc 1 
+sc 1 
+rect 0, 180, 200, 20 
+circle 20, 20, 5 
+circle 40, 40, 5 
+circle 10, 80, 5 
+circle 30, 140, 5 
+circle 50, 100, 5 
+circle 120, 50, 5 
+circle 160, 20, 5 
+circle 180, 80, 5 
+circle 160, 130, 5 
+circle 190, 180, 5 
+"""
 		santa:
 			b:"# LOC:18 bg circle ellipse fc rect quad sc triangle (by Sabrina Larsson)\n"
 			a:"""
-bg(0,0,1)
-fc(1,0,0)
-sc(1,0,0)
-ellipse(100,50,60,70)
-rect(60,20,30,10)
-quad(140,10,145,20,120,25,115,20)
-fc(0)
-sc(0)
-circle(50,25,10)
-rect(70,40,60,10)
-circle(140,20,10)
-sc(1,1,0)
-rect(100,45,5,5)
-fc(0.5)
-sc(0.5)
-rect(60,80,80,20)
-rect(80,100,40,60)
-triangle(100,140,0,200,200,200)
+bg 0,0,1
+fc 1,0,0
+sc 1,0,0
+ellipse 100,50,60,70
+rect 60,20,30,10
+quad 140,10,145,20,120,25,115,20
+fc 0
+sc 0
+circle 50,25,10
+rect 70,40,60,10
+circle 140,20,10
+sc 1,1,0
+rect 100,45,5,5
+fc 0.5
+sc 0.5
+rect 60,80,80,20
+rect 80,100,40,60
+triangle 100,140,0,200,200,200
 """
