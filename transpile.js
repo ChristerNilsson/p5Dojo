@@ -59,7 +59,6 @@ function transpile(code) {
     }
   } 
   code = temp.join('\n')
-  console.log(code)
   return CoffeeScript.compile(code)
 }
 
@@ -84,7 +83,6 @@ function xxx_transpile(code) {
     var line = lines[i]
     var pos = line.indexOf("//")
     if (pos>=0) line = line.substr(0,pos)
-    //console.log('['+line+']')
     
     var s = line.split('@').join("this.")
     var s = s.split('\t').join("")
@@ -115,9 +113,6 @@ function xxx_transpile(code) {
       if (indent==1) res.push(s + ' {')                   
       if (indent < 0)  res.push(s+Array(-indent+1).join(" }"))
     }  
-  }
-  for (var l of res) {
-    console.log(l)
   }
   return res.join("\n")
 }

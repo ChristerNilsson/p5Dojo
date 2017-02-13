@@ -103,52 +103,34 @@ function fillSelect(sel, dict) {
   }
 }
 
-function fillSelectAssert(sel, dict) { 
-  sel.empty()
-  for (key in dict) {
-    var val = dict[key]
-    sel.append($("<option>").attr('value', key).text(key + '==' + JSON.stringify(val)))
-  }
-}
-
 function sel1change(sel) {
   chapter = sel.value
   exercise = ""
   call = ""
   fillSelect(sel2, data[chapter])
-  sel3.empty()
+  exercise = _.keys(data[chapter])[0]
+  sel2.val(exercise).change()
 }
 
 function sel2change(sel) {
   exercise = sel.value
   call = ""
-  if (chapter.indexOf("Assert")==0) {
-    fillSelectAssert(sel3, data[chapter][exercise]["c"])    
-  } else {
-    fillSelect(sel3, data[chapter][exercise]["c"])    
-  }
-  /*
-  console.log(chapter)
-  console.log(exercise)
-  var d = data[chapter][exercise]["c"]
-  var keys = Object.keys(d)
-  console.log(d)
-  console.log(keys.length)
-  if (keys.length > 0) {
-    sel3.val(keys[0])
-    sel3change(sel3)
-  } else {
-    */
+  fillSelect(sel3, data[chapter][exercise]["c"])    
     
-    var a = data[chapter][exercise]["a"]
-    a = transpile(a)
-    run(1, a)
-  
-    var b = data[chapter][exercise]["b"]
-    myCodeMirror.setValue(b)
-    myCodeMirror.focus() 
-    compare()
-  //}
+  calls = data[chapter][exercise]["c"]
+  if (calls) {
+    call = _.keys(calls)[0]
+    sel3.val(call).change()
+  } 
+
+  var a = data[chapter][exercise]["a"]
+  a = transpile(a)
+  run(1, a)
+
+  var b = data[chapter][exercise]["b"]
+  myCodeMirror.setValue(b)
+  myCodeMirror.focus() 
+  compare()
 
 }
 
@@ -227,9 +209,9 @@ window.onload = function () {
   run(0, "")
   run(1, "")
 
-  chapter = 'L1: bg point sc sw'
+  chapter = _.keys(data)[0]
   sel1.val(chapter).change()
-  exercise = 'Background1'
+  exercise = _.keys(data[chapter])[0]
   sel2.val(exercise).change()
   
   myCodeMirror.focus()
@@ -298,7 +280,6 @@ function run(n, code) {
 
   try {
     setMsg('')
-    console.log(code)
     eval(code)
     pop()
   } catch (err) {
@@ -339,12 +320,10 @@ function compare() {
       area3.setPixel(i,j,[r,g,b,255]) 
       if (r+g+b > 9) { // t ex whiteTriangle i motsatt riktning
         count += 1
-        //if (count < 10) console.log(i,j,":",r,g,b)
       }
     }
   } 
   updatePixels()
-  //if (count > 0) console.log(count)
   return count
 }
 
