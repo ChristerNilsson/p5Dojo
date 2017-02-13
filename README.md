@@ -7,11 +7,7 @@ p5Dojo innehåller mängder av övningar för den som snabbt vill komma igång m
 - Minimal mängd kod behöver skrivas, tack vare Coffeescript-syntax.
 - Även Javascript kan användas.
 - Omedelbar feedback i form av skillnadsbitmapp.
-- p5 kan användas för att skapa rörlig 3D-grafik för 
- * web
- * iPhone och iPad
- * Android 
- * Windows Phone
+- p5 kan användas för att skapa rörlig 3D-grafik för web och mobil.
 
 ### färger
   - 0,0,1 blå
@@ -40,6 +36,7 @@ p5Dojo innehåller mängder av övningar för den som snabbt vill komma igång m
   - **sc** 1   vit
   - **sc** 1,1,0   gul
   - **sc** 1,0,0   röd
+  - **sc** 1,0,0,0.5 röd, halvgenomskinlig
   
 ### skapa en färg
   - **co** 1   vit
@@ -72,14 +69,13 @@ p5Dojo innehåller mängder av övningar för den som snabbt vill komma igång m
   
 ### for loop
   - Glöm ej att indentera innehållet med ett tabsteg!
-  - **for** i in range 10   => [0,1,2,3,4,5,6,7,8,9]
-  - **for** i in range 5  => [0,1,2,3,4]
-  - **for** i in range 1,11  => [1,2,3,4,5,6,7,8,9,10]
-  - **for** i in range 0,10,2  => [0,2,4,6,8]
-  - **for** i in [0..10] by 2 => [0,2,4,6,8,10]
-  - **for** i in range 10,0,-2  => [10,8,6,4,2]
-  - **for** i in [1,1,2,3,5,8,13,21] => [1,1,2,3,5,8,13,21]
-  
+  - **for** i in range 10   # [0,1,2,3,4,5,6,7,8,9]
+  - **for** i in range 5  # [0,1,2,3,4]
+  - **for** i in range 1,11  # [1,2,3,4,5,6,7,8,9,10]
+  - **for** i in range 0,10,2  # [0,2,4,6,8]
+  - **for** i in [0..10] by 2  # [0,2,4,6,8,10]
+  - **for** i in range 10,0,-2  # [10,8,6,4,2]
+  - **for** i in [1,1,2,3,5,8,13,21] # [1,1,2,3,5,8,13,21]  
   
 ### if
 ```javascript
@@ -178,7 +174,6 @@ function f(a,b) {
 
  - [download](https://p5js.org)
  - [manual p5.js](https://p5js.org/reference)
- - [manual processing java](https://processing.org/reference)
  - [coffeescript](http://coffeescript.org)
  - [engelsk e-bok i färg (om fem minuter) av Lauren McCarthy, SEK 55](https://play.google.com/store/books/details?id=iP3GCgAAQBAJ&rdid=book-iP3GCgAAQBAJ&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb)
  - [svartvit pappersbok (om fem dagar), 130 SEK](https://www.adlibris.com/se/bok/getting-started-with-p5js-making-interactive-graphics-in-javascript-and-processing-9781457186776)
@@ -191,45 +186,17 @@ function f(a,b) {
 
 ## Installation
 
-### Javascript
-
-- Använd valfri texteditor t ex Sublime eller Notepad.
-- Du måste ha följande filer
- * p5.js
- * p5.dom.js
- * underscore.js
- * nilsson.js
- * sketch.js
-- Du måste ha filen index.html
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <script src="libraries/p5.js"></script>
-    <script src="libraries/p5.dom.js"></script>
-    <script src="libraries/underscore.js"></script>
-    <script src="libraries/nilsson.js"></script>
-    <script src="sketch.js"></script>
-  </head>
-  <body></body>
-</html>
-```
-### Så här arbetar du
-
-- Den eller de javascriptfiler du använder måste anges i index.html
-- Dubbelklicka på index.html. Då startar applikationen.
-- Vid problem: Tryck på F12 i Chrome och läs eventuella felmeddelanden eller debugga.
-
-### Coffeescript
-
 - download [node.js](https://nodejs.org/en/download)
 - Skriv in följande kommando i ett terminalfönster
 ```javascript
 npm install -g coffee-script
 ```
-- Starta transpilering i bakgrunden med detta kommando. Då du sparar skapas .js-filen.
-```javascript
-coffee -M -b -o . -cw .
-```
+
+### Så här arbetar du
+
+- Använd valfri texteditor t ex Sublime eller Notepad.
+- Kopiera [mallen](https://github.com/ChristerNilsson/000-Mall) för varje nytt projekt.
+- Klicka på transpile.bat. Om det piper: läs transpileringsfel här.
+- Den eller de javascriptfiler du använder måste anges i index.html
+- Dubbelklicka på index.html. Då startar applikationen.
+- Vid problem: Tryck på F12 i Chrome och läs eventuella felmeddelanden eller debugga.

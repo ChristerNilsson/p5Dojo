@@ -8,7 +8,20 @@ data =
 	"L1: bg point sc sw": 
 		Background1: 
 			a: "bg 1"
-			b: "# Lines Of Code:1 bg\n"
+			b: """
+# Den översta bitmappen till höger visar resultatet av din kod.
+# Den mellersta bitmappen ska du efterlikna.
+# Den understa bitmappen visar skillnaden mellan de två andra.
+
+# Tryck på nedåtpil för att komma till sista raden.
+# Skriv in följande kommando: bg 1
+# Kontrollera att de båda övre bitmapparna nu är lika.
+
+# Klicka på Background2 för att komma till nästa övning.
+# Klicka på Help nere till vänster för mera information.
+# Klicka på Reference för att se fler kommandon.
+
+"""
 		Background2: 
 			a: "bg 0.5"
 			b: "# LOC:1 bg\n"
@@ -719,43 +732,6 @@ circles = (x,y,r) ->
 			"""
 			c: "circles 100,100,100":0
 		
-		hypnoticA : 
-			a: """
-hypnoticA = () ->
-	bg 0.5, 0, 0
-	sc()
-	fc 1
-	for i in range 100
-		x = 100 + cos(i) * i
-		y = 100 + sin(i) * i
-		circle x, y, 5
-"""
-			b: """
-			# LOC:6 -> bg circle cos fc sc sin
-			hypnoticA = () ->
-			"""
-			c: "hypnoticA()":0
-
-		hypnoticB : 
-			a: """
-hypnoticB = (t) ->
-	bg 0.5, 0, 0
-	sc()
-	fc 1
-	for i in range 100
-		x = 100 + cos(i) * i
-		y = 100 + sin(i) * i
-		speed = i/10.0
-		r = map sin(t*speed), -1, 1, 2, 5
-		circle x, y, r
-"""
-			b: """
-			# LOC:7 -> bg circle cos fc map sc sin
-			hypnoticB = (t) ->
-			"""
-			c: 
-				"hypnoticB 1":0
-				"hypnoticB 5":0
 		
 		korg: 
 			a: """
@@ -1279,3 +1255,40 @@ for i in range 15
 """
 			b: "# LOC:6 circle lerp\n"
 
+		hypnoticA : 
+			a: """
+hypnoticA = () ->
+	bg 0.5, 0, 0
+	sc()
+	fc 1
+	for i in range 100
+		x = 100 + cos(i) * i
+		y = 100 + sin(i) * i
+		circle x, y, 5
+"""
+			b: """
+			# LOC:6 -> bg circle cos fc sc sin
+			hypnoticA = () ->
+			"""
+			c: "hypnoticA()":0
+
+		hypnoticB : 
+			a: """
+hypnoticB = (t) ->
+	bg 0.5, 0, 0
+	sc()
+	fc 1
+	for i in range 100
+		x = 100 + cos(i) * i
+		y = 100 + sin(i) * i
+		speed = i/10.0
+		r = map sin(t*speed), -1, 1, 2, 5
+		circle x, y, r
+"""
+			b: """
+			# LOC:7 -> bg circle cos fc map sc sin
+			hypnoticB = (t) ->
+			"""
+			c: 
+				"hypnoticB 1":0
+				"hypnoticB 5":0
