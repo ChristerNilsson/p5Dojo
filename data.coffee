@@ -429,110 +429,6 @@ for i in range 37
 """
 			b:"# LOC:5 bg for lerp line (by Noel Watson)\n"
 
-	"L6: triangle quad arc" :
-		Triangle: 
-			a:"""
-fc 1
-triangle 20,40, 160,100, 100,140
-"""
-			b:"# LOC:2 fc triangle\n" 
-		Quad: 
-			a:"""
-fc 1,1,0
-quad 150,100, 180,20, 40,20, 100,140
-"""
-			b:"# LOC:2 fc quad\n"
-		PacMan: 
-			a:"""
-fc 1,1,0
-arc 100,100, 80,80, radians(-135),radians(135), PIE
-"""
-			b:"# LOC:2 arc fc radians PIE\n"
-		for11: 
-			a:"""
-rectMode CENTER
-sc 1
-translate 100,100
-for i in range 18,-1,-1
-  r = 1.0*i/18
-  fc r,0,0
-  w = 70+5*i
-  h = 70+5*i
-  rect 0,0, w,h
-  rd 5
-""" 
-			b:"# LOC:7 for fc circle lerp rd rectMode sc translate\n"
-
-		for12: 
-			a:"""
-rectMode CENTER
-sc()
-for i in range 10
-  for j in range 10
-    push()
-    translate 10+20*i,10+20*j
-    rd 5*(i+j)
-    r = i/9.0
-    g = j/9.0
-    b = 0
-    fc r,g,b
-    rect 0,0, 10,10
-    pop()
-""" 
-			b:"# LOC:10 fc for lerp push pop rd rect rectMode sc translate\n"
-
-		"Olympic Ring Prep":
-			a:"""
-ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
-	hour = PI/6
-	strokeCap SQUARE
-	fc()
-	sw w
-	sc r,g,b
-	arc x,y,2*radius,2*radius,(start-3)*hour,(stopp-3)*hour
-"""
-			b:"""
-# LOC:7 sc arc fc sw strokeCap
-ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
-"""
-			c: 
-				"ring 100,100,60,20, 1,1,0":0
-				"ring 100,100,80,10, 1,0,0, 3,6":0
-				"ring 100,100,80,10, 0,1,0, 2,4":0
-				"ring 100,100,80,10, 0,1,0, 4,2":0
-
-		"Olympic Rings":
-			a:"""
-class Ring
-	constructor : (@x,@y,@r,@g,@b) ->
-	draw : (start=3,stopp=3,hour=PI/6) ->
-		sc @r,@g,@b
-		arc @x,@y,50,50,(start-3)*hour,(stopp-3)*hour
-
-a = new Ring  40,100, 0,0,1
-b = new Ring 100,100, 0,0,0
-c = new Ring 160,100, 1,0,0
-d = new Ring  70,120, 1,1,0
-e = new Ring 130,120, 0,1,0
-
-strokeCap SQUARE
-bg 0.5
-fc()
-sw 10
-
-a.draw()
-c.draw()
-d.draw()
-e.draw()
-a.draw 2,4
-b.draw()
-d.draw 12,2
-e.draw 8,10
-c.draw 6,8			
-"""	
-			b:"# LOC:23 class constructor sc arc bg fc sw strokeCap"
-
-	"LZ:" : 
 		chessRow: 
 			a:"""
 bg 0.5
@@ -553,77 +449,27 @@ for i in range 1,9
 """
 			b:"# LOC:5 bg fc for rect\n"
 		
-		multimoire: 
-			a: """
-moire = (k) ->
-	background 0
-	for i in range k
-		for j in range 37
-			line 10,map(i,0,k-1,10,190),190,10+j*5
-"""
-			b:"""
-			# LOC:5 bg for line map
-			moire = (k) ->
-			"""
-			c: 
-				"moire 2":0
-				"moire 3":0
-				"moire 4":0
-				"moire 5":0
-		
-		colorCube:
-			a: """
-colorCube = (n,b) ->
-	bg 0
-	d = 200.0/n
-	m = n-1.0
-	for r in range n
-		for g in range n
-			fc r/m,g/m,b/m
-			rect r*d,g*d,d,d
-"""
-			b: """
-			# LOC:8 -> bg fc for rect
-			colorCube = (n,b) ->
-			"""
-			c:
-				"colorCube 2,0":0
-				"colorCube 2,1":0
-				"colorCube 3,0":0
-				"colorCube 3,1":0
-				"colorCube 3,2":0
 
-		korg: 
-			a: """
-korg = (n,w,c1,c2) ->
-	bg 0
-	sw w
-	fill c1
-	stroke c2
-	q = 2*n+1
-	d = 200.0/q
-	for i in range n
-		rect d+i*2*d,0,d,200
-	for j in range n
-		rect 0,d+j*2*d,200,d
-	for i in range n
-		for j in range n
-			if (i+j) % 2 == 1
-				rect i*2*d,d+j*2*d,3*d,d
-			else
-				rect d+i*2*d,j*2*d,d,3*d
+	"L6: triangle quad arc" :
+		Triangle: 
+			a:"""
+fc 1
+triangle 20,40, 160,100, 100,140
 """
-			b:"""
-			# LOC:17 -> bg fc for if else rect sc sw
-			korg = (n,w,c1,c2) ->
-			"""
-			c: 
-				"korg 1,5,co(1,0,0),co(1,1,0)":0
-				"korg 2,4,co(0.5),co(1)":0
-				"korg 3,3,co(1,1,0),co(1,0,0)":0
-				"korg 4,2,co(1),co(0.5)":0
-				"korg 5,1,co(1,0,0),co(1,1,0)":0
-
+			b:"# LOC:2 fc triangle\n" 
+		Quad: 
+			a:"""
+fc 1,1,0
+quad 150,100, 180,20, 40,20, 100,140
+"""
+			b:"# LOC:2 fc quad\n"
+		PacMan: 
+			a:"""
+fc 1,1,0
+arc 100,100, 80,80, radians(-135),radians(135), PIE
+"""
+			b:"# LOC:2 arc fc radians PIE\n"
+	"L7: Rotate" : 
 		textC: 
 			a:"""
 fc 1,1,0
@@ -697,6 +543,101 @@ pop()
 			b:"""
 			# LOC:11 fc push pop rd rect translate
 			"""
+		cards: 
+			a:"""
+rectMode CENTER
+sc 1
+translate 100,100
+for i in range 18,-1,-1
+  r = 1.0*i/18
+  fc r,0,0
+  w = 70+5*i
+  h = 70+5*i
+  rect 0,0, w,h
+  rd 5
+""" 
+			b:"# LOC:7 for fc circle lerp rd rectMode sc translate\n"
+
+		tiles: 
+			a:"""
+rectMode CENTER
+sc()
+for i in range 10
+  for j in range 10
+    push()
+    translate 10+20*i,10+20*j
+    rd 5*(i+j)
+    r = i/9.0
+    g = j/9.0
+    b = 0
+    fc r,g,b
+    rect 0,0, 10,10
+    pop()
+""" 
+			b:"# LOC:10 fc for lerp push pop rd rect rectMode sc translate\n"
+
+
+	"L8: Function" : 
+
+		square : 
+			a: """
+			square = (x,y,size,w=1,r=0.5,g=0.5,b=0.5) ->
+				bg 0
+				sw w
+				fc r,g,b
+				rect x,y,size,size
+			"""
+			b: """
+			# LOC:5 -> bg sw fc rect
+			square = (x,y,size,w=1, r=0.5,g=0.5,b=0.5) ->
+			"""
+			c: 
+				"square 100,100,50" : 0
+				"square 10,10,20" : 0
+				"square 50,70,40,2" : 0
+				"square 30,150,30,3,1,0,0" : 0
+
+		multimoire: 
+
+			a: """
+moire = (k) ->
+	background 0
+	for i in range k
+		for j in range 37
+			line 10,map(i,0,k-1,10,190),190,10+j*5
+"""
+			b:"""
+			# LOC:5 bg for line map
+			moire = (k) ->
+			"""
+			c: 
+				"moire 2":0
+				"moire 3":0
+				"moire 4":0
+				"moire 5":0
+		
+		colorCube:
+			a: """
+colorCube = (n,b) ->
+	bg 0
+	d = 200.0/n
+	m = n-1.0
+	for r in range n
+		for g in range n
+			fc r/m,g/m,b/m
+			rect r*d,g*d,d,d
+"""
+			b: """
+			# LOC:8 -> bg fc for rect
+			colorCube = (n,b) ->
+			"""
+			c:
+				"colorCube 2,0":0
+				"colorCube 2,1":0
+				"colorCube 3,0":0
+				"colorCube 3,1":0
+				"colorCube 3,2":0
+
 		manyDices: 
 			a:"""
 dots = (x,y,dots) ->
@@ -816,141 +757,104 @@ hypnoticB = (t) ->
 				"hypnoticB 1":0
 				"hypnoticB 5":0
 		
-		square : 
-			a: "square = (x,y,size) -> rect x,y,size,size"
-			b: """
-			# LOC:2 -> rect
-			square = (x,y,size) ->
+		korg: 
+			a: """
+korg = (n,w,c1,c2) ->
+	bg 0
+	sw w
+	fill c1
+	stroke c2
+	q = 2*n+1
+	d = 200.0/q
+	for i in range n
+		rect d+i*2*d,0,d,200
+	for j in range n
+		rect 0,d+j*2*d,200,d
+	for i in range n
+		for j in range n
+			if (i+j) % 2 == 1
+				rect i*2*d,d+j*2*d,3*d,d
+			else
+				rect d+i*2*d,j*2*d,d,3*d
+"""
+			b:"""
+			# LOC:17 -> bg fc for if else rect sc sw
+			korg = (n,w,c1,c2) ->
 			"""
 			c: 
-				"square 100,90,50":0 
-				"square 100,100,60":0
-
-		gravity : 
-			a: """
-fc 1
-for i in range 15
-	x=5+10*i
-	y=5+lerp(0,lerp(0,1,i),i)
-	circle x,y,5
-"""
-			b: "# LOC:6 circle lerp\n"
-
-	"LN:" : 
-
-		dist: 
+				"korg 1,5,co(1,0,0),co(1,1,0)":0
+				"korg 2,4,co(0.5),co(1)":0
+				"korg 3,3,co(1,1,0),co(1,0,0)":0
+				"korg 4,2,co(1),co(0.5)":0
+				"korg 5,1,co(1,0,0),co(1,1,0)":0
+		"Olympic Ring Prep":
 			a:"""
-bg 0
-fc 1
-sc()
-for i in range 10
-	x = lerp 10,30,i
-	for j in range 10
-		y = lerp 10,30,j
-		d = dist 100,100,x,y
-		r = map(d,0,150,1,20)/2
-		circle x,y,r
-""" 
-			b:"# LOC:10 bg circle dist fc lerp map sc\n"
+ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
+	hour = PI/6
+	strokeCap SQUARE
+	fc()
+	sw w
+	sc r,g,b
+	arc x,y,2*radius,2*radius,(start-3)*hour,(stopp-3)*hour
+"""
+			b:"""
+# LOC:7 sc arc fc sw strokeCap
+ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
+"""
+			c: 
+				"ring 100,100,60,20, 1,1,0":0
+				"ring 100,100,80,10, 1,0,0, 3,6":0
+				"ring 100,100,80,10, 0,1,0, 2,4":0
+				"ring 100,100,80,10, 0,1,0, 4,2":0
+
+
+
+	"L9: Class" : 
+		"Olympic Rings":
+			b: """
+			# LOC:23 class constructor sc arc bg fc sw strokeCap
+			class Ring
+				constructor : (@x,@y,@r,@g,@b) ->
+				draw : (start=3,stopp=3,hour=PI/6) ->
+
+			olympic = (x=100,y=100,radius=50,d=60,w=10) ->
+			"""
+
+			a:"""
+class Ring
+	constructor : (@x,@y,@radius, @r,@g,@b) ->
+	draw : (start=3,stopp=3,hour=PI/6) ->
+		sc @r,@g,@b
+		arc @x,@y,@radius,@radius,(start-3)*hour,(stopp-3)*hour
 		
-		bulge: 
-			a:"""
-bg 0
-fill 255
-noStroke()
-for i in range 20
-	for j in range 20
-		x = i*200/20+5
-		y = j*200/20+5
-		r = map(sin(i*PI/20),-1,1,1,3) * map(sin(j*PI/20),-1,1,1,3) / 2
-		circle x,y,r
-"""
-			b:"# LOC:10 bg circle dist fill map noStroke sin\n"
+olympic = (x=100,y=100,radius=50,d=60,w=10) ->
+	r1 = new Ring x-d,  y,     radius, 0,0,1
+	r2 = new Ring x,    y,     radius, 0,0,0
+	r3 = new Ring x+d,  y,     radius, 1,0,0
+	r4 = new Ring x-d/2,y+d/3, radius, 1,1,0
+	r5 = new Ring x+d/2,y+d/3, radius, 0,1,0
 
-		wave: 
-			a:"""
-colorMode HSB,360,100,100
-noStroke()
-bg 0
-for i in range 21
-	fill map(i,0,20,0,360),100,100
-	a = map i,0,20,0,2*PI
-	x = 10*i
-	y = map sin(a),-1,1,0,200
-	circle x,y,3
-"""
-			b:"# LOC:9 circle colorMode fill map noStroke sin PI\n"
+	strokeCap SQUARE
+	bg 0.5
+	fc()
+	sw w
 
-		circle: 
-			a:"""
-bg 0
-colorMode HSB,360,100,100
-for i in range 20
-	r=map i,0,19,0,360
-	fill r,255,255
-	a=map i,0,20,0,2*PI
-	sc()
-	x=map cos(a),-1,1,0,200
-	y=map sin(a),-1,1,0,200
-	circle x,y,3
-"""
-			b:"# LOC:10 bg circle colorMode cos fc map PI sc sin\n"
-	
-		circles: 
-			a:"""
-bg 0
-noStroke()
-colorMode HSB,360,100,100
-translate 100,100
-for i in range 20
-	for j in range 11
-		fill map(i,0,20,0,360),255,255
-		a = map i,0,20,0,2*PI
-		x = map cos(a),-1,1,-j*10,j*10
-		y = map sin(a),-1,1,-j*10,j*10
-		r = 3
-		circle x,y,r
-"""
-			b:"# LOC:12 bg circle colorMode cos fill map noStroke translate sin PI\n"
-		
-		sized_circles: 
-			a:"""
-bg 0
-noStroke()
-colorMode HSB,360,100,100
-translate 100,100
-for i in range 20
-	fill map(i,0,20,0,360),255,255
-	a = map i,0,20,0,2*PI
-	for j in range 11
-		x = map cos(a),-1,1,-j*10,j*10
-		y = map sin(a),-1,1,-j*10,j*10
-		r = map(j,0,10,0,10)/2
-		circle x,y,r
-"""
-			b:"# LOC:12 circle colorMode cos fill map noStroke PI sin translate \n"
-		
-		rotated_circles: 
-			a:"""
-colorMode HSB,360,100,100
-sc()
-bg 0
-translate 100,100
-for i in range 20
-	r = map i,0,20,0,360
-	a=map i,0,20,0,2*PI
-	for j in range 11
-		push()
-		rotate map j,0,10,0,360
-		fill r,255,255
-		x=map cos(a),-1,1,-j*10,j*10
-		y=map sin(a),-1,1,-j*10,j*10
-		circle x,y,j/2
-		pop()
-"""
-			b:"# LOC:17 circle cos map PI push pop rotate sin translate \n"
+	r1.draw()
+	r3.draw()
+	r4.draw()
+	r5.draw()
+	r1.draw 2,4
+	r2.draw()
+	r4.draw 12,2
+	r5.draw 8,10
+	r3.draw 6,8			
+"""	
+			c:
+				"olympic()" : 0
+				"olympic 100,50,25,30,5" : 0
+				"olympic 100,100,100,120,20" : 0
 
-	"L8: Guess a Number" :
+	"L10: Guess a Number" :
 		guess1:
 			b:"# LOC:10 bg rectMode for range rect\n"
 			a:"""
@@ -1252,3 +1156,126 @@ rect 60,80,80,20
 rect 80,100,40,60
 triangle 100,140,0,200,200,200
 """
+
+		dist: 
+			a:"""
+bg 0
+fc 1
+sc()
+for i in range 10
+	x = lerp 10,30,i
+	for j in range 10
+		y = lerp 10,30,j
+		d = dist 100,100,x,y
+		r = map(d,0,150,1,20)/2
+		circle x,y,r
+""" 
+			b:"# LOC:10 bg circle dist fc lerp map sc\n"
+		
+		bulge: 
+			a:"""
+bg 0
+fill 255
+noStroke()
+for i in range 20
+	for j in range 20
+		x = i*200/20+5
+		y = j*200/20+5
+		r = map(sin(i*PI/20),-1,1,1,3) * map(sin(j*PI/20),-1,1,1,3) / 2
+		circle x,y,r
+"""
+			b:"# LOC:10 bg circle dist fill map noStroke sin\n"
+
+		wave: 
+			a:"""
+colorMode HSB,360,100,100
+noStroke()
+bg 0
+for i in range 21
+	fill map(i,0,20,0,360),100,100
+	a = map i,0,20,0,2*PI
+	x = 10*i
+	y = map sin(a),-1,1,0,200
+	circle x,y,3
+"""
+			b:"# LOC:9 circle colorMode fill map noStroke sin PI\n"
+
+		circle: 
+			a:"""
+bg 0
+colorMode HSB,360,100,100
+for i in range 20
+	r=map i,0,19,0,360
+	fill r,255,255
+	a=map i,0,20,0,2*PI
+	sc()
+	x=map cos(a),-1,1,0,200
+	y=map sin(a),-1,1,0,200
+	circle x,y,3
+"""
+			b:"# LOC:10 bg circle colorMode cos fc map PI sc sin\n"
+	
+		circles: 
+			a:"""
+bg 0
+noStroke()
+colorMode HSB,360,100,100
+translate 100,100
+for i in range 20
+	for j in range 11
+		fill map(i,0,20,0,360),255,255
+		a = map i,0,20,0,2*PI
+		x = map cos(a),-1,1,-j*10,j*10
+		y = map sin(a),-1,1,-j*10,j*10
+		r = 3
+		circle x,y,r
+"""
+			b:"# LOC:12 bg circle colorMode cos fill map noStroke translate sin PI\n"
+		
+		sized_circles: 
+			a:"""
+bg 0
+noStroke()
+colorMode HSB,360,100,100
+translate 100,100
+for i in range 20
+	fill map(i,0,20,0,360),255,255
+	a = map i,0,20,0,2*PI
+	for j in range 11
+		x = map cos(a),-1,1,-j*10,j*10
+		y = map sin(a),-1,1,-j*10,j*10
+		r = map(j,0,10,0,10)/2
+		circle x,y,r
+"""
+			b:"# LOC:12 circle colorMode cos fill map noStroke PI sin translate \n"
+		
+		rotated_circles: 
+			a:"""
+colorMode HSB,360,100,100
+sc()
+bg 0
+translate 100,100
+for i in range 20
+	r = map i,0,20,0,360
+	a=map i,0,20,0,2*PI
+	for j in range 11
+		push()
+		rotate map j,0,10,0,360
+		fill r,255,255
+		x=map cos(a),-1,1,-j*10,j*10
+		y=map sin(a),-1,1,-j*10,j*10
+		circle x,y,j/2
+		pop()
+"""
+			b:"# LOC:17 circle cos map PI push pop rotate sin translate \n"
+
+		gravity : 
+			a: """
+fc 1
+for i in range 15
+	x=5+10*i
+	y=5+lerp(0,lerp(0,1,i),i)
+	circle x,y,5
+"""
+			b: "# LOC:6 circle lerp\n"
+
