@@ -561,7 +561,10 @@ moire = (k) ->
 		for j in range 37
 			line 10,map(i,0,k-1,10,190),190,10+j*5
 """
-			b:"# LOC:5 bg for line map\n"
+			b:"""
+			# LOC:5 bg for line map
+			moire = (k) ->
+			"""
 			c: 
 				"moire 2":0
 				"moire 3":0
@@ -579,7 +582,10 @@ colorCube = (n,b) ->
 			fc r/m,g/m,b/m
 			rect r*d,g*d,d,d
 """
-			b: "# LOC:8 -> bg fc for rect\n"
+			b: """
+			# LOC:8 -> bg fc for rect
+			colorCube = (n,b) ->
+			"""
 			c:
 				"colorCube 2,0":0
 				"colorCube 2,1":0
@@ -607,7 +613,10 @@ korg = (n,w,c1,c2) ->
 			else
 				rect d+i*2*d,j*2*d,d,3*d
 """
-			b:"# LOC:17 -> bg fc for if else rect sc sw\n"
+			b:"""
+			# LOC:17 -> bg fc for if else rect sc sw
+			korg = (n,w,c1,c2) ->
+			"""
 			c: 
 				"korg 1,5,co(1,0,0),co(1,1,0)":0
 				"korg 2,4,co(0.5),co(1)":0
@@ -685,7 +694,9 @@ rd 45
 rect 0,0, 40,40
 pop()
 """
-			b:"# LOC:11 fc push pop rd rect translate\n"
+			b:"""
+			# LOC:11 fc push pop rd rect translate
+			"""
 		manyDices: 
 			a:"""
 dots = (x,y,dots) ->
@@ -710,7 +721,10 @@ manyDices = () ->
 		for j in range 10
 			dice 20*i,20*j,1+(i+j)%6
 """
-			b : "# LOC:34 -> fc for if point [] % \n"
+			b : """
+			# LOC:34 -> fc for if point [] %
+			manyDices = () ->
+			"""
 			c : "manyDices()":0
 		
 		klocka: 
@@ -741,7 +755,10 @@ urtavla = () ->
 			point 85,0
 		rd 6
 """
-			b: "# LOC:37 -> circle else fc for if point push pop rd rect rectMode sc translate \n"
+			b: """
+			# LOC:37 -> circle else fc for if point push pop rd rect rectMode sc translate
+			klocka = (h,m,s) ->
+			"""
 			c: 
 				"klocka 10,9,30":0
 				"klocka 11,30,15":0
@@ -755,7 +772,10 @@ circles = (x,y,r) ->
 	circles x-r/2,y,r/2
 	circles x+r/2,y,r/2
 """
-			b: "# LOC:7 -> circle if return sc < \n"
+			b: """
+			# LOC:7 -> circle if return sc <
+			circles = (x,y,r) ->
+			"""
 			c: "circles 100,100,100":0
 		
 		hypnoticA : 
@@ -769,7 +789,10 @@ hypnoticA = () ->
 		y = 100 + sin(i) * i
 		circle x, y, 5
 """
-			b: "# LOC:6 -> bg circle cos fc sc sin\n"
+			b: """
+			# LOC:6 -> bg circle cos fc sc sin
+			hypnoticA = () ->
+			"""
 			c: "hypnoticA()":0
 
 		hypnoticB : 
@@ -785,14 +808,20 @@ hypnoticB = (t) ->
 		r = map sin(t*speed), -1, 1, 2, 5
 		circle x, y, r
 """
-			b: "# LOC:7 -> bg circle cos fc map sc sin \n"
+			b: """
+			# LOC:7 -> bg circle cos fc map sc sin
+			hypnoticB = (t) ->
+			"""
 			c: 
 				"hypnoticB 1":0
 				"hypnoticB 5":0
 		
 		square : 
 			a: "square = (x,y,size) -> rect x,y,size,size"
-			b: "# LOC:2 -> rect \n"
+			b: """
+			# LOC:2 -> rect
+			square = (x,y,size) ->
+			"""
 			c: 
 				"square 100,90,50":0 
 				"square 100,100,60":0

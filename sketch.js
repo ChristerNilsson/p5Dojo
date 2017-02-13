@@ -117,12 +117,6 @@ function sel2change(sel) {
   call = ""
   fillSelect(sel3, data[chapter][exercise]["c"])    
     
-  calls = data[chapter][exercise]["c"]
-  if (calls) {
-    call = _.keys(calls)[0]
-    sel3.val(call).change()
-  } 
-
   var a = data[chapter][exercise]["a"]
   a = transpile(a)
   run(1, a)
@@ -131,6 +125,12 @@ function sel2change(sel) {
   myCodeMirror.setValue(b)
   myCodeMirror.focus() 
   compare()
+
+  calls = data[chapter][exercise]["c"]
+  if (calls) {
+    call = _.keys(calls)[0]
+    sel3.val(call).change()
+  } 
 
 }
 
