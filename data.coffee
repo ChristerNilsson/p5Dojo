@@ -853,9 +853,6 @@ class Ship
 		sw 5
 		point 0,0
 
-sc 1,0,0
-sw 5
-point 20,120
 ship = new Ship()		
 			"""
 			b:"""
@@ -882,6 +879,8 @@ ship = new Ship()
 				"ship.lt().fd().rt().fd().rt().draw()" : 0
 				"ship.fd().rt(45).draw()" : 0
 				"ship.rt(45).fd().draw()" : 0
+				"(new Ship(100,100,20,-90)).draw()" : 0
+
 
 	"L10: Guess a Number" :
 		guess1:
