@@ -1,8 +1,6 @@
-# a : facit, javascript.
 # b : comment line. LOC and keyword clues
-# c : call in Javascript syntax
-# Observe:	local variables a,b and c must be declared var. e.g. r,g,b
-# Eventually, skip a,b and c and use a list instead
+# a : facit
+# c : call 
 
 data = 
 
@@ -39,6 +37,12 @@ data =
 			a: "bg 1,1,0"
 
 		CornerPoints: 
+			b: """
+# LOC:9 sc sw point
+sw 5
+sc 1,0,0
+point 0,0
+"""
 			a: """
 sw 5
 sc 1,0,0
@@ -48,13 +52,7 @@ point 200,0
 sc 1,1,0
 point 0,200
 sc 0
-point 200,200			
-"""
-			b: """
-# LOC:9 sc sw point
-sw 5
-sc 1,0,0
-point 0,0
+point 200,200
 """
 
 		MidPoints: 
@@ -833,103 +831,7 @@ ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 
 #####################################
 
-	"L9: Class" : 
-
-		"Olympic Rings":
-			b: """
-			# LOC:23 class constructor sc arc bg fc sw strokeCap
-			class Ring
-				constructor : (@x,@y,@r,@g,@b) ->
-				draw : (start=3,stopp=3,hour=PI/6) ->
-
-			olympic = (x=100,y=100,radius=50,d=60,w=10) ->
-			"""
-			a:"""
-class Ring
-	constructor : (@x,@y,@radius, @r,@g,@b) ->
-	draw : (start=3,stopp=3,hour=PI/6) ->
-		sc @r,@g,@b
-		arc @x,@y,@radius,@radius,(start-3)*hour,(stopp-3)*hour
-		
-olympic = (x=100,y=100,radius=50,d=60,w=10) ->
-	r1 = new Ring x-d,  y,     radius, 0,0,1
-	r2 = new Ring x,    y,     radius, 0,0,0
-	r3 = new Ring x+d,  y,     radius, 1,0,0
-	r4 = new Ring x-d/2,y+d/3, radius, 1,1,0
-	r5 = new Ring x+d/2,y+d/3, radius, 0,1,0
-
-	strokeCap SQUARE
-	bg 0.5
-	fc()
-	sw w
-
-	r1.draw()
-	r3.draw()
-	r4.draw()
-	r5.draw()
-	r1.draw 2,4
-	r2.draw()
-	r4.draw 12,2
-	r5.draw 8,10
-	r3.draw 6,8			
-"""	
-			c:
-				"olympic()" : 0
-				"olympic 100,50,25,30,5" : 0
-				"olympic 100,100,100,120,20" : 0
-
-		SpaceShip :
-			b:"""
-# LOC: 22 class constructor cos sin radians translate rd sc sw triangle point new
-class Ship
-	constructor : (@x=20,@y=120,@r=10,@dir=0) ->
-	lt : (a=90) -> 
-		@
-	draw : ->
-			
-s1 = new Ship()		
-s2 = new Ship 100,100,20,-90	
-			"""
-			a: """
-class Ship
-	constructor : (@x=20,@y=120,@r=10,@dir=0) ->
-	lt : (a=90) -> 
-		@dir -= a
-		@
-	rt : (a=90) -> 
-		@dir += a
-		@
-	fd : (d=100) -> 
-		@x += d * cos radians @dir
-		@y += d * sin radians @dir
-		@
-	draw : ->
-		translate @x,@y
-		rd @dir
-		sc 1,1,0
-		sw 2
-		triangle 2*@r,0, -@r,@r, -@r,-@r
-		sw 5
-		point 0,0
-
-s1 = new Ship()		
-s2 = new Ship 100,100,20,-90	
-			"""
-			c:
-				"s1.draw()" : 0
-				"s1.lt(45).draw()" : 0
-				"s1.rt(45).draw()" : 0
-				"s1.rt().draw()" : 0
-				"s1.rt(180).draw()" : 0
-				"s1.fd().draw()" : 0
-				"s1.lt().fd().rt().fd().rt().draw()" : 0
-				"s1.fd().rt(45).draw()" : 0
-				"s1.rt(45).fd().draw()" : 0
-				"s2.draw()" : 0
-
-#####################################
-
-	"L10: Guess a Number" :
+	"L9: Guess a Number" :
 
 		guess1:
 			b:"# LOC:10 bg rectMode for range rect\n"
@@ -1092,6 +994,102 @@ f = (nx,ny,start,stopp,mx,my,target) ->
 			c:
 				"f 8,8,18,45,70,90,28":0
 				"f 6,6,10,25,90,90,20":0
+
+#####################################
+
+	"L10: Class" : 
+
+		"Olympic Rings":
+			b: """
+			# LOC:23 class constructor sc arc bg fc sw strokeCap
+			class Ring
+				constructor : (@x,@y,@r,@g,@b) ->
+				draw : (start=3,stopp=3,hour=PI/6) ->
+
+			olympic = (x=100,y=100,radius=50,d=60,w=10) ->
+			"""
+			a:"""
+class Ring
+	constructor : (@x,@y,@radius, @r,@g,@b) ->
+	draw : (start=3,stopp=3,hour=PI/6) ->
+		sc @r,@g,@b
+		arc @x,@y,@radius,@radius,(start-3)*hour,(stopp-3)*hour
+		
+olympic = (x=100,y=100,radius=50,d=60,w=10) ->
+	r1 = new Ring x-d,  y,     radius, 0,0,1
+	r2 = new Ring x,    y,     radius, 0,0,0
+	r3 = new Ring x+d,  y,     radius, 1,0,0
+	r4 = new Ring x-d/2,y+d/3, radius, 1,1,0
+	r5 = new Ring x+d/2,y+d/3, radius, 0,1,0
+
+	strokeCap SQUARE
+	bg 0.5
+	fc()
+	sw w
+
+	r1.draw()
+	r3.draw()
+	r4.draw()
+	r5.draw()
+	r1.draw 2,4
+	r2.draw()
+	r4.draw 12,2
+	r5.draw 8,10
+	r3.draw 6,8			
+"""	
+			c:
+				"olympic()" : 0
+				"olympic 100,50,25,30,5" : 0
+				"olympic 100,100,100,120,20" : 0
+
+		SpaceShip :
+			b:"""
+# LOC: 22 class constructor cos sin radians translate rd sc sw triangle point new
+class Ship
+	constructor : (@x=20,@y=120,@r=10,@dir=0) ->
+	lt : (a=90) -> 
+		@
+	draw : ->
+			
+s1 = new Ship()		
+s2 = new Ship 100,100,20,-90	
+			"""
+			a: """
+class Ship
+	constructor : (@x=20,@y=120,@r=10,@dir=0) ->
+	lt : (a=90) -> 
+		@dir -= a
+		@
+	rt : (a=90) -> 
+		@dir += a
+		@
+	fd : (d=100) -> 
+		@x += d * cos radians @dir
+		@y += d * sin radians @dir
+		@
+	draw : ->
+		translate @x,@y
+		rd @dir
+		sc 1,1,0
+		sw 2
+		triangle 2*@r,0, -@r,@r, -@r,-@r
+		sw 5
+		point 0,0
+
+s1 = new Ship()		
+s2 = new Ship 100,100,20,-90	
+			"""
+			c:
+				"s1.draw()" : 0
+				"s1.lt(45).draw()" : 0
+				"s1.rt(45).draw()" : 0
+				"s1.rt().draw()" : 0
+				"s1.rt(180).draw()" : 0
+				"s1.fd().draw()" : 0
+				"s1.lt().fd().rt().fd().rt().draw()" : 0
+				"s1.fd().rt(45).draw()" : 0
+				"s1.rt(45).fd().draw()" : 0
+				"s2.draw()" : 0
 
 #####################################
 
