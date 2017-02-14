@@ -830,6 +830,59 @@ olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 				"olympic 100,50,25,30,5" : 0
 				"olympic 100,100,100,120,20" : 0
 
+		SpaceShip :
+			a: """
+class Ship
+	constructor : (@x=20,@y=120,@r=10,@dir=0) ->
+	lt : (a=90) -> 
+		@dir -= a
+		@
+	rt : (a=90) -> 
+		@dir += a
+		@
+	fd : (d=100) -> 
+		@x += d * cos radians @dir
+		@y += d * sin radians @dir
+		@
+	draw : ->
+		translate @x,@y
+		rd @dir
+		sc 1,1,0
+		sw 2
+		triangle 2*@r,0, -@r,@r, -@r,-@r
+		sw 5
+		point 0,0
+
+sc 1,0,0
+sw 5
+point 20,120
+ship = new Ship()		
+			"""
+			b:"""
+			# LOC: 24 class constructor cos sin radians translate rd sc sw triangle point new
+			class Ship
+				constructor : (@x=20,@y=120,@r=10,@dir=0) ->
+				lt : (a=90) -> 
+					@
+				rt : (a=90) -> 
+					@
+				fd : (d=100) -> 
+					@
+				draw : ->
+			
+			ship = new Ship()		
+			"""
+			c:
+				"ship.draw()" : 0
+				"ship.lt(45).draw()" : 0
+				"ship.rt(45).draw()" : 0
+				"ship.rt().draw()" : 0
+				"ship.rt(180).draw()" : 0
+				"ship.fd().draw()" : 0
+				"ship.lt().fd().rt().fd().rt().draw()" : 0
+				"ship.fd().rt(45).draw()" : 0
+				"ship.rt(45).fd().draw()" : 0
+
 	"L10: Guess a Number" :
 		guess1:
 			b:"# LOC:10 bg rectMode for range rect\n"
