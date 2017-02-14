@@ -5,7 +5,11 @@
 # Eventually, skip a,b and c and use a list instead
 
 data = 
+
+#####################################
+
 	"L1: bg point sc sw": 
+
 		Background1: 
 			a: "bg 1"
 			b: """
@@ -23,14 +27,16 @@ data =
 
 """
 		Background2: 
+			b: "# LOC:1 bg\n"
 			a: "bg 0.5"
-			b: "# LOC:1 bg\n"
+
 		Background3: 
+			b: "# LOC:1 bg\n"
 			a: "bg 1,0,0"
-			b: "# LOC:1 bg\n"
+
 		Background4: 
-			a: "bg 1,1,0"
 			b: "# LOC:1 bg\n"
+			a: "bg 1,1,0"
 
 		CornerPoints: 
 			a: """
@@ -52,6 +58,7 @@ point 0,0
 """
 
 		MidPoints: 
+			b: "# LOC:11 sc sw point\n"
 			a: """
 sw 5
 sc 1,0,0
@@ -65,9 +72,9 @@ point 200,100
 sc 1
 point 100,200
 """
-			b: "# LOC:11 sc sw point\n"
 
 		CornerPoints3: 
+			b: "# LOC:17 sc sw point\n"
 			a: """
 sw 5
 sc 1,0,0
@@ -90,9 +97,9 @@ point 180,180
 point 180,200
 point 200,180
 """
-			b: "# LOC:17 sc sw point\n"
 
 		CornerPoints7: 
+			b: "# LOC:15 sc sw point\n"
 			a: """
 sw 5
 sc 1,0,0
@@ -113,9 +120,9 @@ point 190,170
 point 180,170
 point 200,170
 """
-			b: "# LOC:15 sc sw point\n"
 
 		Diagonal: 
+			b: "# LOC:23 sc sw point\n"
 			a: """
 sc 1,0,0
 sw 11
@@ -141,11 +148,13 @@ point 20,180
 sw 1
 point 0,200
 """
-			b: "# LOC:23 sc sw point\n"
 
+#####################################
 
 	"L2: circle fc text" : 
+
 		dices : 
+			b : "# LOC:26 point sc\n" 
 			a: """
 point 10,10
 
@@ -179,9 +188,9 @@ point 115,165
 point 115,170 
 point 115,175 
 """	
-			b : "# LOC:26 point sc\n" 
 		
 		Five: 
+			b: "# LOC:7 bg circle fc sc\n" 
 			a: """
 bg 0.5
 sc()
@@ -196,83 +205,94 @@ circle 160,160,20
 fc 0,0,1
 circle 160,40,20
 """ 
-			b: "# LOC:7 bg circle fc sc\n" 
 
 		whiteCircle: 
+			b:"# LOC:2 circle fc\n"
 			a:"""
 fc 1
 circle 60,80,30
 """
-			b:"# LOC:2 circle fc\n"
+
 		whiteEmptyCircle: 
+			b:"# LOC:2 circle fc sc sw\n"
 			a:"""
 sc 1
 fc()
 sw 2
 circle 70,90,40
 """
-			b:"# LOC:2 circle fc sc sw\n"
+
 		twoDiscsA: 
+			b:"# LOC:3 circle fc\n"
 			a:"""
 fc 1,0,0 
 circle 80,100,40
 fc 0,1,0
 circle 100,120,50
 """
-			b:"# LOC:3 circle fc\n"
+
 		twoDiscsB:
+			b:"# LOC:3 circle fc\n"
 			a:"""
 fc 1,0,0
 circle 80,100,40
 fc 0,1,0, 0.5
 circle 120,100,50
 """
-			b:"# LOC:3 circle fc\n"
+
 		textA: 
+			b:"# LOC:3 text textSize\n"
 			a:"""
 fc 1,1,0
 textSize 40
 text 'Javascript',100,100
 """
-			b:"# LOC:3 text textSize\n"
+
 		textB: 
+			b:"# LOC:4 text textAlign textSize\n"
 			a:"""
 fc 1,1,0
 textSize 40
 textAlign CENTER,CENTER
 text 'Coffeescript',100,100
 """
-			b:"# LOC:4 text textAlign textSize\n"
+
+#####################################			
 	
 	"L3: ellipse rect" : 
+
 		greenEllipse: 
+			b:"# LOC:2 ellipse fc\n"
 			a:"""
 fc 0,1,0
 ellipse 120,60, 60,40
 """
-			b:"# LOC:2 ellipse fc\n"
+
 		greenRect: 
+			b:"# LOC:2 fc rect\n"
 			a:"""
 fc 0,1,0
 rect 60,80, 40,50
 """
-			b:"# LOC:2 fc rect\n"
+
 		redRect:
+			b:"# LOC:2 fc rect\n"
 			a:"""
 fc 1,0,0
 rect 80,70, 40,100
 """
-			b:"# LOC:2 fc rect\n"
+
 		cross: 
+			b:"# LOC:3 fc rect\n"
 			a:"""
 fc 1,0,0
 sc()
 rect 85,70, 70,10
 rect 115,40, 10,100
 """
-			b:"# LOC:3 fc rect\n"
 
 		squareHole: 
+			b : "# LOC:12 fc rect sc sw \n"
 			a:"""
 fc 0,1,1
 sc()
@@ -286,32 +306,38 @@ sw 3
 rect 60,60, 80,80
 rect 80,80, 40,40
 """ 
-			b : "# LOC:12 fc rect sc sw \n"
+
+#####################################
 	
 	"L4: for lerp rect" : 
+
 		for01: 
+			b:"# LOC:2 for lerp rect\n"
 			a:"""
 for i in range 10
 	x = 5+20*i
 	rect x,5, 10,10
 """
-			b:"# LOC:2 for lerp rect\n"
+
 		for02: 
+			b:"# LOC:2 for lerp rect\n"
 			a:"""
 for i in range 10
 	y = 5+20*i
 	rect 5,y, 10,10
 """
-			b:"# LOC:2 for lerp rect\n"
+
 		for03: 
+			b:"# LOC:2 for lerp rect\n"
 			a:"""
 for i in range 10
 	x = 5+20*i
 	y = 5+20*i
 	rect x,y, 10,10
 """
-			b:"# LOC:2 for lerp rect\n"
+
 		for04: 
+			b:"# LOC:3 for lerp rect\n"
 			a:"""
 for i in range 10
 	for j in range 10
@@ -319,8 +345,9 @@ for i in range 10
 		y = 5+20*j
 		rect x,y, 10,10
 """
-			b:"# LOC:3 for lerp rect\n"
+
 		for05: 
+			b:"# LOC:3 for lerp rect rectMode\n"
 			a:"""
 rectMode CENTER
 for i in range 10
@@ -330,8 +357,9 @@ for i in range 10
 	h = 2*i
 	rect x,y, w,h
 """
-			b:"# LOC:3 for lerp rect rectMode\n"
+
 		for06: 
+			b:"# LOC:4 fc for lerp rect rectMode\n"
 			a:"""
 rectMode CENTER
 for i in range 10
@@ -342,8 +370,9 @@ for i in range 10
 	h = 2*i
 	rect x,y,w,h
 """
-			b:"# LOC:4 fc for lerp rect rectMode\n"
+
 		for07: 
+			b:"# LOC:3 for fc circle lerp\n"
 			a:"""
 for i in range 10
 	fc i/10.0,0,0
@@ -352,16 +381,18 @@ for i in range 10
 	r = i
 	circle x,y,r
 """
-			b:"# LOC:3 for fc circle lerp\n"
+
 		for08: 
+			b:"# LOC:3 for fc circle lerp\n"
 			a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
 	r = 10 * i
 	circle 100,100, r
 """
-			b:"# LOC:3 for fc circle lerp\n"
+
 		for09: 
+			b:"# LOC:3 for fc circle lerp\n"
 			a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -370,8 +401,9 @@ for i in range 10,0,-1
 	r = 10*i
 	circle x,y,r
 """
-			b:"# LOC:3 for fc circle lerp\n"
+
 		for10: 
+			b:"# LOC:4 for fc circle lerp\n"
 			a:"""
 for i in range 10
 	for j in range 10
@@ -381,30 +413,35 @@ for i in range 10
 		r = (i+j)/2
 		circle x,y,r
 """
-			b:"# LOC:4 for fc circle lerp\n"
 
+#####################################
 	
 	"L5: line for lerp" :
+
 		HorizontalLine: 
+			b: "# LOC:2 line sc\n"
 			a: """
 sc 1,0,1
 line 10,70, 190,70
 """
-			b: "# LOC:2 line sc\n"
+
 		VerticalLine: 
+			b: "# LOC:3 line sc sw\n"
 			a: """
 sc 1,1,0
 sw 10
 line 110,30, 110,170
 """
-			b: "# LOC:3 line sc sw\n"
+
 		Line: 
+			b: "# LOC:2 line sc\n"
 			a: """
 sc 1,1,0
 line 20,0, 200,20
 """
-			b: "# LOC:2 line sc\n"
+
 		Grid: 
+			b:"# LOC:5 for line sc sw\n"
 			a:"""
 sc 1,1,0
 sw 2
@@ -412,17 +449,18 @@ for i in range 10,200,10
 	line 10,i,190,i
 	line i,190,i,10
 """
-			b:"# LOC:5 for line sc sw\n"
+
 		Skislope:
+			b: "# LOC:4 bg for lerp line sc"
 			a: """
 bg 0
 sc 1,0,0
 for i in range 21
 	line i*10,0,200,i*10
 """
-			b: "# LOC:4 bg for lerp line sc"
 
 		Sunshine:
+			b: "# LOC:5 bg for lerp line sc\n"
 			a: """
 bg 0
 sc 1,1,0
@@ -430,9 +468,9 @@ for i in range 10
 	line i*20,0,200-i*20,200
 	line 0,20+i*20,200,180-i*20
 """
-			b: "# LOC:5 bg for lerp line sc\n"
 		
 		Lines:  
+			b:"# LOC:5 bg for lerp line (by Noel Watson)\n"
 			a:"""
 bg 0
 for i in range 37
@@ -440,9 +478,9 @@ for i in range 37
 	line 10,100,190,10+i*5
 	line 10,190,190,10+i*5
 """
-			b:"# LOC:5 bg for lerp line (by Noel Watson)\n"
 
 		chessRow: 
+			b:"# LOC:5 % bg fc for rect\n"
 			a:"""
 bg 0.5
 for i in range 8
@@ -450,9 +488,9 @@ for i in range 8
 	x = 20+20*i 
 	rect x,20, 20,20
 """
-			b:"# LOC:5 % bg fc for rect\n"
 		
 		chessBoard: 
+			b:"# LOC:5 bg fc for rect\n"
 			a:"""
 bg 0.5
 for i in range 1,9
@@ -460,30 +498,38 @@ for i in range 1,9
 		fc (i+j)%2
 		rect 20*i,20*j, 20,20
 """
-			b:"# LOC:5 bg fc for rect\n"
 		
+#####################################
 
 	"L6: triangle quad arc" :
+
 		Triangle: 
+			b:"# LOC:2 fc triangle\n" 
 			a:"""
 fc 1
 triangle 20,40, 160,100, 100,140
 """
-			b:"# LOC:2 fc triangle\n" 
+
 		Quad: 
+			b:"# LOC:2 fc quad\n"
 			a:"""
 fc 1,1,0
 quad 150,100, 180,20, 40,20, 100,140
 """
-			b:"# LOC:2 fc quad\n"
+
 		PacMan: 
+			b:"# LOC:2 arc fc radians PIE\n"
 			a:"""
 fc 1,1,0
 arc 100,100, 80,80, radians(-135),radians(135), PIE
 """
-			b:"# LOC:2 arc fc radians PIE\n"
+
+#####################################
+
 	"L7: Rotate" : 
+
 		textC: 
+			b:"# LOC:6 rd text textAlign textSize translate\n"
 			a:"""
 fc 1,1,0
 textSize 40
@@ -492,8 +538,9 @@ translate 100,100
 rd 90
 text 'Javascript',0,0
 """
-			b:"# LOC:6 rd text textAlign textSize translate\n"
+
 		textD: 
+			b:"# LOC:6 rd text textAlign textSize translate\n"
 			a:"""
 fc 1,1,0
 textSize 40
@@ -502,9 +549,9 @@ translate 100,100
 rd 180
 text 'Javascript',0,0
 """
-			b:"# LOC:6 rd text textAlign textSize translate\n"
 		
 		rotatedEllipse: 
+			b:"# LOC:5 ellipse rd translate\n"
 			a:"""
 fc 1,0,0
 sc()
@@ -512,16 +559,18 @@ translate 100,100
 rd 45
 ellipse 0,0, 80,40
 """
-			b:"# LOC:5 ellipse rd translate\n"
+
 		rotatedRectA: 
+			b:"# LOC:4 fc rect\n"
 			a:"""
 fc 1,0,0
 rect 60,100, 40,40
 fc 0,1,0
 rect 140,100, 40,40
 """
-			b:"# LOC:4 fc rect\n"
+
 		rotatedRectB: 
+			b:"# LOC:10 push pop rd rect translate\n"
 			a:"""
 push()
 fc 1,0,0
@@ -536,8 +585,9 @@ rd 45
 rect 0,0, 40,40
 pop()
 """
-			b:"# LOC:10 push pop rd rect translate\n"
+
 		rotatedRectC: 
+			b:"# LOC:11 fc push pop rd rect translate\n"
 			a:"""
 rectMode CENTER
 push()
@@ -553,10 +603,9 @@ rd 45
 rect 0,0, 40,40
 pop()
 """
-			b:"""
-			# LOC:11 fc push pop rd rect translate
-			"""
+
 		cards: 
+			b:"# LOC:7 for fc circle lerp rd rectMode sc translate\n"
 			a:"""
 rectMode CENTER
 sc 1
@@ -569,9 +618,9 @@ for i in range 18,-1,-1
   rect 0,0, w,h
   rd 5
 """ 
-			b:"# LOC:7 for fc circle lerp rd rectMode sc translate\n"
 
 		tiles: 
+			b:"# LOC:10 fc for lerp push pop rd rect rectMode sc translate\n"
 			a:"""
 rectMode CENTER
 sc()
@@ -587,22 +636,22 @@ for i in range 10
     rect 0,0, 10,10
     pop()
 """ 
-			b:"# LOC:10 fc for lerp push pop rd rect rectMode sc translate\n"
 
+#####################################
 
 	"L8: Function" : 
 
 		square : 
-			a: """
-			square = (x,y,size,w=1,r=0.5,g=0.5,b=0.5) ->
-				bg 0
-				sw w
-				fc r,g,b
-				rect x,y,size,size
-			"""
 			b: """
 			# LOC:5 -> bg sw fc rect
 			square = (x,y,size,w=1, r=0.5,g=0.5,b=0.5) ->
+			"""
+			a: """
+square = (x,y,size,w=1,r=0.5,g=0.5,b=0.5) ->
+	bg 0
+	sw w
+	fc r,g,b
+	rect x,y,size,size
 			"""
 			c: 
 				"square 100,100,50" : 0
@@ -611,7 +660,10 @@ for i in range 10
 				"square 30,150,30,3,1,0,0" : 0
 
 		multimoire: 
-
+			b:"""
+			# LOC:5 bg for line map
+			moire = (k) ->
+			"""
 			a: """
 moire = (k) ->
 	background 0
@@ -619,10 +671,6 @@ moire = (k) ->
 		for j in range 37
 			line 10,map(i,0,k-1,10,190),190,10+j*5
 """
-			b:"""
-			# LOC:5 bg for line map
-			moire = (k) ->
-			"""
 			c: 
 				"moire 2":0
 				"moire 3":0
@@ -630,6 +678,10 @@ moire = (k) ->
 				"moire 5":0
 		
 		colorCube:
+			b: """
+			# LOC:8 -> bg fc for rect
+			colorCube = (n,b) ->
+			"""
 			a: """
 colorCube = (n,b) ->
 	bg 0
@@ -640,10 +692,6 @@ colorCube = (n,b) ->
 			fc r/m,g/m,b/m
 			rect r*d,g*d,d,d
 """
-			b: """
-			# LOC:8 -> bg fc for rect
-			colorCube = (n,b) ->
-			"""
 			c:
 				"colorCube 2,0":0
 				"colorCube 2,1":0
@@ -652,6 +700,10 @@ colorCube = (n,b) ->
 				"colorCube 3,2":0
 
 		manyDices: 
+			b : """
+			# LOC:34 -> fc for if point [] %
+			manyDices = () ->
+			"""
 			a:"""
 dots = (x,y,dots) ->
 	for dot in dots
@@ -675,13 +727,13 @@ manyDices = () ->
 		for j in range 10
 			dice 20*i,20*j,1+(i+j)%6
 """
-			b : """
-			# LOC:34 -> fc for if point [] %
-			manyDices = () ->
-			"""
 			c : "manyDices()":0
 		
 		klocka: 
+			b: """
+			# LOC:37 -> circle else fc for if point push pop rd rect rectMode sc translate
+			klocka = (h,m,s) ->
+			"""
 			a: """
 visare = (v,w,l,r,g,b) ->
 	push()
@@ -709,15 +761,15 @@ urtavla = () ->
 			point 85,0
 		rd 6
 """
-			b: """
-			# LOC:37 -> circle else fc for if point push pop rd rect rectMode sc translate
-			klocka = (h,m,s) ->
-			"""
 			c: 
 				"klocka 10,9,30":0
 				"klocka 11,30,15":0
 		
 		recursiveCircles: 
+			b: """
+			# LOC:7 -> circle if return sc <
+			circles = (x,y,r) ->
+			"""
 			a: """
 sc 1
 circles = (x,y,r) ->
@@ -726,14 +778,13 @@ circles = (x,y,r) ->
 	circles x-r/2,y,r/2
 	circles x+r/2,y,r/2
 """
-			b: """
-			# LOC:7 -> circle if return sc <
-			circles = (x,y,r) ->
-			"""
-			c: "circles 100,100,100":0
-		
+			c: "circles 100,100,100":0		
 		
 		korg: 
+			b:"""
+			# LOC:17 -> bg fc for if else rect sc sw
+			korg = (n,w,c1,c2) ->
+			"""
 			a: """
 korg = (n,w,c1,c2) ->
 	bg 0
@@ -753,17 +804,18 @@ korg = (n,w,c1,c2) ->
 			else
 				rect d+i*2*d,j*2*d,d,3*d
 """
-			b:"""
-			# LOC:17 -> bg fc for if else rect sc sw
-			korg = (n,w,c1,c2) ->
-			"""
 			c: 
 				"korg 1,5,co(1,0,0),co(1,1,0)":0
 				"korg 2,4,co(0.5),co(1)":0
 				"korg 3,3,co(1,1,0),co(1,0,0)":0
 				"korg 4,2,co(1),co(0.5)":0
 				"korg 5,1,co(1,0,0),co(1,1,0)":0
+
 		"Olympic Ring Prep":
+			b:"""
+# LOC:7 sc arc fc sw strokeCap
+ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
+"""
 			a:"""
 ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 	hour = PI/6
@@ -773,19 +825,16 @@ ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 	sc r,g,b
 	arc x,y,2*radius,2*radius,(start-3)*hour,(stopp-3)*hour
 """
-			b:"""
-# LOC:7 sc arc fc sw strokeCap
-ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
-"""
 			c: 
 				"ring 100,100,60,20, 1,1,0":0
 				"ring 100,100,80,10, 1,0,0, 3,6":0
 				"ring 100,100,80,10, 0,1,0, 2,4":0
 				"ring 100,100,80,10, 0,1,0, 4,2":0
 
-
+#####################################
 
 	"L9: Class" : 
+
 		"Olympic Rings":
 			b: """
 			# LOC:23 class constructor sc arc bg fc sw strokeCap
@@ -795,7 +844,6 @@ ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 
 			olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 			"""
-
 			a:"""
 class Ring
 	constructor : (@x,@y,@radius, @r,@g,@b) ->
@@ -831,6 +879,17 @@ olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 				"olympic 100,100,100,120,20" : 0
 
 		SpaceShip :
+			b:"""
+# LOC: 22 class constructor cos sin radians translate rd sc sw triangle point new
+class Ship
+	constructor : (@x=20,@y=120,@r=10,@dir=0) ->
+	lt : (a=90) -> 
+		@
+	draw : ->
+			
+s1 = new Ship()		
+s2 = new Ship 100,100,20,-90	
+			"""
 			a: """
 class Ship
 	constructor : (@x=20,@y=120,@r=10,@dir=0) ->
@@ -853,32 +912,25 @@ class Ship
 		sw 5
 		point 0,0
 
-ship = new Ship()		
-			"""
-			b:"""
-			# LOC: 24 class constructor cos sin radians translate rd sc sw triangle point new
-			class Ship
-				constructor : (@x=20,@y=120,@r=10,@dir=0) ->
-				lt : (a=90) -> 
-					@
-				draw : ->
-			
-			ship = new Ship()		
+s1 = new Ship()		
+s2 = new Ship 100,100,20,-90	
 			"""
 			c:
-				"ship.draw()" : 0
-				"ship.lt(45).draw()" : 0
-				"ship.rt(45).draw()" : 0
-				"ship.rt().draw()" : 0
-				"ship.rt(180).draw()" : 0
-				"ship.fd().draw()" : 0
-				"ship.lt().fd().rt().fd().rt().draw()" : 0
-				"ship.fd().rt(45).draw()" : 0
-				"ship.rt(45).fd().draw()" : 0
-				"(new Ship(100,100,20,-90)).draw()" : 0
+				"s1.draw()" : 0
+				"s1.lt(45).draw()" : 0
+				"s1.rt(45).draw()" : 0
+				"s1.rt().draw()" : 0
+				"s1.rt(180).draw()" : 0
+				"s1.fd().draw()" : 0
+				"s1.lt().fd().rt().fd().rt().draw()" : 0
+				"s1.fd().rt(45).draw()" : 0
+				"s1.rt(45).fd().draw()" : 0
+				"s2.draw()" : 0
 
+#####################################
 
 	"L10: Guess a Number" :
+
 		guess1:
 			b:"# LOC:10 bg rectMode for range rect\n"
 			a:"""
@@ -1041,7 +1093,10 @@ f = (nx,ny,start,stopp,mx,my,target) ->
 				"f 8,8,18,45,70,90,28":0
 				"f 6,6,10,25,90,90,20":0
 
+#####################################
+
 	Exhibition :
+
 		clown:
 			b:"# LOC:32 bg circle fc sc sw line lerp (by David Larsson)\n"
 			a:"""
@@ -1076,6 +1131,7 @@ fc 1, 0, 0
 sc 1, 0, 0
 circle 100, 100, 10
 """
+
 		tomteluva:
 			b:"# LOC:12 circle fc sc triangle (by Sabrina Larsson)\n"
 			a:"""
@@ -1092,6 +1148,7 @@ circle 120,140,10
 circle 140,140,10
 circle 100,60,10		
 """
+
 		snowman:
 			b:"# LOC:21 circle fc line sc triangle (by David Larsson)\n"
 			a:"""
@@ -1158,6 +1215,7 @@ circle 180, 80, 5
 circle 160, 130, 5 
 circle 190, 180, 5 
 """
+
 		santa:
 			b:"# LOC:18 bg circle ellipse fc rect quad sc triangle (by Sabrina Larsson)\n"
 			a:"""
