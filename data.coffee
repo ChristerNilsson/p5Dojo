@@ -861,10 +861,6 @@ ship = new Ship()
 				constructor : (@x=20,@y=120,@r=10,@dir=0) ->
 				lt : (a=90) -> 
 					@
-				rt : (a=90) -> 
-					@
-				fd : (d=100) -> 
-					@
 				draw : ->
 			
 			ship = new Ship()		
