@@ -1046,17 +1046,17 @@ olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 			b:"""
 # LOC: 22 class constructor cos sin radians translate rd sc sw triangle point new
 class Ship
-	constructor : (@x=20,@y=120,@r=10,@dir=0) ->
+	constructor : (@x,@y,@s,@dir, @r=1,@g=1,@b=0) ->
 	lt : (a=90) -> 
 		@
 	draw : ->
 			
-s1 = new Ship()		
-s2 = new Ship 100,100,20,-90	
+s1 = new Ship 20,120,10,0		
+s2 = new Ship 100,100,20,-90, 1,0,0	
 			"""
 			a: """
 class Ship
-	constructor : (@x=20,@y=120,@r=10,@dir=0) ->
+	constructor : (@x,@y,@s,@dir, @r=1,@g=1,@b=0) ->
 	lt : (a=90) -> 
 		@dir -= a
 		@
@@ -1070,17 +1070,18 @@ class Ship
 	draw : ->
 		translate @x,@y
 		rd @dir
-		sc 1,1,0
+		sc @r,@g,@b
 		sw 2
-		triangle 2*@r,0, -@r,@r, -@r,-@r
+		triangle 2*@s,0, -@s,@s, -@s,-@s
 		sw 5
 		point 0,0
 
-s1 = new Ship()		
-s2 = new Ship 100,100,20,-90	
+s1 = new Ship 20,120,10,0		
+s2 = new Ship 100,100,20,-90, 1,0,0	
 			"""
 			c:
 				"s1.draw()" : 0
+				"s2.draw()" : 0
 				"s1.lt(45).draw()" : 0
 				"s1.rt(45).draw()" : 0
 				"s1.rt().draw()" : 0
@@ -1089,7 +1090,6 @@ s2 = new Ship 100,100,20,-90
 				"s1.lt().fd().rt().fd().rt().draw()" : 0
 				"s1.fd().rt(45).draw()" : 0
 				"s1.rt(45).fd().draw()" : 0
-				"s2.draw()" : 0
 
 #####################################
 
