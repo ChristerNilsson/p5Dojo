@@ -1086,7 +1086,7 @@ s2 = new Ship 100,100,20,-90, 1,0,0
 				"s1.rt(45).draw()" : 0
 				"s1.rt().draw()" : 0
 				"s1.rt(180).draw()" : 0
-				"s1.fd().draw()" : 0
+				"s1.fd(50).draw()" : 0
 				"s1.lt().fd().rt().fd().rt().draw()" : 0
 				"s1.fd().rt(45).draw()" : 0
 				"s1.rt(45).fd().draw()" : 0
