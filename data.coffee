@@ -1398,58 +1398,12 @@ hypnoticB = (t) ->
 				"hypnoticB 5":0
 
 		chesscross : 
-			b: "# LOC:52 for rect lerp fc David Larsson\n"
+			b: "# LOC:6 for rect if fc David Larsson\n"
 			a: """
-fc 1,0,1
-rect 0,180,20,20
-rect 20,160,20,20
 for i in range 10
- x1=lerp 0,20,i
- y1=lerp 180,160,i
- x2=20
- y2=x2
- rect x1,y1,x2,y2
-fc 0,1,0
-rect 0,0,20,20
-rect 20,20,20,20
-for i in range 10
- x1=lerp 0,20,i
- y1=x1
- x2=20
- y2=x2
- rect x1,y1,x2,y2
-fc 1,0,1
-rect 180,40,20,20
-rect 160,60,20,20
-for i in range 8
- x1=lerp 180,160,i
- y1=lerp 40,60,i
- x2=20
- y2=x2
- rect x1,y1,x2,y2
-rect 140,0,20,20
-rect 120,20,20,20
-for i in range 8
- x1=lerp 140,120,i
- y1=lerp 0,20,i
- x2=20
- y2=x2
- rect x1,y1,x2,y2
-fc 0,1,0
-rect 0,40,20,20
-rect 20,60,20,20
-for i in range 8
- x1=lerp 0,20,i
- y1=lerp 40,60,i
- x2=20
- y2=x2
- rect x1,y1,x2,y2
-rect 40,0,20,20
-rect 60,20,20,20
-for i in range 8
- x1=lerp 40,60,i
- y1=lerp 0,20,i
- x2=20
- y2=x2
- rect x1,y1,x2,y2"""
-
+	for j in range 10
+		fc()
+		if i-j in [-2,0,2] then fc 0,1,0
+		if i+j in [7,9,11] then fc 1,0,1
+		rect 20*i,20*j,20,20
+"""
