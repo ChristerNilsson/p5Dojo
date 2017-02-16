@@ -412,6 +412,17 @@ for i in range 10
 		circle x,y,r
 """
 
+		chesscross : 
+			b: "# LOC:6 for rect if fc (David Larsson)\n"
+			a: """
+for i in range 10
+	for j in range 10
+		fc()
+		if i-j in [-2,0,2] then fc 1,1,0
+		if i+j in [7,9,11] then fc 1,0,0
+		rect 20*i,20*j,20,20
+"""
+
 #####################################
 	
 	"L5: line for lerp" :
@@ -834,8 +845,8 @@ ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 	"L9: Guess a Number" :
 
 		guess1:
-			b:"# LOC:10 bg rectMode for range rect\n"
-			a:"""
+			b: "# LOC:10 bg rectMode for range rect\n"
+			a: """
 bg 1
 rectMode CENTER,CENTER
 n = 200
@@ -850,8 +861,8 @@ for i in range 8
 """
 
 		guess2:
-			b:"# LOC:15 bg rectMode for range rect textAlign text sc fc\n"
-			a:"""
+			b: "# LOC:15 bg rectMode for range rect textAlign text sc fc\n"
+			a: """
 bg 1
 rectMode CENTER,CENTER
 textAlign CENTER,CENTER
@@ -871,8 +882,8 @@ for i in range 8
 """
 
 		guess3:
-			b:"# LOC:15 bg rectMode for range rect textAlign text sc fc\n"
-			a:"""
+			b: "# LOC:15 bg rectMode for range rect textAlign text sc fc\n"
+			a: """
 bg 1
 rectMode CENTER,CENTER
 textAlign CENTER,CENTER
@@ -893,11 +904,11 @@ for i in range 8
 """
 
 		guess4:
-			b:"""
+			b: """
 # LOC:20 bg rectMode for range rect textAlign text sc fc
 f = (nx,ny) ->
 """
-			a:"""
+			a: """
 f = (nx,ny) ->
 	bg 1
 	rectMode CENTER,CENTER
@@ -923,11 +934,11 @@ f = (nx,ny) ->
 				"f 6,6":0
 
 		guess5:
-			b:"""
+			b: """
 # LOC:26 bg rectMode for range rect textAlign text sc fc if else
 f = (nx,ny,start,stopp) ->
 """
-			a:"""
+			a: """
 f = (nx,ny,start,stopp) ->
 	bg 1
 	rectMode CENTER,CENTER
@@ -957,11 +968,11 @@ f = (nx,ny,start,stopp) ->
 				"f 6,6,10,25" : 0
 
 		guess6:
-			b:"""
+			b: """
 # LOC:30 bg rectMode for range rect textAlign text sc fc if else
 f = (nx,ny,start,stopp,mx,my,target) ->
 """
-			a:"""
+			a: """
 f = (nx,ny,start,stopp,mx,my,target) ->
 	bg 1
 	rectMode CENTER,CENTER
@@ -1008,7 +1019,7 @@ f = (nx,ny,start,stopp,mx,my,target) ->
 
 			olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 			"""
-			a:"""
+			a: """
 class Ring
 	constructor : (@x,@y,@radius, @r,@g,@b) ->
 	draw : (start=3,stopp=3,hour=PI/6) ->
@@ -1096,7 +1107,7 @@ s2 = new Ship 100,100,20,-90, 1,0,0
 	Exhibition :
 
 		clown:
-			b:"# LOC:32 bg circle fc sc sw line lerp (by David Larsson)\n"
+			b:"# LOC:32 bg circle fc sc sw line lerp (David Larsson)\n"
 			a:"""
 bg 0, 1, 0, 0.5
 fc 1, 0, 0
@@ -1131,7 +1142,7 @@ circle 100, 100, 10
 """
 
 		tomteluva:
-			b:"# LOC:12 circle fc sc triangle (by Sabrina Larsson)\n"
+			b:"# LOC:12 circle fc sc triangle (Sabrina Larsson)\n"
 			a:"""
 bg 0,1,0
 fc 1,0,0
@@ -1148,7 +1159,7 @@ circle 100,60,10
 """
 
 		snowman:
-			b:"# LOC:21 circle fc line sc triangle (by David Larsson)\n"
+			b:"# LOC:21 circle fc line sc triangle (David Larsson)\n"
 			a:"""
 fc 1
 circle 100, 150, 50
@@ -1174,7 +1185,7 @@ rect 2, 180, 196, 20
 """
 
 		christmasTree:
-			b:"# LOC:35 bg circle fc line rect quad sc triangle (by Sabrina Larsson)\n"
+			b:"# LOC:35 bg circle fc line rect quad sc triangle (Sabrina Larsson)\n"
 			a:"""
 bg 0 
 fc 0, 1, 0 
@@ -1215,7 +1226,7 @@ circle 190, 180, 5
 """
 
 		santa:
-			b:"# LOC:18 bg circle ellipse fc rect quad sc triangle (by Sabrina Larsson)\n"
+			b:"# LOC:18 bg circle ellipse fc rect quad sc triangle (Sabrina Larsson)\n"
 			a:"""
 bg 0,0,1
 fc 1,0,0
@@ -1397,13 +1408,3 @@ hypnoticB = (t) ->
 				"hypnoticB 1":0
 				"hypnoticB 5":0
 
-		chesscross : 
-			b: "# LOC:6 for rect if fc David Larsson\n"
-			a: """
-for i in range 10
-	for j in range 10
-		fc()
-		if i-j in [-2,0,2] then fc 0,1,0
-		if i+j in [7,9,11] then fc 1,0,1
-		rect 20*i,20*j,20,20
-"""
