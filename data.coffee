@@ -1238,6 +1238,7 @@ triangle 100,140,0,200,200,200
 """
 
 		dist: 
+			b:"# LOC:10 bg circle dist fc lerp map sc\n"
 			a:"""
 bg 0
 fc 1
@@ -1250,9 +1251,9 @@ for i in range 10
 		r = map(d,0,150,1,20)/2
 		circle x,y,r
 """ 
-			b:"# LOC:10 bg circle dist fc lerp map sc\n"
 		
 		bulge: 
+			b:"# LOC:10 bg circle dist fill map noStroke sin\n"
 			a:"""
 bg 0
 fill 255
@@ -1264,9 +1265,9 @@ for i in range 20
 		r = map(sin(i*PI/20),-1,1,1,3) * map(sin(j*PI/20),-1,1,1,3) / 2
 		circle x,y,r
 """
-			b:"# LOC:10 bg circle dist fill map noStroke sin\n"
 
 		wave: 
+			b:"# LOC:9 circle colorMode fill map noStroke sin PI\n"
 			a:"""
 colorMode HSB,360,100,100
 noStroke()
@@ -1278,9 +1279,9 @@ for i in range 21
 	y = map sin(a),-1,1,0,200
 	circle x,y,3
 """
-			b:"# LOC:9 circle colorMode fill map noStroke sin PI\n"
 
 		circle: 
+			b:"# LOC:10 bg circle colorMode cos fc map PI sc sin\n"
 			a:"""
 bg 0
 colorMode HSB,360,100,100
@@ -1293,9 +1294,9 @@ for i in range 20
 	y=map sin(a),-1,1,0,200
 	circle x,y,3
 """
-			b:"# LOC:10 bg circle colorMode cos fc map PI sc sin\n"
 	
 		circles: 
+			b:"# LOC:12 bg circle colorMode cos fill map noStroke translate sin PI\n"
 			a:"""
 bg 0
 noStroke()
@@ -1310,9 +1311,9 @@ for i in range 20
 		r = 3
 		circle x,y,r
 """
-			b:"# LOC:12 bg circle colorMode cos fill map noStroke translate sin PI\n"
 		
 		sized_circles: 
+			b:"# LOC:12 circle colorMode cos fill map noStroke PI sin translate \n"
 			a:"""
 bg 0
 noStroke()
@@ -1327,9 +1328,9 @@ for i in range 20
 		r = map(j,0,10,0,10)/2
 		circle x,y,r
 """
-			b:"# LOC:12 circle colorMode cos fill map noStroke PI sin translate \n"
 		
 		rotated_circles: 
+			b:"# LOC:17 circle cos map PI push pop rotate sin translate \n"
 			a:"""
 colorMode HSB,360,100,100
 sc()
@@ -1347,9 +1348,9 @@ for i in range 20
 		circle x,y,j/2
 		pop()
 """
-			b:"# LOC:17 circle cos map PI push pop rotate sin translate \n"
 
 		gravity : 
+			b: "# LOC:6 circle lerp\n"
 			a: """
 fc 1
 for i in range 15
@@ -1357,9 +1358,12 @@ for i in range 15
 	y=5+lerp(0,lerp(0,1,i),i)
 	circle x,y,5
 """
-			b: "# LOC:6 circle lerp\n"
 
 		hypnoticA : 
+			b: """
+			# LOC:6 -> bg circle cos fc sc sin
+			hypnoticA = () ->
+			"""
 			a: """
 hypnoticA = () ->
 	bg 0.5, 0, 0
@@ -1370,13 +1374,13 @@ hypnoticA = () ->
 		y = 100 + sin(i) * i
 		circle x, y, 5
 """
-			b: """
-			# LOC:6 -> bg circle cos fc sc sin
-			hypnoticA = () ->
-			"""
 			c: "hypnoticA()":0
 
 		hypnoticB : 
+			b: """
+			# LOC:7 -> bg circle cos fc map sc sin
+			hypnoticB = (t) ->
+			"""
 			a: """
 hypnoticB = (t) ->
 	bg 0.5, 0, 0
@@ -1389,10 +1393,63 @@ hypnoticB = (t) ->
 		r = map sin(t*speed), -1, 1, 2, 5
 		circle x, y, r
 """
-			b: """
-			# LOC:7 -> bg circle cos fc map sc sin
-			hypnoticB = (t) ->
-			"""
 			c: 
 				"hypnoticB 1":0
 				"hypnoticB 5":0
+
+		chesscross : 
+			b: "# LOC:52 for rect lerp fc David Larsson\n"
+			a: """
+fc 1,0,1
+rect 0,180,20,20
+rect 20,160,20,20
+for i in range 10
+ x1=lerp 0,20,i
+ y1=lerp 180,160,i
+ x2=20
+ y2=x2
+ rect x1,y1,x2,y2
+fc 0,1,0
+rect 0,0,20,20
+rect 20,20,20,20
+for i in range 10
+ x1=lerp 0,20,i
+ y1=x1
+ x2=20
+ y2=x2
+ rect x1,y1,x2,y2
+fc 1,0,1
+rect 180,40,20,20
+rect 160,60,20,20
+for i in range 8
+ x1=lerp 180,160,i
+ y1=lerp 40,60,i
+ x2=20
+ y2=x2
+ rect x1,y1,x2,y2
+rect 140,0,20,20
+rect 120,20,20,20
+for i in range 8
+ x1=lerp 140,120,i
+ y1=lerp 0,20,i
+ x2=20
+ y2=x2
+ rect x1,y1,x2,y2
+fc 0,1,0
+rect 0,40,20,20
+rect 20,60,20,20
+for i in range 8
+ x1=lerp 0,20,i
+ y1=lerp 40,60,i
+ x2=20
+ y2=x2
+ rect x1,y1,x2,y2
+rect 40,0,20,20
+rect 60,20,20,20
+for i in range 8
+ x1=lerp 40,60,i
+ y1=lerp 0,20,i
+ x2=20
+ y2=x2
+ rect x1,y1,x2,y2"""
+
