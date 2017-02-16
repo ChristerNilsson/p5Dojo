@@ -46,6 +46,8 @@ circle = (x,y,r) ->
 rd = (vinkel) ->
   return rotate radians vinkel
 
+print = console.log
+
 range = () ->
   n = arguments.length
   if n==1
