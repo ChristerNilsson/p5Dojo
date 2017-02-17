@@ -1010,6 +1010,97 @@ f = (nx,ny,start,stopp,mx,my,target) ->
 
 	"L10: Class" : 
 
+		Weaver:
+			b : """
+# LOC: 20 class constructor new sc line bg sw for range
+# https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg
+class Weaver
+	constructor : (@r,@g,@b,@x,@y) ->
+	go : (dx,dy) ->
+
+braid = (n,dx,dy,width) ->		
+			"""
+
+			a:"""
+class Weaver
+	constructor : (@r,@g,@b,@x,@y) ->
+	go : (dx,dy) ->
+		sc @r,@g,@b
+		line @x,@y,@x+dx,@y+dy
+		@x += dx
+		@y += dy		
+
+braid = (n,dx,dy,width) ->		
+
+	a = new Weaver 1,0,0,100-dx/2,dy/3
+	b = new Weaver 1,1,0,100+dx/2,2*dy/3
+	c = new Weaver 0,1,0,100-dx/2,dy
+
+	bg 0
+	sw width
+
+	for i in range n
+		a.go dx,dy
+		b.go -dx,dy
+		c.go dx,dy
+
+		a.go -dx,dy
+		b.go dx,dy
+		c.go -dx,dy
+		"""
+			c:
+				"braid 5,18,18,6" : 0
+				"braid 4,30,21,14" : 0
+				"braid 6,24,15,5" : 0
+
+		girlang :
+			b:"""
+# LOC: 27 class constructor new cos sin radians sc line bg sw for range
+class Turtle
+	constructor : (@r,@g,@b,@x,@y,@dir) ->
+	fd : (d) ->
+	rt : (a) ->
+
+girlang = (x,y,n,width,v) ->
+"""		
+			a:"""
+class Turtle
+	constructor : (@r,@g,@b,@x,@y,@dir) ->
+	fd : (d) ->
+		dx = d*cos radians @dir
+		dy = d*sin radians @dir
+		sc @r,@g,@b
+		line @x,@y,@x+dx,@y+dy
+		@x += dx
+		@y += dy
+	rt : (a) ->
+		@dir +=a
+				
+girlang = (x,y,n,width,v) ->		
+
+	a = new Turtle 1,0,0, x,y,45-v/2
+	b = new Turtle 1,1,0, x,y,45+v/2
+	bg 0
+	sw width
+
+	a.fd 10
+	b.fd 10
+	for i in range n
+			a.rt v
+			a.fd 20
+			b.rt -v
+			b.fd 20
+
+			b.rt v
+			b.fd 20
+			a.rt -v
+			a.fd 20
+			"""
+			c: 
+				"girlang 0,0,10,5,90" : 0
+				"girlang 10,10,12,5,120" : 0
+
+
 		"Olympic Rings":
 			b: """
 			# LOC:23 class constructor sc arc bg fc sw strokeCap

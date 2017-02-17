@@ -199,4 +199,5 @@ npm install -g coffee-script
 - Klicka på transpile.bat. Om det piper: läs transpileringsfel här.
 - Den eller de javascriptfiler du använder måste anges i index.html
 - Dubbelklicka på index.html. Då startar applikationen.
-- Vid problem: Tryck på F12 i Chrome och läs eventuella felmeddelanden eller debugga.
+- Vid problem: Tryck på F12 i Chrome och läs eventuella felmeddelanden.
+- Du kan skriva ut värden till F12-console med print.
