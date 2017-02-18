@@ -535,7 +535,7 @@ arc 100,100, 80,80, radians(-135),radians(135), PIE
 
 #####################################
 
-	"L7: Rotate" : 
+	"L7: translate rotate push pop" : 
 
 		textC: 
 			b:"# LOC:6 fc rd textAlign textSize translate text\n"
@@ -648,7 +648,7 @@ for i in range 10
 
 #####################################
 
-	"L8: Function" : 
+	"L8: function" : 
 
 		square : 
 			b: """
@@ -773,6 +773,31 @@ urtavla = () ->
 			c: 
 				"klocka 10,9,30":0
 				"klocka 11,30,15":0
+
+		GoldenStar:
+			b: """
+# LOC:12 translate rotate cos sin for range fc triangle
+star = (x0,y0,n,w=0) ->
+"""
+			a: """
+star = (x0,y0,n,w=0) ->
+	translate x0,y0
+	v = TWO_PI/n
+	rotate w
+	x = 30 * cos v/2
+	y = 30 * sin v/2
+	for i in range n
+		fc 1,1,0
+		triangle 0,0,100,0,x,y
+		fc 1,0.7,0
+		triangle 0,0,100,0,x,-y
+		rotate v
+"""
+			c:
+				"star 100,125,3,TWO_PI/12" : 0
+				"star 100,100,4" : 0
+				"star 100,110,5,-TWO_PI/20" : 0
+				"star 100,100,6" : 0
 		
 		recursiveCircles: 
 			b: """
@@ -820,7 +845,7 @@ korg = (n,w,c1,c2) ->
 				"korg 4,2,co(1),co(0.5)":0
 				"korg 5,1,co(1,0,0),co(1,1,0)":0
 
-		"Olympic Ring Prep":
+		"OlympicRing Prep":
 			b:"""
 # LOC:7 sc arc fc sw strokeCap
 ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
@@ -842,7 +867,233 @@ ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 
 #####################################
 
-	"L9: Guess a Number" :
+	"L9: class constructor new" : 
+		Polygon:
+			b:"""
+# LOC:17 class constructor new cos sin radians sc line for range bg
+class Turtle
+	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->
+	fd : (d) ->
+	rt : (a) ->
+
+polygon = (n,d) ->
+	t = new Turtle()
+"""
+			a:"""
+class Turtle
+	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->
+	fd : (d) ->
+		dx = d*cos radians @dir
+		dy = d*sin radians @dir
+		sc @r,@g,@b
+		line @x,@y,@x+dx,@y+dy
+		@x += dx
+		@y += dy
+	rt : (a) ->
+		@dir +=a
+
+polygon = (n,d) ->
+	t = new Turtle()
+	bg 0
+	for i in range n
+		t.fd d
+		t.rt 360/n
+"""
+			c:
+				"polygon 3,60" : 0
+				"polygon 4,60" : 0
+				"polygon 5,60" : 0
+				"polygon 6,60" : 0
+				"polygon 8,50" : 0
+				"polygon 16,32" : 0
+				"polygon 32,16" : 0
+				"polygon 64,8" : 0
+
+		Weaver:
+			b : """
+# LOC: 20 class constructor new sc line bg sw for range
+# https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg
+class Weaver
+	constructor : (@r,@g,@b,@x,@y) ->
+	go : (dx,dy) ->
+
+braid = (n,dx,dy,width) ->		
+			"""
+
+			a:"""
+class Weaver
+	constructor : (@r,@g,@b,@x,@y) ->
+	go : (dx,dy) ->
+		sc @r,@g,@b
+		line @x,@y,@x+dx,@y+dy
+		@x += dx
+		@y += dy		
+
+braid = (n,dx,dy,width) ->		
+
+	a = new Weaver 1,0,0,100-dx/2,dy/3
+	b = new Weaver 1,1,0,100+dx/2,2*dy/3
+	c = new Weaver 0,1,0,100-dx/2,dy
+
+	bg 0
+	sw width
+
+	for i in range n
+		a.go dx,dy
+		b.go -dx,dy
+		c.go dx,dy
+
+		a.go -dx,dy
+		b.go dx,dy
+		c.go -dx,dy
+		"""
+			c:
+				"braid 5,18,18,6" : 0
+				"braid 4,30,21,14" : 0
+				"braid 6,24,15,5" : 0
+
+		girlang :
+			b:"""
+# LOC: 27 class constructor new cos sin radians sc line bg sw for range
+class Turtle
+	constructor : (@r,@g,@b,@x,@y,@dir) ->
+	fd : (d) ->
+	rt : (a) ->
+
+girlang = (x,y,n,width,v) ->
+"""		
+			a:"""
+class Turtle
+	constructor : (@r,@g,@b,@x,@y,@dir) ->
+	fd : (d) ->
+		dx = d*cos radians @dir
+		dy = d*sin radians @dir
+		sc @r,@g,@b
+		line @x,@y,@x+dx,@y+dy
+		@x += dx
+		@y += dy
+	rt : (a) ->
+		@dir +=a
+				
+girlang = (x,y,n,width,v) ->		
+
+	a = new Turtle 1,0,0, x,y,45-v/2
+	b = new Turtle 1,1,0, x,y,45+v/2
+	bg 0
+	sw width
+
+	a.fd 10
+	b.fd 10
+	for i in range n
+			a.rt v
+			a.fd 20
+			b.rt -v
+			b.fd 20
+
+			b.rt v
+			b.fd 20
+			a.rt -v
+			a.fd 20
+			"""
+			c: 
+				"girlang 0,0,10,5,90" : 0
+				"girlang 10,10,12,5,120" : 0
+
+		OlympicRings:
+			b: """
+			# LOC:23 class constructor sc arc bg fc sw strokeCap
+			class Ring
+				constructor : (@x,@y,@r,@g,@b) ->
+				draw : (start=3,stopp=3,hour=PI/6) ->
+
+			olympic = (x=100,y=100,radius=50,d=60,w=10) ->
+			"""
+			a: """
+class Ring
+	constructor : (@x,@y,@radius, @r,@g,@b) ->
+	draw : (start=3,stopp=3,hour=PI/6) ->
+		sc @r,@g,@b
+		arc @x,@y,@radius,@radius,(start-3)*hour,(stopp-3)*hour
+		
+olympic = (x=100,y=100,radius=50,d=60,w=10) ->
+	r1 = new Ring x-d,  y,     radius, 0,0,1
+	r2 = new Ring x,    y,     radius, 0,0,0
+	r3 = new Ring x+d,  y,     radius, 1,0,0
+	r4 = new Ring x-d/2,y+d/3, radius, 1,1,0
+	r5 = new Ring x+d/2,y+d/3, radius, 0,1,0
+
+	strokeCap SQUARE
+	bg 0.5
+	fc()
+	sw w
+
+	r1.draw()
+	r3.draw()
+	r4.draw()
+	r5.draw()
+	r1.draw 2,4
+	r2.draw()
+	r4.draw 12,2
+	r5.draw 8,10
+	r3.draw 6,8			
+"""	
+			c:
+				"olympic()" : 0
+				"olympic 100,50,25,30,5" : 0
+				"olympic 100,100,100,120,20" : 0
+
+		SpaceShip :
+			b:"""
+# LOC: 22 class constructor cos sin radians translate rd sc sw triangle point new
+class Ship
+	constructor : (@x,@y,@s,@dir, @r=1,@g=1,@b=0) ->
+	lt : (a=90) -> 
+		@
+	draw : ->
+			
+s1 = new Ship 20,120,10,0		
+s2 = new Ship 100,100,20,-90, 1,0,0	
+			"""
+			a: """
+class Ship
+	constructor : (@x,@y,@s,@dir, @r=1,@g=1,@b=0) ->
+	lt : (a=90) -> 
+		@dir -= a
+		@
+	rt : (a=90) -> 
+		@dir += a
+		@
+	fd : (d=100) -> 
+		@x += d * cos radians @dir
+		@y += d * sin radians @dir
+		@
+	draw : ->
+		translate @x,@y
+		rd @dir
+		sc @r,@g,@b
+		sw 2
+		triangle 2*@s,0, -@s,@s, -@s,-@s
+		sw 5
+		point 0,0
+
+s1 = new Ship 20,120,10,0		
+s2 = new Ship 100,100,20,-90, 1,0,0	
+			"""
+			c:
+				"s1.draw()" : 0
+				"s2.draw()" : 0
+				"s1.lt(45).draw()" : 0
+				"s1.rt(45).draw()" : 0
+				"s1.rt().draw()" : 0
+				"s1.rt(180).draw()" : 0
+				"s1.fd(50).draw()" : 0
+				"s1.lt().fd().rt().fd().rt().draw()" : 0
+				"s1.fd().rt(45).draw()" : 0
+				"s1.rt(45).fd().draw()" : 0
+
+#####################################
+
+	"L10: Guess a Number" :
 
 		guess1:
 			b: "# LOC:10 bg rectMode for range rect\n"
@@ -1005,193 +1256,6 @@ f = (nx,ny,start,stopp,mx,my,target) ->
 			c:
 				"f 8,8,18,45,70,90,28":0
 				"f 6,6,10,25,90,90,20":0
-
-#####################################
-
-	"L10: Class" : 
-
-		Weaver:
-			b : """
-# LOC: 20 class constructor new sc line bg sw for range
-# https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg
-class Weaver
-	constructor : (@r,@g,@b,@x,@y) ->
-	go : (dx,dy) ->
-
-braid = (n,dx,dy,width) ->		
-			"""
-
-			a:"""
-class Weaver
-	constructor : (@r,@g,@b,@x,@y) ->
-	go : (dx,dy) ->
-		sc @r,@g,@b
-		line @x,@y,@x+dx,@y+dy
-		@x += dx
-		@y += dy		
-
-braid = (n,dx,dy,width) ->		
-
-	a = new Weaver 1,0,0,100-dx/2,dy/3
-	b = new Weaver 1,1,0,100+dx/2,2*dy/3
-	c = new Weaver 0,1,0,100-dx/2,dy
-
-	bg 0
-	sw width
-
-	for i in range n
-		a.go dx,dy
-		b.go -dx,dy
-		c.go dx,dy
-
-		a.go -dx,dy
-		b.go dx,dy
-		c.go -dx,dy
-		"""
-			c:
-				"braid 5,18,18,6" : 0
-				"braid 4,30,21,14" : 0
-				"braid 6,24,15,5" : 0
-
-		girlang :
-			b:"""
-# LOC: 27 class constructor new cos sin radians sc line bg sw for range
-class Turtle
-	constructor : (@r,@g,@b,@x,@y,@dir) ->
-	fd : (d) ->
-	rt : (a) ->
-
-girlang = (x,y,n,width,v) ->
-"""		
-			a:"""
-class Turtle
-	constructor : (@r,@g,@b,@x,@y,@dir) ->
-	fd : (d) ->
-		dx = d*cos radians @dir
-		dy = d*sin radians @dir
-		sc @r,@g,@b
-		line @x,@y,@x+dx,@y+dy
-		@x += dx
-		@y += dy
-	rt : (a) ->
-		@dir +=a
-				
-girlang = (x,y,n,width,v) ->		
-
-	a = new Turtle 1,0,0, x,y,45-v/2
-	b = new Turtle 1,1,0, x,y,45+v/2
-	bg 0
-	sw width
-
-	a.fd 10
-	b.fd 10
-	for i in range n
-			a.rt v
-			a.fd 20
-			b.rt -v
-			b.fd 20
-
-			b.rt v
-			b.fd 20
-			a.rt -v
-			a.fd 20
-			"""
-			c: 
-				"girlang 0,0,10,5,90" : 0
-				"girlang 10,10,12,5,120" : 0
-
-
-		"Olympic Rings":
-			b: """
-			# LOC:23 class constructor sc arc bg fc sw strokeCap
-			class Ring
-				constructor : (@x,@y,@r,@g,@b) ->
-				draw : (start=3,stopp=3,hour=PI/6) ->
-
-			olympic = (x=100,y=100,radius=50,d=60,w=10) ->
-			"""
-			a: """
-class Ring
-	constructor : (@x,@y,@radius, @r,@g,@b) ->
-	draw : (start=3,stopp=3,hour=PI/6) ->
-		sc @r,@g,@b
-		arc @x,@y,@radius,@radius,(start-3)*hour,(stopp-3)*hour
-		
-olympic = (x=100,y=100,radius=50,d=60,w=10) ->
-	r1 = new Ring x-d,  y,     radius, 0,0,1
-	r2 = new Ring x,    y,     radius, 0,0,0
-	r3 = new Ring x+d,  y,     radius, 1,0,0
-	r4 = new Ring x-d/2,y+d/3, radius, 1,1,0
-	r5 = new Ring x+d/2,y+d/3, radius, 0,1,0
-
-	strokeCap SQUARE
-	bg 0.5
-	fc()
-	sw w
-
-	r1.draw()
-	r3.draw()
-	r4.draw()
-	r5.draw()
-	r1.draw 2,4
-	r2.draw()
-	r4.draw 12,2
-	r5.draw 8,10
-	r3.draw 6,8			
-"""	
-			c:
-				"olympic()" : 0
-				"olympic 100,50,25,30,5" : 0
-				"olympic 100,100,100,120,20" : 0
-
-		SpaceShip :
-			b:"""
-# LOC: 22 class constructor cos sin radians translate rd sc sw triangle point new
-class Ship
-	constructor : (@x,@y,@s,@dir, @r=1,@g=1,@b=0) ->
-	lt : (a=90) -> 
-		@
-	draw : ->
-			
-s1 = new Ship 20,120,10,0		
-s2 = new Ship 100,100,20,-90, 1,0,0	
-			"""
-			a: """
-class Ship
-	constructor : (@x,@y,@s,@dir, @r=1,@g=1,@b=0) ->
-	lt : (a=90) -> 
-		@dir -= a
-		@
-	rt : (a=90) -> 
-		@dir += a
-		@
-	fd : (d=100) -> 
-		@x += d * cos radians @dir
-		@y += d * sin radians @dir
-		@
-	draw : ->
-		translate @x,@y
-		rd @dir
-		sc @r,@g,@b
-		sw 2
-		triangle 2*@s,0, -@s,@s, -@s,-@s
-		sw 5
-		point 0,0
-
-s1 = new Ship 20,120,10,0		
-s2 = new Ship 100,100,20,-90, 1,0,0	
-			"""
-			c:
-				"s1.draw()" : 0
-				"s2.draw()" : 0
-				"s1.lt(45).draw()" : 0
-				"s1.rt(45).draw()" : 0
-				"s1.rt().draw()" : 0
-				"s1.rt(180).draw()" : 0
-				"s1.fd(50).draw()" : 0
-				"s1.lt().fd().rt().fd().rt().draw()" : 0
-				"s1.fd().rt(45).draw()" : 0
-				"s1.rt(45).fd().draw()" : 0
 
 #####################################
 
