@@ -37,15 +37,9 @@ sc = (r, g, b) ->
   else
     stroke fixColor arguments
 
-sw = (n) ->
-  strokeWeight n
-
-circle = (x,y,r) ->
-  ellipse x,y,2*r,2*r
-
-rd = (vinkel) ->
-  return rotate radians vinkel
-
+sw = strokeWeight
+circle = (x,y,r) -> ellipse x,y,2*r,2*r
+rd = (vinkel) -> rotate radians vinkel
 print = console.log
 
 range = () ->
