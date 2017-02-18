@@ -97,7 +97,7 @@ point 200,180
 """
 
 		CornerPoints7: 
-			b: "# LOC:15 sc sw point\n"
+			b: "# LOC:17 sc sw point\n"
 			a: """
 sw 5
 sc 1,0,0
@@ -239,18 +239,18 @@ circle 120,100,50
 """
 
 		textA: 
-			b:"# LOC:3 text textSize\n"
+			b:"# LOC:3 fc textSize text\n"
 			a:"""
 fc 1,1,0
-textSize 40
-text 'Javascript',100,100
+textSize 32
+text 'Coffeescript',100,100
 """
 
 		textB: 
-			b:"# LOC:4 text textAlign textSize\n"
+			b:"# LOC:4 fc text textAlign textSize text\n"
 			a:"""
 fc 1,1,0
-textSize 40
+textSize 32
 textAlign CENTER,CENTER
 text 'Coffeescript',100,100
 """
@@ -538,25 +538,25 @@ arc 100,100, 80,80, radians(-135),radians(135), PIE
 	"L7: Rotate" : 
 
 		textC: 
-			b:"# LOC:6 rd text textAlign textSize translate\n"
+			b:"# LOC:6 fc rd textAlign textSize translate text\n"
 			a:"""
 fc 1,1,0
-textSize 40
+textSize 32
 textAlign CENTER,CENTER
 translate 100,100
 rd 90
-text 'Javascript',0,0
+text 'Coffeescript',0,0
 """
 
 		textD: 
-			b:"# LOC:6 rd text textAlign textSize translate\n"
+			b:"# LOC:6 fc textAlign textSize translate rd text\n"
 			a:"""
 fc 1,1,0
-textSize 40
+textSize 32
 textAlign CENTER,CENTER
 translate 100,100
 rd 180
-text 'Javascript',0,0
+text 'Coffeescript',0,0
 """
 		
 		rotatedEllipse: 
