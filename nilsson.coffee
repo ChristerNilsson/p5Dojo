@@ -19,11 +19,11 @@ fixColor = (args) ->
     a = args[3]    
   return color 255 * r, 255 * g, 255 * b, 255 * a
 
-bg = () ->
+bg = ->
   fill fixColor arguments
   rect 0, 0, 200, 200
 
-fc = () ->
+fc = ->
   n = arguments.length
   if n == 0
     noFill()
@@ -37,16 +37,9 @@ sc = (r, g, b) ->
   else
     stroke fixColor arguments
 
-sw = strokeWeight
+sw = (n) -> strokeWeight n
+
 circle = (x,y,r) -> ellipse x,y,2*r,2*r
 rd = (vinkel) -> rotate radians vinkel
 print = console.log
-
-range = () ->
-  n = arguments.length
-  if n==1
-    return _.range arguments[0]
-  else if n==2
-    return _.range arguments[0],arguments[1]
-  else if n==3
-    return _.range arguments[0],arguments[1],arguments[2]
+range = _.range
