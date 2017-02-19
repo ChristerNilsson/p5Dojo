@@ -54,4 +54,7 @@ transpile = (code) ->
     if clean(line).length > 0
       temp.push line
   code = temp.join '\n'
-  CoffeeScript.compile code
+  try
+    CoffeeScript.compile code
+  catch err
+    print err

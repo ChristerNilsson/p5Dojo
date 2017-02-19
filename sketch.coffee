@@ -194,23 +194,9 @@ run0 = ->
   data[chapter][exercise]["b"] = b
   if window.f != null
     window.f = null
-  if chapter.indexOf('Assert') == -1
-    run1()
-    run 0, transpile b + "\n" + call
-  else
-    print transpile b
-    result = null
-    run 0, "result = " + transpile b + "\nreturn " + call
-    if result != null
-      print result
-      if _.isEqual result, expectedResult
-        run 0,"bg(0,1,0)"
-      else
-        run 0,"bg(1,0,0)"
-        setMsg 'Unexpected result was: ' + result
-    else
-      setMsg 'No Result'
-
+  run1()
+  if run 0, transpile b + "\n" + call
+    print b # ska bara ske om bitmap ändrats. Får ej var ablack grid eller gray.
   if msg.val() == ''
     compare()
 
@@ -237,9 +223,11 @@ run = (n, code) ->
     setMsg ''
     eval code
     pop()
+    return true
   catch err
     pop()
     setMsg err.stack
+    return false 
 
 compare = ->
   

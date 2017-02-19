@@ -188,7 +188,7 @@ point 115,175
 """	
 		
 		Five: 
-			b: "# LOC:7 bg circle fc sc\n" 
+			b: "# LOC:12 bg circle fc sc\n" 
 			a: """
 bg 0.5
 sc()
@@ -212,7 +212,7 @@ circle 60,80,30
 """
 
 		whiteEmptyCircle: 
-			b:"# LOC:2 circle fc sc sw\n"
+			b:"# LOC:4 circle fc sc sw\n"
 			a:"""
 sc 1
 fc()
@@ -221,7 +221,7 @@ circle 70,90,40
 """
 
 		twoDiscsA: 
-			b:"# LOC:3 circle fc\n"
+			b:"# LOC:4 circle fc\n"
 			a:"""
 fc 1,0,0 
 circle 80,100,40
@@ -230,7 +230,7 @@ circle 100,120,50
 """
 
 		twoDiscsB:
-			b:"# LOC:3 circle fc\n"
+			b:"# LOC:4 circle fc\n"
 			a:"""
 fc 1,0,0
 circle 80,100,40
@@ -281,7 +281,7 @@ rect 80,70, 40,100
 """
 
 		cross: 
-			b:"# LOC:3 fc rect\n"
+			b:"# LOC:4 fc rect\n"
 			a:"""
 fc 1,0,0
 sc()
@@ -290,7 +290,7 @@ rect 115,40, 10,100
 """
 
 		squareHole: 
-			b : "# LOC:12 fc rect sc sw \n"
+			b : "# LOC:11 fc rect sc sw \n"
 			a:"""
 fc 0,1,1
 sc()
@@ -310,7 +310,7 @@ rect 80,80, 40,40
 	"L4: for lerp rect" : 
 
 		for01: 
-			b:"# LOC:2 for lerp rect\n"
+			b:"# LOC:3 for lerp rect\n"
 			a:"""
 for i in range 10
 	x = 5+20*i
@@ -318,7 +318,7 @@ for i in range 10
 """
 
 		for02: 
-			b:"# LOC:2 for lerp rect\n"
+			b:"# LOC:3 for lerp rect\n"
 			a:"""
 for i in range 10
 	y = 5+20*i
@@ -326,7 +326,7 @@ for i in range 10
 """
 
 		for03: 
-			b:"# LOC:2 for lerp rect\n"
+			b:"# LOC:4 for lerp rect\n"
 			a:"""
 for i in range 10
 	x = 5+20*i
@@ -335,7 +335,7 @@ for i in range 10
 """
 
 		for04: 
-			b:"# LOC:3 for lerp rect\n"
+			b:"# LOC:5 for lerp rect\n"
 			a:"""
 for i in range 10
 	for j in range 10
@@ -345,7 +345,7 @@ for i in range 10
 """
 
 		for05: 
-			b:"# LOC:3 for lerp rect rectMode\n"
+			b:"# LOC:7 for lerp rect rectMode\n"
 			a:"""
 rectMode CENTER
 for i in range 10
@@ -357,7 +357,7 @@ for i in range 10
 """
 
 		for06: 
-			b:"# LOC:4 fc for lerp rect rectMode\n"
+			b:"# LOC:8 fc for lerp rect rectMode\n"
 			a:"""
 rectMode CENTER
 for i in range 10
@@ -370,7 +370,7 @@ for i in range 10
 """
 
 		for07: 
-			b:"# LOC:3 for fc circle lerp\n"
+			b:"# LOC:6 for fc circle lerp\n"
 			a:"""
 for i in range 10
 	fc i/10.0,0,0
@@ -381,7 +381,7 @@ for i in range 10
 """
 
 		for08: 
-			b:"# LOC:3 for fc circle lerp\n"
+			b:"# LOC:4 for fc circle lerp\n"
 			a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -390,7 +390,7 @@ for i in range 10,0,-1
 """
 
 		for09: 
-			b:"# LOC:3 for fc circle lerp\n"
+			b:"# LOC:6 for fc circle lerp\n"
 			a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -401,7 +401,7 @@ for i in range 10,0,-1
 """
 
 		for10: 
-			b:"# LOC:4 for fc circle lerp\n"
+			b:"# LOC:7 for fc circle lerp\n"
 			a:"""
 for i in range 10
 	for j in range 10
@@ -410,17 +410,6 @@ for i in range 10
 		y = 10+20*j
 		r = (i+j)/2
 		circle x,y,r
-"""
-
-		chesscross : 
-			b: "# LOC:6 for rect if fc (David Larsson)\n"
-			a: """
-for i in range 10
-	for j in range 10
-		fc()
-		if i-j in [-2,0,2] then fc 1,1,0
-		if i+j in [7,9,11] then fc 1,0,0
-		rect 20*i,20*j,20,20
 """
 
 #####################################
@@ -499,15 +488,30 @@ for i in range 8
 """
 		
 		chessBoard: 
-			b:"# LOC:5 bg fc for rect\n"
+			b:"# LOC:7 bg fc for rect\n"
 			a:"""
 bg 0.5
-for i in range 1,9
-	for j in range 1,9
+for i in range 8
+	for j in range 8
 		fc (i+j)%2
-		rect 20*i,20*j, 20,20
+		x = 20+20*i
+		y = 20+20*j
+		rect x,y, 20,20
 """
 		
+		chessCross : 
+			b: "# LOC:8 for rect if fc (David Larsson)\n"
+			a: """
+for i in range 10
+	for j in range 10
+		fc()
+		if i-j in [-2,0,2] then fc 1,1,0
+		if i+j in [7,9,11] then fc 1,0,0
+		x = 20*i
+		y = 20*j
+		rect x,y, 20,20
+"""
+
 #####################################
 
 	"L6: triangle quad arc" :
@@ -579,7 +583,7 @@ rect 140,100, 40,40
 """
 
 		rotatedRectB: 
-			b:"# LOC:10 push pop rd rect translate\n"
+			b:"# LOC:12 push pop rd rect translate\n"
 			a:"""
 push()
 fc 1,0,0
@@ -596,7 +600,7 @@ pop()
 """
 
 		rotatedRectC: 
-			b:"# LOC:11 fc push pop rd rect translate\n"
+			b:"# LOC:13 fc push pop rd rect translate\n"
 			a:"""
 rectMode CENTER
 push()
@@ -614,7 +618,7 @@ pop()
 """
 
 		cards: 
-			b:"# LOC:7 for fc circle lerp rd rectMode sc translate\n"
+			b:"# LOC:10 for fc circle lerp rd rectMode sc translate\n"
 			a:"""
 rectMode CENTER
 sc 1
@@ -629,7 +633,7 @@ for i in range 18,-1,-1
 """ 
 
 		tiles: 
-			b:"# LOC:10 fc for lerp push pop rd rect rectMode sc translate\n"
+			b:"# LOC:13 fc for lerp push pop rd rect rectMode sc translate\n"
 			a:"""
 rectMode CENTER
 sc()
@@ -710,7 +714,7 @@ colorCube = (n,b) ->
 
 		manyDices: 
 			b : """
-			# LOC:34 -> fc for if point [] %
+			# LOC:21 -> fc for if point [] %
 			manyDices = () ->
 			"""
 			a:"""
@@ -740,7 +744,7 @@ manyDices = () ->
 		
 		klocka: 
 			b: """
-			# LOC:37 -> circle else fc for if point push pop rd rect rectMode sc translate
+			# LOC:25 -> circle else fc for if point push pop rd rect rectMode sc translate
 			klocka = (h,m,s) ->
 			"""
 			a: """
@@ -776,16 +780,17 @@ urtavla = () ->
 
 		GoldenStar:
 			b: """
-# LOC:12 translate rotate cos sin for range fc triangle
+# LOC:13 translate rotate cos sin for range fc triangle bg
 star = (x0,y0,n,w=0) ->
 """
 			a: """
 star = (x0,y0,n,w=0) ->
+	bg 0
 	translate x0,y0
 	v = TWO_PI/n
 	rotate w
-	x = 30 * cos v/2
-	y = 30 * sin v/2
+	x = 38 * cos v/2
+	y = 38 * sin v/2
 	for i in range n
 		fc 1,1,0
 		triangle 0,0,100,0,x,y
@@ -801,7 +806,7 @@ star = (x0,y0,n,w=0) ->
 		
 		recursiveCircles: 
 			b: """
-			# LOC:7 -> circle if return sc <
+			# LOC:6 -> circle if return sc <
 			circles = (x,y,r) ->
 			"""
 			a: """
@@ -1001,7 +1006,7 @@ girlang = (x,y,n,width,v) ->
 
 		OlympicRings:
 			b: """
-			# LOC:23 class constructor sc arc bg fc sw strokeCap
+			# LOC:24 class constructor sc arc bg fc sw strokeCap
 			class Ring
 				constructor : (@x,@y,@r,@g,@b) ->
 				draw : (start=3,stopp=3,hour=PI/6) ->
@@ -1096,7 +1101,7 @@ s2 = new Ship 100,100,20,-90, 1,0,0
 	"L10: Guess a Number" :
 
 		guess1:
-			b: "# LOC:10 bg rectMode for range rect\n"
+			b: "# LOC:11 bg rectMode for range rect\n"
 			a: """
 bg 1
 rectMode CENTER,CENTER
@@ -1112,7 +1117,7 @@ for i in range 8
 """
 
 		guess2:
-			b: "# LOC:15 bg rectMode for range rect textAlign text sc fc\n"
+			b: "# LOC:16 bg rectMode for range rect textAlign text sc fc\n"
 			a: """
 bg 1
 rectMode CENTER,CENTER
@@ -1133,7 +1138,7 @@ for i in range 8
 """
 
 		guess3:
-			b: "# LOC:15 bg rectMode for range rect textAlign text sc fc\n"
+			b: "# LOC:17 bg rectMode for range rect textAlign text sc fc\n"
 			a: """
 bg 1
 rectMode CENTER,CENTER
@@ -1156,7 +1161,7 @@ for i in range 8
 
 		guess4:
 			b: """
-# LOC:20 bg rectMode for range rect textAlign text sc fc
+# LOC:19 bg rectMode for range rect textAlign text sc fc
 f = (nx,ny) ->
 """
 			a: """
@@ -1186,7 +1191,7 @@ f = (nx,ny) ->
 
 		guess5:
 			b: """
-# LOC:26 bg rectMode for range rect textAlign text sc fc if else
+# LOC:23 bg rectMode for range rect textAlign text sc fc if else
 f = (nx,ny,start,stopp) ->
 """
 			a: """
@@ -1220,7 +1225,7 @@ f = (nx,ny,start,stopp) ->
 
 		guess6:
 			b: """
-# LOC:30 bg rectMode for range rect textAlign text sc fc if else
+# LOC:28 bg rectMode for range rect textAlign text sc fc if else
 f = (nx,ny,start,stopp,mx,my,target) ->
 """
 			a: """
@@ -1262,7 +1267,7 @@ f = (nx,ny,start,stopp,mx,my,target) ->
 	Exhibition :
 
 		clown:
-			b:"# LOC:32 bg circle fc sc sw line lerp (David Larsson)\n"
+			b:"# LOC:30 bg circle fc sc sw line lerp (David Larsson)\n"
 			a:"""
 bg 0, 1, 0, 0.5
 fc 1, 0, 0
