@@ -8,6 +8,13 @@ exercise=""
 call = ''
 expectedResult = 0
 
+setMsg = (txt) ->
+  msg.val txt
+  if txt == ''
+    msg.css 'background-color' , '#FFFFFF'
+  else
+    msg.css 'background-color' , '#FF0000'
+
 grid = () ->
   push()
   sc 1
@@ -91,7 +98,7 @@ sel2change = (sel) ->
   fillSelect sel3, data[chapter][exercise]["c"]   
     
   a = data[chapter][exercise]["a"]
-  a = transpile(a)
+  a = transpile a
   run 1, a
 
   b = data[chapter][exercise]["b"]
@@ -141,6 +148,20 @@ setup = ->
 
   fillSelect sel1, data
 
+window.onbeforeunload = ->
+  return if document.URL.indexOf("record") == -1 
+  res = []
+  for key1,chapter of data
+    for key2,exercise of chapter
+      if exercise.d
+        res.push "### #{key1} ### #{key2}\n"
+        for s,i in exercise.d
+          res.push "=== #{i}\n"
+          res.push s+"\n"
+  blob = new Blob res, {type: "text/plain;charset=utf-8"}
+  saveAs blob, "recording.txt"
+  true
+
 window.onload = ->
 
   ta = document.getElementById "code"
@@ -181,12 +202,15 @@ window.onload = ->
   window.resizeTo 1000,750
   changeLayout()
 
-setMsg = (txt) ->
-  msg.val txt
-  if txt == ''
-    msg.css 'background-color' , '#FFFFFF'
-  else
-    msg.css 'background-color' , '#FF0000'
+saveToKeyStorage = (b) ->
+  s = ""
+  for line in b.split '\n'
+    if line.indexOf("#") != 0
+      s += line
+  place = data[chapter][exercise] 
+  if !place.d 
+    place.d = []
+  place.d.push s
 
 run0 = ->
   background 128
@@ -196,7 +220,7 @@ run0 = ->
     window.f = null
   run1()
   if run 0, transpile b + "\n" + call
-    print b # ska bara ske om bitmap ändrats. Får ej var ablack grid eller gray.
+    saveToKeyStorage b
   if msg.val() == ''
     compare()
 
