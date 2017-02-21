@@ -741,7 +741,65 @@ manyDices = () ->
 			dice 20*i,20*j,1+(i+j)%6
 """
 			c : "manyDices()":0
+
+		sevenSegment :
+			b : """
+# LOC:15 bg sc fc rectMode if then & rect []
+digit = (d,x=100,y=100,w=80,h=10) ->
+			"""
+			a:"""
+digit = (d,x=100,y=100,w=80,h=10) ->
+	bg 0
+	sc()
+	fc 1,0,0
+	rectMode CENTER
+	pattern = [63,6,91,79,102,109,125,7,127,111]
+	p = pattern[d]
+	w0 = w-20
+	if p & 1 then rect x,y-w,w0,h 
+	if p & 2 then rect x+w/2,y-w/2,h,w0 
+	if p & 4 then rect x+w/2,y+w/2,h,w0 
+	if p & 8 then rect x,y+w,w0,h 
+	if p & 16 then rect x-w/2,y+w/2,h,w0
+	if p & 32 then rect x-w/2,y-w/2,h,w0 
+	if p & 64 then rect x,y,w0,h 
+"""
+			c:
+				"digit 0" : 0
+				"digit 1" : 0
+				"digit 2" : 0
+				"digit 3" : 0
+				"digit 4" : 0
+				"digit 5" : 0
+				"digit 6" : 0
+				"digit 7" : 0
+				"digit 8" : 0
+				"digit 9" : 0
 		
+		alphanumeric:
+			b:"""
+# LOC:11 bg for in range indexOf & ** circle {} [] '' if then else
+letter = (chr) ->
+			"""
+			a:"""
+letter = (chr) ->
+	bg 0
+	sc()
+	pattern = {1:'4c4444e', 2:'eh1248v', A:'ehhhvhh', B:'uhhuhhu'}
+	for ch,j in pattern[chr]
+		index = '0123456789abcdefghijklmnopqrstuv'.indexOf ch
+		for i in range 5
+			if index & 2**i then fc 0,1,0 else fc 0,0.3,0
+			x = 140-20*i
+			y = 40+20*j
+			circle x,y,8
+			"""
+			c:
+				"letter 'A'" : 0
+				"letter 'B'" : 0
+				"letter '1'" : 0
+				"letter '2'" : 0	
+
 		klocka: 
 			b: """
 			# LOC:25 -> circle else fc for if point push pop rd rect rectMode sc translate
@@ -781,28 +839,28 @@ urtavla = () ->
 		GoldenStar:
 			b: """
 # LOC:13 translate rotate cos sin for range fc triangle bg
-star = (x0,y0,n,w=0) ->
+star = (x,y,n,a,b) ->
 """
 			a: """
-star = (x0,y0,n,w=0) ->
+star = (x,y,n,a,b) ->
 	bg 0
-	translate x0,y0
+	translate x,y
 	v = TWO_PI/n
-	rotate w
-	x = 38 * cos v/2
-	y = 38 * sin v/2
+	rotate -PI/2
+	x1 = b * cos v/2
+	y1 = b * sin v/2
 	for i in range n
 		fc 1,1,0
-		triangle 0,0,100,0,x,y
+		triangle 0,0,a,0,x1,y1
 		fc 1,0.7,0
-		triangle 0,0,100,0,x,-y
+		triangle 0,0,a,0,x1,-y1
 		rotate v
 """
 			c:
-				"star 100,125,3,TWO_PI/12" : 0
-				"star 100,100,4" : 0
-				"star 100,110,5,-TWO_PI/20" : 0
-				"star 100,100,6" : 0
+				"star 100,125,3,110,30" : 0
+				"star 100,100,4,100,25" : 0
+				"star 100,110,5,100,38" : 0
+				"star 100,100,6,100,50" : 0
 		
 		recursiveCircles: 
 			b: """
