@@ -744,25 +744,32 @@ manyDices = () ->
 
 		sevenSegment :
 			b : """
-# LOC:15 bg sc fc rectMode if then & rect []
+# LOC:22 bg sc fc rectMode if then & rect []
 digit = (d,x=100,y=100,w=80,h=10) ->
 			"""
 			a:"""
 digit = (d,x=100,y=100,w=80,h=10) ->
-	bg 0
+	bg 0.5
 	sc()
 	fc 1,0,0
 	rectMode CENTER
 	pattern = [63,6,91,79,102,109,125,7,127,111]
 	p = pattern[d]
 	w0 = w-20
-	if p & 1 then rect x,y-w,w0,h 
-	if p & 2 then rect x+w/2,y-w/2,h,w0 
-	if p & 4 then rect x+w/2,y+w/2,h,w0 
-	if p & 8 then rect x,y+w,w0,h 
-	if p & 16 then rect x-w/2,y+w/2,h,w0
-	if p & 32 then rect x-w/2,y-w/2,h,w0 
-	if p & 64 then rect x,y,w0,h 
+	if p & 1 then fc 1,0,0 else fc 0.3,0,0
+	rect x,y-w,w0,h 
+	if p & 2 then fc 1,0,0 else fc 0.3,0,0
+	rect x+w/2,y-w/2,h,w0 
+	if p & 4 then fc 1,0,0 else fc 0.3,0,0
+	rect x+w/2,y+w/2,h,w0 
+	if p & 8 then fc 1,0,0 else fc 0.3,0,0
+	rect x,y+w,w0,h 
+	if p & 16 then fc 1,0,0 else fc 0.3,0,0
+	rect x-w/2,y+w/2,h,w0
+	if p & 32 then fc 1,0,0 else fc 0.3,0,0
+	rect x-w/2,y-w/2,h,w0 
+	if p & 64 then fc 1,0,0 else fc 0.3,0,0
+	rect x,y,w0,h 
 """
 			c:
 				"digit 0" : 0
