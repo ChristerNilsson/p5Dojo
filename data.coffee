@@ -583,6 +583,38 @@ for i in range 10
 		rect x,y, 20,20
 """
 
+		boardGame :
+			b:"""
+# LOC:15 for in range circle bg fc sc
+
+board = (x,y,d,r,n) ->
+			"""
+			a:"""
+one = (d,r,x0,y0,m,n) ->
+	for i in range m
+		for j in range n
+			x = d*i
+			y = d*j
+			circle x0+x,y0+y,r
+
+board = (x,y,d,r,n) ->
+	bg 1
+	fc 0
+	sc()
+	circle x,y,r
+	one d,r,x+d,  y-d,n,3
+	one d,r,x-n*d,y-d,n,3
+	one d,r,x-d,  y-n*d,3,n
+	one d,r,x-d,  y+d,3,n
+"""
+			c:
+				"board 100,100,18,7,5" : 0
+				"board 100,100,25,10,3" : 0
+				"board 100,100,35,15,2" : 0
+				"board 50,50,9,4,5" : 0
+				"board 50,150,12,5,3" : 0
+				"board 150,150,18,8,2" : 0
+
 #####################################
 
 	"L6: triangle quad arc" :
