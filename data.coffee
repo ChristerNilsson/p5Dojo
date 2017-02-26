@@ -9,13 +9,12 @@ data =
 	"L1: bg point sc sw": 
 
 		Background1: 
-			a: "bg 1"
 			b: """
 # Den översta bitmappen till höger visar resultatet av din kod.
 # Den mellersta bitmappen ska du efterlikna.
 # Den understa bitmappen visar skillnaden mellan de två andra.
 
-# Tryck på nedåtpil för att komma till sista raden.
+# Tryck på PgDn för att komma till sista raden.
 # Skriv in följande kommando: bg 1
 # Kontrollera att de båda övre bitmapparna nu är lika.
 
@@ -24,24 +23,37 @@ data =
 # Klicka på Reference för att se fler kommandon.
 
 """
+			a: "bg 1"
+
 		Background2: 
-			b: "# LOC:1 bg\n"
+			b: """
+# LOC:1 bg
+
+"""
 			a: "bg 0.5"
 
 		Background3: 
-			b: "# LOC:1 bg\n"
+			b: """
+# LOC:1 bg
+
+"""
 			a: "bg 1,0,0"
 
 		Background4: 
-			b: "# LOC:1 bg\n"
+			b: """
+# LOC:1 bg
+
+"""
 			a: "bg 1,1,0"
 
 		CornerPoints: 
 			b: """
 # LOC:9 sc sw point
+
 sw 5
 sc 1,0,0
 point 0,0
+
 """
 			a: """
 sw 5
@@ -56,7 +68,10 @@ point 200,200
 """
 
 		MidPoints: 
-			b: "# LOC:11 sc sw point\n"
+			b: """
+# LOC:11 sc sw point
+
+"""
 			a: """
 sw 5
 sc 1,0,0
@@ -72,7 +87,10 @@ point 100,200
 """
 
 		CornerPoints3: 
-			b: "# LOC:17 sc sw point\n"
+			b: """
+# LOC:17 sc sw point
+
+"""
 			a: """
 sw 5
 sc 1,0,0
@@ -97,7 +115,10 @@ point 200,180
 """
 
 		CornerPoints7: 
-			b: "# LOC:17 sc sw point\n"
+			b: """
+# LOC:17 sc sw point
+
+"""
 			a: """
 sw 5
 sc 1,0,0
@@ -120,7 +141,10 @@ point 200,170
 """
 
 		Diagonal: 
-			b: "# LOC:23 sc sw point\n"
+			b: """
+# LOC:23 sc sw point
+
+"""
 			a: """
 sc 1,0,0
 sw 11
@@ -152,7 +176,10 @@ point 0,200
 	"L2: circle fc text" : 
 
 		dices : 
-			b : "# LOC:26 point sc\n" 
+			b : """
+# LOC:26 point sc
+
+"""
 			a: """
 point 10,10
 
@@ -188,7 +215,10 @@ point 115,175
 """	
 		
 		Five: 
-			b: "# LOC:12 bg circle fc sc\n" 
+			b: """
+# LOC:12 bg circle fc sc
+
+""" 
 			a: """
 bg 0.5
 sc()
@@ -205,14 +235,20 @@ circle 160,40,20
 """ 
 
 		whiteCircle: 
-			b:"# LOC:2 circle fc\n"
+			b:"""
+# LOC:2 circle fc
+
+"""
 			a:"""
 fc 1
 circle 60,80,30
 """
 
 		whiteEmptyCircle: 
-			b:"# LOC:4 circle fc sc sw\n"
+			b:"""
+# LOC:4 circle fc sc sw
+
+"""
 			a:"""
 sc 1
 fc()
@@ -221,7 +257,10 @@ circle 70,90,40
 """
 
 		twoDiscsA: 
-			b:"# LOC:4 circle fc\n"
+			b:"""
+# LOC:4 circle fc
+
+"""
 			a:"""
 fc 1,0,0 
 circle 80,100,40
@@ -230,7 +269,10 @@ circle 100,120,50
 """
 
 		twoDiscsB:
-			b:"# LOC:4 circle fc\n"
+			b:"""
+# LOC:4 circle fc
+
+"""
 			a:"""
 fc 1,0,0
 circle 80,100,40
@@ -239,7 +281,10 @@ circle 120,100,50
 """
 
 		textA: 
-			b:"# LOC:3 fc textSize text\n"
+			b:"""
+# LOC:3 fc textSize text
+
+"""
 			a:"""
 fc 1,1,0
 textSize 32
@@ -247,7 +292,10 @@ text 'Coffeescript',100,100
 """
 
 		textB: 
-			b:"# LOC:4 fc text textAlign textSize text\n"
+			b:"""
+# LOC:4 fc text textAlign textSize text
+
+"""
 			a:"""
 fc 1,1,0
 textSize 32
@@ -260,28 +308,40 @@ text 'Coffeescript',100,100
 	"L3: ellipse rect" : 
 
 		greenEllipse: 
-			b:"# LOC:2 ellipse fc\n"
+			b:"""
+# LOC:2 ellipse fc
+
+"""
 			a:"""
 fc 0,1,0
 ellipse 120,60, 60,40
 """
 
 		greenRect: 
-			b:"# LOC:2 fc rect\n"
+			b:"""
+# LOC:2 fc rect
+
+"""
 			a:"""
 fc 0,1,0
 rect 60,80, 40,50
 """
 
 		redRect:
-			b:"# LOC:2 fc rect\n"
+			b:"""
+# LOC:2 fc rect
+
+"""
 			a:"""
 fc 1,0,0
 rect 80,70, 40,100
 """
 
 		cross: 
-			b:"# LOC:4 fc rect\n"
+			b:"""
+# LOC:4 fc rect
+
+"""
 			a:"""
 fc 1,0,0
 sc()
@@ -290,7 +350,10 @@ rect 115,40, 10,100
 """
 
 		squareHole: 
-			b : "# LOC:11 fc rect sc sw \n"
+			b : """
+# LOC:11 fc rect sc sw
+
+"""
 			a:"""
 fc 0,1,1
 sc()
@@ -310,7 +373,15 @@ rect 80,80, 40,40
 	"L4: for lerp rect" : 
 
 		for01: 
-			b:"# LOC:3 for lerp rect\n"
+			b:"""
+# LOC:3 for lerp rect
+
+rect  5,5,10,10
+rect 25,5,10,10
+for i in range 0
+	x = lerp 5,25,i 
+	rect
+"""
 			a:"""
 for i in range 10
 	x = 5+20*i
@@ -657,6 +728,7 @@ for i in range 10
 		square : 
 			b: """
 			# LOC:5 -> bg sw fc rect
+
 			square = (x,y,size,w=1, r=0.5,g=0.5,b=0.5) ->
 			"""
 			a: """
@@ -675,6 +747,7 @@ square = (x,y,size,w=1,r=0.5,g=0.5,b=0.5) ->
 		multimoire: 
 			b:"""
 			# LOC:5 bg for line map
+
 			moire = (k) ->
 			"""
 			a: """
@@ -693,6 +766,7 @@ moire = (k) ->
 		colorCube:
 			b: """
 			# LOC:8 -> bg fc for rect
+
 			colorCube = (n,b) ->
 			"""
 			a: """
@@ -715,6 +789,7 @@ colorCube = (n,b) ->
 		manyDices: 
 			b : """
 			# LOC:21 -> fc for if point [] %
+
 			manyDices = () ->
 			"""
 			a:"""
@@ -745,10 +820,11 @@ manyDices = () ->
 		sevenSegment :
 			b : """
 # LOC:22 bg sc fc rectMode if then & rect []
+
 digit = (d,x=100,y=100,w=80,h=10) ->
 			"""
 			a:"""
-digit = (d,x=100,y=100,w=80,h=10) ->
+digit = (d,x=100,y=100,w=80,h=18) ->
 	bg 0.5
 	sc()
 	fc 1,0,0
@@ -786,13 +862,14 @@ digit = (d,x=100,y=100,w=80,h=10) ->
 		alphanumeric:
 			b:"""
 # LOC:11 bg for in range indexOf & ** circle {} [] '' if then else
+
 letter = (chr) ->
 			"""
 			a:"""
 letter = (chr) ->
 	bg 0
 	sc()
-	pattern = {1:'4c4444e', 2:'eh1248v', A:'ehhhvhh', B:'uhhuhhu'}
+	pattern = {1:'4c4444e', 2:'eh1248v', A:'ehhvhhh', B:'uhhuhhu'}
 	for ch,j in pattern[chr]
 		index = '0123456789abcdefghijklmnopqrstuv'.indexOf ch
 		for i in range 5
@@ -810,6 +887,7 @@ letter = (chr) ->
 		klocka: 
 			b: """
 			# LOC:25 -> circle else fc for if point push pop rd rect rectMode sc translate
+
 			klocka = (h,m,s) ->
 			"""
 			a: """
@@ -846,6 +924,7 @@ urtavla = () ->
 		GoldenStar:
 			b: """
 # LOC:13 translate rotate cos sin for range fc triangle bg
+
 star = (x,y,n,a,b) ->
 """
 			a: """
@@ -872,6 +951,7 @@ star = (x,y,n,a,b) ->
 		recursiveCircles: 
 			b: """
 			# LOC:6 -> circle if return sc <
+
 			circles = (x,y,r) ->
 			"""
 			a: """
@@ -887,6 +967,7 @@ circles = (x,y,r) ->
 		korg: 
 			b:"""
 			# LOC:17 -> bg fc for if else rect sc sw
+
 			korg = (n,w,c1,c2) ->
 			"""
 			a: """
@@ -918,6 +999,7 @@ korg = (n,w,c1,c2) ->
 		"OlympicRing Prep":
 			b:"""
 # LOC:7 sc arc fc sw strokeCap
+
 ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 """
 			a:"""
@@ -941,6 +1023,7 @@ ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 		Polygon:
 			b:"""
 # LOC:17 class constructor new cos sin radians sc line for range bg
+
 class Turtle
 	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->
 	fd : (d) ->
@@ -979,12 +1062,48 @@ polygon = (n,d) ->
 				"polygon 32,16" : 0
 				"polygon 64,8" : 0
 
-		Weaver:
-			b : """
-# LOC: 20 class constructor new sc line bg sw for range
-# https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg
+		girlang :
+			b:"""
+# LOC: 16 class constructor new sc line bg sw for in range
+
 class Weaver
-	constructor : (@r,@g,@b,@x,@y) ->
+	constructor : (@r,@g,@b, @x,@y) ->
+	go : (dx,dy) ->
+
+girlang = (x,y,n,width,dx,dy) ->
+"""		
+			a:"""
+class Weaver
+	constructor : (@r,@g,@b, @x,@y) ->
+	go : (dx,dy) ->
+		sc @r,@g,@b
+		line @x,@y,@x+dx,@y+dy
+		[@x,@y] = [@x+dx,@y+dy]
+
+girlang = (x,y,n,width,dx,dy) ->
+	a = new Weaver 1,0,0, x+dx/2,0
+	b = new Weaver 1,1,0, x,y+dy/2
+
+	bg 0
+	sw width
+
+	for i in range n
+		a.go 0,dy
+		b.go dx,0
+		b.go 0,dy
+		a.go dx,0			
+"""
+			c: 
+				"girlang 0,0,9,5,20,20" : 0
+				"girlang 200,0,9,7,-20,20" : 0
+
+		braid:
+			b : """
+# LOC: 19 class constructor new sc line bg sw for range
+# https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg
+
+class Weaver
+	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
 
 braid = (n,dx,dy,width) ->		
@@ -992,18 +1111,17 @@ braid = (n,dx,dy,width) ->
 
 			a:"""
 class Weaver
-	constructor : (@r,@g,@b,@x,@y) ->
+	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
 		sc @r,@g,@b
 		line @x,@y,@x+dx,@y+dy
-		@x += dx
-		@y += dy		
+		[@x,@y] = [@x+dx,@y+dy]
 
 braid = (n,dx,dy,width) ->		
 
-	a = new Weaver 1,0,0,100-dx/2,dy/3
-	b = new Weaver 1,1,0,100+dx/2,2*dy/3
-	c = new Weaver 0,1,0,100-dx/2,dy
+	a = new Weaver 1,0,0, 100-dx/2,dy/3
+	b = new Weaver 1,1,0, 100+dx/2,2*dy/3
+	c = new Weaver 0,1,0, 100-dx/2,dy
 
 	bg 0
 	sw width
@@ -1022,56 +1140,10 @@ braid = (n,dx,dy,width) ->
 				"braid 4,30,21,14" : 0
 				"braid 6,24,15,5" : 0
 
-		girlang :
-			b:"""
-# LOC: 27 class constructor new cos sin radians sc line bg sw for range
-class Turtle
-	constructor : (@r,@g,@b,@x,@y,@dir) ->
-	fd : (d) ->
-	rt : (a) ->
-
-girlang = (x,y,n,width,v) ->
-"""		
-			a:"""
-class Turtle
-	constructor : (@r,@g,@b,@x,@y,@dir) ->
-	fd : (d) ->
-		dx = d*cos radians @dir
-		dy = d*sin radians @dir
-		sc @r,@g,@b
-		line @x,@y,@x+dx,@y+dy
-		@x += dx
-		@y += dy
-	rt : (a) ->
-		@dir +=a
-				
-girlang = (x,y,n,width,v) ->		
-
-	a = new Turtle 1,0,0, x,y,45-v/2
-	b = new Turtle 1,1,0, x,y,45+v/2
-	bg 0
-	sw width
-
-	a.fd 10
-	b.fd 10
-	for i in range n
-			a.rt v
-			a.fd 20
-			b.rt -v
-			b.fd 20
-
-			b.rt v
-			b.fd 20
-			a.rt -v
-			a.fd 20
-			"""
-			c: 
-				"girlang 0,0,10,5,90" : 0
-				"girlang 10,10,12,5,120" : 0
-
 		OlympicRings:
 			b: """
 			# LOC:24 class constructor sc arc bg fc sw strokeCap
+
 			class Ring
 				constructor : (@x,@y,@r,@g,@b) ->
 				draw : (start=3,stopp=3,hour=PI/6) ->
@@ -1115,6 +1187,7 @@ olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 		SpaceShip :
 			b:"""
 # LOC: 22 class constructor cos sin radians translate rd sc sw triangle point new
+
 class Ship
 	constructor : (@x,@y,@s,@dir, @r=1,@g=1,@b=0) ->
 	lt : (a=90) -> 
@@ -1166,7 +1239,10 @@ s2 = new Ship 100,100,20,-90, 1,0,0
 	"L10: Guess a Number" :
 
 		guess1:
-			b: "# LOC:11 bg rectMode for range rect\n"
+			b: """
+# LOC:11 bg rectMode for range rect
+
+"""
 			a: """
 bg 1
 rectMode CENTER,CENTER
@@ -1182,7 +1258,10 @@ for i in range 8
 """
 
 		guess2:
-			b: "# LOC:16 bg rectMode for range rect textAlign text sc fc\n"
+			b: """
+# LOC:16 bg rectMode for range rect textAlign text sc fc
+
+"""
 			a: """
 bg 1
 rectMode CENTER,CENTER
@@ -1203,7 +1282,10 @@ for i in range 8
 """
 
 		guess3:
-			b: "# LOC:17 bg rectMode for range rect textAlign text sc fc\n"
+			b: """
+# LOC:17 bg rectMode for range rect textAlign text sc fc
+
+"""
 			a: """
 bg 1
 rectMode CENTER,CENTER
@@ -1227,6 +1309,7 @@ for i in range 8
 		guess4:
 			b: """
 # LOC:19 bg rectMode for range rect textAlign text sc fc
+
 f = (nx,ny) ->
 """
 			a: """
@@ -1257,6 +1340,7 @@ f = (nx,ny) ->
 		guess5:
 			b: """
 # LOC:23 bg rectMode for range rect textAlign text sc fc if else
+
 f = (nx,ny,start,stopp) ->
 """
 			a: """
@@ -1291,6 +1375,7 @@ f = (nx,ny,start,stopp) ->
 		guess6:
 			b: """
 # LOC:28 bg rectMode for range rect textAlign text sc fc if else
+
 f = (nx,ny,start,stopp,mx,my,target) ->
 """
 			a: """
@@ -1332,7 +1417,10 @@ f = (nx,ny,start,stopp,mx,my,target) ->
 	Exhibition :
 
 		clown:
-			b:"# LOC:30 bg circle fc sc sw line lerp (David Larsson)\n"
+			b:"""
+# LOC:30 bg circle fc sc sw line lerp (David Larsson)
+
+"""
 			a:"""
 bg 0, 1, 0, 0.5
 fc 1, 0, 0
@@ -1367,7 +1455,10 @@ circle 100, 100, 10
 """
 
 		tomteluva:
-			b:"# LOC:12 circle fc sc triangle (Sabrina Larsson)\n"
+			b:"""
+# LOC:12 circle fc sc triangle (Sabrina Larsson)
+
+"""
 			a:"""
 bg 0,1,0
 fc 1,0,0
@@ -1384,7 +1475,10 @@ circle 100,60,10
 """
 
 		snowman:
-			b:"# LOC:21 circle fc line sc triangle (David Larsson)\n"
+			b:"""
+# LOC:21 circle fc line sc triangle (David Larsson)
+
+"""
 			a:"""
 fc 1
 circle 100, 150, 50
@@ -1410,7 +1504,10 @@ rect 2, 180, 196, 20
 """
 
 		christmasTree:
-			b:"# LOC:35 bg circle fc line rect quad sc triangle (Sabrina Larsson)\n"
+			b:"""
+# LOC:35 bg circle fc line rect quad sc triangle (Sabrina Larsson)
+
+"""
 			a:"""
 bg 0 
 fc 0, 1, 0 
@@ -1451,7 +1548,10 @@ circle 190, 180, 5
 """
 
 		santa:
-			b:"# LOC:18 bg circle ellipse fc rect quad sc triangle (Sabrina Larsson)\n"
+			b:"""
+# LOC:18 bg circle ellipse fc rect quad sc triangle (Sabrina Larsson)
+
+"""
 			a:"""
 bg 0,0,1
 fc 1,0,0
@@ -1474,7 +1574,10 @@ triangle 100,140,0,200,200,200
 """
 
 		dist: 
-			b:"# LOC:10 bg circle dist fc lerp map sc\n"
+			b:"""
+# LOC:10 bg circle dist fc lerp map sc
+
+"""
 			a:"""
 bg 0
 fc 1
@@ -1489,7 +1592,10 @@ for i in range 10
 """ 
 		
 		bulge: 
-			b:"# LOC:10 bg circle dist fill map noStroke sin\n"
+			b:"""
+# LOC:10 bg circle dist fill map noStroke sin
+
+"""
 			a:"""
 bg 0
 fill 255
@@ -1503,7 +1609,10 @@ for i in range 20
 """
 
 		wave: 
-			b:"# LOC:9 circle colorMode fill map noStroke sin PI\n"
+			b:"""
+# LOC:9 circle colorMode fill map noStroke sin PI
+
+"""
 			a:"""
 colorMode HSB,360,100,100
 noStroke()
@@ -1517,7 +1626,10 @@ for i in range 21
 """
 
 		circle: 
-			b:"# LOC:10 bg circle colorMode cos fc map PI sc sin\n"
+			b:"""
+# LOC:10 bg circle colorMode cos fc map PI sc sin
+
+"""
 			a:"""
 bg 0
 colorMode HSB,360,100,100
@@ -1532,7 +1644,10 @@ for i in range 20
 """
 	
 		circles: 
-			b:"# LOC:12 bg circle colorMode cos fill map noStroke translate sin PI\n"
+			b:"""
+# LOC:12 bg circle colorMode cos fill map noStroke translate sin PI
+
+"""
 			a:"""
 bg 0
 noStroke()
@@ -1549,7 +1664,10 @@ for i in range 20
 """
 		
 		sized_circles: 
-			b:"# LOC:12 circle colorMode cos fill map noStroke PI sin translate \n"
+			b:"""
+# LOC:12 circle colorMode cos fill map noStroke PI sin translate
+
+"""
 			a:"""
 bg 0
 noStroke()
@@ -1566,7 +1684,10 @@ for i in range 20
 """
 		
 		rotated_circles: 
-			b:"# LOC:17 circle cos map PI push pop rotate sin translate \n"
+			b:"""
+# LOC:17 circle cos map PI push pop rotate sin translate
+
+"""
 			a:"""
 colorMode HSB,360,100,100
 sc()
@@ -1586,7 +1707,10 @@ for i in range 20
 """
 
 		gravity : 
-			b: "# LOC:6 circle lerp\n"
+			b: """
+# LOC:6 circle lerp
+
+"""
 			a: """
 fc 1
 for i in range 15
@@ -1598,6 +1722,7 @@ for i in range 15
 		hypnoticA : 
 			b: """
 			# LOC:6 -> bg circle cos fc sc sin
+
 			hypnoticA = () ->
 			"""
 			a: """
@@ -1615,6 +1740,7 @@ hypnoticA = () ->
 		hypnoticB : 
 			b: """
 			# LOC:7 -> bg circle cos fc map sc sin
+
 			hypnoticB = (t) ->
 			"""
 			a: """
