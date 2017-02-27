@@ -609,6 +609,7 @@ board = (x,y,d,r,n) ->
 				"board  50,150,12, 5,3" : 0
 				"board 150,150,18, 8,2" : 0
 
+
 #####################################
 
 	"L6: triangle quad arc" :
@@ -1259,6 +1260,106 @@ s2 = new Ship 100,100,20,-90, 1,0,0
 				"s1.lt().fd().rt().fd().rt().draw()" : 0
 				"s1.fd().rt(45).draw()" : 0
 				"s1.rt(45).fd().draw()" : 0
+
+		chessGame :
+			b:"""
+# LOC:60 class constructor new if then else textSize textAlign text rectMode rect 
+#        for in range point bg fc sc sw push split length indexOf
+
+class Chess
+	constructor : (@moves="", @size=22, w="",b="", @x=100,@y=100) ->
+	move : (n) ->
+
+bg 0.5
+big = new Chess "e2e4 e7e5 g1f3 b8c6 f1c4"
+small = new Chess "g2g4 e7e5 f2f4 d8h4",18
+
+			"""
+			a:"""
+class Chess
+	constructor : (@moves="",@size=22,w="",b="",@x=100,@y=100) ->
+		if b == "" then b = "Ra8 Nb8 Bc8 Qd8 Ke8 Bf8 Ng8 Rh8 a7 b7 c7 d7 e7 f7 g7 h7"
+		if w == "" then w = "Ra1 Nb1 Bc1 Qd1 Ke1 Bf1 Ng1 Rh1 a2 b2 c2 d2 e2 f2 g2 h2"
+		textSize 0.9 * @size
+		textAlign CENTER,CENTER
+		rectMode CENTER
+		@white = @putPieces w
+		@black = @putPieces b
+		@moves = @moves.split " "
+
+	putPieces : (pieces) ->
+		res = []
+		for i in range 64
+			res.push "" 
+		arr = pieces.split " "
+		for piece in arr
+			if piece.length == 2
+				chr = "o"
+				sq = piece
+			else
+				chr = piece[0]
+				sq = piece[1..]
+			[col,row] = getIndex sq
+			res[8*col+row] = chr	
+		res
+
+	getIndex = (sq) ->
+		col = "abcdefgh".indexOf sq[0]
+		row = "12345678".indexOf sq[1]
+		[col,row]
+		
+	render1 : (pieces,c) ->
+		fc c
+		sc c
+		for row in range 8
+			for col in range 8
+				piece = pieces[8*col+row]
+				x = @x-3.5*@size+col*@size
+				y = @y-3.5*@size+(7-row)*@size
+				if piece == "o"
+					sw @size/2
+					point x,y
+				else if piece in "KQRBN"
+					sw 1-c
+					text piece,x, 1+y		
+				
+	render : () ->
+		sc()
+		for i in range 8
+			for j in range 8
+				if (i+j)%2 == 1 then fc 0.4 else fc 0.6
+				rect @x-3.5*@size+@size*i, @y-3.5*@size+@size*j, @size, @size
+		@render1 @white,1
+		@render1 @black,0
+
+	movePiece = (m,player) ->
+		[col1,row1] = getIndex m[0..1]
+		[col2,row2] = getIndex m[2..3]
+		player[col2*8+row2] = player[col1*8+row1]
+		player[col1*8+row1] = ""
+		
+	move : (n) ->
+		for i in range n
+			movePiece @moves[i], if i%2==0 then @white else @black
+		@render()
+
+bg 0.5
+big = new Chess "e2e4 e7e5 g1f3 b8c6 f1c4"
+small = new Chess "g2g4 e7e5 f2f4 d8h4",18
+
+"""
+			c:
+				"big.move 0" : 0
+				"big.move 1" : 0
+				"big.move 2" : 0
+				"big.move 3" : 0
+				"big.move 4" : 0
+				"big.move 5" : 0
+				"small.move 0" : 0
+				"small.move 1" : 0
+				"small.move 2" : 0
+				"small.move 3" : 0
+				"small.move 4" : 0
 
 #####################################
 
