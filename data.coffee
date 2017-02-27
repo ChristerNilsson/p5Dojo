@@ -1050,45 +1050,45 @@ ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 
 		Connect4 :
 			b:"""
-# LOC:15 class constructor new textAlign textSize text for in range push % fc sc circle
+# LOC:23 class constructor new textAlign textSize text for in range push % fc sc circle
 
 class Connect4
-	constructor : (moves,@size=20) -> 
+	constructor : (moves,@size=27) -> 
 	render : () ->
 
-c1 = new Connect4 [0,1,2,0]
+c1 = new Connect4 [0,1,2,0],20
 c2 = new Connect4 [3,3,3,3,3,3,3,0,1,2,4,5,6]
 c3 = new Connect4 [3,2,4,3,2,1,0,0,5,6,1,2,1,1,4,4,3,2,0,0,3,0]
 			"""
 			a:"""
-
-# LOC:20 class constructor new textAlign textSize text for in range push % fc sc circle
-
 class Connect4
-	constructor : (moves,@size=20) ->
+	constructor : (moves,@size=27) ->
 		bg 0
 		textAlign CENTER,CENTER
-		textSize 14
+		textSize @size/2
 		@list = ([] for i in range 7)
 		for move,i in moves
 			@list[move].push i 
 	render : () ->
-		fc 0.1,0.3,1
-		sc()
+		fc()
+		sc 0.1,0.3,1
+		sw 5
 		for i in range 7
 			for j in range 6
-				circle 40+@size*i,160-@size*j,@size/2
+				circle 100-@size*3+@size*i, 180-@size*j, @size/2
 		for column,i in @list
 			for nr,j in column
 				fc 1,nr%2,0
-				sc()
-				circle 40+@size*i,160-@size*j,@size/2
+				sw 1
+				circle 100-@size*3+@size*i, 180-@size*j, @size*0.4
 				fc 0
-				text nr,40+@size*i,160-@size*j
+				sc()
+				text nr, 100-@size*3+@size*i, 180-@size*j
 
-c1 = new Connect4 [0,1,2,0]
+c1 = new Connect4 [0,1,2,0],20
 c2 = new Connect4 [3,3,3,3,3,3,0,1,2,4,5,6]
-c3 = new Connect4 [3,2,4,3,2,1,0,0,5,6,1,2,1,1,4,4,3,2,0,0,3,0]"""
+c3 = new Connect4 [3,2,4,3,2,1,0,0,5,6,1,2,1,1,4,4,3,2,0,0,3,0]
+"""
 			c:
 				"c1.render()" : 0
 				"c2.render()" : 0
