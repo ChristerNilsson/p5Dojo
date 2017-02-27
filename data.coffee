@@ -1072,7 +1072,7 @@ class Connect4
 	render : () ->
 		fc()
 		sc 0.1,0.3,1
-		sw 5
+		sw 0.2 * @size
 		for i in range 7
 			for j in range 6
 				circle 100-@size*3+@size*i, 180-@size*j, @size/2
