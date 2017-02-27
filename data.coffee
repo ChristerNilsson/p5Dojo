@@ -1047,6 +1047,53 @@ ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 #####################################
 
 	"L9: class constructor new" : 
+
+		Connect4 :
+			b:"""
+# LOC:15 class constructor new textAlign textSize text for in range push % fc sc circle
+
+class Connect4
+	constructor : (moves,@size=20) -> 
+	render : () ->
+
+c1 = new Connect4 [0,1,2,0]
+c2 = new Connect4 [3,3,3,3,3,3,3,0,1,2,4,5,6]
+c3 = new Connect4 [3,2,4,3,2,1,0,0,5,6,1,2,1,1,4,4,3,2,0,0,3,0]
+			"""
+			a:"""
+
+# LOC:20 class constructor new textAlign textSize text for in range push % fc sc circle
+
+class Connect4
+	constructor : (moves,@size=20) ->
+		bg 0
+		textAlign CENTER,CENTER
+		textSize 14
+		@list = ([] for i in range 7)
+		for move,i in moves
+			@list[move].push i 
+	render : () ->
+		fc 0.1,0.3,1
+		sc()
+		for i in range 7
+			for j in range 6
+				circle 40+@size*i,160-@size*j,@size/2
+		for column,i in @list
+			for nr,j in column
+				fc 1,nr%2,0
+				sc()
+				circle 40+@size*i,160-@size*j,@size/2
+				fc 0
+				text nr,40+@size*i,160-@size*j
+
+c1 = new Connect4 [0,1,2,0]
+c2 = new Connect4 [3,3,3,3,3,3,0,1,2,4,5,6]
+c3 = new Connect4 [3,2,4,3,2,1,0,0,5,6,1,2,1,1,4,4,3,2,0,0,3,0]"""
+			c:
+				"c1.render()" : 0
+				"c2.render()" : 0
+				"c3.render()" : 0
+
 		Polygon:
 			b:"""
 # LOC:17 class constructor new cos sin radians sc line for range bg
