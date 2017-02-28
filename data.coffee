@@ -5,8 +5,8 @@
 data = 
 
 #####################################
-
 	"L1: bg point sc sw": 
+#####################################
 
 		Background1: 
 			b: """
@@ -172,8 +172,8 @@ point 0,200
 """
 
 #####################################
-
 	"L2: circle fc text" : 
+#####################################
 
 		dices : 
 			b : """
@@ -303,9 +303,9 @@ textAlign CENTER,CENTER
 text 'Coffeescript',100,100
 """
 
-#####################################			
-	
+#####################################				
 	"L3: ellipse rect" : 
+#####################################
 
 		greenEllipse: 
 			b:"""
@@ -369,8 +369,8 @@ rect 80,80, 40,40
 """ 
 
 #####################################
-	
 	"L4: for lerp rect" : 
+#####################################
 
 		for01: 
 			b:"""
@@ -483,9 +483,9 @@ for i in range 10
 		circle x,y,r
 """
 
-#####################################
-	
+#####################################	
 	"L5: line for lerp" :
+#####################################
 
 		HorizontalLine: 
 			b: "# LOC:2 line sc\n"
@@ -609,10 +609,9 @@ board = (x,y,d,r,n) ->
 				"board  50,150,12, 5,3" : 0
 				"board 150,150,18, 8,2" : 0
 
-
 #####################################
-
 	"L6: triangle quad arc" :
+#####################################
 
 		Triangle: 
 			b:"# LOC:2 fc triangle\n" 
@@ -636,8 +635,8 @@ arc 100,100, 80,80, radians(-135),radians(135), PIE
 """
 
 #####################################
-
 	"L7: translate rotate push pop" : 
+#####################################
 
 		textC: 
 			b:"# LOC:6 fc rd textAlign textSize translate text\n"
@@ -749,8 +748,8 @@ for i in range 10
 """ 
 
 #####################################
-
 	"L8: function" : 
+#####################################
 
 		square : 
 			b: """
@@ -1045,8 +1044,8 @@ ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 				"ring 100,100,80,10, 0,1,0, 4,2":0
 
 #####################################
-
 	"L9: class constructor new" : 
+#####################################
 
 		Connect4 :
 			b:"""
@@ -1093,6 +1092,96 @@ c3 = new Connect4 [3,2,4,3,2,1,0,0,5,6,1,2,1,1,4,4,3,2,0,0,3,0]
 				"c1.render()" : 0
 				"c2.render()" : 0
 				"c3.render()" : 0
+
+
+		RushHour :
+			b:"""
+# LOC:40 class constructor new textAlign text push bg sc fc rect 
+#	       if then else for in range toLowerCase indexOf 
+# https://en.wikipedia.org/wiki/Rush_Hour_(board_game)
+
+class RushHour
+	constructor : ->
+	add : (pos,r,g,b) ->
+	move : (n) ->
+
+rushhour = new RushHour()
+rushhour.add "d4e4",1,0,0
+rushhour.add "d1d2",1,1,0
+rushhour.add "e2f2",0,1,0
+rushhour.add "f4f6",0,1,1
+rushhour.moves = "aaBBBBcdddAAAAA"
+
+"""
+			a:"""
+textAlign CENTER,CENTER
+col = (s) -> "abcdef".indexOf s
+row = (s) -> "123456".indexOf s
+
+class Car
+	constructor : (pos,@r,@g,@b) ->
+		@i = col pos[0] 
+		@j = row pos[3]
+		@w = col(pos[2]) - @i + 1
+		@h = @j - row(pos[1]) + 1 
+	render : (i) -> 
+		fc @r,@g,@b
+		rect 40+20*@i+2, 140-20*@j+2, 20*@w-4, 20*@h-4
+		fc 0
+		text "ABCDEFGH"[i], 50+20*@i, 150-20*@j
+	move : (positive) ->
+		if positive then d=1 else d=-1
+		if @w == 1 then @j += d
+		if @h == 1 then @i += d
+		
+class RushHour
+	constructor : -> @cars=[]
+	add : (pos,r,g,b) -> @cars.push new Car pos,r,g,b
+	move : (n) ->
+		for i in range n
+			ch = @moves[i].toLowerCase()
+			car = @cars["abcdefgh".indexOf(ch)]
+			car.move ch != @moves[i]
+		@render()			
+
+	render : ->
+		bg 0
+		sc()
+		fc 0.5,0.5,0.5
+		rect 40,40,120,120
+		rect 160,80,40,20
+		fc 1
+		sc()
+		for i in range 6
+			text "654321"[i],30,50+20*i
+			text "abcdef"[i],50+20*i,170
+		for car,i in @cars
+			car.render i
+			
+rushhour = new RushHour()
+rushhour.add "d4e4",1,0,0
+rushhour.add "d1d2",1,1,0
+rushhour.add "e2f2",0,1,0
+rushhour.add "f4f6",0,1,1
+rushhour.moves = "aaBBBBcdddAAAAA"
+"""
+			c:
+				"rushhour.move 0" : 0
+				"rushhour.move 1" : 0
+				"rushhour.move 2" : 0
+				"rushhour.move 3" : 0
+				"rushhour.move 4" : 0
+				"rushhour.move 5" : 0
+				"rushhour.move 6" : 0
+				"rushhour.move 7" : 0
+				"rushhour.move 8" : 0
+				"rushhour.move 9" : 0
+				"rushhour.move 10" : 0
+				"rushhour.move 11" : 0
+				"rushhour.move 12" : 0
+				"rushhour.move 13" : 0
+				"rushhour.move 14" : 0
+				"rushhour.move 15" : 0
 
 		Polygon:
 			b:"""
@@ -1409,8 +1498,8 @@ small = new Chess "g2g4 e7e5 f2f4 d8h4",18
 				"small.move 4" : 0
 
 #####################################
-
 	"L10: Guess a Number" :
+#####################################
 
 		guess1:
 			b: """
@@ -1587,8 +1676,8 @@ f = (nx,ny,start,stopp,mx,my,target) ->
 				"f 6,6,10,25,90,90,20":0
 
 #####################################
-
 	Exhibition :
+#####################################
 
 		clown:
 			b:"""
