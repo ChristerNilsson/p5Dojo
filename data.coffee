@@ -4,6 +4,19 @@
 
 data = 
 
+	Nyheter :
+		Nyheter :
+			b:"""
+# NYHETER 2017-03-01
+#   L5: boardGame
+# 	L8: sevenSegment, alphanumeric, GoldenStar, OlympicRing
+#		L9: Connect4, RushHour, girlang, braid, OlympicRings, spaceShip, chessGame
+
+# Klicka nu på L1!
+"""
+			a:"""
+"""
+
 #####################################
 	"L1: bg point sc sw": 
 #####################################

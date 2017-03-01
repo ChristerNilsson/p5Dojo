@@ -1,6 +1,10 @@
 # p5Dojo - Matematik och Spelprogrammering
 
 [p5Dojo](https://christernilsson.github.io/p5Dojo) christernilsson.github.io/p5Dojo
+[p5](https://p5js.org/reference) 
+[Coffeescript](http://coffeescript.org)
+[Javascript](https://www.w3schools.com/js)
+[Underscore](http://underscorejs.org)
 
 p5Dojo innehåller mängder av övningar för den som snabbt vill komma igång med grafisk programmering.
 - Uppgifterna som ska programmeras ges av bitmappar.
