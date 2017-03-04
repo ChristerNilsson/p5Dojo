@@ -116,8 +116,8 @@ sel3change = (sel) ->
   expectedResult = data[chapter][exercise]["c"][sel.value]
 
   a = data[chapter][exercise]["a"]
-  a = transpile a
-  run 1, a + "\n" + transpile call
+  #a = transpile a
+  run 1, a + "\n" + call
 
   b = data[chapter][exercise]["b"]
   run0()
@@ -219,14 +219,14 @@ run0 = ->
   if window.f != null
     window.f = null
   run1()
-  if run 0, transpile b + "\n" + call
+  if run 0, b + "\n" + call
     saveToKeyStorage b
   if msg.val() == ''
     compare()
 
 run1 = ->
   a = data[chapter][exercise]["a"] 
-  run 1, transpile a + "\n" + call
+  run 1, a + "\n" + call
 
 reset = () ->
   colorMode RGB,255
@@ -236,21 +236,25 @@ reset = () ->
   sc 1
   grid()
 
-run = (n, code) ->
+run = (n, coffee) ->
   resetMatrix()
   rectMode CORNER
   push()
   translate 5, 5+n * 206
   reset()
 
+  setMsg ""
   try 
-    setMsg ''
-    eval code
+    code = transpile coffee
+    try
+      eval code
+    catch e
+      setMsg e.stack.split('\n')[0]
     pop()
     return true
-  catch err
+  catch e
     pop()
-    setMsg err.stack
+    setMsg e.name + ": " + e.message
     return false 
 
 compare = ->
@@ -288,5 +292,3 @@ compare = ->
     
   updatePixels()
   count
-
-# mousePressed = () -> compare()
