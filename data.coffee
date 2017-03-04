@@ -1242,14 +1242,14 @@ polygon = (n,d) ->
 			b:"""
 # LOC: 16 class constructor new sc line bg sw for in range
 
-class Weaver
+class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
 
 girlang = (x,y,n,width,dx,dy) ->
 """		
 			a:"""
-class Weaver
+class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
 		sc @r,@g,@b
@@ -1257,8 +1257,8 @@ class Weaver
 		[@x,@y] = [@x+dx,@y+dy]
 
 girlang = (x,y,n,width,dx,dy) ->
-	a = new Weaver 1,0,0, x+dx/2,0
-	b = new Weaver 1,1,0, x,y+dy/2
+	a = new Cartesius 1,0,0, x+dx/2,0
+	b = new Cartesius 1,1,0, x,y+dy/2
 
 	bg 0
 	sw width
@@ -1278,7 +1278,7 @@ girlang = (x,y,n,width,dx,dy) ->
 # LOC: 19 class constructor new sc line bg sw for range
 # https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg
 
-class Weaver
+class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
 
@@ -1286,7 +1286,7 @@ braid = (n,dx,dy,width) ->
 			"""
 
 			a:"""
-class Weaver
+class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
 		sc @r,@g,@b
@@ -1295,9 +1295,9 @@ class Weaver
 
 braid = (n,dx,dy,width) ->		
 
-	a = new Weaver 1,0,0, 100-dx/2,dy/3
-	b = new Weaver 1,1,0, 100+dx/2,2*dy/3
-	c = new Weaver 0,1,0, 100-dx/2,dy
+	a = new Cartesius 1,0,0, 100-dx/2,dy/3
+	b = new Cartesius 1,1,0, 100+dx/2,2*dy/3
+	c = new Cartesius 0,1,0, 100-dx/2,dy
 
 	bg 0
 	sw width
