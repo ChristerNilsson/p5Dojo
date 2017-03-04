@@ -6,6 +6,7 @@
  - [Javascript](https://www.w3schools.com/js)
  - [Underscore](http://underscorejs.org)
  - [p5Assert](https://christernilsson.github.io/p5Assert)
+ - [Nilsson](https://github.com/ChristerNilsson/Nilsson/blob/master/README.md)
  
 p5Dojo innehåller mängder av övningar för den som snabbt vill komma igång med grafisk programmering.
 - Uppgifterna som ska programmeras ges av bitmappar.
