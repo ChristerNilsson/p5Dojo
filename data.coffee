@@ -674,7 +674,7 @@ text 'Coffeescript',100,100
 
 		greenEllipse: 
 			b:"""
-# LOC:2 ellipse fc
+# LOC:2 fc ellipse
 
 """
 			a:"""
@@ -716,7 +716,7 @@ rect 115,40, 10,100
 
 		squareHole: 
 			b : """
-# LOC:11 fc rect sc sw
+# LOC:11 fc sc sw rect
 
 """
 			a:"""
@@ -739,7 +739,7 @@ rect 80,80, 40,40
 
 		"horizontal squares": 
 			b:"""
-# LOC:3 for lerp rect
+# LOC:3 rect for in range lerp 
 
 rect  5,5,10,10
 rect 25,5,10,10
@@ -754,7 +754,7 @@ for i in range 10
 """
 
 		"vertical squares": 
-			b:"# LOC:3 for lerp rect\n"
+			b:"# LOC:3 rect for in range lerp\n"
 			a:"""
 for i in range 10
 	y = 5+20*i
@@ -762,7 +762,7 @@ for i in range 10
 """
 
 		"diagonal squares": 
-			b:"# LOC:4 for lerp rect\n"
+			b:"# LOC:4 rect for in range lerp\n"
 			a:"""
 for i in range 10
 	x = 5+20*i
@@ -771,7 +771,7 @@ for i in range 10
 """
 
 		"double for loop": 
-			b:"# LOC:5 for lerp rect\n"
+			b:"# LOC:5 rect for in range lerp\n"
 			a:"""
 for i in range 10
 	for j in range 10
@@ -781,7 +781,7 @@ for i in range 10
 """
 
 		"growing squares": 
-			b:"# LOC:7 for lerp rect rectMode\n"
+			b:"# LOC:7 rect rectMode for in range lerp\n"
 			a:"""
 rectMode CENTER
 for i in range 10
@@ -793,7 +793,7 @@ for i in range 10
 """
 
 		"growings red squares": 
-			b:"# LOC:8 fc for lerp rect rectMode\n"
+			b:"# LOC:8 fc for in range lerp rect rectMode\n"
 			a:"""
 rectMode CENTER
 for i in range 10
@@ -806,7 +806,7 @@ for i in range 10
 """
 
 		"growing circles": 
-			b:"# LOC:6 for fc circle lerp\n"
+			b:"# LOC:6 for in range fc circle lerp\n"
 			a:"""
 for i in range 10
 	fc i/10.0,0,0
@@ -817,7 +817,7 @@ for i in range 10
 """
 
 		"shrinking circles": 
-			b:"# LOC:4 for fc circle lerp\n"
+			b:"# LOC:4 for in range fc circle lerp\n"
 			a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -826,7 +826,7 @@ for i in range 10,0,-1
 """
 
 		"red cone": 
-			b:"# LOC:6 for fc circle lerp\n"
+			b:"# LOC:6 for in range fc circle lerp\n"
 			a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -837,7 +837,7 @@ for i in range 10,0,-1
 """
 
 		"penta lerp": 
-			b:"# LOC:7 for fc circle lerp\n"
+			b:"# LOC:7 for in range fc circle lerp\n"
 			a:"""
 for i in range 10
 	for j in range 10
@@ -853,14 +853,14 @@ for i in range 10
 #####################################
 
 		HorizontalLine: 
-			b: "# LOC:2 line sc\n"
+			b: "# LOC:2 sc line\n"
 			a: """
 sc 1,0,1
 line 10,70, 190,70
 """
 
 		VerticalLine: 
-			b: "# LOC:3 line sc sw\n"
+			b: "# LOC:3 sc sw line\n"
 			a: """
 sc 1,1,0
 sw 10
@@ -868,14 +868,14 @@ line 110,30, 110,170
 """
 
 		Line: 
-			b: "# LOC:2 line sc\n"
+			b: "# LOC:2 sc line\n"
 			a: """
 sc 1,1,0
 line 20,0, 200,20
 """
 
 		Grid: 
-			b:"# LOC:5 for line sc sw\n"
+			b:"# LOC:5 sc sw for in range line \n"
 			a:"""
 sc 1,1,0
 sw 2
@@ -885,7 +885,7 @@ for i in range 10,200,10
 """
 
 		Skislope:
-			b: "# LOC:4 bg for lerp line sc"
+			b: "# LOC:4 bg sc for in range lerp line"
 			a: """
 bg 0
 sc 1,0,0
@@ -894,7 +894,7 @@ for i in range 21
 """
 
 		Sunshine:
-			b: "# LOC:5 bg for lerp line sc\n"
+			b: "# LOC:5 bg sc for in range lerp line\n"
 			a: """
 bg 0
 sc 1,1,0
@@ -904,7 +904,7 @@ for i in range 10
 """
 		
 		Lines:  
-			b:"# LOC:5 bg for lerp line (by Noel Watson)\n"
+			b:"# LOC:5 bg for in range lerp line (Noel Watson)\n"
 			a:"""
 bg 0
 for i in range 37
@@ -914,7 +914,7 @@ for i in range 37
 """
 
 		chessRow: 
-			b:"# LOC:5 % bg fc for rect\n"
+			b:"# LOC:5 % bg fc for in range lerp rect\n"
 			a:"""
 bg 0.5
 for i in range 8
@@ -924,7 +924,7 @@ for i in range 8
 """
 		
 		chessBoard: 
-			b:"# LOC:7 bg fc for rect\n"
+			b:"# LOC:7 bg fc for in range lerp rect\n"
 			a:"""
 bg 0.5
 for i in range 8
@@ -936,7 +936,7 @@ for i in range 8
 """
 		
 		chessCross : 
-			b: "# LOC:8 for in range rect if then fc (David Larsson)\n"
+			b: "# LOC:8 for in range lerp rect if then fc (David Larsson)\n"
 			a: """
 for i in range 10
 	for j in range 10
@@ -993,7 +993,7 @@ arc 100,120, 100,100, radians(90),radians(-90)
 #####################################
 
 		textC: 
-			b:"# LOC:6 fc rd textAlign textSize translate text\n"
+			b:"# LOC:6 fc text textAlign textSize translate rd\n"
 			a:"""
 fc 1,1,0
 textSize 32
@@ -1004,7 +1004,7 @@ text 'Coffeescript',0,0
 """
 
 		textD: 
-			b:"# LOC:6 fc textAlign textSize translate rd text\n"
+			b:"# LOC:6 fc text textAlign textSize translate rd\n"
 			a:"""
 fc 1,1,0
 textSize 32
@@ -1015,7 +1015,7 @@ text 'Coffeescript',0,0
 """
 		
 		rotatedEllipse: 
-			b:"# LOC:5 ellipse rd translate\n"
+			b:"# LOC:5 ellipse translate rd\n"
 			a:"""
 fc 1,0,0
 sc()
@@ -1034,7 +1034,7 @@ rect 140,100, 40,40
 """
 
 		rotatedRectB: 
-			b:"# LOC:12 push pop rd rect translate\n"
+			b:"# LOC:12 fc rect translate rd push pop\n"
 			a:"""
 push()
 fc 1,0,0
@@ -1051,7 +1051,7 @@ pop()
 """
 
 		rotatedRectC: 
-			b:"# LOC:13 fc push pop rd rect translate\n"
+			b:"# LOC:13 fc rect translate rd push pop\n"
 			a:"""
 rectMode CENTER
 push()
@@ -1069,7 +1069,7 @@ pop()
 """
 
 		cards: 
-			b:"# LOC:10 for in range fc circle lerp rd rectMode sc translate\n"
+			b:"# LOC:10 fc sc circle rect rectMode for in range lerp translate rd\n"
 			a:"""
 rectMode CENTER
 sc 1
@@ -1084,7 +1084,7 @@ for i in range 18,-1,-1
 """ 
 
 		tiles: 
-			b:"# LOC:13 fc for in range lerp push pop rd rect rectMode sc translate\n"
+			b:"# LOC:13 fc sc rect rectMode for in range lerp translate rd push pop\n"
 			a:"""
 rectMode CENTER
 sc()
@@ -1112,14 +1112,14 @@ numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,1
 bg 0.5
 translate 100,100
 rd -90
-d = TWO_PI/37/2
-sw 19
+d = PI/numbers.length
+sw 20
 strokeCap SQUARE
 textAlign CENTER,CENTER
-for i in range 37
+for i in range numbers.length
 	push()
 	fc()
-	if i==0 then sc 0,1,0 else if i%2==0 then sc 1,0,0 else sc 0
+	if i==0 then sc 0,1,0 else sc i%2,0,0
 	arc 0,0,180,180,-d,d
 	translate 90,0
 	rd 90
@@ -1127,7 +1127,7 @@ for i in range 37
 	fc 1
 	text numbers[i],0,0
 	pop()
-	rotate TWO_PI / 37
+	rotate TWO_PI / numbers.length
 """
 
 #####################################
@@ -1136,7 +1136,7 @@ for i in range 37
 
 		square : 
 			b: """
-			# LOC:5 -> bg sw fc rect
+			# LOC:5 -> bg sw fc rect ->
 
 			square = (x,y,size,w=1, r=0.5,g=0.5,b=0.5) ->
 			"""
@@ -1155,7 +1155,7 @@ square = (x,y,size,w=1,r=0.5,g=0.5,b=0.5) ->
 
 		boardGame :
 			b:"""
-# LOC:10 for in range circle bg fc sc
+# LOC:10 bg fc sc circle for in range ->
 
 board = (x,y,d,r,n) ->
 			"""
@@ -1181,7 +1181,7 @@ board = (x,y,d,r,n) ->
 
 		multimoire: 
 			b:"""
-			# LOC:5 bg for line map
+			# LOC:5 bg for line map ->
 
 			moire = (k) ->
 			"""
@@ -1200,7 +1200,7 @@ moire = (k) ->
 		
 		colorCube:
 			b: """
-			# LOC:8 -> bg fc for rect
+			# LOC:8 -> bg fc for in range rect ->
 
 			colorCube = (n,b) ->
 			"""
@@ -1223,7 +1223,7 @@ colorCube = (n,b) ->
 
 		manyDices: 
 			b : """
-			# LOC:21 -> fc for if point [] %
+			# LOC:21 -> fc for in if then point [] % -> ==
 
 			manyDices = () ->
 			"""
@@ -1245,7 +1245,7 @@ dice = (x,y,d) ->
 	if d==5 then dots x,y,[1,3,4,5,7]
 	if d==6 then dots x,y,[1,2,3,5,6,7]
 manyDices = () ->
-	fc(0)
+	fc 0
 	for i in range 10
 		for j in range 10
 			dice 20*i,20*j,1+(i+j)%6
@@ -1254,7 +1254,7 @@ manyDices = () ->
 
 		sevenSegment :
 			b : """
-# LOC:22 bg sc fc rectMode if then & rect []
+# LOC:22 bg sc fc rect rectMode if then & []
 
 digit = (d,x=100,y=100,w=80,h=10) ->
 			"""
@@ -1296,7 +1296,7 @@ digit = (d,x=100,y=100,w=80,h=18) ->
 		
 		klocka: 
 			b: """
-			# LOC:25 -> circle fc sc rect rectMode for in range if else point push pop rd translate
+			# LOC:25 -> fc sc point rect rectMode circle for in range if else translate rd push pop
 
 			klocka = (h,m,s) ->
 			"""
@@ -1334,7 +1334,7 @@ urtavla = () ->
 		
 		korg: 
 			b:"""
-			# LOC:17 -> bg fc for if else rect sc sw
+			# LOC:17 -> bg fc sc sw rect for if else ->
 
 			korg = (n,w,c1,c2) ->
 			"""
@@ -1366,7 +1366,7 @@ korg = (n,w,c1,c2) ->
 
 		"OlympicRing Prep":
 			b:"""
-# LOC:7 sc arc fc sw strokeCap
+# LOC:7 sc fc sw arc strokeCap
 
 ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 """
@@ -1391,11 +1391,11 @@ ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 
 		Connect4 :
 			b:"""
-# LOC:23 % fc sc circle textAlign textSize text for in range push class constructor new @ 
+# LOC:23 % bg fc sc sw circle text textAlign textSize for in range push class constructor new @ 
 
 class Connect4
 	constructor : (moves,@size=27) -> 
-	render : () ->
+	render : ->
 
 c1 = new Connect4 [0,1,2,0],20
 c2 = new Connect4 [3,3,3,3,3,3,3,0,1,2,4,5,6]
@@ -1410,7 +1410,7 @@ class Connect4
 		@list = ([] for i in range 7)
 		for move,i in moves
 			@list[move].push i 
-	render : () ->
+	render : ->
 		fc()
 		sc 0.1,0.3,1
 		sw 0.2 * @size
@@ -1438,7 +1438,7 @@ c3 = new Connect4 [3,2,4,3,2,1,0,0,5,6,1,2,1,1,4,4,3,2,0,0,3,0]
 
 		RushHour :
 			b:"""
-# LOC:40 textAlign text push bg sc fc rect class constructor new @
+# LOC:40 bg sc fc rect text textAlign push class constructor new @
 #	       if then else for in range toLowerCase indexOf 
 # https://en.wikipedia.org/wiki/Rush_Hour_(board_game)
 
@@ -1527,7 +1527,7 @@ rushhour.moves = "aaBBBBcdddAAAAA"
 
 		girlang :
 			b:"""
-# LOC: 16 sc line bg sw for in range class constructor new @
+# LOC: 16 sc bg sw for in range line class constructor new @
 
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
@@ -1562,7 +1562,7 @@ girlang = (x,y,n,width,dx,dy) ->
 
 		braid:
 			b : """
-# LOC: 19 sc line bg sw for range class constructor new @
+# LOC: 19 sc bg sw for in range line class constructor new @
 # https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg
 
 class Cartesius
@@ -1605,7 +1605,7 @@ braid = (n,dx,dy,width) ->
 
 		OlympicRings:
 			b: """
-			# LOC:24 sc arc bg fc sw strokeCap class constructor new @
+			# LOC:24 sc bg fc sw arc strokeCap class constructor new @
 
 			class Ring
 				constructor : (@x,@y,@r,@g,@b) ->
@@ -1649,8 +1649,8 @@ olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 
 		chessGame :
 			b:"""
-# LOC:60 if then else textSize textAlign text rectMode rect class constructor new @
-#        for in range point bg fc sc sw push split length indexOf
+# LOC:60 bg fc sc sw point rect rectMode if then else text textSize textAlign class constructor new @
+#        for in range push split length indexOf
 
 class Chess
 	constructor : (@moves="", @size=22, w="",b="", @x=100,@y=100) ->
@@ -1778,7 +1778,7 @@ letter = (chr) ->
 
 		GoldenStar:
 			b: """
-# LOC:13 translate rotate cos sin for range fc triangle bg
+# LOC:13 bg fc for in range triangle translate rotate cos sin 
 
 star = (x,y,n,a,b) ->
 """
@@ -1805,7 +1805,7 @@ star = (x,y,n,a,b) ->
 		
 		Polygon:
 			b:"""
-# LOC:17 sc line for range bg class constructor new @ cos sin radians 
+# LOC:17 bg sc line for in range class constructor new @ cos sin radians 
 
 class Turtle
 	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->
@@ -1847,7 +1847,7 @@ polygon = (n,d) ->
 
 		SpaceShip :
 			b:"""
-# LOC: 22 translate rd sc sw triangle point class constructor new @ cos sin radians
+# LOC: 22 sc sw point triangle translate rd class constructor new @ cos sin radians
 
 class Ship
 	constructor : (@x,@y,@s,@dir, @r=1,@g=1,@b=0) ->
@@ -1897,7 +1897,7 @@ s2 = new Ship 100,100,20,-90, 1,0,0
 
 		recursiveCircles: 
 			b: """
-# LOC:6 -> circle if return sc <
+# LOC:6 -> sc circle if return <
 
 circles = (x,y,r) ->
 			"""
@@ -1917,7 +1917,7 @@ circles = (x,y,r) ->
 
 		guess1:
 			b: """
-# LOC:11 bg rectMode for range rect
+# LOC:11 bg sc rect rectMode for in range
 
 """
 			a: """
@@ -1936,7 +1936,7 @@ for i in range 8
 
 		guess2:
 			b: """
-# LOC:16 bg rectMode for range rect textAlign text sc fc
+# LOC:16 bg fc sc rect rectMode for in range text textAlign
 
 """
 			a: """
@@ -1960,7 +1960,7 @@ for i in range 8
 
 		guess3:
 			b: """
-# LOC:17 bg rectMode for range rect textAlign text sc fc
+# LOC:17 bg sc fc rect rectMode for in range text textAlign
 
 """
 			a: """
@@ -1985,7 +1985,7 @@ for i in range 8
 
 		guess4:
 			b: """
-# LOC:19 bg rectMode for range rect textAlign text sc fc
+# LOC:19 bg fc sc rect rectMode for in range text textAlign
 
 f = (nx,ny) ->
 """
@@ -2016,7 +2016,7 @@ f = (nx,ny) ->
 
 		guess5:
 			b: """
-# LOC:23 bg rectMode for range rect textAlign text sc fc if else
+# LOC:23 bg fc sc rect rectMode for range text textAlign if else
 
 f = (nx,ny,start,stopp) ->
 """
@@ -2051,7 +2051,7 @@ f = (nx,ny,start,stopp) ->
 
 		guess6:
 			b: """
-# LOC:28 bg rectMode for range rect textAlign text sc fc if else
+# LOC:28 bg fc sc rect rectMode for in range text textAlign if else
 
 f = (nx,ny,start,stopp,mx,my,target) ->
 """
