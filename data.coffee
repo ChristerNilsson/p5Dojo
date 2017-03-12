@@ -737,13 +737,13 @@ rect 80,80, 40,40
 	"L4: for lerp rect" : 
 #####################################
 
-		for01: 
+		"horizontal squares": 
 			b:"""
 # LOC:3 for lerp rect
 
 rect  5,5,10,10
 rect 25,5,10,10
-for i in range 0
+for i in range 5
 	x = lerp 5,25,i 
 	rect
 """
@@ -753,7 +753,7 @@ for i in range 10
 	rect x,5, 10,10
 """
 
-		for02: 
+		"vertical squares": 
 			b:"# LOC:3 for lerp rect\n"
 			a:"""
 for i in range 10
@@ -761,7 +761,7 @@ for i in range 10
 	rect 5,y, 10,10
 """
 
-		for03: 
+		"diagonal squares": 
 			b:"# LOC:4 for lerp rect\n"
 			a:"""
 for i in range 10
@@ -770,7 +770,7 @@ for i in range 10
 	rect x,y, 10,10
 """
 
-		for04: 
+		"double for loop": 
 			b:"# LOC:5 for lerp rect\n"
 			a:"""
 for i in range 10
@@ -780,7 +780,7 @@ for i in range 10
 		rect x,y, 10,10
 """
 
-		for05: 
+		"growing squares": 
 			b:"# LOC:7 for lerp rect rectMode\n"
 			a:"""
 rectMode CENTER
@@ -792,7 +792,7 @@ for i in range 10
 	rect x,y, w,h
 """
 
-		for06: 
+		"growings red squares": 
 			b:"# LOC:8 fc for lerp rect rectMode\n"
 			a:"""
 rectMode CENTER
@@ -805,7 +805,7 @@ for i in range 10
 	rect x,y,w,h
 """
 
-		for07: 
+		"growing circles": 
 			b:"# LOC:6 for fc circle lerp\n"
 			a:"""
 for i in range 10
@@ -816,7 +816,7 @@ for i in range 10
 	circle x,y,r
 """
 
-		for08: 
+		"shrinking circles": 
 			b:"# LOC:4 for fc circle lerp\n"
 			a:"""
 for i in range 10,0,-1
@@ -825,7 +825,7 @@ for i in range 10,0,-1
 	circle 100,100, r
 """
 
-		for09: 
+		"red cone": 
 			b:"# LOC:6 for fc circle lerp\n"
 			a:"""
 for i in range 10,0,-1
@@ -836,7 +836,7 @@ for i in range 10,0,-1
 	circle x,y,r
 """
 
-		for10: 
+		"penta lerp": 
 			b:"# LOC:7 for fc circle lerp\n"
 			a:"""
 for i in range 10
@@ -1386,7 +1386,7 @@ ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
 				"ring 100,100,80,10, 0,1,0, 4,2":0
 
 #####################################
-	"L9: class constructor new" : 
+	"L9: class" : 
 #####################################
 
 		Connect4 :
@@ -1527,7 +1527,7 @@ rushhour.moves = "aaBBBBcdddAAAAA"
 
 		girlang :
 			b:"""
-# LOC: 16 class constructor new sc line bg sw for in range
+# LOC: 16 sc line bg sw for in range class constructor new @
 
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
@@ -1562,7 +1562,7 @@ girlang = (x,y,n,width,dx,dy) ->
 
 		braid:
 			b : """
-# LOC: 19 class constructor new sc line bg sw for range
+# LOC: 19 sc line bg sw for range class constructor new @
 # https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg
 
 class Cartesius
@@ -1605,7 +1605,7 @@ braid = (n,dx,dy,width) ->
 
 		OlympicRings:
 			b: """
-			# LOC:24 class constructor sc arc bg fc sw strokeCap
+			# LOC:24 sc arc bg fc sw strokeCap class constructor new @
 
 			class Ring
 				constructor : (@x,@y,@r,@g,@b) ->
@@ -1649,7 +1649,7 @@ olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 
 		chessGame :
 			b:"""
-# LOC:60 class constructor new if then else textSize textAlign text rectMode rect 
+# LOC:60 if then else textSize textAlign text rectMode rect class constructor new @
 #        for in range point bg fc sc sw push split length indexOf
 
 class Chess
@@ -1805,7 +1805,7 @@ star = (x,y,n,a,b) ->
 		
 		Polygon:
 			b:"""
-# LOC:17 class constructor new cos sin radians sc line for range bg
+# LOC:17 sc line for range bg class constructor new @ cos sin radians 
 
 class Turtle
 	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->
@@ -1847,7 +1847,7 @@ polygon = (n,d) ->
 
 		SpaceShip :
 			b:"""
-# LOC: 22 class constructor cos sin radians translate rd sc sw triangle point new
+# LOC: 22 translate rd sc sw triangle point class constructor new @ cos sin radians
 
 class Ship
 	constructor : (@x,@y,@s,@dir, @r=1,@g=1,@b=0) ->
@@ -1897,9 +1897,9 @@ s2 = new Ship 100,100,20,-90, 1,0,0
 
 		recursiveCircles: 
 			b: """
-			# LOC:6 -> circle if return sc <
+# LOC:6 -> circle if return sc <
 
-			circles = (x,y,r) ->
+circles = (x,y,r) ->
 			"""
 			a: """
 sc 1
