@@ -1083,21 +1083,27 @@ for i in range 18,-1,-1
   rd 5
 """ 
 
-		tiles: 
-			b:"# LOC:13 fc sc rect rectMode for in range lerp translate rd push pop\n"
+		"hepta lerp": 
+			b:"""
+# LOC:17 bg fc sc rect rectMode for in range lerp translate rd push pop
+"""
 			a:"""
+bg 1
 rectMode CENTER
 sc()
 for i in range 10
   for j in range 10
     push()
-    translate 10+20*i,10+20*j
-    rd 5*(i+j)
-    r = i/9.0
-    g = j/9.0
-    b = 0
-    fc r,g,b
-    rect 0,0, 10,10
+		x = lerp 10,30,i
+		y = lerp 10,30,j
+    translate x,y
+    rd lerp 0,10,i-j
+    r = lerp 0.1,0.2,i
+    g = lerp 0.1,0.2,j
+    fc r,g,0
+		w = lerp 5,6,i
+		h = lerp 5,6,j
+    rect 0,0, w,h
     pop()
 """ 
 
