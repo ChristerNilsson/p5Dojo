@@ -1083,7 +1083,7 @@ for i in range 18,-1,-1
   rd 5
 """ 
 
-		"hepta lerp": 
+		"Snow White and the 7 lerps": 
 			b:"""
 # LOC:17 bg fc sc rect rectMode for in range lerp translate rd push pop
 """
