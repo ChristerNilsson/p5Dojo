@@ -826,7 +826,9 @@ for i in range 10,0,-1
 """
 
 		"red cone": 
-			b:"# LOC:6 for in range fc circle lerp\n"
+			b:"""
+# LOC:6 for in range fc circle lerp
+"""
 			a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -837,15 +839,21 @@ for i in range 10,0,-1
 """
 
 		"penta lerp": 
-			b:"# LOC:7 for in range fc circle lerp\n"
+			b:"""
+# LOC:11 bg sc fc for in range circle lerp
+"""
 			a:"""
+bg 0.5
+sc()
 for i in range 10
 	for j in range 10
-		fc i/10.0,j/10.0,0
-		x = 10+20*i
-		y = 10+20*j
-		r = (i+j)/2
-		circle x,y,r
+		r = lerp 0.1,0.2,i
+		g = lerp 0.1,0.2,j
+		fc r,g,0
+		x = lerp 10,30,i
+		y = lerp 10,30,j
+		radius = lerp 1,1.5,i+j
+		circle x,y,radius
 """
 
 #####################################	
