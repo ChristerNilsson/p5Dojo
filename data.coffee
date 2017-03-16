@@ -1684,6 +1684,52 @@ cc = new ColorCube "a"
 				cc : "reset()|moreDetails()|lessDetails()|moreBlue()|lessBlue()"
 
 
+		laboratorium :
+			b:"""		
+# Här kan du laborera med egna idéer!
+
+class Labb extends LocalStorage
+	reset : ->
+		@x = 100
+		@y = 100
+		@command = ""
+	left : -> @x -= 10
+	right : -> @x += 10
+	up : -> @y -= 10
+	down : -> @y += 10
+	a : -> @command = "a"
+	b : -> @command = "b"
+	c : -> @command = "c"
+	d : -> @command = "d"
+	e : -> @command = "e"
+	f : -> @command = "f"
+	draw : -> 
+		textAlign CENTER,CENTER
+		textSize 100
+		fc 1,1,0
+		text @command,@x,@y
+
+labb = new Labb "b"     
+"""
+			a:"""
+class Labb extends LocalStorage
+	reset : ->
+	left : -> 
+	right : -> 
+	up : -> 
+	down : -> 
+	a : -> 
+	b : -> 
+	c : -> 
+	d : -> 
+	e : -> 
+	f : -> 
+	draw : -> 
+
+labb = new Labb "a"   		
+"""
+			c:
+				labb : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
 
 #####################################
 	"LA: interactivity, advanced" :
