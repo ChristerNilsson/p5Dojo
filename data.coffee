@@ -14,7 +14,7 @@ data =
 #   L6: Two Arcs
 #   L7: Roulette
 #   L8: boardGame, sevenSegment, OlympicRing
-#   L9: Connect4, RushHour, girlang, braid, OlympicRings,, chessGame
+#   L9: Connect4, RushHour, girlang, braid, OlympicRings, chessGame
 #   L10: alphanumeric, GoldenStar, spaceShip
 
 # Klicka nu på L1!
@@ -1145,102 +1145,14 @@ for i in range numbers.length
 """
 
 #####################################
-	"L8: function" : 
+	"L8: function, class" : 
 #####################################
-
-		square : 
-			b: """
-			# LOC:5 -> bg sw fc rect ->
-
-			square = (x,y,size,w=1, r=0.5,g=0.5,b=0.5) ->
-			"""
-			a: """
-square = (x,y,size,w=1,r=0.5,g=0.5,b=0.5) ->
-	bg 0
-	sw w
-	fc r,g,b
-	rect x,y,size,size
-			"""
-			c: 
-				"square 100,100,50" : 0
-				"square 10,10,20" : 0
-				"square 50,70,40,2" : 0
-				"square 30,150,30,3,1,0,0" : 0
-
-		boardGame :
-			b:"""
-# LOC:10 bg fc sc circle for in range ->
-
-board = (x,y,d,r,n) ->
-			"""
-			a:"""
-one = (d,r,x0,y0,m,n) ->
-	for i in range m
-		for j in range n
-			circle x0+d*i,y0+d*j,r
-
-board = (x,y,d,r,n) ->
-	bg 1
-	fc 0
-	sc()
-	one d,r,x-n*d, y-d,2*n+1,3
-	one d,r,x-d, y-n*d,3,2*n+1"""
-			c:
-				"board 100,100,18, 7,5" : 0
-				"board 100,100,25,10,3" : 0
-				"board 100,100,35,15,2" : 0
-				"board  50, 50, 9, 4,5" : 0
-				"board  50,150,12, 5,3" : 0
-				"board 150,150,18, 8,2" : 0
-
-		multimoire: 
-			b:"""
-			# LOC:5 bg for line map ->
-
-			moire = (k) ->
-			"""
-			a: """
-moire = (k) ->
-	background 0
-	for i in range k
-		for j in range 37
-			line 10,map(i,0,k-1,10,190),190,10+j*5
-"""
-			c: 
-				"moire 2":0
-				"moire 3":0
-				"moire 4":0
-				"moire 5":0
-		
-		colorCube:
-			b: """
-			# LOC:8 -> bg fc for in range rect ->
-
-			colorCube = (n,b) ->
-			"""
-			a: """
-colorCube = (n,b) ->
-	bg 0
-	d = 200.0/n
-	m = n-1.0
-	for r in range n
-		for g in range n
-			fc r/m,g/m,b/m
-			rect r*d,g*d,d,d
-"""
-			c:
-				"colorCube 2,0":0
-				"colorCube 2,1":0
-				"colorCube 3,0":0
-				"colorCube 3,1":0
-				"colorCube 3,2":0
 
 		manyDices: 
 			b : """
-			# LOC:21 -> fc for in if then point [] % -> ==
+# LOC:20 -> fc for in if then point [] % -> ==
 
-			manyDices = () ->
-			"""
+"""
 			a:"""
 dots = (x,y,dots) ->
 	for dot in dots
@@ -1258,286 +1170,13 @@ dice = (x,y,d) ->
 	if d==4 then dots x,y,[1,3,5,7]
 	if d==5 then dots x,y,[1,3,4,5,7]
 	if d==6 then dots x,y,[1,2,3,5,6,7]
-manyDices = () ->
-	fc 0
-	for i in range 10
-		for j in range 10
-			dice 20*i,20*j,1+(i+j)%6
-"""
-			c : "manyDices()":0
 
-		sevenSegment :
-			b : """
-# LOC:22 bg sc fc rect rectMode if then & []
-
-digit = (d,x=100,y=100,w=80,h=10) ->
-			"""
-			a:"""
-digit = (d,x=100,y=100,w=80,h=18) ->
-	bg 0.5
-	sc()
-	fc 1,0,0
-	rectMode CENTER
-	pattern = [63,6,91,79,102,109,125,7,127,111]
-	p = pattern[d]
-	w0 = w-20
-	if p & 1 then fc 1,0,0 else fc 0.3,0,0
-	rect x,y-w,w0,h 
-	if p & 2 then fc 1,0,0 else fc 0.3,0,0
-	rect x+w/2,y-w/2,h,w0 
-	if p & 4 then fc 1,0,0 else fc 0.3,0,0
-	rect x+w/2,y+w/2,h,w0 
-	if p & 8 then fc 1,0,0 else fc 0.3,0,0
-	rect x,y+w,w0,h 
-	if p & 16 then fc 1,0,0 else fc 0.3,0,0
-	rect x-w/2,y+w/2,h,w0
-	if p & 32 then fc 1,0,0 else fc 0.3,0,0
-	rect x-w/2,y-w/2,h,w0 
-	if p & 64 then fc 1,0,0 else fc 0.3,0,0
-	rect x,y,w0,h 
+fc 0
+for i in range 10
+	for j in range 10
+		dice 20*i,20*j,1+(i+j)%6
 """
-			c:
-				"digit 0" : 0
-				"digit 1" : 0
-				"digit 2" : 0
-				"digit 3" : 0
-				"digit 4" : 0
-				"digit 5" : 0
-				"digit 6" : 0
-				"digit 7" : 0
-				"digit 8" : 0
-				"digit 9" : 0
 		
-		klocka: 
-			b: """
-			# LOC:25 -> fc sc point rect rectMode circle for in range if else translate rd push pop
-
-			klocka = (h,m,s) ->
-			"""
-			a: """
-visare = (v,w,l,r,g,b) ->
-	push()
-	rd v-90
-	translate l/2,0
-	fc r,g,b
-	rect 0,0,l,w
-	pop()
-klocka = (h,m,s) ->
-	rectMode CENTER
-	translate 100,100
-	urtavla()
-	visare (h+m/60.0)*30, 7,60,1,0,0
-	visare (m+s/60.0)*6,5,80,0,1,0
-	visare s*6,2,80,0,0,1
-urtavla = () ->
-	fc 0
-	sc 1
-	circle 0,0,90
-	fc 1
-	for i in range 60
-		if i%5==0
-			circle 85,0,2
-		else
-			point 85,0
-		rd 6
-"""
-			c: 
-				"klocka 10,9,30":0
-				"klocka 11,30,15":0
-
-		
-		korg: 
-			b:"""
-			# LOC:17 -> bg fc sc sw rect for if else ->
-
-			korg = (n,w,c1,c2) ->
-			"""
-			a: """
-korg = (n,w,c1,c2) ->
-	bg 0
-	sw w
-	fill c1
-	stroke c2
-	q = 2*n+1
-	d = 200.0/q
-	for i in range n
-		rect d+i*2*d,0,d,200
-	for j in range n
-		rect 0,d+j*2*d,200,d
-	for i in range n
-		for j in range n
-			if (i+j) % 2 == 1
-				rect i*2*d,d+j*2*d,3*d,d
-			else
-				rect d+i*2*d,j*2*d,d,3*d
-"""
-			c: 
-				"korg 1,5,co(1,0,0),co(1,1,0)":0
-				"korg 2,4,co(0.5),co(1)":0
-				"korg 3,3,co(1,1,0),co(1,0,0)":0
-				"korg 4,2,co(1),co(0.5)":0
-				"korg 5,1,co(1,0,0),co(1,1,0)":0
-
-		"OlympicRing Prep":
-			b:"""
-# LOC:7 sc fc sw arc strokeCap
-
-ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
-"""
-			a:"""
-ring = (x,y,radius,w, r,g,b, start=3,stopp=3) ->
-	hour = PI/6
-	strokeCap SQUARE
-	fc()
-	sw w
-	sc r,g,b
-	arc x,y,2*radius,2*radius,(start-3)*hour,(stopp-3)*hour
-"""
-			c: 
-				"ring 100,100,60,20, 1,1,0":0
-				"ring 100,100,80,10, 1,0,0, 3,6":0
-				"ring 100,100,80,10, 0,1,0, 2,4":0
-				"ring 100,100,80,10, 0,1,0, 4,2":0
-
-#####################################
-	"L9: class" : 
-#####################################
-
-		Connect4 :
-			b:"""
-# LOC:23 % bg fc sc sw circle text textAlign textSize for in range push class constructor new @ 
-
-class Connect4
-	constructor : (moves,@size=27) -> 
-	render : ->
-
-c1 = new Connect4 [0,1,2,0],20
-c2 = new Connect4 [3,3,3,3,3,3,3,0,1,2,4,5,6]
-c3 = new Connect4 [3,2,4,3,2,1,0,0,5,6,1,2,1,1,4,4,3,2,0,0,3,0]
-			"""
-			a:"""
-class Connect4
-	constructor : (moves,@size=27) ->
-		bg 0
-		textAlign CENTER,CENTER
-		textSize @size/2
-		@list = ([] for i in range 7)
-		for move,i in moves
-			@list[move].push i 
-	render : ->
-		fc()
-		sc 0.1,0.3,1
-		sw 0.2 * @size
-		for i in range 7
-			for j in range 6
-				circle 100-@size*3+@size*i, 180-@size*j, @size/2
-		for column,i in @list
-			for nr,j in column
-				fc 1,nr%2,0
-				sw 1
-				circle 100-@size*3+@size*i, 180-@size*j, @size*0.4
-				fc 0
-				sc()
-				text nr, 100-@size*3+@size*i, 180-@size*j
-
-c1 = new Connect4 [0,1,2,0],20
-c2 = new Connect4 [3,3,3,3,3,3,0,1,2,4,5,6]
-c3 = new Connect4 [3,2,4,3,2,1,0,0,5,6,1,2,1,1,4,4,3,2,0,0,3,0]
-"""
-			c:
-				"c1.render()" : 0
-				"c2.render()" : 0
-				"c3.render()" : 0
-
-
-		RushHour :
-			b:"""
-# LOC:40 bg sc fc rect text textAlign push class constructor new @
-#	       if then else for in range toLowerCase indexOf 
-# https://en.wikipedia.org/wiki/Rush_Hour_(board_game)
-
-class RushHour
-	constructor : ->
-	add : (pos,r,g,b) ->
-	move : (n) ->
-
-rushhour = new RushHour()
-rushhour.add "d4e4",1,0,0
-rushhour.add "d1d2",1,1,0
-rushhour.add "e2f2",0,1,0
-rushhour.add "f4f6",0,1,1
-rushhour.moves = "aaBBBBcdddAAAAA"
-
-"""
-			a:"""
-textAlign CENTER,CENTER
-col = (s) -> "abcdef".indexOf s
-row = (s) -> "123456".indexOf s
-
-class Car
-	constructor : (pos,@r,@g,@b) ->
-		@i = col pos[0] 
-		@j = row pos[3]
-		@w = col(pos[2]) - @i + 1
-		@h = @j - row(pos[1]) + 1 
-	render : (i) -> 
-		fc @r,@g,@b
-		rect 40+20*@i+2, 140-20*@j+2, 20*@w-4, 20*@h-4
-		fc 0
-		text "ABCDEFGH"[i], 50+20*@i, 150-20*@j
-	move : (positive) ->
-		if positive then d=1 else d=-1
-		if @w == 1 then @j += d
-		if @h == 1 then @i += d
-		
-class RushHour
-	constructor : -> @cars=[]
-	add : (pos,r,g,b) -> @cars.push new Car pos,r,g,b
-	move : (n) ->
-		for i in range n
-			ch = @moves[i].toLowerCase()
-			car = @cars["abcdefgh".indexOf(ch)]
-			car.move ch != @moves[i]
-		@render()			
-
-	render : ->
-		bg 0
-		sc()
-		fc 0.5,0.5,0.5
-		rect 40,40,120,120
-		rect 160,80,40,20
-		fc 1
-		sc()
-		for i in range 6
-			text "654321"[i],30,50+20*i
-			text "abcdef"[i],50+20*i,170
-		for car,i in @cars
-			car.render i
-			
-rushhour = new RushHour()
-rushhour.add "d4e4",1,0,0
-rushhour.add "d1d2",1,1,0
-rushhour.add "e2f2",0,1,0
-rushhour.add "f4f6",0,1,1
-rushhour.moves = "aaBBBBcdddAAAAA"
-"""
-			c:
-				"rushhour.move 0" : 0
-				"rushhour.move 1" : 0
-				"rushhour.move 2" : 0
-				"rushhour.move 3" : 0
-				"rushhour.move 4" : 0
-				"rushhour.move 5" : 0
-				"rushhour.move 6" : 0
-				"rushhour.move 7" : 0
-				"rushhour.move 8" : 0
-				"rushhour.move 9" : 0
-				"rushhour.move 10" : 0
-				"rushhour.move 11" : 0
-				"rushhour.move 12" : 0
-				"rushhour.move 13" : 0
-				"rushhour.move 14" : 0
-				"rushhour.move 15" : 0
 
 		girlang :
 			b:"""
@@ -1548,6 +1187,8 @@ class Cartesius
 	go : (dx,dy) ->
 
 girlang = (x,y,n,width,dx,dy) ->
+
+girlang 0,0,9,5,20,20
 """		
 			a:"""
 class Cartesius
@@ -1568,11 +1209,10 @@ girlang = (x,y,n,width,dx,dy) ->
 		a.go 0,dy
 		b.go dx,0
 		b.go 0,dy
-		a.go dx,0			
+		a.go dx,0
+
+girlang 0,0,9,5,20,20			
 """
-			c: 
-				"girlang 0,0,9,5,20,20" : 0
-				"girlang 200,0,9,7,-20,20" : 0
 
 		braid:
 			b : """
@@ -1583,8 +1223,10 @@ class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
 
-braid = (n,dx,dy,width) ->		
-			"""
+braid = (n,dx,dy,width) ->	
+
+braid 5,18,18,6
+"""
 
 			a:"""
 class Cartesius
@@ -1611,11 +1253,9 @@ braid = (n,dx,dy,width) ->
 		a.go -dx,dy
 		b.go dx,dy
 		c.go -dx,dy
-		"""
-			c:
-				"braid 5,18,18,6" : 0
-				"braid 4,30,21,14" : 0
-				"braid 6,24,15,5" : 0
+
+braid 5,18,18,6
+"""
 
 		OlympicRings:
 			b: """
@@ -1626,6 +1266,8 @@ braid = (n,dx,dy,width) ->
 				draw : (start=3,stopp=3,hour=PI/6) ->
 
 			olympic = (x=100,y=100,radius=50,d=60,w=10) ->
+
+			olympic()
 			"""
 			a: """
 class Ring
@@ -1654,38 +1296,787 @@ olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 	r2.draw()
 	r4.draw 12,2
 	r5.draw 8,10
-	r3.draw 6,8			
+	r3.draw 6,8
+
+olympic()			
 """	
+
+#####################################
+	"L9: interactivity, basic" : 
+#####################################
+
+		counter :
+			b:"""		
+# LOC:8 text textAlign textSize + - class extends constructor new @ super ->
+
+class Counter extends LocalStorage
+	reset : ->
+	up : -> 
+	down : -> 
+	draw : ->
+
+counter = new Counter "b"     
+"""
+			a:"""
+class Counter extends LocalStorage
+	reset : -> @counter = 0
+	up : -> @counter += 1
+	down : -> @counter -= 1
+	draw : ->
+		bg 0.5
+		textAlign CENTER,CENTER
+		textSize 100
+		fc 1,1,0
+		text @counter,100,100
+
+counter = new Counter "a"   		
+"""
 			c:
-				"olympic()" : 0
-				"olympic 100,50,25,30,5" : 0
-				"olympic 100,100,100,120,20" : 0
+				counter : "reset()|up()|down()"
+
+		square : 
+			b: """
+# LOC:20 -> bg sw fc rect rectMode translate rd + class extends constructor new @ super ->
+
+class Square extends LocalStorage
+	reset : ->
+	draw : ->
+	horisontellt : (d) -> 
+	vertikalt : (d) ->
+	storlek : (d) -> 
+	tjocklek : (d) -> 
+	rotera : (d) ->
+
+square = new Square "b"
+"""
+			a: """
+class Square extends LocalStorage
+	reset : ->
+		@x = 100
+		@y = 100
+		@size = 100
+		@w = 1
+		@dir = 0
+	draw : ->
+		bg 0
+		rectMode CENTER
+		sw @w
+		fc 0.5
+		translate @x,@y
+		rd @dir 
+		rect 0,0,@size,@size
+
+	horisontellt : (d) -> @x += d
+	vertikalt : (d) -> @y += d
+	storlek : (d) -> @size += d
+	tjocklek : (d) -> @w += d
+	rotera : (d) -> @dir += d 
+
+square = new Square "a"
+"""
+			c: 
+				square : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"   
+
+		sevenSegment :
+			b : """
+# LOC:26 bg sc fc rect rectMode if then & [] class extends constructor new @ super ->
+
+class Digit extends LocalStorage
+	constructor : (@name, @d=0,@x=100,@y=100,@w=80,@h=18) -> super @name
+	draw : ->
+	up : -> 
+	down : -> 
+
+digit = new Digit "b"
+			"""
+			a:"""
+class Digit extends LocalStorage
+	constructor : (@name, @d=0,@x=100,@y=100,@w=80,@h=18) -> super @name
+	draw : ->
+		bg 0.5
+		sc()
+		fc 1,0,0
+		rectMode CENTER
+		pattern = [63,6,91,79,102,109,125,7,127,111]
+		p = pattern[@d]
+		w0 = @w-20
+		if p & 1 then fc 1,0,0 else fc 0.3,0,0
+		rect @x,@y-@w,w0,@h 
+		if p & 2 then fc 1,0,0 else fc 0.3,0,0
+		rect @x+@w/2,@y-@w/2,@h,w0 
+		if p & 4 then fc 1,0,0 else fc 0.3,0,0
+		rect @x+@w/2,@y+@w/2,@h,w0 
+		if p & 8 then fc 1,0,0 else fc 0.3,0,0
+		rect @x,@y+@w,w0,@h 
+		if p & 16 then fc 1,0,0 else fc 0.3,0,0
+		rect @x-@w/2,@y+@w/2,@h,w0
+		if p & 32 then fc 1,0,0 else fc 0.3,0,0
+		rect @x-@w/2,@y-@w/2,@h,w0 
+		if p & 64 then fc 1,0,0 else fc 0.3,0,0
+		rect @x,@y,w0,@h 
+	up : -> @d++
+	down : -> @d--
+
+digit = new Digit "a"
+"""
+			c: 
+				digit : "up()|down()"
+
+		Guess_a_number :
+			b:"""
+# LOC:28 bg sc fc circle %% * / + - <= >= text textAlign for in range Math.floor if then return < class extends constructor new @ super ->
+
+class Guess extends LocalStorage
+	reset : ->
+	left :-> 
+	right :->
+	up :->
+	down :->
+	guess :->
+	draw : ->
+
+guess = new Guess "b"
+"""
+			a:"""
+class Guess extends LocalStorage
+	reset : ->
+		@n = 10
+		@i = @n/2
+		@j = @n/2
+		@start = 0
+		@stopp = @n*@n-1
+		@secret = 27
+
+	left :-> @i = (@i-1) %% @n
+	right :->@i = (@i+1) %% @n
+	up :->   @j = (@j-1) %% @n
+	down :-> @j = (@j+1) %% @n
+	guess :-> 
+		i = @n * @j + @i
+		if i <= @secret then @start = i+1 
+		if i >= @secret then @stopp = i-1 
+
+	draw : ->
+		bg 0.1
+		textAlign CENTER,CENTER
+		for i in range @n*@n
+			if @start <= i <= @stopp then fc 1 else fc 0.5
+			sc()
+			x = i % @n
+			y = Math.floor i / @n
+			text i, 10 + 20 * x, 10 + 20 * y
+		fc 1,1,0
+		sc()
+		circle 10 + 20 * @i, 10 + 20 *@j,10
+		fc 0
+		i = @n * @j + @i
+		text i, 10 + 20 * @i, 10 + 20 *@j
+
+guess = new Guess "a"
+			"""
+			c:
+				guess : "reset()|left()|right()|up()|down()|guess()"
+
+		
+		korg: 
+			b:"""
+# LOC:27 -> bg fc sc sw rect for if else class extends constructor new @ super ->
+
+class Korg extends LocalStorage
+	reset : ->
+	draw : ->
+	more : ->
+	less : ->
+	thinner : ->
+	thicker : ->
+
+korg = new Korg "b"
+"""
+			a: """
+class Korg extends LocalStorage
+	reset : ->
+		@n = 1
+		@w = 5
+
+	draw : ->
+		c1 = co 1,0,0
+		c2 = co 1,1,0
+		bg 0
+		sw @w
+		fill c1
+		stroke c2
+		q = 2*@n+1
+		d = 200.0/q
+		for i in range @n
+			rect d+i*2*d,0,d,200
+		for j in range @n
+			rect 0,d+j*2*d,200,d
+		for i in range @n
+			for j in range @n
+				if (i+j) % 2 == 1
+					rect i*2*d,d+j*2*d,3*d,d
+				else
+					rect d+i*2*d,j*2*d,d,3*d
+	more : -> @n++
+	less : -> @n--
+	thinner : -> @w--
+	thicker : -> @w++
+
+korg = new Korg "a"
+"""
+			c: 
+				korg : "reset()|more()|less()|thinner()|thicker()"
+
+		"OlympicRing Prep":
+			b:"""
+# LOC:21 sc fc sw arc strokeCap class extends constructor new @ super ->
+
+class Ring extends LocalStorage
+	reset : ->
+	_start : (d) ->
+	_stopp : (d) -> 
+	_radius : (d) ->
+	_width : (d) ->
+	draw : ->
+
+ring = new Ring "b"
+"""
+			a:"""
+class Ring extends LocalStorage
+	reset : ->
+		@start = 3
+		@stopp = 6
+		@w = 5
+		@radius = 50
+	_start : (d) -> @start+=d
+	_stopp : (d) -> @stopp+=d
+	_radius : (d) -> @radius+=d
+	_width : (d) -> @w+=d
+	draw : ->
+		hour = PI/6
+		strokeCap SQUARE
+		fc()
+		sw @w
+		sc 1,1,0
+		arc 100,100,2*@radius,2*@radius,(@start-3)*hour,(@stopp-3)*hour
+
+ring = new Ring "a"
+"""
+			c: 
+				ring : "reset()|_start -1|_start 1|_stopp -1|_stopp 1|_radius -1|_radius 1|_width -1|_width 1"
+
+
+		boardGame :
+			b:"""
+# LOC:10 bg fc sc circle for in range ->
+
+class Board extends LocalStorage
+	reset : ->
+	draw : ->	
+	_r : (d) ->
+	_d : (d) ->
+	_n : (d) ->
+
+board = new Board "b" 
+"""
+			a:"""
+
+class Board extends LocalStorage
+	reset : ->
+		@x = 100
+		@y = 100
+		@d = 18
+		@r = 7
+		@n = 5
+	draw : ->	
+		bg 1
+		fc 0
+		sc()
+		@one @d,@r,@x-@n*@d, @y-@d,2*@n+1,3
+		@one @d,@r,@x-@d, @y-@n*@d,3,2*@n+1
+	one : (d,r,x0,y0,m,n) ->
+		for i in range m
+			for j in range n
+				circle x0+d*i,y0+d*j,r
+	_r : (d) -> @r+=d
+	_d : (d) -> @d+=d
+	_n : (d) -> @n+=d
+board = new Board "a" 
+"""
+
+			c:
+				board : "reset()|_r -1|_r 1|_d -1|_d 1|_n -1|_n 1"
+
+
+
+		multimoire: 
+			b:"""
+# LOC:10 bg for line map class extends constructor new @ super ->
+
+class Moire extends LocalStorage
+	reset : ->
+	draw : ->
+	more : -> 
+	less : -> 
+
+moire = new Moire "b"
+			"""
+			a: """
+class Moire extends LocalStorage
+	reset : ->
+		@n = 2
+	draw : ->
+		background 0
+		for i in range @n
+			for j in range 37
+				line 10,map(i,0,@n-1,10,190),190,10+j*5
+	more : -> @n++
+	less : -> @n--
+
+moire = new Moire "a"
+"""
+			c: 
+				moire : "reset()|more()|less()"
+		
+		colorCube:
+			b: """
+# LOC:20 -> bg fc for in range rect class extends constructor new @ super ->
+
+class ColorCube extends LocalStorage
+	constructor : (@name) -> super @name
+	draw : ->
+	reset : ->
+	moreDetails : ->
+	lessDetails : ->
+	moreBlue : ->
+	lessBlue : ->
+
+cc = new ColorCube "b"
+"""
+			a: """
+class ColorCube extends LocalStorage
+	constructor : (@name) ->
+		@n = 2
+		@b = 0
+		super @name
+
+	draw : ->
+		bg 0
+		d = 200.0/@n
+		m = @n-1.0
+		for r in range @n
+			for g in range @n
+				fc r/m,g/m,@b/m
+				rect r*d,g*d,d,d
+
+	reset : -> 
+		@n=2
+		@b=0
+	moreDetails : -> if @n<255 then @n++
+	lessDetails : -> if @n>2 then @n--
+	moreBlue : -> if @b<@n-1 then @b+=1
+	lessBlue : -> if @b>0 then @b-=1
+
+cc = new ColorCube "a"
+"""
+			c: 
+				cc : "reset()|moreDetails()|lessDetails()|moreBlue()|lessBlue()"
+
+
+
+#####################################
+	"LA: interactivity, advanced" :
+#####################################
+
+
+		klocka: 
+			b: """
+# LOC:39 -> fc sc point rect rectMode circle for in range if else translate rd push pop class extends constructor new @ super ->
+
+class Klocka extends LocalStorage
+	constructor : (@name) -> super @name
+	reset : -> 
+	draw : ->
+	incr_hour   : -> 
+	incr_minute : -> 
+	incr_second : -> 
+	decr_hour   : -> 
+	decr_minute : -> 
+	decr_second : -> 
+
+klocka = new Klocka "b"
+			"""
+			a: """
+class Klocka extends LocalStorage
+	constructor : (@name) -> 
+		@reset()
+		super @name
+	reset : -> 
+		@h=10
+		@m=9
+		@s=30
+	draw : ->
+		rectMode CENTER
+		translate 100,100
+		@urtavla()
+		@visare (@h+@m/60.0)*30, 7,60,1,0,0
+		@visare (@m+@s/60.0)*6,5,80,0,1,0
+		@visare @s*6,2,80,0,0,1
+	incr_hour   : -> @h++
+	incr_minute : -> @m++
+	incr_second : -> @s++
+	decr_hour   : -> @h--
+	decr_minute : -> @m--
+	decr_second : -> @s--
+
+	visare : (v,w,l,r,g,b) ->
+		push()
+		rd v-90
+		translate l/2,0
+		fc r,g,b
+		rect 0,0,l,w
+		pop()
+	urtavla : ->
+		fc 0
+		sc 1
+		circle 0,0,90
+		fc 1
+		for i in range 60
+			if i%5==0
+				circle 85,0,2
+			else
+				point 85,0
+			rd 6
+klocka = new Klocka "a"
+"""
+			c: 
+				klocka : "reset()|incr_hour()|incr_minute()|incr_second()|decr_hour()|decr_minute()|decr_second()"
+
+
+		recursiveCircle: 
+			b: """
+# LOC:10 -> sc circle if return < class extends constructor new @ super ->
+
+class RecursiveCircle extends LocalStorage
+	reset : -> 
+	draw : -> 	
+	circles : (x,y,r,level) ->
+	more : -> 
+	less : -> 
+
+rc = new RecursiveCircle "b"
+"""
+			a: """
+
+class RecursiveCircle extends LocalStorage
+	reset : -> @n = 0
+	draw : -> @circles 100,100,100,@n		
+	circles : (x,y,r,level) ->
+		circle x,y,r
+		if level <= 0 then return
+		@circles x-r/2, y,r/2, level-1
+		@circles x+r/2, y,r/2, level-1
+	more : -> @n = constrain @n+1,0,10
+	less : -> @n = constrain @n-1,0,10
+
+rc = new RecursiveCircle "a"
+"""
+			c:
+				rc : "reset()|more()|less()"
+
+		Nim:
+			b:"""		
+# LOC:34 -> bg fc sc circle * + - ^ if then else _.isEqual return < constrain text textAlign textSize class extends constructor new @ super ->
+
+class Nim extends LocalStorage
+	reset : -> 
+	a : ->
+	b : ->
+	c : ->
+	ok : -> 
+	draw : ->
+	hint : ->
+
+nim = new Nim "b"  
+"""
+			a:"""
+class Nim extends LocalStorage
+	reset : -> 
+		@board = [7,8,9]
+		@active = -1
+		@player = 0
+	move : (index) ->
+		if @active in [index,-1]
+			@active = index
+			@board[@active] = constrain @board[@active]-1, 0, 99
+
+	a : -> @move 0
+	b : -> @move 1
+	c : -> @move 2
+	ok : -> 
+		if @active == -1 then return
+		@player = 1 - @player
+		@active = -1 
+	draw : ->
+		textAlign CENTER,CENTER
+		textSize 50
+		bg 0
+		fc 1
+		sc()
+		text @board[0],50,100
+		text @board[1],100,100
+		text @board[2],150,100
+		fc 1,@player,0
+		circle 20 + @player * 160,20,10
+	hint : ->
+		if @active != -1 then return
+		[a,b,c] = @board
+		board = if (b^c) < a then [b^c,b,c] else if (a^c) < b then [a,a^c,c] else if (a^b) < c then [a,b,a^b] else [a,b,c]
+		if not _.isEqual(board,@board)
+			@board = board
+			@player = 1 - @player
+
+nim = new Nim "a"   
+		
+"""
+			c:
+				nim : "reset()|a()|b()|c()|ok()|hint()"
+			e:
+				Nim : "https://en.wikipedia.org/wiki/Nim"
+				xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"
+				Nimrod : "https://en.wikipedia.org/wiki/Nimrod_(computing)"
+
+
+		SpaceShip :
+			b:"""
+# LOC:35 sc sw point triangle translate rd cos sin radians push pop class extends constructor new @ super ->
+
+class Shot
+	constructor : (@x,@y,@dir) ->
+	render : ->	
+	move : ->
+
+class Ship extends LocalStorage
+	constructor : (@name) ->
+	reset : ->
+	lt : -> 
+	rt : -> 
+	fd : -> 
+	shoot : ->		
+	draw : ->
+
+ship = new Ship "b"	
+"""
+			a: """
+class Shot
+	constructor : (@x,@y,@dir) ->
+	render : ->	point @x,@y 
+	move : ->
+		@x += 5 * cos radians @dir
+		@y += 5 * sin radians @dir
+
+class Ship extends LocalStorage 
+
+	constructor : (@name) ->
+		super @name
+		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
+
+	reset : ->
+		@x = 100
+		@y = 100
+		@s = 10
+		@dir = 0
+		@shots = []
+
+	lt : -> @dir -= 5
+	rt : -> @dir += 5
+	fd : -> 
+		@x += 5 * cos radians @dir
+		@y += 5 * sin radians @dir
+
+	shoot : ->
+		@shots.push new Shot @x,@y,@dir
+
+	draw : ->
+		push()
+		translate @x,@y
+		rd @dir
+		sc 1,1,0
+		sw 2
+		triangle 2*@s,0, -@s,@s, -@s,-@s
+		sw 5
+		point 0,0
+		pop()
+		for shot in @shots
+			shot.move()
+			shot.render()
+
+ship = new Ship "a"	
+"""
+			c:
+				ship: "reset()|lt()|rt()|fd()|shoot()"
+
+		Connect4 :
+			b:"""
+# LOC:29 % bg fc sc sw circle text textAlign textSize for in range push class extends constructor new @ super -> 
+
+class Connect4 extends LocalStorage
+	reset : ->
+	draw : ->
+	move : (nr) ->
+
+connect4 = new Connect4 "b"
+			"""
+			a:"""
+class Connect4 extends LocalStorage
+	reset : ->
+		@size = 27
+		@list = ([] for i in range 7)
+		@moves = []
+	draw : ->
+		bg 0
+		textAlign CENTER,CENTER
+		textSize @size/2
+		fc()
+		sc 0.1,0.3,1
+		sw 0.2 * @size
+		for i in range 7
+			for j in range 6
+				circle 100-@size*3+@size*i, 180-@size*j, @size/2
+		for column,i in @list
+			for nr,j in column
+				fc 1,nr%2,0
+				sw 1
+				circle 100-@size*3+@size*i, 180-@size*j, @size*0.4
+				fc 0
+				sc()
+				text nr, 100-@size*3+@size*i, 180-@size*j
+		sc()
+		fc 1,(@moves.length+1)%2,0
+		circle 100,15,10
+	move : (nr) ->
+		@moves.push nr
+		@list[nr].push @moves.length 
+
+connect4 = new Connect4 "a"
+"""
+			c:
+				connect4 : "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6"
+
+		RushHour :
+			b:"""
+# LOC:51 bg sc fc rect text textAlign push class extends constructor new @ super -> 
+#	       if then else for in range toLowerCase indexOf 
+# https://en.wikipedia.org/wiki/Rush_Hour_(board_game)
+
+class Car
+	constructor : (@i,@j,@w,@h,@r,@g,@b) ->
+	render : (i) -> 
+	move : (d) ->
+
+class RushHour extends LocalStorage
+	reset : ->
+	draw : ->
+	add : (pos,r,g,b) -> 
+	A_Left  : ->
+	A_Right : ->
+	B_Up  : -> 
+	B_Down : -> 
+	C_Left  : -> 
+	C_Right : ->
+	D_Up  : -> 
+	D_Down : -> 
+
+rushHour = new RushHour "b"
+
+"""
+			a:"""
+class Car
+	constructor : (@i,@j,@w,@h,@r,@g,@b) ->
+	render : (i) -> 
+		fc @r,@g,@b
+		rect 40+20*@i+2, 40+20*@j+2, 20*@w-4, 20*@h-4
+		fc 0
+		text "ABCDEFGH"[i], 50+20*@i, 50+20*@j
+	move : (d) ->
+		if @w == 1 then @j += d
+		if @h == 1 then @i += d
+
+class RushHour extends LocalStorage
+
+	constructor : (@name) ->
+		super @name
+		if @cars then @cars = (_.create Car.prototype, car for car in @cars)
+
+	reset : ->
+		@cars = []
+		@add "d3e3",1,0,0
+		@add "d6d5",1,1,0
+		@add "e5f5",0,1,0
+		@add "f3f1",0,1,1
+
+	draw : ->
+		textAlign CENTER,CENTER
+		bg 0
+		sc()
+		fc 0.5,0.5,0.5
+		rect 40,40,120,120
+		rect 160,80,40,20
+		fc 1
+		sc()
+		for i in range 6
+			text "123456"[i],30,50+20*i
+			text "abcdef"[i],50+20*i,170
+		for car,i in @cars
+			car.render i
+
+	col : (s) -> "abcdef".indexOf s
+	row : (s) -> "123456".indexOf s
+
+	add : (pos,r,g,b) -> 
+		i = @col pos[0] 
+		j = @row pos[3]
+		w = @col(pos[2]) - i + 1
+		#h = j - @row(pos[1]) + 1 
+		h = @row(pos[1]) - j + 1 
+		@cars.push new Car i,j,w,h,r,g,b
+
+	A_Left  : -> @cars[0].move -1
+	A_Right : -> @cars[0].move  1	
+	B_Up    : -> @cars[1].move -1	
+	B_Down  : -> @cars[1].move  1
+	C_Left  : -> @cars[2].move -1
+	C_Right : -> @cars[2].move  1
+	D_Up    : -> @cars[3].move -1
+	D_Down  : -> @cars[3].move  1
+			
+rushHour = new RushHour "a"
+"""
+			c:
+				rushHour : "reset()|A_Left()|A_Right()|B_Up()|B_Down()|C_Left()|C_Right()|D_Up()|D_Down()"
 
 		chessGame :
 			b:"""
-# LOC:60 bg fc sc sw point rect rectMode if then else text textSize textAlign class constructor new @
+# LOC:64 bg fc sc sw point rect rectMode if then else text textSize textAlign class constructor new @
 #        for in range push split length indexOf
 
-class Chess
-	constructor : (@moves="", @size=22, w="",b="", @x=100,@y=100) ->
-	move : (n) ->
+class Chess extends LocalStorage
+	reset : ->
+	draw : ->
+	move : (d) ->
 
-bg 0.5
-big = new Chess "e2e4 e7e5 g1f3 b8c6 f1c4"
-small = new Chess "g2g4 e7e5 f2f4 d8h4",18
-
-			"""
+# localStorage.clear()
+chess = new Chess "b"
+"""
 			a:"""
-class Chess
-	constructor : (@moves="",@size=22,w="",b="",@x=100,@y=100) ->
-		if b == "" then b = "Ra8 Nb8 Bc8 Qd8 Ke8 Bf8 Ng8 Rh8 a7 b7 c7 d7 e7 f7 g7 h7"
-		if w == "" then w = "Ra1 Nb1 Bc1 Qd1 Ke1 Bf1 Ng1 Rh1 a2 b2 c2 d2 e2 f2 g2 h2"
-		textSize 0.9 * @size
-		textAlign CENTER,CENTER
-		rectMode CENTER
-		@white = @putPieces w
-		@black = @putPieces b
-		@moves = @moves.split " "
+class Chess extends LocalStorage
+
+	reset : ->
+		@moves = "e2e4 e7e5 g1f3 b8c6 f1c4".split " "
+		@size = 22
+		@x = 100
+		@y = 100
+		@n = 0
 
 	putPieces : (pieces) ->
 		res = []
@@ -1699,23 +2090,23 @@ class Chess
 			else
 				chr = piece[0]
 				sq = piece[1..]
-			[col,row] = getIndex sq
+			[col,row] = @getIndex sq
 			res[8*col+row] = chr	
 		res
 
-	getIndex = (sq) ->
+	getIndex : (sq) ->
 		col = "abcdefgh".indexOf sq[0]
 		row = "12345678".indexOf sq[1]
 		[col,row]
 		
-	render1 : (pieces,c) ->
+	render : (pieces,c) ->
 		fc c
 		sc c
 		for row in range 8
 			for col in range 8
 				piece = pieces[8*col+row]
-				x = @x-3.5*@size+col*@size
-				y = @y-3.5*@size+(7-row)*@size
+				x = @x - 3.5 * @size + col * @size
+				y = @y - 3.5 * @size + (7-row) * @size
 				if piece == "o"
 					sw @size/2
 					point x,y
@@ -1723,111 +2114,139 @@ class Chess
 					sw 1-c
 					text piece,x, 1+y		
 				
-	render : () ->
+	draw : ->
+		bg 0.5
+		textSize 0.9 * @size
+		textAlign CENTER,CENTER
+		rectMode CENTER
 		sc()
 		for i in range 8
 			for j in range 8
 				if (i+j)%2 == 1 then fc 0.4 else fc 0.6
 				rect @x-3.5*@size+@size*i, @y-3.5*@size+@size*j, @size, @size
-		@render1 @white,1
-		@render1 @black,0
 
-	movePiece = (m,player) ->
-		[col1,row1] = getIndex m[0..1]
-		[col2,row2] = getIndex m[2..3]
+		white = @putPieces "Ra1 Nb1 Bc1 Qd1 Ke1 Bf1 Ng1 Rh1 a2 b2 c2 d2 e2 f2 g2 h2"
+		black = @putPieces "Ra8 Nb8 Bc8 Qd8 Ke8 Bf8 Ng8 Rh8 a7 b7 c7 d7 e7 f7 g7 h7"
+
+		for i in range @n
+			@movePiece @moves[i], if i%2==0 then white else black		
+
+		@render white,1
+		@render black,0
+
+	movePiece : (m,player) ->
+		[col1,row1] = @getIndex m[0..1]
+		[col2,row2] = @getIndex m[2..3]
 		player[col2*8+row2] = player[col1*8+row1]
 		player[col1*8+row1] = ""
-		
-	move : (n) ->
-		for i in range n
-			movePiece @moves[i], if i%2==0 then @white else @black
-		@render()
 
-bg 0.5
-big = new Chess "e2e4 e7e5 g1f3 b8c6 f1c4"
-small = new Chess "g2g4 e7e5 f2f4 d8h4",18
+	move : (d) -> 
+		@n += d
+		@n = constrain @n,0,@moves.length
+
+chess = new Chess "a"
 
 """
 			c:
-				"big.move 0" : 0
-				"big.move 1" : 0
-				"big.move 2" : 0
-				"big.move 3" : 0
-				"big.move 4" : 0
-				"big.move 5" : 0
-				"small.move 0" : 0
-				"small.move 1" : 0
-				"small.move 2" : 0
-				"small.move 3" : 0
-				"small.move 4" : 0
+				chess : "reset()|move -1|move 1"
+
 
 #####################################
-	"L10: sin cos recursion {}" :
+	"LB: miscellaneous" :
 #####################################
 
 		alphanumeric:
 			b:"""
-# LOC:11 bg for in range indexOf & ** circle {} [] '' if then else
+# LOC:15 bg for in range indexOf & ** circle {} [] '' if then else class extends constructor new @ super ->
 
-letter = (chr) ->
-			"""
+class AlphaNumeric extends LocalStorage
+	reset : ->
+	draw : ->
+	character : (ch) -> 
+
+alpha = new AlphaNumeric "b"
+"""
 			a:"""
-letter = (chr) ->
-	bg 0
-	sc()
-	pattern = {1:'4c4444e', 2:'eh1248v', A:'ehhvhhh', B:'uhhuhhu'}
-	for ch,j in pattern[chr]
-		index = '0123456789abcdefghijklmnopqrstuv'.indexOf ch
-		for i in range 5
-			if index & 2**i then fc 0,1,0 else fc 0,0.3,0
-			x = 140-20*i
-			y = 40+20*j
-			circle x,y,8
-			"""
+class AlphaNumeric extends LocalStorage
+	reset : -> 
+		@pattern = {1:'4c4444e', 2:'eh1248v', A:'ehhvhhh', B:'uhhuhhu'}
+		@ch = 'A'
+	draw : ->
+		bg 0
+		sc()
+		for ch,j in @pattern[@ch]
+			index = '0123456789abcdefghijklmnopqrstuv'.indexOf ch
+			for i in range 5
+				if index & 2**i then fc 0,1,0 else fc 0,0.3,0
+				x = 140-20*i
+				y = 40+20*j
+				circle x,y,8
+	character : (ch) -> @ch = ch
+
+alpha = new AlphaNumeric "a"
+"""
 			c:
-				"letter 'A'" : 0
-				"letter 'B'" : 0
-				"letter '1'" : 0
-				"letter '2'" : 0	
+				alpha: "reset()|character 'A'|character 'B'|character '1'|character '2'"
 
 		GoldenStar:
 			b: """
-# LOC:13 bg fc for in range triangle translate rotate cos sin 
+# LOC:23 bg fc for in range triangle translate rotate cos sin class extends constructor new @ super ->
 
-star = (x,y,n,a,b) ->
+class GoldenStar extends LocalStorage
+	reset : ->
+	_n : (d) -> 
+	_outer : (d) ->
+	_inner : (d) ->
+	draw : ->
+
+star = new GoldenStar "b"
 """
 			a: """
-star = (x,y,n,a,b) ->
-	bg 0
-	translate x,y
-	v = TWO_PI/n
-	rotate -PI/2
-	x1 = b * cos v/2
-	y1 = b * sin v/2
-	for i in range n
-		fc 1,1,0
-		triangle 0,0,a,0,x1,y1
-		fc 1,0.7,0
-		triangle 0,0,a,0,x1,-y1
-		rotate v
+class GoldenStar extends LocalStorage
+	reset : ->
+		@x = 100
+		@y = 100
+		@n = 4
+		@outer = 100
+		@inner = 25
+	_n : (d) -> @n = constrain @n+d,3,12
+	_outer : (d) -> @outer = constrain @outer+d, 0, 100
+	_inner : (d) -> @inner = constrain @inner+d, 0, 100
+	draw : ->
+		bg 0
+		translate @x,@y
+		v = TWO_PI/@n
+		rotate -PI/2
+		x1 = @inner * cos v/2
+		y1 = @inner * sin v/2
+		for i in range @n
+			fc 1,1,0
+			triangle 0,0, @outer,0, x1,y1
+			fc 1,0.7,0
+			triangle 0,0, @outer,0, x1,-y1
+			rotate v
+
+star = new GoldenStar "a"
 """
 			c:
-				"star 100,125,3,110,30" : 0
-				"star 100,100,4,100,25" : 0
-				"star 100,110,5,100,38" : 0
-				"star 100,100,6,100,50" : 0
+				star : "reset()|_n -1|_n +1|_outer -1|_outer +1|_inner -1|_inner +1"
 		
 		Polygon:
 			b:"""
-# LOC:17 bg sc line for in range class constructor new @ cos sin radians 
+# LOC:23 bg sc line for in range cos sin radians class extends constructor new @ super ->
 
 class Turtle
 	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->
 	fd : (d) ->
 	rt : (a) ->
 
-polygon = (n,d) ->
-	t = new Turtle()
+class Polygon extends LocalStorage
+	reset : ->
+	draw : ->
+	antalSidor : (d) ->
+	antalSteg : (d) -> 
+
+polygon = new Polygon "b"
 """
 			a:"""
 class Turtle
@@ -1842,264 +2261,23 @@ class Turtle
 	rt : (a) ->
 		@dir +=a
 
-polygon = (n,d) ->
-	t = new Turtle()
-	bg 0
-	for i in range n
-		t.fd d
-		t.rt 360/n
-"""
-			c:
-				"polygon 3,60" : 0
-				"polygon 4,60" : 0
-				"polygon 5,60" : 0
-				"polygon 6,60" : 0
-				"polygon 8,50" : 0
-				"polygon 16,32" : 0
-				"polygon 32,16" : 0
-				"polygon 64,8" : 0
+class Polygon extends LocalStorage
+	reset : ->
+		@n = 6
+		@steg = 60
 
-		SpaceShip :
-			b:"""
-# LOC: 22 sc sw point triangle translate rd class constructor new @ cos sin radians
-
-class Ship
-	constructor : (@x,@y,@s,@dir, @r=1,@g=1,@b=0) ->
-	lt : (a=90) -> 
-		@
 	draw : ->
-			
-s1 = new Ship 20,120,10,0		
-s2 = new Ship 100,100,20,-90, 1,0,0	
-			"""
-			a: """
-class Ship
-	constructor : (@x,@y,@s,@dir, @r=1,@g=1,@b=0) ->
-	lt : (a=90) -> 
-		@dir -= a
-		@
-	rt : (a=90) -> 
-		@dir += a
-		@
-	fd : (d=100) -> 
-		@x += d * cos radians @dir
-		@y += d * sin radians @dir
-		@
-	draw : ->
-		translate @x,@y
-		rd @dir
-		sc @r,@g,@b
-		sw 2
-		triangle 2*@s,0, -@s,@s, -@s,-@s
-		sw 5
-		point 0,0
+		t = new Turtle()
+		bg 0
+		for i in range @n
+			t.fd @steg
+			t.rt 360/@n
 
-s1 = new Ship 20,120,10,0		
-s2 = new Ship 100,100,20,-90, 1,0,0	
-			"""
-			c:
-				"s1.draw()" : 0
-				"s2.draw()" : 0
-				"s1.lt(45).draw()" : 0
-				"s1.rt(45).draw()" : 0
-				"s1.rt().draw()" : 0
-				"s1.rt(180).draw()" : 0
-				"s1.fd(50).draw()" : 0
-				"s1.lt().fd().rt().fd().rt().draw()" : 0
-				"s1.fd().rt(45).draw()" : 0
-				"s1.rt(45).fd().draw()" : 0
+	antalSidor : (d) -> @n += d
+	antalSteg : (d) -> @steg += d
 
-		recursiveCircles: 
-			b: """
-# LOC:6 -> sc circle if return <
-
-circles = (x,y,r) ->
-			"""
-			a: """
-sc 1
-circles = (x,y,r) ->
-	circle x,y,r
-	if r < 10 then return
-	circles x-r/2,y,r/2
-	circles x+r/2,y,r/2
-"""
-			c: "circles 100,100,100":0		
-
-#####################################
-	"L11: Guess a Number" :
-#####################################
-
-		guess1:
-			b: """
-# LOC:11 bg sc rect rectMode for in range
-
-"""
-			a: """
-bg 1
-rectMode CENTER,CENTER
-n = 200
-size = n / 8
-sc 0
-for i in range 8
-	x = i * size + size/2
-	y = size/2
-	w = size
-	h = size
-	rect x,y,w,h
-"""
-
-		guess2:
-			b: """
-# LOC:16 bg fc sc rect rectMode for in range text textAlign
-
-"""
-			a: """
-bg 1
-rectMode CENTER,CENTER
-textAlign CENTER,CENTER
-n = 200
-size = n / 8
-for i in range 8
-	x = i * size + size/2
-	y = size/2
-	w = size
-	h = size
-	fc()
-	sc 0
-	rect x,y,w,h
-	fc 0
-	sc()
-	text i,x,y
-"""
-
-		guess3:
-			b: """
-# LOC:17 bg sc fc rect rectMode for in range text textAlign
-
-"""
-			a: """
-bg 1
-rectMode CENTER,CENTER
-textAlign CENTER,CENTER
-n = 200
-size = n / 8
-for i in range 8
-	for j in range 8
-		x = i * size + size/2
-		y = j * size + size/2
-		w = size
-		h = size
-		fc()
-		sc 0
-		rect x,y,w,h
-		fc 0
-		sc()
-		text i+8*j,x,y
-"""
-
-		guess4:
-			b: """
-# LOC:19 bg fc sc rect rectMode for in range text textAlign
-
-f = (nx,ny) ->
-"""
-			a: """
-f = (nx,ny) ->
-	bg 1
-	rectMode CENTER,CENTER
-	textAlign CENTER,CENTER
-	n = 200
-	px = n/nx
-	py = n/ny
-	for i in range nx
-		for j in range ny
-			x = i * px + px/2
-			y = j * py + py/2
-			w = px
-			h = py
-			fc()
-			sc 0
-			rect x,y,w,h
-			fc 0
-			sc()
-			text i+nx*j,x,y
+polygon = new Polygon "a"
 """
 			c:
-				"f 8,6":0
-				"f 6,6":0
-
-		guess5:
-			b: """
-# LOC:23 bg fc sc rect rectMode for range text textAlign if else
-
-f = (nx,ny,start,stopp) ->
-"""
-			a: """
-f = (nx,ny,start,stopp) ->
-	bg 1
-	rectMode CENTER,CENTER
-	textAlign CENTER,CENTER
-	n = 200
-	px = n/nx
-	py = n/ny
-	for i in range nx
-		for j in range ny
-			x = i * px + px/2
-			y = j * py + py/2
-			w = px
-			h = py
-			fc()
-			sc 0
-			rect x,y,w,h
-			index = i+nx*j
-			sc()
-			if start <= index && index <= stopp
-				fc 0
-			else
-				fc 0.8
-			text index,x,y
-"""
-			c:
-				"f 8,8,18,45" : 0
-				"f 6,6,10,25" : 0
-
-		guess6:
-			b: """
-# LOC:28 bg fc sc rect rectMode for in range text textAlign if else
-
-f = (nx,ny,start,stopp,mx,my,target) ->
-"""
-			a: """
-f = (nx,ny,start,stopp,mx,my,target) ->
-	bg 1
-	rectMode CENTER,CENTER
-	textAlign CENTER,CENTER
-	n = 200
-	px = n/nx
-	py = n/ny
-	i = int mx/px
-	j = int my/py 
-	clicked = i+nx*j
-	if clicked <= target then start = clicked + 1
-	if clicked >= target then stopp = clicked - 1
-	for i in range nx
-		for j in range ny
-			x = i * px + px/2
-			y = j * py + py/2
-			w = px
-			h = py
-			fc()
-			sc 0
-			rect x,y,w,h
-			index = i+nx*j
-			sc()
-			if start <= index and index <= stopp
-				fc 0
-			else
-				fc 0.8
-			text index,x,y
-"""
-			c:
-				"f 8,8,18,45,70,90,28":0
-				"f 6,6,10,25,90,90,20":0
+				polygon : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
 

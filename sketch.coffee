@@ -1,12 +1,16 @@
+# todo: Code Mirror hanterar inte toggleComment via Ctrl+/
+
 myCodeMirror = null
-msg = ""
-sel1=null
-sel2=null
-sel3=null
-chapter=""
-exercise=""
+msg = null
+msga = null
+msgb = null
+sel1 = null
+sel2 = null
+sel3 = null
+chapter = ""
+exercise = ""
 call = ''
-expectedResult = 0
+calls = {}
 
 setMsg = (txt) ->
 	msg.val txt
@@ -15,7 +19,10 @@ setMsg = (txt) ->
 	else
 		msg.css 'background-color' , '#FF0000'
 
-grid = () ->
+setMsga = (txt) -> msga.val txt
+setMsgb = (txt) -> msgb.val txt
+
+grid = ->
 	push()
 	sc 1
 	for i in range 11
@@ -23,10 +30,9 @@ grid = () ->
 		line 20 * i, 0, 20 * i, 200
 	pop()
 
-myprint = () ->
-	print Array.prototype.slice.call(arguments).join(" ")
+myprint = -> print Array.prototype.slice.call(arguments).join(" ")
 
-co = () -> fixColor arguments
+co = -> fixColor arguments
 
 ip = (y1,y2,x,x1,x2) ->
 	if arguments.length == 3
@@ -55,18 +61,18 @@ fixColor = (args) ->
 		a = args[3]		
 	color 255 * r, 255 * g, 255 * b, 255 * a
 
-bg = () ->
+bg = ->
 	fill fixColor arguments
 	rect 0, 0, 200, 200
 
-fc = () ->
+fc = ->
 	n = arguments.length
 	if n == 0
 		noFill()
 	else 
 		fill fixColor arguments
 
-sc = () ->
+sc = ->
 	n = arguments.length
 	if n == 0
 		noStroke()
@@ -88,6 +94,7 @@ sel1change = (sel) ->
 	chapter = sel.value
 	exercise = ""
 	call = ""
+	calls = {}
 	fillSelect sel2, data[chapter]
 	exercise = _.keys(data[chapter])[0]
 	sel2.val(exercise).change()
@@ -95,43 +102,80 @@ sel1change = (sel) ->
 sel2change = (sel) ->
 	exercise = sel.value
 	call = ""
-	fillSelect sel3, data[chapter][exercise]["c"]	 
-		
-	a = data[chapter][exercise]["a"]
-	a = transpile a
-	run 1, a
+	calls = decorate data[chapter][exercise]["c"]
+	setLinks()
+	fillSelect sel3, calls	 
+	myCodeMirror.setValue data[chapter][exercise]["b"]
+	setMsga ""
+	setMsgb ""
 
-	b = data[chapter][exercise]["b"]
-	myCodeMirror.setValue b
+	if calls?
+		sel3.val("draw()").change()
+		call = calls["draw()"]
+
+	run1()
+	run0()
 	myCodeMirror.focus() 
 	compare()
 
-	calls = data[chapter][exercise]["c"]
-	if calls
-		call = _.keys(calls)[0]
-		sel3.val(call).change()
-
-sel3change = (sel) ->
-	call = sel.value
-	expectedResult = data[chapter][exercise]["c"][sel.value]
-
-	a = data[chapter][exercise]["a"]
-	#a = transpile a
-	run 1, a + "\n" + call
-
-	b = data[chapter][exercise]["b"]
+sel3click = (sel) ->
+	if calls? then call = calls[sel.value]
+	#print ""
+	run1()
 	run0()
 	myCodeMirror.focus()
 	compare()
 
-changeLayout = () ->
+setLinks = ->
+	linksClear()
+	linkAppend links,	"https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md", "Help"
+	linkAppend links,	"https://p5js.org/reference", "p5"
+	linkAppend links,	"http://coffeescript.org", "Coffeescript"
+	linkAppend links,	"https://www.w3schools.com/js", "Javascript"
+	linkAppend links,	"https://github.com/ChristerNilsson/Nilsson/blob/master/README.md", "Nilsson"
+	linkAppend links,	"http://underscorejs.org/", "_"
+
+	for text,link of data[chapter][exercise]["e"]
+		linkAppend links,link,text
+
+linksClear = -> $("#links tr").remove()
+
+d = (s) -> "'" + s + "'"
+dd = (s) -> '"' + s + '"'
+
+linkAppend = (t, link, text) -> # exakt en kolumn
+	row = t.insertRow -1
+	cell1 = row.insertCell -1
+	s = '<a href=' + d(link)  
+	s += ' target=' + d('_blank')
+	s += ' onmouseover=' + d('this.style.color=' + dd('yellow') + ';') 
+	s += ' onmouseout='  + d('this.style.color=' + dd('black') + ';') 
+	s += '>' 
+	s += text 
+	s += '</a>'
+	cell1.innerHTML = s		
+
+decorate = (dict) -> # {klocka: "draw|incr_hour"}
+	if dict==undefined then return {}
+	if dict==null then return {}
+	res = {}
+	for objekt, s of dict
+		methods = s.split "|"
+		res["draw()"] = objekt + ".draw(); " + objekt + ".store()"
+		res[method] = objekt + "." + method + "; " + objekt + ".draw(); " + objekt + ".store()" for method in methods
+	#print res 
+	res
+
+changeLayout = ->
 	w = $(window).width()
-	$(".CodeMirror").width w-430
+	$(".CodeMirror").width w-425
 	$("#canvas").css {top: 0, left: w-215, position:'absolute'}	 
-	$("#msg").width w-435
+	$("#msg").width w-430
+	$("#msgb").width w-430
+	$("#msga").width w-430
 
 resizeTimer = 0
-$(window).resize () ->
+$(window).resize ->
 		clearTimeout resizeTimer
 		resizeTimer = setTimeout changeLayout, 10
 
@@ -141,6 +185,8 @@ setup = ->
 	c.parent 'canvas'
 	
 	msg = $('#msg')
+	msga = $('#msga')
+	msgb = $('#msgb')
  
 	sel1 = $('#sel1')
 	sel2 = $('#sel2')
@@ -178,16 +224,16 @@ window.onload = ->
 	}
 	
 	$(".CodeMirror").css 'font-size',"16pt"
-	myCodeMirror.on "change", run0
+	myCodeMirror.on "change", editor_change
 
-	help = createA 'https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md', 'Help', '_blank'
-	help.position 10,640
+	#help = createA 'https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md', 'Help', '_blank'
+	#help.position 10,640
 
-	p5Color = createA 'https://christernilsson.github.io/p5Color', 'Color', '_blank'
-	p5Color.position 50,640
+	#p5Color = createA 'https://christernilsson.github.io/p5Color', 'Color', '_blank'
+	#p5Color.position 50,640
 
-	ref = createA 'https://p5js.org/reference', 'Reference', '_blank'
-	ref.position 90,640
+	#ref = createA 'https://p5js.org/reference', 'Reference', '_blank'
+	#ref.position 90,640
 	
 	background 128
 	run 0, ""
@@ -212,23 +258,26 @@ saveToKeyStorage = (b) ->
 		place.d = []
 	place.d.push s
 
+editor_change = ->
+	if _.size(calls) == 0
+		call = ""
+	else # transpile, draw
+		call = calls["draw()"]
+	run1()
+	run0()
+	if msg.val() == '' then compare()
+
 run0 = ->
-	background 128
 	b = myCodeMirror.getValue()
 	data[chapter][exercise]["b"] = b
-	if window.f != null
-		window.f = null
-	run1()
-	if run 0, b + "\n" + call
-		saveToKeyStorage b
-	if msg.val() == ''
-		compare()
+	run 0, b + "\n" + call
+	if msg.val() == '' then compare()
 
-run1 = ->
-	a = data[chapter][exercise]["a"] 
-	run 1, a + "\n" + call
+run1 = -> 
+	background 128
+	run 1, data[chapter][exercise]["a"] + "\n" + call
 
-reset = () ->
+reset = ->
 	colorMode RGB,255
 	angleMode RADIANS
 	bg 0
@@ -292,3 +341,27 @@ compare = ->
 		
 	updatePixels()
 	count
+
+pretty = (s) ->
+	#return s
+	s = s.replace /"/g, ""
+	s = s.replace /,/g, " "
+
+class LocalStorage
+	constructor : (@name) ->
+		name = chapter + "/" + exercise + "/" + @name
+		obj = localStorage.getItem name 
+		if obj
+			dict = JSON.parse obj
+			for key,value of dict
+				@[key] = value
+	store : -> 
+		name = chapter + "/" + exercise + "/" + @name
+		obj = JSON.stringify @
+		#print obj
+		if @name=='a'
+			setMsga pretty obj
+		else
+			setMsgb pretty obj
+		localStorage.setItem name, obj
+	draw : -> 

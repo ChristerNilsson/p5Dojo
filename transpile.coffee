@@ -34,14 +34,8 @@ assert spacesToTabs(' \t  '),'\t\t'
 rtrim = (str) ->
   str.replace /\s\s*$/, ''
 
-# tar bort alla blanka, tabbar och kommentarer
-clean = (s) ->
-  s = s.split(' ').join("")
-  s = s.split('\t').join("")
-  pos = s.indexOf("#")
-  if pos >= 0
-    s = s.substr 0,pos
-  s
+# tar bort alla blanka och tabbar
+clean = (s) -> s.split(' ').join("").split('\t').join("")
 
 transpile = (code) ->
   lines = code.split '\n'
@@ -54,7 +48,4 @@ transpile = (code) ->
     if clean(line).length > 0
       temp.push line
   code = temp.join '\n'
-  #try
   CoffeeScript.compile code
-  #catch err
-  #print err
