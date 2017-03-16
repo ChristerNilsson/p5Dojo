@@ -1217,7 +1217,6 @@ girlang 0,0,9,5,20,20
 		braid:
 			b : """
 # LOC: 19 sc bg sw for in range line class constructor new @
-# https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg
 
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
@@ -1256,6 +1255,8 @@ braid = (n,dx,dy,width) ->
 
 braid 5,18,18,6
 """
+			e:
+				braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
 
 		OlympicRings:
 			b: """
@@ -1382,7 +1383,7 @@ square = new Square "a"
 # LOC:26 bg sc fc rect rectMode if then & [] class extends constructor new @ super ->
 
 class Digit extends LocalStorage
-	constructor : (@name, @d=0,@x=100,@y=100,@w=80,@h=18) -> super @name
+	reset : -> 
 	draw : ->
 	up : -> 
 	down : -> 
@@ -1391,7 +1392,12 @@ digit = new Digit "b"
 			"""
 			a:"""
 class Digit extends LocalStorage
-	constructor : (@name, @d=0,@x=100,@y=100,@w=80,@h=18) -> super @name
+	reset : ->
+		@d=0
+		@x=100
+		@y=100
+		@w=80
+		@h=18
 	draw : ->
 		bg 0.5
 		sc()
@@ -1420,7 +1426,7 @@ class Digit extends LocalStorage
 digit = new Digit "a"
 """
 			c: 
-				digit : "up()|down()"
+				digit : "reset()|up()|down()"
 
 		Guess_a_number :
 			b:"""
@@ -1643,9 +1649,8 @@ moire = new Moire "a"
 # LOC:20 -> bg fc for in range rect class extends constructor new @ super ->
 
 class ColorCube extends LocalStorage
-	constructor : (@name) -> super @name
-	draw : ->
 	reset : ->
+	draw : ->
 	moreDetails : ->
 	lessDetails : ->
 	moreBlue : ->
@@ -1655,10 +1660,6 @@ cc = new ColorCube "b"
 """
 			a: """
 class ColorCube extends LocalStorage
-	constructor : (@name) ->
-		@n = 2
-		@b = 0
-		super @name
 
 	draw : ->
 		bg 0
@@ -1691,10 +1692,9 @@ cc = new ColorCube "a"
 
 		klocka: 
 			b: """
-# LOC:39 -> fc sc point rect rectMode circle for in range if else translate rd push pop class extends constructor new @ super ->
+# LOC:36 -> fc sc point rect rectMode circle for in range if else translate rd push pop class extends constructor new @ super ->
 
 class Klocka extends LocalStorage
-	constructor : (@name) -> super @name
 	reset : -> 
 	draw : ->
 	incr_hour   : -> 
@@ -1708,9 +1708,6 @@ klocka = new Klocka "b"
 			"""
 			a: """
 class Klocka extends LocalStorage
-	constructor : (@name) -> 
-		@reset()
-		super @name
 	reset : -> 
 		@h=10
 		@m=9
@@ -1847,74 +1844,6 @@ nim = new Nim "a"
 				Nimrod : "https://en.wikipedia.org/wiki/Nimrod_(computing)"
 
 
-		SpaceShip :
-			b:"""
-# LOC:35 sc sw point triangle translate rd cos sin radians push pop class extends constructor new @ super ->
-
-class Shot
-	constructor : (@x,@y,@dir) ->
-	render : ->	
-	move : ->
-
-class Ship extends LocalStorage
-	constructor : (@name) ->
-	reset : ->
-	lt : -> 
-	rt : -> 
-	fd : -> 
-	shoot : ->		
-	draw : ->
-
-ship = new Ship "b"	
-"""
-			a: """
-class Shot
-	constructor : (@x,@y,@dir) ->
-	render : ->	point @x,@y 
-	move : ->
-		@x += 5 * cos radians @dir
-		@y += 5 * sin radians @dir
-
-class Ship extends LocalStorage 
-
-	constructor : (@name) ->
-		super @name
-		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
-
-	reset : ->
-		@x = 100
-		@y = 100
-		@s = 10
-		@dir = 0
-		@shots = []
-
-	lt : -> @dir -= 5
-	rt : -> @dir += 5
-	fd : -> 
-		@x += 5 * cos radians @dir
-		@y += 5 * sin radians @dir
-
-	shoot : ->
-		@shots.push new Shot @x,@y,@dir
-
-	draw : ->
-		push()
-		translate @x,@y
-		rd @dir
-		sc 1,1,0
-		sw 2
-		triangle 2*@s,0, -@s,@s, -@s,-@s
-		sw 5
-		point 0,0
-		pop()
-		for shot in @shots
-			shot.move()
-			shot.render()
-
-ship = new Ship "a"	
-"""
-			c:
-				ship: "reset()|lt()|rt()|fd()|shoot()"
 
 		Connect4 :
 			b:"""
@@ -1963,97 +1892,6 @@ connect4 = new Connect4 "a"
 			c:
 				connect4 : "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6"
 
-		RushHour :
-			b:"""
-# LOC:51 bg sc fc rect text textAlign push class extends constructor new @ super -> 
-#	       if then else for in range toLowerCase indexOf 
-# https://en.wikipedia.org/wiki/Rush_Hour_(board_game)
-
-class Car
-	constructor : (@i,@j,@w,@h,@r,@g,@b) ->
-	render : (i) -> 
-	move : (d) ->
-
-class RushHour extends LocalStorage
-	reset : ->
-	draw : ->
-	add : (pos,r,g,b) -> 
-	A_Left  : ->
-	A_Right : ->
-	B_Up  : -> 
-	B_Down : -> 
-	C_Left  : -> 
-	C_Right : ->
-	D_Up  : -> 
-	D_Down : -> 
-
-rushHour = new RushHour "b"
-
-"""
-			a:"""
-class Car
-	constructor : (@i,@j,@w,@h,@r,@g,@b) ->
-	render : (i) -> 
-		fc @r,@g,@b
-		rect 40+20*@i+2, 40+20*@j+2, 20*@w-4, 20*@h-4
-		fc 0
-		text "ABCDEFGH"[i], 50+20*@i, 50+20*@j
-	move : (d) ->
-		if @w == 1 then @j += d
-		if @h == 1 then @i += d
-
-class RushHour extends LocalStorage
-
-	constructor : (@name) ->
-		super @name
-		if @cars then @cars = (_.create Car.prototype, car for car in @cars)
-
-	reset : ->
-		@cars = []
-		@add "d3e3",1,0,0
-		@add "d6d5",1,1,0
-		@add "e5f5",0,1,0
-		@add "f3f1",0,1,1
-
-	draw : ->
-		textAlign CENTER,CENTER
-		bg 0
-		sc()
-		fc 0.5,0.5,0.5
-		rect 40,40,120,120
-		rect 160,80,40,20
-		fc 1
-		sc()
-		for i in range 6
-			text "123456"[i],30,50+20*i
-			text "abcdef"[i],50+20*i,170
-		for car,i in @cars
-			car.render i
-
-	col : (s) -> "abcdef".indexOf s
-	row : (s) -> "123456".indexOf s
-
-	add : (pos,r,g,b) -> 
-		i = @col pos[0] 
-		j = @row pos[3]
-		w = @col(pos[2]) - i + 1
-		#h = j - @row(pos[1]) + 1 
-		h = @row(pos[1]) - j + 1 
-		@cars.push new Car i,j,w,h,r,g,b
-
-	A_Left  : -> @cars[0].move -1
-	A_Right : -> @cars[0].move  1	
-	B_Up    : -> @cars[1].move -1	
-	B_Down  : -> @cars[1].move  1
-	C_Left  : -> @cars[2].move -1
-	C_Right : -> @cars[2].move  1
-	D_Up    : -> @cars[3].move -1
-	D_Down  : -> @cars[3].move  1
-			
-rushHour = new RushHour "a"
-"""
-			c:
-				rushHour : "reset()|A_Left()|A_Right()|B_Up()|B_Down()|C_Left()|C_Right()|D_Up()|D_Down()"
 
 		chessGame :
 			b:"""
@@ -2065,7 +1903,6 @@ class Chess extends LocalStorage
 	draw : ->
 	move : (d) ->
 
-# localStorage.clear()
 chess = new Chess "b"
 """
 			a:"""
@@ -2150,6 +1987,173 @@ chess = new Chess "a"
 			c:
 				chess : "reset()|move -1|move 1"
 
+		SpaceShip :
+			b:"""
+# LOC:35 sc sw point triangle translate rd cos sin radians push pop class extends constructor new @ super ->
+
+class Shot
+	constructor : (@x,@y,@dir) ->
+	render : ->	
+	move : ->
+
+class Ship extends LocalStorage
+	constructor : (@name) ->
+		super @name
+		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
+	reset : ->
+	lt : -> 
+	rt : -> 
+	fd : -> 
+	shoot : ->		
+	draw : ->
+
+ship = new Ship "b"	
+"""
+			a: """
+class Shot
+	constructor : (@x,@y,@dir) ->
+	render : ->	point @x,@y 
+	move : ->
+		@x += 5 * cos radians @dir
+		@y += 5 * sin radians @dir
+
+class Ship extends LocalStorage 
+
+	constructor : (@name) ->
+		super @name
+		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
+
+	reset : ->
+		@x = 100
+		@y = 100
+		@s = 10
+		@dir = 0
+		@shots = []
+
+	lt : -> @dir -= 5
+	rt : -> @dir += 5
+	fd : -> 
+		@x += 5 * cos radians @dir
+		@y += 5 * sin radians @dir
+
+	shoot : ->
+		@shots.push new Shot @x,@y,@dir
+
+	draw : ->
+		push()
+		translate @x,@y
+		rd @dir
+		sc 1,1,0
+		sw 2
+		triangle 2*@s,0, -@s,@s, -@s,-@s
+		sw 5
+		point 0,0
+		pop()
+		for shot in @shots
+			shot.move()
+			shot.render()
+
+ship = new Ship "a"	
+"""
+			c:
+				ship: "reset()|lt()|rt()|fd()|shoot()"
+
+
+		RushHour :
+			b:"""
+# LOC:51 bg sc fc rect text textAlign push class extends constructor new @ super -> 
+#	       if then else for in range toLowerCase indexOf 
+
+class Car
+	constructor : (@i,@j,@w,@h,@r,@g,@b) ->
+	render : (i) -> 
+	move : (d) ->
+
+class RushHour extends LocalStorage
+	constructor : (@name) ->
+		super @name
+		if @cars then @cars = (_.create Car.prototype, car for car in @cars)
+	reset : ->
+	draw : ->
+	add : (pos,r,g,b) -> 
+	A_Left  : ->
+	A_Right : ->
+	B_Up  : -> 
+	B_Down : -> 
+	C_Left  : -> 
+	C_Right : ->
+	D_Up  : -> 
+	D_Down : -> 
+
+rushHour = new RushHour "b"
+
+"""
+			a:"""
+class Car
+	constructor : (@i,@j,@w,@h,@r,@g,@b) ->
+	render : (i) -> 
+		fc @r,@g,@b
+		rect 40+20*@i+2, 40+20*@j+2, 20*@w-4, 20*@h-4
+		fc 0
+		text "ABCDEFGH"[i], 50+20*@i, 50+20*@j
+	move : (d) ->
+		if @w == 1 then @j += d
+		if @h == 1 then @i += d
+
+class RushHour extends LocalStorage
+
+	constructor : (@name) ->
+		super @name
+		if @cars then @cars = (_.create Car.prototype, car for car in @cars)
+
+	reset : ->
+		@cars = []
+		@add "d3e3",1,0,0
+		@add "d6d5",1,1,0
+		@add "e5f5",0,1,0
+		@add "f3f1",0,1,1
+
+	draw : ->
+		textAlign CENTER,CENTER
+		bg 0
+		sc()
+		fc 0.5,0.5,0.5
+		rect 40,40,120,120
+		rect 160,80,40,20
+		fc 1
+		sc()
+		for i in range 6
+			text "123456"[i],30,50+20*i
+			text "abcdef"[i],50+20*i,170
+		for car,i in @cars
+			car.render i
+
+	col : (s) -> "abcdef".indexOf s
+	row : (s) -> "123456".indexOf s
+
+	add : (pos,r,g,b) -> 
+		i = @col pos[0] 
+		j = @row pos[3]
+		w = @col(pos[2]) - i + 1
+		#h = j - @row(pos[1]) + 1 
+		h = @row(pos[1]) - j + 1 
+		@cars.push new Car i,j,w,h,r,g,b
+
+	A_Left  : -> @cars[0].move -1
+	A_Right : -> @cars[0].move  1	
+	B_Up    : -> @cars[1].move -1	
+	B_Down  : -> @cars[1].move  1
+	C_Left  : -> @cars[2].move -1
+	C_Right : -> @cars[2].move  1
+	D_Up    : -> @cars[3].move -1
+	D_Down  : -> @cars[3].move  1
+			
+rushHour = new RushHour "a"
+"""
+			c:
+				rushHour : "reset()|A_Left()|A_Right()|B_Up()|B_Down()|C_Left()|C_Right()|D_Up()|D_Down()"
+			e:
+				RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
 
 #####################################
 	"LB: miscellaneous" :
