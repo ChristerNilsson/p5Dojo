@@ -1428,6 +1428,95 @@ digit = new Digit "a"
 			c: 
 				digit : "reset()|up()|down()"
 
+		Braider:
+			b : """
+# LOC: 61 sc bg sw for in range if then + line class constructor extends new @
+
+class Braider extends LocalStorage
+	braid2 : ->
+	braid3 : ->
+	braid4 : ->
+	draw : ->
+	forward : ->
+	back : ->
+
+braider = new Braider "b"
+"""
+
+			a:"""
+class Cartesius
+	constructor : (@x,@y,@c) ->
+	go : (dx,dy) ->
+		scc @c 
+		line @x,@y,@x+dx,@y+dy
+		[@x,@y] = [@x+dx,@y+dy]
+	down : (d) -> @go 0,d
+	left : (d) -> @go -d,0
+
+class Braider extends LocalStorage
+
+	braid2 : ->
+		@type = 2
+		@n = 0
+	braid3 : ->
+		@type = 3
+		@n = 0
+	braid4 : ->
+		@type = 4
+		@n = 0
+	draw : ->
+		if @type==2
+			sw 5
+			a = new Cartesius 200,20, 1 # röd
+			b = new Cartesius 190,10, 2 # grön
+			for i in range @n
+				if i%4 == 0 then b.down 20
+				if i%4 == 1 then a.left 20
+				if i%4 == 2 then a.down 20
+				if i%4 == 3 then b.left 20
+		if @type==3
+			sw 5
+			a = new Cartesius 200,30, 1
+			b = new Cartesius 190,10, 2
+			c = new Cartesius 180,20, 3
+			for i in range @n
+				if i%6 == 0 then b.down 30
+				if i%6 == 1 then a.left 30
+				if i%6 == 2 then c.down 30
+				if i%6 == 3 then b.left 30
+				if i%6 == 4 then a.down 30
+				if i%6 == 5 then c.left 30
+		if @type==4
+			sw 10
+			a = new Cartesius 150,40, 1 # röd
+			b = new Cartesius 170,20, 2 # grön
+			c = new Cartesius 160,30, 3 # gul
+			d = new Cartesius 190,50, 4 # blå
+			for i in range @n
+				if i%12 == 0 then b.down 50
+				if i%12 == 1 then c.left 30; c.down 30
+				if i%12 == 2 then d.left 50
+				if i%12 == 3 then a.down 50
+				if i%12 == 4 then b.left 50
+				if i%12 == 5 then c.down 50
+				if i%12 == 6 then d.left 30; d.down 30
+				if i%12 == 7 then a.left 50
+				if i%12 == 8 then b.left 30; b.down 30
+				if i%12 == 9 then d.down 50
+				if i%12 == 10 then c.left 50
+				if i%12 == 11 then a.left 30; a.down 30
+
+	forward : -> @n++
+	back : -> @n--
+
+braider = new Braider "a"
+"""
+			c:
+				braider : "braid2()|braid3()|braid4()|forward()|back()"
+
+			e:
+				braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
+
 		Guess_a_number :
 			b:"""
 # LOC:28 bg sc fc circle %% * / + - <= >= text textAlign for in range Math.floor if then return < class extends constructor new @ super ->
@@ -1701,11 +1790,11 @@ class Labb extends LocalStorage
 	b : -> @command = "b"
 	c : -> @command = "c"
 	d : -> @command = "d"
-	e : -> @command = "e"
-	f : -> @command = "f"
+	e : -> @command = Math.floor random 1,7
+	f : -> @command = Math.floor millis()
 	draw : -> 
 		textAlign CENTER,CENTER
-		textSize 100
+		textSize 50
 		fc 1,1,0
 		text @command,@x,@y
 

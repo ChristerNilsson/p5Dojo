@@ -79,6 +79,10 @@ sc = ->
 	else 
 		stroke fixColor arguments
 
+bgc = (cc) -> bg cc%2, int(cc/2)%2, int(cc/4) 
+fcc = (cc) -> fc cc%2, int(cc/2)%2, int(cc/4) 
+scc = (cc) -> sc cc%2, int(cc/2)%2, int(cc/4) 
+
 sw = (n) -> strokeWeight n
 
 circle = (x,y,r) -> ellipse x,y,2*r,2*r
