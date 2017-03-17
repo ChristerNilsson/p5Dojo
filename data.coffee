@@ -1869,6 +1869,7 @@ cc = new ColorCube "a"
 
 class Labb extends LocalStorage
 	reset : ->
+		super
 		@x = 100
 		@y = 100
 		@command = ""
