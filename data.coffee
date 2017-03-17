@@ -1517,6 +1517,96 @@ braider = new Braider "a"
 			e:
 				braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
 
+		BouncingBalls :
+			b : """
+# LOC: 43 + ++ - -- %% == push if then for in splice length circle fc sw sc _.create class constructor super extends new @
+
+class Ball 
+	constructor : ->
+	update : (grav) ->
+	render : (sel) ->
+
+class BouncingBalls extends LocalStorage
+
+	constructor : (@name) ->
+		super @name
+		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
+
+	reset : -> super
+	draw : ->
+	update : -> 
+	add : -> 
+	delete :->
+	selNext : -> 
+	selPrev : -> 
+	grow : ->    
+	shrink : ->  
+	nextCol : -> 
+	prevCol : -> 
+	gravity : ->
+
+bouncingBalls = new BouncingBalls "b"
+"""
+
+			a:"""
+class Ball 
+	constructor : ->
+		@x = 100
+		@y = 100
+		@r = 10
+		@c = 1
+		@dx = 3
+		@dy = 4
+	update : (grav) ->
+		@x += @dx
+		@y += @dy
+		if not (@r < @x < 200-@r) then @dx = - @dx
+		if not (@r < @y < 200-@r) then @dy = - @dy
+		if grav and @y < 200-@r then @dy += 1 
+	render : (sel) ->
+		fcc @c
+		sw 2
+		if sel then scc 7 else sc()
+		circle @x,@y,@r
+
+class BouncingBalls extends LocalStorage
+
+	constructor : (@name) ->
+		super @name
+		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
+
+	reset : ->
+		super
+		@balls = []
+		@sel = -1
+		@grav = false
+	draw : ->
+		for ball,i in @balls
+			ball.render i==@sel, @grav
+	update : -> 
+		for ball in @balls
+			ball.update(@grav)
+
+	add : -> 
+		@balls.push new Ball
+		@sel = @balls.length - 1
+
+	delete :->
+		@balls.splice @sel, 1
+		if @sel >= @balls.length then @sel = @balls.length - 1  
+	selNext : -> @sel = (@sel + 1) %% @balls.length
+	selPrev : -> @sel = (@sel - 1) %% @balls.length
+	grow : ->    @balls[@sel].r++
+	shrink : ->  @balls[@sel].r--
+	nextCol : -> @balls[@sel].c = (@balls[@sel].c+1) %% 8
+	prevCol : -> @balls[@sel].c = (@balls[@sel].c-1) %% 8
+	gravity : -> @grav = not @grav 
+
+bouncingBalls = new BouncingBalls "a"
+"""
+			c:
+				bouncingBalls : "reset()|update()|add()|delete()|selNext()|selPrev()|grow()|shrink()|nextCol()|prevCol()|gravity()"
+
 		Guess_a_number :
 			b:"""
 # LOC:28 bg sc fc circle %% * / + - <= >= text textAlign for in range Math.floor if then return < class extends constructor new @ super ->

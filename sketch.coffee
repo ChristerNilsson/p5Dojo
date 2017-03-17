@@ -369,3 +369,6 @@ class LocalStorage
 			setMsgb pretty obj
 		localStorage.setItem name, obj
 	draw : -> 
+	reset : ->
+		for key in _.keys @
+			if key != "name" then delete @[key]
