@@ -2381,6 +2381,82 @@ rushHour = new RushHour "a"
 			e:
 				RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
 
+		PickingBerries :
+			b:"""
+# LOC:49 bg sc fc sw [] * + line text textSize textAlign constrain dist splice break for in class extends constructor new @ super ->
+
+class PickingBerries extends LocalStorage
+	reset   : ->
+	draw    : ->
+	left    : -> 
+	right   : -> 
+	up      : -> 
+	down    : -> 
+	zoomIn  : -> 
+	zoomOut : -> 
+	take    : ->
+
+berries = new PickingBerries "b"
+"""
+			a:"""
+class PickingBerries extends LocalStorage
+	reset : ->
+		super
+		@x = 100
+		@y = 100
+		@zoom = 3
+		@score = 0
+		@berries = [[100,107],[189,175],[124,138],[198,188],[13,37],[187,78],[12,168],[153,31],[32,20],[131,188]]
+	draw : ->
+		bg 0
+		sc 1
+		d = 5+[1,5,10,50][@zoom]
+		sw 1
+		line @x-d,@y,@x,@y
+		line @x,@y,@x+d,@y
+		line @x,@y-d,@x,@y
+		line @x,@y,@x,@y+d
+		
+		fc 1,1,0,0.5
+		sc()
+		textSize 20
+		textAlign CENTER,CENTER
+		text @score,100,180
+		sc 1,0,0
+		sw 2
+		for berry in @berries
+			[x,y] = berry
+			z = 3
+			line x-3,y-3,x+3,y+3
+			line x+3,y-3,x-3,y+3
+
+	move : (dx,dy) -> 		
+		@x += dx * [1,5,10,50][@zoom]
+		@y += dy * [1,5,10,50][@zoom]
+		@score++
+
+	left    : -> @move -1,0
+	right   : -> @move 1,0
+	up      : -> @move 0,-1
+	down    : -> @move 0,1
+	zoomIn  : -> 
+		@zoom = constrain @zoom+1,0,3
+		@score++
+	zoomOut : -> 
+		@zoom = constrain @zoom-1,0,3
+		@score++
+	take    : ->
+		for [x,y],i in @berries
+			if dist(x,y,@x,@y) <= 2
+				@berries.splice i,1
+				break
+		@score++
+
+berries = new PickingBerries "a"
+			"""
+			c:
+				berries : "reset()|left()|right()|up()|down()|zoomIn()|zoomOut()|take()"
+
 #####################################
 	"LB: miscellaneous" :
 #####################################
