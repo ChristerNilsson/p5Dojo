@@ -2,8 +2,6 @@
 
 myCodeMirror = null
 msg = null
-msga = null
-msgb = null
 sel1 = null
 sel2 = null
 sel3 = null
@@ -18,9 +16,6 @@ setMsg = (txt) ->
 		msg.css 'background-color' , '#FFFFFF'
 	else
 		msg.css 'background-color' , '#FF0000'
-
-setMsga = (txt) -> msga.val txt
-setMsgb = (txt) -> msgb.val txt
 
 grid = ->
 	push()
@@ -107,11 +102,13 @@ sel2change = (sel) ->
 	exercise = sel.value
 	call = ""
 	calls = decorate data[chapter][exercise]["c"]
+
 	setLinks()
-	fillSelect sel3, calls	 
+	calls_without_draw = _.omit calls, 'draw()'
+	print calls_without_draw
+
+	fillSelect sel3, calls_without_draw	 
 	myCodeMirror.setValue data[chapter][exercise]["b"]
-	setMsga ""
-	setMsgb ""
 
 	if calls?
 		sel3.val("draw()").change()
@@ -173,10 +170,8 @@ decorate = (dict) -> # {klocka: "draw|incr_hour"}
 changeLayout = ->
 	w = $(window).width()
 	$(".CodeMirror").width w-425
-	$("#canvas").css {top: 0, left: w-215, position:'absolute'}	 
+	$("#canvas").css {top: 0, left: 205, position:'absolute'}	 # w-215
 	$("#msg").width w-430
-	$("#msgb").width w-430
-	$("#msga").width w-430
 
 resizeTimer = 0
 $(window).resize ->
@@ -184,13 +179,11 @@ $(window).resize ->
 		resizeTimer = setTimeout changeLayout, 10
 
 setup = ->
-	c = createCanvas 5+201+5, 5+201+5+201+5+201+5
+	c = createCanvas 5+201+5, 5+201 +5+6+ 201 +5+6+ 201+5
 	pixelDensity 1
 	c.parent 'canvas'
 	
 	msg = $('#msg')
-	msga = $('#msga')
-	msgb = $('#msgb')
  
 	sel1 = $('#sel1')
 	sel2 = $('#sel2')
@@ -229,15 +222,6 @@ window.onload = ->
 	
 	$(".CodeMirror").css 'font-size',"16pt"
 	myCodeMirror.on "change", editor_change
-
-	#help = createA 'https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md', 'Help', '_blank'
-	#help.position 10,640
-
-	#p5Color = createA 'https://christernilsson.github.io/p5Color', 'Color', '_blank'
-	#p5Color.position 50,640
-
-	#ref = createA 'https://p5js.org/reference', 'Reference', '_blank'
-	#ref.position 90,640
 	
 	background 128
 	run 0, ""
@@ -293,7 +277,7 @@ run = (n, coffee) ->
 	resetMatrix()
 	rectMode CORNER
 	push()
-	translate 5, 5+n * 206
+	translate 5, 5+(1-n) * 212
 	reset()
 
 	setMsg ""
@@ -318,20 +302,18 @@ compare = ->
 	
 	loadPixels()
 	
-	area1 = new Area pixels,GAP,GAP,								WIDTH,HEIGHT
-	area2 = new Area pixels,GAP,1*(GAP+HEIGHT)+GAP, WIDTH,HEIGHT
-	area3 = new Area pixels,GAP,2*(GAP+HEIGHT)+GAP, WIDTH,HEIGHT
- 
-	count = 0
-	
+	area0 = new Area pixels,GAP,GAP,						  		WIDTH,HEIGHT
+	area1 = new Area pixels,GAP,1*(GAP+HEIGHT+6)+GAP, WIDTH,HEIGHT
+	area2 = new Area pixels,GAP,2*(GAP+HEIGHT+6)+GAP, WIDTH,HEIGHT
+
 	for i in range WIDTH+1
 		for j in range HEIGHT+1
 		
-			lst1 = area1.getPixel i,j
+			lst1 = area0.getPixel i,j
 			r1 = lst1[0]
 			g1 = lst1[1]
 			b1 = lst1[2]
-			lst2 = area2.getPixel i,j
+			lst2 = area1.getPixel i,j
 			r2 = lst2[0]
 			g2 = lst2[1]
 			b2 = lst2[2]
@@ -339,17 +321,14 @@ compare = ->
 			g = abs g1-g2
 			b = abs b1-b2
 
-			area3.setPixel i,j,[r,g,b,255] 
-			if r+g+b > 9 # t ex whiteTriangle i motsatt riktning
-				count += 1
+			area2.setPixel i,j,[r,g,b,255] 
 		
 	updatePixels()
-	count
 
-pretty = (s) ->
-	#return s
-	s = s.replace /"/g, ""
-	s = s.replace /,/g, " "
+# pretty = (s) ->
+# 	s = s.replace /"/g, ""
+# 	s = s.replace /,/g, " "
+# 	s.slice 8, s.length-1 # remove {name:a }
 
 class LocalStorage
 	constructor : (@name) ->
@@ -362,13 +341,42 @@ class LocalStorage
 	store : -> 
 		name = chapter + "/" + exercise + "/" + @name
 		obj = JSON.stringify @
-		#print obj
-		if @name=='a'
-			setMsga pretty obj
-		else
-			setMsgb pretty obj
 		localStorage.setItem name, obj
+		fillTable chapter + "/" + exercise + "/a", chapter + "/" + exercise + "/b"
+ 
 	draw : -> 
 	reset : ->
 		for key in _.keys @
 			if key != "name" then delete @[key]
+
+tableClear = -> $("#tabell tr").remove()
+
+tableAppend = (t, call, expected, actual) -> # exakt tre kolumner
+	sp = "&nbsp;"
+	row = t.insertRow -1
+
+	cell1 = row.insertCell -1
+	cell1.innerHTML = sp + call + sp
+	cell1.style.backgroundColor = '#FFFF00'
+
+	cell2 = row.insertCell -1
+	cell2.innerHTML = sp + JSON.stringify(expected) + sp
+	cell2.style.backgroundColor = '#00FF00'
+
+	cell3 = row.insertCell -1
+	cell3.innerHTML = sp + JSON.stringify(actual) + sp
+	cell3.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
+
+fillTable = (a,b) ->
+	a = JSON.parse localStorage[a]
+	b = JSON.parse localStorage[b]
+	tableClear()
+	keys = []
+	keys.push key for key,value of a
+	keys.push key for key,value of b
+	sort keys
+	keys = _.uniq keys
+
+	for key in keys
+		if key != 'name'
+			tableAppend tabell, "@" + key,a[key],b[key]	
