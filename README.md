@@ -176,6 +176,28 @@ function f(a,b) {
 }
 ```    
 
+### Interaktivitet
+
+Lektionerna i slutet innehåller interaktiva moment. 
+Det innebär att man med kommandon påverkar ett objekts tillstånd. 
+Utritningen av objektet är beroende av tillståndet. 
+
+## Tredje listboxen
+Denna innehåller kommandona. Dessa måste definieras i koden. 
+Lämpligen gör man det i samma ordning som programkoden.
+Det innebär att man börjar med reset. Reset anropar super för att kunna rensa ut felstavade egenskaper.
+Efter reset kommer draw. Draw ritar upp bitmappen. Draw bör ej anropa super.
+
+## Att tänka på
+Tabellen längst ner innehåller tillståndet. 
+
+* Första kolumnen innehåller egenskapernas namn. Alltid gul.
+* Andra kolumnen innehåller förebildens data. Alltid grön.
+* Tredje kolumen innehåller resultat av användarens kod. Röd som blir grön. 
+
+Klicka på reset om det ser konstigt ut.
+Draw anropas automatiskt varje gång innehållet i editorn förändras.
+
 ### mera information
 
  - [download](https://p5js.org)
