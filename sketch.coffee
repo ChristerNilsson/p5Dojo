@@ -105,7 +105,6 @@ sel2change = (sel) ->
 
 	setLinks()
 	calls_without_draw = _.omit calls, 'draw()'
-	print calls_without_draw
 
 	fillSelect sel3, calls_without_draw	 
 	myCodeMirror.setValue data[chapter][exercise]["b"]
@@ -345,6 +344,10 @@ class LocalStorage
 		fillTable chapter + "/" + exercise + "/a", chapter + "/" + exercise + "/b"
  
 	draw : -> 
+		textSize 32
+		textAlign CENTER,CENTER
+		fc 1,1,0
+		text "Define draw!",100,100
 	reset : ->
 		for key in _.keys @
 			if key != "name" then delete @[key]

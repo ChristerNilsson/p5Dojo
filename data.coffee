@@ -1308,13 +1308,13 @@ olympic()
 
 		counter :
 			b:"""		
-# LOC:8 text textAlign textSize + - class extends constructor new @ super ->
+# LOC:12 text textAlign textSize + - class extends constructor new @ super ->
 
 class Counter extends LocalStorage
 	reset : -> super
+	draw : -> super
 	up : -> 
 	down : -> 
-	draw : ->
 
 counter = new Counter "b"     
 """
@@ -1337,13 +1337,43 @@ counter = new Counter "a"
 			c:
 				counter : "reset()|up()|down()"
 
+		Moire: 
+			b:"""
+# LOC:10 bg for line map class extends constructor new @ super ->
+
+class Moire extends LocalStorage
+	reset : -> super
+	draw : -> super
+	more : -> 
+	less : -> 
+
+moire = new Moire "b"
+			"""
+			a: """
+class Moire extends LocalStorage
+	reset : ->
+		super
+		@n = 2
+	draw : ->
+		background 0
+		for i in range @n
+			for j in range 37
+				line 10,map(i,0,@n-1,10,190),190,10+j*5
+	more : -> @n = constrain @n+1,2,10
+	less : -> @n = constrain @n-1,2,10
+
+moire = new Moire "a"
+"""
+			c: 
+				moire : "reset()|more()|less()"
+
 		square : 
 			b: """
-# LOC:20 -> bg sw fc rect rectMode translate rd + class extends constructor new @ super ->
+# LOC:21 bg sw fc rect rectMode translate rd + class extends constructor new @ super ->
 
 class Square extends LocalStorage
 	reset : -> super
-	draw : ->
+	draw : -> super
 	horisontellt : (d) -> 
 	vertikalt : (d) ->
 	storlek : (d) -> 
@@ -1381,13 +1411,133 @@ square = new Square "a"
 			c: 
 				square : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"   
 
+		boardGame :
+			b:"""
+# LOC:10 bg fc sc circle for in range ->
+
+class Board extends LocalStorage
+	reset : -> super
+	draw : ->	super
+	_r : (d) ->
+	_d : (d) ->
+	_n : (d) ->
+
+board = new Board "b" 
+"""
+			a:"""
+
+class Board extends LocalStorage
+	reset : ->
+		super
+		@x = 100
+		@y = 100
+		@d = 18
+		@r = 7
+		@n = 5
+	draw : ->	
+		bg 1
+		fc 0
+		sc()
+		@one @d,@r,@x-@n*@d, @y-@d,2*@n+1,3
+		@one @d,@r,@x-@d, @y-@n*@d,3,2*@n+1
+	one : (d,r,x0,y0,m,n) ->
+		for i in range m
+			for j in range n
+				circle x0+d*i,y0+d*j,r
+	_r : (d) -> @r+=d
+	_d : (d) -> @d+=d
+	_n : (d) -> @n+=d
+board = new Board "a" 
+"""
+			c:
+				board : "reset()|_r -1|_r 1|_d -1|_d 1|_n -1|_n 1"
+
+		colorCube:
+			b: """
+# LOC:20 -> bg fc for in range rect class extends constructor new @ super ->
+
+class ColorCube extends LocalStorage
+	reset : -> super
+	draw : -> super
+	moreDetails : ->
+	lessDetails : ->
+	moreBlue : ->
+	lessBlue : ->
+
+cc = new ColorCube "b"
+"""
+			a: """
+class ColorCube extends LocalStorage
+
+	draw : ->
+		bg 0
+		d = 200.0/@n
+		m = @n-1.0
+		for r in range @n
+			for g in range @n
+				fc r/m,g/m,@b/m
+				rect r*d,g*d,d,d
+
+	reset : -> 
+		super
+		@n=2
+		@b=0
+	moreDetails : -> if @n<255 then @n++
+	lessDetails : -> if @n>2 then @n--
+	moreBlue : -> if @b<@n-1 then @b+=1
+	lessBlue : -> if @b>0 then @b-=1
+
+cc = new ColorCube "a"
+"""
+			c: 
+				cc : "reset()|moreDetails()|lessDetails()|moreBlue()|lessBlue()"
+
+		"OlympicRing Prep":
+			b:"""
+# LOC:21 sc fc sw arc strokeCap class extends constructor new @ super ->
+
+class Ring extends LocalStorage
+	reset   : -> super
+	draw    : -> super
+	_start  : (d) ->
+	_stopp  : (d) -> 
+	_radius : (d) ->
+	_width  : (d) ->
+
+ring = new Ring "b"
+"""
+			a:"""
+class Ring extends LocalStorage
+	reset : ->
+		super
+		@start = 3
+		@stopp = 6
+		@w = 5
+		@radius = 50
+	_start : (d) -> @start+=d
+	_stopp : (d) -> @stopp+=d
+	_radius : (d) -> @radius+=d
+	_width : (d) -> @w+=d
+	draw : ->
+		hour = PI/6
+		strokeCap SQUARE
+		fc()
+		sw @w
+		sc 1,1,0
+		arc 100,100,2*@radius,2*@radius,(@start-3)*hour,(@stopp-3)*hour
+
+ring = new Ring "a"
+"""
+			c: 
+				ring : "reset()|_start -1|_start 1|_stopp -1|_stopp 1|_radius -1|_radius 1|_width -1|_width 1"
+
 		sevenSegment :
 			b : """
 # LOC:26 bg sc fc rect rectMode if then & [] class extends constructor new @ super ->
 
 class Digit extends LocalStorage
 	reset : -> super
-	draw : ->
+	draw : -> super
 	up : -> 
 	down : -> 
 
@@ -1432,6 +1582,203 @@ digit = new Digit "a"
 			c: 
 				digit : "reset()|up()|down()"
 
+		korg: 
+			b:"""
+# LOC:27 -> bg fc sc sw rect for if else class extends constructor new @ super ->
+
+class Korg extends LocalStorage
+	reset   : -> super
+	draw    : -> super
+	more    : ->
+	less    : ->
+	thinner : ->
+	thicker : ->
+
+korg = new Korg "b"
+"""
+			a: """
+class Korg extends LocalStorage
+	reset : ->
+		super
+		@n = 1
+		@w = 5
+
+	draw : ->
+		c1 = co 1,0,0
+		c2 = co 1,1,0
+		bg 0
+		sw @w
+		fill c1
+		stroke c2
+		q = 2*@n+1
+		d = 200.0/q
+		for i in range @n
+			rect d+i*2*d,0,d,200
+		for j in range @n
+			rect 0,d+j*2*d,200,d
+		for i in range @n
+			for j in range @n
+				if (i+j) % 2 == 1
+					rect i*2*d,d+j*2*d,3*d,d
+				else
+					rect d+i*2*d,j*2*d,d,3*d
+	more : -> @n = constrain @n+1,1,10
+	less : -> @n = constrain @n-1,1,10
+	thinner : -> @w = constrain @w-1,0,10
+	thicker : -> @w = constrain @w+1,0,10
+
+korg = new Korg "a"
+"""
+			c: 
+				korg : "reset()|more()|less()|thinner()|thicker()"
+
+		Guess_a_number :
+			b:"""
+# LOC:31 bg sc fc circle %% * / + - <= >= text textAlign for in range Math.floor if then return < class extends constructor new @ super ->
+
+class Guess extends LocalStorage
+	reset : -> super
+	draw  : -> super
+	left  : -> 
+	right : ->
+	up    : ->
+	down  : ->
+	guess : ->
+
+guess = new Guess "b"
+"""
+			a:"""
+class Guess extends LocalStorage
+	reset : ->
+		super
+		@n = 100
+		@i = @n/2
+		@start = 0
+		@stopp = @n-1
+		@secret = 27
+
+	left  :-> @i = (@i-1) %% @n
+	right :-> @i = (@i+1) %% @n
+	up    :-> @i = (@i-10) %% @n
+	down  :-> @i = (@i+10) %% @n
+	guess :-> 
+		if @i <= @secret then @start = @i+1 
+		if @i >= @secret then @stopp = @i-1 
+
+	draw : ->
+		bg 0.1
+		textAlign CENTER,CENTER
+		for i in range @n
+			if @start <= i <= @stopp then fc 1 else fc 0.5
+			sc()
+			x = i % 10
+			y = Math.floor i / 10
+			text i, 10 + 20 * x, 10 + 20 * y
+		fc 1,1,0
+		sc()
+		x = @i % 10
+		y = Math.floor @i / 10
+		circle 10 + 20 * x, 10 + 20 * y,10
+		fc 0
+		text @i, 10 + 20 * x, 10 + 20 * y
+
+guess = new Guess "a"
+			"""
+			c:
+				guess : "reset()|left()|right()|up()|down()|guess()"
+
+		BouncingBalls :
+			b : """
+# LOC: 43 + ++ - -- %% == push if then for in splice length circle fc sw sc _.create class constructor super extends new @
+
+class Ball 
+	constructor : ->
+	update : (grav) ->
+	render : (sel) ->
+
+class BouncingBalls extends LocalStorage
+
+	constructor : (@name) ->
+		super @name
+		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
+
+	reset : -> super
+	draw : -> super
+	update : -> 
+	add : -> 
+	delete :->
+	selNext : -> 
+	selPrev : -> 
+	grow : ->    
+	shrink : ->  
+	nextCol : -> 
+	prevCol : -> 
+	gravity : ->
+
+bouncingBalls = new BouncingBalls "b"
+"""
+
+			a:"""
+class Ball 
+	constructor : ->
+		@x = 100
+		@y = 100
+		@r = 10
+		@c = 1
+		@dx = 3
+		@dy = 4
+	update : (grav) ->
+		@x += @dx
+		@y += @dy
+		if not (@r < @x < 200-@r) then @dx = - @dx
+		if not (@r < @y < 200-@r) then @dy = - @dy
+		if grav and @y < 200-@r then @dy += 1 
+	render : (sel) ->
+		fcc @c
+		sw 2
+		if sel then scc 7 else sc()
+		circle @x,@y,@r
+
+class BouncingBalls extends LocalStorage
+
+	constructor : (@name) ->
+		super @name
+		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
+
+	reset : ->
+		super
+		@balls = []
+		@sel = -1
+		@grav = false
+	draw : ->
+		for ball,i in @balls
+			ball.render i==@sel, @grav
+	update : -> 
+		for ball in @balls
+			ball.update(@grav)
+
+	add : -> 
+		@balls.push new Ball
+		@sel = @balls.length - 1
+
+	delete :->
+		@balls.splice @sel, 1
+		if @sel >= @balls.length then @sel = @balls.length - 1  
+	selNext : -> @sel = (@sel + 1) %% @balls.length
+	selPrev : -> @sel = (@sel - 1) %% @balls.length
+	grow : ->    @balls[@sel].r++
+	shrink : ->  @balls[@sel].r--
+	nextCol : -> @balls[@sel].c = (@balls[@sel].c+1) %% 8
+	prevCol : -> @balls[@sel].c = (@balls[@sel].c-1) %% 8
+	gravity : -> @grav = not @grav 
+
+bouncingBalls = new BouncingBalls "a"
+"""
+			c:
+				bouncingBalls : "reset()|update()|add()|delete()|selNext()|selPrev()|grow()|shrink()|nextCol()|prevCol()|gravity()"
+
+
+		
 		Braider:
 			b : """
 # LOC: 61 sc bg sw for in range if then + line class constructor extends new @
@@ -1440,7 +1787,7 @@ class Braider extends LocalStorage
 	braid2 : ->
 	braid3 : ->
 	braid4 : ->
-	draw : ->
+	draw : -> super
 	forward : ->
 	back : ->
 
@@ -1521,363 +1868,11 @@ braider = new Braider "a"
 			e:
 				braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
 
-		BouncingBalls :
-			b : """
-# LOC: 43 + ++ - -- %% == push if then for in splice length circle fc sw sc _.create class constructor super extends new @
-
-class Ball 
-	constructor : ->
-	update : (grav) ->
-	render : (sel) ->
-
-class BouncingBalls extends LocalStorage
-
-	constructor : (@name) ->
-		super @name
-		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
-
-	reset : -> super
-	draw : ->
-	update : -> 
-	add : -> 
-	delete :->
-	selNext : -> 
-	selPrev : -> 
-	grow : ->    
-	shrink : ->  
-	nextCol : -> 
-	prevCol : -> 
-	gravity : ->
-
-bouncingBalls = new BouncingBalls "b"
-"""
-
-			a:"""
-class Ball 
-	constructor : ->
-		@x = 100
-		@y = 100
-		@r = 10
-		@c = 1
-		@dx = 3
-		@dy = 4
-	update : (grav) ->
-		@x += @dx
-		@y += @dy
-		if not (@r < @x < 200-@r) then @dx = - @dx
-		if not (@r < @y < 200-@r) then @dy = - @dy
-		if grav and @y < 200-@r then @dy += 1 
-	render : (sel) ->
-		fcc @c
-		sw 2
-		if sel then scc 7 else sc()
-		circle @x,@y,@r
-
-class BouncingBalls extends LocalStorage
-
-	constructor : (@name) ->
-		super @name
-		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
-
-	reset : ->
-		super
-		@balls = []
-		@sel = -1
-		@grav = false
-	draw : ->
-		for ball,i in @balls
-			ball.render i==@sel, @grav
-	update : -> 
-		for ball in @balls
-			ball.update(@grav)
-
-	add : -> 
-		@balls.push new Ball
-		@sel = @balls.length - 1
-
-	delete :->
-		@balls.splice @sel, 1
-		if @sel >= @balls.length then @sel = @balls.length - 1  
-	selNext : -> @sel = (@sel + 1) %% @balls.length
-	selPrev : -> @sel = (@sel - 1) %% @balls.length
-	grow : ->    @balls[@sel].r++
-	shrink : ->  @balls[@sel].r--
-	nextCol : -> @balls[@sel].c = (@balls[@sel].c+1) %% 8
-	prevCol : -> @balls[@sel].c = (@balls[@sel].c-1) %% 8
-	gravity : -> @grav = not @grav 
-
-bouncingBalls = new BouncingBalls "a"
-"""
-			c:
-				bouncingBalls : "reset()|update()|add()|delete()|selNext()|selPrev()|grow()|shrink()|nextCol()|prevCol()|gravity()"
-
-		Guess_a_number :
-			b:"""
-# LOC:28 bg sc fc circle %% * / + - <= >= text textAlign for in range Math.floor if then return < class extends constructor new @ super ->
-
-class Guess extends LocalStorage
-	reset : -> super
-	left :-> 
-	right :->
-	up :->
-	down :->
-	guess :->
-	draw : ->
-
-guess = new Guess "b"
-"""
-			a:"""
-class Guess extends LocalStorage
-	reset : ->
-		super
-		@n = 10
-		@i = @n/2
-		@j = @n/2
-		@start = 0
-		@stopp = @n*@n-1
-		@secret = 27
-
-	left :-> @i = (@i-1) %% @n
-	right :->@i = (@i+1) %% @n
-	up :->   @j = (@j-1) %% @n
-	down :-> @j = (@j+1) %% @n
-	guess :-> 
-		i = @n * @j + @i
-		if i <= @secret then @start = i+1 
-		if i >= @secret then @stopp = i-1 
-
-	draw : ->
-		bg 0.1
-		textAlign CENTER,CENTER
-		for i in range @n*@n
-			if @start <= i <= @stopp then fc 1 else fc 0.5
-			sc()
-			x = i % @n
-			y = Math.floor i / @n
-			text i, 10 + 20 * x, 10 + 20 * y
-		fc 1,1,0
-		sc()
-		circle 10 + 20 * @i, 10 + 20 *@j,10
-		fc 0
-		i = @n * @j + @i
-		text i, 10 + 20 * @i, 10 + 20 *@j
-
-guess = new Guess "a"
-			"""
-			c:
-				guess : "reset()|left()|right()|up()|down()|guess()"
-
-		
-		korg: 
-			b:"""
-# LOC:27 -> bg fc sc sw rect for if else class extends constructor new @ super ->
-
-class Korg extends LocalStorage
-	reset : -> super
-	draw : ->
-	more : ->
-	less : ->
-	thinner : ->
-	thicker : ->
-
-korg = new Korg "b"
-"""
-			a: """
-class Korg extends LocalStorage
-	reset : ->
-		super
-		@n = 1
-		@w = 5
-
-	draw : ->
-		c1 = co 1,0,0
-		c2 = co 1,1,0
-		bg 0
-		sw @w
-		fill c1
-		stroke c2
-		q = 2*@n+1
-		d = 200.0/q
-		for i in range @n
-			rect d+i*2*d,0,d,200
-		for j in range @n
-			rect 0,d+j*2*d,200,d
-		for i in range @n
-			for j in range @n
-				if (i+j) % 2 == 1
-					rect i*2*d,d+j*2*d,3*d,d
-				else
-					rect d+i*2*d,j*2*d,d,3*d
-	more : -> @n++
-	less : -> @n--
-	thinner : -> @w--
-	thicker : -> @w++
-
-korg = new Korg "a"
-"""
-			c: 
-				korg : "reset()|more()|less()|thinner()|thicker()"
-
-		"OlympicRing Prep":
-			b:"""
-# LOC:21 sc fc sw arc strokeCap class extends constructor new @ super ->
-
-class Ring extends LocalStorage
-	reset : -> super
-	_start : (d) ->
-	_stopp : (d) -> 
-	_radius : (d) ->
-	_width : (d) ->
-	draw : ->
-
-ring = new Ring "b"
-"""
-			a:"""
-class Ring extends LocalStorage
-	reset : ->
-		super
-		@start = 3
-		@stopp = 6
-		@w = 5
-		@radius = 50
-	_start : (d) -> @start+=d
-	_stopp : (d) -> @stopp+=d
-	_radius : (d) -> @radius+=d
-	_width : (d) -> @w+=d
-	draw : ->
-		hour = PI/6
-		strokeCap SQUARE
-		fc()
-		sw @w
-		sc 1,1,0
-		arc 100,100,2*@radius,2*@radius,(@start-3)*hour,(@stopp-3)*hour
-
-ring = new Ring "a"
-"""
-			c: 
-				ring : "reset()|_start -1|_start 1|_stopp -1|_stopp 1|_radius -1|_radius 1|_width -1|_width 1"
-
-
-		boardGame :
-			b:"""
-# LOC:10 bg fc sc circle for in range ->
-
-class Board extends LocalStorage
-	reset : -> super
-	draw : ->	
-	_r : (d) ->
-	_d : (d) ->
-	_n : (d) ->
-
-board = new Board "b" 
-"""
-			a:"""
-
-class Board extends LocalStorage
-	reset : ->
-		super
-		@x = 100
-		@y = 100
-		@d = 18
-		@r = 7
-		@n = 5
-	draw : ->	
-		bg 1
-		fc 0
-		sc()
-		@one @d,@r,@x-@n*@d, @y-@d,2*@n+1,3
-		@one @d,@r,@x-@d, @y-@n*@d,3,2*@n+1
-	one : (d,r,x0,y0,m,n) ->
-		for i in range m
-			for j in range n
-				circle x0+d*i,y0+d*j,r
-	_r : (d) -> @r+=d
-	_d : (d) -> @d+=d
-	_n : (d) -> @n+=d
-board = new Board "a" 
-"""
-
-			c:
-				board : "reset()|_r -1|_r 1|_d -1|_d 1|_n -1|_n 1"
-
-
-
-		Moire: 
-			b:"""
-# LOC:10 bg for line map class extends constructor new @ super ->
-
-class Moire extends LocalStorage
-	reset : -> super
-	draw : ->
-	more : -> 
-	less : -> 
-
-moire = new Moire "b"
-			"""
-			a: """
-class Moire extends LocalStorage
-	reset : ->
-		super
-		@n = 2
-	draw : ->
-		background 0
-		for i in range @n
-			for j in range 37
-				line 10,map(i,0,@n-1,10,190),190,10+j*5
-	more : -> @n++
-	less : -> @n--
-
-moire = new Moire "a"
-"""
-			c: 
-				moire : "reset()|more()|less()"
-		
-		colorCube:
-			b: """
-# LOC:20 -> bg fc for in range rect class extends constructor new @ super ->
-
-class ColorCube extends LocalStorage
-	reset : -> super
-	draw : ->
-	moreDetails : ->
-	lessDetails : ->
-	moreBlue : ->
-	lessBlue : ->
-
-cc = new ColorCube "b"
-"""
-			a: """
-class ColorCube extends LocalStorage
-
-	draw : ->
-		bg 0
-		d = 200.0/@n
-		m = @n-1.0
-		for r in range @n
-			for g in range @n
-				fc r/m,g/m,@b/m
-				rect r*d,g*d,d,d
-
-	reset : -> 
-		super
-		@n=2
-		@b=0
-	moreDetails : -> if @n<255 then @n++
-	lessDetails : -> if @n>2 then @n--
-	moreBlue : -> if @b<@n-1 then @b+=1
-	lessBlue : -> if @b>0 then @b-=1
-
-cc = new ColorCube "a"
-"""
-			c: 
-				cc : "reset()|moreDetails()|lessDetails()|moreBlue()|lessBlue()"
-
-
-		Laboratore :
+		Laboratorium :
 			b:"""		
 # Här kan du laborera med egna idéer!
 
-class Laboratore extends LocalStorage
+class Laboratorium extends LocalStorage
 	reset : ->
 		super
 		@x = 100
@@ -1899,10 +1894,10 @@ class Laboratore extends LocalStorage
 		fc 1,1,0
 		text @command,@x,@y
 
-laboratore = new Laboratore "b"     
+laboratorium = new Laboratorium "b"     
 """
 			a:"""
-class Laboratore extends LocalStorage
+class Laboratorium extends LocalStorage
 	reset : -> super
 	left : -> 
 	right : -> 
@@ -1916,10 +1911,10 @@ class Laboratore extends LocalStorage
 	f : -> 
 	draw : -> 
 
-laboratore = new Laboratore "a"   		
+laboratorium = new Laboratorium "a"   		
 """
 			c:
-				labb : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
+				laboratorium : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
 
 #####################################
 	"LA: interactivity, advanced" :
@@ -1932,12 +1927,12 @@ laboratore = new Laboratore "a"
 
 class Klocka extends LocalStorage
 	reset : -> super
-	draw : ->
+	draw : -> super
 	incr_hour   : -> 
-	incr_minute : -> 
-	incr_second : -> 
 	decr_hour   : -> 
+	incr_minute : -> 
 	decr_minute : -> 
+	incr_second : -> 
 	decr_second : -> 
 
 klocka = new Klocka "b"
@@ -1984,7 +1979,7 @@ class Klocka extends LocalStorage
 klocka = new Klocka "a"
 """
 			c: 
-				klocka : "reset()|incr_hour()|incr_minute()|incr_second()|decr_hour()|decr_minute()|decr_second()"
+				klocka : "reset()|incr_hour()|decr_hour()|incr_minute()|decr_minute()|incr_second()|decr_second()"
 
 
 		recursiveCircle: 
@@ -1993,7 +1988,7 @@ klocka = new Klocka "a"
 
 class RecursiveCircle extends LocalStorage
 	reset : -> super
-	draw : -> 	
+	draw : -> super
 	circles : (x,y,r,level) ->
 	more : -> 
 	less : -> 
@@ -2026,11 +2021,11 @@ rc = new RecursiveCircle "a"
 
 class Nim extends LocalStorage
 	reset : -> super
+	draw : -> super
 	a : ->
 	b : ->
 	c : ->
 	ok : -> 
-	draw : ->
 	hint : ->
 
 nim = new Nim "b"  
@@ -2091,7 +2086,7 @@ nim = new Nim "a"
 
 class Connect4 extends LocalStorage
 	reset : -> super
-	draw : ->
+	draw : -> super
 	move : (nr) ->
 
 connect4 = new Connect4 "b"
@@ -2141,7 +2136,7 @@ connect4 = new Connect4 "a"
 
 class Chess extends LocalStorage
 	reset : -> super
-	draw : ->
+	draw : -> super
 	move : (d) ->
 
 chess = new Chess "b"
@@ -2243,11 +2238,11 @@ class Ship extends LocalStorage
 		super @name
 		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
 	reset : -> super
+	draw : -> super
 	lt : -> 
 	rt : -> 
 	fd : -> 
 	shoot : ->		
-	draw : ->
 
 ship = new Ship "b"	
 """
@@ -2320,7 +2315,7 @@ class RushHour extends LocalStorage
 		if @c then @c = _.create Car.prototype, @c
 		if @d then @d = _.create Car.prototype, @d
 	reset : -> super
-	draw : ->
+	draw : -> super
 	add : (pos,r,g,b) -> 
 	A_Left  : ->
 	A_Right : ->
@@ -2412,7 +2407,7 @@ rushHour = new RushHour "a"
 
 class PickingBerries extends LocalStorage
 	reset      : -> super
-	draw       : ->
+	draw       : -> super
 	left       : -> 
 	right      : -> 
 	up         : -> 
@@ -2499,7 +2494,7 @@ berries = new PickingBerries "a"
 
 class AlphaNumeric extends LocalStorage
 	reset : -> super
-	draw : ->
+	draw : -> super
 	character : (ch) -> 
 
 alpha = new AlphaNumeric "b"
@@ -2533,10 +2528,10 @@ alpha = new AlphaNumeric "a"
 
 class GoldenStar extends LocalStorage
 	reset : -> super
+	draw : -> super
 	_n : (d) -> 
 	_outer : (d) ->
 	_inner : (d) ->
-	draw : ->
 
 star = new GoldenStar "b"
 """
@@ -2582,7 +2577,7 @@ class Turtle
 
 class Polygon extends LocalStorage
 	reset : -> super
-	draw : ->
+	draw : -> super
 	antalSidor : (d) ->
 	antalSteg : (d) -> 
 
