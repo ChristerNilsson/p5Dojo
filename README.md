@@ -11,9 +11,9 @@
 p5Dojo innehåller mängder av övningar för den som snabbt vill komma igång med grafisk programmering.
 - Uppgifterna som ska programmeras ges av bitmappar.
 - Minimal mängd kod behöver skrivas, tack vare Coffeescript-syntax.
-- Även Javascript kan användas.
 - Omedelbar feedback i form av skillnadsbitmapp.
 - p5 kan användas för att skapa rörlig 3D-grafik för web och mobil.
+- Chrome och Windows är ett krav.
 
 ### färger
   - 0,0,1 blå
@@ -88,15 +88,15 @@ p5Dojo innehåller mängder av övningar för den som snabbt vill komma igång m
 if i%3==0
   fc 0
 else if i%3==1
-  fc 1
+  fc 0.5
 else
-  fc 2
+  fc 1
 ```    
 
 ### koordinatsystemet
+  - **translate** x,y   flytta origo      
   - **rd** degrees      rotera runt origo
   - **scale** n         skala upp eller ner
-  - **translate** x,y   flytta origo      
   
 ### modes
   - **rectMode** CORNER
@@ -139,7 +139,6 @@ Sparar och återställer följande kommandon:
  - Funktioner skapas med ->
   * f = (x) -> x*x
   * g = (a,b) -> a+b
- - Genom att skriva //ECMA på första raden går du över till Javascript.
   
 ### exempel 1: CoffeeScript
 ```javascript
