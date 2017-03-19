@@ -1311,7 +1311,7 @@ olympic()
 # LOC:8 text textAlign textSize + - class extends constructor new @ super ->
 
 class Counter extends LocalStorage
-	reset : ->
+	reset : -> super
 	up : -> 
 	down : -> 
 	draw : ->
@@ -1320,7 +1320,9 @@ counter = new Counter "b"
 """
 			a:"""
 class Counter extends LocalStorage
-	reset : -> @counter = 0
+	reset : -> 
+		super
+		@counter = 0
 	up : -> @counter += 1
 	down : -> @counter -= 1
 	draw : ->
@@ -1340,7 +1342,7 @@ counter = new Counter "a"
 # LOC:20 -> bg sw fc rect rectMode translate rd + class extends constructor new @ super ->
 
 class Square extends LocalStorage
-	reset : ->
+	reset : -> super
 	draw : ->
 	horisontellt : (d) -> 
 	vertikalt : (d) ->
@@ -1353,6 +1355,7 @@ square = new Square "b"
 			a: """
 class Square extends LocalStorage
 	reset : ->
+		super
 		@x = 100
 		@y = 100
 		@size = 100
@@ -1383,7 +1386,7 @@ square = new Square "a"
 # LOC:26 bg sc fc rect rectMode if then & [] class extends constructor new @ super ->
 
 class Digit extends LocalStorage
-	reset : -> 
+	reset : -> super
 	draw : ->
 	up : -> 
 	down : -> 
@@ -1393,6 +1396,7 @@ digit = new Digit "b"
 			a:"""
 class Digit extends LocalStorage
 	reset : ->
+		super
 		@d=0
 		@x=100
 		@y=100
@@ -1612,7 +1616,7 @@ bouncingBalls = new BouncingBalls "a"
 # LOC:28 bg sc fc circle %% * / + - <= >= text textAlign for in range Math.floor if then return < class extends constructor new @ super ->
 
 class Guess extends LocalStorage
-	reset : ->
+	reset : -> super
 	left :-> 
 	right :->
 	up :->
@@ -1625,6 +1629,7 @@ guess = new Guess "b"
 			a:"""
 class Guess extends LocalStorage
 	reset : ->
+		super
 		@n = 10
 		@i = @n/2
 		@j = @n/2
@@ -1668,7 +1673,7 @@ guess = new Guess "a"
 # LOC:27 -> bg fc sc sw rect for if else class extends constructor new @ super ->
 
 class Korg extends LocalStorage
-	reset : ->
+	reset : -> super
 	draw : ->
 	more : ->
 	less : ->
@@ -1680,6 +1685,7 @@ korg = new Korg "b"
 			a: """
 class Korg extends LocalStorage
 	reset : ->
+		super
 		@n = 1
 		@w = 5
 
@@ -1717,7 +1723,7 @@ korg = new Korg "a"
 # LOC:21 sc fc sw arc strokeCap class extends constructor new @ super ->
 
 class Ring extends LocalStorage
-	reset : ->
+	reset : -> super
 	_start : (d) ->
 	_stopp : (d) -> 
 	_radius : (d) ->
@@ -1729,6 +1735,7 @@ ring = new Ring "b"
 			a:"""
 class Ring extends LocalStorage
 	reset : ->
+		super
 		@start = 3
 		@stopp = 6
 		@w = 5
@@ -1756,7 +1763,7 @@ ring = new Ring "a"
 # LOC:10 bg fc sc circle for in range ->
 
 class Board extends LocalStorage
-	reset : ->
+	reset : -> super
 	draw : ->	
 	_r : (d) ->
 	_d : (d) ->
@@ -1768,6 +1775,7 @@ board = new Board "b"
 
 class Board extends LocalStorage
 	reset : ->
+		super
 		@x = 100
 		@y = 100
 		@d = 18
@@ -1794,12 +1802,12 @@ board = new Board "a"
 
 
 
-		multimoire: 
+		Moire: 
 			b:"""
 # LOC:10 bg for line map class extends constructor new @ super ->
 
 class Moire extends LocalStorage
-	reset : ->
+	reset : -> super
 	draw : ->
 	more : -> 
 	less : -> 
@@ -1809,6 +1817,7 @@ moire = new Moire "b"
 			a: """
 class Moire extends LocalStorage
 	reset : ->
+		super
 		@n = 2
 	draw : ->
 		background 0
@@ -1828,7 +1837,7 @@ moire = new Moire "a"
 # LOC:20 -> bg fc for in range rect class extends constructor new @ super ->
 
 class ColorCube extends LocalStorage
-	reset : ->
+	reset : -> super
 	draw : ->
 	moreDetails : ->
 	lessDetails : ->
@@ -1850,6 +1859,7 @@ class ColorCube extends LocalStorage
 				rect r*d,g*d,d,d
 
 	reset : -> 
+		super
 		@n=2
 		@b=0
 	moreDetails : -> if @n<255 then @n++
@@ -1863,11 +1873,11 @@ cc = new ColorCube "a"
 				cc : "reset()|moreDetails()|lessDetails()|moreBlue()|lessBlue()"
 
 
-		laboratorium :
+		Laboratore :
 			b:"""		
 # Här kan du laborera med egna idéer!
 
-class Labb extends LocalStorage
+class Laboratore extends LocalStorage
 	reset : ->
 		super
 		@x = 100
@@ -1889,11 +1899,11 @@ class Labb extends LocalStorage
 		fc 1,1,0
 		text @command,@x,@y
 
-labb = new Labb "b"     
+laboratore = new Laboratore "b"     
 """
 			a:"""
-class Labb extends LocalStorage
-	reset : ->
+class Laboratore extends LocalStorage
+	reset : -> super
 	left : -> 
 	right : -> 
 	up : -> 
@@ -1906,7 +1916,7 @@ class Labb extends LocalStorage
 	f : -> 
 	draw : -> 
 
-labb = new Labb "a"   		
+laboratore = new Laboratore "a"   		
 """
 			c:
 				labb : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
@@ -1921,7 +1931,7 @@ labb = new Labb "a"
 # LOC:36 -> fc sc point rect rectMode circle for in range if else translate rd push pop class extends constructor new @ super ->
 
 class Klocka extends LocalStorage
-	reset : -> 
+	reset : -> super
 	draw : ->
 	incr_hour   : -> 
 	incr_minute : -> 
@@ -1935,6 +1945,7 @@ klocka = new Klocka "b"
 			a: """
 class Klocka extends LocalStorage
 	reset : -> 
+		super
 		@h=10
 		@m=9
 		@s=30
@@ -1981,7 +1992,7 @@ klocka = new Klocka "a"
 # LOC:10 -> sc circle if return < class extends constructor new @ super ->
 
 class RecursiveCircle extends LocalStorage
-	reset : -> 
+	reset : -> super
 	draw : -> 	
 	circles : (x,y,r,level) ->
 	more : -> 
@@ -1992,7 +2003,9 @@ rc = new RecursiveCircle "b"
 			a: """
 
 class RecursiveCircle extends LocalStorage
-	reset : -> @n = 0
+	reset : -> 
+		super
+		@n = 0
 	draw : -> @circles 100,100,100,@n		
 	circles : (x,y,r,level) ->
 		circle x,y,r
@@ -2012,7 +2025,7 @@ rc = new RecursiveCircle "a"
 # LOC:34 -> bg fc sc circle * + - ^ if then else _.isEqual return < constrain text textAlign textSize class extends constructor new @ super ->
 
 class Nim extends LocalStorage
-	reset : -> 
+	reset : -> super
 	a : ->
 	b : ->
 	c : ->
@@ -2025,6 +2038,7 @@ nim = new Nim "b"
 			a:"""
 class Nim extends LocalStorage
 	reset : -> 
+		super
 		@board = [7,8,9]
 		@active = -1
 		@player = 0
@@ -2076,7 +2090,7 @@ nim = new Nim "a"
 # LOC:29 % bg fc sc sw circle text textAlign textSize for in range push class extends constructor new @ super -> 
 
 class Connect4 extends LocalStorage
-	reset : ->
+	reset : -> super
 	draw : ->
 	move : (nr) ->
 
@@ -2085,6 +2099,7 @@ connect4 = new Connect4 "b"
 			a:"""
 class Connect4 extends LocalStorage
 	reset : ->
+		super
 		@size = 27
 		@list = ([] for i in range 7)
 		@moves = []
@@ -2125,7 +2140,7 @@ connect4 = new Connect4 "a"
 #        for in range push split length indexOf
 
 class Chess extends LocalStorage
-	reset : ->
+	reset : -> super
 	draw : ->
 	move : (d) ->
 
@@ -2135,6 +2150,7 @@ chess = new Chess "b"
 class Chess extends LocalStorage
 
 	reset : ->
+		super
 		@moves = "e2e4 e7e5 g1f3 b8c6 f1c4".split " "
 		@size = 22
 		@x = 100
@@ -2226,7 +2242,7 @@ class Ship extends LocalStorage
 	constructor : (@name) ->
 		super @name
 		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
-	reset : ->
+	reset : -> super
 	lt : -> 
 	rt : -> 
 	fd : -> 
@@ -2250,6 +2266,7 @@ class Ship extends LocalStorage
 		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
 
 	reset : ->
+		super
 		@x = 100
 		@y = 100
 		@s = 10
@@ -2298,8 +2315,11 @@ class Car
 class RushHour extends LocalStorage
 	constructor : (@name) ->
 		super @name
-		if @cars then @cars = (_.create Car.prototype, car for car in @cars)
-	reset : ->
+		if @a then @a = _.create Car.prototype, @a
+		if @b then @b = _.create Car.prototype, @b
+		if @c then @c = _.create Car.prototype, @c
+		if @d then @d = _.create Car.prototype, @d
+	reset : -> super
 	draw : ->
 	add : (pos,r,g,b) -> 
 	A_Left  : ->
@@ -2330,14 +2350,17 @@ class RushHour extends LocalStorage
 
 	constructor : (@name) ->
 		super @name
-		if @cars then @cars = (_.create Car.prototype, car for car in @cars)
+		if @a then @a = _.create Car.prototype, @a
+		if @b then @b = _.create Car.prototype, @b
+		if @c then @c = _.create Car.prototype, @c
+		if @d then @d = _.create Car.prototype, @d
 
 	reset : ->
-		@cars = []
-		@add "d3e3",1,0,0
-		@add "d6d5",1,1,0
-		@add "e5f5",0,1,0
-		@add "f3f1",0,1,1
+		super
+		@a = @add "d3e3",1,0,0
+		@b = @add "d6d5",1,1,0
+		@c = @add "e5f5",0,1,0
+		@d = @add "f3f1",0,1,1
 
 	draw : ->
 		textAlign CENTER,CENTER
@@ -2351,8 +2374,10 @@ class RushHour extends LocalStorage
 		for i in range 6
 			text "123456"[i],30,50+20*i
 			text "abcdef"[i],50+20*i,170
-		for car,i in @cars
-			car.render i
+		@a.render 0
+		@b.render 1
+		@c.render 2
+		@d.render 3
 
 	col : (s) -> "abcdef".indexOf s
 	row : (s) -> "123456".indexOf s
@@ -2363,16 +2388,16 @@ class RushHour extends LocalStorage
 		w = @col(pos[2]) - i + 1
 		#h = j - @row(pos[1]) + 1 
 		h = @row(pos[1]) - j + 1 
-		@cars.push new Car i,j,w,h,r,g,b
+		new Car i,j,w,h,r,g,b
 
-	A_Left  : -> @cars[0].move -1
-	A_Right : -> @cars[0].move  1	
-	B_Up    : -> @cars[1].move -1	
-	B_Down  : -> @cars[1].move  1
-	C_Left  : -> @cars[2].move -1
-	C_Right : -> @cars[2].move  1
-	D_Up    : -> @cars[3].move -1
-	D_Down  : -> @cars[3].move  1
+	A_Left  : -> @a.move -1
+	A_Right : -> @a.move  1	
+	B_Up    : -> @b.move -1	
+	B_Down  : -> @b.move  1
+	C_Left  : -> @c.move -1
+	C_Right : -> @c.move  1
+	D_Up    : -> @d.move -1
+	D_Down  : -> @d.move  1
 			
 rushHour = new RushHour "a"
 """
@@ -2386,7 +2411,7 @@ rushHour = new RushHour "a"
 # LOC:46 bg sc fc sw [] * + line text textSize textAlign constrain dist splice break for in class extends constructor new @ super ->
 
 class PickingBerries extends LocalStorage
-	reset      : ->
+	reset      : -> super
 	draw       : ->
 	left       : -> 
 	right      : -> 
@@ -2409,7 +2434,8 @@ class PickingBerries extends LocalStorage
 		@y = 100
 		@speed = 1
 		@clix = 0
-		@berries = [[100,107],[189,175],[124,138],[196,188],[13,37],[187,78],[12,168],[153,31],[32,20],[131,188]]
+		@xs = [100,189,124,196,13,187,12,153,32,131]
+		@ys = [107,175,138,188,37,78,168,31,20,188]
 
 	draw : ->
 		bg 0
@@ -2429,7 +2455,7 @@ class PickingBerries extends LocalStorage
 
 		sc 1,0,0
 		sw 2
-		for [x,y] in @berries
+		for [x,y] in _.zip @xs,@ys
 			line x-3,y-3,x+3,y+3
 			line x+3,y-3,x-3,y+3
 
@@ -2451,9 +2477,10 @@ class PickingBerries extends LocalStorage
 		@clix++
 		constrain @zoom+d,0,3 
 	pick : ->
-		for [x,y],i in @berries
+		for [x,y],i in _.zip @xs,@ys
 			if dist(x,y,@x,@y) <= 2
-				@berries.splice i,1
+				@xs.splice i,1
+				@ys.splice i,1
 				break
 		@clix++
 
@@ -2471,7 +2498,7 @@ berries = new PickingBerries "a"
 # LOC:15 bg for in range indexOf & ** circle {} [] '' if then else class extends constructor new @ super ->
 
 class AlphaNumeric extends LocalStorage
-	reset : ->
+	reset : -> super
 	draw : ->
 	character : (ch) -> 
 
@@ -2480,6 +2507,7 @@ alpha = new AlphaNumeric "b"
 			a:"""
 class AlphaNumeric extends LocalStorage
 	reset : -> 
+		super
 		@pattern = {1:'4c4444e', 2:'eh1248v', A:'ehhvhhh', B:'uhhuhhu'}
 		@ch = 'A'
 	draw : ->
@@ -2504,7 +2532,7 @@ alpha = new AlphaNumeric "a"
 # LOC:23 bg fc for in range triangle translate rotate cos sin class extends constructor new @ super ->
 
 class GoldenStar extends LocalStorage
-	reset : ->
+	reset : -> super
 	_n : (d) -> 
 	_outer : (d) ->
 	_inner : (d) ->
@@ -2515,6 +2543,7 @@ star = new GoldenStar "b"
 			a: """
 class GoldenStar extends LocalStorage
 	reset : ->
+		super
 		@x = 100
 		@y = 100
 		@n = 4
@@ -2552,7 +2581,7 @@ class Turtle
 	rt : (a) ->
 
 class Polygon extends LocalStorage
-	reset : ->
+	reset : -> super
 	draw : ->
 	antalSidor : (d) ->
 	antalSteg : (d) -> 
@@ -2574,6 +2603,7 @@ class Turtle
 
 class Polygon extends LocalStorage
 	reset : ->
+		super
 		@n = 6
 		@steg = 60
 
