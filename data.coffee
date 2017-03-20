@@ -2636,13 +2636,13 @@ polygon = new Polygon "a"
 
 class Kalkylator extends LocalStorage
 	reset : -> super
-	draw : -> super
-	chs : ->
-	swap : -> 
-	drop : -> 
-	dup : -> 
-	sqrt : -> 
-	clr : ->
+	draw  : -> super
+	chs   : ->
+	swap  : -> 
+	drop  : -> 
+	dup   : -> 
+	sqrt  : -> 
+	clr   : ->
 	enter : ->
 
 kalkylator = new Kalkylator "b"

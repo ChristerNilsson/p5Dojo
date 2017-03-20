@@ -130,12 +130,13 @@ sel3click = (sel) ->
 
 setLinks = ->
 	linksClear()
-	linkAppend links,	"https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md", "Help"
+	linkAppend links,	"https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md", "p5Dojo"
 	linkAppend links,	"https://p5js.org/reference", "p5"
 	linkAppend links,	"http://coffeescript.org", "Coffeescript"
 	linkAppend links,	"https://www.w3schools.com/js", "Javascript"
 	linkAppend links,	"https://github.com/ChristerNilsson/Nilsson/blob/master/README.md", "Nilsson"
-	linkAppend links,	"http://underscorejs.org/", "_"
+	linkAppend links,	"https://christernilsson.github.io/p5Color", "p5Color"
+	linkAppend links,	"http://underscorejs.org/", "Underscore"
 
 	for text,link of data[chapter][exercise]["e"]
 		linkAppend links,link,text
