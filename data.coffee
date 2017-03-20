@@ -1634,16 +1634,13 @@ korg = new Korg "a"
 
 		Guess_a_number :
 			b:"""
-# LOC:31 bg sc fc circle %% * / + - <= >= text textAlign for in range Math.floor if then return < class extends constructor new @ super ->
+# LOC:20 bg fc sc text textAlign for in range if then else * / + - % <=
+#        Math.floor @readInt class extends constructor new @ super ->
 
 class Guess extends LocalStorage
 	reset : -> super
 	draw  : -> super
-	left  : -> 
-	right : ->
-	up    : ->
-	down  : ->
-	guess : ->
+	readGuess : ->
 
 guess = new Guess "b"
 """
@@ -1652,18 +1649,14 @@ class Guess extends LocalStorage
 	reset : ->
 		super
 		@n = 100
-		@i = @n/2
 		@start = 0
 		@stopp = @n-1
 		@secret = 27
 
-	left  :-> @i = (@i-1) %% @n
-	right :-> @i = (@i+1) %% @n
-	up    :-> @i = (@i-10) %% @n
-	down  :-> @i = (@i+10) %% @n
-	guess :-> 
-		if @i <= @secret then @start = @i+1 
-		if @i >= @secret then @stopp = @i-1 
+	readGuess :-> 
+		guess = @readInt()
+		if guess <= @secret then @start = guess+1 
+		if guess >= @secret then @stopp = guess-1 
 
 	draw : ->
 		bg 0.1
@@ -1674,18 +1667,12 @@ class Guess extends LocalStorage
 			x = i % 10
 			y = Math.floor i / 10
 			text i, 10 + 20 * x, 10 + 20 * y
-		fc 1,1,0
-		sc()
-		x = @i % 10
-		y = Math.floor @i / 10
-		circle 10 + 20 * x, 10 + 20 * y,10
-		fc 0
-		text @i, 10 + 20 * x, 10 + 20 * y
 
 guess = new Guess "a"
 			"""
 			c:
-				guess : "reset()|left()|right()|up()|down()|guess()"
+				guess : "reset()|readGuess()"
+
 
 		BouncingBalls :
 			b : """
@@ -2017,16 +2004,20 @@ rc = new RecursiveCircle "a"
 
 		Nim:
 			b:"""		
-# LOC:34 -> bg fc sc circle * + - ^ if then else _.isEqual return < constrain text textAlign textSize class extends constructor new @ super ->
+# LOC:38 bg fc sc circle * + - ^ if then else @readInt _.isEqual return <  
+#        constrain text textAlign textSize class extends constructor new @ super ->
 
 class Nim extends LocalStorage
-	reset : -> super
-	draw : -> super
-	a : ->
-	b : ->
-	c : ->
-	ok : -> 
-	hint : ->
+	reset  : -> super
+	draw   : -> super
+	read_a : ->
+	read_b : ->
+	read_c : ->
+	pick_a : ->
+	pick_b : ->
+	pick_c : ->
+	ok     : -> 
+	hint   : ->
 
 nim = new Nim "b"  
 """
@@ -2042,16 +2033,20 @@ class Nim extends LocalStorage
 			@active = index
 			@board[@active] = constrain @board[@active]-1, 0, 99
 
-	a : -> @move 0
-	b : -> @move 1
-	c : -> @move 2
+	read_a : -> @board[0] = @readInt()
+	read_b : -> @board[1] = @readInt()
+	read_c : -> @board[2] = @readInt()
+
+	pick_a : -> @move 0
+	pick_b : -> @move 1
+	pick_c : -> @move 2
 	ok : -> 
 		if @active == -1 then return
 		@player = 1 - @player
 		@active = -1 
 	draw : ->
 		textAlign CENTER,CENTER
-		textSize 50
+		textSize 32
 		bg 0
 		fc 1
 		sc()
@@ -2072,7 +2067,7 @@ nim = new Nim "a"
 		
 """
 			c:
-				nim : "reset()|a()|b()|c()|ok()|hint()"
+				nim : "reset()|read_a()|read_b()|read_c()|pick_a()|pick_b()|pick_c()|ok()|hint()"
 			e:
 				Nim : "https://en.wikipedia.org/wiki/Nim"
 				xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"

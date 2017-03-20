@@ -8,12 +8,13 @@
  - [p5Assert](https://christernilsson.github.io/p5Assert)
  - [Nilsson](https://github.com/ChristerNilsson/Nilsson/blob/master/README.md)
  
-p5Dojo innehåller mängder av övningar för den som snabbt vill komma igång med grafisk programmering.
-- Uppgifterna som ska programmeras ges av bitmappar.
-- Minimal mängd kod behöver skrivas, tack vare Coffeescript-syntax.
-- Omedelbar feedback i form av skillnadsbitmapp.
-- p5 kan användas för att skapa rörlig 3D-grafik för web och mobil.
-- Chrome och Windows är ett krav.
+### Så här arbetar du!
+
+* Du ska med kod återskapa den första bitmappen
+* Resultatet av din kod hamnar i den andra bitmappen
+* Skillnaden visas i den tredje bitmappen. Den ska bli helt svart när du har löst uppgiften.
+
+### Chrome och Windows är ett krav. Ingen annan programvara behöver installeras.
 
 ### färger
   - 0,0,1 blå
@@ -193,9 +194,15 @@ Tabellen längst ner innehåller tillståndet.
 * Första kolumnen innehåller egenskapernas namn. Alltid gul.
 * Andra kolumnen innehåller förebildens data. Alltid grön.
 * Tredje kolumen innehåller resultat av användarens kod. Röd som blir grön. 
+* Klicka på reset om det ser konstigt ut.
+* Draw anropas automatiskt varje gång innehållet i editorn förändras.
 
-Klicka på reset om det ser konstigt ut.
-Draw anropas automatiskt varje gång innehållet i editorn förändras.
+#### Indata
+Följande funktioner läser indata från textrutan under skillnadsbitmappen:
+
+* @readText()
+* @readInt()
+* @readFloat()
 
 ### mera information
 

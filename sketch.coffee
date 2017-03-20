@@ -337,6 +337,7 @@ class LocalStorage
 			dict = JSON.parse obj
 			for key,value of dict
 				@[key] = value
+
 	store : -> 
 		name = chapter + "/" + exercise + "/" + @name
 		obj = JSON.stringify @
@@ -348,9 +349,17 @@ class LocalStorage
 		textAlign CENTER,CENTER
 		fc 1,1,0
 		text "Define draw!",100,100
+
 	reset : ->
 		for key in _.keys @
 			if key != "name" then delete @[key]
+
+	readText : -> 
+		x = $('#input').val()
+		$('#input').val('')
+		x
+	readInt : -> parseInt @readText()
+	readFloat : -> parseFloat @readText()
 
 tableClear = -> $("#tabell tr").remove()
 
@@ -382,4 +391,4 @@ fillTable = (a,b) ->
 
 	for key in keys
 		if key != 'name'
-			tableAppend tabell, "@" + key,a[key],b[key]	
+			tableAppend tabell, "@" + key,a[key],b[key]
