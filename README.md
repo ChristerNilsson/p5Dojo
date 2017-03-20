@@ -155,13 +155,13 @@ for i in range 10
 
 ### exempel 1: normal Javascript
 ```javascript
-background(255,127,255)
-strokeWeight(2)
-stroke(127)
+background(255,127,255);
+strokeWeight(2);
+stroke(127);
 for (var i=0; i<10; i++) {
-  fill((i%2)*255)
-  rotate(radians(5))
-  rectangle(20*i + 5,5, 10,10)
+  fill((i%2)*255);
+  rotate(radians(5));
+  rectangle(20*i + 5,5, 10,10);
 }
 ```    
 
@@ -173,7 +173,7 @@ f = (a,b) -> a+b
 ### exempel 2: funktion i Javascript
 ```javascript
 function f(a,b) {
-  return a+b
+  return a+b;
 }
 ```    
 
@@ -194,7 +194,7 @@ Tabellen längst ner innehåller tillståndet.
 
 * Första kolumnen innehåller egenskapernas namn. Alltid gul.
 * Andra kolumnen innehåller förebildens data. Alltid grön.
-* Tredje kolumen innehåller resultat av användarens kod. Röd som blir grön. 
+* Tredje kolumnen innehåller resultat av användarens kod. Röd som blir grön. 
 * Klicka på reset om det ser konstigt ut.
 * Draw anropas automatiskt varje gång innehållet i editorn förändras.
 

@@ -1,6 +1,7 @@
 # b : comment line. LOC and keyword clues
-# a : facit
-# c : call 
+# a : original code
+# c : object method calls
+# e : links
 
 data = 
 
@@ -10,7 +11,11 @@ data =
 
 		Nyheter :
 			b:"""
-# NYHETER 2017 MAR
+# NYHETER 2017 MAR 19
+#   LB: Kalkylator
+# NYHETER 2017 MAR 12
+#   LA: PickingBerries
+# NYHETER 2017 MAR 5
 #   L6: Two Arcs
 #   L7: Roulette
 #   L8: boardGame, sevenSegment, OlympicRing
@@ -20,7 +25,7 @@ data =
 # Klicka nu på L1!
 
 # Eller besök Utställningen.
-# Dessa bilder är framtagna av deltagare på p5Dojo.
+# Dessa program är skapade av deltagare på p5Dojo.
 # Vill du också visa upp ditt alster? Ge i så fall koden till din mentor.
 """
 			a:"""
@@ -1418,9 +1423,9 @@ square = new Square "a"
 class Board extends LocalStorage
 	reset : -> super
 	draw : ->	super
-	_r : (d) ->
-	_d : (d) ->
-	_n : (d) ->
+	r : (d) ->
+	d : (d) ->
+	n : (d) ->
 
 board = new Board "b" 
 """
@@ -1429,28 +1434,28 @@ board = new Board "b"
 class Board extends LocalStorage
 	reset : ->
 		super
-		@x = 100
-		@y = 100
-		@d = 18
-		@r = 7
-		@n = 5
+		@_x = 100
+		@_y = 100
+		@_d = 18
+		@_r = 7
+		@_n = 5
 	draw : ->	
 		bg 1
 		fc 0
 		sc()
-		@one @d,@r,@x-@n*@d, @y-@d,2*@n+1,3
-		@one @d,@r,@x-@d, @y-@n*@d,3,2*@n+1
+		@one @_d,@_r,@_x-@_n*@_d, @_y-@_d,2*@_n+1,3
+		@one @_d,@_r,@_x-@_d, @_y-@_n*@_d,3,2*@_n+1
 	one : (d,r,x0,y0,m,n) ->
 		for i in range m
 			for j in range n
 				circle x0+d*i,y0+d*j,r
-	_r : (d) -> @r+=d
-	_d : (d) -> @d+=d
-	_n : (d) -> @n+=d
+	r : (d) -> @_r += d
+	d : (d) -> @_d += d
+	n : (d) -> @_n += d
 board = new Board "a" 
 """
 			c:
-				board : "reset()|_r -1|_r 1|_d -1|_d 1|_n -1|_n 1"
+				board : "reset()|r -1|r +1|d -1|d +1|n -1|n +1"
 
 		colorCube:
 			b: """
@@ -1497,12 +1502,12 @@ cc = new ColorCube "a"
 # LOC:21 sc fc sw arc strokeCap class extends constructor new @ super ->
 
 class Ring extends LocalStorage
-	reset   : -> super
-	draw    : -> super
-	_start  : (d) ->
-	_stopp  : (d) -> 
-	_radius : (d) ->
-	_width  : (d) ->
+	reset  : -> super
+	draw   : -> super
+	start  : (d) ->
+	stopp  : (d) -> 
+	radius : (d) ->
+	width  : (d) ->
 
 ring = new Ring "b"
 """
@@ -1510,26 +1515,26 @@ ring = new Ring "b"
 class Ring extends LocalStorage
 	reset : ->
 		super
-		@start = 3
-		@stopp = 6
-		@w = 5
-		@radius = 50
-	_start : (d) -> @start+=d
-	_stopp : (d) -> @stopp+=d
-	_radius : (d) -> @radius+=d
-	_width : (d) -> @w+=d
+		@_start = 3
+		@_stopp = 6
+		@_w = 5
+		@_radius = 50
+	start : (d) -> @_start+=d
+	stopp : (d) -> @_stopp+=d
+	radius : (d) -> @_radius+=d
+	width : (d) -> @_w+=d
 	draw : ->
 		hour = PI/6
 		strokeCap SQUARE
 		fc()
-		sw @w
+		sw @_w
 		sc 1,1,0
-		arc 100,100,2*@radius,2*@radius,(@start-3)*hour,(@stopp-3)*hour
+		arc 100,100,2*@_radius,2*@_radius,(@_start-3)*hour,(@_stopp-3)*hour
 
 ring = new Ring "a"
 """
 			c: 
-				ring : "reset()|_start -1|_start 1|_stopp -1|_stopp 1|_radius -1|_radius 1|_width -1|_width 1"
+				ring : "reset()|start -1|start +1|stopp -1|stopp +1|radius -1|radius +1|width -1|width +1"
 
 		sevenSegment :
 			b : """
@@ -1552,13 +1557,13 @@ class Digit extends LocalStorage
 		@y=100
 		@w=80
 		@h=18
+		@pattern = [63,6,91,79,102,109,125,7,127,111]
 	draw : ->
 		bg 0.5
 		sc()
 		fc 1,0,0
 		rectMode CENTER
-		pattern = [63,6,91,79,102,109,125,7,127,111]
-		p = pattern[@d]
+		p = @pattern[@d]
 		w0 = @w-20
 		if p & 1 then fc 1,0,0 else fc 0.3,0,0
 		rect @x,@y-@w,w0,@h 
@@ -1574,8 +1579,8 @@ class Digit extends LocalStorage
 		rect @x-@w/2,@y-@w/2,@h,w0 
 		if p & 64 then fc 1,0,0 else fc 0.3,0,0
 		rect @x,@y,w0,@h 
-	up : -> @d++
-	down : -> @d--
+	up   : -> @d = constrain @d + 1, 0, 9
+	down : -> @d = constrain @d - 1, 0, 9
 
 digit = new Digit "a"
 """
@@ -1635,7 +1640,7 @@ korg = new Korg "a"
 		Guess_a_number :
 			b:"""
 # LOC:20 bg fc sc text textAlign for in range if then else * / + - % <=
-#        Math.floor @readInt class extends constructor new @ super ->
+#        int @readInt class extends constructor new @ super ->
 
 class Guess extends LocalStorage
 	reset : -> super
@@ -1665,7 +1670,7 @@ class Guess extends LocalStorage
 			if @start <= i <= @stopp then fc 1 else fc 0.5
 			sc()
 			x = i % 10
-			y = Math.floor i / 10
+			y = int i / 10
 			text i, 10 + 20 * x, 10 + 20 * y
 
 guess = new Guess "a"
@@ -1768,15 +1773,19 @@ bouncingBalls = new BouncingBalls "a"
 		
 		Braider:
 			b : """
-# LOC: 61 sc bg sw for in range if then + line class constructor extends new @
+# LOC: 49 sc bg sw for in range if then + line class constructor extends new @
+
+class Cartesius
+	constructor : (x,y,c) ->
+	go          : (dx,dy) ->
+	down        : (d) ->
+	left        : (d) ->
 
 class Braider extends LocalStorage
-	braid2 : ->
-	braid3 : ->
-	braid4 : ->
-	draw : -> super
+	braid   : (type) -> 
+	draw    : -> super
 	forward : ->
-	back : ->
+	back    : ->
 
 braider = new Braider "b"
 """
@@ -1793,16 +1802,13 @@ class Cartesius
 
 class Braider extends LocalStorage
 
-	braid2 : ->
-		@type = 2
-		@n = 0
-	braid3 : ->
-		@type = 3
-		@n = 0
-	braid4 : ->
-		@type = 4
-		@n = 0
+	braid : (@type) -> @n = 0
 	draw : ->
+		if @type==1
+			sw 5
+			a = new Cartesius 200,20, 1 # röd
+			for i in range @n
+				a.go -20,20
 		if @type==2
 			sw 5
 			a = new Cartesius 200,20, 1 # röd
@@ -1850,7 +1856,7 @@ class Braider extends LocalStorage
 braider = new Braider "a"
 """
 			c:
-				braider : "braid2()|braid3()|braid4()|forward()|back()"
+				braider : "braid 1|braid 2|braid 3|braid 4|forward()|back()"
 
 			e:
 				braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
@@ -1865,27 +1871,28 @@ class Laboratorium extends LocalStorage
 		@x = 100
 		@y = 100
 		@command = ""
-	left : -> @x -= 10
-	right : -> @x += 10
-	up : -> @y -= 10
-	down : -> @y += 10
-	a : -> @command = "a"
-	b : -> @command = "b"
-	c : -> @command = "c"
-	d : -> @command = "d"
-	e : -> @command = Math.floor random 1,7
-	f : -> @command = Math.floor millis()
-	draw : -> 
+	draw  : -> 
 		textAlign CENTER,CENTER
 		textSize 50
 		fc 1,1,0
 		text @command,@x,@y
+	left  : -> @x -= 10
+	right : -> @x += 10
+	up    : -> @y -= 10
+	down  : -> @y += 10
+	a     : -> @command = "a"
+	b     : -> @command = "b"
+	c     : -> @command = "c"
+	d     : -> @command = "d"
+	e     : -> @command = int random 1,7
+	f     : -> @command = int millis()
 
 laboratorium = new Laboratorium "b"     
 """
 			a:"""
 class Laboratorium extends LocalStorage
 	reset : -> super
+	draw : -> 
 	left : -> 
 	right : -> 
 	up : -> 
@@ -1896,7 +1903,6 @@ class Laboratorium extends LocalStorage
 	d : -> 
 	e : -> 
 	f : -> 
-	draw : -> 
 
 laboratorium = new Laboratorium "a"   		
 """
@@ -1910,18 +1916,15 @@ laboratorium = new Laboratorium "a"
 
 		klocka: 
 			b: """
-# LOC:47 fc sc point rect rectMode circle for in range 
-#        if else translate rd push pop class extends constructor new @ super ->
+# LOC:44 fc sc point rect rectMode circle for in range if then else 
+#        translate rd push pop class extends constructor new @ super ->
 
 class Klocka extends LocalStorage
 	reset : -> super
 	draw : -> super
-	incr_hour   : -> 
-	decr_hour   : -> 
-	incr_minute : -> 
-	decr_minute : -> 
-	incr_second : -> 
-	decr_second : -> 
+	hour   : (h) ->
+	minute : (m) ->
+	second : (s) ->
 
 klocka = new Klocka "b"
 			"""
@@ -1933,18 +1936,16 @@ class Klocka extends LocalStorage
 		@m=9
 		@s=30
 	draw : ->
+		bg 0.5
 		rectMode CENTER
 		translate 100,100
 		@urtavla()
 		@visare (@h+@m/60.0)*30, 7,60,1,0,0
 		@visare (@m+@s/60.0)*6,5,80,0,1,0
-		@visare @s*6,2,80,0,0,1
-	incr_hour   : -> @adjust 1,0,0
-	incr_minute : -> @adjust 0,1,0
-	incr_second : -> @adjust 0,0,1
-	decr_hour   : -> @adjust -1,0,0
-	decr_minute : -> @adjust 0,-1,0
-	decr_second : -> @adjust 0,0,-1
+		@visare @s*6,2,80,1,1,0
+	hour   : (h) -> @adjust h,0,0
+	minute : (m) -> @adjust 0,m,0
+	second : (s) -> @adjust 0,0,s
 
 	adjust : (h,m,s) ->
 		@h+=h
@@ -1967,19 +1968,18 @@ class Klocka extends LocalStorage
 	urtavla : ->
 		fc 0
 		sc 1
+		sw 2
 		circle 0,0,90
 		fc 1
+		sc()
 		for i in range 60
-			if i%5==0
-				circle 85,0,2
-			else
-				point 85,0
+			circle 85,0, if i%5==0 then 3 else 2
 			rd 6
 
 klocka = new Klocka "a"
 """
 			c: 
-				klocka : "reset()|incr_hour()|decr_hour()|incr_minute()|decr_minute()|incr_second()|decr_second()"
+				klocka : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
 
 
 		recursiveCircle: 
@@ -2005,8 +2005,8 @@ class RecursiveCircle extends LocalStorage
 	circles : (x,y,r,level) ->
 		circle x,y,r
 		if level <= 0 then return
-		@circles x-r/2, y,r/2, level-1
-		@circles x+r/2, y,r/2, level-1
+		@circles x-r/2, y, r/2, level-1
+		@circles x+r/2, y, r/2, level-1
 	more : -> @n = constrain @n+1,0,10
 	less : -> @n = constrain @n-1,0,10
 
@@ -2234,7 +2234,8 @@ chess = new Chess "a"
 
 		SpaceShip :
 			b:"""
-# LOC:35 sc sw point triangle translate rd cos sin radians push pop class extends constructor new @ super ->
+# LOC:35 sc sw point triangle translate rd cos sin radians 
+#        push pop class extends constructor new @ super ->
 
 class Shot
 	constructor : (@x,@y,@dir) ->
@@ -2247,9 +2248,9 @@ class Ship extends LocalStorage
 		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
 	reset : -> super
 	draw : -> super
-	lt : -> 
-	rt : -> 
-	fd : -> 
+	left : -> 
+	right : -> 
+	forward : -> 
 	shoot : ->		
 
 ship = new Ship "b"	
@@ -2259,8 +2260,8 @@ class Shot
 	constructor : (@x,@y,@dir) ->
 	render : ->	point @x,@y 
 	move : ->
-		@x += 5 * cos radians @dir
-		@y += 5 * sin radians @dir
+		@x += int 5 * cos radians @dir
+		@y += int 5 * sin radians @dir
 
 class Ship extends LocalStorage 
 
@@ -2276,14 +2277,14 @@ class Ship extends LocalStorage
 		@dir = 0
 		@shots = []
 
-	lt : -> @dir -= 5
-	rt : -> @dir += 5
-	fd : -> 
+	left    : -> @dir -= 5
+	right   : -> @dir += 5
+	forward : -> 
 		@x += 5 * cos radians @dir
 		@y += 5 * sin radians @dir
 
 	shoot : ->
-		@shots.push new Shot @x,@y,@dir
+		@shots.push new Shot int(@x), int(@y), @dir
 
 	draw : ->
 		push()
@@ -2302,7 +2303,7 @@ class Ship extends LocalStorage
 ship = new Ship "a"	
 """
 			c:
-				ship: "reset()|lt()|rt()|fd()|shoot()"
+				ship: "reset()|left()|right()|forward()|shoot()"
 
 
 		RushHour :
@@ -2537,9 +2538,9 @@ alpha = new AlphaNumeric "a"
 class GoldenStar extends LocalStorage
 	reset : -> super
 	draw : -> super
-	_n : (d) -> 
-	_outer : (d) ->
-	_inner : (d) ->
+	n : (d) -> 
+	outer : (d) ->
+	inner : (d) ->
 
 star = new GoldenStar "b"
 """
@@ -2547,32 +2548,32 @@ star = new GoldenStar "b"
 class GoldenStar extends LocalStorage
 	reset : ->
 		super
-		@x = 100
-		@y = 100
-		@n = 4
-		@outer = 100
-		@inner = 25
-	_n : (d) -> @n = constrain @n+d,3,12
-	_outer : (d) -> @outer = constrain @outer+d, 0, 100
-	_inner : (d) -> @inner = constrain @inner+d, 0, 100
+		@_x = 100
+		@_y = 100
+		@_n = 4
+		@_outer = 100
+		@_inner = 25
+	n : (d) -> @_n = constrain @_n+d,3,12
+	outer : (d) -> @_outer = constrain @_outer+d, 0, 100
+	inner : (d) -> @_inner = constrain @_inner+d, 0, 100
 	draw : ->
 		bg 0
-		translate @x,@y
-		v = TWO_PI/@n
+		translate @_x,@_y
+		v = TWO_PI/@_n
 		rotate -PI/2
-		x1 = @inner * cos v/2
-		y1 = @inner * sin v/2
-		for i in range @n
+		x1 = @_inner * cos v/2
+		y1 = @_inner * sin v/2
+		for i in range @_n
 			fc 1,1,0
-			triangle 0,0, @outer,0, x1,y1
+			triangle 0,0, @_outer,0, x1,y1
 			fc 1,0.7,0
-			triangle 0,0, @outer,0, x1,-y1
+			triangle 0,0, @_outer,0, x1,-y1
 			rotate v
 
 star = new GoldenStar "a"
 """
 			c:
-				star : "reset()|_n -1|_n +1|_outer -1|_outer +1|_inner -1|_inner +1"
+				star : "reset()|n -1|n +1|outer -1|outer +1|inner -1|inner +1"
 		
 		Polygon:
 			b:"""
@@ -2625,3 +2626,82 @@ polygon = new Polygon "a"
 			c:
 				polygon : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
 
+		Kalkylator:
+			b:"""
+# LOC:44 bg sc fc + - * / Math.sqrt of {} in [] pop push splice 
+#        text textSize textAlign length for range @readText 
+#        parseFloat "" split class extends constructor new @ super ->
+# TIPS! Ta även hand om de fyra räknesätten. 
+# TIPS! @words ska kunna utökas med ":". T ex ": dbl 2 *"
+
+class Kalkylator extends LocalStorage
+	reset : -> super
+	draw : -> super
+	chs : ->
+	swap : -> 
+	drop : -> 
+	dup : -> 
+	sqrt : -> 
+	clr : ->
+	enter : ->
+
+kalkylator = new Kalkylator "b"
+"""
+			a:"""
+class Kalkylator extends LocalStorage
+	reset : ->
+		super
+		@stack = [1,2,3,4]
+		@words = {"sq":["dup","*"]}
+	draw : ->
+		bg 0
+		sc()
+		textSize 32
+		textAlign RIGHT, BOTTOM
+		fc 1,0,0
+		n = @stack.length
+		for i in range n
+			s = ""+@stack[n-i-1]
+			text s[0..9],190, 200 - i*40
+
+	pop : -> @stack.pop()
+	pop2 : -> @stack.splice(@stack.length-2,1)[0]
+	push : (item) -> @stack.push item 
+	chs : -> @push -@pop()
+	swap : -> 
+		n = @stack.length-1
+		[@stack[n-1],@stack[n]] = [@stack[n],@stack[n-1]]
+	drop : -> @pop()
+	dup : -> @push _.last @stack
+	sqrt : -> @push Math.sqrt @pop()
+	clr : -> @stack = []
+
+	execute : (arr) ->
+		for cmd in arr
+			if cmd=='+' then @push @pop() + @pop()
+			else if cmd=='*' then @push @pop() * @pop()
+			else if cmd=='/' then @push @pop2() / @pop()
+			else if cmd=='-' then @push @pop2() - @pop()
+			else if cmd=='chs' then @chs()
+			else if cmd=='swap' then @swap()
+			else if cmd=='drop' then @drop()
+			else if cmd=='dup' then @dup()
+			else if cmd=='sqrt' then @sqrt()
+			else if cmd=='clr' then @clr()
+			else if cmd of @words then @execute @words[cmd]
+			else @stack.push parseFloat cmd
+
+	enter : ->
+		commands = @readText()
+		if commands=="" then return
+		arr = commands.split ' '
+		if arr[0]==':' then @words[arr[1]] = arr[2..]
+		else @execute arr
+
+kalkylator = new Kalkylator "a"
+"""
+			c:
+				kalkylator : "reset()|chs()|swap()|drop()|dup()|sqrt()|clr()|enter()"
+			e:
+				RPN : "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
+				"HP-35" : "https://neil.fraser.name/software/hp-35"
