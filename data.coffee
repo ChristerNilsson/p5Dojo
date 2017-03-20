@@ -11,13 +11,14 @@ data =
 
 		Nyheter :
 			b:"""
+# NYHETER 2017 MAR 26
+#   LB: Kalkylator Nian Korsord
 # NYHETER 2017 MAR 19
-#   LB: Kalkylator
-# NYHETER 2017 MAR 12
 #   LA: PickingBerries
+# NYHETER 2017 MAR 12
+#   L7: Roulette
 # NYHETER 2017 MAR 5
 #   L6: Two Arcs
-#   L7: Roulette
 #   L8: boardGame, sevenSegment, OlympicRing
 #   L9: Connect4, RushHour, girlang, braid, OlympicRings, chessGame
 #   L10: alphanumeric, GoldenStar, spaceShip
@@ -2628,23 +2629,24 @@ polygon = new Polygon "a"
 
 		Kalkylator:
 			b:"""
-# LOC:44 bg sc fc + - * / Math.sqrt of {} in [] pop push splice 
+# LOC:44 bg sc fc + - * / Math.sqrt Math.PI of {} in [] shift unshift splice 
 #        text textSize textAlign length for range @readText 
 #        parseFloat "" split class extends constructor new @ super ->
 # TIPS! Börja med de fyra räknesätten. 
-#       @words ska kunna utökas med ":". T ex ": dbl 2 *"
+#       @words ska kunna utökas med ":". T ex ": sq dup *"
 #       Definiera t ex invers, distans och parallella motstånd
 
 class Kalkylator extends LocalStorage
 	reset : -> super
 	draw  : -> super
-	chs   : ->
-	swap  : -> 
-	drop  : -> 
-	dup   : -> 
-	sqrt  : -> 
-	clr   : ->
-	enter : ->
+	chs   : -> # byt tecken
+	swap  : -> # R0 och R1 byter plats. 
+	drop  : -> # R0 tas bort
+	dup   : -> # R0 dupliceras
+	sqrt  : -> # R0 ersätts med sqrt(R0)
+	clr   : -> # stacken töms
+	pi    : -> # pi läggs på stacken
+	enter : -> # inmatning från textrutan under kommandolistan.
 
 kalkylator = new Kalkylator "b"
 """
@@ -2652,7 +2654,7 @@ kalkylator = new Kalkylator "b"
 class Kalkylator extends LocalStorage
 	reset : ->
 		super
-		@stack = [1,2,3,4]
+		@stack = [0,1,2,3]
 		@words = {"sq":["dup","*"]}
 	draw : ->
 		bg 0
@@ -2662,36 +2664,36 @@ class Kalkylator extends LocalStorage
 		fc 1,0,0
 		n = @stack.length
 		for i in range n
-			s = ""+@stack[n-i-1]
+			s = ""+@stack[i]
 			text s[0..9],190, 200 - i*40
 
-	pop : -> @stack.pop()
-	pop2 : -> @stack.splice(@stack.length-2,1)[0]
-	push : (item) -> @stack.push item 
-	chs : -> @push -@pop()
-	swap : -> 
-		n = @stack.length-1
-		[@stack[n-1],@stack[n]] = [@stack[n],@stack[n-1]]
-	drop : -> @pop()
-	dup : -> @push _.last @stack
-	sqrt : -> @push Math.sqrt @pop()
+	shift : -> @stack.shift()
+	over : -> @stack.splice(1,1)[0]
+	unshift : (item) -> @stack.unshift item 
+	chs : -> @unshift -@shift()
+	swap : -> [@stack[0],@stack[1]] = [@stack[1],@stack[0]]
+	drop : -> @shift()
+	dup : -> @unshift @stack[0]
+	sqrt : -> @unshift Math.sqrt @shift()
 	clr : -> @stack = []
+	pi : -> @unshift Math.PI
 
 	execute : (arr) ->
 		for cmd in arr
 			if cmd=="" then continue
-			if cmd=='+' then @push @pop() + @pop()
-			else if cmd=='*' then @push @pop() * @pop()
-			else if cmd=='/' then @push @pop2() / @pop()
-			else if cmd=='-' then @push @pop2() - @pop()
+			if cmd=='+' then @unshift @shift() + @shift()
+			else if cmd=='*' then @unshift @shift() * @shift()
+			else if cmd=='/' then @unshift @over() / @shift()
+			else if cmd=='-' then @unshift @over() - @shift()
 			else if cmd=='chs' then @chs()
 			else if cmd=='swap' then @swap()
 			else if cmd=='drop' then @drop()
 			else if cmd=='dup' then @dup()
 			else if cmd=='sqrt' then @sqrt()
 			else if cmd=='clr' then @clr()
+			else if cmd=='pi' then @pi()
 			else if cmd of @words then @execute @words[cmd]
-			else @stack.push parseFloat cmd
+			else @stack.unshift parseFloat cmd
 
 	enter : ->
 		commands = @readText()
@@ -2703,7 +2705,7 @@ class Kalkylator extends LocalStorage
 kalkylator = new Kalkylator "a"
 """
 			c:
-				kalkylator : "reset()|chs()|swap()|drop()|dup()|sqrt()|clr()|enter()"
+				kalkylator : "reset()|chs()|swap()|drop()|dup()|sqrt()|clr()|pi()|enter()"
 			e:
 				parseInt : "https://www.w3schools.com/jsref/jsref_parseint.asp"
 				stack : "https://sv.wikipedia.org/wiki/Stack_(datastruktur)"
