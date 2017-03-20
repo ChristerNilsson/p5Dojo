@@ -1910,7 +1910,8 @@ laboratorium = new Laboratorium "a"
 
 		klocka: 
 			b: """
-# LOC:36 -> fc sc point rect rectMode circle for in range if else translate rd push pop class extends constructor new @ super ->
+# LOC:47 fc sc point rect rectMode circle for in range 
+#        if else translate rd push pop class extends constructor new @ super ->
 
 class Klocka extends LocalStorage
 	reset : -> super
@@ -1938,12 +1939,23 @@ class Klocka extends LocalStorage
 		@visare (@h+@m/60.0)*30, 7,60,1,0,0
 		@visare (@m+@s/60.0)*6,5,80,0,1,0
 		@visare @s*6,2,80,0,0,1
-	incr_hour   : -> @h++
-	incr_minute : -> @m++
-	incr_second : -> @s++
-	decr_hour   : -> @h--
-	decr_minute : -> @m--
-	decr_second : -> @s--
+	incr_hour   : -> @adjust 1,0,0
+	incr_minute : -> @adjust 0,1,0
+	incr_second : -> @adjust 0,0,1
+	decr_hour   : -> @adjust -1,0,0
+	decr_minute : -> @adjust 0,-1,0
+	decr_second : -> @adjust 0,0,-1
+
+	adjust : (h,m,s) ->
+		@h+=h
+		@m+=m
+		@s+=s
+		t = 3600 * @h + 60 * @m + @s
+		@s = t %% 60
+		t = (t - @s) / 60
+		@m = t %% 60
+		t = (t - @m) / 60
+		@h = t %% 24
 
 	visare : (v,w,l,r,g,b) ->
 		push()
@@ -1963,6 +1975,7 @@ class Klocka extends LocalStorage
 			else
 				point 85,0
 			rd 6
+
 klocka = new Klocka "a"
 """
 			c: 

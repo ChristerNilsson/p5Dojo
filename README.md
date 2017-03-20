@@ -14,7 +14,8 @@
 * Resultatet av din kod hamnar i den andra bitmappen
 * Skillnaden visas i den tredje bitmappen. Den ska bli helt svart när du har löst uppgiften.
 
-### Chrome och Windows är ett krav. Ingen annan programvara behöver installeras.
+### Chrome och Windows är ett krav. 
+Ingen annan programvara behöver installeras.
 
 ### färger
   - 0,0,1 blå

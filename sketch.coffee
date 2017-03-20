@@ -109,6 +109,8 @@ sel2change = (sel) ->
 	fillSelect sel3, calls_without_draw	 
 	myCodeMirror.setValue data[chapter][exercise]["b"]
 
+	tableClear()
+
 	if calls?
 		sel3.val("draw()").change()
 		call = calls["draw()"]
