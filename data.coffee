@@ -2631,8 +2631,9 @@ polygon = new Polygon "a"
 # LOC:44 bg sc fc + - * / Math.sqrt of {} in [] pop push splice 
 #        text textSize textAlign length for range @readText 
 #        parseFloat "" split class extends constructor new @ super ->
-# TIPS! Ta även hand om de fyra räknesätten. 
-# TIPS! @words ska kunna utökas med ":". T ex ": dbl 2 *"
+# TIPS! Börja med de fyra räknesätten. 
+#       @words ska kunna utökas med ":". T ex ": dbl 2 *"
+#       Definiera t ex invers, distans och parallella motstånd
 
 class Kalkylator extends LocalStorage
 	reset : -> super
@@ -2678,6 +2679,7 @@ class Kalkylator extends LocalStorage
 
 	execute : (arr) ->
 		for cmd in arr
+			if cmd=="" then continue
 			if cmd=='+' then @push @pop() + @pop()
 			else if cmd=='*' then @push @pop() * @pop()
 			else if cmd=='/' then @push @pop2() / @pop()
@@ -2703,8 +2705,14 @@ kalkylator = new Kalkylator "a"
 			c:
 				kalkylator : "reset()|chs()|swap()|drop()|dup()|sqrt()|clr()|enter()"
 			e:
+				parseInt : "https://www.w3schools.com/jsref/jsref_parseint.asp"
+				stack : "https://sv.wikipedia.org/wiki/Stack_(datastruktur)"
+				split : "https://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
+				"Omvänd Polsk Notation" : "https://sv.wikipedia.org/wiki/Omv%C3%A4nd_polsk_notation"
 				RPN : "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
 				"HP-35" : "https://neil.fraser.name/software/hp-35"
+				"Forth Haiku" : "http://forthsalon.appspot.com/word-list"
+
 
 		Nian :
 			b:"""
