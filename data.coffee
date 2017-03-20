@@ -2705,3 +2705,116 @@ kalkylator = new Kalkylator "a"
 			e:
 				RPN : "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
 				"HP-35" : "https://neil.fraser.name/software/hp-35"
+
+		Nian :
+			b:"""
+# LOC:34 [] push "" split indexOf reduce + * ** / % > & bg fc sc text textSize textAlign  
+#				 for in of {} _.countBy and if then class constructor new @ extends super 
+# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå.
+
+class Nian extends LocalStorage
+	reset : ->
+	draw : ->
+	enter : ->
+
+nian = new Nian "b"
+"""
+			a:"""
+class Nian extends LocalStorage
+	reset : ->
+		super
+		@found = []
+	draw : -> 
+		n = 15
+		bg 0
+		textAlign LEFT,TOP
+		textSize 12
+		fc 1,1,0
+		sc()
+		for word,i in @found.split " "
+			x = int i / n
+			y = i % n
+			text word,5+200/4*x,200*y/n
+	bits : (word) -> word.split("").reduce ((acc,ch) -> acc|(2 ** "abcdefghijklmnopqrstuvwxyzåäö".indexOf ch)), 0
+	ok : (f1,f2) ->
+		for ch, f of f2
+			if f > f1[ch] then return false
+		true
+	enter : ->
+		words = ordlista.split " "
+		patterns = (@bits word for word in words)
+		@letters = @readText()
+		mandatory = @letters[4]
+		@found = []
+		p = @bits @letters
+		letters1 = @letters.split ""
+		freq1 = _.countBy letters1
+		for pattern,i in patterns
+			if (p & pattern) == pattern
+				letters2 = words[i].split ""
+				freq2 = _.countBy letters2
+				if @ok(freq1,freq2) and mandatory in letters2 then @found.push words[i]
+		@found = @found.join " "
+nian = new Nian "a"
+"""
+			c:
+				nian : "reset()|enter()"
+
+			e:
+				Nian : "http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html"
+				'_.countBy' : "http://underscorejs.org/#countBy"
+				reduce : "https://coffeescript-cookbook.github.io/chapters/arrays/reducing-arrays"
+
+
+		Korsord :
+			b: """
+# LOC:30 bg fc sc / % + * != and text textAlign textSize if then for in [] length 
+#        @readText "" split join _.filter class constructor new @ extends super
+# Mata in t ex b..l och få ut bill samt boll.
+
+class Korsord extends LocalStorage
+	reset : -> super
+	draw  : -> super
+	enter : -> 
+korsord = new Korsord "b"
+"""
+			a:"""
+class Korsord extends LocalStorage
+	reset : -> 
+		print "reset"
+		super
+		@found = ""
+		@pattern = ''
+	draw : -> 
+		n = 15
+		bg 0
+		textAlign LEFT,TOP
+		textSize 12
+		fc 1,1,0
+		sc()
+		for word,i in @found.split " "
+			x = int i / n
+			y = i % n
+			text word,5+200/4*x,200*y/n
+	match : (word,pattern) ->
+		for letter,i in pattern
+			if letter != '.' and letter != word[i] then	return false
+		true
+	enter : -> 
+		words = ordlista.split " "
+		@pattern = @readText()
+		@found = [] 
+		for w in words
+			if w.length == @pattern.length and @match w,@pattern then @found.push w
+		#@found = _.filter words, (w) -> w.length == @pattern.length and @match w,@pattern
+		@found = @found.join " "
+
+korsord = new Korsord "a"
+"""
+			c:
+				korsord : "reset()|enter()"
+
+			e:
+				'_.some' : "http://underscorejs.org/#some"
+				'_.filter' : "http://underscorejs.org/#filter"
+				'_.countBy' : "http://underscorejs.org/#countBy"

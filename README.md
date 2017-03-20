@@ -133,35 +133,35 @@ Sparar och återställer följande kommandon:
 
 ### coffeescript
  - Orsak: Programmering ska vara så enkelt som möjligt
- - Kodblock indenteras med tab (som Python) istf blockparenteser {}
+ - Kodblock indenteras med tab (som Python) i stället för blockparenteser {}
   * Tabstorlek alltid två mellanslag
   * Python-kolon används ej
- - Semikolon används ej
- - Parenteser behövs ej för att anropa funktioner, om de har parametrar.
+ - Semikolon är frivilliga
+ - Parenteser behövs bara för att anropa funktioner som saknar parametrar.
  - Funktioner skapas med ->
   * f = (x) -> x*x
   * g = (a,b) -> a+b
   
 ### exempel 1: CoffeeScript
 ```javascript
-bg 1,0.5,1
+bg 1, 0.5, 1
 sw 2
 sc 0.5
 for i in range 10
-  fc i%2
+  fc i % 2
   rd 5
-  rect 20*i + 5,5, 10,10
+  rect 20 * i + 5, 5, 10, 10
 ```    
 
 ### exempel 1: normal Javascript
 ```javascript
-background(255,127,255);
+background(255, 127, 255);
 strokeWeight(2);
 stroke(127);
-for (var i=0; i<10; i++) {
-  fill((i%2)*255);
+for (var i = 0; i < 10; i++) {
+  fill((i % 2) * 255);
   rotate(radians(5));
-  rectangle(20*i + 5,5, 10,10);
+  rect(20 * i + 5, 5, 10, 10);
 }
 ```    
 
