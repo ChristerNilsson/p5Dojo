@@ -337,43 +337,33 @@ for i in range 15
 
 		hypnoticA : 
 			b: """
-			# LOC:6 -> bg circle cos fc sc sin
-
-			hypnoticA = () ->
-			"""
-			a: """
-hypnoticA = () ->
-	bg 0.5, 0, 0
-	sc()
-	fc 1
-	for i in range 100
-		x = 100 + cos(i) * i
-		y = 100 + sin(i) * i
-		circle x, y, 5
+# LOC:6 -> bg circle cos fc sc sin
 """
-			c: "hypnoticA()":0
+			a: """
+bg 0.5, 0, 0
+sc()
+fc 1
+for i in range 100
+	x = 100 + cos(i) * i
+	y = 100 + sin(i) * i
+	circle x, y, 5
+"""
 
 		hypnoticB : 
 			b: """
-			# LOC:7 -> bg circle cos fc map sc sin
-
-			hypnoticB = (t) ->
-			"""
-			a: """
-hypnoticB = (t) ->
-	bg 0.5, 0, 0
-	sc()
-	fc 1
-	for i in range 100
-		x = 100 + cos(i) * i
-		y = 100 + sin(i) * i
-		speed = i/10.0
-		r = map sin(t*speed), -1, 1, 2, 5
-		circle x, y, r
+# LOC:7 -> bg circle cos fc map sc sin
 """
-			c: 
-				"hypnoticB 1":0
-				"hypnoticB 5":0
+			a: """
+bg 0.5, 0, 0
+sc()
+fc 1
+for i in range 100
+	x = 100 + cos(i) * i
+	y = 100 + sin(i) * i
+	speed = i/10.0
+	r = map sin(5*speed), -1, 1, 2, 5
+	circle x, y, r
+"""
 
 #####################################
 	"L1: bg point sc sw": 
