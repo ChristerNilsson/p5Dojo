@@ -381,16 +381,16 @@ hypnoticB = (t) ->
 
 		Background1: 
 			b: """
-# Den översta bitmappen till höger visar resultatet av din kod.
-# Den mellersta bitmappen ska du efterlikna.
-# Den understa bitmappen visar skillnaden mellan de två andra.
+# Den första bitmappen ska du efterlikna genom att skriva ett program.
+# Den andra bitmappen visar resultatet av din kod.
+# Den tredje bitmappen visar skillnaden mellan de två andra. Ska bli svart när du är klar.
 
 # Tryck på PgDn för att komma till sista raden.
 # Skriv in följande kommando: bg 1
-# Kontrollera att de båda övre bitmapparna nu är lika.
+# Kontrollera att de två första bitmapparna nu är lika, och att den tredje är helt svart.
 
 # Klicka på Background2 för att komma till nästa övning.
-# Klicka på Help nere till vänster för mera information.
+# Klicka på p5Dojo nere till vänster för mera information.
 # Klicka på Reference för att se fler kommandon.
 
 """
