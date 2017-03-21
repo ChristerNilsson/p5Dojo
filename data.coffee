@@ -1419,7 +1419,7 @@ square = new Square "a"
 
 		BoardGame :
 			b:"""
-# LOC:10 bg fc sc circle for in range ->
+# LOC:21 bg fc sc circle for in range ->
 
 class Board extends LocalStorage
 	reset : -> super
@@ -1453,6 +1453,7 @@ class Board extends LocalStorage
 	r : (d) -> @_r += d
 	d : (d) -> @_d += d
 	n : (d) -> @_n += d
+
 board = new Board "a" 
 """
 			c:
@@ -1460,7 +1461,7 @@ board = new Board "a"
 
 		ColorCube:
 			b: """
-# LOC:20 -> bg fc for in range rect class extends constructor new @ super ->
+# LOC:17 -> bg fc for in range rect class extends constructor new @ super ->
 
 class ColorCube extends LocalStorage
 	reset : -> super
@@ -1474,7 +1475,6 @@ cc = new ColorCube "b"
 """
 			a: """
 class ColorCube extends LocalStorage
-
 	draw : ->
 		bg 0
 		d = 200.0/@n
@@ -1483,7 +1483,6 @@ class ColorCube extends LocalStorage
 			for g in range @n
 				fc r/m,g/m,@b/m
 				rect r*d,g*d,d,d
-
 	reset : -> 
 		super
 		@n=2
@@ -1680,6 +1679,176 @@ guess = new Guess "a"
 				guess : "reset()|readGuess()"
 
 
+
+		Connect4 :
+			b:"""
+# LOC:29 % bg fc sc sw circle text textAlign textSize for in range push class extends constructor new @ super -> 
+
+class Connect4 extends LocalStorage
+	reset : -> super
+	draw : -> super
+	move : (nr) ->
+
+connect4 = new Connect4 "b"
+			"""
+			a:"""
+class Connect4 extends LocalStorage
+	reset : ->
+		super
+		@size = 27
+		@list = ([] for i in range 7)
+		@moves = []
+	draw : ->
+		bg 0
+		textAlign CENTER,CENTER
+		textSize @size/2
+		fc()
+		sc 0.1,0.3,1
+		sw 0.2 * @size
+		for i in range 7
+			for j in range 6
+				circle 100-@size*3+@size*i, 180-@size*j, @size/2
+		for column,i in @list
+			for nr,j in column
+				fc 1,nr%2,0
+				sw 1
+				circle 100-@size*3+@size*i, 180-@size*j, @size*0.4
+				fc 0
+				sc()
+				text nr, 100-@size*3+@size*i, 180-@size*j
+		sc()
+		fc 1,(@moves.length+1)%2,0
+		circle 100,15,10
+	move : (nr) ->
+		@moves.push nr
+		@list[nr].push @moves.length 
+
+connect4 = new Connect4 "a"
+"""
+			c:
+				connect4 : "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6"
+
+
+		Klocka: 
+			b: """
+# LOC:44 fc sc point rect rectMode circle for in range if then else 
+#        translate rd push pop class extends constructor new @ super ->
+
+class Klocka extends LocalStorage
+	reset : -> super
+	draw : -> super
+	hour   : (h) ->
+	minute : (m) ->
+	second : (s) ->
+
+klocka = new Klocka "b"
+			"""
+			a: """
+class Klocka extends LocalStorage
+	reset : -> 
+		super
+		@h=10
+		@m=9
+		@s=30
+	draw : ->
+		bg 0.5
+		rectMode CENTER
+		translate 100,100
+		@urtavla()
+		@visare (@h+@m/60.0)*30, 7,60,1,0,0
+		@visare (@m+@s/60.0)*6,5,80,0,1,0
+		@visare @s*6,2,80,1,1,0
+	hour   : (h) -> @adjust h,0,0
+	minute : (m) -> @adjust 0,m,0
+	second : (s) -> @adjust 0,0,s
+
+	adjust : (h,m,s) ->
+		@h+=h
+		@m+=m
+		@s+=s
+		t = 3600 * @h + 60 * @m + @s
+		@s = t %% 60
+		t = (t - @s) / 60
+		@m = t %% 60
+		t = (t - @m) / 60
+		@h = t %% 24
+
+	visare : (v,w,l,r,g,b) ->
+		push()
+		rd v-90
+		translate l/2,0
+		fc r,g,b
+		rect 0,0,l,w
+		pop()
+	urtavla : ->
+		fc 0
+		sc 1
+		sw 2
+		circle 0,0,90
+		fc 1
+		sc()
+		for i in range 60
+			circle 85,0, if i%5==0 then 3 else 2
+			rd 6
+
+klocka = new Klocka "a"
+"""
+			c: 
+				klocka : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
+
+
+		Laboratorium :
+			b:"""		
+# Här kan du laborera med egna idéer!
+
+class Laboratorium extends LocalStorage
+	reset : ->
+		super
+		@x = 100
+		@y = 100
+		@command = ""
+	draw  : -> 
+		textAlign CENTER,CENTER
+		textSize 50
+		fc 1,1,0
+		text @command,@x,@y
+	left  : -> @x -= 10
+	right : -> @x += 10
+	up    : -> @y -= 10
+	down  : -> @y += 10
+	a     : -> @command = "a"
+	b     : -> @command = "b"
+	c     : -> @command = "c"
+	d     : -> @command = "d"
+	e     : -> @command = int random 1,7
+	f     : -> @command = int millis()
+
+laboratorium = new Laboratorium "b"     
+"""
+			a:"""
+class Laboratorium extends LocalStorage
+	reset : -> super
+	draw : -> 
+	left : -> 
+	right : -> 
+	up : -> 
+	down : -> 
+	a : -> 
+	b : -> 
+	c : -> 
+	d : -> 
+	e : -> 
+	f : -> 
+
+laboratorium = new Laboratorium "a"   		
+"""
+			c:
+				laboratorium : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
+
+#####################################
+	"LA: interactivity, advanced" :
+#####################################
+
 		BouncingBalls :
 			b : """
 # LOC: 43 + ++ - -- %% == push if then for in splice length circle fc sw sc _.create class constructor super extends new @
@@ -1862,125 +2031,6 @@ braider = new Braider "a"
 			e:
 				braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
 
-		Laboratorium :
-			b:"""		
-# Här kan du laborera med egna idéer!
-
-class Laboratorium extends LocalStorage
-	reset : ->
-		super
-		@x = 100
-		@y = 100
-		@command = ""
-	draw  : -> 
-		textAlign CENTER,CENTER
-		textSize 50
-		fc 1,1,0
-		text @command,@x,@y
-	left  : -> @x -= 10
-	right : -> @x += 10
-	up    : -> @y -= 10
-	down  : -> @y += 10
-	a     : -> @command = "a"
-	b     : -> @command = "b"
-	c     : -> @command = "c"
-	d     : -> @command = "d"
-	e     : -> @command = int random 1,7
-	f     : -> @command = int millis()
-
-laboratorium = new Laboratorium "b"     
-"""
-			a:"""
-class Laboratorium extends LocalStorage
-	reset : -> super
-	draw : -> 
-	left : -> 
-	right : -> 
-	up : -> 
-	down : -> 
-	a : -> 
-	b : -> 
-	c : -> 
-	d : -> 
-	e : -> 
-	f : -> 
-
-laboratorium = new Laboratorium "a"   		
-"""
-			c:
-				laboratorium : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
-
-#####################################
-	"LA: interactivity, advanced" :
-#####################################
-
-
-		Klocka: 
-			b: """
-# LOC:44 fc sc point rect rectMode circle for in range if then else 
-#        translate rd push pop class extends constructor new @ super ->
-
-class Klocka extends LocalStorage
-	reset : -> super
-	draw : -> super
-	hour   : (h) ->
-	minute : (m) ->
-	second : (s) ->
-
-klocka = new Klocka "b"
-			"""
-			a: """
-class Klocka extends LocalStorage
-	reset : -> 
-		super
-		@h=10
-		@m=9
-		@s=30
-	draw : ->
-		bg 0.5
-		rectMode CENTER
-		translate 100,100
-		@urtavla()
-		@visare (@h+@m/60.0)*30, 7,60,1,0,0
-		@visare (@m+@s/60.0)*6,5,80,0,1,0
-		@visare @s*6,2,80,1,1,0
-	hour   : (h) -> @adjust h,0,0
-	minute : (m) -> @adjust 0,m,0
-	second : (s) -> @adjust 0,0,s
-
-	adjust : (h,m,s) ->
-		@h+=h
-		@m+=m
-		@s+=s
-		t = 3600 * @h + 60 * @m + @s
-		@s = t %% 60
-		t = (t - @s) / 60
-		@m = t %% 60
-		t = (t - @m) / 60
-		@h = t %% 24
-
-	visare : (v,w,l,r,g,b) ->
-		push()
-		rd v-90
-		translate l/2,0
-		fc r,g,b
-		rect 0,0,l,w
-		pop()
-	urtavla : ->
-		fc 0
-		sc 1
-		sw 2
-		circle 0,0,90
-		fc 1
-		sc()
-		for i in range 60
-			circle 85,0, if i%5==0 then 3 else 2
-			rd 6
-
-klocka = new Klocka "a"
-"""
-			c: 
-				klocka : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
 
 
 		RecursiveCircle: 
@@ -2087,55 +2137,6 @@ nim = new Nim "a"
 				xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"
 				Nimrod : "https://en.wikipedia.org/wiki/Nimrod_(computing)"
 
-
-
-		Connect4 :
-			b:"""
-# LOC:29 % bg fc sc sw circle text textAlign textSize for in range push class extends constructor new @ super -> 
-
-class Connect4 extends LocalStorage
-	reset : -> super
-	draw : -> super
-	move : (nr) ->
-
-connect4 = new Connect4 "b"
-			"""
-			a:"""
-class Connect4 extends LocalStorage
-	reset : ->
-		super
-		@size = 27
-		@list = ([] for i in range 7)
-		@moves = []
-	draw : ->
-		bg 0
-		textAlign CENTER,CENTER
-		textSize @size/2
-		fc()
-		sc 0.1,0.3,1
-		sw 0.2 * @size
-		for i in range 7
-			for j in range 6
-				circle 100-@size*3+@size*i, 180-@size*j, @size/2
-		for column,i in @list
-			for nr,j in column
-				fc 1,nr%2,0
-				sw 1
-				circle 100-@size*3+@size*i, 180-@size*j, @size*0.4
-				fc 0
-				sc()
-				text nr, 100-@size*3+@size*i, 180-@size*j
-		sc()
-		fc 1,(@moves.length+1)%2,0
-		circle 100,15,10
-	move : (nr) ->
-		@moves.push nr
-		@list[nr].push @moves.length 
-
-connect4 = new Connect4 "a"
-"""
-			c:
-				connect4 : "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6"
 
 
 		ChessGame :
@@ -2731,11 +2732,11 @@ kalkylator = new Kalkylator "a"
 			b:"""
 # LOC:34 [] push "" split indexOf reduce + * ** / % > & bg fc sc text textSize textAlign  
 #				 for in of {} _.countBy and if then class constructor new @ extends super 
-# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå.
+# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med "aaefkrrtu"
 
 class Nian extends LocalStorage
-	reset : ->
-	draw : ->
+	reset : -> super
+	draw : -> super
 	enter : ->
 
 nian = new Nian "b"
@@ -2744,7 +2745,7 @@ nian = new Nian "b"
 class Nian extends LocalStorage
 	reset : ->
 		super
-		@found = []
+		@found = ""
 	draw : -> 
 		n = 15
 		bg 0
@@ -2776,6 +2777,7 @@ class Nian extends LocalStorage
 				freq2 = _.countBy letters2
 				if @ok(freq1,freq2) and mandatory in letters2 then @found.push words[i]
 		@found = @found.join " "
+
 nian = new Nian "a"
 """
 			c:
