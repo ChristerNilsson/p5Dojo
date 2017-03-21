@@ -19,9 +19,9 @@ data =
 #   L7: Roulette
 # NYHETER 2017 MAR 5
 #   L6: Two Arcs
-#   L8: boardGame, sevenSegment, OlympicRing
-#   L9: Connect4, RushHour, girlang, braid, OlympicRings, chessGame
-#   L10: alphanumeric, GoldenStar, spaceShip
+#   L9: BoardGame, SevenSegment, OlympicRing
+#   LA: Connect4, RushHour, Girlang, Braid, OlympicRings, ChessGame
+#   LB: Alphanumeric, GoldenStar, SpaceShip
 
 # Klicka nu på L1!
 
@@ -546,7 +546,7 @@ point 0,200
 	"L2: circle fc text" : 
 #####################################
 
-		dices : 
+		Dices : 
 			b : """
 # LOC:26 point sc
 
@@ -605,7 +605,7 @@ fc 0,0,1
 circle 160,40,20
 """ 
 
-		whiteCircle: 
+		WhiteCircle: 
 			b:"""
 # LOC:2 circle fc
 
@@ -615,7 +615,7 @@ fc 1
 circle 60,80,30
 """
 
-		whiteEmptyCircle: 
+		WhiteEmptyCircle: 
 			b:"""
 # LOC:4 circle fc sc sw
 
@@ -627,7 +627,7 @@ sw 2
 circle 70,90,40
 """
 
-		twoDiscsA: 
+		TwoDiscsA: 
 			b:"""
 # LOC:4 circle fc
 
@@ -639,7 +639,7 @@ fc 0,1,0
 circle 100,120,50
 """
 
-		twoDiscsB:
+		TwoDiscsB:
 			b:"""
 # LOC:4 circle fc
 
@@ -651,7 +651,7 @@ fc 0,1,0, 0.5
 circle 120,100,50
 """
 
-		textA: 
+		TextA: 
 			b:"""
 # LOC:3 fc textSize text
 
@@ -662,7 +662,7 @@ textSize 32
 text 'Coffeescript',100,100
 """
 
-		textB: 
+		TextB: 
 			b:"""
 # LOC:4 fc text textAlign textSize
 
@@ -678,7 +678,7 @@ text 'Coffeescript',100,100
 	"L3: ellipse rect" : 
 #####################################
 
-		greenEllipse: 
+		GreenEllipse: 
 			b:"""
 # LOC:2 fc ellipse
 
@@ -688,7 +688,7 @@ fc 0,1,0
 ellipse 120,60, 60,40
 """
 
-		greenRect: 
+		GreenRect: 
 			b:"""
 # LOC:2 fc rect
 
@@ -698,7 +698,7 @@ fc 0,1,0
 rect 60,80, 40,50
 """
 
-		redRect:
+		RedRect:
 			b:"""
 # LOC:2 fc rect
 
@@ -708,7 +708,7 @@ fc 1,0,0
 rect 80,70, 40,100
 """
 
-		cross: 
+		Cross: 
 			b:"""
 # LOC:4 fc rect
 
@@ -720,7 +720,7 @@ rect 85,70, 70,10
 rect 115,40, 10,100
 """
 
-		squareHole: 
+		SquareHole: 
 			b : """
 # LOC:11 fc sc sw rect
 
@@ -743,7 +743,7 @@ rect 80,80, 40,40
 	"L4: for lerp rect" : 
 #####################################
 
-		"horizontal squares": 
+		HorizontalSquares: 
 			b:"""
 # LOC:3 rect for in range lerp 
 
@@ -759,7 +759,7 @@ for i in range 10
 	rect x,5, 10,10
 """
 
-		"vertical squares": 
+		VerticalSquares: 
 			b:"# LOC:3 rect for in range lerp\n"
 			a:"""
 for i in range 10
@@ -767,7 +767,7 @@ for i in range 10
 	rect 5,y, 10,10
 """
 
-		"diagonal squares": 
+		DiagonalSquares: 
 			b:"# LOC:4 rect for in range lerp\n"
 			a:"""
 for i in range 10
@@ -776,7 +776,7 @@ for i in range 10
 	rect x,y, 10,10
 """
 
-		"double for loop": 
+		DoubleForLoop: 
 			b:"# LOC:5 rect for in range lerp\n"
 			a:"""
 for i in range 10
@@ -786,7 +786,7 @@ for i in range 10
 		rect x,y, 10,10
 """
 
-		"growing squares": 
+		GrowingSquares: 
 			b:"# LOC:7 rect rectMode for in range lerp\n"
 			a:"""
 rectMode CENTER
@@ -798,7 +798,7 @@ for i in range 10
 	rect x,y, w,h
 """
 
-		"growings red squares": 
+		GrowingRedSquares: 
 			b:"# LOC:8 fc for in range lerp rect rectMode\n"
 			a:"""
 rectMode CENTER
@@ -811,7 +811,7 @@ for i in range 10
 	rect x,y,w,h
 """
 
-		"growing circles": 
+		GrowingCircles: 
 			b:"# LOC:6 for in range fc circle lerp\n"
 			a:"""
 for i in range 10
@@ -822,7 +822,7 @@ for i in range 10
 	circle x,y,r
 """
 
-		"shrinking circles": 
+		ShrinkingCircles: 
 			b:"# LOC:4 for in range fc circle lerp\n"
 			a:"""
 for i in range 10,0,-1
@@ -831,7 +831,7 @@ for i in range 10,0,-1
 	circle 100,100, r
 """
 
-		"red cone": 
+		RedCone: 
 			b:"""
 # LOC:6 for in range fc circle lerp
 """
@@ -844,7 +844,7 @@ for i in range 10,0,-1
 	circle x,y,r
 """
 
-		"penta lerp": 
+		PentaLerp: 
 			b:"""
 # LOC:11 bg sc fc for in range circle lerp
 """
@@ -927,7 +927,7 @@ for i in range 37
 	line 10,190,190,10+i*5
 """
 
-		chessRow: 
+		ChessRow: 
 			b:"# LOC:5 % bg fc for in range lerp rect\n"
 			a:"""
 bg 0.5
@@ -937,7 +937,7 @@ for i in range 8
 	rect x,20, 20,20
 """
 		
-		chessBoard: 
+		ChessBoard: 
 			b:"# LOC:7 bg fc for in range lerp rect\n"
 			a:"""
 bg 0.5
@@ -949,7 +949,7 @@ for i in range 8
 		rect x,y, 20,20
 """
 		
-		chessCross : 
+		ChessCross : 
 			b: "# LOC:8 for in range lerp rect if then fc (David Larsson)\n"
 			a: """
 for i in range 10
@@ -1006,7 +1006,7 @@ arc 100,120, 100,100, radians(90),radians(-90)
 	"L7: translate rotate push pop" : 
 #####################################
 
-		textC: 
+		TextC: 
 			b:"# LOC:6 fc text textAlign textSize translate rd\n"
 			a:"""
 fc 1,1,0
@@ -1017,7 +1017,7 @@ rd 90
 text 'Coffeescript',0,0
 """
 
-		textD: 
+		TextD: 
 			b:"# LOC:6 fc text textAlign textSize translate rd\n"
 			a:"""
 fc 1,1,0
@@ -1028,7 +1028,7 @@ rd 180
 text 'Coffeescript',0,0
 """
 		
-		rotatedEllipse: 
+		RotatedEllipse: 
 			b:"# LOC:5 ellipse translate rd\n"
 			a:"""
 fc 1,0,0
@@ -1038,7 +1038,7 @@ rd 45
 ellipse 0,0, 80,40
 """
 
-		rotatedRectA: 
+		RotatedRectA: 
 			b:"# LOC:4 fc rect\n"
 			a:"""
 fc 1,0,0
@@ -1047,7 +1047,7 @@ fc 0,1,0
 rect 140,100, 40,40
 """
 
-		rotatedRectB: 
+		RotatedRectB: 
 			b:"# LOC:12 fc rect translate rd push pop\n"
 			a:"""
 push()
@@ -1064,7 +1064,7 @@ rect 0,0, 40,40
 pop()
 """
 
-		rotatedRectC: 
+		RotatedRectC: 
 			b:"# LOC:13 fc rect translate rd push pop\n"
 			a:"""
 rectMode CENTER
@@ -1082,7 +1082,7 @@ rect 0,0, 40,40
 pop()
 """
 
-		cards: 
+		Cards: 
 			b:"# LOC:10 fc sc circle rect rectMode for in range lerp translate rd\n"
 			a:"""
 rectMode CENTER
@@ -1154,7 +1154,7 @@ for i in range numbers.length
 	"L8: function, class" : 
 #####################################
 
-		manyDices: 
+		ManyDices: 
 			b : """
 # LOC:20 -> fc for in if then point [] % -> ==
 
@@ -1184,7 +1184,7 @@ for i in range 10
 """
 		
 
-		girlang :
+		Girlang :
 			b:"""
 # LOC: 16 sc bg sw for in range line class constructor new @
 
@@ -1220,7 +1220,7 @@ girlang = (x,y,n,width,dx,dy) ->
 girlang 0,0,9,5,20,20			
 """
 
-		braid:
+		Braid:
 			b : """
 # LOC: 19 sc bg sw for in range line class constructor new @
 
@@ -1312,7 +1312,7 @@ olympic()
 	"L9: interactivity, basic" : 
 #####################################
 
-		counter :
+		Counter :
 			b:"""		
 # LOC:12 text textAlign textSize + - class extends constructor new @ super ->
 
@@ -1373,7 +1373,7 @@ moire = new Moire "a"
 			c: 
 				moire : "reset()|more()|less()"
 
-		square : 
+		Square : 
 			b: """
 # LOC:21 bg sw fc rect rectMode translate rd + class extends constructor new @ super ->
 
@@ -1417,7 +1417,7 @@ square = new Square "a"
 			c: 
 				square : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"   
 
-		boardGame :
+		BoardGame :
 			b:"""
 # LOC:10 bg fc sc circle for in range ->
 
@@ -1458,7 +1458,7 @@ board = new Board "a"
 			c:
 				board : "reset()|r -1|r +1|d -1|d +1|n -1|n +1"
 
-		colorCube:
+		ColorCube:
 			b: """
 # LOC:20 -> bg fc for in range rect class extends constructor new @ super ->
 
@@ -1537,7 +1537,7 @@ ring = new Ring "a"
 			c: 
 				ring : "reset()|start -1|start +1|stopp -1|stopp +1|radius -1|radius +1|width -1|width +1"
 
-		sevenSegment :
+		SevenSegment :
 			b : """
 # LOC:26 bg sc fc rect rectMode if then & [] class extends constructor new @ super ->
 
@@ -1588,7 +1588,7 @@ digit = new Digit "a"
 			c: 
 				digit : "reset()|up()|down()"
 
-		korg: 
+		Korg: 
 			b:"""
 # LOC:27 -> bg fc sc sw rect for if else class extends constructor new @ super ->
 
@@ -1915,7 +1915,7 @@ laboratorium = new Laboratorium "a"
 #####################################
 
 
-		klocka: 
+		Klocka: 
 			b: """
 # LOC:44 fc sc point rect rectMode circle for in range if then else 
 #        translate rd push pop class extends constructor new @ super ->
@@ -1983,7 +1983,7 @@ klocka = new Klocka "a"
 				klocka : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
 
 
-		recursiveCircle: 
+		RecursiveCircle: 
 			b: """
 # LOC:10 -> sc circle if return < class extends constructor new @ super ->
 
@@ -2138,7 +2138,7 @@ connect4 = new Connect4 "a"
 				connect4 : "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6"
 
 
-		chessGame :
+		ChessGame :
 			b:"""
 # LOC:64 bg fc sc sw point rect rectMode if then else text textSize textAlign class constructor new @
 #        for in range push split length indexOf
@@ -2413,7 +2413,8 @@ rushHour = new RushHour "a"
 
 		PickingBerries :
 			b:"""
-# LOC:46 bg sc fc sw [] * + line text textSize textAlign constrain dist splice break for in class extends constructor new @ super ->
+# LOC:46 bg sc fc sw [] * + line text textSize textAlign constrain dist 
+#        splice break for in class extends constructor new @ super ->
 
 class PickingBerries extends LocalStorage
 	reset      : -> super
@@ -2437,26 +2438,29 @@ class PickingBerries extends LocalStorage
 		super
 		@x = 100
 		@y = 100
-		@speed = 1
-		@clix = 0
+		@speed = 2 # 0..3
+		@speeds = [1,5,20,50]
+		@clicks = 0
 		@xs = [100,189,124,196,13,187,12,153,32,131]
 		@ys = [107,175,138,188,37,78,168,31,20,188]
+		@moves = ""
+		@dxdy = [[1,0],[0,1],[-1,0],[0,-1]]
 
 	draw : ->
 		bg 0
+		rectMode CENTER
 		sc 1
 		sw 1
-		d = 5 + @speed
-		line @x-d,@y,@x,@y
-		line @x,@y-d,@x,@y
-		line @x,@y,@x+d,@y
-		line @x,@y,@x,@y+d
+		rect @x,@y,2*@speeds[@speed],2*@speeds[@speed]
+		for [dx,dy] in @dxdy
+			for i in range 4
+				point @x+dx*@speeds[i], @y+dy*@speeds[i]
 		
 		fc 1,1,0
 		sc()
 		textSize 20
 		textAlign CENTER,CENTER
-		text @clix,100,180
+		text @clicks,100,180
 
 		sc 1,0,0
 		sw 2
@@ -2464,22 +2468,29 @@ class PickingBerries extends LocalStorage
 			line x-3,y-3,x+3,y+3
 			line x+3,y-3,x-3,y+3
 
-	move : (dx,dy) -> 		
-		@x += dx * @speed
-		@y += dy * @speed
-		@clix++
+	move : (i) ->
+		[dx,dy] = @dxdy[i] 		
+		@x += dx * @speeds[@speed]
+		@y += dy * @speeds[@speed]
+		@clicks++
+		@moves += 'abcd'[i] 
 
-	left    : -> @move -1,0
-	right   : -> @move 1,0
-	up      : -> @move 0,-1
-	down    : -> @move 0,1
-	snailSpeed : -> @speed = 1
-	slowSpeed : -> @speed = 5
-	highSpeed : -> @speed = 10
-	warpSpeed : -> @speed = 50
+	setSpeed : (index) ->
+		@speed = index
+		@moves += index
+
+	right   : -> @move 0
+	down    : -> @move 1
+	left    : -> @move 2
+	up      : -> @move 3
+	
+	snailSpeed : -> @setSpeed 0
+	slowSpeed  : -> @setSpeed 1
+	highSpeed  : -> @setSpeed 2
+	warpSpeed  : -> @setSpeed 3
 
 	step : (d) -> 
-		@clix++
+		@clicks++
 		constrain @zoom+d,0,3 
 	pick : ->
 		for [x,y],i in _.zip @xs,@ys
@@ -2487,7 +2498,7 @@ class PickingBerries extends LocalStorage
 				@xs.splice i,1
 				@ys.splice i,1
 				break
-		@clix++
+		@clicks++
 
 berries = new PickingBerries "a"
 			"""
@@ -2498,7 +2509,7 @@ berries = new PickingBerries "a"
 	"LB: miscellaneous" :
 #####################################
 
-		alphanumeric:
+		Alphanumeric:
 			b:"""
 # LOC:15 bg for in range indexOf & ** circle {} [] '' if then else class extends constructor new @ super ->
 
