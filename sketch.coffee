@@ -352,10 +352,7 @@ class Application
 		for key in _.keys @
 			if key != "name" then delete @[key]
 
-	readText : -> 
-		x = $('#input').val()
-		$('#input').val('')
-		x
+	readText : -> $('#input').val()
 	readInt : -> parseInt @readText()
 	readFloat : -> parseFloat @readText()
 

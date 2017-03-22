@@ -2719,9 +2719,8 @@ class Kalkylator extends Application
 		textSize 32
 		textAlign RIGHT, BOTTOM
 		fc 1,0,0
-		n = @stack.length
-		for i in range n
-			s = ""+@stack[i]
+		for value,i in _.first @stack,5
+			s = "" + value
 			text s[0..9],190, 200 - i*40
 
 	shift : -> @stack.shift()
@@ -2750,7 +2749,7 @@ class Kalkylator extends Application
 			else if cmd=='clr' then @clr()
 			else if cmd=='pi' then @pi()
 			else if cmd of @words then @execute @words[cmd]
-			else @stack.unshift parseFloat cmd
+			else @stack.unshift eval cmd
 
 	enter : ->
 		commands = @readText()
