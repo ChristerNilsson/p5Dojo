@@ -12,6 +12,7 @@ data =
 		Nyheter :
 			b:"""
 # NYHETER 2017 MAR 26
+#   L9: EngineeringNotation
 #   LB: Kalkylator Nian Korsord
 # NYHETER 2017 MAR 19
 #   LA: PickingBerries
@@ -1737,9 +1738,9 @@ engineering = new Engineering "b"
 class Engineering extends LocalStorage
 	reset : -> 
 		super
-		@numbers = "3.1415926535 1234 12345678 64123456789 12.345e12 15.678e15 18.9012e18"
+		@numbers = "-273.15 1.6021766208e-19 3.1415926535 9.80665 101325 299792458 1073741824 6.022140857e23"
 		@digits = 3
-		@prefixes = "afpnµm kMGTPE"
+		@prefixes = "yzafpnµm kMGTPEZY"
 	format : (x) -> 
 		if x<0 then return "-" + @format(-x)
 		exponent = 3 * Math.floor Math.log10(x)/3
@@ -1747,7 +1748,7 @@ class Engineering extends LocalStorage
 		if x < 10 then factor = 10 ** (@digits-1) 
 		else if x < 100 then factor = 10 ** (@digits-2)
 		else factor = 10 ** (@digits-3)
-		Math.round(x * factor) / factor + @prefixes[6+exponent/3]
+		Math.round(x * factor) / factor + @prefixes[8+exponent/3]
 	draw  : -> 
 		bg 0
 		textAlign RIGHT,TOP
@@ -1758,7 +1759,7 @@ class Engineering extends LocalStorage
 		textAlign RIGHT,TOP
 		for nr,i in @numbers.split " "
 			x = parseFloat nr
-			if i<6 then text @format(1/x), 100-5,i*20
+			if i<8 then text @format(1/x), 100-5,i*20
 			text @format(x), 200-5,i*20
 	more  : -> @digits = constrain @digits+1, 1,6
 	less  : -> @digits = constrain @digits-1, 1,6
