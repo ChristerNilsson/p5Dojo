@@ -1672,12 +1672,14 @@ guess = new Guess "a"
 
 		Connect4 :
 			b:"""
-# LOC:29 % bg fc sc sw circle text textAlign textSize for in range push class extends constructor new @ super -> 
+# LOC:31 % bg fc sc sw circle text textAlign textSize for in range 
+#        push pop class extends constructor new @ super -> 
 
 class Connect4 extends LocalStorage
 	reset : -> super
-	draw : -> super
-	move : (nr) ->
+	draw  : -> super
+	move  : (nr) ->
+	undo  : ->
 
 connect4 = new Connect4 "b"
 			"""
@@ -1685,39 +1687,138 @@ connect4 = new Connect4 "b"
 class Connect4 extends LocalStorage
 	reset : ->
 		super
-		@size = 27
 		@list = ([] for i in range 7)
 		@moves = []
 	draw : ->
+		size = 27
 		bg 0
 		textAlign CENTER,CENTER
-		textSize @size/2
+		textSize size/2
 		fc()
 		sc 0.1,0.3,1
-		sw 0.2 * @size
+		sw 0.2 * size
 		for i in range 7
 			for j in range 6
-				circle 100-@size*3+@size*i, 180-@size*j, @size/2
+				circle 100-size*3+size*i, 180-size*j, size/2
 		for column,i in @list
 			for nr,j in column
 				fc 1,nr%2,0
 				sw 1
-				circle 100-@size*3+@size*i, 180-@size*j, @size*0.4
+				circle 100-size*3+size*i, 180-size*j, size*0.4
 				fc 0
 				sc()
-				text nr, 100-@size*3+@size*i, 180-@size*j
+				text nr, 100-size*3+size*i, 180-size*j
 		sc()
 		fc 1,(@moves.length+1)%2,0
 		circle 100,15,10
 	move : (nr) ->
 		@moves.push nr
 		@list[nr].push @moves.length 
+	undo : -> if @moves.length > 0 then @list[@moves.pop()].pop()
 
 connect4 = new Connect4 "a"
 """
 			c:
-				connect4 : "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6"
+				connect4 : "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6|undo()"
 
+		EngineeringNotation :
+			b:"""		
+# LOC:28 fc sc bg Math.floor Math.log10 constrain + - * / < ** text split
+#        extAlign textSize class extends constructor new @ super ->
+
+class Engineering extends LocalStorage
+	reset : -> super
+	draw  : -> super 
+	more  : -> 
+	less  : -> 
+engineering = new Engineering "b"   		
+"""
+			a:"""
+class Engineering extends LocalStorage
+	reset : -> 
+		super
+		@numbers = "3.1415926535 1234 12345678 64123456789 12.345e12 15.678e15 18.9012e18"
+		@digits = 3
+		@prefixes = "afpnµm kMGTPE"
+	format : (x) -> 
+		if x<0 then return "-" + @format(-x)
+		exponent = 3 * Math.floor Math.log10(x)/3
+		x = x / 10 ** exponent
+		if x < 10 then factor = 10 ** (@digits-1) 
+		else if x < 100 then factor = 10 ** (@digits-2)
+		else factor = 10 ** (@digits-3)
+		Math.round(x * factor) / factor + @prefixes[6+exponent/3]
+	draw  : -> 
+		bg 0
+		textAlign RIGHT,TOP
+		textSize 20
+		textFont "monospace"
+		fc 1,0,0
+		sc()
+		textAlign RIGHT,TOP
+		for nr,i in @numbers.split " "
+			x = parseFloat nr
+			if i<6 then text @format(1/x), 100-5,i*20
+			text @format(x), 200-5,i*20
+	more  : -> @digits = constrain @digits+1, 1,6
+	less  : -> @digits = constrain @digits-1, 1,6
+
+engineering = new Engineering "a"   		
+"""
+			c:
+				engineering : "reset()|more()|less()"
+
+		Laboratorium :
+			b:"""		
+# Här kan du laborera med egna idéer!
+
+class Laboratorium extends LocalStorage
+	reset : ->
+		super
+		@x = 100
+		@y = 100
+		@command = ""
+	draw  : -> 
+		textAlign CENTER,CENTER
+		textSize 50
+		fc 1,1,0
+		text @command,@x,@y
+	left  : -> @x -= 10
+	right : -> @x += 10
+	up    : -> @y -= 10
+	down  : -> @y += 10
+	a     : -> @command = "a"
+	b     : -> @command = "b"
+	c     : -> @command = "c"
+	d     : -> @command = "d"
+	e     : -> @command = int random 1,7
+	f     : -> @command = int millis()
+
+laboratorium = new Laboratorium "b"     
+"""
+			a:"""
+class Laboratorium extends LocalStorage
+	reset : -> super
+	draw : -> 
+	left : -> 
+	right : -> 
+	up : -> 
+	down : -> 
+	a : -> 
+	b : -> 
+	c : -> 
+	d : -> 
+	e : -> 
+	f : -> 
+
+laboratorium = new Laboratorium "a"   		
+"""
+			c:
+				laboratorium : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
+
+#####################################
+	"LA: interactivity, advanced" :
+#####################################
 
 		Klocka: 
 			b: """
@@ -1786,58 +1887,6 @@ klocka = new Klocka "a"
 			c: 
 				klocka : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
 
-
-		Laboratorium :
-			b:"""		
-# Här kan du laborera med egna idéer!
-
-class Laboratorium extends LocalStorage
-	reset : ->
-		super
-		@x = 100
-		@y = 100
-		@command = ""
-	draw  : -> 
-		textAlign CENTER,CENTER
-		textSize 50
-		fc 1,1,0
-		text @command,@x,@y
-	left  : -> @x -= 10
-	right : -> @x += 10
-	up    : -> @y -= 10
-	down  : -> @y += 10
-	a     : -> @command = "a"
-	b     : -> @command = "b"
-	c     : -> @command = "c"
-	d     : -> @command = "d"
-	e     : -> @command = int random 1,7
-	f     : -> @command = int millis()
-
-laboratorium = new Laboratorium "b"     
-"""
-			a:"""
-class Laboratorium extends LocalStorage
-	reset : -> super
-	draw : -> 
-	left : -> 
-	right : -> 
-	up : -> 
-	down : -> 
-	a : -> 
-	b : -> 
-	c : -> 
-	d : -> 
-	e : -> 
-	f : -> 
-
-laboratorium = new Laboratorium "a"   		
-"""
-			c:
-				laboratorium : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
-
-#####################################
-	"LA: interactivity, advanced" :
-#####################################
 
 		BouncingBalls :
 			b : """
