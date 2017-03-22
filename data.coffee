@@ -2590,7 +2590,9 @@ class AlphaNumeric extends Application
 				circle x,y,8
 	add   : -> 
 		pattern = @readText()
-		if pattern.length == 7 then @pattern.push pattern
+		if pattern.length == 7 
+			@pattern.push pattern
+			@index = @pattern.length - 1
 	del   : -> @pattern.splice @index, 1
 	left  : -> @index = (@index - 1) %% @pattern.length
 	right : -> @index = (@index + 1) %% @pattern.length
