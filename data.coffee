@@ -2696,13 +2696,13 @@ polygon = new Polygon "a"
 class Kalkylator extends Application
 	reset : -> super
 	draw  : -> super
-	chs   : -> # byt tecken
-	swap  : -> # R0 och R1 byter plats. 
-	drop  : -> # R0 tas bort
-	dup   : -> # R0 dupliceras
-	sqrt  : -> # R0 ersätts med sqrt(R0)
-	clr   : -> # stacken töms
-	pi    : -> # pi läggs på stacken
+	chs   : -> # ( n -- n ) 
+	swap  : -> # ( a b -- b a )
+	drop  : -> # ( n -- ) 
+	dup   : -> # ( n -- n n )
+	sqrt  : -> # ( n -- n )
+	clr   : -> # ( a b -- )
+	pi    : -> # ( -- n)
 	enter : -> # inmatning från textrutan under kommandolistan.
 
 kalkylator = new Kalkylator "b"
