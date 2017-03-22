@@ -327,12 +327,7 @@ compare = ->
 		
 	updatePixels()
 
-# pretty = (s) ->
-# 	s = s.replace /"/g, ""
-# 	s = s.replace /,/g, " "
-# 	s.slice 8, s.length-1 # remove {name:a }
-
-class LocalStorage
+class Application
 	constructor : (@name) ->
 		name = chapter + "/" + exercise + "/" + @name
 		obj = localStorage.getItem name 
@@ -340,7 +335,7 @@ class LocalStorage
 			dict = JSON.parse obj
 			for key,value of dict
 				@[key] = value
-
+			
 	store : -> 
 		name = chapter + "/" + exercise + "/" + @name
 		obj = JSON.stringify @

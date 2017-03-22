@@ -1,6 +1,6 @@
 # p5Dojo - Matematik och Spelprogrammering
 
- - [p5Dojo](https://christernilsson.github.io/p5Dojo) christernilsson.github.io/p5Dojo eller goo.gl/SuZ2UX
+ - [p5Dojo](https://christernilsson.github.io/p5Dojo) p5dojo.com
  - [p5](https://p5js.org/reference) 
  - [Coffeescript](http://coffeescript.org)
  - [Javascript](https://www.w3schools.com/js)

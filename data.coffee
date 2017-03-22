@@ -1304,19 +1304,20 @@ olympic()
 #####################################
 
 		Counter :
-			b:"""		
-# LOC:12 text textAlign textSize + - class extends constructor new @ super ->
+			b:"""
+# LOC:12 bg fc sc text textAlign textSize + - class extends constructor new @ super ->
+# Klicka på reset() om du får ett felmeddelande!
 
-class Counter extends LocalStorage
+class Counter extends Application
 	reset : -> super
-	draw : -> super
-	up : -> 
-	down : -> 
+	draw  : -> super
+	up    : -> 
+	down  : -> 
 
 counter = new Counter "b"     
 """
 			a:"""
-class Counter extends LocalStorage
+class Counter extends Application
 	reset : -> 
 		super
 		@counter = 0
@@ -1324,9 +1325,10 @@ class Counter extends LocalStorage
 	down : -> @counter -= 1
 	draw : ->
 		bg 0.5
+		fc 1,1,0
+		sc()
 		textAlign CENTER,CENTER
 		textSize 100
-		fc 1,1,0
 		text @counter,100,100
 
 counter = new Counter "a"   		
@@ -1338,16 +1340,16 @@ counter = new Counter "a"
 			b:"""
 # LOC:10 bg for line map class extends constructor new @ super ->
 
-class Moire extends LocalStorage
+class Moire extends Application
 	reset : -> super
-	draw : -> super
-	more : -> 
-	less : -> 
+	draw  : -> super
+	more  : -> 
+	less  : -> 
 
 moire = new Moire "b"
 			"""
 			a: """
-class Moire extends LocalStorage
+class Moire extends Application
 	reset : ->
 		super
 		@n = 2
@@ -1368,19 +1370,19 @@ moire = new Moire "a"
 			b: """
 # LOC:21 bg sw fc rect rectMode translate rd + class extends constructor new @ super ->
 
-class Square extends LocalStorage
-	reset : -> super
-	draw : -> super
+class Square extends Application
+	reset        : -> super
+	draw         : -> super
 	horisontellt : (d) -> 
-	vertikalt : (d) ->
-	storlek : (d) -> 
-	tjocklek : (d) -> 
-	rotera : (d) ->
+	vertikalt    : (d) ->
+	storlek      : (d) -> 
+	tjocklek     : (d) -> 
+	rotera       : (d) ->
 
 square = new Square "b"
 """
 			a: """
-class Square extends LocalStorage
+class Square extends Application
 	reset : ->
 		super
 		@x = 100
@@ -1412,18 +1414,18 @@ square = new Square "a"
 			b:"""
 # LOC:21 bg fc sc circle for in range ->
 
-class Board extends LocalStorage
+class Board extends Application
 	reset : -> super
-	draw : ->	super
-	r : (d) ->
-	d : (d) ->
-	n : (d) ->
+	draw  : -> super
+	r     : (d) ->
+	d     : (d) ->
+	n     : (d) ->
 
 board = new Board "b" 
 """
 			a:"""
 
-class Board extends LocalStorage
+class Board extends Application
 	reset : ->
 		super
 		@_x = 100
@@ -1454,18 +1456,18 @@ board = new Board "a"
 			b: """
 # LOC:17 -> bg fc for in range rect class extends constructor new @ super ->
 
-class ColorCube extends LocalStorage
-	reset : -> super
-	draw : -> super
+class ColorCube extends Application
+	reset       : -> super
+	draw        : -> super
 	moreDetails : ->
 	lessDetails : ->
-	moreBlue : ->
-	lessBlue : ->
+	moreBlue    : ->
+	lessBlue    : ->
 
 cc = new ColorCube "b"
 """
 			a: """
-class ColorCube extends LocalStorage
+class ColorCube extends Application
 	draw : ->
 		bg 0
 		d = 200.0/@n
@@ -1492,7 +1494,7 @@ cc = new ColorCube "a"
 			b:"""
 # LOC:21 sc fc sw arc strokeCap class extends constructor new @ super ->
 
-class Ring extends LocalStorage
+class Ring extends Application
 	reset  : -> super
 	draw   : -> super
 	start  : (d) ->
@@ -1503,7 +1505,7 @@ class Ring extends LocalStorage
 ring = new Ring "b"
 """
 			a:"""
-class Ring extends LocalStorage
+class Ring extends Application
 	reset : ->
 		super
 		@_start = 3
@@ -1531,16 +1533,16 @@ ring = new Ring "a"
 			b : """
 # LOC:26 bg sc fc rect rectMode if then & [] class extends constructor new @ super ->
 
-class Digit extends LocalStorage
+class Digit extends Application
 	reset : -> super
-	draw : -> super
-	up : -> 
-	down : -> 
+	draw  : -> super
+	up    : -> 
+	down  : -> 
 
 digit = new Digit "b"
 			"""
 			a:"""
-class Digit extends LocalStorage
+class Digit extends Application
 	reset : ->
 		super
 		@d=0
@@ -1582,7 +1584,7 @@ digit = new Digit "a"
 			b:"""
 # LOC:27 -> bg fc sc sw rect for if else class extends constructor new @ super ->
 
-class Korg extends LocalStorage
+class Korg extends Application
 	reset   : -> super
 	draw    : -> super
 	more    : ->
@@ -1593,7 +1595,7 @@ class Korg extends LocalStorage
 korg = new Korg "b"
 """
 			a: """
-class Korg extends LocalStorage
+class Korg extends Application
 	reset : ->
 		super
 		@n = 1
@@ -1633,15 +1635,15 @@ korg = new Korg "a"
 # LOC:20 bg fc sc text textAlign for in range if then else * / + - % <=
 #        int @readInt class extends constructor new @ super ->
 
-class Guess extends LocalStorage
-	reset : -> super
-	draw  : -> super
+class Guess extends Application
+	reset     : -> super
+	draw      : -> super
 	readGuess : ->
 
 guess = new Guess "b"
 """
 			a:"""
-class Guess extends LocalStorage
+class Guess extends Application
 	reset : ->
 		super
 		@n = 100
@@ -1676,7 +1678,7 @@ guess = new Guess "a"
 # LOC:31 % bg fc sc sw circle text textAlign textSize for in range 
 #        push pop class extends constructor new @ super -> 
 
-class Connect4 extends LocalStorage
+class Connect4 extends Application
 	reset : -> super
 	draw  : -> super
 	move  : (nr) ->
@@ -1685,7 +1687,7 @@ class Connect4 extends LocalStorage
 connect4 = new Connect4 "b"
 			"""
 			a:"""
-class Connect4 extends LocalStorage
+class Connect4 extends Application
 	reset : ->
 		super
 		@list = ([] for i in range 7)
@@ -1727,7 +1729,7 @@ connect4 = new Connect4 "a"
 # LOC:28 fc sc bg Math.floor Math.log10 constrain + - * / < ** text split
 #        extAlign textSize class extends constructor new @ super ->
 
-class Engineering extends LocalStorage
+class Engineering extends Application
 	reset : -> super
 	draw  : -> super 
 	more  : -> 
@@ -1735,7 +1737,7 @@ class Engineering extends LocalStorage
 engineering = new Engineering "b"   		
 """
 			a:"""
-class Engineering extends LocalStorage
+class Engineering extends Application
 	reset : -> 
 		super
 		@numbers = "-273.15 1.6021766208e-19 3.1415926535 9.80665 101325 299792458 1073741824 6.022140857e23"
@@ -1773,16 +1775,17 @@ engineering = new Engineering "a"
 			b:"""		
 # Här kan du laborera med egna idéer!
 
-class Laboratorium extends LocalStorage
+class Laboratorium extends Application
 	reset : ->
 		super
 		@x = 100
 		@y = 100
-		@command = ""
+		@command = "Ge ett kommando!"
 	draw  : -> 
 		textAlign CENTER,CENTER
-		textSize 50
+		textSize 24
 		fc 1,1,0
+		sc()
 		text @command,@x,@y
 	left  : -> @x -= 10
 	right : -> @x += 10
@@ -1798,7 +1801,7 @@ class Laboratorium extends LocalStorage
 laboratorium = new Laboratorium "b"     
 """
 			a:"""
-class Laboratorium extends LocalStorage
+class Laboratorium extends Application
 	reset : -> super
 	draw : -> 
 	left : -> 
@@ -1826,9 +1829,9 @@ laboratorium = new Laboratorium "a"
 # LOC:44 fc sc point rect rectMode circle for in range if then else 
 #        translate rd push pop class extends constructor new @ super ->
 
-class Klocka extends LocalStorage
-	reset : -> super
-	draw : -> super
+class Klocka extends Application
+	reset  : -> super
+	draw   : -> super
 	hour   : (h) ->
 	minute : (m) ->
 	second : (s) ->
@@ -1836,7 +1839,7 @@ class Klocka extends LocalStorage
 klocka = new Klocka "b"
 			"""
 			a: """
-class Klocka extends LocalStorage
+class Klocka extends Application
 	reset : -> 
 		super
 		@h=10
@@ -1895,24 +1898,24 @@ klocka = new Klocka "a"
 
 class Ball 
 	constructor : ->
-	update : (grav) ->
-	render : (sel) ->
+	update      : (grav) ->
+	render      : (sel) ->
 
-class BouncingBalls extends LocalStorage
+class BouncingBalls extends Application
 
 	constructor : (@name) ->
 		super @name
 		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
 
-	reset : -> super
-	draw : -> super
-	update : -> 
-	add : -> 
-	delete :->
+	reset   : -> super
+	draw    : -> super
+	update  : -> 
+	add     : -> 
+	delete  : ->
 	selNext : -> 
 	selPrev : -> 
-	grow : ->    
-	shrink : ->  
+	grow    : ->    
+	shrink  : ->  
 	nextCol : -> 
 	prevCol : -> 
 	gravity : ->
@@ -1941,7 +1944,7 @@ class Ball
 		if sel then scc 7 else sc()
 		circle @x,@y,@r
 
-class BouncingBalls extends LocalStorage
+class BouncingBalls extends Application
 
 	constructor : (@name) ->
 		super @name
@@ -1991,7 +1994,7 @@ class Cartesius
 	down        : (d) ->
 	left        : (d) ->
 
-class Braider extends LocalStorage
+class Braider extends Application
 	braid   : (type) -> 
 	draw    : -> super
 	forward : ->
@@ -2010,9 +2013,11 @@ class Cartesius
 	down : (d) -> @go 0,d
 	left : (d) -> @go -d,0
 
-class Braider extends LocalStorage
+class Braider extends Application
 
-	braid : (@type) -> @n = 0
+	braid : (@type) -> 
+		@n = 0
+		@forward()
 	draw : ->
 		if @type==1
 			sw 5
@@ -2077,18 +2082,18 @@ braider = new Braider "a"
 			b: """
 # LOC:10 -> sc circle if return < class extends constructor new @ super ->
 
-class RecursiveCircle extends LocalStorage
-	reset : -> super
-	draw : -> super
+class RecursiveCircle extends Application
+	reset   : -> super
+	draw    : -> super
 	circles : (x,y,r,level) ->
-	more : -> 
-	less : -> 
+	more    : -> 
+	less    : -> 
 
 rc = new RecursiveCircle "b"
 """
 			a: """
 
-class RecursiveCircle extends LocalStorage
+class RecursiveCircle extends Application
 	reset : -> 
 		super
 		@n = 0
@@ -2111,7 +2116,7 @@ rc = new RecursiveCircle "a"
 # LOC:38 bg fc sc circle * + - ^ if then else @readInt _.isEqual return <  
 #        constrain text textAlign textSize class extends constructor new @ super ->
 
-class Nim extends LocalStorage
+class Nim extends Application
 	reset  : -> super
 	draw   : -> super
 	read_a : ->
@@ -2126,7 +2131,7 @@ class Nim extends LocalStorage
 nim = new Nim "b"  
 """
 			a:"""
-class Nim extends LocalStorage
+class Nim extends Application
 	reset : -> 
 		super
 		@board = [7,8,9]
@@ -2184,15 +2189,15 @@ nim = new Nim "a"
 # LOC:64 bg fc sc sw point rect rectMode if then else text textSize textAlign class constructor new @
 #        for in range push split length indexOf
 
-class Chess extends LocalStorage
+class Chess extends Application
 	reset : -> super
-	draw : -> super
-	move : (d) ->
+	draw  : -> super
+	move  : (d) ->
 
 chess = new Chess "b"
 """
 			a:"""
-class Chess extends LocalStorage
+class Chess extends Application
 
 	reset : ->
 		super
@@ -2281,19 +2286,19 @@ chess = new Chess "a"
 
 class Shot
 	constructor : (@x,@y,@dir) ->
-	render : ->	
-	move : ->
+	render      : ->	
+	move        : ->
 
-class Ship extends LocalStorage
+class Ship extends Application
 	constructor : (@name) ->
 		super @name
 		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
-	reset : -> super
-	draw : -> super
-	left : -> 
-	right : -> 
+	reset   : -> super
+	draw    : -> super
+	left    : -> 
+	right   : -> 
 	forward : -> 
-	shoot : ->		
+	shoot   : ->		
 
 ship = new Ship "b"	
 """
@@ -2305,7 +2310,7 @@ class Shot
 		@x += int 5 * cos radians @dir
 		@y += int 5 * sin radians @dir
 
-class Ship extends LocalStorage 
+class Ship extends Application 
 
 	constructor : (@name) ->
 		super @name
@@ -2355,27 +2360,27 @@ ship = new Ship "a"
 
 class Car
 	constructor : (@i,@j,@w,@h,@r,@g,@b) ->
-	render : (i) -> 
-	move : (d) ->
+	render      : (i) -> 
+	move        : (d) ->
 
-class RushHour extends LocalStorage
+class RushHour extends Application
 	constructor : (@name) ->
 		super @name
 		if @a then @a = _.create Car.prototype, @a
 		if @b then @b = _.create Car.prototype, @b
 		if @c then @c = _.create Car.prototype, @c
 		if @d then @d = _.create Car.prototype, @d
-	reset : -> super
-	draw : -> super
-	add : (pos,r,g,b) -> 
+	reset   : -> super
+	draw    : -> super
+	add     : (pos,r,g,b) -> 
 	A_Left  : ->
 	A_Right : ->
-	B_Up  : -> 
-	B_Down : -> 
+	B_Up    : -> 
+	B_Down  : -> 
 	C_Left  : -> 
 	C_Right : ->
-	D_Up  : -> 
-	D_Down : -> 
+	D_Up    : -> 
+	D_Down  : -> 
 
 rushHour = new RushHour "b"
 
@@ -2392,7 +2397,7 @@ class Car
 		if @w == 1 then @j += d
 		if @h == 1 then @i += d
 
-class RushHour extends LocalStorage
+class RushHour extends Application
 
 	constructor : (@name) ->
 		super @name
@@ -2457,7 +2462,7 @@ rushHour = new RushHour "a"
 # LOC:46 bg sc fc sw [] * + line text textSize textAlign constrain dist 
 #        splice break for in class extends constructor new @ super ->
 
-class PickingBerries extends LocalStorage
+class PickingBerries extends Application
 	reset      : -> super
 	draw       : -> super
 	left       : -> 
@@ -2473,7 +2478,7 @@ class PickingBerries extends LocalStorage
 berries = new PickingBerries "b"
 """
 			a:"""
-class PickingBerries extends LocalStorage
+class PickingBerries extends Application
 
 	reset : ->
 		super
@@ -2554,15 +2559,15 @@ berries = new PickingBerries "a"
 			b:"""
 # LOC:15 bg for in range indexOf & ** circle {} [] '' if then else class extends constructor new @ super ->
 
-class AlphaNumeric extends LocalStorage
-	reset : -> super
-	draw : -> super
+class AlphaNumeric extends Application
+	reset     : -> super
+	draw      : -> super
 	character : (ch) -> 
 
 alpha = new AlphaNumeric "b"
 """
 			a:"""
-class AlphaNumeric extends LocalStorage
+class AlphaNumeric extends Application
 	reset : -> 
 		super
 		@pattern = {1:'4c4444e', 2:'eh1248v', A:'ehhvhhh', B:'uhhuhhu'}
@@ -2588,17 +2593,17 @@ alpha = new AlphaNumeric "a"
 			b: """
 # LOC:23 bg fc for in range triangle translate rotate cos sin class extends constructor new @ super ->
 
-class GoldenStar extends LocalStorage
+class GoldenStar extends Application
 	reset : -> super
-	draw : -> super
-	n : (d) -> 
+	draw  : -> super
+	n     : (d) -> 
 	outer : (d) ->
 	inner : (d) ->
 
 star = new GoldenStar "b"
 """
 			a: """
-class GoldenStar extends LocalStorage
+class GoldenStar extends Application
 	reset : ->
 		super
 		@_x = 100
@@ -2637,11 +2642,11 @@ class Turtle
 	fd : (d) ->
 	rt : (a) ->
 
-class Polygon extends LocalStorage
-	reset : -> super
-	draw : -> super
+class Polygon extends Application
+	reset      : -> super
+	draw       : -> super
 	antalSidor : (d) ->
-	antalSteg : (d) -> 
+	antalSteg  : (d) -> 
 
 polygon = new Polygon "b"
 """
@@ -2658,7 +2663,7 @@ class Turtle
 	rt : (a) ->
 		@dir +=a
 
-class Polygon extends LocalStorage
+class Polygon extends Application
 	reset : ->
 		super
 		@n = 6
@@ -2688,7 +2693,7 @@ polygon = new Polygon "a"
 #       @words ska kunna utökas med ":". T ex ": sq dup *"
 #       Definiera t ex invers, distans och parallella motstånd
 
-class Kalkylator extends LocalStorage
+class Kalkylator extends Application
 	reset : -> super
 	draw  : -> super
 	chs   : -> # byt tecken
@@ -2703,7 +2708,7 @@ class Kalkylator extends LocalStorage
 kalkylator = new Kalkylator "b"
 """
 			a:"""
-class Kalkylator extends LocalStorage
+class Kalkylator extends Application
 	reset : ->
 		super
 		@stack = [0,1,2,3]
@@ -2774,15 +2779,15 @@ kalkylator = new Kalkylator "a"
 #				 for in of {} _.countBy and if then class constructor new @ extends super 
 # Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med "aaefkrrtu"
 
-class Nian extends LocalStorage
+class Nian extends Application
 	reset : -> super
-	draw : -> super
+	draw  : -> super
 	enter : ->
 
 nian = new Nian "b"
 """
 			a:"""
-class Nian extends LocalStorage
+class Nian extends Application
 	reset : ->
 		super
 		@found = ""
@@ -2835,14 +2840,14 @@ nian = new Nian "a"
 #        @readText "" split join _.filter class constructor new @ extends super
 # Mata in t ex b..l och få ut bill samt boll.
 
-class Korsord extends LocalStorage
+class Korsord extends Application
 	reset : -> super
 	draw  : -> super
 	enter : -> 
 korsord = new Korsord "b"
 """
 			a:"""
-class Korsord extends LocalStorage
+class Korsord extends Application
 	reset : -> 
 		print "reset"
 		super
