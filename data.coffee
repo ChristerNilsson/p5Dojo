@@ -1579,6 +1579,8 @@ digit = new Digit "a"
 """
 			c: 
 				digit : "reset()|up()|down()"
+			e: 
+				"7 segment" : "https://www.google.se/search?q=7+segment&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjg_5n55OrSAhWpZpoKHQP8DxoQ_AUIBigB&biw=1310&bih=945"
 
 		Korg: 
 			b:"""
@@ -2557,12 +2559,16 @@ berries = new PickingBerries "a"
 
 		Alphanumeric:
 			b:"""
-# LOC:15 bg for in range indexOf & ** circle {} [] '' if then else class extends constructor new @ super ->
+# LOC:19 bg sc fc for in range indexOf & ** %% circle {} [] '' 
+#        push if then else class extends constructor new @ super ->
 
 class AlphaNumeric extends Application
-	reset     : -> super
-	draw      : -> super
-	character : (ch) -> 
+	reset : -> super
+	draw  : -> super
+	add   : -> 
+	del   : ->
+	left  : -> 
+	right : ->
 
 alpha = new AlphaNumeric "b"
 """
@@ -2570,24 +2576,33 @@ alpha = new AlphaNumeric "b"
 class AlphaNumeric extends Application
 	reset : -> 
 		super
-		@pattern = {1:'4c4444e', 2:'eh1248v', A:'ehhvhhh', B:'uhhuhhu'}
-		@ch = 'A'
+		@pattern = ['4c4444e', 'eh1248v', 'ehhvhhh', 'uhhuhhu']
+		@index = 0
 	draw : ->
 		bg 0
 		sc()
-		for ch,j in @pattern[@ch]
+		for ch,j in @pattern[@index]
 			index = '0123456789abcdefghijklmnopqrstuv'.indexOf ch
 			for i in range 5
 				if index & 2**i then fc 0,1,0 else fc 0,0.3,0
 				x = 140-20*i
 				y = 40+20*j
 				circle x,y,8
-	character : (ch) -> @ch = ch
+	add   : -> 
+		pattern = @readText()
+		if pattern.length == 7 then @pattern.push pattern
+	del   : -> @pattern.splice @index, 1
+	left  : -> @index = (@index - 1) %% @pattern.length
+	right : -> @index = (@index + 1) %% @pattern.length
 
 alpha = new AlphaNumeric "a"
 """
 			c:
-				alpha: "reset()|character 'A'|character 'B'|character '1'|character '2'"
+				alpha: "reset()|add()|del()|left()|right()"
+			e:
+				binärt : "http://www.matteboken.se/lektioner/matte-1/tal/talsystem"
+				hexadecimalt : "http://www.matteguiden.se/matte-1/grunder/binara-och-hexadecimala-tal"
+				'5x7 matris' : "https://www.google.se/search?q=5x7+matrix&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjWjYen5OrSAhXhJ5oKHf8BBmgQ_AUIBigB&biw=1310&bih=945&dpr=1.1"
 
 		GoldenStar:
 			b: """
@@ -2686,7 +2701,7 @@ polygon = new Polygon "a"
 
 		Kalkylator:
 			b:"""
-# LOC:44 bg sc fc + - * / Math.sqrt Math.PI of {} in [] shift unshift splice 
+# LOC:46 bg sc fc + - * / Math.sqrt Math.PI of {} in [] shift unshift splice 
 #        text textSize textAlign length for range @readText 
 #        parseFloat "" split class extends constructor new @ super ->
 # TIPS! Börja med de fyra räknesätten. 
@@ -2774,7 +2789,7 @@ kalkylator = new Kalkylator "a"
 
 		Nian :
 			b:"""
-# LOC:34 [] push "" split indexOf reduce + * ** / % > & bg fc sc text textSize textAlign  
+# LOC:35 [] push "" split indexOf reduce + * ** / % > & bg fc sc text textSize textAlign  
 #				 for in of {} _.countBy and if then class constructor new @ extends super 
 # Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med "aaefkrrtu"
 
@@ -2835,7 +2850,7 @@ nian = new Nian "a"
 
 		Korsord :
 			b: """
-# LOC:30 bg fc sc / % + * != and text textAlign textSize if then for in [] length 
+# LOC:29 bg fc sc / % + * != and text textAlign textSize if then for in [] length 
 #        @readText "" split join _.filter class constructor new @ extends super
 # Mata in t ex b..l och få ut bill samt boll.
 
