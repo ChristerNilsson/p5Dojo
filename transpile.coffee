@@ -1,6 +1,4 @@
-assert = (a,b) ->
-  if a != b
-    print a + " != " + b
+assert = (a,b) -> if not _.isEqual(a, b) then print a + " != " + b
 
 tabcount = (s) ->
   i = 0

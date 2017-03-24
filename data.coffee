@@ -2902,3 +2902,48 @@ korsord = new Korsord "a"
 				'_.some' : "http://underscorejs.org/#some"
 				'_.filter' : "http://underscorejs.org/#filter"
 				'_.countBy' : "http://underscorejs.org/#countBy"
+
+		Asserts:
+			b:"""
+# Här kan du se några klargörande exempel.
+# Om de två parametrarna till assert är olika, skrivs de ut till console.
+# Du kan prova egna asserts här. Kontrollera med F12.
+
+# + * ** Prioritet
+assert 2 + 3 * 4,  14   
+assert 4 * 2 ** 3, 32 
+
+# % Resten vid heltalsdivision
+assert  2 % 2,  0
+assert  1 % 2,  1
+assert  0 % 2,  0
+assert -1 % 2, -1    
+assert -2 % 2, -0      
+
+# %% Resten vid heltalsdivision. Klarar även negativa tal.
+assert  2 %% 2, 0
+assert  1 %% 2, 1
+assert  0 %% 2, 0   
+assert -1 %% 2, 1  
+assert -2 %% 2, 0 
+ 
+# []
+assert 7 in [7,8], true
+assert (i for i in [7,8]), [7,8]  
+assert ([item,i] for item,i in [7,8]), [[7,0],[8,1]]   
+
+# {}
+assert 'b' of {a:7,b:8}, true      
+assert (key for key of {a:7,b:8}), ['a','b']   
+assert ([key,item] for key,item of {a:7,b:8}), [['a',7],['b',8]]    
+
+# & | ^ ~ Bit operationer
+assert [0&0, 0&1, 1&0, 1&1], [0,0,0,1] 
+assert [0|0, 0|1, 1|0, 1|1], [0,1,1,1] 
+assert [0^0, 0^1, 1^0, 1^1], [0,1,1,0] 
+assert [~0, ~1, ~2, ~3], [-1,-2,-3,-4] 
+
+"""
+			a:""
+			e:
+				assert : "https://en.wikipedia.org/wiki/Assertion_(software_development)"
