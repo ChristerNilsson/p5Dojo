@@ -13,6 +13,7 @@ data =
 			b:"""
 # NYHETER 2017 MAR 26
 #   L9: EngineeringNotation
+#   LA: Stopwatch
 #   LB: Kalkylator Nian Korsord
 # NYHETER 2017 MAR 19
 #   LA: PickingBerries
@@ -382,7 +383,7 @@ for i in range 100
 
 # Klicka på Background2 för att komma till nästa övning.
 # Klicka på p5Dojo nere till vänster för mera information.
-# Klicka på Reference för att se fler kommandon.
+# Klicka på p5 för att se fler kommandon.
 
 """
 			a: "bg 1"
@@ -454,7 +455,7 @@ point 100,200
 
 """
 			a: """
-sw 5
+sw 10
 sc 1,0,0
 point 20,0
 point 20,20
@@ -482,7 +483,7 @@ point 200,180
 
 """
 			a: """
-sw 5
+sw 10
 sc 1,0,0
 point 30,0
 point 30,10
@@ -2552,6 +2553,43 @@ berries = new PickingBerries "a"
 			"""
 			c:
 				berries : "reset()|left()|right()|up()|down()|snailSpeed()|slowSpeed()|highSpeed()|warpSpeed()|pick()"
+
+		Stopwatch:
+			b:"""
+# LOC:17 bg sc fc for in [] ''  text textSize textAlign textFont monospace
+#        int millis nf length unshift class extends constructor new @ super ->
+# OBS! Tiderna kan skilja med flera millisekunder. Sorry!
+
+class Stopwatch extends Application
+	reset : -> super
+	draw  : -> super
+	stopp : -> 
+stopwatch = new Stopwatch "b"
+"""
+			a:"""
+class Stopwatch extends Application
+	reset : -> 
+		super
+		@start = int millis()
+		@times = []
+	draw : ->
+		bg 0
+		textFont "monospace"
+		textSize 32
+		textAlign RIGHT,BOTTOM
+		fc 1,0,0
+		sc()
+		n = @times.length
+		for time,i in @times
+			text n-i,  50, 202-40*i
+			text time,195, 202-40*i
+	stopp : -> @times.unshift nf (millis()-@start)/1000, 1,3
+
+stopwatch = new Stopwatch "a"
+"""
+			c:
+				stopwatch: "reset()|stopp()"
+
 
 #####################################
 	"LB: miscellaneous" :
