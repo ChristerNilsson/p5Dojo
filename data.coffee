@@ -412,13 +412,13 @@ for i in range 100
 			b: """
 # LOC:9 sc sw point
 
-sw 5
+sw 10
 sc 1,0,0
 point 0,0
 
 """
 			a: """
-sw 5
+sw 10
 sc 1,0,0
 point 0,0
 sc 0,1,0
@@ -435,7 +435,7 @@ point 200,200
 
 """
 			a: """
-sw 5
+sw 10
 sc 1,0,0
 point 100,100
 sc 0,1,0

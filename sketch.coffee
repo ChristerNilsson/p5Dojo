@@ -10,12 +10,13 @@ exercise = ""
 call = ''
 calls = {}
 
+gap = 0
+block = 0
+buffer = [[],[],[]]
+
 setMsg = (txt) ->
 	msg.val txt
-	if txt == ''
-		msg.css 'background-color' , '#FFFFFF'
-	else
-		msg.css 'background-color' , '#FF0000'
+	msg.css 'background-color', if txt == '' then '#FFFFFF' else '#FF0000'
 
 grid = ->
 	push()
@@ -122,7 +123,6 @@ sel2change = (sel) ->
 
 sel3click = (sel) ->
 	if calls? then call = calls[sel.value]
-	#print ""
 	run1()
 	run0()
 	myCodeMirror.focus()
@@ -166,7 +166,6 @@ decorate = (dict) -> # {klocka: "draw|incr_hour"}
 		methods = s.split "|"
 		res["draw()"] = objekt + ".draw(); " + objekt + ".store()"
 		res[method] = objekt + "." + method + "; " + objekt + ".draw(); " + objekt + ".store()" for method in methods
-	#print res 
 	res
 
 changeLayout = ->
@@ -181,7 +180,11 @@ $(window).resize ->
 		resizeTimer = setTimeout changeLayout, 10
 
 setup = ->
-	c = createCanvas 5+201+5, 5+201 +5+6+ 201 +5+6+ 201+5
+	c = createCanvas 5+201+5, 3*201+20
+
+	gap = 5 * width * 4
+	block = 201 * width * 4
+
 	pixelDensity 1
 	c.parent 'canvas'
 	
@@ -279,7 +282,7 @@ run = (n, coffee) ->
 	resetMatrix()
 	rectMode CORNER
 	push()
-	translate 5, 5+(1-n) * 212
+	translate 5,5
 	reset()
 
 	setMsg ""
@@ -287,6 +290,7 @@ run = (n, coffee) ->
 		code = transpile coffee
 		try
 			eval code
+			buffer[1-n] = store()
 		catch e
 			setMsg e.stack.split('\n')[0]
 		pop()
@@ -296,36 +300,39 @@ run = (n, coffee) ->
 		setMsg e.name + ": " + e.message
 		return false 
 
-compare = ->
-	
-	GAP = 5
-	WIDTH = 201
-	HEIGHT = 201
-	
+store = ->
 	loadPixels()
-	
-	area0 = new Area pixels,GAP,GAP,						  		WIDTH,HEIGHT
-	area1 = new Area pixels,GAP,1*(GAP+HEIGHT+6)+GAP, WIDTH,HEIGHT
-	area2 = new Area pixels,GAP,2*(GAP+HEIGHT+6)+GAP, WIDTH,HEIGHT
+	pixels[gap...gap + block]
 
-	for i in range WIDTH+1
-		for j in range HEIGHT+1
-		
-			lst1 = area0.getPixel i,j
-			r1 = lst1[0]
-			g1 = lst1[1]
-			b1 = lst1[2]
-			lst2 = area1.getPixel i,j
-			r2 = lst2[0]
-			g2 = lst2[1]
-			b2 = lst2[2]
-			r = abs r1-r2
-			g = abs g1-g2
-			b = abs b1-b2
+fetch = (buffer,y0) ->
+	loadPixels()
+	for i in range block
+		pixels[gap + (gap+block)*y0 + i] = buffer[i]
+	updatePixels()	
 
-			area2.setPixel i,j,[r,g,b,255] 
-		
-	updatePixels()
+fix_frames = ->
+	loadPixels()
+	for k in range 4
+		for i in range gap
+			pixels[(gap+block)*k+i] = 127
+	for j in range height # 3*201+20
+		for i in range 20
+			pixels[j*width*4+i] = 127
+			pixels[j*width*4+206*4+i] = 127
+	updatePixels()	
+
+compare = ->
+	buffer[2] = buffer[0][..]
+	for i in range block/4
+		i4 = 4*i
+		buffer[2][i4+0] = abs(buffer[2][i4+0] - buffer[1][i4+0]) 	
+		buffer[2][i4+1] = abs(buffer[2][i4+1] - buffer[1][i4+1]) 	
+		buffer[2][i4+2] = abs(buffer[2][i4+2] - buffer[1][i4+2]) 	
+		buffer[2][i4+3] = 255
+	fetch buffer[0], 0 
+	fetch buffer[1], 1 
+	fetch buffer[2], 2
+	fix_frames()
 
 class Application
 	constructor : (@name) ->
