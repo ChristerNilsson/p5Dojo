@@ -36,7 +36,7 @@ data =
 
 		clown:
 			b:"""
-# LOC:30 bg circle fc sc sw line lerp (David Larsson)
+# LOC:30 bg circle fc sc sw # line lerp (David Larsson)
 
 """
 			a:"""
@@ -411,7 +411,7 @@ for i in range 100
 
 		CornerPoints: 
 			b: """
-# LOC:9 sc sw point
+# LOC:9 sc sw # point
 
 sw 10
 sc 1,0,0
@@ -432,7 +432,7 @@ point 200,200
 
 		MidPoints: 
 			b: """
-# LOC:11 sc sw point
+# LOC:11 sc sw # point
 
 """
 			a: """
@@ -451,7 +451,7 @@ point 100,200
 
 		CornerPoints3: 
 			b: """
-# LOC:17 sc sw point
+# LOC:17 sc sw # point
 
 """
 			a: """
@@ -479,7 +479,7 @@ point 200,180
 
 		CornerPoints7: 
 			b: """
-# LOC:17 sc sw point
+# LOC:17 sc sw # point
 
 """
 			a: """
@@ -505,7 +505,7 @@ point 200,170
 
 		Diagonal: 
 			b: """
-# LOC:23 sc sw point
+# LOC:23 sc sw # point
 
 """
 			a: """
@@ -540,7 +540,7 @@ point 0,200
 
 		Dices : 
 			b : """
-# LOC:26 point sc
+# LOC:26 sc # point
 
 """
 			a: """
@@ -579,7 +579,7 @@ point 115,175
 		
 		Five: 
 			b: """
-# LOC:12 bg circle fc sc
+# LOC:12 bg circle fc sc #
 
 """ 
 			a: """
@@ -599,7 +599,7 @@ circle 160,40,20
 
 		WhiteCircle: 
 			b:"""
-# LOC:2 circle fc
+# LOC:2 circle fc #
 
 """
 			a:"""
@@ -609,7 +609,7 @@ circle 60,80,30
 
 		WhiteEmptyCircle: 
 			b:"""
-# LOC:4 circle fc sc sw
+# LOC:4 circle fc sc sw #
 
 """
 			a:"""
@@ -621,7 +621,7 @@ circle 70,90,40
 
 		TwoDiscsA: 
 			b:"""
-# LOC:4 circle fc
+# LOC:4 circle fc #
 
 """
 			a:"""
@@ -633,7 +633,7 @@ circle 100,120,50
 
 		TwoDiscsB:
 			b:"""
-# LOC:4 circle fc
+# LOC:4 circle fc #
 
 """
 			a:"""
@@ -645,7 +645,7 @@ circle 120,100,50
 
 		TextA: 
 			b:"""
-# LOC:3 fc textSize text
+# LOC:3 fc # textSize text
 
 """
 			a:"""
@@ -656,7 +656,7 @@ text 'Coffeescript',100,100
 
 		TextB: 
 			b:"""
-# LOC:4 fc text textAlign textSize
+# LOC:4 fc # text textAlign textSize
 
 """
 			a:"""
@@ -672,7 +672,7 @@ text 'Coffeescript',100,100
 
 		GreenEllipse: 
 			b:"""
-# LOC:2 fc ellipse
+# LOC:2 fc # ellipse
 
 """
 			a:"""
@@ -682,7 +682,7 @@ ellipse 120,60, 60,40
 
 		GreenRect: 
 			b:"""
-# LOC:2 fc rect
+# LOC:2 fc # rect
 
 """
 			a:"""
@@ -692,7 +692,7 @@ rect 60,80, 40,50
 
 		RedRect:
 			b:"""
-# LOC:2 fc rect
+# LOC:2 fc # rect
 
 """
 			a:"""
@@ -702,7 +702,7 @@ rect 80,70, 40,100
 
 		Cross: 
 			b:"""
-# LOC:4 fc rect
+# LOC:4 fc # rect
 
 """
 			a:"""
@@ -714,7 +714,7 @@ rect 115,40, 10,100
 
 		SquareHole: 
 			b : """
-# LOC:11 fc sc sw rect
+# LOC:11 fc sc sw # rect
 
 """
 			a:"""
@@ -737,7 +737,7 @@ rect 80,80, 40,40
 
 		HorizontalSquares: 
 			b:"""
-# LOC:3 rect for in range lerp 
+# LOC:3 range # rect for in lerp 
 
 rect  5,5,10,10
 rect 25,5,10,10
@@ -752,7 +752,7 @@ for i in range 10
 """
 
 		VerticalSquares: 
-			b:"# LOC:3 rect for in range lerp\n"
+			b:"# LOC:3 range # rect for in lerp\n"
 			a:"""
 for i in range 10
 	y = 5+20*i
@@ -760,7 +760,7 @@ for i in range 10
 """
 
 		DiagonalSquares: 
-			b:"# LOC:4 rect for in range lerp\n"
+			b:"# LOC:4 range # rect for in lerp\n"
 			a:"""
 for i in range 10
 	x = 5+20*i
@@ -769,7 +769,7 @@ for i in range 10
 """
 
 		DoubleForLoop: 
-			b:"# LOC:5 rect for in range lerp\n"
+			b:"# LOC:5 range # rect for in lerp\n"
 			a:"""
 for i in range 10
 	for j in range 10
@@ -779,7 +779,7 @@ for i in range 10
 """
 
 		GrowingSquares: 
-			b:"# LOC:7 rect rectMode for in range lerp\n"
+			b:"# LOC:7 range # rect rectMode for in lerp\n"
 			a:"""
 rectMode CENTER
 for i in range 10
@@ -791,7 +791,7 @@ for i in range 10
 """
 
 		GrowingRedSquares: 
-			b:"# LOC:8 fc for in range lerp rect rectMode\n"
+			b:"# LOC:8 fc range # for in lerp rect rectMode\n"
 			a:"""
 rectMode CENTER
 for i in range 10
@@ -804,7 +804,7 @@ for i in range 10
 """
 
 		GrowingCircles: 
-			b:"# LOC:6 for in range fc circle lerp\n"
+			b:"# LOC:6 range fc circle # for in lerp\n"
 			a:"""
 for i in range 10
 	fc i/10.0,0,0
@@ -815,7 +815,7 @@ for i in range 10
 """
 
 		ShrinkingCircles: 
-			b:"# LOC:4 for in range fc circle lerp\n"
+			b:"# LOC:4 range fc circle # for in lerp\n"
 			a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -825,7 +825,7 @@ for i in range 10,0,-1
 
 		RedCone: 
 			b:"""
-# LOC:6 for in range fc circle lerp
+# LOC:6 range fc circle # for in lerp
 """
 			a:"""
 for i in range 10,0,-1
@@ -838,7 +838,7 @@ for i in range 10,0,-1
 
 		PentaLerp: 
 			b:"""
-# LOC:11 bg sc fc for in range circle lerp
+# LOC:11 bg sc fc range circle # for in lerp
 """
 			a:"""
 bg 0.5
@@ -859,14 +859,14 @@ for i in range 10
 #####################################
 
 		HorizontalLine: 
-			b: "# LOC:2 sc line\n"
+			b: "# LOC:2 sc # line\n"
 			a: """
 sc 1,0,1
 line 10,70, 190,70
 """
 
 		VerticalLine: 
-			b: "# LOC:3 sc sw line\n"
+			b: "# LOC:3 sc sw # line\n"
 			a: """
 sc 1,1,0
 sw 10
@@ -874,14 +874,14 @@ line 110,30, 110,170
 """
 
 		Line: 
-			b: "# LOC:2 sc line\n"
+			b: "# LOC:2 sc # line\n"
 			a: """
 sc 1,1,0
 line 20,0, 200,20
 """
 
 		Grid: 
-			b:"# LOC:5 sc sw for in range line \n"
+			b:"# LOC:5 sc sw range # for in line \n"
 			a:"""
 sc 1,1,0
 sw 2
@@ -891,7 +891,7 @@ for i in range 10,200,10
 """
 
 		Skislope:
-			b: "# LOC:4 bg sc for in range lerp line"
+			b: "# LOC:4 bg sc range # for in lerp line"
 			a: """
 bg 0
 sc 1,0,0
@@ -900,7 +900,7 @@ for i in range 21
 """
 
 		Sunshine:
-			b: "# LOC:5 bg sc for in range lerp line\n"
+			b: "# LOC:5 bg sc range # for in lerp line\n"
 			a: """
 bg 0
 sc 1,1,0
@@ -910,7 +910,7 @@ for i in range 10
 """
 		
 		Lines:  
-			b:"# LOC:5 bg for in range lerp line (Noel Watson)\n"
+			b:"# LOC:5 bg range # for in lerp line (Noel Watson)\n"
 			a:"""
 bg 0
 for i in range 37
@@ -920,7 +920,7 @@ for i in range 37
 """
 
 		ChessRow: 
-			b:"# LOC:5 % bg fc for in range lerp rect\n"
+			b:"# LOC:5 bg fc range # % for in lerp rect\n"
 			a:"""
 bg 0.5
 for i in range 8
@@ -930,7 +930,7 @@ for i in range 8
 """
 		
 		ChessBoard: 
-			b:"# LOC:7 bg fc for in range lerp rect\n"
+			b:"# LOC:7 bg fc range # for in lerp rect\n"
 			a:"""
 bg 0.5
 for i in range 8
@@ -942,7 +942,7 @@ for i in range 8
 """
 		
 		ChessCross : 
-			b: "# LOC:8 for in range lerp rect if then fc (David Larsson)\n"
+			b: "# LOC:8 fc range # for in lerp rect if then (David Larsson)\n"
 			a: """
 for i in range 10
 	for j in range 10
@@ -960,21 +960,21 @@ for i in range 10
 #####################################
 
 		Triangle: 
-			b:"# LOC:2 fc triangle\n" 
+			b:"# LOC:2 fc # triangle\n" 
 			a:"""
 fc 1
 triangle 20,40, 160,100, 100,140
 """
 
 		Quad: 
-			b:"# LOC:2 fc quad\n"
+			b:"# LOC:2 fc # quad\n"
 			a:"""
 fc 1,1,0
 quad 150,100, 180,20, 40,20, 100,140
 """
 
 		PacMan: 
-			b:"# LOC:2 arc fc radians PIE\n"
+			b:"# LOC:2 fc # arc radians PIE\n"
 			a:"""
 fc 1,1,0
 arc 100,100, 80,80, radians(-135),radians(135), PIE
@@ -982,7 +982,7 @@ arc 100,100, 80,80, radians(-135),radians(135), PIE
 
 		"Two Arcs":
 			b:"""
-# LOC:7 fc sc sw arc radians strokeCap
+# LOC:7 fc sc sw # arc radians strokeCap
 """
 			a:"""
 fc()
@@ -999,7 +999,7 @@ arc 100,120, 100,100, radians(90),radians(-90)
 #####################################
 
 		TextC: 
-			b:"# LOC:6 fc text textAlign textSize translate rd\n"
+			b:"# LOC:6 fc rd # text textAlign textSize translate\n"
 			a:"""
 fc 1,1,0
 textSize 32
@@ -1010,7 +1010,7 @@ text 'Coffeescript',0,0
 """
 
 		TextD: 
-			b:"# LOC:6 fc text textAlign textSize translate rd\n"
+			b:"# LOC:6 fc rd # text textAlign textSize translate\n"
 			a:"""
 fc 1,1,0
 textSize 32
@@ -1021,7 +1021,7 @@ text 'Coffeescript',0,0
 """
 		
 		RotatedEllipse: 
-			b:"# LOC:5 ellipse translate rd\n"
+			b:"# LOC:5 rd # ellipse translate\n"
 			a:"""
 fc 1,0,0
 sc()
@@ -1031,7 +1031,7 @@ ellipse 0,0, 80,40
 """
 
 		RotatedRectA: 
-			b:"# LOC:4 fc rect\n"
+			b:"# LOC:4 fc # rect\n"
 			a:"""
 fc 1,0,0
 rect 60,100, 40,40
@@ -1040,7 +1040,7 @@ rect 140,100, 40,40
 """
 
 		RotatedRectB: 
-			b:"# LOC:12 fc rect translate rd push pop\n"
+			b:"# LOC:12 fc rd # rect translate push pop\n"
 			a:"""
 push()
 fc 1,0,0
@@ -1057,7 +1057,7 @@ pop()
 """
 
 		RotatedRectC: 
-			b:"# LOC:13 fc rect translate rd push pop\n"
+			b:"# LOC:13 fc rd # rect translate push pop\n"
 			a:"""
 rectMode CENTER
 push()
@@ -1075,7 +1075,7 @@ pop()
 """
 
 		Cards: 
-			b:"# LOC:10 fc sc circle rect rectMode for in range lerp translate rd\n"
+			b:"# LOC:10 fc sc circle range rd # rect rectMode for in lerp translate\n"
 			a:"""
 rectMode CENTER
 sc 1
@@ -1091,7 +1091,7 @@ for i in range 18,-1,-1
 
 		"Snow White and the 7 lerps": 
 			b:"""
-# LOC:17 bg fc sc rect rectMode for in range lerp translate rd push pop
+# LOC:17 bg fc sc range rd # rect rectMode for in lerp translate push pop
 """
 			a:"""
 bg 1
@@ -1115,7 +1115,8 @@ for i in range 10
 
 		Roulette:
 			b:"""
-# LOC:20 bg sw fc sc for in range if then else == % / [] "" text textAlign arc strokeCap translate rotate rd TWO_PI push pop 
+# LOC:20 bg sw fc sc range # for in if then else == % / [] "" TWO_PI
+#        text textAlign arc strokeCap translate rotate rd push pop
 
 numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
 """
@@ -1148,7 +1149,7 @@ for i in range numbers.length
 
 		ManyDices: 
 			b : """
-# LOC:20 -> fc for in if then point [] % -> ==
+# LOC:20 -> fc # for in if then point [] % -> ==
 
 """
 			a:"""
@@ -1178,7 +1179,7 @@ for i in range 10
 
 		Girlang :
 			b:"""
-# LOC: 16 sc bg sw for in range line class constructor new @
+# LOC: 16 sc bg sw range # for in line class constructor new @
 
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
@@ -1214,7 +1215,7 @@ girlang 0,0,9,5,20,20
 
 		Braid:
 			b : """
-# LOC: 19 sc bg sw for in range line class constructor new @
+# LOC: 19 sc bg sw range # for in line class constructor new @
 
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
@@ -1258,7 +1259,7 @@ braid 5,18,18,6
 
 		OlympicRings:
 			b: """
-			# LOC:24 sc bg fc sw arc strokeCap class constructor new @
+			# LOC:24 sc bg fc sw # arc strokeCap class constructor new @
 
 			class Ring
 				constructor : (@x,@y,@r,@g,@b) ->
@@ -1306,7 +1307,7 @@ olympic()
 
 		Counter :
 			b:"""
-# LOC:12 bg fc sc text textAlign textSize + - class extends constructor new @ super ->
+# LOC:12 bg fc sc # text textAlign textSize + - class extends constructor new @ super ->
 # Klicka på reset() om du får ett felmeddelande!
 
 class Counter extends Application
@@ -1339,7 +1340,7 @@ counter = new Counter "a"
 
 		Moire: 
 			b:"""
-# LOC:10 bg for line map class extends constructor new @ super ->
+# LOC:10 bg # for line map class extends constructor new @ super ->
 
 class Moire extends Application
 	reset : -> super
@@ -1369,7 +1370,7 @@ moire = new Moire "a"
 
 		Square : 
 			b: """
-# LOC:21 bg sw fc rect rectMode translate rd + class extends constructor new @ super ->
+# LOC:21 bg sw fc rd # rect rectMode translate + class extends constructor new @ super ->
 
 class Square extends Application
 	reset        : -> super
@@ -1413,7 +1414,7 @@ square = new Square "a"
 
 		BoardGame :
 			b:"""
-# LOC:21 bg fc sc circle for in range ->
+# LOC:21 bg fc sc circle range # for in ->
 
 class Board extends Application
 	reset : -> super
@@ -1455,7 +1456,7 @@ board = new Board "a"
 
 		ColorCube:
 			b: """
-# LOC:17 -> bg fc for in range rect class extends constructor new @ super ->
+# LOC:17 -> bg fc range # for in rect class extends constructor new @ super ->
 
 class ColorCube extends Application
 	reset       : -> super
@@ -1493,7 +1494,7 @@ cc = new ColorCube "a"
 
 		"OlympicRing Prep":
 			b:"""
-# LOC:21 sc fc sw arc strokeCap class extends constructor new @ super ->
+# LOC:21 sc fc sw # arc strokeCap class extends constructor new @ super ->
 
 class Ring extends Application
 	reset  : -> super
@@ -1532,7 +1533,7 @@ ring = new Ring "a"
 
 		SevenSegment :
 			b : """
-# LOC:26 bg sc fc rect rectMode if then & [] class extends constructor new @ super ->
+# LOC:26 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->
 
 class Digit extends Application
 	reset : -> super
@@ -1585,7 +1586,7 @@ digit = new Digit "a"
 
 		Korg: 
 			b:"""
-# LOC:27 -> bg fc sc sw rect for if else class extends constructor new @ super ->
+# LOC:27 -> bg fc sc sw # rect for if else class extends constructor new @ super ->
 
 class Korg extends Application
 	reset   : -> super
@@ -1635,8 +1636,8 @@ korg = new Korg "a"
 
 		Guess_a_number :
 			b:"""
-# LOC:20 bg fc sc text textAlign for in range if then else * / + - % <=
-#        int @readInt class extends constructor new @ super ->
+# LOC:20 bg fc sc range @readInt # text textAlign for in if then else * / + - % <=
+#        int class extends constructor new @ super ->
 
 class Guess extends Application
 	reset     : -> super
@@ -1678,7 +1679,7 @@ guess = new Guess "a"
 
 		Connect4 :
 			b:"""
-# LOC:31 % bg fc sc sw circle text textAlign textSize for in range 
+# LOC:31 % bg fc sc sw circle range # text textAlign textSize for in
 #        push pop class extends constructor new @ super -> 
 
 class Connect4 extends Application
@@ -1729,8 +1730,8 @@ connect4 = new Connect4 "a"
 
 		EngineeringNotation :
 			b:"""		
-# LOC:28 fc sc bg Math.floor Math.log10 constrain + - * / < ** text split
-#        extAlign textSize class extends constructor new @ super ->
+# LOC:28 fc sc bg # Math.floor Math.log10 constrain + - * / < ** text split
+#        textAlign textSize class extends constructor new @ super ->
 
 class Engineering extends Application
 	reset : -> super
@@ -1829,8 +1830,8 @@ laboratorium = new Laboratorium "a"
 
 		Klocka: 
 			b: """
-# LOC:44 fc sc point rect rectMode circle for in range if then else 
-#        translate rd push pop class extends constructor new @ super ->
+# LOC:44 fc sc circle range rd # point rect rectMode for in if then else 
+#        translate push pop class extends constructor new @ super ->
 
 class Klocka extends Application
 	reset  : -> super
@@ -1897,7 +1898,8 @@ klocka = new Klocka "a"
 
 		BouncingBalls :
 			b : """
-# LOC: 43 + ++ - -- %% == push if then for in splice length circle fc sw sc _.create class constructor super extends new @
+# LOC: 43 fc sw sc circle # + ++ - -- %% == push if then for in 
+#         splice length _.create class constructor super extends new @
 
 class Ball 
 	constructor : ->
@@ -1989,7 +1991,7 @@ bouncingBalls = new BouncingBalls "a"
 		
 		Braider:
 			b : """
-# LOC: 49 sc bg sw for in range if then + line class constructor extends new @
+# LOC: 49 sc bg sw range # for in if then + line class constructor extends new @
 
 class Cartesius
 	constructor : (x,y,c) ->
@@ -2083,7 +2085,7 @@ braider = new Braider "a"
 
 		RecursiveCircle: 
 			b: """
-# LOC:10 -> sc circle if return < class extends constructor new @ super ->
+# LOC:10 -> sc circle # if return < class extends constructor new @ super ->
 
 class RecursiveCircle extends Application
 	reset   : -> super
@@ -2116,7 +2118,7 @@ rc = new RecursiveCircle "a"
 
 		Nim:
 			b:"""		
-# LOC:38 bg fc sc circle * + - ^ if then else @readInt _.isEqual return <  
+# LOC:38 bg fc sc circle @readInt # * + - ^ if then else _.isEqual return <  
 #        constrain text textAlign textSize class extends constructor new @ super ->
 
 class Nim extends Application
@@ -2189,8 +2191,8 @@ nim = new Nim "a"
 
 		ChessGame :
 			b:"""
-# LOC:64 bg fc sc sw point rect rectMode if then else text textSize textAlign class constructor new @
-#        for in range push split length indexOf
+# LOC:64 bg fc sc sw range # point rect rectMode class constructor new @
+#        if then else text textSize textAlign for in push split length indexOf
 
 class Chess extends Application
 	reset : -> super
@@ -2284,7 +2286,7 @@ chess = new Chess "a"
 
 		SpaceShip :
 			b:"""
-# LOC:35 sc sw point triangle translate rd cos sin radians 
+# LOC:35 sc sw rd # point triangle translate cos sin radians 
 #        push pop class extends constructor new @ super ->
 
 class Shot
@@ -2358,8 +2360,8 @@ ship = new Ship "a"
 
 		RushHour :
 			b:"""
-# LOC:51 bg sc fc rect text textAlign push class extends constructor new @ super -> 
-#	       if then else for in range toLowerCase indexOf 
+# LOC:51 bg sc fc range # push class extends constructor new @ super -> 
+#	       rect text textAlign if then else for in toLowerCase indexOf 
 
 class Car
 	constructor : (@i,@j,@w,@h,@r,@g,@b) ->
@@ -2462,7 +2464,7 @@ rushHour = new RushHour "a"
 
 		PickingBerries :
 			b:"""
-# LOC:46 bg sc fc sw [] * + line text textSize textAlign constrain dist 
+# LOC:46 bg sc fc sw # [] * + line text textSize textAlign constrain dist 
 #        splice break for in class extends constructor new @ super ->
 
 class PickingBerries extends Application
@@ -2556,7 +2558,7 @@ berries = new PickingBerries "a"
 
 		Stopwatch:
 			b:"""
-# LOC:17 bg sc fc for in [] ''  text textSize textAlign textFont monospace
+# LOC:17 bg sc fc # for in [] '' text textSize textAlign textFont monospace
 #        int millis nf length unshift class extends constructor new @ super ->
 # OBS! Tiderna kan skilja med flera millisekunder. Sorry!
 
@@ -2572,6 +2574,7 @@ class Stopwatch extends Application
 		super
 		@start = int millis()
 		@times = []
+		@count = 0
 	draw : ->
 		bg 0
 		textFont "monospace"
@@ -2579,11 +2582,13 @@ class Stopwatch extends Application
 		textAlign RIGHT,BOTTOM
 		fc 1,0,0
 		sc()
-		n = @times.length
 		for time,i in @times
-			text n-i,  50, 202-40*i
-			text time,195, 202-40*i
-	stopp : -> @times.unshift nf (millis()-@start)/1000, 1,3
+			text @count-i,  50, 202-40*i
+			text nf(time/1000,1,3),195, 202-40*i
+	stopp : -> 
+		@count++
+		@times.unshift int millis()-@start
+		if @times.length > 5 then @times.pop()
 
 stopwatch = new Stopwatch "a"
 """
@@ -2597,7 +2602,7 @@ stopwatch = new Stopwatch "a"
 
 		Alphanumeric:
 			b:"""
-# LOC:19 bg sc fc for in range indexOf & ** %% circle {} [] '' 
+# LOC:19 bg sc fc range circle # for in indexOf & ** %% {} [] '' 
 #        push if then else class extends constructor new @ super ->
 
 class AlphaNumeric extends Application
@@ -2646,7 +2651,7 @@ alpha = new AlphaNumeric "a"
 
 		GoldenStar:
 			b: """
-# LOC:23 bg fc for in range triangle translate rotate cos sin class extends constructor new @ super ->
+# LOC:23 bg fc range # for in triangle translate rotate cos sin class extends constructor new @ super ->
 
 class GoldenStar extends Application
 	reset : -> super
@@ -2690,7 +2695,7 @@ star = new GoldenStar "a"
 		
 		Polygon:
 			b:"""
-# LOC:23 bg sc line for in range cos sin radians class extends constructor new @ super ->
+# LOC:23 bg sc range # line for in cos sin radians class extends constructor new @ super ->
 
 class Turtle
 	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->
@@ -2741,8 +2746,8 @@ polygon = new Polygon "a"
 
 		Kalkylator:
 			b:"""
-# LOC:46 bg sc fc + - * / Math.sqrt Math.PI of {} in [] shift unshift splice 
-#        text textSize textAlign length for range @readText 
+# LOC:46 bg sc fc range @readText # + - * / of {} in [] shift unshift 
+#        text textSize textAlign length for Math.sqrt Math.PI splice 
 #        parseFloat "" split class extends constructor new @ super ->
 # TIPS! Börja med de fyra räknesätten. 
 #       @words ska kunna utökas med ":". T ex ": sq dup *"
@@ -2829,7 +2834,7 @@ kalkylator = new Kalkylator "a"
 
 		Nian :
 			b:"""
-# LOC:35 [] push "" split indexOf reduce + * ** / % > & bg fc sc text textSize textAlign  
+# LOC:35 bg fc sc # [] push "" split indexOf reduce + * ** / % > & text textSize textAlign  
 #				 for in of {} _.countBy and if then class constructor new @ extends super 
 # Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med "aaefkrrtu"
 
@@ -2890,8 +2895,8 @@ nian = new Nian "a"
 
 		Korsord :
 			b: """
-# LOC:29 bg fc sc / % + * != and text textAlign textSize if then for in [] length 
-#        @readText "" split join _.filter class constructor new @ extends super
+# LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in 
+#        "" split join _.filter class constructor new @ extends super [] length
 # Mata in t ex b..l och få ut bill samt boll.
 
 class Korsord extends Application
@@ -2948,38 +2953,65 @@ korsord = new Korsord "a"
 # Du kan prova egna asserts här. Kontrollera med F12.
 
 # + * ** Prioritet
-assert 2 + 3 * 4,  14   
-assert 4 * 2 ** 3, 32 
+assert 2 + 3 * 4  , 14   
+assert 4 * 2 ** 3 , 32 
 
 # % Resten vid heltalsdivision
-assert  2 % 2,  0
-assert  1 % 2,  1
-assert  0 % 2,  0
-assert -1 % 2, -1    
-assert -2 % 2, -0      
+assert  2 % 2 ,  0
+assert  1 % 2 ,  1
+assert  0 % 2 ,  0
+assert -1 % 2 , -1    
+assert -2 % 2 , -0      
 
 # %% Resten vid heltalsdivision. Klarar även negativa tal.
-assert  2 %% 2, 0
-assert  1 %% 2, 1
-assert  0 %% 2, 0   
-assert -1 %% 2, 1  
-assert -2 %% 2, 0 
+assert  2 %% 2 , 0
+assert  1 %% 2 , 1
+assert  0 %% 2 , 0   
+assert -1 %% 2 , 1  
+assert -2 %% 2 , 0 
  
 # []
-assert 7 in [7,8], true
-assert (i for i in [7,8]), [7,8]  
-assert ([item,i] for item,i in [7,8]), [[7,0],[8,1]]   
+assert 7 in [7,8]                     , true
+assert (i for i in [7,8])             , [7,8]  
+assert ([item,i] for item,i in [7,8]) , [[7,0],[8,1]]   
+assert (x*x for x in [3,4,5])         , [9,16,25]   
 
 # {}
-assert 'b' of {a:7,b:8}, true      
-assert (key for key of {a:7,b:8}), ['a','b']   
-assert ([key,item] for key,item of {a:7,b:8}), [['a',7],['b',8]]    
+assert 'b' of {a:7,b:8}                       , true      
+assert (key for key of {a:7,b:8})             , ['a','b']   
+assert ([key,item] for key,item of {a:7,b:8}) , [['a',7],['b',8]]    
 
 # & | ^ ~ Bit operationer
-assert [0&0, 0&1, 1&0, 1&1], [0,0,0,1] 
-assert [0|0, 0|1, 1|0, 1|1], [0,1,1,1] 
-assert [0^0, 0^1, 1^0, 1^1], [0,1,1,0] 
-assert [~0, ~1, ~2, ~3], [-1,-2,-3,-4] 
+assert [0&0, 0&1, 1&0, 1&1] , [0,0,0,1] 
+assert [0|0, 0|1, 1|0, 1|1] , [0,1,1,1] 
+assert [0^0, 0^1, 1^0, 1^1] , [0,1,1,0] 
+assert [~0, ~1, ~2, ~3]     , [-1,-2,-3,-4] 
+
+# lerp
+assert  8 , lerp 10,12,-1
+assert 10 , lerp 10,12,0
+assert 11 , lerp 10,12,0.5
+assert 12 , lerp 10,12,1
+assert 14 , lerp 10,12,2
+
+# range
+assert [0,1,2,3,4,5,6,7,8,9]  , range 10
+assert [0,1,2,3,4]            , range 5
+assert [1,2,3,4,5,6,7,8,9,10] , range 1,11
+assert [0,2,4,6,8]            , range 0,10,2
+assert [10,8,6,4,2]           , range 10,0,-2
+assert [9,8,7,6,5,4,3,2,1,0]  , range 10-1,-1,-1
+
+# [..]
+assert [0..4]  , [0,1,2,3,4]
+assert [0...5] , [0,1,2,3,4]
+assert [5,6,7,8,9][1..2] , [6,7]
+assert [5,6,7,8,9][..2]  , [5,6,7]
+assert [5,6,7,8,9][1..]  , [6,7,8,9]
+assert [5,6,7,8,9][..]   , [5,6,7,8,9]
+assert [5,6,7,8,9][0..2]   , [5,6,7]
+assert [5,6,7,8,9][1...-2] , [6,7]
+assert [5,6,7,8,9][-2..]   , [8,9]
 
 """
 			a:""
