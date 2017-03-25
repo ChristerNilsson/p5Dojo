@@ -18,15 +18,15 @@
 Ingen annan programvara behöver installeras.
 
 ### färger
-  - 0,0,1 blå
-  - 0,1,0 grön
-  - 0,1,1 cyan
-  - 1,0,0 röd
-  - 1,0,1 magenta
-  - 1,1,0 gul
-  - 0 svart
-  - 0.5 grå
-  - 1 vit
+  |0,0,1|blå|
+  |0,1,0|grön|
+  |0,1,1|cyan|
+  |1,0,0|röd|
+  |1,0,1|magenta|
+  |1,1,0|gul|
+  |0|svart|
+  |0.5|grå|
+  |1|vit|
   
 ### bakgrundsfärg
   - **bg** 1   vit
