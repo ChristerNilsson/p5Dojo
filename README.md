@@ -18,7 +18,6 @@
 Ingen annan programvara behöver installeras.
 
 ### färger
-```
 |r,g,b|färg|
 |---|---|
 |0,0,1|blå|
@@ -29,8 +28,7 @@ Ingen annan programvara behöver installeras.
 |1,1,0|gul|
 |0|svart|
 |0.5|grå|
-|1|vit|
-```  
+|1|vit| 
 ### bakgrundsfärg
 ```  
   bg 1     vit
