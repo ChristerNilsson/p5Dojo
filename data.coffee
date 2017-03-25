@@ -373,13 +373,27 @@ for i in range 100
 
 		Background1: 
 			b: """
-# Den första bitmappen ska du efterlikna genom att skriva ett program.
-# Den andra bitmappen visar resultatet av din kod.
-# Den tredje bitmappen visar skillnaden mellan de två andra. Ska bli svart när du är klar.
+# Denna bild ska du efterlikna.
+
+
+
+
+
+
+
+# Denna bild skapas av din kod.
+
+
+
+
+
+
+
+# Denna bild visar skillnaden mellan de två andra. Ska bli svart när du är klar.
 
 # Tryck på PgDn för att komma till sista raden.
 # Skriv in följande kommando: bg 1
-# Kontrollera att de två första bitmapparna nu är lika, och att den tredje är helt svart.
+# Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.
 
 # Klicka på Background2 för att komma till nästa övning.
 # Klicka på p5Dojo nere till vänster för mera information.

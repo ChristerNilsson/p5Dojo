@@ -258,7 +258,6 @@ editor_change = ->
 		call = calls["draw()"]
 	run1()
 	run0()
-	if msg.val() == '' then compare()
 
 run0 = ->
 	b = myCodeMirror.getValue()
@@ -321,17 +320,21 @@ fix_frames = ->
 			pixels[j*width*4+206*4+i] = 127
 	updatePixels()	
 
-compare = ->
-	buffer[2] = buffer[0][..]
+compare = ->  # Lägg en timer på denna. Bör vänta någon sekund
+	a = buffer[0]
+	b = buffer[1]
+	c = a[..]
+
 	for i in range block/4
 		i4 = 4*i
-		buffer[2][i4+0] = abs(buffer[2][i4+0] - buffer[1][i4+0]) 	
-		buffer[2][i4+1] = abs(buffer[2][i4+1] - buffer[1][i4+1]) 	
-		buffer[2][i4+2] = abs(buffer[2][i4+2] - buffer[1][i4+2]) 	
-		buffer[2][i4+3] = 255
-	fetch buffer[0], 0 
-	fetch buffer[1], 1 
-	fetch buffer[2], 2
+		c[i4+0] = abs c[i4+0] - b[i4+0]  	
+		c[i4+1] = abs c[i4+1] - b[i4+1] 	
+		c[i4+2] = abs c[i4+2] - b[i4+2]  	
+		c[i4+3] = 255
+
+	fetch a, 0 
+	fetch b, 1 
+	fetch c, 2
 	fix_frames()
 
 class Application
