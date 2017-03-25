@@ -96,9 +96,9 @@ else
 ```  
 ### koordinatsystemet
 ```  
-  - **translate** x,y   flytta origo      
-  - **rd** degrees      rotera runt origo
-  - **scale** n         skala upp eller ner
+  translate x,y   flytta origo      
+  rd degrees      rotera runt origo
+  scale n         skala upp eller ner
 ```    
 ### modes
   - **rectMode** CORNER
