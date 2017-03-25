@@ -67,24 +67,24 @@ Ingen annan programvara behöver installeras.
 |arc|x,y, w,h, start,stopp, PIE|  
 ### lerp   
 linjär interpolation och extrapolation
-|lerp x0,x1,i||
+|lerp x0,x1,i|resultat|
 |---|---|
-|lerp 10,12,-1   | 8|
-|lerp 10,12,0    | 10|
-|lerp 10,12,0.5  | 11|
-|lerp 10,12,1    | 12|
-|lerp 10,12,2    | 14|   
+|lerp 10,12,-1| 8|
+|lerp 10,12,0| 10|
+|lerp 10,12,0.5| 11|
+|lerp 10,12,1| 12|
+|lerp 10,12,2| 14|   
 ### for loop
 Glöm ej att indentera innehållet med ett tabsteg!
 |kommando|resultat|
 |---|---|
-|for i in range 10              | [0,1,2,3,4,5,6,7,8,9]|
-|for i in range 5               | [0,1,2,3,4]|
-|for i in range 1,11            | [1,2,3,4,5,6,7,8,9,10]|
-|for i in range 0,10,2          | [0,2,4,6,8]|
-|for i in [0..10] by 2          | [0,2,4,6,8,10]|
-|for i in range 10,0,-2         | [10,8,6,4,2]|
-|for i in [1,1,2,3,5,8,13,21]   | [1,1,2,3,5,8,13,21]|      
+|for i in range 10|[0,1,2,3,4,5,6,7,8,9]|
+|for i in range 5|[0,1,2,3,4]|
+|for i in range 1,11|[1,2,3,4,5,6,7,8,9,10]|
+|for i in range 0,10,2|[0,2,4,6,8]|
+|for i in [0..10] by 2|[0,2,4,6,8,10]|
+|for i in range 10,0,-2|[10,8,6,4,2]|
+|for i in [1,1,2,3,5,8,13,21]|[1,1,2,3,5,8,13,21]|      
 ### if
 ```javascript
 if i%3==0
