@@ -99,9 +99,9 @@ else
 ### koordinatsystemet
 |kommando|kommentar|
 |---|---|
-|translate x,y   |flytta origo|      
-|rd degrees      |rotera runt origo|
-|scale n         |skala upp eller ner|
+|translate x,y   |flyttar origo|      
+|rd degrees      |roterar runt origo|
+|scale n         |skalar upp eller ner|
 ### modes
   - **rectMode** CORNER
     * CORNER (default)
