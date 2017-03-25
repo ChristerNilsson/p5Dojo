@@ -67,6 +67,7 @@ Ingen annan programvara behöver installeras.
 |arc|x,y, w,h, start,stopp, PIE|  
 ### lerp   
 linjär interpolation och extrapolation
+
 |lerp x0,x1,i|resultat|
 |---|---|
 |lerp 10,12,-1| 8|
@@ -76,6 +77,7 @@ linjär interpolation och extrapolation
 |lerp 10,12,2| 14|   
 ### for loop
 Glöm ej att indentera innehållet med ett tabsteg!
+
 |kommando|resultat|
 |---|---|
 |for i in range 10|[0,1,2,3,4,5,6,7,8,9]|
@@ -95,7 +97,7 @@ else
   fc 1
 ```  
 ### koordinatsystemet
-|kommando||
+|kommando|kommentar|
 |---|---|
 |translate x,y   |flytta origo|      
 |rd degrees      |rotera runt origo|
