@@ -19,73 +19,72 @@ Ingen annan programvara behöver installeras.
 
 ### färger
 ```
-  - 0,0,1 blå
-  - 0,1,0 grön
-  - 0,1,1 cyan
-  - 1,0,0 röd
-  - 1,0,1 magenta
-  - 1,1,0 gul
-  - 0 svart
-  - 0.5 grå
-  - 1 vit
+  0,0,1 blå
+  0,1,0 grön
+  0,1,1 cyan
+  1,0,0 röd
+  1,0,1 magenta
+  1,1,0 gul
+  0     svart
+  0.5   grå
+  1     vit
 ```  
 ### bakgrundsfärg
-  - **bg** 1   vit
-  - **bg** 1,1,0 gul
-
+```  
+  bg 1     vit
+  bg 1,1,0 gul
+```  
 ### fyllningsfärg
-  - **fc()**  ingen
-  - **fc** 1   vit
-  - **fc** 1,1,0   gul
-  - **fc** 1,0,0   röd 
-  - **fc** 1,0,0,0.5 röd, halvgenomskinlig
-
+```  
+  fc()         ingen
+  fc 1         vit
+  fc 1,1,0     gul
+  fc 1,0,0     röd 
+  fc 1,0,0,0.5 röd, halvgenomskinlig
+```  
 ### streckfärg
-  - **sc()**    ingen
-  - **sc** 1   vit
-  - **sc** 1,1,0   gul
-  - **sc** 1,0,0   röd
-  - **sc** 1,0,0,0.5 röd, halvgenomskinlig
-  
-### skapa en färg
-  - **co** 1   vit
-  - **co** 1,1,0   gul
-  - **co** 1,0,0   röd
-  - **color** 255   vit
-  - **color** 255,255,0   gul
-  - **color** 255,0,0,128   röd, halvgenomskinlig
-
+```  
+  sc()         ingen
+  sc 1         vit
+  sc 1,1,0     gul
+  sc 1,0,0     röd
+  sc 1,0,0,0.5 röd, halvgenomskinlig
+```    
 ### strecktjocklek
-  - **sw** pixlar
-
+```  
+  sw pixlar
+```  
 ### ritkommandon
-  - **point** x,y
-  - **line** x1,y1, x2,y2
-  - **ellipse** x,y, w,h
-  - **circle** x,y,r
-  - **rect** x,y, w,h
-  - **triangle** x1,y1, x2,y2, x3,y3
-  - **quad** x1,y1, x2,y2, x3,y3, x4,y4
-  - **arc** x,y, w,h, start,stopp, PIE 
-  
+```  
+  point    x,y
+  line     x1,y1, x2,y2
+  ellipse  x,y, w,h
+  circle   x,y,r
+  rect     x,y, w,h
+  triangle x1,y1, x2,y2, x3,y3
+  quad     x1,y1, x2,y2, x3,y3, x4,y4
+  arc      x,y, w,h, start,stopp, PIE 
+```    
 ### lerp  
- - linjär interpolation och extrapolation
- - **lerp** 10,12,-1 == 8
- - **lerp** 10,12,0 == 10
- - **lerp** 10,12,0.5 == 11
- - **lerp** 10,12,1 == 12
- - **lerp** 10,12,2 == 14
-  
+```  
+ linjär interpolation och extrapolation
+ lerp 10,12,-1   == 8
+ lerp 10,12,0    == 10
+ lerp 10,12,0.5  == 11
+ lerp 10,12,1    == 12
+ lerp 10,12,2    == 14
+```    
 ### for loop
-  - Glöm ej att indentera innehållet med ett tabsteg!
-  - **for** i in range 10   # [0,1,2,3,4,5,6,7,8,9]
-  - **for** i in range 5  # [0,1,2,3,4]
-  - **for** i in range 1,11  # [1,2,3,4,5,6,7,8,9,10]
-  - **for** i in range 0,10,2  # [0,2,4,6,8]
-  - **for** i in [0..10] by 2  # [0,2,4,6,8,10]
-  - **for** i in range 10,0,-2  # [10,8,6,4,2]
-  - **for** i in [1,1,2,3,5,8,13,21] # [1,1,2,3,5,8,13,21]  
-  
+```  
+  Glöm ej att indentera innehållet med ett tabsteg!
+  for i in range 10              # [0,1,2,3,4,5,6,7,8,9]
+  for i in range 5               # [0,1,2,3,4]
+  for i in range 1,11            # [1,2,3,4,5,6,7,8,9,10]
+  for i in range 0,10,2          # [0,2,4,6,8]
+  for i in [0..10] by 2          # [0,2,4,6,8,10]
+  for i in range 10,0,-2         # [10,8,6,4,2]
+  for i in [1,1,2,3,5,8,13,21]   # [1,1,2,3,5,8,13,21]  
+```    
 ### if
 ```javascript
 if i%3==0
@@ -94,13 +93,13 @@ else if i%3==1
   fc 0.5
 else
   fc 1
-```    
-
+```  
 ### koordinatsystemet
+```  
   - **translate** x,y   flytta origo      
   - **rd** degrees      rotera runt origo
   - **scale** n         skala upp eller ner
-  
+```    
 ### modes
   - **rectMode** CORNER
     * CORNER (default)
