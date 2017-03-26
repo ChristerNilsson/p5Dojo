@@ -78,6 +78,7 @@ sc = ->
 bgc = (cc) -> bg cc%2, int(cc/2)%2, int(cc/4) 
 fcc = (cc) -> fc cc%2, int(cc/2)%2, int(cc/4) 
 scc = (cc) -> sc cc%2, int(cc/2)%2, int(cc/4) 
+tcc = (cc) -> fcc [7,7,0,0,7,0,0,0][cc] 
 
 sw = (n) -> strokeWeight n
 
