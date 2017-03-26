@@ -2504,6 +2504,9 @@ class Car
 	move        : (d) ->
 
 class RushHour2 extends Application
+	constructor : (@name) ->
+		super @name
+		if @cars then @cars = (_.create(Car.prototype, car) for car in @cars)	
 	reset      : -> super
 	draw       : -> super
 	enter_cars : -> # Ad0sBwCoD569
@@ -2542,7 +2545,7 @@ class RushHour2 extends Application
 
 	constructor : (@name) ->
 		super @name
-		@cars = (_.create(Car.prototype, car) for car in @cars)
+		if @cars then @cars = (_.create(Car.prototype, car) for car in @cars)
 
 	reset : ->
 		super
