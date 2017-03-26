@@ -440,7 +440,7 @@ sc 0,1,0
 point 200,0
 sc 1,1,0
 point 0,200
-sc 0.5
+sc 0
 point 200,200
 """
 
@@ -457,7 +457,7 @@ sc 0,1,0
 point 100,0
 sc 1,1,0
 point 0,100
-sc 0.5
+sc 0
 point 200,100
 sc 1
 point 100,200
@@ -1488,9 +1488,11 @@ class ColorCube extends Application
 		bg 0
 		d = 200.0/@n
 		m = @n-1.0
+		sc()
 		for r in range @n
 			for g in range @n
 				fc r/m,g/m,@b/m
+				sc r/m,g/m,@b/m
 				rect r*d,g*d,d,d
 	reset : -> 
 		super

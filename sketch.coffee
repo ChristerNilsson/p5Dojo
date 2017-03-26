@@ -20,6 +20,7 @@ setMsg = (txt) ->
 
 grid = ->
 	push()
+	bg 0.25
 	sc 0.5
 	for i in range 11
 		line 0, 20 * i, 200, 20 * i
