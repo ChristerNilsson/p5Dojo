@@ -20,7 +20,7 @@ setMsg = (txt) ->
 
 grid = ->
 	push()
-	sc 1
+	sc 0.5
 	for i in range 11
 		line 0, 20 * i, 200, 20 * i
 		line 20 * i, 0, 20 * i, 200
@@ -58,8 +58,9 @@ fixColor = (args) ->
 	color 255 * r, 255 * g, 255 * b, 255 * a
 
 bg = ->
-	fill fixColor arguments
-	rect 0, 0, 200, 200
+	#fill fixColor arguments
+	background fixColor arguments
+	#rect 0, 0, 200, 200
 
 fc = ->
 	n = arguments.length
@@ -229,7 +230,8 @@ window.onload = ->
 	$(".CodeMirror").css 'font-size',"16pt"
 	myCodeMirror.on "change", editor_change
 	
-	background 128
+	#background 128
+	#bg 0.75
 	run 0, ""
 	run 1, ""
 
@@ -267,7 +269,8 @@ run0 = ->
 	if msg.val() == '' then compare()
 
 run1 = -> 
-	background 128
+	#background 128
+	#bg 0.25
 	run 1, data[chapter][exercise]["a"] + "\n" + call
 
 reset = ->
@@ -314,11 +317,11 @@ fix_frames = ->
 	loadPixels()
 	for k in range 4
 		for i in range gap
-			pixels[(gap+block)*k+i] = 127
+			pixels[(gap+block)*k+i] = 128-64
 	for j in range height # 3*201+20
 		for i in range 20
-			pixels[j*width*4+i] = 127
-			pixels[j*width*4+206*4+i] = 127
+			pixels[j*width*4+i] = 128-64
+			pixels[j*width*4+206*4+i] = 128-64
 	updatePixels()	
 
 compare = ->  # Lägg en timer på denna. Bör vänta någon sekund

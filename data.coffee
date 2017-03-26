@@ -440,7 +440,7 @@ sc 0,1,0
 point 200,0
 sc 1,1,0
 point 0,200
-sc 0
+sc 0.5
 point 200,200
 """
 
@@ -457,7 +457,7 @@ sc 0,1,0
 point 100,0
 sc 1,1,0
 point 0,100
-sc 0
+sc 0.5
 point 200,100
 sc 1
 point 100,200
