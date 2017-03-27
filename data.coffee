@@ -2528,7 +2528,6 @@ class Car
 		@i = index % 6
 		@j = int index / 6
 		[@w,@h] = wh
-		print @w,@h
 
 	render : -> 
 		fcc (@c+1) % 8
@@ -2539,6 +2538,7 @@ class Car
 		small = name.toLowerCase()
 		text small, 50+20*@i,        50+20*@j
 		text name,  50+20*(@i+@w-1), 50+20*(@j+@h-1)
+
 	move : (d) -> # -1 eller +1
 		if @w == 1 then @j += d
 		if @h == 1 then @i += d
@@ -2551,9 +2551,9 @@ class RushHour2 extends Application
 
 	reset : ->
 		super
-		@cars = []
-		@index = 0
-		@moves = ""
+		@enter_cars1 "Ad0sBwCoD569"
+		@enter_move1 "bbbEEEAfdccGGXXXXX"
+		@begin()
 
 	draw : ->
 		textAlign CENTER,CENTER
@@ -2565,13 +2565,13 @@ class RushHour2 extends Application
 		fc 1
 		sc()
 		for i in range 6
-			text "123456"[i],30,50+20*i
-			text "abcdef"[i],50+20*i,170
+			text "012345"[i],30,50+20*i
+			text "012345"[i],50+20*i,170
 		for car in @cars 
 			car.render()
 
-	enter_cars : () -> # Ad0sBwCoD569
-		s = @readText()
+	enter_cars : -> @enter_cars1 @readText() 
+	enter_cars1 : (s) ->
 		@cars = []
 		@moves = ""
 		@index = 0
@@ -2579,10 +2579,11 @@ class RushHour2 extends Application
 			if ch in "ABCD" then wh = {A:[2,1], B:[3,1], C:[1,2], D:[1,3]}[ch]
 			else @cars.push new Car ch,wh,@cars.length
 
-	enter_move: ->
-	  new_moves = @readText()
-		@moves += new_moves # "bbbEEEAfdccGGXXXXX"
-		@forward new_moves.length
+	enter_move : -> @enter_move1 @readText() 
+	enter_move1 : (s) ->
+		@moves = @moves[...@index]
+		@moves += s 
+		@forward s.length
 		
 	begin : -> @backward @index 
 	backward : (n=1) ->
@@ -2597,12 +2598,11 @@ class RushHour2 extends Application
 			@index++
 	end : -> @forward @moves.length - @index
 
-	# internal commands
 	bothward : (a,b) ->
 		i = a.indexOf @moves[@index]
 		j = b.indexOf @moves[@index]
-		if i >= 0 then @cars[i].move -1 
-		if j >= 0 then @cars[j].move 1 
+		if i >= 0 then @cars[i].move -1
+		if j >= 0 then @cars[j].move +1
 
 rushHour2 = new RushHour2 "a"
 """
@@ -2610,6 +2610,7 @@ rushHour2 = new RushHour2 "a"
 				rushHour2 : "reset()|enter_cars()|enter_move()|begin()|backward()|forward()|end()" # |hint()|undo()
 			e:
 				RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
+
 
 		PickingBerries :
 			b:"""
