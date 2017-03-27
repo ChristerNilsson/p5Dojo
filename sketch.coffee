@@ -131,6 +131,20 @@ sel3click = (sel) ->
 	myCodeMirror.focus()
 	compare()
 
+mousePressed = ->
+	p = null
+	if 0 <= mouseX-5 <= 200 and 0 <= mouseY-5 <= 200 then p = [mouseX-5,mouseY-5]
+	if 0 <= mouseX-5 <= 200 and 0 <= mouseY-210 <= 200 then p = [mouseX-5,mouseY-210]
+	if p
+		dict = data[chapter][exercise]["c"]
+		if dict?
+			objekt = _.keys(dict)[0]
+			call = objekt + ".mousePressed(#{p[0]},#{p[1]}); " + objekt + ".draw(); " + objekt + ".store()"
+			run1()
+			run0()
+			myCodeMirror.focus()
+			compare()
+
 setLinks = ->
 	linksClear()
 	linkAppend links,	"https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md", "p5Dojo"
@@ -231,8 +245,6 @@ window.onload = ->
 	$(".CodeMirror").css 'font-size',"16pt"
 	myCodeMirror.on "change", editor_change
 	
-	#background 128
-	#bg 0.75
 	run 0, ""
 	run 1, ""
 
@@ -269,10 +281,7 @@ run0 = ->
 	run 0, b + "\n" + call
 	if msg.val() == '' then compare()
 
-run1 = -> 
-	#background 128
-	#bg 0.25
-	run 1, data[chapter][exercise]["a"] + "\n" + call
+run1 = -> run 1, data[chapter][exercise]["a"] + "\n" + call
 
 reset = ->
 	colorMode RGB,255
@@ -370,6 +379,7 @@ class Application
 	readText : -> $('#input').val()
 	readInt : -> parseInt @readText()
 	readFloat : -> parseFloat @readText()
+	mousePressed : (mx,my) -> # print "mousePressed", mx, mx
 
 tableClear = -> $("#tabell tr").remove()
 

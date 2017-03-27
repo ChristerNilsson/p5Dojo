@@ -1329,6 +1329,7 @@ class Counter extends Application
 	draw  : -> super
 	up    : -> 
 	down  : -> 
+	mousePressed : (mx,my) -> print "mousePressed",mx,my
 
 counter = new Counter "b"     
 """
@@ -1346,6 +1347,7 @@ class Counter extends Application
 		textAlign CENTER,CENTER
 		textSize 100
 		text @counter,100,100
+	mousePressed : (mx,my) -> if my < 100 then @counter += 1 else @counter -= 1
 
 counter = new Counter "a"   		
 """
