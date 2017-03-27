@@ -2374,243 +2374,6 @@ ship = new Ship "a"
 				ship: "reset()|left()|right()|forward()|shoot()"
 
 
-		RushHour :
-			b:"""
-# LOC:51 bg sc fc range # push class extends constructor new @ super -> 
-#	       rect text textAlign if then else for in toLowerCase indexOf 
-
-class Car
-	constructor : (@i,@j,@w,@h,@r,@g,@b) ->
-	render      : (i) -> 
-	move        : (d) ->
-
-class RushHour extends Application
-	constructor : (@name) ->
-		super @name
-		if @a then @a = _.create Car.prototype, @a
-		if @b then @b = _.create Car.prototype, @b
-		if @c then @c = _.create Car.prototype, @c
-		if @d then @d = _.create Car.prototype, @d
-	reset   : -> super
-	draw    : -> super
-	add     : (pos,r,g,b) -> 
-	A_Left  : ->
-	A_Right : ->
-	B_Up    : -> 
-	B_Down  : -> 
-	C_Left  : -> 
-	C_Right : ->
-	D_Up    : -> 
-	D_Down  : -> 
-
-rushHour = new RushHour "b"
-
-"""
-			a:"""
-class Car
-	constructor : (@i,@j,@w,@h,@r,@g,@b) ->
-	render : (i) -> 
-		fc @r,@g,@b
-		rect 40+20*@i+2, 40+20*@j+2, 20*@w-4, 20*@h-4
-		fc 0
-		text "ABCDEFGH"[i], 50+20*@i, 50+20*@j
-	move : (d) ->
-		if @w == 1 then @j += d
-		if @h == 1 then @i += d
-
-class RushHour extends Application
-
-	constructor : (@name) ->
-		super @name
-		if @a then @a = _.create Car.prototype, @a
-		if @b then @b = _.create Car.prototype, @b
-		if @c then @c = _.create Car.prototype, @c
-		if @d then @d = _.create Car.prototype, @d
-
-	reset : ->
-		super
-		@a = @add "d3e3",1,0,0
-		@b = @add "d6d5",1,1,0
-		@c = @add "e5f5",0,1,0
-		@d = @add "f3f1",0,1,1
-
-	draw : ->
-		textAlign CENTER,CENTER
-		bg 0
-		sc()
-		fc 0.5,0.5,0.5
-		rect 40,40,120,120
-		rect 160,80,40,20
-		fc 1
-		sc()
-		for i in range 6
-			text "123456"[i],30,50+20*i
-			text "abcdef"[i],50+20*i,170
-		@a.render 0
-		@b.render 1
-		@c.render 2
-		@d.render 3
-
-	col : (s) -> "abcdef".indexOf s
-	row : (s) -> "123456".indexOf s
-
-	add : (pos,r,g,b) -> 
-		i = @col pos[0] 
-		j = @row pos[3]
-		w = @col(pos[2]) - i + 1
-		#h = j - @row(pos[1]) + 1 
-		h = @row(pos[1]) - j + 1 
-		new Car i,j,w,h,r,g,b
-
-	A_Left  : -> @a.move -1
-	A_Right : -> @a.move  1	
-	B_Up    : -> @b.move -1	
-	B_Down  : -> @b.move  1
-	C_Left  : -> @c.move -1
-	C_Right : -> @c.move  1
-	D_Up    : -> @d.move -1
-	D_Down  : -> @d.move  1
-			
-rushHour = new RushHour "a"
-"""
-			c:
-				rushHour : "reset()|A_Left()|A_Right()|B_Up()|B_Down()|C_Left()|C_Right()|D_Up()|D_Down()"
-			e:
-				RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
-
-		RushHour2 :
-			b:"""
-# LOC:71 bg sc fc range # / % + * - == >= ++ -- "" [] {} push class extends constructor new @ super ->
-#        rect text textAlign for in if then else toLowerCase indexOf _.create prototype length @readText
-
-# De 36 rutorna numreras:
-#   0 1 2 3 4 5
-#   6 7 8 9 a b
-#   c d e f g h
-#   i j k l m n
-#   o p q r s t
-#   u v w x y z
-#
-# Placering av fordon:
-#   horisontellt: A=2 B=3
-#   vertikalt:    C=2 D=3
-# 
-# Lösningar:
-# 	Bilarna namnges i följden XABCDEFGHIJKLMNOPQR
-# 	liten bokstav: vänster/uppåt
-# 	stor bokstav:  höger/nedåt
-
-class Car
-	constructor : (ch,wh,@c) ->
-	render      : ->
-	move        : (d) ->
-
-class RushHour2 extends Application
-	constructor : (@name) ->
-		super @name
-		if @cars then @cars = (_.create(Car.prototype, car) for car in @cars)	
-	reset      : -> super
-	draw       : -> super
-	enter_cars : -> # Ad0sBwCoD569
-	enter_move : -> # bbbEEEAfdccGGXXXXX
-	begin      : ->
-	backward   : (n=1) ->
-	forward    : (n=1) ->
-	end        : ->
-
-rushHour2 = new RushHour2 "b"
-
-"""
-			a:"""
-class Car
-	constructor : (ch,wh,@c) ->
-		index = "0123456789abcdefghijklmnopqrstuvwxyz".indexOf ch
-		@i = index % 6
-		@j = int index / 6
-		[@w,@h] = wh
-
-	render : -> 
-		fcc (@c+1) % 8
-		rect 40+20*@i+2, 40+20*@j+2, 20*@w-4, 20*@h-4
-		fc 0
-		tcc (@c+1) % 8
-		name = "XABCDEFGHIJKLMNOP"[@c]
-		small = name.toLowerCase()
-		text small, 50+20*@i,        50+20*@j
-		text name,  50+20*(@i+@w-1), 50+20*(@j+@h-1)
-
-	move : (d) -> # -1 eller +1
-		if @w == 1 then @j += d
-		if @h == 1 then @i += d
-
-class RushHour2 extends Application
-
-	constructor : (@name) ->
-		super @name
-		if @cars then @cars = (_.create(Car.prototype, car) for car in @cars)
-
-	reset : ->
-		super
-		@enter_cars1 "Ad0sBwCoD569"
-		@enter_move1 "bbbEEEAfdccGGXXXXX"
-		@begin()
-
-	draw : ->
-		textAlign CENTER,CENTER
-		bg 0
-		sc()
-		fc 0.5
-		rect 40,40,120,120
-		rect 160,80,40,20
-		fc 1
-		sc()
-		for i in range 6
-			text "012345"[i],30,50+20*i
-			text "012345"[i],50+20*i,170
-		for car in @cars 
-			car.render()
-
-	enter_cars : -> @enter_cars1 @readText() 
-	enter_cars1 : (s) ->
-		@cars = []
-		@moves = ""
-		@index = 0
-		for ch in s
-			if ch in "ABCD" then wh = {A:[2,1], B:[3,1], C:[1,2], D:[1,3]}[ch]
-			else @cars.push new Car ch,wh,@cars.length
-
-	enter_move : -> @enter_move1 @readText() 
-	enter_move1 : (s) ->
-		@moves = @moves[...@index]
-		@moves += s 
-		@forward s.length
-		
-	begin : -> @backward @index 
-	backward : (n=1) ->
-		for i in range n
-			if @index == 0 then return
-			@index--
-			@bothward "XABCDEFGHIJKLMNO","xabcdefghijklmno"
-	forward : (n=1) ->
-		for i in range n
-			if @index >= @moves.length then return
-			@bothward "xabcdefghijklmno","XABCDEFGHIJKLMNO"
-			@index++
-	end : -> @forward @moves.length - @index
-
-	bothward : (a,b) ->
-		i = a.indexOf @moves[@index]
-		j = b.indexOf @moves[@index]
-		if i >= 0 then @cars[i].move -1
-		if j >= 0 then @cars[j].move +1
-
-rushHour2 = new RushHour2 "a"
-"""
-			c:
-				rushHour2 : "reset()|enter_cars()|enter_move()|begin()|backward()|forward()|end()" # |hint()|undo()
-			e:
-				RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
-
 
 		PickingBerries :
 			b:"""
@@ -3095,6 +2858,139 @@ korsord = new Korsord "a"
 				'_.some' : "http://underscorejs.org/#some"
 				'_.filter' : "http://underscorejs.org/#filter"
 				'_.countBy' : "http://underscorejs.org/#countBy"
+
+		RushHour :
+			b:"""
+# LOC:71 bg sc fc range # / % + * - == >= ++ -- "" [] {} push class extends constructor new @ super ->
+#        rect text textAlign for in if then else toLowerCase indexOf _.create prototype length @readText
+
+# De 36 rutorna numreras:
+#   0 1 2 3 4 5
+#   6 7 8 9 a b
+#   c d e f g h
+#   i j k l m n
+#   o p q r s t
+#   u v w x y z
+#
+# Placering av fordon:
+#   horisontellt: A=2 B=3
+#   vertikalt:    C=2 D=3
+# 
+# Lösningar:
+# 	Bilarna namnges i följden XABCDEFGHIJKLMNOPQR
+# 	liten bokstav: vänster/uppåt
+# 	stor bokstav:  höger/nedåt
+
+class Car
+	constructor : (ch,wh,@c) ->
+	render      : ->
+	move        : (d) ->
+
+class RushHour extends Application
+	constructor : (@name) ->
+		super @name
+		if @cars then @cars = (_.create(Car.prototype, car) for car in @cars)	
+	reset      : -> super
+	draw       : -> super
+	enter_cars : -> # Ad0sBwCoD569
+	enter_move : -> # bbbEEEAfdccGGXXXXX
+	begin      : ->
+	backward   : (n=1) ->
+	forward    : (n=1) ->
+	end        : ->
+
+rushHour = new RushHour "b"
+
+"""
+			a:"""
+class Car
+	constructor : (ch,wh,@c) ->
+		index = "0123456789abcdefghijklmnopqrstuvwxyz".indexOf ch
+		@i = index % 6
+		@j = int index / 6
+		[@w,@h] = wh
+
+	render : -> 
+		fcc (@c+1) % 8
+		rect 40+20*@i+2, 40+20*@j+2, 20*@w-4, 20*@h-4
+		fc 0
+		tcc (@c+1) % 8
+		name = "XABCDEFGHIJKLMNOP"[@c]
+		small = name.toLowerCase()
+		text small, 50+20*@i,        50+20*@j
+		text name,  50+20*(@i+@w-1), 50+20*(@j+@h-1)
+
+	move : (d) -> # -1 eller +1
+		if @w == 1 then @j += d
+		if @h == 1 then @i += d
+
+class RushHour extends Application
+
+	constructor : (@name) ->
+		super @name
+		if @cars then @cars = (_.create(Car.prototype, car) for car in @cars)
+
+	reset : ->
+		super
+		@enter_cars1 "Ad0sBwCoD569"
+		@enter_move1 "bbbEEEAfdccGGXXXXX"
+		@begin()
+
+	draw : ->
+		textAlign CENTER,CENTER
+		bg 0
+		sc()
+		fc 0.5
+		rect 40,40,120,120
+		rect 160,80,40,20
+		fc 1
+		sc()
+		for i in range 6
+			text "012345"[i],30,50+20*i
+			text "012345"[i],50+20*i,170
+		for car in @cars 
+			car.render()
+
+	enter_cars : -> @enter_cars1 @readText() 
+	enter_cars1 : (s) ->
+		@cars = []
+		@moves = ""
+		@index = 0
+		for ch in s
+			if ch in "ABCD" then wh = {A:[2,1], B:[3,1], C:[1,2], D:[1,3]}[ch]
+			else @cars.push new Car ch,wh,@cars.length
+
+	enter_move : -> @enter_move1 @readText() 
+	enter_move1 : (s) ->
+		@moves = @moves[...@index]
+		@moves += s 
+		@forward s.length
+		
+	begin : -> @backward @index 
+	backward : (n=1) ->
+		for i in range n
+			if @index == 0 then return
+			@index--
+			@bothward "XABCDEFGHIJKLMNO","xabcdefghijklmno"
+	forward : (n=1) ->
+		for i in range n
+			if @index >= @moves.length then return
+			@bothward "xabcdefghijklmno","XABCDEFGHIJKLMNO"
+			@index++
+	end : -> @forward @moves.length - @index
+
+	bothward : (a,b) ->
+		i = a.indexOf @moves[@index]
+		j = b.indexOf @moves[@index]
+		if i >= 0 then @cars[i].move -1
+		if j >= 0 then @cars[j].move +1
+
+rushHour = new RushHour "a"
+"""
+			c:
+				rushHour : "reset()|enter_cars()|enter_move()|begin()|backward()|forward()|end()" # |hint()|undo()
+			e:
+				RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
 
 		Asserts:
 			b:"""
