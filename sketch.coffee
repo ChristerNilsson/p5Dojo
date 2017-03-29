@@ -58,10 +58,7 @@ fixColor = (args) ->
 		a = args[3]		
 	color 255 * r, 255 * g, 255 * b, 255 * a
 
-bg = ->
-	#fill fixColor arguments
-	background fixColor arguments
-	#rect 0, 0, 200, 200
+bg = -> background fixColor arguments
 
 fc = ->
 	n = arguments.length
@@ -122,14 +119,14 @@ sel2change = (sel) ->
 	run1()
 	run0()
 	myCodeMirror.focus() 
-	compare()
+	compare('sel2change')
 
 sel3click = (sel) ->
 	if calls? then call = calls[sel.value]
 	run1()
 	run0()
 	myCodeMirror.focus()
-	compare()
+	compare('sel3click')
 
 mousePressed = ->
 	p = null
@@ -143,7 +140,7 @@ mousePressed = ->
 			run1()
 			run0()
 			myCodeMirror.focus()
-			compare()
+			compare('mousePressed')
 
 setLinks = ->
 	linksClear()
@@ -274,12 +271,12 @@ editor_change = ->
 		call = calls["draw()"]
 	run1()
 	run0()
+	if msg.val() == '' then compare('editor_change')
 
 run0 = ->
 	b = myCodeMirror.getValue()
 	data[chapter][exercise]["b"] = b
 	run 0, b + "\n" + call
-	if msg.val() == '' then compare()
 
 run1 = -> run 1, data[chapter][exercise]["a"] + "\n" + call
 
@@ -292,6 +289,7 @@ reset = ->
 	grid()
 
 run = (n, coffee) ->
+	#start = millis()
 	resetMatrix()
 	rectMode CORNER
 	push()
@@ -307,10 +305,12 @@ run = (n, coffee) ->
 		catch e
 			setMsg e.stack.split('\n')[0]
 		pop()
+		#print n,millis()-start
 		return true
 	catch e
 		pop()
 		setMsg e.name + ": " + e.message
+		#print n,millis()-start
 		return false 
 
 store = ->
@@ -334,7 +334,8 @@ fix_frames = ->
 			pixels[j*width*4+206*4+i] = 128-64
 	updatePixels()	
 
-compare = ->  # Lägg en timer på denna. Bör vänta någon sekund
+compare = (msg) ->  # Lägg en timer på denna. Bör vänta någon sekund
+	#start = millis()
 	a = buffer[0]
 	b = buffer[1]
 	c = a[..]
@@ -350,6 +351,7 @@ compare = ->  # Lägg en timer på denna. Bör vänta någon sekund
 	fetch b, 1 
 	fetch c, 2
 	fix_frames()
+	#print msg,millis()-start
 
 class Application
 	constructor : (@name) ->

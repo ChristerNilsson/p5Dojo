@@ -2549,7 +2549,7 @@ stopwatch = new Stopwatch "a"
 
 		Alphanumeric:
 			b:"""
-# LOC:19 bg sc fc range circle # for in indexOf & ** %% {} [] '' 
+# LOC:29 bg sc fc range circle # for in & + - * ^ ** %% [] length splice dist
 #        push if then else class extends constructor new @ super ->
 
 class AlphaNumeric extends Application
@@ -2559,6 +2559,7 @@ class AlphaNumeric extends Application
 	del   : ->
 	left  : -> 
 	right : ->
+	mousePressed : (mx,my) ->
 
 alpha = new AlphaNumeric "b"
 """
@@ -2566,26 +2567,33 @@ alpha = new AlphaNumeric "b"
 class AlphaNumeric extends Application
 	reset : -> 
 		super
-		@pattern = ['4c4444e', 'eh1248v', 'ehhvhhh', 'uhhuhhu']
+		@pattern = [[4,12,4,4,4,4,14], [14,17,1,2,4,8,31], [14,17,17,31,17,17,17],[30,17,17,30,17,17,30]]
 		@index = 0
+		@radius = 8
+		@distance = 20
 	draw : ->
 		bg 0
 		sc()
-		for ch,j in @pattern[@index]
-			index = '0123456789abcdefghijklmnopqrstuv'.indexOf ch
+		for index,j in @pattern[@index]
+			y =  40+@distance*j
 			for i in range 5
-				if index & 2**i then fc 0,1,0 else fc 0,0.3,0
-				x = 140-20*i
-				y = 40+20*j
-				circle x,y,8
+				if index & 1<<i then fc 0,1,0 else fc 0,0.3,0
+				x = 140-@distance*i
+				circle x,y,@radius
 	add   : -> 
-		pattern = @readText()
-		if pattern.length == 7 
-			@pattern.push pattern
-			@index = @pattern.length - 1
+		@pattern.push [0,0,0,0,0,0,0]
+		@index = @pattern.length - 1
 	del   : -> @pattern.splice @index, 1
 	left  : -> @index = (@index - 1) %% @pattern.length
 	right : -> @index = (@index + 1) %% @pattern.length
+
+	mousePressed : (mx,my) ->
+		for index,j in @pattern[@index]
+			y =  40+@distance*j
+			for i in range 5
+				x = 140-@distance*i
+				if dist(x,y,mx,my) < @radius
+					@pattern[@index][j] ^= 1<<i
 
 alpha = new AlphaNumeric "a"
 """
