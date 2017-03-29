@@ -89,6 +89,8 @@ fillSelect = (sel, dict) ->
 	sel.empty()
 	for key of dict
 		sel.append($("<option>").attr('value', key).text(key))
+	if sel==sel2
+		sel.append($("<option>").attr('value', 'BACK').text('BACK'))
 
 sel1change = (sel) ->
 	chapter = sel.value
@@ -96,11 +98,20 @@ sel1change = (sel) ->
 	call = ""
 	calls = {}
 	fillSelect sel2, data[chapter]
-	exercise = _.keys(data[chapter])[0]
-	sel2.val(exercise).change()
+	sel2.show()
 
 sel2change = (sel) ->
+	if sel.value=='BACK' 
+		exercise = ""
+		myCodeMirror.setValue ""
+		bg 0.5
+		sel2.hide()
+		return 
 	exercise = sel.value
+	if exercise=="" 
+		myCodeMirror.setValue ""
+		bg 0.5
+		return 
 	call = ""
 	calls = decorate data[chapter][exercise]["c"]
 
@@ -121,6 +132,8 @@ sel2change = (sel) ->
 	myCodeMirror.focus() 
 	compare('sel2change')
 
+sel1click = (sel) -> sel2.show()
+sel2click = (sel) -> if sel.value=='BACK' then $("#sel2").hide()
 sel3click = (sel) ->
 	if calls? then call = calls[sel.value]
 	run1()
@@ -208,6 +221,8 @@ setup = ->
 	sel2 = $('#sel2')
 	sel3 = $('#sel3')
 
+	sel2.hide()
+
 	fillSelect sel1, data
 
 window.onbeforeunload = ->
@@ -242,13 +257,15 @@ window.onload = ->
 	$(".CodeMirror").css 'font-size',"16pt"
 	myCodeMirror.on "change", editor_change
 	
-	run 0, ""
-	run 1, ""
+	#run 0, ""
+	#run 1, ""
 
-	chapter = _.keys(data)[0]
-	sel1.val(chapter).change()
-	exercise = _.keys(data[chapter])[0]
-	sel2.val(exercise).change()
+	chapter=""
+	exercise=""
+	#chapter = _.keys(data)[0]
+	#sel1.val(chapter).change()
+	#exercise = _.keys(data[chapter])[0]
+	#sel2.val(exercise).change()
 	
 	myCodeMirror.focus()
 	window.resizeTo 1000,750
@@ -274,11 +291,14 @@ editor_change = ->
 	if msg.val() == '' then compare('editor_change')
 
 run0 = ->
+	if exercise=="" then return
 	b = myCodeMirror.getValue()
 	data[chapter][exercise]["b"] = b
 	run 0, b + "\n" + call
 
-run1 = -> run 1, data[chapter][exercise]["a"] + "\n" + call
+run1 = -> 
+	if exercise=="" then return
+	run 1, data[chapter][exercise]["a"] + "\n" + call
 
 reset = ->
 	colorMode RGB,255
@@ -297,6 +317,9 @@ run = (n, coffee) ->
 	reset()
 
 	setMsg ""
+
+	if exercise=="" then return 
+
 	try 
 		code = transpile coffee
 		try
