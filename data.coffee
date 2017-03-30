@@ -13,6 +13,7 @@ data =
 			b:"""
 # NYHETER 2017 APR 01
 #   LB: Nand2Tetris ALU
+#   LB: ColorPair
 # NYHETER 2017 MAR 26
 #   L9: EngineeringNotation
 #   LA: Stopwatch
@@ -3123,6 +3124,61 @@ alu = new ALU "a"
 				alu : "reset()"
 			e:
 				Nand2Tetris : "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
+
+
+
+
+
+
+		ColorPair :
+			b: """
+# LOC:30 fc circle # [] .. push dist length splice _.isEqual 
+#        for in class extends constructor new @ super ->
+
+class ColorPair extends Application
+	reset : -> super
+	draw  : -> super
+	mousePressed : (mx,my) ->
+colorpair = new ColorPair "b"
+"""
+			a:"""
+class ColorPair extends Application
+	reset : -> 
+		super
+		@circles = []
+		@circles.push [ 50, 70,80, 1,0,0]
+		@circles.push [150, 70,80, 1,0,0]
+		@circles.push [ 70,140,80, 1,1,0]
+		@circles.push [130,160,80, 1,1,0]
+		@memory = []
+	draw : -> 
+		for [x,y,radius, r,g,b] in @circles
+			fc r,g,b,0.5
+			circle x,y,radius
+	mousePressed : (mx,my) ->
+		hitlist = []
+		for [x,y,radius, r,g,b],i in @circles
+			if dist(x,y,mx,my) < radius then hitlist.push i 
+		if hitlist.length == 1
+			i = hitlist[0]
+			circle = @circles[i]
+			if @memory.length == 0
+				@memory = circle[3..5]
+				@circles.splice i,1
+			else if _.isEqual(@memory, circle[3..5]) 
+				@memory = []
+				@circles.splice i,1
+			else
+				@circles = []
+		else
+			@circles = []
+
+colorpair = new ColorPair "a"
+"""
+			c:
+				colorpair : "reset()"
+			e: 
+				ColorPair : "https://christernilsson.github.io/ColorPair"
 
 		Asserts:
 			b:"""
