@@ -7,6 +7,7 @@
  - [Underscore](http://underscorejs.org)
  - [p5Assert](https://christernilsson.github.io/p5Assert)
  - [Nilsson](https://github.com/ChristerNilsson/Nilsson/blob/master/README.md)
+ - [Mailgrupp](mailto:p5dojo@googlegroups.com)
  
 ### Så här arbetar du!
 
