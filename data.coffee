@@ -11,6 +11,8 @@ data =
 
 		Nyheter :
 			b:"""
+# NYHETER 2017 APR 01
+#   LB: Nand2Tetris ALU
 # NYHETER 2017 MAR 26
 #   L9: EngineeringNotation
 #   LA: Stopwatch
@@ -3033,6 +3035,89 @@ rushHour = new RushHour "a"
 				rushHour : "reset()|enter_cars()|enter_move()|begin()|backward()|forward()|end()" # |hint()|undo()
 			e:
 				RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
+
+		"Nand2Tetris ALU" :
+			b: """
+# LOC:58 sc fc sw range # text textAlign textSize class extends constructor new @ super ->
+#        point quad dist for in if then else << - -- + ++ * != & ^ ~ split
+
+class ALU extends Application
+	reset : -> super
+	draw  : -> super
+	mousePressed : (mx,my) ->	
+alu = new ALU "b"
+"""
+			a:"""
+class ALU extends Application
+	reset : -> 
+		super
+		@x = 7
+		@y = 9
+		@flags = 0
+		@buttons = [[5,1],[7,1],[9,1],[11,1],[13,1],[15,1],[1,5],[7,5],[13,5],[19,5]]
+
+	draw1 : (value,x0,y0) ->
+		sc()
+		fc 1,1,0
+		text value, x0,y0
+		for i in range 16
+			if (value & 1<<(15-i)) != 0 then fc 1 else fc 0.75
+			if (value & 1<<(15-i)) != 0 then r=2.5 else r=1
+			circle x0-40+3+5*i,y0+20,r
+
+	draw : -> 
+		textAlign CENTER,CENTER
+		fc 1,1,0
+		quad 0,80, 200,80, 140,120, 60,120
+		[z,zr,ng] = @calc()
+		@draw1 @x,40,50
+		@draw1 @y,160,50
+		@draw1  z,100,130
+		flags = "zx nx zy ny f no".split " "
+		sc()
+		textSize 16
+		for i in range 6
+			[x,y] = @buttons[i]
+			if @flags & 1<<i then fc 1 else fc 0.5
+			text flags[i],10*x,10*y
+		fc 1,1,0
+		for i in range 4
+			[x,y] = @buttons[6+i]
+			text "-+-+"[i], 10*x,10*y
+		
+		if zr==1 then fc 1 else fc 0.5
+		text "zr",90,170
+		if ng==1 then fc 1 else fc 0.5
+		text "ng",110,170
+
+	mousePressed : (mx,my) ->
+		index = -1
+		for button,i in @buttons
+			if dist(10*button[0],10*button[1],mx,my) < 10 then index = i
+		if 0 <= index <= 5 then @flags ^= 1<<index
+		if index == 6 then @x--
+		if index == 7 then @x++
+		if index == 8 then @y--
+		if index == 9 then @y++
+	calc : ->
+		x=@x
+		if @flags & 1 then x=0
+		if @flags & 2 then x=~x 
+		y=@y
+		if @flags & 4 then y=0
+		if @flags & 8 then y=~y 
+		if @flags & 16 then out = x+y else out = x&y
+		if @flags & 32 then out = ~out
+		if out==0 then zr=1 else zr=0
+		if out<0 then ng=1 else ng=0
+		[out,zr,ng]
+
+alu = new ALU "a"
+"""
+			c:
+				alu : "reset()"
+			e:
+				Nand2Tetris : "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
 
 		Asserts:
 			b:"""
