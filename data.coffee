@@ -3038,8 +3038,9 @@ rushHour = new RushHour "a"
 
 		"Nand2Tetris ALU" :
 			b: """
-# LOC:58 sc fc sw range # text textAlign textSize class extends constructor new @ super ->
+# LOC:63 sc fc sw range # text textAlign textSize class extends constructor new @ super ->
 #        point quad dist for in if then else << - -- + ++ * != & ^ ~ split
+# Se länken Nand2Tetris, sidan 36, för mer information!
 
 class ALU extends Application
 	reset : -> super
@@ -3051,10 +3052,10 @@ alu = new ALU "b"
 class ALU extends Application
 	reset : -> 
 		super
-		@x = 7
-		@y = 9
+		@x = 3
+		@y = 5
 		@flags = 0
-		@buttons = [[5,1],[7,1],[9,1],[11,1],[13,1],[15,1],[1,5],[7,5],[13,5],[19,5]]
+		@buttons = [[5,1],[7,1],[9,1],[11,1],[13,1],[15,1],[3,3],[5,3],[15,3],[17,3]]
 
 	draw1 : (value,x0,y0) ->
 		sc()
@@ -3078,13 +3079,16 @@ class ALU extends Application
 		textSize 16
 		for i in range 6
 			[x,y] = @buttons[i]
+			fc 1,0,0
+			circle 10*x,10*y,10
 			if @flags & 1<<i then fc 1 else fc 0.5
 			text flags[i],10*x,10*y
-		fc 1,1,0
-		for i in range 4
+		for ch,i in "-+-+"
 			[x,y] = @buttons[6+i]
-			text "-+-+"[i], 10*x,10*y
-		
+			fc 1,0,0
+			circle 10*x,10*y,10
+			fc 1
+			text ch, 10*x,10*y
 		if zr==1 then fc 1 else fc 0.5
 		text "zr",90,170
 		if ng==1 then fc 1 else fc 0.5
@@ -3099,6 +3103,7 @@ class ALU extends Application
 		if index == 7 then @x++
 		if index == 8 then @y--
 		if index == 9 then @y++
+
 	calc : ->
 		x=@x
 		if @flags & 1 then x=0
