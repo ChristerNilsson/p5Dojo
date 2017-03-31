@@ -257,15 +257,8 @@ window.onload = ->
 	$(".CodeMirror").css 'font-size',"16pt"
 	myCodeMirror.on "change", editor_change
 	
-	#run 0, ""
-	#run 1, ""
-
 	chapter=""
 	exercise=""
-	#chapter = _.keys(data)[0]
-	#sel1.val(chapter).change()
-	#exercise = _.keys(data[chapter])[0]
-	#sel2.val(exercise).change()
 	
 	myCodeMirror.focus()
 	window.resizeTo 1000,750

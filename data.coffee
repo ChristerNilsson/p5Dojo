@@ -13,7 +13,7 @@ data =
 			b:"""
 # NYHETER 2017 APR 01
 #   LB: Nand2Tetris ALU
-#   LB: ColorPair
+#   LB: RandomDice ColorPair 
 # NYHETER 2017 MAR 26
 #   L9: EngineeringNotation
 #   LA: Stopwatch
@@ -3125,6 +3125,51 @@ alu = new ALU "a"
 			e:
 				Nand2Tetris : "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
 
+
+
+
+
+		RandomDice :
+			b: """
+# LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   
+#        for in class extends constructor new @ super ->
+
+class RandomDice extends Application
+	reset : -> 
+		super
+		@seed = 0
+	draw : -> super
+	mousePressed : (mx,my) ->
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+randomdice = new RandomDice "b"
+"""
+			a:"""
+class RandomDice extends Application
+	reset : -> 
+		super
+		@seed = 0
+		@radius = 20
+		@bits = [0,1,24,25,90,91,126]
+		@xy = [22,11,12,13,31,32,33]
+		@throw()
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	throw : -> @value = 1 + @randint 6
+	mousePressed : (mx,my) -> @throw()
+	draw : -> 
+		bg 1
+		sc 1
+		for xy,i in @xy
+			x = int xy/10
+			y = xy % 10
+			if @bits[@value] & 1<<i then circle 50*x,50*y,@radius 			
+
+randomdice = new RandomDice "a"
+"""
+			c:
+				randomdice : "reset()"
+
 		ColorPair :
 			b: """
 # LOC:41 fc circle # [] .. push dist length splice _.isEqual colorMode HSB
@@ -3133,12 +3178,11 @@ alu = new ALU "a"
 class ColorPair extends Application
 	reset : -> 
 		super
-		@seed = 1
-	draw  : -> super
+		@seed = 0
+	draw : -> super
 	mousePressed : (mx,my) ->
-	random : (n) ->
-		x = 10000 * Math.sin @seed++
-		Math.floor n * (x - Math.floor x)
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
 colorpair = new ColorPair "b"
 """
 			a:"""
@@ -3148,30 +3192,32 @@ class ColorPair extends Application
 		@seed = 0
 		@level = 0
 		@changeLevel 1
+		@radius = 40
 
-	random : (n) ->
-		x = 10000 * Math.sin @seed++
-		Math.floor n * (x - Math.floor x)
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
 
 	draw : -> 
+		bg 1
+		sw 2
+		sc 1,1,1,0.5
 		colorMode HSB
-		for [x,y,radius, c] in @circles
+		for [x,y,c] in @circles
 			fill color c,100,100,0.5
-			circle x,y,radius
-		colorMode RGB
-
+			circle x,y,@radius
+		
 	mousePressed : (mx,my) ->
 		hitlist = []
-		for [x,y,radius, r,g,b],i in @circles
-			if dist(x,y,mx,my) < radius then hitlist.push i 
+		for [x,y,c],i in @circles
+			if dist(x,y,mx,my) < @radius then hitlist.push i 
 		if hitlist.length == 1
 			i = hitlist[0]
 			circle = @circles[i]
-			if @memory.length == 0
-				@memory = circle[3]
+			if @memory == -1
+				@memory = circle[2]
 				@circles.splice i,1
-			else if _.isEqual(@memory, circle[3]) 
-				@memory = []
+			else if _.isEqual(@memory, circle[2]) 
+				@memory = -1
 				@circles.splice i,1
 				if @circles.length == 0 then @changeLevel 1
 			else
@@ -3180,13 +3226,13 @@ class ColorPair extends Application
 			@changeLevel -1
 
 	changeLevel : (d) ->
-		@memory = []
+		@memory = -1
 		@level = constrain @level+d, 1, 20
 		@circles = []
 		for i in range @level
-			c = int((i+1)*360/(@level+1))
-			@circles.push [@random(200), @random(200), 40, c]
-			@circles.push [@random(200), @random(200), 40, c]
+			c = int i * 360 / @level
+			@circles.push [@randint(200), @randint(200), c]
+			@circles.push [@randint(200), @randint(200), c]
 
 colorpair = new ColorPair "a"
 """
