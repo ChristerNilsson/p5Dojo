@@ -2171,21 +2171,14 @@ rc = new RecursiveCircle "a"
 
 		Nim:
 			b:"""		
-# LOC:38 bg fc sc circle @readInt # * + - ^ if then else _.isEqual return <  
+# LOC:59 bg fc sc circle @readText # * + - ^ if then else _.isEqual return <  
 #        constrain text textAlign textSize class extends constructor new @ super ->
 
 class Nim extends Application
-	reset  : -> super
-	draw   : -> super
-	read_a : ->
-	read_b : ->
-	read_c : ->
-	pick_a : ->
-	pick_b : ->
-	pick_c : ->
-	ok     : -> 
-	hint   : ->
-
+	reset : -> super
+	draw  : -> super
+	enter : -> # t ex 9 10 11
+	mousePressed : (mx,my) ->
 nim = new Nim "b"  
 """
 			a:"""
@@ -2193,35 +2186,53 @@ class Nim extends Application
 	reset : -> 
 		super
 		@board = [7,8,9]
+		@radius = 30
+		@buttons = [[35,80],[100,80],[165,80], [35,150,'ok'],[100,150,'x'],[165,150,'hint']]
+		@init()
+
+	init : ->
 		@active = -1
 		@player = 0
+		@original = @board[..]
+
 	move : (index) ->
 		if @active in [index,-1]
 			@active = index
 			@board[@active] = constrain @board[@active]-1, 0, 99
 
-	read_a : -> @board[0] = @readInt()
-	read_b : -> @board[1] = @readInt()
-	read_c : -> @board[2] = @readInt()
+	enter : ->
+		for s,i in @readText().split ' '
+			@board[i] = parseInt s
+		@init()
 
-	pick_a : -> @move 0
-	pick_b : -> @move 1
-	pick_c : -> @move 2
 	ok : -> 
 		if @active == -1 then return
 		@player = 1 - @player
 		@active = -1 
+		@original = @board[..]
+
+	cancel : ->
+		@board = @original
+		@active = -1 
+
 	draw : ->
 		textAlign CENTER,CENTER
 		textSize 32
 		bg 0
-		fc 1
-		sc()
-		text @board[0],50,100
-		text @board[1],100,100
-		text @board[2],150,100
+		for [x,y,txt],i in @buttons
+			fc 0
+			sc 1
+			sw 2
+			if i<=2 and @active==-1 or @active==i then circle x,y,@radius
+			if i in [3,4] and @active!=-1 then circle x,y,@radius
+			if i==5 and @active==-1 then circle x,y,@radius
+			fc 1
+			sc()
+			if i<=2 then text @board[i],x,y 
+			if i>=3 then text txt,x,y
 		fc 1,@player,0
 		circle 20 + @player * 160,20,10
+
 	hint : ->
 		if @active != -1 then return
 		[a,b,c] = @board
@@ -2230,17 +2241,24 @@ class Nim extends Application
 			@board = board
 			@player = 1 - @player
 
+	mousePressed : (mx,my) ->
+		index = -1
+		for button,i in @buttons
+			if dist(button[0],button[1],mx,my) < @radius then index = i
+		if index <= 2 then @move index
+		if index == 3 then @ok()
+		if index == 4 then @cancel()
+		if index == 5 then @hint()
+
 nim = new Nim "a"   
 		
 """
 			c:
-				nim : "reset()|read_a()|read_b()|read_c()|pick_a()|pick_b()|pick_c()|ok()|hint()"
+				nim : "reset()|enter()"
 			e:
 				Nim : "https://en.wikipedia.org/wiki/Nim"
 				xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"
 				Nimrod : "https://en.wikipedia.org/wiki/Nimrod_(computing)"
-
-
 
 		ChessGame :
 			b:"""
