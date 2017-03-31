@@ -3125,36 +3125,41 @@ alu = new ALU "a"
 			e:
 				Nand2Tetris : "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
 
-
-
-
-
-
 		ColorPair :
 			b: """
-# LOC:30 fc circle # [] .. push dist length splice _.isEqual 
+# LOC:41 fc circle # [] .. push dist length splice _.isEqual colorMode HSB
 #        for in class extends constructor new @ super ->
 
 class ColorPair extends Application
-	reset : -> super
+	reset : -> 
+		super
+		@seed = 1
 	draw  : -> super
 	mousePressed : (mx,my) ->
+	random : (n) ->
+		x = 10000 * Math.sin @seed++
+		Math.floor n * (x - Math.floor x)
 colorpair = new ColorPair "b"
 """
 			a:"""
 class ColorPair extends Application
 	reset : -> 
 		super
-		@circles = []
-		@circles.push [ 50, 70,80, 1,0,0]
-		@circles.push [150, 70,80, 1,0,0]
-		@circles.push [ 70,140,80, 1,1,0]
-		@circles.push [130,160,80, 1,1,0]
-		@memory = []
+		@seed = 0
+		@level = 0
+		@changeLevel 1
+
+	random : (n) ->
+		x = 10000 * Math.sin @seed++
+		Math.floor n * (x - Math.floor x)
+
 	draw : -> 
-		for [x,y,radius, r,g,b] in @circles
-			fc r,g,b,0.5
+		colorMode HSB
+		for [x,y,radius, c] in @circles
+			fill color c,100,100,0.5
 			circle x,y,radius
+		colorMode RGB
+
 	mousePressed : (mx,my) ->
 		hitlist = []
 		for [x,y,radius, r,g,b],i in @circles
@@ -3163,15 +3168,25 @@ class ColorPair extends Application
 			i = hitlist[0]
 			circle = @circles[i]
 			if @memory.length == 0
-				@memory = circle[3..5]
+				@memory = circle[3]
 				@circles.splice i,1
-			else if _.isEqual(@memory, circle[3..5]) 
+			else if _.isEqual(@memory, circle[3]) 
 				@memory = []
 				@circles.splice i,1
+				if @circles.length == 0 then @changeLevel 1
 			else
-				@circles = []
+				@changeLevel -1
 		else
-			@circles = []
+			@changeLevel -1
+
+	changeLevel : (d) ->
+		@memory = []
+		@level = constrain @level+d, 1, 20
+		@circles = []
+		for i in range @level
+			c = int((i+1)*360/(@level+1))
+			@circles.push [@random(200), @random(200), 40, c]
+			@circles.push [@random(200), @random(200), 40, c]
 
 colorpair = new ColorPair "a"
 """
