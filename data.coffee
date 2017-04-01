@@ -2171,13 +2171,19 @@ rc = new RecursiveCircle "a"
 
 		Nim:
 			b:"""		
-# LOC:59 bg fc sc circle @readText # * + - ^ if then else _.isEqual return <  
+# LOC:62 bg fc sc circle # * + - ^ if then else _.isEqual return <  
 #        constrain text textAlign textSize class extends constructor new @ super ->
 
 class Nim extends Application
-	reset : -> super
+	reset : -> 
+		super
+		@seed = 0
 	draw  : -> super
-	enter : -> # t ex 9 10 11
+	newGame : -> 
+		[a,b,c] = [1+@randint(5),1+@randint(5),1+@randint(5)]
+		@board = [a,a+b,a+b+c]
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
 nim = new Nim "b"  
 """
@@ -2185,9 +2191,10 @@ nim = new Nim "b"
 class Nim extends Application
 	reset : -> 
 		super
-		@board = [7,8,9]
+		@seed = 0
 		@radius = 30
 		@buttons = [[35,80],[100,80],[165,80], [35,150,'ok'],[100,150,'x'],[165,150,'hint']]
+		@newGame()
 		@init()
 
 	init : ->
@@ -2200,9 +2207,12 @@ class Nim extends Application
 			@active = index
 			@board[@active] = constrain @board[@active]-1, 0, 99
 
-	enter : ->
-		for s,i in @readText().split ' '
-			@board[i] = parseInt s
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+
+	newGame : ->
+		[a,b,c] = [1+@randint(5),1+@randint(5),1+@randint(5)]
+		@board = [a,a+b,a+b+c]
 		@init()
 
 	ok : -> 
@@ -2254,7 +2264,7 @@ nim = new Nim "a"
 		
 """
 			c:
-				nim : "reset()|enter()"
+				nim : "reset()|newGame()"
 			e:
 				Nim : "https://en.wikipedia.org/wiki/Nim"
 				xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"
