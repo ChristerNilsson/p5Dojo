@@ -3269,11 +3269,7 @@ colorpair = new ColorPair "a"
 			e: 
 				ColorPair : "https://christernilsson.github.io/ColorPair"
 
-
-
-
-
-		RubiqSquare:
+		RubikSquare:
 			b:"""		
 # LOC:117 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not
 #         _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
