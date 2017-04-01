@@ -13,7 +13,7 @@ data =
 			b:"""
 # NYHETER 2017 APR 01
 #   LB: Nand2Tetris ALU
-#   LB: RandomDice ColorPair 
+#   LB: RandomDice ColorPair RubikSquare
 # NYHETER 2017 MAR 26
 #   L9: EngineeringNotation
 #   LA: Stopwatch
@@ -3268,6 +3268,165 @@ colorpair = new ColorPair "a"
 				colorpair : "reset()"
 			e: 
 				ColorPair : "https://christernilsson.github.io/ColorPair"
+
+
+
+
+
+		RubiqSquare:
+			b:"""		
+# LOC:117 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not
+#         _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
+
+class RubikSquare extends Application
+	reset : -> 
+	draw : ->
+	newGame : ->
+	mousePressed : (mx,my) ->
+rubiksquare = new RubikSquare "b"   
+
+"""
+			a:"""
+class RubikSquare extends Application
+	reset : -> 
+		super
+		@seed = 0
+		@size = 30
+		@level = 1
+		@buttons = [[4,3,3,3],[10,3,3,3],[16,3,3,3], [4,9,3,3],[10,9,3,3],[16,9,3,3], [4,15,3,3],[10,15,3,3],[16,15,3,3], [4,19,3,1],[16,19,3,1]]
+		@history = []
+		@memory = -1
+		@moves = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8]]
+		@createGame()
+
+	init : -> @board = [0,1,2,0,1,2,0,1,2]
+
+	move : (index) ->
+		@history.push @board[..]
+		rm = int @memory / 3
+		cm = @memory % 3
+		r = int index / 3
+		c = index % 3
+		dc = 0
+		dr = 0
+		if rm==r then dc = Math.sign c-cm 
+		if cm==c then dr = Math.sign r-rm
+		@move0 r,c,dr,dc
+		@memory = -1
+		@draw()
+		
+	hor : (r,dc) -> @move1 @moves[r],dc
+	ver : (c,dr) -> @move1 @moves[3+c],dr
+
+	move0 : (r,c,dr,dc) ->
+		if dr==0 then @hor r,dc # left right
+		if dc==0 then @ver c,dr # up down
+
+	move1 : ([i,j,k],d) ->
+		[a,b,c] = [@board[i],@board[j],@board[k]]
+		if d==-1 then [a,b,c] = [b,c,a] else [a,b,c] = [c,a,b]
+		[@board[i],@board[j],@board[k]] = [a,b,c]
+
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+
+	newGame : ->
+		if @level >= @history.length and _.isEqual @board,[0,1,2,0,1,2,0,1,2] then d=1 else d=-1
+		@level = constrain @level+d,1,6
+		@createGame()
+
+	moveOk : (horver,rc) ->
+		if horver == 0 and rc == 0 then check = @moves[0]
+		if horver == 0 and rc == 1 then check = @moves[1]
+		if horver == 0 and rc == 2 then check = @moves[2]
+		if horver == 1 and rc == 0 then check = @moves[3]
+		if horver == 1 and rc == 1 then check = @moves[4]
+		if horver == 1 and rc == 2 then check = @moves[5]
+		[i,j,k] = check
+		not (@board[i] == @board[j] and @board[j] == @board[k])
+
+	createGame : ->
+		@init()
+		@history = []
+		moves = []
+		memory = [0,0]
+		count = 0
+		while count < 20 and moves.length < @level
+			count += 1 
+			m = @randint 12
+			horver = int m/6
+			rc = m % 3
+			if (memory[horver] & (1<<rc)) == 0 and @moveOk horver,rc
+				moves.push m
+				memory[horver] |= (1<<rc)
+				memory[1-horver] = 0    # r c drdc
+				if m ==  0 then @move0 0,0,0,-1
+				if m ==  1 then @move0 1,0,0,-1
+				if m ==  2 then @move0 2,0,0,-1
+				if m ==  3 then @move0 0,0,0,+1
+				if m ==  4 then @move0 1,0,0,+1
+				if m ==  5 then @move0 2,0,0,+1
+				if m ==  6 then @move0 0,0,-1,0
+				if m ==  7 then @move0 0,1,-1,0
+				if m ==  8 then @move0 0,2,-1,0
+				if m ==  9 then @move0 0,0,+1,0
+				if m == 10 then @move0 0,1,+1,0
+				if m == 11 then @move0 0,2,+1,0
+		@history = []
+
+	draw : ->
+		textAlign CENTER,CENTER
+		textSize 20
+		rectMode CENTER,CENTER
+		for c,i in @board
+			sc 1
+			if c==0 then fc 1,0,0
+			if c==1 then fc 0,1,0
+			if c==2 then fc 0,0,1
+			[x,y,w,h] = @buttons[i]
+			rect 10*x,10*y,20*w,20*h
+		if @memory >= 0 
+			[x,y,w,h] = @buttons[@memory]
+			fc 0
+			sc()
+			circle 10*x,10*y,10
+		[x,y,w,h] = @buttons[10]
+		fc 1,1,0
+		sc()
+		text @level-@history.length,10*x,10*y
+		if @history.length > 0
+			[x,y,w,h] = @buttons[9]
+			text "undo",10*x,10*y
+
+	undo : -> 
+		if @history.length == 0 then return
+		@board = @history.pop()
+		@memory = -1
+		@draw()
+
+	mousePressed : (mx,my) ->
+		index = -1
+		for [x,y,w,h],i in @buttons
+			if x-w <= mx/10 <= x+w and y-h <= my/10 <= y+h then index = i
+		if 0 <= index < 9
+			if @memory == -1 
+				@memory = index 
+			else if @memory == index 
+				@memory = -1
+			else
+				@move index
+		if index==9 then @undo()
+
+rubiksquare = new RubikSquare "a"   
+		
+"""
+			c:
+				rubiksquare : "reset()|newGame()"
+
+
+
+
+
 
 		Asserts:
 			b:"""
