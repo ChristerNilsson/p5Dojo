@@ -3153,10 +3153,6 @@ alu = new ALU "a"
 			e:
 				Nand2Tetris : "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
 
-
-
-
-
 		RandomDice :
 			b: """
 # LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   
@@ -3277,7 +3273,6 @@ colorpair = new ColorPair "a"
 class RubikSquare extends Application
 	reset : -> 
 	draw : ->
-	newGame : ->
 	mousePressed : (mx,my) ->
 rubiksquare = new RubikSquare "b"   
 
@@ -3289,7 +3284,7 @@ class RubikSquare extends Application
 		@seed = 0
 		@size = 30
 		@level = 1
-		@buttons = [[4,3,3,3],[10,3,3,3],[16,3,3,3], [4,9,3,3],[10,9,3,3],[16,9,3,3], [4,15,3,3],[10,15,3,3],[16,15,3,3], [4,19,3,1],[16,19,3,1]]
+		@buttons = [[4,3,3,3],[10,3,3,3],[16,3,3,3], [4,9,3,3],[10,9,3,3],[16,9,3,3], [4,15,3,3],[10,15,3,3],[16,15,3,3], [4,19,3,1],[10,19,3,1],[16,19,3,1]]
 		@history = []
 		@memory = -1
 		@moves = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8]]
@@ -3393,6 +3388,8 @@ class RubikSquare extends Application
 		if @history.length > 0
 			[x,y,w,h] = @buttons[9]
 			text "undo",10*x,10*y
+			[x,y,w,h] = @buttons[11]
+			text "new",10*x,10*y
 
 	undo : -> 
 		if @history.length == 0 then return
@@ -3412,14 +3409,87 @@ class RubikSquare extends Application
 			else
 				@move index
 		if index==9 then @undo()
+		if index==11 then @newGame()
 
 rubiksquare = new RubikSquare "a"   
 		
 """
 			c:
-				rubiksquare : "reset()|newGame()"
+				rubiksquare : "reset()"
 
 
+		Hex:
+			b:"""
+class Hex extends Application
+	reset : -> super
+	mousePressed : (mx,my) ->
+	draw : ->
+hex = new Hex "b"
+"""
+
+			a:"""
+class Hex extends Application
+	reset : ->
+		super
+		@a = 7
+		@b = 5
+		@c = 3
+		@history = []
+		@board = []
+		for i in range 11*11
+			@board.push 0
+
+	mousePressed : (mx,my) ->
+		print mx,my
+		index = -1
+		translate 100,100
+		rd 18
+		for i in range -5,6
+			for j in range -5,6
+				x = i*(2*@a+1) + @a*j
+				y = j*(2*@b+@c-1)
+				push()
+				translate x,y
+				if dist(x,y,mx,my) < 7 then index = 11*j+i
+				pop()
+		print index
+		if index >= 0
+			@history.push index
+			n = @history.length
+			if n%2==0 then n=-n 
+			@board[index] = n 
+
+	draw : ->
+		bg 0.5
+		sc 0,1,0
+		fc 0,1,0
+		translate 100,100
+		textAlign CENTER,CENTER
+		textSize 9
+		rd 18
+		for i in range -5,6
+			for j in range -5,6
+				index = 11*j+i
+				x = i*(2*@a+1) + @a*j
+				y = j*(2*@b+@c-1)
+				push()
+				translate x,y
+				bc = @b+@c
+				quad 0,-bc, 0,bc, -@a,@c, -@a,-@c
+				quad 0,-bc, 0,bc,  @a,@c,  @a,-@c
+				fc 0
+				n = @board[index]
+				if n!=0
+					if n>0 then fc 1 else fc 0
+					circle 0,0,7
+					sc()
+					fc 1,1,0
+					text abs(n),0,0
+				pop()
+hex = new Hex "a"
+"""
+			c:
+				hex : "reset()|newGame()"
 
 
 
