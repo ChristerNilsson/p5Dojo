@@ -11,6 +11,8 @@ data =
 
 		Nyheter :
 			b:"""
+# NYHETER 2017 APR 08
+#   LB: Hex
 # NYHETER 2017 APR 01
 #   LB: Nand2Tetris ALU
 #   LB: RandomDice ColorPair RubikSquare
@@ -32,7 +34,8 @@ data =
 
 # Eller besök Utställningen.
 # Dessa program är skapade av deltagare på p5Dojo.
-# Vill du också visa upp ditt alster? Ge i så fall koden till din mentor.
+# Vill du också visa upp ditt alster? 
+#   Skicka i så fall koden till p5dojo@googlegroups.com 
 """
 			a:"""
 """
@@ -1389,6 +1392,45 @@ counter = new Counter "a"
 			c:
 				counter : "reset()|up()|down()"
 
+		Stopwatch:
+			b:"""
+# LOC:17 bg sc fc # for in [] '' text textSize textAlign textFont monospace
+#        int millis nf length unshift class extends constructor new @ super ->
+# OBS! Tiderna kan skilja med flera millisekunder. Sorry!
+
+class Stopwatch extends Application
+	reset : -> super
+	draw  : -> super
+	stopp : -> 
+stopwatch = new Stopwatch "b"
+"""
+			a:"""
+class Stopwatch extends Application
+	reset : -> 
+		super
+		@start = int millis()
+		@times = []
+		@count = 0
+	draw : ->
+		bg 0
+		textFont "monospace"
+		textSize 32
+		textAlign RIGHT,BOTTOM
+		fc 1,0,0
+		sc()
+		for time,i in @times
+			text @count-i,  50, 202-40*i
+			text nf(time/1000,1,3),195, 202-40*i
+	stopp : -> 
+		@count++
+		@times.unshift int millis()-@start
+		if @times.length > 5 then @times.pop()
+
+stopwatch = new Stopwatch "a"
+"""
+			c:
+				stopwatch: "reset()|stopp()"
+
 		Moire: 
 			b:"""
 # LOC:10 bg # for line map class extends constructor new @ super ->
@@ -2534,106 +2576,52 @@ berries = new PickingBerries "a"
 			c:
 				berries : "reset()|left()|right()|up()|down()|snailSpeed()|slowSpeed()|highSpeed()|warpSpeed()|pick()"
 
-		Stopwatch:
-			b:"""
-# LOC:17 bg sc fc # for in [] '' text textSize textAlign textFont monospace
-#        int millis nf length unshift class extends constructor new @ super ->
-# OBS! Tiderna kan skilja med flera millisekunder. Sorry!
-
-class Stopwatch extends Application
-	reset : -> super
-	draw  : -> super
-	stopp : -> 
-stopwatch = new Stopwatch "b"
-"""
-			a:"""
-class Stopwatch extends Application
-	reset : -> 
-		super
-		@start = int millis()
-		@times = []
-		@count = 0
-	draw : ->
-		bg 0
-		textFont "monospace"
-		textSize 32
-		textAlign RIGHT,BOTTOM
-		fc 1,0,0
-		sc()
-		for time,i in @times
-			text @count-i,  50, 202-40*i
-			text nf(time/1000,1,3),195, 202-40*i
-	stopp : -> 
-		@count++
-		@times.unshift int millis()-@start
-		if @times.length > 5 then @times.pop()
-
-stopwatch = new Stopwatch "a"
-"""
-			c:
-				stopwatch: "reset()|stopp()"
 
 
 #####################################
 	"LB: miscellaneous" :
 #####################################
 
-		Alphanumeric:
-			b:"""
-# LOC:29 bg sc fc range circle # for in & + - * ^ ** %% [] length splice dist
-#        push if then else class extends constructor new @ super ->
+		RandomDice :
+			b: """
+# LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   
+#        for in class extends constructor new @ super ->
 
-class AlphaNumeric extends Application
-	reset : -> super
-	draw  : -> super
-	add   : -> 
-	del   : ->
-	left  : -> 
-	right : ->
-	mousePressed : (mx,my) ->
-
-alpha = new AlphaNumeric "b"
-"""
-			a:"""
-class AlphaNumeric extends Application
+class RandomDice extends Application
 	reset : -> 
 		super
-		@pattern = [[4,12,4,4,4,4,14], [14,17,1,2,4,8,31], [14,17,17,31,17,17,17],[30,17,17,30,17,17,30]]
-		@index = 0
-		@radius = 8
-		@distance = 20
-	draw : ->
-		bg 0
-		sc()
-		for index,j in @pattern[@index]
-			y =  40+@distance*j
-			for i in range 5
-				if index & 1<<i then fc 0,1,0 else fc 0,0.3,0
-				x = 140-@distance*i
-				circle x,y,@radius
-	add   : -> 
-		@pattern.push [0,0,0,0,0,0,0]
-		@index = @pattern.length - 1
-	del   : -> @pattern.splice @index, 1
-	left  : -> @index = (@index - 1) %% @pattern.length
-	right : -> @index = (@index + 1) %% @pattern.length
-
+		@seed = 0
+	draw : -> super
 	mousePressed : (mx,my) ->
-		for index,j in @pattern[@index]
-			y =  40+@distance*j
-			for i in range 5
-				x = 140-@distance*i
-				if dist(x,y,mx,my) < @radius
-					@pattern[@index][j] ^= 1<<i
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+randomdice = new RandomDice "b"
+"""
+			a:"""
+class RandomDice extends Application
+	reset : -> 
+		super
+		@seed = 0
+		@radius = 20
+		@bits = [0,1,24,25,90,91,126]
+		@xy = [22,11,12,13,31,32,33]
+		@throw()
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	throw : -> @value = 1 + @randint 6
+	mousePressed : (mx,my) -> @throw()
+	draw : -> 
+		bg 1
+		sc 1
+		for xy,i in @xy
+			x = int xy/10
+			y = xy % 10
+			if @bits[@value] & 1<<i then circle 50*x,50*y,@radius 			
 
-alpha = new AlphaNumeric "a"
+randomdice = new RandomDice "a"
 """
 			c:
-				alpha: "reset()|add()|del()|left()|right()"
-			e:
-				binärt : "http://www.matteboken.se/lektioner/matte-1/tal/talsystem"
-				hexadecimalt : "http://www.matteguiden.se/matte-1/grunder/binara-och-hexadecimala-tal"
-				'5x7 matris' : "https://www.google.se/search?q=5x7+matrix&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjWjYen5OrSAhXhJ5oKHf8BBmgQ_AUIBigB&biw=1310&bih=945&dpr=1.1"
+				randomdice : "reset()"
 
 		GoldenStar:
 			b: """
@@ -2730,6 +2718,251 @@ polygon = new Polygon "a"
 			c:
 				polygon : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
 
+
+
+
+		Alphanumeric:
+			b:"""
+# LOC:29 bg sc fc range circle # for in & + - * ^ ** %% [] length splice dist
+#        push if then else class extends constructor new @ super ->
+
+class AlphaNumeric extends Application
+	reset : -> super
+	draw  : -> super
+	add   : -> 
+	del   : ->
+	left  : -> 
+	right : ->
+	mousePressed : (mx,my) ->
+
+alpha = new AlphaNumeric "b"
+"""
+			a:"""
+class AlphaNumeric extends Application
+	reset : -> 
+		super
+		@pattern = [[4,12,4,4,4,4,14], [14,17,1,2,4,8,31], [14,17,17,31,17,17,17],[30,17,17,30,17,17,30]]
+		@index = 0
+		@radius = 8
+		@distance = 20
+	draw : ->
+		bg 0
+		sc()
+		for index,j in @pattern[@index]
+			y =  40+@distance*j
+			for i in range 5
+				if index & 1<<i then fc 0,1,0 else fc 0,0.3,0
+				x = 140-@distance*i
+				circle x,y,@radius
+	add   : -> 
+		@pattern.push [0,0,0,0,0,0,0]
+		@index = @pattern.length - 1
+	del   : -> @pattern.splice @index, 1
+	left  : -> @index = (@index - 1) %% @pattern.length
+	right : -> @index = (@index + 1) %% @pattern.length
+
+	mousePressed : (mx,my) ->
+		for index,j in @pattern[@index]
+			y =  40+@distance*j
+			for i in range 5
+				x = 140-@distance*i
+				if dist(x,y,mx,my) < @radius
+					@pattern[@index][j] ^= 1<<i
+
+alpha = new AlphaNumeric "a"
+"""
+			c:
+				alpha: "reset()|add()|del()|left()|right()"
+			e:
+				binärt : "http://www.matteboken.se/lektioner/matte-1/tal/talsystem"
+				hexadecimalt : "http://www.matteguiden.se/matte-1/grunder/binara-och-hexadecimala-tal"
+				'5x7 matris' : "https://www.google.se/search?q=5x7+matrix&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjWjYen5OrSAhXhJ5oKHf8BBmgQ_AUIBigB&biw=1310&bih=945&dpr=1.1"
+
+		Korsord :
+			b: """
+# LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in 
+#        "" split join _.filter class constructor new @ extends super [] length
+# Mata in t ex b..l och få ut bill samt boll.
+
+class Korsord extends Application
+	reset : -> super
+	draw  : -> super
+	enter : -> 
+korsord = new Korsord "b"
+"""
+			a:"""
+class Korsord extends Application
+	reset : -> 
+		print "reset"
+		super
+		@found = ""
+		@pattern = ''
+	draw : -> 
+		n = 15
+		bg 0
+		textAlign LEFT,TOP
+		textSize 12
+		fc 1,1,0
+		sc()
+		for word,i in @found.split " "
+			x = int i / n
+			y = i % n
+			text word,5+200/4*x,200*y/n
+	match : (word,pattern) ->
+		for letter,i in pattern
+			if letter != '.' and letter != word[i] then	return false
+		true
+	enter : -> 
+		words = ordlista.split " "
+		@pattern = @readText()
+		@found = [] 
+		for w in words
+			if w.length == @pattern.length and @match w,@pattern then @found.push w
+		#@found = _.filter words, (w) -> w.length == @pattern.length and @match w,@pattern
+		@found = @found.join " "
+
+korsord = new Korsord "a"
+"""
+			c:
+				korsord : "reset()|enter()"
+
+			e:
+				'_.some' : "http://underscorejs.org/#some"
+				'_.filter' : "http://underscorejs.org/#filter"
+				'_.countBy' : "http://underscorejs.org/#countBy"
+
+		Nian :
+			b:"""
+# LOC:35 bg fc sc # [] push "" split indexOf reduce + * ** / % > & text textSize textAlign  
+#				 for in of {} _.countBy and if then class constructor new @ extends super 
+# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med "aaefkrrtu"
+
+class Nian extends Application
+	reset : -> super
+	draw  : -> super
+	enter : ->
+
+nian = new Nian "b"
+"""
+			a:"""
+class Nian extends Application
+	reset : ->
+		super
+		@found = ""
+	draw : -> 
+		n = 15
+		bg 0
+		textAlign LEFT,TOP
+		textSize 12
+		fc 1,1,0
+		sc()
+		for word,i in @found.split " "
+			x = int i / n
+			y = i % n
+			text word,5+200/4*x,200*y/n
+	bits : (word) -> word.split("").reduce ((acc,ch) -> acc|(2 ** "abcdefghijklmnopqrstuvwxyzåäö".indexOf ch)), 0
+	ok : (f1,f2) ->
+		for ch, f of f2
+			if f > f1[ch] then return false
+		true
+	enter : ->
+		words = ordlista.split " "
+		patterns = (@bits word for word in words)
+		@letters = @readText()
+		mandatory = @letters[4]
+		@found = []
+		p = @bits @letters
+		letters1 = @letters.split ""
+		freq1 = _.countBy letters1
+		for pattern,i in patterns
+			if (p & pattern) == pattern
+				letters2 = words[i].split ""
+				freq2 = _.countBy letters2
+				if @ok(freq1,freq2) and mandatory in letters2 then @found.push words[i]
+		@found = @found.join " "
+
+nian = new Nian "a"
+"""
+			c:
+				nian : "reset()|enter()"
+
+			e:
+				Nian : "http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html"
+				'_.countBy' : "http://underscorejs.org/#countBy"
+				reduce : "https://coffeescript-cookbook.github.io/chapters/arrays/reducing-arrays"
+
+
+
+		ColorPair :
+			b: """
+# LOC:41 fc circle # [] .. push dist length splice _.isEqual colorMode HSB
+#        for in class extends constructor new @ super ->
+
+class ColorPair extends Application
+	reset : -> 
+		super
+		@seed = 0
+	draw : -> super
+	mousePressed : (mx,my) ->
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+colorpair = new ColorPair "b"
+"""
+			a:"""
+class ColorPair extends Application
+	reset : -> 
+		super
+		@seed = 0
+		@level = 0
+		@changeLevel 1
+		@radius = 40
+
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+
+	draw : -> 
+		bg 1
+		sw 2
+		sc 1,1,1,0.5
+		colorMode HSB
+		for [x,y,c] in @circles
+			fill color c,100,100,0.5
+			circle x,y,@radius
+		
+	mousePressed : (mx,my) ->
+		hitlist = []
+		for [x,y,c],i in @circles
+			if dist(x,y,mx,my) < @radius then hitlist.push i 
+		if hitlist.length == 1
+			i = hitlist[0]
+			circle = @circles[i]
+			if @memory == -1
+				@memory = circle[2]
+				@circles.splice i,1
+			else if _.isEqual(@memory, circle[2]) 
+				@memory = -1
+				@circles.splice i,1
+				if @circles.length == 0 then @changeLevel 1
+			else
+				@changeLevel -1
+		else
+			@changeLevel -1
+
+	changeLevel : (d) ->
+		@memory = -1
+		@level = constrain @level+d, 1, 20
+		@circles = []
+		for i in range @level
+			c = int i * 360 / @level
+			@circles.push [@randint(200), @randint(200), c]
+			@circles.push [@randint(200), @randint(200), c]
+
+colorpair = new ColorPair "a"
+"""
+			c:
+				colorpair : "reset()"
+			e: 
+				ColorPair : "https://christernilsson.github.io/ColorPair"
 		Kalkylator:
 			b:"""
 # LOC:46 bg sc fc range @readText # + - * / of {} in [] shift unshift 
@@ -2817,120 +3050,169 @@ kalkylator = new Kalkylator "a"
 				"HP-35" : "https://neil.fraser.name/software/hp-35"
 				"Forth Haiku" : "http://forthsalon.appspot.com/word-list"
 
-
-		Nian :
+		Hex:
 			b:"""
-# LOC:35 bg fc sc # [] push "" split indexOf reduce + * ** / % > & text textSize textAlign  
-#				 for in of {} _.countBy and if then class constructor new @ extends super 
-# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med "aaefkrrtu"
+# LOC:49 bg fc sc range # + * - % < == != dist for in [] push pop length quad circle
+#        if then else text textAlign textSize class extends constructor new @ super ->
 
-class Nian extends Application
+class Hex extends Application
 	reset : -> super
-	draw  : -> super
-	enter : ->
-
-nian = new Nian "b"
+	draw : ->
+	newGame : ->
+	undo : ->
+	mousePressed : (mx,my) ->
+hex = new Hex "b"
 """
+
 			a:"""
-class Nian extends Application
+class Hex extends Application
 	reset : ->
 		super
-		@found = ""
-	draw : -> 
-		n = 15
-		bg 0
-		textAlign LEFT,TOP
-		textSize 12
-		fc 1,1,0
-		sc()
-		for word,i in @found.split " "
-			x = int i / n
-			y = i % n
-			text word,5+200/4*x,200*y/n
-	bits : (word) -> word.split("").reduce ((acc,ch) -> acc|(2 ** "abcdefghijklmnopqrstuvwxyzåäö".indexOf ch)), 0
-	ok : (f1,f2) ->
-		for ch, f of f2
-			if f > f1[ch] then return false
-		true
-	enter : ->
-		words = ordlista.split " "
-		patterns = (@bits word for word in words)
-		@letters = @readText()
-		mandatory = @letters[4]
-		@found = []
-		p = @bits @letters
-		letters1 = @letters.split ""
-		freq1 = _.countBy letters1
-		for pattern,i in patterns
-			if (p & pattern) == pattern
-				letters2 = words[i].split ""
-				freq2 = _.countBy letters2
-				if @ok(freq1,freq2) and mandatory in letters2 then @found.push words[i]
-		@found = @found.join " "
+		@a = 6
+		@b = 5
+		@c = 3
+		@newGame()
 
-nian = new Nian "a"
+	mousePressed : (mx,my) ->
+		index = -1
+		for i in range -5,6
+			for j in range -5,6
+				x = 100 + i*(2*@a+1) + @a*j
+				y = 100 + j*(2*@b+@c-1)
+				if dist(x,y,mx,my) < 7 then index = 11*(j+5)+i+5
+		if index >= 0 and @board[index] == 0
+			@history.push index
+			n = @history.length
+			if n % 2 == 0 then n = -n 
+			@board[index] = n 
+
+	newGame : ->
+		@history = []
+		@board = []
+		for i in range 11*11
+			@board.push 0
+
+	undo : ->
+		if @history.length > 0
+			index = @history.pop()
+			@board[index] = 0
+
+	draw : ->
+		bg 0.5
+		textAlign CENTER,CENTER
+		textSize 9
+		for i in range -5,6
+			for j in range -5,6
+				index = 11*(j+5)+i+5
+				x = 100+i*(2*@a+1) + @a*j
+				y = 100+j*(2*@b+@c-1)
+				bc = @b+@c
+				sc 0,1,0
+				fc 0,1,0
+				quad x,y-bc, x,y+bc, x-@a,y+@c, x-@a,y-@c
+				quad x,y-bc, x,y+bc, x+@a,y+@c, x+@a,y-@c
+				n = @board[index]
+				if n != 0
+					if n>0 then fc(1) else fc(0)
+					circle x,y,6
+					sc()
+					if n>0 then fc(0) else fc(1)
+					text abs(n),x,y
+
+hex = new Hex "a"
 """
 			c:
-				nian : "reset()|enter()"
+				hex : "reset()|newGame()|undo()"
+			e: 
+				Hex : "https://en.wikipedia.org/wiki/Hex_(board_game)"
 
-			e:
-				Nian : "http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html"
-				'_.countBy' : "http://underscorejs.org/#countBy"
-				reduce : "https://coffeescript-cookbook.github.io/chapters/arrays/reducing-arrays"
-
-
-		Korsord :
+		"Nand2Tetris ALU" :
 			b: """
-# LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in 
-#        "" split join _.filter class constructor new @ extends super [] length
-# Mata in t ex b..l och få ut bill samt boll.
+# LOC:63 sc fc sw range # text textAlign textSize class extends constructor new @ super ->
+#        point quad dist for in if then else << - -- + ++ * != & ^ ~ split
+# Se länken Nand2Tetris, sidan 36, för mer information!
 
-class Korsord extends Application
+class ALU extends Application
 	reset : -> super
 	draw  : -> super
-	enter : -> 
-korsord = new Korsord "b"
+	mousePressed : (mx,my) ->	
+alu = new ALU "b"
 """
 			a:"""
-class Korsord extends Application
+class ALU extends Application
 	reset : -> 
-		print "reset"
 		super
-		@found = ""
-		@pattern = ''
-	draw : -> 
-		n = 15
-		bg 0
-		textAlign LEFT,TOP
-		textSize 12
-		fc 1,1,0
-		sc()
-		for word,i in @found.split " "
-			x = int i / n
-			y = i % n
-			text word,5+200/4*x,200*y/n
-	match : (word,pattern) ->
-		for letter,i in pattern
-			if letter != '.' and letter != word[i] then	return false
-		true
-	enter : -> 
-		words = ordlista.split " "
-		@pattern = @readText()
-		@found = [] 
-		for w in words
-			if w.length == @pattern.length and @match w,@pattern then @found.push w
-		#@found = _.filter words, (w) -> w.length == @pattern.length and @match w,@pattern
-		@found = @found.join " "
+		@x = 3
+		@y = 5
+		@flags = 0
+		@buttons = [[5,1],[7,1],[9,1],[11,1],[13,1],[15,1],[3,3],[5,3],[15,3],[17,3]]
 
-korsord = new Korsord "a"
+	draw1 : (value,x0,y0) ->
+		sc()
+		fc 1,1,0
+		text value, x0,y0
+		for i in range 16
+			if (value & 1<<(15-i)) != 0 then fc 1 else fc 0.75
+			if (value & 1<<(15-i)) != 0 then r=2.5 else r=1
+			circle x0-40+3+5*i,y0+20,r
+
+	draw : -> 
+		textAlign CENTER,CENTER
+		fc 1,1,0
+		quad 0,80, 200,80, 140,120, 60,120
+		[z,zr,ng] = @calc()
+		@draw1 @x,40,50
+		@draw1 @y,160,50
+		@draw1  z,100,130
+		flags = "zx nx zy ny f no".split " "
+		sc()
+		textSize 16
+		for i in range 6
+			[x,y] = @buttons[i]
+			fc 1,0,0
+			circle 10*x,10*y,10
+			if @flags & 1<<i then fc 1 else fc 0.5
+			text flags[i],10*x,10*y
+		for ch,i in "-+-+"
+			[x,y] = @buttons[6+i]
+			fc 1,0,0
+			circle 10*x,10*y,10
+			fc 1
+			text ch, 10*x,10*y
+		if zr==1 then fc 1 else fc 0.5
+		text "zr",90,170
+		if ng==1 then fc 1 else fc 0.5
+		text "ng",110,170
+
+	mousePressed : (mx,my) ->
+		index = -1
+		for button,i in @buttons
+			if dist(10*button[0],10*button[1],mx,my) < 10 then index = i
+		if 0 <= index <= 5 then @flags ^= 1<<index
+		if index == 6 then @x--
+		if index == 7 then @x++
+		if index == 8 then @y--
+		if index == 9 then @y++
+
+	calc : ->
+		x=@x
+		if @flags & 1 then x=0
+		if @flags & 2 then x=~x 
+		y=@y
+		if @flags & 4 then y=0
+		if @flags & 8 then y=~y 
+		if @flags & 16 then out = x+y else out = x&y
+		if @flags & 32 then out = ~out
+		if out==0 then zr=1 else zr=0
+		if out<0 then ng=1 else ng=0
+		[out,zr,ng]
+
+alu = new ALU "a"
 """
 			c:
-				korsord : "reset()|enter()"
-
+				alu : "reset()"
 			e:
-				'_.some' : "http://underscorejs.org/#some"
-				'_.filter' : "http://underscorejs.org/#filter"
-				'_.countBy' : "http://underscorejs.org/#countBy"
+				Nand2Tetris : "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
 
 		RushHour :
 			b:"""
@@ -3065,206 +3347,6 @@ rushHour = new RushHour "a"
 			e:
 				RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
 
-		"Nand2Tetris ALU" :
-			b: """
-# LOC:63 sc fc sw range # text textAlign textSize class extends constructor new @ super ->
-#        point quad dist for in if then else << - -- + ++ * != & ^ ~ split
-# Se länken Nand2Tetris, sidan 36, för mer information!
-
-class ALU extends Application
-	reset : -> super
-	draw  : -> super
-	mousePressed : (mx,my) ->	
-alu = new ALU "b"
-"""
-			a:"""
-class ALU extends Application
-	reset : -> 
-		super
-		@x = 3
-		@y = 5
-		@flags = 0
-		@buttons = [[5,1],[7,1],[9,1],[11,1],[13,1],[15,1],[3,3],[5,3],[15,3],[17,3]]
-
-	draw1 : (value,x0,y0) ->
-		sc()
-		fc 1,1,0
-		text value, x0,y0
-		for i in range 16
-			if (value & 1<<(15-i)) != 0 then fc 1 else fc 0.75
-			if (value & 1<<(15-i)) != 0 then r=2.5 else r=1
-			circle x0-40+3+5*i,y0+20,r
-
-	draw : -> 
-		textAlign CENTER,CENTER
-		fc 1,1,0
-		quad 0,80, 200,80, 140,120, 60,120
-		[z,zr,ng] = @calc()
-		@draw1 @x,40,50
-		@draw1 @y,160,50
-		@draw1  z,100,130
-		flags = "zx nx zy ny f no".split " "
-		sc()
-		textSize 16
-		for i in range 6
-			[x,y] = @buttons[i]
-			fc 1,0,0
-			circle 10*x,10*y,10
-			if @flags & 1<<i then fc 1 else fc 0.5
-			text flags[i],10*x,10*y
-		for ch,i in "-+-+"
-			[x,y] = @buttons[6+i]
-			fc 1,0,0
-			circle 10*x,10*y,10
-			fc 1
-			text ch, 10*x,10*y
-		if zr==1 then fc 1 else fc 0.5
-		text "zr",90,170
-		if ng==1 then fc 1 else fc 0.5
-		text "ng",110,170
-
-	mousePressed : (mx,my) ->
-		index = -1
-		for button,i in @buttons
-			if dist(10*button[0],10*button[1],mx,my) < 10 then index = i
-		if 0 <= index <= 5 then @flags ^= 1<<index
-		if index == 6 then @x--
-		if index == 7 then @x++
-		if index == 8 then @y--
-		if index == 9 then @y++
-
-	calc : ->
-		x=@x
-		if @flags & 1 then x=0
-		if @flags & 2 then x=~x 
-		y=@y
-		if @flags & 4 then y=0
-		if @flags & 8 then y=~y 
-		if @flags & 16 then out = x+y else out = x&y
-		if @flags & 32 then out = ~out
-		if out==0 then zr=1 else zr=0
-		if out<0 then ng=1 else ng=0
-		[out,zr,ng]
-
-alu = new ALU "a"
-"""
-			c:
-				alu : "reset()"
-			e:
-				Nand2Tetris : "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
-
-		RandomDice :
-			b: """
-# LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   
-#        for in class extends constructor new @ super ->
-
-class RandomDice extends Application
-	reset : -> 
-		super
-		@seed = 0
-	draw : -> super
-	mousePressed : (mx,my) ->
-	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
-randomdice = new RandomDice "b"
-"""
-			a:"""
-class RandomDice extends Application
-	reset : -> 
-		super
-		@seed = 0
-		@radius = 20
-		@bits = [0,1,24,25,90,91,126]
-		@xy = [22,11,12,13,31,32,33]
-		@throw()
-	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
-	throw : -> @value = 1 + @randint 6
-	mousePressed : (mx,my) -> @throw()
-	draw : -> 
-		bg 1
-		sc 1
-		for xy,i in @xy
-			x = int xy/10
-			y = xy % 10
-			if @bits[@value] & 1<<i then circle 50*x,50*y,@radius 			
-
-randomdice = new RandomDice "a"
-"""
-			c:
-				randomdice : "reset()"
-
-		ColorPair :
-			b: """
-# LOC:41 fc circle # [] .. push dist length splice _.isEqual colorMode HSB
-#        for in class extends constructor new @ super ->
-
-class ColorPair extends Application
-	reset : -> 
-		super
-		@seed = 0
-	draw : -> super
-	mousePressed : (mx,my) ->
-	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
-colorpair = new ColorPair "b"
-"""
-			a:"""
-class ColorPair extends Application
-	reset : -> 
-		super
-		@seed = 0
-		@level = 0
-		@changeLevel 1
-		@radius = 40
-
-	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
-
-	draw : -> 
-		bg 1
-		sw 2
-		sc 1,1,1,0.5
-		colorMode HSB
-		for [x,y,c] in @circles
-			fill color c,100,100,0.5
-			circle x,y,@radius
-		
-	mousePressed : (mx,my) ->
-		hitlist = []
-		for [x,y,c],i in @circles
-			if dist(x,y,mx,my) < @radius then hitlist.push i 
-		if hitlist.length == 1
-			i = hitlist[0]
-			circle = @circles[i]
-			if @memory == -1
-				@memory = circle[2]
-				@circles.splice i,1
-			else if _.isEqual(@memory, circle[2]) 
-				@memory = -1
-				@circles.splice i,1
-				if @circles.length == 0 then @changeLevel 1
-			else
-				@changeLevel -1
-		else
-			@changeLevel -1
-
-	changeLevel : (d) ->
-		@memory = -1
-		@level = constrain @level+d, 1, 20
-		@circles = []
-		for i in range @level
-			c = int i * 360 / @level
-			@circles.push [@randint(200), @randint(200), c]
-			@circles.push [@randint(200), @randint(200), c]
-
-colorpair = new ColorPair "a"
-"""
-			c:
-				colorpair : "reset()"
-			e: 
-				ColorPair : "https://christernilsson.github.io/ColorPair"
-
 		RubikSquare:
 			b:"""		
 # LOC:85 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not "" split join
@@ -3343,7 +3425,7 @@ class RubikSquare extends Application
 		if @history.length == 0 then return
 		@board = @history.pop()
 		@memory = -1
-		@draw()
+		#@draw()
 
 	mousePressed : (mx,my) ->
 		index = -1
@@ -3376,81 +3458,6 @@ rubiksquare = new RubikSquare "a"
 """
 			c:
 				rubiksquare : "reset()"
-
-		Hex:
-			b:"""
-class Hex extends Application
-	reset : -> super
-	mousePressed : (mx,my) ->
-	draw : ->
-hex = new Hex "b"
-"""
-
-			a:"""
-class Hex extends Application
-	reset : ->
-		super
-		@a = 7
-		@b = 5
-		@c = 3
-		@history = []
-		@board = []
-		for i in range 11*11
-			@board.push 0
-
-	mousePressed : (mx,my) ->
-		print mx,my
-		index = -1
-		translate 100,100
-		rd 18
-		for i in range -5,6
-			for j in range -5,6
-				x = i*(2*@a+1) + @a*j
-				y = j*(2*@b+@c-1)
-				push()
-				translate x,y
-				if dist(x,y,mx,my) < 7 then index = 11*j+i
-				pop()
-		print index
-		if index >= 0
-			@history.push index
-			n = @history.length
-			if n%2==0 then n=-n 
-			@board[index] = n 
-
-	draw : ->
-		bg 0.5
-		sc 0,1,0
-		fc 0,1,0
-		translate 100,100
-		textAlign CENTER,CENTER
-		textSize 9
-		rd 18
-		for i in range -5,6
-			for j in range -5,6
-				index = 11*j+i
-				x = i*(2*@a+1) + @a*j
-				y = j*(2*@b+@c-1)
-				push()
-				translate x,y
-				bc = @b+@c
-				quad 0,-bc, 0,bc, -@a,@c, -@a,-@c
-				quad 0,-bc, 0,bc,  @a,@c,  @a,-@c
-				fc 0
-				n = @board[index]
-				if n!=0
-					if n>0 then fc 1 else fc 0
-					circle 0,0,7
-					sc()
-					fc 1,1,0
-					text abs(n),0,0
-				pop()
-hex = new Hex "a"
-"""
-			c:
-				hex : "reset()|newGame()"
-
-
 
 
 		Asserts:
