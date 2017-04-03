@@ -3267,16 +3267,15 @@ colorpair = new ColorPair "a"
 
 		RubikSquare:
 			b:"""		
-# LOC:99 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not
-#         _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
-# OBS: Level 6 tar cirka 20 sekunder att beräkna.
+# LOC:85 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not "" split join
+#         parseInt _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
+# OBS: Du bör använda variabeln rubikSquareData.
 
 class RubikSquare extends Application
 	reset : -> 
 	draw : ->
 	mousePressed : (mx,my) ->
 rubiksquare = new RubikSquare "b"   
-
 """
 			a:"""
 class RubikSquare extends Application
@@ -3300,23 +3299,10 @@ class RubikSquare extends Application
 		@createGame()
 
 	createGame : ->
-		target = [0,1,2,0,1,2,0,1,2]
-		q1 = [target]
-		visited = {}
-		key = target.join ''
-		visited[key] = 0
-		for level in range @level
-			q2 = []
-			for board in q1
-				for m in range 6
-					for d in range 2
-						bd = @move m,d,board
-						key = bd.join ''
-						if key not in _.keys visited
-							q2.push bd
-							visited[key] = level+1
-			q1 = q2
-		@board = q1[@randint(q1.length)] 
+		bigstring = rubikSquareData[@level]
+		arr = bigstring.split ' '
+		s = arr[@randint(arr.length)]
+		@board = (parseInt(ch) for ch in s)
 
 	move : (m,d,board) ->
 		[i,j,k] = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8]][m]
