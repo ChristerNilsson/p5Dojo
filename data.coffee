@@ -3267,7 +3267,7 @@ colorpair = new ColorPair "a"
 
 		RubikSquare:
 			b:"""		
-# LOC:114 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not
+# LOC:99 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not
 #         _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
 # OBS: Level 6 tar cirka 20 sekunder att beräkna.
 
@@ -3288,69 +3288,46 @@ class RubikSquare extends Application
 		@buttons = [[4,3,3,3],[10,3,3,3],[16,3,3,3], [4,9,3,3],[10,9,3,3],[16,9,3,3], [4,15,3,3],[10,15,3,3],[16,15,3,3], [4,19,3,1],[10,19,3,1],[16,19,3,1]]
 		@history = []
 		@memory = -1
-		@moves = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8]]
 		@createGame()
-	move : (index) ->
-		@history.push @board[..]
-		rm = int @memory / 3
-		cm = @memory % 3
-		r = int index / 3
-		c = index % 3
-		dc = 0
-		dr = 0
-		if rm==r then dc = Math.sign c-cm 
-		if cm==c then dr = Math.sign r-rm
-		@move0 r,c,dr,dc
-		@memory = -1
-		@draw()	
-	hor : (r,dc) -> @move1 @moves[r],dc
-	ver : (c,dr) -> @move1 @moves[3+c],dr
-	move0 : (r,c,dr,dc) ->
-		if dr==0 then @hor r,dc # left right
-		if dc==0 then @ver c,dr # up down
-	move1 : ([i,j,k],d) ->
-		[a,b,c] = [@board[i],@board[j],@board[k]]
-		if d==-1 then [a,b,c] = [b,c,a] else [a,b,c] = [c,a,b]
-		[@board[i],@board[j],@board[k]] = [a,b,c]
+
 	fraction : (x) -> x %% 1
 	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+
 	newGame : ->
 		if @level >= @history.length and _.isEqual @board,[0,1,2,0,1,2,0,1,2] then d=1 else d=-1
 		@level = constrain @level+d,1,6
 		@history = []
 		@createGame()
-	moveOk : (horver,rc) ->
-		if horver == 0 and rc == 0 then check = @moves[0]
-		if horver == 0 and rc == 1 then check = @moves[1]
-		if horver == 0 and rc == 2 then check = @moves[2]
-		if horver == 1 and rc == 0 then check = @moves[3]
-		if horver == 1 and rc == 1 then check = @moves[4]
-		if horver == 1 and rc == 2 then check = @moves[5]
-		[i,j,k] = check
-		not (@board[i] == @board[j] and @board[j] == @board[k])
+
 	createGame : ->
 		target = [0,1,2,0,1,2,0,1,2]
 		q1 = [target]
 		visited = {}
 		key = target.join ''
 		visited[key] = 0
-		moves = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8]]
 		for level in range @level
 			q2 = []
 			for board in q1
-				for [i,j,k] in moves
+				for m in range 6
 					for d in range 2
-						bd = board[..]
-						[a,b,c] = [bd[i],bd[j],bd[k]]
-						if d==0 then [a,b,c] = [b,c,a] else [a,b,c] = [c,a,b]
-						[bd[i],bd[j],bd[k]] = [a,b,c]
+						bd = @move m,d,board
 						key = bd.join ''
 						if key not in _.keys visited
 							q2.push bd
 							visited[key] = level+1
 			q1 = q2
 		@board = q1[@randint(q1.length)] 
+
+	move : (m,d,board) ->
+		[i,j,k] = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8]][m]
+		bd = board[..]
+		[a,b,c] = [bd[i],bd[j],bd[k]]
+		if d==0 then [a,b,c] = [b,c,a] else [a,b,c] = [c,a,b]
+		[bd[i],bd[j],bd[k]] = [a,b,c]
+		bd
+
 	draw : ->
+		bg 0
 		textAlign CENTER,CENTER
 		textSize 20
 		rectMode CENTER,CENTER
@@ -3375,11 +3352,13 @@ class RubikSquare extends Application
 			text "undo",10*x,10*y
 			[x,y,w,h] = @buttons[11]
 			text "new",10*x,10*y
+
 	undo : -> 
 		if @history.length == 0 then return
 		@board = @history.pop()
 		@memory = -1
 		@draw()
+
 	mousePressed : (mx,my) ->
 		index = -1
 		for [x,y,w,h],i in @buttons
@@ -3390,7 +3369,19 @@ class RubikSquare extends Application
 			else if @memory == index 
 				@memory = -1
 			else
-				@move index
+				hash = 
+					"01":[0,1], "02":[0,0], "10":[0,0], "12":[0,1], "20":[0,1], "21":[0,0]
+					"34":[1,1], "35":[1,0], "43":[1,0], "45":[1,1], "53":[1,1], "54":[1,0]
+					"67":[2,1], "68":[2,0], "76":[2,0], "78":[2,1], "86":[2,1], "87":[2,0]
+					"03":[3,1], "06":[3,0], "30":[3,0], "36":[3,1], "60":[3,1], "63":[3,0]
+					"14":[4,1], "17":[4,0], "41":[4,0], "47":[4,1], "71":[4,1], "74":[4,0]
+					"25":[5,1], "28":[5,0], "52":[5,0], "58":[5,1], "82":[5,1], "85":[5,0]
+				pair = hash["" + @memory + index] 
+				if pair
+					[m,d] = pair
+					@history.push @board[..]
+					@board = @move m,d,@board
+					@memory = -1
 		if index==9 then @undo()
 		if index==11 then @newGame()
 
