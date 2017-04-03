@@ -3267,8 +3267,9 @@ colorpair = new ColorPair "a"
 
 		RubikSquare:
 			b:"""		
-# LOC:117 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not
+# LOC:114 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not
 #         _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
+# OBS: Level 6 tar cirka 20 sekunder att beräkna.
 
 class RubikSquare extends Application
 	reset : -> 
@@ -3289,9 +3290,6 @@ class RubikSquare extends Application
 		@memory = -1
 		@moves = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8]]
 		@createGame()
-
-	init : -> @board = [0,1,2,0,1,2,0,1,2]
-
 	move : (index) ->
 		@history.push @board[..]
 		rm = int @memory / 3
@@ -3304,28 +3302,23 @@ class RubikSquare extends Application
 		if cm==c then dr = Math.sign r-rm
 		@move0 r,c,dr,dc
 		@memory = -1
-		@draw()
-		
+		@draw()	
 	hor : (r,dc) -> @move1 @moves[r],dc
 	ver : (c,dr) -> @move1 @moves[3+c],dr
-
 	move0 : (r,c,dr,dc) ->
 		if dr==0 then @hor r,dc # left right
 		if dc==0 then @ver c,dr # up down
-
 	move1 : ([i,j,k],d) ->
 		[a,b,c] = [@board[i],@board[j],@board[k]]
 		if d==-1 then [a,b,c] = [b,c,a] else [a,b,c] = [c,a,b]
 		[@board[i],@board[j],@board[k]] = [a,b,c]
-
 	fraction : (x) -> x %% 1
 	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
-
 	newGame : ->
 		if @level >= @history.length and _.isEqual @board,[0,1,2,0,1,2,0,1,2] then d=1 else d=-1
 		@level = constrain @level+d,1,6
+		@history = []
 		@createGame()
-
 	moveOk : (horver,rc) ->
 		if horver == 0 and rc == 0 then check = @moves[0]
 		if horver == 0 and rc == 1 then check = @moves[1]
@@ -3335,36 +3328,28 @@ class RubikSquare extends Application
 		if horver == 1 and rc == 2 then check = @moves[5]
 		[i,j,k] = check
 		not (@board[i] == @board[j] and @board[j] == @board[k])
-
 	createGame : ->
-		@init()
-		@history = []
-		moves = []
-		memory = [0,0]
-		count = 0
-		while count < 20 and moves.length < @level
-			count += 1 
-			m = @randint 12
-			horver = int m/6
-			rc = m % 3
-			if (memory[horver] & (1<<rc)) == 0 and @moveOk horver,rc
-				moves.push m
-				memory[horver] |= (1<<rc)
-				memory[1-horver] = 0    # r c drdc
-				if m ==  0 then @move0 0,0,0,-1
-				if m ==  1 then @move0 1,0,0,-1
-				if m ==  2 then @move0 2,0,0,-1
-				if m ==  3 then @move0 0,0,0,+1
-				if m ==  4 then @move0 1,0,0,+1
-				if m ==  5 then @move0 2,0,0,+1
-				if m ==  6 then @move0 0,0,-1,0
-				if m ==  7 then @move0 0,1,-1,0
-				if m ==  8 then @move0 0,2,-1,0
-				if m ==  9 then @move0 0,0,+1,0
-				if m == 10 then @move0 0,1,+1,0
-				if m == 11 then @move0 0,2,+1,0
-		@history = []
-
+		target = [0,1,2,0,1,2,0,1,2]
+		q1 = [target]
+		visited = {}
+		key = target.join ''
+		visited[key] = 0
+		moves = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8]]
+		for level in range @level
+			q2 = []
+			for board in q1
+				for [i,j,k] in moves
+					for d in range 2
+						bd = board[..]
+						[a,b,c] = [bd[i],bd[j],bd[k]]
+						if d==0 then [a,b,c] = [b,c,a] else [a,b,c] = [c,a,b]
+						[bd[i],bd[j],bd[k]] = [a,b,c]
+						key = bd.join ''
+						if key not in _.keys visited
+							q2.push bd
+							visited[key] = level+1
+			q1 = q2
+		@board = q1[@randint(q1.length)] 
 	draw : ->
 		textAlign CENTER,CENTER
 		textSize 20
@@ -3390,13 +3375,11 @@ class RubikSquare extends Application
 			text "undo",10*x,10*y
 			[x,y,w,h] = @buttons[11]
 			text "new",10*x,10*y
-
 	undo : -> 
 		if @history.length == 0 then return
 		@board = @history.pop()
 		@memory = -1
 		@draw()
-
 	mousePressed : (mx,my) ->
 		index = -1
 		for [x,y,w,h],i in @buttons
@@ -3416,7 +3399,6 @@ rubiksquare = new RubikSquare "a"
 """
 			c:
 				rubiksquare : "reset()"
-
 
 		Hex:
 			b:"""
