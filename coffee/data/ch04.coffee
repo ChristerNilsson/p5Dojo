@@ -1,8 +1,8 @@
 #####################################
-	ch04= # "L4: for lerp rect" : 
+#	ch04= # "L4: for lerp rect" : 
 #####################################
 
-		HorizontalSquares: 
+		ID080 = # HorizontalSquares: 
 			b:"""
 # LOC:3 range # rect for in lerp 
 
@@ -18,7 +18,7 @@ for i in range 10
 	rect x,5, 10,10
 """
 
-		VerticalSquares: 
+		ID081 = # VerticalSquares: 
 			b:"# LOC:3 range # rect for in lerp\n"
 			a:"""
 for i in range 10
@@ -26,7 +26,7 @@ for i in range 10
 	rect 5,y, 10,10
 """
 
-		DiagonalSquares: 
+		ID082 = # DiagonalSquares: 
 			b:"# LOC:4 range # rect for in lerp\n"
 			a:"""
 for i in range 10
@@ -35,7 +35,7 @@ for i in range 10
 	rect x,y, 10,10
 """
 
-		DoubleForLoop: 
+		ID083 = # DoubleForLoop: 
 			b:"# LOC:5 range # rect for in lerp\n"
 			a:"""
 for i in range 10
@@ -45,7 +45,7 @@ for i in range 10
 		rect x,y, 10,10
 """
 
-		GrowingSquares: 
+		ID084 = # GrowingSquares: 
 			b:"# LOC:7 range # rect rectMode for in lerp\n"
 			a:"""
 rectMode CENTER
@@ -57,7 +57,7 @@ for i in range 10
 	rect x,y, w,h
 """
 
-		GrowingRedSquares: 
+		ID085 = # GrowingRedSquares: 
 			b:"# LOC:8 fc range # for in lerp rect rectMode\n"
 			a:"""
 rectMode CENTER
@@ -70,7 +70,7 @@ for i in range 10
 	rect x,y,w,h
 """
 
-		GrowingCircles: 
+		ID086 = # GrowingCircles: 
 			b:"# LOC:6 range fc circle # for in lerp\n"
 			a:"""
 for i in range 10
@@ -81,7 +81,7 @@ for i in range 10
 	circle x,y,r
 """
 
-		ShrinkingCircles: 
+		ID087 = # ShrinkingCircles: 
 			b:"# LOC:4 range fc circle # for in lerp\n"
 			a:"""
 for i in range 10,0,-1
@@ -90,7 +90,7 @@ for i in range 10,0,-1
 	circle 100,100, r
 """
 
-		RedCone: 
+		ID088 = # RedCone: 
 			b:"""
 # LOC:6 range fc circle # for in lerp
 """
@@ -103,7 +103,7 @@ for i in range 10,0,-1
 	circle x,y,r
 """
 
-		PentaLerp: 
+		ID089 = # PentaLerp: 
 			b:"""
 # LOC:11 bg sc fc range circle # for in lerp
 """

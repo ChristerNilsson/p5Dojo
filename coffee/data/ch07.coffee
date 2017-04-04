@@ -1,8 +1,8 @@
 #####################################
-	ch07 = # "L7: translate rotate push pop" : 
+#	ch07 = # "L7: translate rotate push pop" : 
 #####################################
 
-		TextC: 
+		ID140 = # TextC: 
 			b:"# LOC:6 fc rd # text textAlign textSize translate\n"
 			a:"""
 fc 1,1,0
@@ -13,7 +13,7 @@ rd 90
 text 'Coffeescript',0,0
 """
 
-		TextD: 
+		ID141 = # TextD: 
 			b:"# LOC:6 fc rd # text textAlign textSize translate\n"
 			a:"""
 fc 1,1,0
@@ -24,7 +24,7 @@ rd 180
 text 'Coffeescript',0,0
 """
 		
-		RotatedEllipse: 
+		ID142 = # RotatedEllipse: 
 			b:"# LOC:5 rd # ellipse translate\n"
 			a:"""
 fc 1,0,0
@@ -34,7 +34,7 @@ rd 45
 ellipse 0,0, 80,40
 """
 
-		RotatedRectA: 
+		ID143 = # RotatedRectA: 
 			b:"# LOC:4 fc # rect\n"
 			a:"""
 fc 1,0,0
@@ -43,7 +43,7 @@ fc 0,1,0
 rect 140,100, 40,40
 """
 
-		RotatedRectB: 
+		ID144 = # RotatedRectB: 
 			b:"# LOC:12 fc rd # rect translate push pop\n"
 			a:"""
 push()
@@ -60,7 +60,7 @@ rect 0,0, 40,40
 pop()
 """
 
-		RotatedRectC: 
+		ID145 = # RotatedRectC: 
 			b:"# LOC:13 fc rd # rect translate push pop\n"
 			a:"""
 rectMode CENTER
@@ -78,7 +78,7 @@ rect 0,0, 40,40
 pop()
 """
 
-		Cards: 
+		ID146 = # Cards: 
 			b:"# LOC:10 fc sc circle range rd # rect rectMode for in lerp translate\n"
 			a:"""
 rectMode CENTER
@@ -93,7 +93,7 @@ for i in range 18,-1,-1
   rd 5
 """ 
 
-		"Snow White and the 7 lerps": 
+		ID147 = # "Snow White and the 7 lerps": 
 			b:"""
 # LOC:17 bg fc sc range rd # rect rectMode for in lerp translate push pop
 """
@@ -117,7 +117,7 @@ for i in range 10
     pop()
 """ 
 
-		Roulette:
+		ID148 = # Roulette:
 			b:"""
 # LOC:20 bg sw fc sc range # for in if then else == % / [] "" TWO_PI
 #        text textAlign arc strokeCap translate rotate rd push pop

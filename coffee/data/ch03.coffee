@@ -1,8 +1,8 @@
 #####################################				
-	ch03 = # "L3: ellipse rect" : 
+#	ch03 = # "L3: ellipse rect" : 
 #####################################
 
-		GreenEllipse: 
+		ID060 = # GreenEllipse: 
 			b:"""
 # LOC:2 fc # ellipse
 
@@ -12,7 +12,7 @@ fc 0,1,0
 ellipse 120,60, 60,40
 """
 
-		GreenRect: 
+		ID061 = # GreenRect: 
 			b:"""
 # LOC:2 fc # rect
 
@@ -22,7 +22,7 @@ fc 0,1,0
 rect 60,80, 40,50
 """
 
-		RedRect:
+		ID062 = # RedRect:
 			b:"""
 # LOC:2 fc # rect
 
@@ -32,7 +32,7 @@ fc 1,0,0
 rect 80,70, 40,100
 """
 
-		Cross: 
+		ID063 = # Cross: 
 			b:"""
 # LOC:4 fc # rect
 
@@ -44,7 +44,7 @@ rect 85,70, 70,10
 rect 115,40, 10,100
 """
 
-		SquareHole: 
+		ID064 = # SquareHole: 
 			b : """
 # LOC:11 fc sc sw # rect
 

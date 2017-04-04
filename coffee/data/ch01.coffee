@@ -1,8 +1,8 @@
 #####################################
-	ch01 = # "L1: bg point sc sw": 
+#	ch01 = # "L1: bg point sc sw": 
 #####################################
 
-		Background1: 
+		ID020 = # Background1: 
 			b: """
 # Första bilden ska du efterlikna.
 # Andra bilden skapas av din kod.
@@ -19,28 +19,28 @@
 """
 			a: "bg 1"
 
-		Background2: 
+		ID021 = # Background2: 
 			b: """
 # LOC:1 bg
 
 """
 			a: "bg 0.5"
 
-		Background3: 
+		ID022 = # Background3: 
 			b: """
 # LOC:1 bg
 
 """
 			a: "bg 1,0,0"
 
-		Background4: 
+		ID023 = # Background4: 
 			b: """
 # LOC:1 bg
 
 """
 			a: "bg 1,1,0"
 
-		X: 
+		ID024 = # X: 
 			b: """
 # LOC:5 sc sw # point
 
@@ -57,7 +57,7 @@ point 100,0
 point 200,0
 """
 
-		Y: 
+		ID025 = # Y: 
 			b: """
 # LOC:5 sc sw # point
 
@@ -74,7 +74,7 @@ point 0,100
 point 0,200
 """
 
-		CornerPoints: 
+		ID026 = # CornerPoints: 
 			b: """
 # LOC:9 sc sw # point
 
@@ -95,7 +95,7 @@ sc 0
 point 200,200
 """
 
-		MidPoints: 
+		ID027 = # MidPoints: 
 			b: """
 # LOC:11 sc sw # point
 
@@ -114,7 +114,7 @@ sc 1
 point 100,200
 """
 
-		CornerPoints3: 
+		ID028 = # CornerPoints3: 
 			b: """
 # LOC:17 sc sw # point
 
@@ -142,7 +142,7 @@ point 180,200
 point 200,180
 """
 
-		CornerPoints7: 
+		ID029 = # CornerPoints7: 
 			b: """
 # LOC:17 sc sw # point
 
@@ -168,7 +168,7 @@ point 180,170
 point 200,170
 """
 
-		Diagonal1: 
+		ID030 = # Diagonal1: 
 			b: """
 # LOC:12 sc sw # point
 
@@ -192,7 +192,7 @@ sc 1,1,0
 point 200,200
 """
 
-		Diagonal2: 
+		ID031 = # Diagonal2: 
 			b: """
 # LOC:11 sc sw # point
 

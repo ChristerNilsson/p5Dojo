@@ -1,6 +1,6 @@
-	ch12 =
+	# ch12 =
 
-		Klocka: 
+		ID240 = # Klocka: 
 			b: """
 # LOC:44 fc sc circle range rd # point rect rectMode for in if then else 
 #        translate push pop class extends constructor new @ super ->
@@ -68,7 +68,7 @@ klocka = new Klocka "a"
 				klocka : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
 
 
-		BouncingBalls :
+		ID241 = # BouncingBalls :
 			b : """
 # LOC: 43 fc sw sc circle # + ++ - -- %% == push if then for in 
 #         splice length _.create class constructor super extends new @
@@ -161,7 +161,7 @@ bouncingBalls = new BouncingBalls "a"
 
 
 		
-		Braider:
+		ID242 = # Braider:
 			b : """
 # LOC: 49 sc bg sw range # for in if then + line class constructor extends new @
 
@@ -253,7 +253,7 @@ braider = new Braider "a"
 			e:
 				braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
 
-		ColorPair :
+		ID243 = # ColorPair :
 			b: """
 # LOC:41 fc circle # [] .. push dist length splice _.isEqual colorMode HSB
 #        for in class extends constructor new @ super ->
@@ -323,7 +323,8 @@ colorpair = new ColorPair "a"
 				colorpair : "reset()"
 			e: 
 				ColorPair : "https://christernilsson.github.io/ColorPair"
-		Kalkylator:
+
+		ID244 = # Kalkylator:
 			b:"""
 # LOC:46 bg sc fc range @readText # + - * / of {} in [] shift unshift 
 #        text textSize textAlign length for Math.sqrt Math.PI splice 
@@ -410,7 +411,7 @@ kalkylator = new Kalkylator "a"
 				"HP-35" : "https://neil.fraser.name/software/hp-35"
 				"Forth Haiku" : "http://forthsalon.appspot.com/word-list"
 
-		Hex:
+		ID245 = # Hex:
 			b:"""
 # LOC:49 bg fc sc range # + * - % < == != dist for in [] push pop length quad circle
 #        if then else text textAlign textSize class extends constructor new @ super ->
@@ -486,7 +487,7 @@ hex = new Hex "a"
 			e: 
 				Hex : "https://en.wikipedia.org/wiki/Hex_(board_game)"
 
-		PickingBerries :
+		ID246 = # PickingBerries :
 			b:"""
 # LOC:46 bg sc fc sw # [] * + line text textSize textAlign constrain dist 
 #        splice break for in class extends constructor new @ super ->

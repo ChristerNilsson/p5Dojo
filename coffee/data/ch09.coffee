@@ -1,8 +1,8 @@
 #####################################
-	ch09 = # "L9: interactivity, basic" : 
+#	ch09 = # "L9: interactivity, basic" : 
 #####################################
 
-		Counter :
+		ID180 = # Counter :
 			b:"""
 # LOC:12 bg fc sc # text textAlign textSize + - class extends constructor new @ super ->
 # Klicka på reset() om du får ett felmeddelande!
@@ -37,7 +37,7 @@ counter = new Counter "a"
 			c:
 				counter : "reset()|up()|down()"
 
-		Stopwatch:
+		ID181 = # Stopwatch:
 			b:"""
 # LOC:17 bg sc fc # for in [] '' text textSize textAlign textFont monospace
 #        int millis nf length unshift class extends constructor new @ super ->
@@ -76,7 +76,7 @@ stopwatch = new Stopwatch "a"
 			c:
 				stopwatch: "reset()|stopp()"
 				
-		RandomDice :
+		ID182 = # RandomDice :
 			b: """
 # LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   
 #        for in class extends constructor new @ super ->
@@ -117,7 +117,7 @@ randomdice = new RandomDice "a"
 			c:
 				randomdice : "reset()"
 
-		Moire: 
+		ID183 = # Moire: 
 			b:"""
 # LOC:10 bg # for line map class extends constructor new @ super ->
 
@@ -148,7 +148,7 @@ moire = new Moire "a"
 				moire : "reset()|more()|less()"
 
 
-		ColorCube:
+		ID184 = # ColorCube:
 			b: """
 # LOC:17 -> bg fc range # for in rect class extends constructor new @ super ->
 
@@ -189,7 +189,7 @@ cc = new ColorCube "a"
 				cc : "reset()|moreDetails()|lessDetails()|moreBlue()|lessBlue()"
 
 
-		Guess_a_number :
+		ID185 = # Guess_a_number :
 			b:"""
 # LOC:20 bg fc sc range @readInt # text textAlign for in if then else * / + - % <=
 #        int class extends constructor new @ super ->
@@ -233,7 +233,7 @@ guess = new Guess "a"
 
 
 
-		RecursiveCircle: 
+		ID186 = # RecursiveCircle: 
 			b: """
 # LOC:10 -> sc circle # if return < class extends constructor new @ super ->
 
@@ -266,7 +266,7 @@ rc = new RecursiveCircle "a"
 			c:
 				rc : "reset()|more()|less()"
 
-		Laboratorium :
+		ID187 = # Laboratorium :
 			b:"""		
 # Här kan du laborera med egna idéer!
 

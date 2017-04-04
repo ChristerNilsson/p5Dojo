@@ -1,5 +1,6 @@
-	ch13 = 
-		Nim:
+#	ch13 = 
+
+		ID260 = # Nim:
 			b:"""		
 # LOC:62 bg fc sc circle # * + - ^ if then else _.isEqual return <  
 #        constrain text textAlign textSize class extends constructor new @ super ->
@@ -100,7 +101,7 @@ nim = new Nim "a"
 				xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"
 				Nimrod : "https://en.wikipedia.org/wiki/Nimrod_(computing)"
 
-		ChessGame :
+		ID261 = # ChessGame :
 			b:"""
 # LOC:64 bg fc sc sw range # point rect rectMode class constructor new @
 #        if then else text textSize textAlign for in push split length indexOf
@@ -197,7 +198,7 @@ chess = new Chess "a"
 
 
 
-		"Nand2Tetris ALU" :
+		ID262 = # "Nand2Tetris ALU" :
 			b: """
 # LOC:63 sc fc sw range # text textAlign textSize class extends constructor new @ super ->
 #        point quad dist for in if then else << - -- + ++ * != & ^ ~ split
@@ -285,7 +286,7 @@ alu = new ALU "a"
 			e:
 				Nand2Tetris : "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
 
-		RushHour :
+		ID263 = # RushHour :
 			b:"""
 # LOC:71 bg sc fc range # / % + * - == >= ++ -- "" [] {} push class extends constructor new @ super ->
 #        rect text textAlign for in if then else toLowerCase indexOf _.create prototype length @readText
@@ -418,7 +419,7 @@ rushHour = new RushHour "a"
 			e:
 				RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
 
-		RubikSquare:
+		ID264 = # RubikSquare:
 			b:"""		
 # LOC:85 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not "" split join
 #         parseInt _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->

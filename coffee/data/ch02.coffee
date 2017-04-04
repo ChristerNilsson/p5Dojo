@@ -1,8 +1,8 @@
 #####################################
-	ch02= # "L2: circle fc text" : 
+#	ch02= # "L2: circle fc text" : 
 #####################################
 
-		Dices : 
+		ID040 = # Dices : 
 			b : """
 # LOC:26 sc # point
 
@@ -41,7 +41,7 @@ point 115,170
 point 115,175 
 """	
 		
-		Five: 
+		ID041 = # Five: 
 			b: """
 # LOC:12 bg circle fc sc #
 
@@ -61,7 +61,7 @@ fc 0,0,1
 circle 160,40,20
 """ 
 
-		WhiteCircle: 
+		ID042 = # WhiteCircle: 
 			b:"""
 # LOC:2 circle fc #
 
@@ -71,7 +71,7 @@ fc 1
 circle 60,80,30
 """
 
-		WhiteEmptyCircle: 
+		ID043 = # WhiteEmptyCircle: 
 			b:"""
 # LOC:4 circle fc sc sw #
 
@@ -83,7 +83,7 @@ sw 2
 circle 70,90,40
 """
 
-		TwoDiscsA: 
+		ID044 = # TwoDiscsA: 
 			b:"""
 # LOC:4 circle fc #
 
@@ -95,7 +95,7 @@ fc 0,1,0
 circle 100,120,50
 """
 
-		TwoDiscsB:
+		ID045 = # TwoDiscsB:
 			b:"""
 # LOC:4 circle fc #
 
@@ -107,7 +107,7 @@ fc 0,1,0, 0.5
 circle 120,100,50
 """
 
-		TextA: 
+		ID046 = # TextA: 
 			b:"""
 # LOC:3 fc # textSize text
 
@@ -118,7 +118,7 @@ textSize 32
 text 'Coffeescript',100,100
 """
 
-		TextB: 
+		ID047 = # TextB: 
 			b:"""
 # LOC:4 fc # text textAlign textSize
 

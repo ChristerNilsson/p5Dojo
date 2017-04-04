@@ -1,8 +1,8 @@
 #####################################
-	ch11 = # "LB: miscellaneous" :
+#	ch11 = # "LB: miscellaneous" :
 #####################################
 
-		Connect4 :
+		ID220 = # Connect4 :
 			b:"""
 # LOC:31 % bg fc sc sw circle range # text textAlign textSize for in
 #        push pop class extends constructor new @ super -> 
@@ -54,7 +54,7 @@ connect4 = new Connect4 "a"
 				connect4 : "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6|undo()"
 
 
-		SpaceShip :
+		ID221 = # SpaceShip :
 			b:"""
 # LOC:35 sc sw rd # point triangle translate cos sin radians 
 #        push pop class extends constructor new @ super ->
@@ -129,7 +129,7 @@ ship = new Ship "a"
 
 
 
-		Nian :
+		ID222 = # Nian :
 			b:"""
 # LOC:35 bg fc sc # [] push "" split indexOf reduce + * ** / % > & text textSize textAlign  
 #				 for in of {} _.countBy and if then class constructor new @ extends super 
@@ -191,7 +191,7 @@ nian = new Nian "a"
 
 
 
-		Asserts:
+		ID223 = # Asserts:
 			b:"""
 # Här kan du se några klargörande exempel.
 # Om de två parametrarna till assert är olika, skrivs de ut till console.

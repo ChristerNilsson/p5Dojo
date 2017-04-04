@@ -1,8 +1,8 @@
 #####################################
-	ch10 = # "LA: interactivity, advanced" :
+#	ch10 = # "LA: interactivity, advanced" :
 #####################################
 
-		Square : 
+		ID200 = # Square : 
 			b: """
 # LOC:21 bg sw fc rd # rect rectMode translate + class extends constructor new @ super ->
 
@@ -46,7 +46,7 @@ square = new Square "a"
 			c: 
 				square : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"   
 
-		BoardGame :
+		ID201 = # BoardGame :
 			b:"""
 # LOC:21 bg fc sc circle range # for in ->
 
@@ -126,7 +126,7 @@ ring = new Ring "a"
 			c: 
 				ring : "reset()|start -1|start +1|stopp -1|stopp +1|radius -1|radius +1|width -1|width +1"
 
-		SevenSegment :
+		ID202 = # SevenSegment :
 			b : """
 # LOC:26 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->
 
@@ -178,7 +178,8 @@ digit = new Digit "a"
 				digit : "reset()|up()|down()"
 			e: 
 				"7 segment" : "https://www.google.se/search?q=7+segment&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjg_5n55OrSAhWpZpoKHQP8DxoQ_AUIBigB&biw=1310&bih=945"
-		GoldenStar:
+
+		ID203 = # GoldenStar:
 			b: """
 # LOC:23 bg fc range # for in triangle translate rotate cos sin class extends constructor new @ super ->
 
@@ -222,7 +223,7 @@ star = new GoldenStar "a"
 			c:
 				star : "reset()|n -1|n +1|outer -1|outer +1|inner -1|inner +1"
 		
-		Polygon:
+		ID204 = # Polygon:
 			b:"""
 # LOC:23 bg sc range # line for in cos sin radians class extends constructor new @ super ->
 
@@ -276,7 +277,7 @@ polygon = new Polygon "a"
 
 
 
-		Alphanumeric:
+		ID205 = # Alphanumeric:
 			b:"""
 # LOC:29 bg sc fc range circle # for in & + - * ^ ** %% [] length splice dist
 #        push if then else class extends constructor new @ super ->
@@ -333,7 +334,7 @@ alpha = new AlphaNumeric "a"
 				hexadecimalt : "http://www.matteguiden.se/matte-1/grunder/binara-och-hexadecimala-tal"
 				'5x7 matris' : "https://www.google.se/search?q=5x7+matrix&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjWjYen5OrSAhXhJ5oKHf8BBmgQ_AUIBigB&biw=1310&bih=945&dpr=1.1"
 
-		Korg: 
+		ID206 = # Korg: 
 			b:"""
 # LOC:27 -> bg fc sc sw # rect for if else class extends constructor new @ super ->
 
@@ -383,7 +384,7 @@ korg = new Korg "a"
 			c: 
 				korg : "reset()|more()|less()|thinner()|thicker()"
 
-		Korsord :
+		ID207 = # Korsord :
 			b: """
 # LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in 
 #        "" split join _.filter class constructor new @ extends super [] length
@@ -441,7 +442,7 @@ korsord = new Korsord "a"
 
 
 
-		EngineeringNotation :
+		ID208 = # EngineeringNotation :
 			b:"""		
 # LOC:28 fc sc bg # Math.floor Math.log10 constrain + - * / < ** text split
 #        textAlign textSize class extends constructor new @ super ->

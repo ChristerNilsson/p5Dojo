@@ -1,8 +1,8 @@
 #####################################
-ch00 = # Nyheter :
+#ch00 = # Nyheter :
 #####################################
 
-	Nyheter :
+	ID000 = # Nyheter :
 		b:"""
 # NYHETER 2017 APR 08
 #   LB: Hex
@@ -33,7 +33,7 @@ ch00 = # Nyheter :
 		a:"""
 """
 
-	clown:
+	ID001 = # clown:
 		b:"""
 # LOC:30 bg circle fc sc sw # line lerp (David Larsson)
 
@@ -71,7 +71,7 @@ sc 1, 0, 0
 circle 100, 100, 10
 """
 
-	tomteluva:
+	ID002 = #tomteluva:
 		b:"""
 # LOC:12 circle fc sc triangle (Sabrina Larsson)
 
@@ -91,7 +91,7 @@ circle 140,140,10
 circle 100,60,10		
 """
 
-	snowman:
+	ID003 = # snowman:
 		b:"""
 # LOC:21 circle fc line sc triangle (David Larsson)
 
@@ -120,7 +120,7 @@ sc 1
 rect 2, 180, 196, 20
 """
 
-	christmasTree:
+	ID004 = # christmasTree:
 		b:"""
 # LOC:35 bg circle fc line rect quad sc triangle (Sabrina Larsson)
 
@@ -164,7 +164,7 @@ circle 160, 130, 5
 circle 190, 180, 5 
 """
 
-	santa:
+	ID005 = # santa:
 		b:"""
 # LOC:18 bg circle ellipse fc rect quad sc triangle (Sabrina Larsson)
 
@@ -190,7 +190,7 @@ rect 80,100,40,60
 triangle 100,140,0,200,200,200
 """
 
-	dist: 
+	ID006= # dist: 
 		b:"""
 # LOC:10 bg circle dist fc lerp map sc
 
@@ -208,7 +208,7 @@ for i in range 10
 		circle x,y,r
 """ 
 		
-	bulge: 
+	ID007 = # bulge: 
 		b:"""
 # LOC:10 bg circle dist fill map noStroke sin
 
@@ -225,7 +225,7 @@ for i in range 20
 		circle x,y,r
 """
 
-	wave: 
+	ID008 = # wave: 
 		b:"""
 # LOC:9 circle colorMode fill map noStroke sin PI
 
@@ -242,7 +242,7 @@ for i in range 21
 	circle x,y,3
 """
 
-	circle: 
+	ID009 = # circle: 
 		b:"""
 # LOC:10 bg circle colorMode cos fc map PI sc sin
 
@@ -260,7 +260,7 @@ for i in range 20
 	circle x,y,3
 """
 	
-	circles: 
+	ID010 = # circles: 
 		b:"""
 # LOC:12 bg circle colorMode cos fill map noStroke translate sin PI
 
@@ -280,7 +280,7 @@ for i in range 20
 		circle x,y,r
 """
 		
-	sized_circles: 
+	ID011 = # sized_circles: 
 		b:"""
 # LOC:12 circle colorMode cos fill map noStroke PI sin translate
 
@@ -300,7 +300,7 @@ for i in range 20
 		circle x,y,r
 """
 		
-	rotated_circles: 
+	ID012 = # rotated_circles: 
 		b:"""
 # LOC:17 circle cos map PI push pop rotate sin translate
 
@@ -323,7 +323,7 @@ for i in range 20
 		pop()
 """
 
-	gravity : 
+	ID013 = # gravity : 
 		b: """
 # LOC:6 circle lerp
 
@@ -336,7 +336,7 @@ for i in range 15
 	circle x,y,5
 """
 
-	hypnoticA : 
+	ID014 = # hypnoticA : 
 		b: """
 # LOC:6 -> bg circle cos fc sc sin
 """
@@ -350,7 +350,7 @@ for i in range 100
 	circle x, y, 5
 """
 
-	hypnoticB : 
+	ID015 = # hypnoticB : 
 		b: """
 # LOC:7 -> bg circle cos fc map sc sin
 """

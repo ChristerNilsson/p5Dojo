@@ -1,8 +1,8 @@
 #####################################
-	ch08 = # "L8: function, class" : 
+#	ch08 = # "L8: function, class" : 
 #####################################
 
-		ManyDices: 
+		ID160 = # ManyDices: 
 			b : """
 # LOC:20 -> fc # for in if then point [] % -> ==
 
@@ -32,7 +32,7 @@ for i in range 10
 """
 		
 
-		Girlang :
+		ID161 = # Girlang :
 			b:"""
 # LOC: 16 sc bg sw range # for in line class constructor new @
 
@@ -68,7 +68,7 @@ girlang = (x,y,n,width,dx,dy) ->
 girlang 0,0,9,5,20,20			
 """
 
-		Braid:
+		ID162 = # Braid:
 			b : """
 # LOC: 19 sc bg sw range # for in line class constructor new @
 
@@ -112,7 +112,7 @@ braid 5,18,18,6
 			e:
 				braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
 
-		OlympicRings:
+		ID163 = # OlympicRings:
 			b: """
 			# LOC:24 sc bg fc sw # arc strokeCap class constructor new @
 
