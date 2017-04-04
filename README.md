@@ -217,9 +217,9 @@ class Counter extends Application
   reset : -> super
   draw  : -> super
   mousePressed : (mx,my) -> 
+counter = new Counter "b"
 ```    
 
-counter = new Counter "b"
 ### mera information
 
  - [download](https://p5js.org)
