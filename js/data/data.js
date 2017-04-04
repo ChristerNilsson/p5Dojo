@@ -79,7 +79,8 @@ data = {
     Triangle: ID120,
     Quad: ID121,
     PacMan: ID122,
-    TwoArcs: ID123
+    TwoArcs: ID123,
+    TwoDiceHistogram: ID124
   },
   "L7: translate rotate push pop": {
     TextC: ID140,
@@ -89,7 +90,7 @@ data = {
     RotatedRectB: ID144,
     RotatedRectC: ID145,
     Cards: ID146,
-    "Snow White and the 7 lerps": ID147,
+    SnowWhiteAndThe7Lerps: ID147,
     Roulette: ID148
   },
   "L8: function, class": {
@@ -138,7 +139,7 @@ data = {
   "LD: interactivity, very large": {
     Nim: ID260,
     ChessGame: ID261,
-    "Nand2Tetris ALU": ID262,
+    Nand2TetrisALU: ID262,
     RushHour: ID263,
     RubikSquare: ID264
   }

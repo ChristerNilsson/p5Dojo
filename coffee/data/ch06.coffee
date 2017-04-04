@@ -32,3 +32,22 @@ sc 1,1,0
 strokeCap SQUARE
 arc 100,120, 100,100, radians(90),radians(-90)
 """
+
+ID124 = # DiceHistogram
+	b:"""
+# LOC:9 range # floor random text textAlign for in ++ * - rect []
+	"""
+	a:"""
+counts = [0,0,0,0,0,0,0,0,0,0,0,0,0]
+dice = () -> 1 + floor 6 *random() 
+textAlign CENTER,CENTER
+for i in range 1000
+	counts[dice()+dice()]++
+for i in range 2,13
+	x = 16*i-20
+	rect x,0,16,counts[i]         
+	text i,x+8,10                	
+	"""
+	e:
+		Kojo : "https://www.youtube.com/watch?v=X6YSgNkcgAs"
+		

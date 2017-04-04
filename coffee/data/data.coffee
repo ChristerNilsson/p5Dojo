@@ -4,7 +4,7 @@
 # e : links
 
 data =
-	Nyheter : # ch00
+	Nyheter : 
 		Nyheter : ID000 
 		clown : ID001
 		tomteluva : ID002
@@ -22,7 +22,7 @@ data =
 		hypnoticA : ID014
 		hypnoticB : ID015
 
-	"L1: bg point sc sw" : # ch01
+	"L1: bg point sc sw" : 
 		Background1: ID020
 		Background2: ID021
 		Background3: ID022
@@ -36,7 +36,7 @@ data =
 		Diagonal1: ID030
 		Diagonal2: ID031
 
-	"L2: circle fc text" : # ch02
+	"L2: circle fc text" : 
 		Dices: ID040
 		Five: ID041
 		WhiteCircle: ID042
@@ -46,14 +46,14 @@ data =
 		TextA: ID046
 		TextB: ID047
 
-	"L3: ellipse rect" : # ch03
+	"L3: ellipse rect" :
 		GreenEllipse: ID060
 		GreenRect: ID061
 		RedRect: ID062
 		Cross: ID063
 		SquareHole: ID064
 
-	"L4: for lerp rect" : # ch04
+	"L4: for lerp rect" : 
 		HorizontalSquares: ID080
 		VerticalSquares: ID081
 		DiagonalSquares: ID082
@@ -65,7 +65,7 @@ data =
 		RedCone: ID088
 		PentaLerp: ID089
 
-	"L5: line for lerp" : # ch05
+	"L5: line for lerp" :
 		HorizontalLine: ID100
 		VerticalLine: ID101
 		Line: ID102
@@ -77,13 +77,14 @@ data =
 		ChessBoard: ID108
 		GalaxiesColliding: ID109
 
-	"L6: triangle quad arc" : # ch06
+	"L6: triangle quad arc" :
 		Triangle: ID120
 		Quad: ID121
 		PacMan: ID122
 		TwoArcs: ID123
+		TwoDiceHistogram: ID124
 
-	"L7: translate rotate push pop" : # ch07
+	"L7: translate rotate push pop" :
 		TextC: ID140
 		TextD: ID141
 		RotatedEllipse: ID142
@@ -91,16 +92,16 @@ data =
 		RotatedRectB: ID144
 		RotatedRectC: ID145
 		Cards: ID146
-		"Snow White and the 7 lerps": ID147
+		SnowWhiteAndThe7Lerps: ID147
 		Roulette: ID148
 
-	"L8: function, class" : # ch08
+	"L8: function, class" :
 		ManyDices: ID160
 		Girlang: ID161
 		Braid: ID162
 		OlympicRings: ID163
 
-	"L9: interactivity, basic" : # ch09
+	"L9: interactivity, basic" :
 		Counter:ID180
 		ClickDetector:ID188
 		Stopwatch:ID181
@@ -111,7 +112,7 @@ data =
 		RecursiveCircle:ID186
 		Laboratorium:ID187
 
-	"LA: interactivity, small" : # ch10
+	"LA: interactivity, small" :
 		Square: ID200
 		BoardGame: ID201
 		SevenSegment: ID202
@@ -122,13 +123,13 @@ data =
 		Korsord: ID207
 		EngineeringNotation: ID208
 
-	"LB: interactivity, medium" : # ch11
+	"LB: interactivity, medium" :
 		Connect4:ID220
 		SpaceShip:ID221
 		Nian:ID222
 		Asserts:ID223
 
-	"LC: interactivity, large" : # ch12
+	"LC: interactivity, large" :
 		Klocka: ID240
 		BouncingBalls: ID241
 		Braider: ID242
@@ -137,11 +138,9 @@ data =
 		Hex: ID245
 		PickingBerries: ID246
 
-	"LD: interactivity, very large" : # ch13
+	"LD: interactivity, very large" :
 		Nim:ID260
 		ChessGame:ID261
-		"Nand2Tetris ALU":ID262
+		Nand2TetrisALU:ID262
 		RushHour:ID263
 		RubikSquare:ID264
-
-		
