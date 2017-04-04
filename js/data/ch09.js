@@ -16,25 +16,18 @@ ch09 = {
       stopwatch: "reset()|stopp()"
     }
   },
+  RandomDice: {
+    b: "# LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   \n#        for in class extends constructor new @ super ->\n\nclass RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n	draw : -> super\n	mousePressed : (mx,my) ->\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\nrandomdice = new RandomDice \"b\"",
+    a: "class RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n		@radius = 20\n		@bits = [0,1,24,25,90,91,126]\n		@xy = [22,11,12,13,31,32,33]\n		@throw()\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\n	throw : -> @value = 1 + @randint 6\n	mousePressed : (mx,my) -> @throw()\n	draw : -> \n		bg 1\n		sc 1\n		for xy,i in @xy\n			x = int xy/10\n			y = xy % 10\n			if @bits[@value] & 1<<i then circle 50*x,50*y,@radius 			\n\nrandomdice = new RandomDice \"a\"",
+    c: {
+      randomdice: "reset()"
+    }
+  },
   Moire: {
     b: "# LOC:10 bg # for line map class extends constructor new @ super ->\n\nclass Moire extends Application\n	reset : -> super\n	draw  : -> super\n	more  : -> \n	less  : -> \n\nmoire = new Moire \"b\"",
     a: "class Moire extends Application\n	reset : ->\n		super\n		@n = 2\n	draw : ->\n		background 0\n		for i in range @n\n			for j in range 37\n				line 10,map(i,0,@n-1,10,190),190,10+j*5\n	more : -> @n = constrain @n+1,2,10\n	less : -> @n = constrain @n-1,2,10\n\nmoire = new Moire \"a\"",
     c: {
       moire: "reset()|more()|less()"
-    }
-  },
-  Square: {
-    b: "# LOC:21 bg sw fc rd # rect rectMode translate + class extends constructor new @ super ->\n\nclass Square extends Application\n	reset        : -> super\n	draw         : -> super\n	horisontellt : (d) -> \n	vertikalt    : (d) ->\n	storlek      : (d) -> \n	tjocklek     : (d) -> \n	rotera       : (d) ->\n\nsquare = new Square \"b\"",
-    a: "class Square extends Application\n	reset : ->\n		super\n		@x = 100\n		@y = 100\n		@size = 100\n		@w = 1\n		@dir = 0\n	draw : ->\n		bg 0\n		rectMode CENTER\n		sw @w\n		fc 0.5\n		translate @x,@y\n		rd @dir \n		rect 0,0,@size,@size\n\n	horisontellt : (d) -> @x += d\n	vertikalt : (d) -> @y += d\n	storlek : (d) -> @size += d\n	tjocklek : (d) -> @w += d\n	rotera : (d) -> @dir += d \n\nsquare = new Square \"a\"",
-    c: {
-      square: "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"
-    }
-  },
-  BoardGame: {
-    b: "# LOC:21 bg fc sc circle range # for in ->\n\nclass Board extends Application\n	reset : -> super\n	draw  : -> super\n	r     : (d) ->\n	d     : (d) ->\n	n     : (d) ->\n\nboard = new Board \"b\" ",
-    a: "\nclass Board extends Application\n	reset : ->\n		super\n		@_x = 100\n		@_y = 100\n		@_d = 18\n		@_r = 7\n		@_n = 5\n	draw : ->	\n		bg 1\n		fc 0\n		sc()\n		@one @_d,@_r,@_x-@_n*@_d, @_y-@_d,2*@_n+1,3\n		@one @_d,@_r,@_x-@_d, @_y-@_n*@_d,3,2*@_n+1\n	one : (d,r,x0,y0,m,n) ->\n		for i in range m\n			for j in range n\n				circle x0+d*i,y0+d*j,r\n	r : (d) -> @_r += d\n	d : (d) -> @_d += d\n	n : (d) -> @_n += d\n\nboard = new Board \"a\" ",
-    c: {
-      board: "reset()|r -1|r +1|d -1|d +1|n -1|n +1"
     }
   },
   ColorCube: {
@@ -44,30 +37,6 @@ ch09 = {
       cc: "reset()|moreDetails()|lessDetails()|moreBlue()|lessBlue()"
     }
   },
-  "OlympicRing Prep": {
-    b: "# LOC:21 sc fc sw # arc strokeCap class extends constructor new @ super ->\n\nclass Ring extends Application\n	reset  : -> super\n	draw   : -> super\n	start  : (d) ->\n	stopp  : (d) -> \n	radius : (d) ->\n	width  : (d) ->\n\nring = new Ring \"b\"",
-    a: "class Ring extends Application\n	reset : ->\n		super\n		@_start = 3\n		@_stopp = 6\n		@_w = 5\n		@_radius = 50\n	start : (d) -> @_start+=d\n	stopp : (d) -> @_stopp+=d\n	radius : (d) -> @_radius+=d\n	width : (d) -> @_w+=d\n	draw : ->\n		hour = PI/6\n		strokeCap SQUARE\n		fc()\n		sw @_w\n		sc 1,1,0\n		arc 100,100,2*@_radius,2*@_radius,(@_start-3)*hour,(@_stopp-3)*hour\n\nring = new Ring \"a\"",
-    c: {
-      ring: "reset()|start -1|start +1|stopp -1|stopp +1|radius -1|radius +1|width -1|width +1"
-    }
-  },
-  SevenSegment: {
-    b: "# LOC:26 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->\n\nclass Digit extends Application\n	reset : -> super\n	draw  : -> super\n	up    : -> \n	down  : -> \n\ndigit = new Digit \"b\"",
-    a: "class Digit extends Application\n	reset : ->\n		super\n		@d=0\n		@x=100\n		@y=100\n		@w=80\n		@h=18\n		@pattern = [63,6,91,79,102,109,125,7,127,111]\n	draw : ->\n		bg 0.5\n		sc()\n		fc 1,0,0\n		rectMode CENTER\n		p = @pattern[@d]\n		w0 = @w-20\n		if p & 1 then fc 1,0,0 else fc 0.3,0,0\n		rect @x,@y-@w,w0,@h \n		if p & 2 then fc 1,0,0 else fc 0.3,0,0\n		rect @x+@w/2,@y-@w/2,@h,w0 \n		if p & 4 then fc 1,0,0 else fc 0.3,0,0\n		rect @x+@w/2,@y+@w/2,@h,w0 \n		if p & 8 then fc 1,0,0 else fc 0.3,0,0\n		rect @x,@y+@w,w0,@h \n		if p & 16 then fc 1,0,0 else fc 0.3,0,0\n		rect @x-@w/2,@y+@w/2,@h,w0\n		if p & 32 then fc 1,0,0 else fc 0.3,0,0\n		rect @x-@w/2,@y-@w/2,@h,w0 \n		if p & 64 then fc 1,0,0 else fc 0.3,0,0\n		rect @x,@y,w0,@h \n	up   : -> @d = constrain @d + 1, 0, 9\n	down : -> @d = constrain @d - 1, 0, 9\n\ndigit = new Digit \"a\"",
-    c: {
-      digit: "reset()|up()|down()"
-    },
-    e: {
-      "7 segment": "https://www.google.se/search?q=7+segment&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjg_5n55OrSAhWpZpoKHQP8DxoQ_AUIBigB&biw=1310&bih=945"
-    }
-  },
-  Korg: {
-    b: "# LOC:27 -> bg fc sc sw # rect for if else class extends constructor new @ super ->\n\nclass Korg extends Application\n	reset   : -> super\n	draw    : -> super\n	more    : ->\n	less    : ->\n	thinner : ->\n	thicker : ->\n\nkorg = new Korg \"b\"",
-    a: "class Korg extends Application\n	reset : ->\n		super\n		@n = 1\n		@w = 5\n\n	draw : ->\n		c1 = co 1,0,0\n		c2 = co 1,1,0\n		bg 0\n		sw @w\n		fill c1\n		stroke c2\n		q = 2*@n+1\n		d = 200.0/q\n		for i in range @n\n			rect d+i*2*d,0,d,200\n		for j in range @n\n			rect 0,d+j*2*d,200,d\n		for i in range @n\n			for j in range @n\n				if (i+j) % 2 == 1\n					rect i*2*d,d+j*2*d,3*d,d\n				else\n					rect d+i*2*d,j*2*d,d,3*d\n	more : -> @n = constrain @n+1,1,10\n	less : -> @n = constrain @n-1,1,10\n	thinner : -> @w = constrain @w-1,0,10\n	thicker : -> @w = constrain @w+1,0,10\n\nkorg = new Korg \"a\"",
-    c: {
-      korg: "reset()|more()|less()|thinner()|thicker()"
-    }
-  },
   Guess_a_number: {
     b: "# LOC:20 bg fc sc range @readInt # text textAlign for in if then else * / + - % <=\n#        int class extends constructor new @ super ->\n\nclass Guess extends Application\n	reset     : -> super\n	draw      : -> super\n	readGuess : ->\n\nguess = new Guess \"b\"",
     a: "class Guess extends Application\n	reset : ->\n		super\n		@n = 100\n		@start = 0\n		@stopp = @n-1\n		@secret = 27\n\n	readGuess :-> \n		guess = @readInt()\n		if guess <= @secret then @start = guess+1 \n		if guess >= @secret then @stopp = guess-1 \n\n	draw : ->\n		bg 0.1\n		textAlign CENTER,CENTER\n		for i in range @n\n			if @start <= i <= @stopp then fc 1 else fc 0.5\n			sc()\n			x = i % 10\n			y = int i / 10\n			text i, 10 + 20 * x, 10 + 20 * y\n\nguess = new Guess \"a\"",
@@ -75,11 +44,11 @@ ch09 = {
       guess: "reset()|readGuess()"
     }
   },
-  Connect4: {
-    b: "# LOC:31 % bg fc sc sw circle range # text textAlign textSize for in\n#        push pop class extends constructor new @ super -> \n\nclass Connect4 extends Application\n	reset : -> super\n	draw  : -> super\n	move  : (nr) ->\n	undo  : ->\n\nconnect4 = new Connect4 \"b\"",
-    a: "class Connect4 extends Application\n	reset : ->\n		super\n		@list = ([] for i in range 7)\n		@moves = []\n	draw : ->\n		size = 27\n		bg 0\n		textAlign CENTER,CENTER\n		textSize size/2\n		fc()\n		sc 0.1,0.3,1\n		sw 0.2 * size\n		for i in range 7\n			for j in range 6\n				circle 100-size*3+size*i, 180-size*j, size/2\n		for column,i in @list\n			for nr,j in column\n				fc 1,nr%2,0\n				sw 1\n				circle 100-size*3+size*i, 180-size*j, size*0.4\n				fc 0\n				sc()\n				text nr, 100-size*3+size*i, 180-size*j\n		sc()\n		fc 1,(@moves.length+1)%2,0\n		circle 100,15,10\n	move : (nr) ->\n		@moves.push nr\n		@list[nr].push @moves.length \n	undo : -> if @moves.length > 0 then @list[@moves.pop()].pop()\n\nconnect4 = new Connect4 \"a\"",
+  RecursiveCircle: {
+    b: "# LOC:10 -> sc circle # if return < class extends constructor new @ super ->\n\nclass RecursiveCircle extends Application\n	reset   : -> super\n	draw    : -> super\n	circles : (x,y,r,level) ->\n	more    : -> \n	less    : -> \n\nrc = new RecursiveCircle \"b\"",
+    a: "\nclass RecursiveCircle extends Application\n	reset : -> \n		super\n		@n = 0\n	draw : -> @circles 100,100,100,@n		\n	circles : (x,y,r,level) ->\n		circle x,y,r\n		if level <= 0 then return\n		@circles x-r/2, y, r/2, level-1\n		@circles x+r/2, y, r/2, level-1\n	more : -> @n = constrain @n+1,0,10\n	less : -> @n = constrain @n-1,0,10\n\nrc = new RecursiveCircle \"a\"",
     c: {
-      connect4: "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6|undo()"
+      rc: "reset()|more()|less()"
     }
   },
   Laboratorium: {

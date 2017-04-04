@@ -104,6 +104,7 @@ sel2change = (sel) ->
 	if sel.value=='BACK' 
 		exercise = ""
 		myCodeMirror.setValue ""
+		tableClear()
 		bg 0.5
 		sel2.hide()
 		return 

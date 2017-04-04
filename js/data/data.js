@@ -12,6 +12,8 @@ data = {
   "L7: translate rotate push pop": ch07,
   "L8: function, class": ch08,
   "L9: interactivity, basic": ch09,
-  "LA: interactivity, advanced": ch10,
-  "LB: miscellaneous": ch11
+  "LA: interactivity, small": ch10,
+  "LB: interactivity, medium": ch11,
+  "LC: interactivity, large": ch12,
+  "LD: interactivity, very large": ch13
 };

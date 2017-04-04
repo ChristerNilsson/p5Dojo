@@ -2,49 +2,18 @@
 var ch11;
 
 ch11 = {
-  RandomDice: {
-    b: "# LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   \n#        for in class extends constructor new @ super ->\n\nclass RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n	draw : -> super\n	mousePressed : (mx,my) ->\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\nrandomdice = new RandomDice \"b\"",
-    a: "class RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n		@radius = 20\n		@bits = [0,1,24,25,90,91,126]\n		@xy = [22,11,12,13,31,32,33]\n		@throw()\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\n	throw : -> @value = 1 + @randint 6\n	mousePressed : (mx,my) -> @throw()\n	draw : -> \n		bg 1\n		sc 1\n		for xy,i in @xy\n			x = int xy/10\n			y = xy % 10\n			if @bits[@value] & 1<<i then circle 50*x,50*y,@radius 			\n\nrandomdice = new RandomDice \"a\"",
+  Connect4: {
+    b: "# LOC:31 % bg fc sc sw circle range # text textAlign textSize for in\n#        push pop class extends constructor new @ super -> \n\nclass Connect4 extends Application\n	reset : -> super\n	draw  : -> super\n	move  : (nr) ->\n	undo  : ->\n\nconnect4 = new Connect4 \"b\"",
+    a: "class Connect4 extends Application\n	reset : ->\n		super\n		@list = ([] for i in range 7)\n		@moves = []\n	draw : ->\n		size = 27\n		bg 0\n		textAlign CENTER,CENTER\n		textSize size/2\n		fc()\n		sc 0.1,0.3,1\n		sw 0.2 * size\n		for i in range 7\n			for j in range 6\n				circle 100-size*3+size*i, 180-size*j, size/2\n		for column,i in @list\n			for nr,j in column\n				fc 1,nr%2,0\n				sw 1\n				circle 100-size*3+size*i, 180-size*j, size*0.4\n				fc 0\n				sc()\n				text nr, 100-size*3+size*i, 180-size*j\n		sc()\n		fc 1,(@moves.length+1)%2,0\n		circle 100,15,10\n	move : (nr) ->\n		@moves.push nr\n		@list[nr].push @moves.length \n	undo : -> if @moves.length > 0 then @list[@moves.pop()].pop()\n\nconnect4 = new Connect4 \"a\"",
     c: {
-      randomdice: "reset()"
+      connect4: "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6|undo()"
     }
   },
-  GoldenStar: {
-    b: "# LOC:23 bg fc range # for in triangle translate rotate cos sin class extends constructor new @ super ->\n\nclass GoldenStar extends Application\n	reset : -> super\n	draw  : -> super\n	n     : (d) -> \n	outer : (d) ->\n	inner : (d) ->\n\nstar = new GoldenStar \"b\"",
-    a: "class GoldenStar extends Application\n	reset : ->\n		super\n		@_x = 100\n		@_y = 100\n		@_n = 4\n		@_outer = 100\n		@_inner = 25\n	n : (d) -> @_n = constrain @_n+d,3,12\n	outer : (d) -> @_outer = constrain @_outer+d, 0, 100\n	inner : (d) -> @_inner = constrain @_inner+d, 0, 100\n	draw : ->\n		bg 0\n		translate @_x,@_y\n		v = TWO_PI/@_n\n		rotate -PI/2\n		x1 = @_inner * cos v/2\n		y1 = @_inner * sin v/2\n		for i in range @_n\n			fc 1,1,0\n			triangle 0,0, @_outer,0, x1,y1\n			fc 1,0.7,0\n			triangle 0,0, @_outer,0, x1,-y1\n			rotate v\n\nstar = new GoldenStar \"a\"",
+  SpaceShip: {
+    b: "# LOC:35 sc sw rd # point triangle translate cos sin radians \n#        push pop class extends constructor new @ super ->\n\nclass Shot\n	constructor : (@x,@y,@dir) ->\n	render      : ->	\n	move        : ->\n\nclass Ship extends Application\n	constructor : (@name) ->\n		super @name\n		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)\n	reset   : -> super\n	draw    : -> super\n	left    : -> \n	right   : -> \n	forward : -> \n	shoot   : ->		\n\nship = new Ship \"b\"	",
+    a: "class Shot\n	constructor : (@x,@y,@dir) ->\n	render : ->	point @x,@y \n	move : ->\n		@x += int 5 * cos radians @dir\n		@y += int 5 * sin radians @dir\n\nclass Ship extends Application \n\n	constructor : (@name) ->\n		super @name\n		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)\n\n	reset : ->\n		super\n		@x = 100\n		@y = 100\n		@s = 10\n		@dir = 0\n		@shots = []\n\n	left    : -> @dir -= 5\n	right   : -> @dir += 5\n	forward : -> \n		@x += 5 * cos radians @dir\n		@y += 5 * sin radians @dir\n\n	shoot : ->\n		@shots.push new Shot int(@x), int(@y), @dir\n\n	draw : ->\n		push()\n		translate @x,@y\n		rd @dir\n		sc 1,1,0\n		sw 2\n		triangle 2*@s,0, -@s,@s, -@s,-@s\n		sw 5\n		point 0,0\n		pop()\n		for shot in @shots\n			shot.move()\n			shot.render()\n\nship = new Ship \"a\"	",
     c: {
-      star: "reset()|n -1|n +1|outer -1|outer +1|inner -1|inner +1"
-    }
-  },
-  Polygon: {
-    b: "# LOC:23 bg sc range # line for in cos sin radians class extends constructor new @ super ->\n\nclass Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n	rt : (a) ->\n\nclass Polygon extends Application\n	reset      : -> super\n	draw       : -> super\n	antalSidor : (d) ->\n	antalSteg  : (d) -> \n\npolygon = new Polygon \"b\"",
-    a: "class Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n		dx = d*cos radians @dir\n		dy = d*sin radians @dir\n		sc @r,@g,@b\n		line @x,@y,@x+dx,@y+dy\n		@x += dx\n		@y += dy\n	rt : (a) ->\n		@dir +=a\n\nclass Polygon extends Application\n	reset : ->\n		super\n		@n = 6\n		@steg = 60\n\n	draw : ->\n		t = new Turtle()\n		bg 0\n		for i in range @n\n			t.fd @steg\n			t.rt 360/@n\n\n	antalSidor : (d) -> @n += d\n	antalSteg : (d) -> @steg += d\n\npolygon = new Polygon \"a\"",
-    c: {
-      polygon: "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
-    }
-  },
-  Alphanumeric: {
-    b: "# LOC:29 bg sc fc range circle # for in & + - * ^ ** %% [] length splice dist\n#        push if then else class extends constructor new @ super ->\n\nclass AlphaNumeric extends Application\n	reset : -> super\n	draw  : -> super\n	add   : -> \n	del   : ->\n	left  : -> \n	right : ->\n	mousePressed : (mx,my) ->\n\nalpha = new AlphaNumeric \"b\"",
-    a: "class AlphaNumeric extends Application\n	reset : -> \n		super\n		@pattern = [[4,12,4,4,4,4,14], [14,17,1,2,4,8,31], [14,17,17,31,17,17,17],[30,17,17,30,17,17,30]]\n		@index = 0\n		@radius = 8\n		@distance = 20\n	draw : ->\n		bg 0\n		sc()\n		for index,j in @pattern[@index]\n			y =  40+@distance*j\n			for i in range 5\n				if index & 1<<i then fc 0,1,0 else fc 0,0.3,0\n				x = 140-@distance*i\n				circle x,y,@radius\n	add   : -> \n		@pattern.push [0,0,0,0,0,0,0]\n		@index = @pattern.length - 1\n	del   : -> @pattern.splice @index, 1\n	left  : -> @index = (@index - 1) %% @pattern.length\n	right : -> @index = (@index + 1) %% @pattern.length\n\n	mousePressed : (mx,my) ->\n		for index,j in @pattern[@index]\n			y =  40+@distance*j\n			for i in range 5\n				x = 140-@distance*i\n				if dist(x,y,mx,my) < @radius\n					@pattern[@index][j] ^= 1<<i\n\nalpha = new AlphaNumeric \"a\"",
-    c: {
-      alpha: "reset()|add()|del()|left()|right()"
-    },
-    e: {
-      binärt: "http://www.matteboken.se/lektioner/matte-1/tal/talsystem",
-      hexadecimalt: "http://www.matteguiden.se/matte-1/grunder/binara-och-hexadecimala-tal",
-      '5x7 matris': "https://www.google.se/search?q=5x7+matrix&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjWjYen5OrSAhXhJ5oKHf8BBmgQ_AUIBigB&biw=1310&bih=945&dpr=1.1"
-    }
-  },
-  Korsord: {
-    b: "# LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in \n#        \"\" split join _.filter class constructor new @ extends super [] length\n# Mata in t ex b..l och få ut bill samt boll.\n\nclass Korsord extends Application\n	reset : -> super\n	draw  : -> super\n	enter : -> \nkorsord = new Korsord \"b\"",
-    a: "class Korsord extends Application\n	reset : -> \n		print \"reset\"\n		super\n		@found = \"\"\n		@pattern = ''\n	draw : -> \n		n = 15\n		bg 0\n		textAlign LEFT,TOP\n		textSize 12\n		fc 1,1,0\n		sc()\n		for word,i in @found.split \" \"\n			x = int i / n\n			y = i % n\n			text word,5+200/4*x,200*y/n\n	match : (word,pattern) ->\n		for letter,i in pattern\n			if letter != '.' and letter != word[i] then	return false\n		true\n	enter : -> \n		words = ordlista.split \" \"\n		@pattern = @readText()\n		@found = [] \n		for w in words\n			if w.length == @pattern.length and @match w,@pattern then @found.push w\n		#@found = _.filter words, (w) -> w.length == @pattern.length and @match w,@pattern\n		@found = @found.join \" \"\n\nkorsord = new Korsord \"a\"",
-    c: {
-      korsord: "reset()|enter()"
-    },
-    e: {
-      '_.some': "http://underscorejs.org/#some",
-      '_.filter': "http://underscorejs.org/#filter",
-      '_.countBy': "http://underscorejs.org/#countBy"
+      ship: "reset()|left()|right()|forward()|shoot()"
     }
   },
   Nian: {
@@ -57,69 +26,6 @@ ch11 = {
       Nian: "http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html",
       '_.countBy': "http://underscorejs.org/#countBy",
       reduce: "https://coffeescript-cookbook.github.io/chapters/arrays/reducing-arrays"
-    }
-  },
-  ColorPair: {
-    b: "# LOC:41 fc circle # [] .. push dist length splice _.isEqual colorMode HSB\n#        for in class extends constructor new @ super ->\n\nclass ColorPair extends Application\n	reset : -> \n		super\n		@seed = 0\n	draw : -> super\n	mousePressed : (mx,my) ->\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\ncolorpair = new ColorPair \"b\"",
-    a: "class ColorPair extends Application\n	reset : -> \n		super\n		@seed = 0\n		@level = 0\n		@changeLevel 1\n		@radius = 40\n\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\n\n	draw : -> \n		bg 1\n		sw 2\n		sc 1,1,1,0.5\n		colorMode HSB\n		for [x,y,c] in @circles\n			fill color c,100,100,0.5\n			circle x,y,@radius\n		\n	mousePressed : (mx,my) ->\n		hitlist = []\n		for [x,y,c],i in @circles\n			if dist(x,y,mx,my) < @radius then hitlist.push i \n		if hitlist.length == 1\n			i = hitlist[0]\n			circle = @circles[i]\n			if @memory == -1\n				@memory = circle[2]\n				@circles.splice i,1\n			else if _.isEqual(@memory, circle[2]) \n				@memory = -1\n				@circles.splice i,1\n				if @circles.length == 0 then @changeLevel 1\n			else\n				@changeLevel -1\n		else\n			@changeLevel -1\n\n	changeLevel : (d) ->\n		@memory = -1\n		@level = constrain @level+d, 1, 20\n		@circles = []\n		for i in range @level\n			c = int i * 360 / @level\n			@circles.push [@randint(200), @randint(200), c]\n			@circles.push [@randint(200), @randint(200), c]\n\ncolorpair = new ColorPair \"a\"",
-    c: {
-      colorpair: "reset()"
-    },
-    e: {
-      ColorPair: "https://christernilsson.github.io/ColorPair"
-    }
-  },
-  Kalkylator: {
-    b: "# LOC:46 bg sc fc range @readText # + - * / of {} in [] shift unshift \n#        text textSize textAlign length for Math.sqrt Math.PI splice \n#        parseFloat \"\" split class extends constructor new @ super ->\n# TIPS! Börja med de fyra räknesätten. \n#       @words ska kunna utökas med \":\". T ex \": sq dup *\"\n#       Definiera t ex invers, distans och parallella motstånd\n\nclass Kalkylator extends Application\n	reset : -> super\n	draw  : -> super\n	chs   : -> # ( n -- n ) \n	swap  : -> # ( a b -- b a )\n	drop  : -> # ( n -- ) \n	dup   : -> # ( n -- n n )\n	sqrt  : -> # ( n -- n )\n	clr   : -> # ( a b -- )\n	pi    : -> # ( -- n)\n	enter : -> # inmatning från textrutan under kommandolistan.\n\nkalkylator = new Kalkylator \"b\"",
-    a: "class Kalkylator extends Application\n	reset : ->\n		super\n		@stack = [0,1,2,3]\n		@words = {\"sq\":[\"dup\",\"*\"]}\n	draw : ->\n		bg 0\n		sc()\n		textSize 32\n		textAlign RIGHT, BOTTOM\n		fc 1,0,0\n		for value,i in _.first @stack,5\n			s = \"\" + value\n			text s[0..9],190, 200 - i*40\n\n	shift : -> @stack.shift()\n	over : -> @stack.splice(1,1)[0]\n	unshift : (item) -> @stack.unshift item \n	chs : -> @unshift -@shift()\n	swap : -> [@stack[0],@stack[1]] = [@stack[1],@stack[0]]\n	drop : -> @shift()\n	dup : -> @unshift @stack[0]\n	sqrt : -> @unshift Math.sqrt @shift()\n	clr : -> @stack = []\n	pi : -> @unshift Math.PI\n\n	execute : (arr) ->\n		for cmd in arr\n			if cmd==\"\" then continue\n			if cmd=='+' then @unshift @shift() + @shift()\n			else if cmd=='*' then @unshift @shift() * @shift()\n			else if cmd=='/' then @unshift @over() / @shift()\n			else if cmd=='-' then @unshift @over() - @shift()\n			else if cmd=='chs' then @chs()\n			else if cmd=='swap' then @swap()\n			else if cmd=='drop' then @drop()\n			else if cmd=='dup' then @dup()\n			else if cmd=='sqrt' then @sqrt()\n			else if cmd=='clr' then @clr()\n			else if cmd=='pi' then @pi()\n			else if cmd of @words then @execute @words[cmd]\n			else @stack.unshift eval cmd\n\n	enter : ->\n		commands = @readText()\n		if commands==\"\" then return\n		arr = commands.split ' '\n		if arr[0]==':' then @words[arr[1]] = arr[2..]\n		else @execute arr\n\nkalkylator = new Kalkylator \"a\"",
-    c: {
-      kalkylator: "reset()|chs()|swap()|drop()|dup()|sqrt()|clr()|pi()|enter()"
-    },
-    e: {
-      parseInt: "https://www.w3schools.com/jsref/jsref_parseint.asp",
-      stack: "https://sv.wikipedia.org/wiki/Stack_(datastruktur)",
-      split: "https://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string",
-      "Omvänd Polsk Notation": "https://sv.wikipedia.org/wiki/Omv%C3%A4nd_polsk_notation",
-      RPN: "https://en.wikipedia.org/wiki/Reverse_Polish_notation",
-      "HP-35": "https://neil.fraser.name/software/hp-35",
-      "Forth Haiku": "http://forthsalon.appspot.com/word-list"
-    }
-  },
-  Hex: {
-    b: "# LOC:49 bg fc sc range # + * - % < == != dist for in [] push pop length quad circle\n#        if then else text textAlign textSize class extends constructor new @ super ->\n\nclass Hex extends Application\n	reset : -> super\n	draw : ->\n	newGame : ->\n	undo : ->\n	mousePressed : (mx,my) ->\nhex = new Hex \"b\"",
-    a: "class Hex extends Application\n	reset : ->\n		super\n		@a = 6\n		@b = 5\n		@c = 3\n		@newGame()\n\n	mousePressed : (mx,my) ->\n		index = -1\n		for i in range -5,6\n			for j in range -5,6\n				x = 100 + i*(2*@a+1) + @a*j\n				y = 100 + j*(2*@b+@c-1)\n				if dist(x,y,mx,my) < 7 then index = 11*(j+5)+i+5\n		if index >= 0 and @board[index] == 0\n			@history.push index\n			n = @history.length\n			if n % 2 == 0 then n = -n \n			@board[index] = n \n\n	newGame : ->\n		@history = []\n		@board = []\n		for i in range 11*11\n			@board.push 0\n\n	undo : ->\n		if @history.length > 0\n			index = @history.pop()\n			@board[index] = 0\n\n	draw : ->\n		bg 0.5\n		textAlign CENTER,CENTER\n		textSize 9\n		for i in range -5,6\n			for j in range -5,6\n				index = 11*(j+5)+i+5\n				x = 100+i*(2*@a+1) + @a*j\n				y = 100+j*(2*@b+@c-1)\n				bc = @b+@c\n				sc 0,1,0\n				fc 0,1,0\n				quad x,y-bc, x,y+bc, x-@a,y+@c, x-@a,y-@c\n				quad x,y-bc, x,y+bc, x+@a,y+@c, x+@a,y-@c\n				n = @board[index]\n				if n != 0\n					if n>0 then fc(1) else fc(0)\n					circle x,y,6\n					sc()\n					if n>0 then fc(0) else fc(1)\n					text abs(n),x,y\n\nhex = new Hex \"a\"",
-    c: {
-      hex: "reset()|newGame()|undo()"
-    },
-    e: {
-      Hex: "https://en.wikipedia.org/wiki/Hex_(board_game)"
-    }
-  },
-  "Nand2Tetris ALU": {
-    b: "# LOC:63 sc fc sw range # text textAlign textSize class extends constructor new @ super ->\n#        point quad dist for in if then else << - -- + ++ * != & ^ ~ split\n# Se länken Nand2Tetris, sidan 36, för mer information!\n\nclass ALU extends Application\n	reset : -> super\n	draw  : -> super\n	mousePressed : (mx,my) ->	\nalu = new ALU \"b\"",
-    a: "class ALU extends Application\n	reset : -> \n		super\n		@x = 3\n		@y = 5\n		@flags = 0\n		@buttons = [[5,1],[7,1],[9,1],[11,1],[13,1],[15,1],[3,3],[5,3],[15,3],[17,3]]\n\n	draw1 : (value,x0,y0) ->\n		sc()\n		fc 1,1,0\n		text value, x0,y0\n		for i in range 16\n			if (value & 1<<(15-i)) != 0 then fc 1 else fc 0.75\n			if (value & 1<<(15-i)) != 0 then r=2.5 else r=1\n			circle x0-40+3+5*i,y0+20,r\n\n	draw : -> \n		textAlign CENTER,CENTER\n		fc 1,1,0\n		quad 0,80, 200,80, 140,120, 60,120\n		[z,zr,ng] = @calc()\n		@draw1 @x,40,50\n		@draw1 @y,160,50\n		@draw1  z,100,130\n		flags = \"zx nx zy ny f no\".split \" \"\n		sc()\n		textSize 16\n		for i in range 6\n			[x,y] = @buttons[i]\n			fc 1,0,0\n			circle 10*x,10*y,10\n			if @flags & 1<<i then fc 1 else fc 0.5\n			text flags[i],10*x,10*y\n		for ch,i in \"-+-+\"\n			[x,y] = @buttons[6+i]\n			fc 1,0,0\n			circle 10*x,10*y,10\n			fc 1\n			text ch, 10*x,10*y\n		if zr==1 then fc 1 else fc 0.5\n		text \"zr\",90,170\n		if ng==1 then fc 1 else fc 0.5\n		text \"ng\",110,170\n\n	mousePressed : (mx,my) ->\n		index = -1\n		for button,i in @buttons\n			if dist(10*button[0],10*button[1],mx,my) < 10 then index = i\n		if 0 <= index <= 5 then @flags ^= 1<<index\n		if index == 6 then @x--\n		if index == 7 then @x++\n		if index == 8 then @y--\n		if index == 9 then @y++\n\n	calc : ->\n		x=@x\n		if @flags & 1 then x=0\n		if @flags & 2 then x=~x \n		y=@y\n		if @flags & 4 then y=0\n		if @flags & 8 then y=~y \n		if @flags & 16 then out = x+y else out = x&y\n		if @flags & 32 then out = ~out\n		if out==0 then zr=1 else zr=0\n		if out<0 then ng=1 else ng=0\n		[out,zr,ng]\n\nalu = new ALU \"a\"",
-    c: {
-      alu: "reset()"
-    },
-    e: {
-      Nand2Tetris: "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
-    }
-  },
-  RushHour: {
-    b: "# LOC:71 bg sc fc range # / % + * - == >= ++ -- \"\" [] {} push class extends constructor new @ super ->\n#        rect text textAlign for in if then else toLowerCase indexOf _.create prototype length @readText\n\n# De 36 rutorna numreras:\n#   0 1 2 3 4 5\n#   6 7 8 9 a b\n#   c d e f g h\n#   i j k l m n\n#   o p q r s t\n#   u v w x y z\n#\n# Placering av fordon:\n#   horisontellt: A=2 B=3\n#   vertikalt:    C=2 D=3\n# \n# Lösningar:\n# 	Bilarna namnges i följden XABCDEFGHIJKLMNOPQR\n# 	liten bokstav: vänster/uppåt\n# 	stor bokstav:  höger/nedåt\n\nclass Car\n	constructor : (ch,wh,@c) ->\n	render      : ->\n	move        : (d) ->\n\nclass RushHour extends Application\n	constructor : (@name) ->\n		super @name\n		if @cars then @cars = (_.create(Car.prototype, car) for car in @cars)	\n	reset      : -> super\n	draw       : -> super\n	enter_cars : -> # Ad0sBwCoD569\n	enter_move : -> # bbbEEEAfdccGGXXXXX\n	begin      : ->\n	backward   : (n=1) ->\n	forward    : (n=1) ->\n	end        : ->\n\nrushHour = new RushHour \"b\"\n",
-    a: "class Car\n	constructor : (ch,wh,@c) ->\n		index = \"0123456789abcdefghijklmnopqrstuvwxyz\".indexOf ch\n		@i = index % 6\n		@j = int index / 6\n		[@w,@h] = wh\n\n	render : -> \n		fcc (@c+1) % 8\n		rect 40+20*@i+2, 40+20*@j+2, 20*@w-4, 20*@h-4\n		fc 0\n		tcc (@c+1) % 8\n		name = \"XABCDEFGHIJKLMNOP\"[@c]\n		small = name.toLowerCase()\n		text small, 50+20*@i,        50+20*@j\n		text name,  50+20*(@i+@w-1), 50+20*(@j+@h-1)\n\n	move : (d) -> # -1 eller +1\n		if @w == 1 then @j += d\n		if @h == 1 then @i += d\n\nclass RushHour extends Application\n\n	constructor : (@name) ->\n		super @name\n		if @cars then @cars = (_.create(Car.prototype, car) for car in @cars)\n\n	reset : ->\n		super\n		@enter_cars1 \"Ad0sBwCoD569\"\n		@enter_move1 \"bbbEEEAfdccGGXXXXX\"\n		@begin()\n\n	draw : ->\n		textAlign CENTER,CENTER\n		bg 0\n		sc()\n		fc 0.5\n		rect 40,40,120,120\n		rect 160,80,40,20\n		fc 1\n		sc()\n		for i in range 6\n			text \"012345\"[i],30,50+20*i\n			text \"012345\"[i],50+20*i,170\n		for car in @cars \n			car.render()\n\n	enter_cars : -> @enter_cars1 @readText() \n	enter_cars1 : (s) ->\n		@cars = []\n		@moves = \"\"\n		@index = 0\n		for ch in s\n			if ch in \"ABCD\" then wh = {A:[2,1], B:[3,1], C:[1,2], D:[1,3]}[ch]\n			else @cars.push new Car ch,wh,@cars.length\n\n	enter_move : -> @enter_move1 @readText() \n	enter_move1 : (s) ->\n		@moves = @moves[...@index]\n		@moves += s \n		@forward s.length\n		\n	begin : -> @backward @index \n	backward : (n=1) ->\n		for i in range n\n			if @index == 0 then return\n			@index--\n			@bothward \"XABCDEFGHIJKLMNO\",\"xabcdefghijklmno\"\n	forward : (n=1) ->\n		for i in range n\n			if @index >= @moves.length then return\n			@bothward \"xabcdefghijklmno\",\"XABCDEFGHIJKLMNO\"\n			@index++\n	end : -> @forward @moves.length - @index\n\n	bothward : (a,b) ->\n		i = a.indexOf @moves[@index]\n		j = b.indexOf @moves[@index]\n		if i >= 0 then @cars[i].move -1\n		if j >= 0 then @cars[j].move +1\n\nrushHour = new RushHour \"a\"",
-    c: {
-      rushHour: "reset()|enter_cars()|enter_move()|begin()|backward()|forward()|end()"
-    },
-    e: {
-      RushHour: "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
-    }
-  },
-  RubikSquare: {
-    b: "# LOC:85 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not \"\" split join\n#         parseInt _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->\n# OBS: Du bör använda variabeln rubikSquareData.\n\nclass RubikSquare extends Application\n	reset : -> \n	draw : ->\n	mousePressed : (mx,my) ->\nrubiksquare = new RubikSquare \"b\"   ",
-    a: "class RubikSquare extends Application\n	reset : -> \n		super\n		@seed = 0\n		@size = 30\n		@level = 1\n		@buttons = [[4,3,3,3],[10,3,3,3],[16,3,3,3], [4,9,3,3],[10,9,3,3],[16,9,3,3], [4,15,3,3],[10,15,3,3],[16,15,3,3], [4,19,3,1],[10,19,3,1],[16,19,3,1]]\n		@history = []\n		@memory = -1\n		@createGame()\n\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\n\n	newGame : ->\n		if @level >= @history.length and _.isEqual @board,[0,1,2,0,1,2,0,1,2] then d=1 else d=-1\n		@level = constrain @level+d,1,6\n		@history = []\n		@createGame()\n\n	createGame : ->\n		bigstring = rubikSquareData[@level]\n		arr = bigstring.split ' '\n		s = arr[@randint(arr.length)]\n		@board = (parseInt(ch) for ch in s)\n\n	move : (m,d,board) ->\n		[i,j,k] = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8]][m]\n		bd = board[..]\n		[a,b,c] = [bd[i],bd[j],bd[k]]\n		if d==0 then [a,b,c] = [b,c,a] else [a,b,c] = [c,a,b]\n		[bd[i],bd[j],bd[k]] = [a,b,c]\n		bd\n\n	draw : ->\n		bg 0\n		textAlign CENTER,CENTER\n		textSize 20\n		rectMode CENTER,CENTER\n		for c,i in @board\n			sc 1\n			if c==0 then fc 1,0,0\n			if c==1 then fc 0,1,0\n			if c==2 then fc 0,0,1\n			[x,y,w,h] = @buttons[i]\n			rect 10*x,10*y,20*w,20*h\n		if @memory >= 0 \n			[x,y,w,h] = @buttons[@memory]\n			fc 0\n			sc()\n			circle 10*x,10*y,10\n		[x,y,w,h] = @buttons[10]\n		fc 1,1,0\n		sc()\n		text @level-@history.length,10*x,10*y\n		if @history.length > 0\n			[x,y,w,h] = @buttons[9]\n			text \"undo\",10*x,10*y\n			[x,y,w,h] = @buttons[11]\n			text \"new\",10*x,10*y\n\n	undo : -> \n		if @history.length == 0 then return\n		@board = @history.pop()\n		@memory = -1\n		#@draw()\n\n	mousePressed : (mx,my) ->\n		index = -1\n		for [x,y,w,h],i in @buttons\n			if x-w <= mx/10 <= x+w and y-h <= my/10 <= y+h then index = i\n		if 0 <= index < 9\n			if @memory == -1 \n				@memory = index \n			else if @memory == index \n				@memory = -1\n			else\n				hash = \n					\"01\":[0,1], \"02\":[0,0], \"10\":[0,0], \"12\":[0,1], \"20\":[0,1], \"21\":[0,0]\n					\"34\":[1,1], \"35\":[1,0], \"43\":[1,0], \"45\":[1,1], \"53\":[1,1], \"54\":[1,0]\n					\"67\":[2,1], \"68\":[2,0], \"76\":[2,0], \"78\":[2,1], \"86\":[2,1], \"87\":[2,0]\n					\"03\":[3,1], \"06\":[3,0], \"30\":[3,0], \"36\":[3,1], \"60\":[3,1], \"63\":[3,0]\n					\"14\":[4,1], \"17\":[4,0], \"41\":[4,0], \"47\":[4,1], \"71\":[4,1], \"74\":[4,0]\n					\"25\":[5,1], \"28\":[5,0], \"52\":[5,0], \"58\":[5,1], \"82\":[5,1], \"85\":[5,0]\n				pair = hash[\"\" + @memory + index] \n				if pair\n					[m,d] = pair\n					@history.push @board[..]\n					@board = @move m,d,@board\n					@memory = -1\n		if index==9 then @undo()\n		if index==11 then @newGame()\n\nrubiksquare = new RubikSquare \"a\"   \n		",
-    c: {
-      rubiksquare: "reset()"
     }
   },
   Asserts: {
