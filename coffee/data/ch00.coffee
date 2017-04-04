@@ -1,12 +1,13 @@
 ID000 = # Nyheter :
 	b:"""
 # NYHETER 2017 APR 08
+#   L6: OneDiceHistogram TwoDiceHistogram
 #   L9: ClickDetector
 #   LC: Hex
 # NYHETER 2017 APR 01
-#   L9: RandomDice C
+#   L9: RandomDice 
 #   LC: ColorPair 
-#   LD: Nand2Tetris ALU RubikSquare
+#   LD: Nand2TetrisALU RubikSquare
 # NYHETER 2017 MAR 26
 #   L9: Stopwatch
 #   LA: Korsord EngineeringNotation
@@ -17,7 +18,7 @@ ID000 = # Nyheter :
 # NYHETER 2017 MAR 12
 #   L7: Roulette
 # NYHETER 2017 MAR 5
-#   L6: Two Arcs
+#   L6: TwoArcs
 #   L8: Girlang, Braid, OlympicRings
 #   LA: GoldenStar, Alphanumeric, BoardGame, SevenSegment
 #   LB: Connect4, SpaceShip

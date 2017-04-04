@@ -82,7 +82,8 @@ data =
 		Quad: ID121
 		PacMan: ID122
 		TwoArcs: ID123
-		TwoDiceHistogram: ID124
+		OneDiceHistogram: ID124
+		TwoDiceHistogram: ID125
 
 	"L7: translate rotate push pop" :
 		TextC: ID140
