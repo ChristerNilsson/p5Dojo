@@ -213,15 +213,15 @@ Mushantering ger större flexibilitet, men kräver att programmeraren måste avg
 
 #### Minimalt exempel
 Efter funktionspilarna lägger man i sin kod. Förutom dessa metoder, tillkommer menykommandon och egna hjälpmetoder. Sista raden skapar själva objektet. 
-
 ```javascript
 class Counter extends Application
   reset : -> super
   draw  : -> super
   mousePressed : (mx,my) -> 
 counter = new Counter "b"
-```    
-Halvfärdigt exempel.
+```
+
+Exemplet, ej fullständigt:
 ```javascript
 class Counter extends Application
   reset : -> 
