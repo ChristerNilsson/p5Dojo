@@ -208,14 +208,29 @@ Följande funktioner läser indata från textrutan under skillnadsbitmappen:
 * @readFloat()
 
 #### Mushantering
-Mousepressed kan definieras för att ta hand om musklick. Den skickar med x- och y-parametrar.
-Mushantering ger större flexibilitet, men kräver samtidigt att man måste avgöra var användaren klickat.
+mousePressed(mx,my) kan definieras för att ta hand om musklick.
+Mushantering ger större flexibilitet, men kräver att programmeraren måste avgöra var användaren klickat.
 
 #### Minimalt exempel
+Efter funktionspilarna lägger man i sin kod. Förutom dessa metoder, tillkommer menykommandon och egna hjälpmetoder. Sista raden skapar själva objektet. 
+
 ```javascript
 class Counter extends Application
   reset : -> super
   draw  : -> super
+  mousePressed : (mx,my) -> 
+counter = new Counter "b"
+```    
+Halvfärdigt exempel.
+```javascript
+class Counter extends Application
+  reset : -> 
+    super
+    @counter = 0
+  draw  : -> 
+    text @counter,100,100
+  up : ->
+    @counter++
   mousePressed : (mx,my) -> 
 counter = new Counter "b"
 ```    
