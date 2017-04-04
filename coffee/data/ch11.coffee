@@ -1,9 +1,5 @@
-#####################################
-#	ch11 = # "LB: miscellaneous" :
-#####################################
-
-		ID220 = # Connect4 :
-			b:"""
+ID220 = # Connect4 :
+	b:"""
 # LOC:31 % bg fc sc sw circle range # text textAlign textSize for in
 #        push pop class extends constructor new @ super -> 
 
@@ -15,7 +11,7 @@ class Connect4 extends Application
 
 connect4 = new Connect4 "b"
 			"""
-			a:"""
+	a:"""
 class Connect4 extends Application
 	reset : ->
 		super
@@ -50,12 +46,11 @@ class Connect4 extends Application
 
 connect4 = new Connect4 "a"
 """
-			c:
-				connect4 : "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6|undo()"
+	c:
+		connect4 : "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6|undo()"
 
-
-		ID221 = # SpaceShip :
-			b:"""
+ID221 = # SpaceShip :
+	b:"""
 # LOC:35 sc sw rd # point triangle translate cos sin radians 
 #        push pop class extends constructor new @ super ->
 
@@ -77,7 +72,7 @@ class Ship extends Application
 
 ship = new Ship "b"	
 """
-			a: """
+	a: """
 class Shot
 	constructor : (@x,@y,@dir) ->
 	render : ->	point @x,@y 
@@ -124,13 +119,11 @@ class Ship extends Application
 
 ship = new Ship "a"	
 """
-			c:
-				ship: "reset()|left()|right()|forward()|shoot()"
+	c:
+		ship: "reset()|left()|right()|forward()|shoot()"
 
-
-
-		ID222 = # Nian :
-			b:"""
+ID222 = # Nian :
+	b:"""
 # LOC:35 bg fc sc # [] push "" split indexOf reduce + * ** / % > & text textSize textAlign  
 #				 for in of {} _.countBy and if then class constructor new @ extends super 
 # Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med "aaefkrrtu"
@@ -142,7 +135,7 @@ class Nian extends Application
 
 nian = new Nian "b"
 """
-			a:"""
+	a:"""
 class Nian extends Application
 	reset : ->
 		super
@@ -181,18 +174,16 @@ class Nian extends Application
 
 nian = new Nian "a"
 """
-			c:
-				nian : "reset()|enter()"
+	c:
+		nian : "reset()|enter()"
 
-			e:
-				Nian : "http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html"
-				'_.countBy' : "http://underscorejs.org/#countBy"
-				reduce : "https://coffeescript-cookbook.github.io/chapters/arrays/reducing-arrays"
+	e:
+		Nian : "http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html"
+		'_.countBy' : "http://underscorejs.org/#countBy"
+		reduce : "https://coffeescript-cookbook.github.io/chapters/arrays/reducing-arrays"
 
-
-
-		ID223 = # Asserts:
-			b:"""
+ID223 = # Asserts:
+	b:"""
 # Här kan du se några klargörande exempel.
 # Om de två parametrarna till assert är olika, skrivs de ut till console.
 # Du kan prova egna asserts här. Kontrollera med F12.
@@ -259,6 +250,6 @@ assert [5,6,7,8,9][1...-2] , [6,7]
 assert [5,6,7,8,9][-2..]   , [8,9]
 
 """
-			a:""
-			e:
-				assert : "https://en.wikipedia.org/wiki/Assertion_(software_development)"
+	a:""
+	e:
+		assert : "https://en.wikipedia.org/wiki/Assertion_(software_development)"

@@ -1,9 +1,5 @@
-#####################################
-#	ch10 = # "LA: interactivity, advanced" :
-#####################################
-
-		ID200 = # Square : 
-			b: """
+ID200 = # Square : 
+	b: """
 # LOC:21 bg sw fc rd # rect rectMode translate + class extends constructor new @ super ->
 
 class Square extends Application
@@ -17,7 +13,7 @@ class Square extends Application
 
 square = new Square "b"
 """
-			a: """
+	a: """
 class Square extends Application
 	reset : ->
 		super
@@ -43,11 +39,11 @@ class Square extends Application
 
 square = new Square "a"
 """
-			c: 
-				square : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"   
+	c: 
+		square : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"   
 
-		ID201 = # BoardGame :
-			b:"""
+ID201 = # BoardGame :
+	b:"""
 # LOC:21 bg fc sc circle range # for in ->
 
 class Board extends Application
@@ -59,7 +55,7 @@ class Board extends Application
 
 board = new Board "b" 
 """
-			a:"""
+	a:"""
 
 class Board extends Application
 	reset : ->
@@ -85,10 +81,11 @@ class Board extends Application
 
 board = new Board "a" 
 """
-			c:
-				board : "reset()|r -1|r +1|d -1|d +1|n -1|n +1"
-		"OlympicRing Prep":
-			b:"""
+	c:
+		board : "reset()|r -1|r +1|d -1|d +1|n -1|n +1"
+		
+"OlympicRing Prep":
+	b:"""
 # LOC:21 sc fc sw # arc strokeCap class extends constructor new @ super ->
 
 class Ring extends Application
@@ -101,7 +98,7 @@ class Ring extends Application
 
 ring = new Ring "b"
 """
-			a:"""
+	a:"""
 class Ring extends Application
 	reset : ->
 		super
@@ -123,11 +120,11 @@ class Ring extends Application
 
 ring = new Ring "a"
 """
-			c: 
-				ring : "reset()|start -1|start +1|stopp -1|stopp +1|radius -1|radius +1|width -1|width +1"
+	c: 
+		ring : "reset()|start -1|start +1|stopp -1|stopp +1|radius -1|radius +1|width -1|width +1"
 
-		ID202 = # SevenSegment :
-			b : """
+ID202 = # SevenSegment :
+	b : """
 # LOC:26 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->
 
 class Digit extends Application
@@ -138,7 +135,7 @@ class Digit extends Application
 
 digit = new Digit "b"
 			"""
-			a:"""
+	a:"""
 class Digit extends Application
 	reset : ->
 		super
@@ -174,13 +171,13 @@ class Digit extends Application
 
 digit = new Digit "a"
 """
-			c: 
-				digit : "reset()|up()|down()"
-			e: 
+	c: 
+		digit : "reset()|up()|down()"
+	e: 
 				"7 segment" : "https://www.google.se/search?q=7+segment&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjg_5n55OrSAhWpZpoKHQP8DxoQ_AUIBigB&biw=1310&bih=945"
 
-		ID203 = # GoldenStar:
-			b: """
+ID203 = # GoldenStar:
+	b: """
 # LOC:23 bg fc range # for in triangle translate rotate cos sin class extends constructor new @ super ->
 
 class GoldenStar extends Application
@@ -192,7 +189,7 @@ class GoldenStar extends Application
 
 star = new GoldenStar "b"
 """
-			a: """
+	a: """
 class GoldenStar extends Application
 	reset : ->
 		super
@@ -220,11 +217,11 @@ class GoldenStar extends Application
 
 star = new GoldenStar "a"
 """
-			c:
-				star : "reset()|n -1|n +1|outer -1|outer +1|inner -1|inner +1"
+	c:
+		star : "reset()|n -1|n +1|outer -1|outer +1|inner -1|inner +1"
 		
-		ID204 = # Polygon:
-			b:"""
+ID204 = # Polygon:
+	b:"""
 # LOC:23 bg sc range # line for in cos sin radians class extends constructor new @ super ->
 
 class Turtle
@@ -240,7 +237,7 @@ class Polygon extends Application
 
 polygon = new Polygon "b"
 """
-			a:"""
+	a:"""
 class Turtle
 	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->
 	fd : (d) ->
@@ -271,14 +268,11 @@ class Polygon extends Application
 
 polygon = new Polygon "a"
 """
-			c:
-				polygon : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
+	c:
+		polygon : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
 
-
-
-
-		ID205 = # Alphanumeric:
-			b:"""
+ID205 = # Alphanumeric:
+	b:"""
 # LOC:29 bg sc fc range circle # for in & + - * ^ ** %% [] length splice dist
 #        push if then else class extends constructor new @ super ->
 
@@ -293,7 +287,7 @@ class AlphaNumeric extends Application
 
 alpha = new AlphaNumeric "b"
 """
-			a:"""
+	a:"""
 class AlphaNumeric extends Application
 	reset : -> 
 		super
@@ -327,15 +321,15 @@ class AlphaNumeric extends Application
 
 alpha = new AlphaNumeric "a"
 """
-			c:
-				alpha: "reset()|add()|del()|left()|right()"
-			e:
-				binärt : "http://www.matteboken.se/lektioner/matte-1/tal/talsystem"
-				hexadecimalt : "http://www.matteguiden.se/matte-1/grunder/binara-och-hexadecimala-tal"
-				'5x7 matris' : "https://www.google.se/search?q=5x7+matrix&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjWjYen5OrSAhXhJ5oKHf8BBmgQ_AUIBigB&biw=1310&bih=945&dpr=1.1"
+	c:
+		alpha: "reset()|add()|del()|left()|right()"
+	e:
+		binärt : "http://www.matteboken.se/lektioner/matte-1/tal/talsystem"
+		hexadecimalt : "http://www.matteguiden.se/matte-1/grunder/binara-och-hexadecimala-tal"
+		'5x7 matris' : "https://www.google.se/search?q=5x7+matrix&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjWjYen5OrSAhXhJ5oKHf8BBmgQ_AUIBigB&biw=1310&bih=945&dpr=1.1"
 
-		ID206 = # Korg: 
-			b:"""
+ID206 = # Korg: 
+	b:"""
 # LOC:27 -> bg fc sc sw # rect for if else class extends constructor new @ super ->
 
 class Korg extends Application
@@ -348,7 +342,7 @@ class Korg extends Application
 
 korg = new Korg "b"
 """
-			a: """
+	a: """
 class Korg extends Application
 	reset : ->
 		super
@@ -381,11 +375,11 @@ class Korg extends Application
 
 korg = new Korg "a"
 """
-			c: 
-				korg : "reset()|more()|less()|thinner()|thicker()"
+	c: 
+		korg : "reset()|more()|less()|thinner()|thicker()"
 
-		ID207 = # Korsord :
-			b: """
+ID207 = # Korsord :
+	b: """
 # LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in 
 #        "" split join _.filter class constructor new @ extends super [] length
 # Mata in t ex b..l och få ut bill samt boll.
@@ -396,7 +390,7 @@ class Korsord extends Application
 	enter : -> 
 korsord = new Korsord "b"
 """
-			a:"""
+	a:"""
 class Korsord extends Application
 	reset : -> 
 		print "reset"
@@ -429,21 +423,16 @@ class Korsord extends Application
 
 korsord = new Korsord "a"
 """
-			c:
-				korsord : "reset()|enter()"
+	c:
+		korsord : "reset()|enter()"
 
-			e:
-				'_.some' : "http://underscorejs.org/#some"
-				'_.filter' : "http://underscorejs.org/#filter"
-				'_.countBy' : "http://underscorejs.org/#countBy"
+	e:
+		'_.some' : "http://underscorejs.org/#some"
+		'_.filter' : "http://underscorejs.org/#filter"
+		'_.countBy' : "http://underscorejs.org/#countBy"
 
-				
-
-
-
-
-		ID208 = # EngineeringNotation :
-			b:"""		
+ID208 = # EngineeringNotation :
+	b:"""		
 # LOC:28 fc sc bg # Math.floor Math.log10 constrain + - * / < ** text split
 #        textAlign textSize class extends constructor new @ super ->
 
@@ -454,7 +443,7 @@ class Engineering extends Application
 	less  : -> 
 engineering = new Engineering "b"   		
 """
-			a:"""
+	a:"""
 class Engineering extends Application
 	reset : -> 
 		super
@@ -486,7 +475,7 @@ class Engineering extends Application
 
 engineering = new Engineering "a"   		
 """
-			c:
-				engineering : "reset()|more()|less()"
-			e:
-				EngineeringNotation : "https://en.wikipedia.org/wiki/Engineering_notation"
+	c:
+		engineering : "reset()|more()|less()"
+	e:
+		EngineeringNotation : "https://en.wikipedia.org/wiki/Engineering_notation"

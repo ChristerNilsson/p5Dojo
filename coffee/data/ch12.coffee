@@ -1,7 +1,5 @@
-	# ch12 =
-
-		ID240 = # Klocka: 
-			b: """
+ID240 = # Klocka: 
+	b: """
 # LOC:44 fc sc circle range rd # point rect rectMode for in if then else 
 #        translate push pop class extends constructor new @ super ->
 
@@ -14,7 +12,7 @@ class Klocka extends Application
 
 klocka = new Klocka "b"
 			"""
-			a: """
+	a: """
 class Klocka extends Application
 	reset : -> 
 		super
@@ -64,12 +62,11 @@ class Klocka extends Application
 
 klocka = new Klocka "a"
 """
-			c: 
-				klocka : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
+	c: 
+		klocka : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
 
-
-		ID241 = # BouncingBalls :
-			b : """
+ID241 = # BouncingBalls :
+	b : """
 # LOC: 43 fc sw sc circle # + ++ - -- %% == push if then for in 
 #         splice length _.create class constructor super extends new @
 
@@ -100,7 +97,7 @@ class BouncingBalls extends Application
 bouncingBalls = new BouncingBalls "b"
 """
 
-			a:"""
+	a:"""
 class Ball 
 	constructor : ->
 		@x = 100
@@ -156,13 +153,11 @@ class BouncingBalls extends Application
 
 bouncingBalls = new BouncingBalls "a"
 """
-			c:
-				bouncingBalls : "reset()|update()|add()|delete()|selNext()|selPrev()|grow()|shrink()|nextCol()|prevCol()|gravity()"
-
-
+	c:
+		bouncingBalls : "reset()|update()|add()|delete()|selNext()|selPrev()|grow()|shrink()|nextCol()|prevCol()|gravity()"
 		
-		ID242 = # Braider:
-			b : """
+ID242 = # Braider:
+	b : """
 # LOC: 49 sc bg sw range # for in if then + line class constructor extends new @
 
 class Cartesius
@@ -180,7 +175,7 @@ class Braider extends Application
 braider = new Braider "b"
 """
 
-			a:"""
+	a:"""
 class Cartesius
 	constructor : (@x,@y,@c) ->
 	go : (dx,dy) ->
@@ -247,14 +242,14 @@ class Braider extends Application
 
 braider = new Braider "a"
 """
-			c:
-				braider : "braid 1|braid 2|braid 3|braid 4|forward()|back()"
+	c:
+		braider : "braid 1|braid 2|braid 3|braid 4|forward()|back()"
 
-			e:
-				braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
+	e:
+		braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
 
-		ID243 = # ColorPair :
-			b: """
+ID243 = # ColorPair :
+	b: """
 # LOC:41 fc circle # [] .. push dist length splice _.isEqual colorMode HSB
 #        for in class extends constructor new @ super ->
 
@@ -268,7 +263,7 @@ class ColorPair extends Application
 	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
 colorpair = new ColorPair "b"
 """
-			a:"""
+	a:"""
 class ColorPair extends Application
 	reset : -> 
 		super
@@ -319,13 +314,13 @@ class ColorPair extends Application
 
 colorpair = new ColorPair "a"
 """
-			c:
-				colorpair : "reset()"
-			e: 
-				ColorPair : "https://christernilsson.github.io/ColorPair"
+	c:
+		colorpair : "reset()"
+	e: 
+		ColorPair : "https://christernilsson.github.io/ColorPair"
 
-		ID244 = # Kalkylator:
-			b:"""
+ID244 = # Kalkylator:
+	b:"""
 # LOC:46 bg sc fc range @readText # + - * / of {} in [] shift unshift 
 #        text textSize textAlign length for Math.sqrt Math.PI splice 
 #        parseFloat "" split class extends constructor new @ super ->
@@ -347,7 +342,7 @@ class Kalkylator extends Application
 
 kalkylator = new Kalkylator "b"
 """
-			a:"""
+	a:"""
 class Kalkylator extends Application
 	reset : ->
 		super
@@ -400,19 +395,19 @@ class Kalkylator extends Application
 
 kalkylator = new Kalkylator "a"
 """
-			c:
-				kalkylator : "reset()|chs()|swap()|drop()|dup()|sqrt()|clr()|pi()|enter()"
-			e:
-				parseInt : "https://www.w3schools.com/jsref/jsref_parseint.asp"
-				stack : "https://sv.wikipedia.org/wiki/Stack_(datastruktur)"
-				split : "https://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
-				"Omvänd Polsk Notation" : "https://sv.wikipedia.org/wiki/Omv%C3%A4nd_polsk_notation"
-				RPN : "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
-				"HP-35" : "https://neil.fraser.name/software/hp-35"
-				"Forth Haiku" : "http://forthsalon.appspot.com/word-list"
+	c:
+		kalkylator : "reset()|chs()|swap()|drop()|dup()|sqrt()|clr()|pi()|enter()"
+	e:
+		parseInt : "https://www.w3schools.com/jsref/jsref_parseint.asp"
+		stack : "https://sv.wikipedia.org/wiki/Stack_(datastruktur)"
+		split : "https://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
+		"Omvänd Polsk Notation" : "https://sv.wikipedia.org/wiki/Omv%C3%A4nd_polsk_notation"
+		RPN : "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
+		"HP-35" : "https://neil.fraser.name/software/hp-35"
+		"Forth Haiku" : "http://forthsalon.appspot.com/word-list"
 
-		ID245 = # Hex:
-			b:"""
+ID245 = # Hex:
+	b:"""
 # LOC:49 bg fc sc range # + * - % < == != dist for in [] push pop length quad circle
 #        if then else text textAlign textSize class extends constructor new @ super ->
 
@@ -425,7 +420,7 @@ class Hex extends Application
 hex = new Hex "b"
 """
 
-			a:"""
+	a:"""
 class Hex extends Application
 	reset : ->
 		super
@@ -482,13 +477,13 @@ class Hex extends Application
 
 hex = new Hex "a"
 """
-			c:
-				hex : "reset()|newGame()|undo()"
-			e: 
-				Hex : "https://en.wikipedia.org/wiki/Hex_(board_game)"
+	c:
+		hex : "reset()|newGame()|undo()"
+	e: 
+		Hex : "https://en.wikipedia.org/wiki/Hex_(board_game)"
 
-		ID246 = # PickingBerries :
-			b:"""
+ID246 = # PickingBerries :
+	b:"""
 # LOC:46 bg sc fc sw # [] * + line text textSize textAlign constrain dist 
 #        splice break for in class extends constructor new @ super ->
 
@@ -507,7 +502,7 @@ class PickingBerries extends Application
 
 berries = new PickingBerries "b"
 """
-			a:"""
+	a:"""
 class PickingBerries extends Application
 
 	reset : ->
@@ -578,6 +573,6 @@ class PickingBerries extends Application
 
 berries = new PickingBerries "a"
 			"""
-			c:
-				berries : "reset()|left()|right()|up()|down()|snailSpeed()|slowSpeed()|highSpeed()|warpSpeed()|pick()"
+	c:
+		berries : "reset()|left()|right()|up()|down()|snailSpeed()|slowSpeed()|highSpeed()|warpSpeed()|pick()"
 

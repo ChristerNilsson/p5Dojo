@@ -1,7 +1,5 @@
-#	ch13 = 
-
-		ID260 = # Nim:
-			b:"""		
+ID260 = # Nim:
+	b:"""		
 # LOC:62 bg fc sc circle # * + - ^ if then else _.isEqual return <  
 #        constrain text textAlign textSize class extends constructor new @ super ->
 
@@ -18,7 +16,7 @@ class Nim extends Application
 	mousePressed : (mx,my) ->
 nim = new Nim "b"  
 """
-			a:"""
+	a:"""
 class Nim extends Application
 	reset : -> 
 		super
@@ -94,15 +92,15 @@ class Nim extends Application
 nim = new Nim "a"   
 		
 """
-			c:
-				nim : "reset()|newGame()"
-			e:
-				Nim : "https://en.wikipedia.org/wiki/Nim"
-				xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"
-				Nimrod : "https://en.wikipedia.org/wiki/Nimrod_(computing)"
+	c:
+		nim : "reset()|newGame()"
+	e:
+		Nim : "https://en.wikipedia.org/wiki/Nim"
+		xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"
+		Nimrod : "https://en.wikipedia.org/wiki/Nimrod_(computing)"
 
-		ID261 = # ChessGame :
-			b:"""
+ID261 = # ChessGame :
+	b:"""
 # LOC:64 bg fc sc sw range # point rect rectMode class constructor new @
 #        if then else text textSize textAlign for in push split length indexOf
 
@@ -113,7 +111,7 @@ class Chess extends Application
 
 chess = new Chess "b"
 """
-			a:"""
+	a:"""
 class Chess extends Application
 
 	reset : ->
@@ -193,13 +191,11 @@ class Chess extends Application
 chess = new Chess "a"
 
 """
-			c:
-				chess : "reset()|move -1|move 1"
+	c:
+		chess : "reset()|move -1|move 1"
 
-
-
-		ID262 = # "Nand2Tetris ALU" :
-			b: """
+ID262 = # "Nand2Tetris ALU" :
+	b: """
 # LOC:63 sc fc sw range # text textAlign textSize class extends constructor new @ super ->
 #        point quad dist for in if then else << - -- + ++ * != & ^ ~ split
 # Se länken Nand2Tetris, sidan 36, för mer information!
@@ -210,7 +206,7 @@ class ALU extends Application
 	mousePressed : (mx,my) ->	
 alu = new ALU "b"
 """
-			a:"""
+	a:"""
 class ALU extends Application
 	reset : -> 
 		super
@@ -281,13 +277,13 @@ class ALU extends Application
 
 alu = new ALU "a"
 """
-			c:
-				alu : "reset()"
-			e:
-				Nand2Tetris : "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
+	c:
+		alu : "reset()"
+	e:
+		Nand2Tetris : "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
 
-		ID263 = # RushHour :
-			b:"""
+ID263 = # RushHour :
+	b:"""
 # LOC:71 bg sc fc range # / % + * - == >= ++ -- "" [] {} push class extends constructor new @ super ->
 #        rect text textAlign for in if then else toLowerCase indexOf _.create prototype length @readText
 
@@ -329,7 +325,7 @@ class RushHour extends Application
 rushHour = new RushHour "b"
 
 """
-			a:"""
+	a:"""
 class Car
 	constructor : (ch,wh,@c) ->
 		index = "0123456789abcdefghijklmnopqrstuvwxyz".indexOf ch
@@ -414,13 +410,13 @@ class RushHour extends Application
 
 rushHour = new RushHour "a"
 """
-			c:
-				rushHour : "reset()|enter_cars()|enter_move()|begin()|backward()|forward()|end()" # |hint()|undo()
-			e:
-				RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
+	c:
+		rushHour : "reset()|enter_cars()|enter_move()|begin()|backward()|forward()|end()" # |hint()|undo()
+	e:
+		RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
 
-		ID264 = # RubikSquare:
-			b:"""		
+ID264 = # RubikSquare:
+	b:"""		
 # LOC:85 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not "" split join
 #         parseInt _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
 # OBS: Du bör använda variabeln rubikSquareData.
@@ -431,7 +427,7 @@ class RubikSquare extends Application
 	mousePressed : (mx,my) ->
 rubiksquare = new RubikSquare "b"   
 """
-			a:"""
+	a:"""
 class RubikSquare extends Application
 	reset : -> 
 		super
@@ -528,7 +524,5 @@ class RubikSquare extends Application
 rubiksquare = new RubikSquare "a"   
 		
 """
-			c:
-				rubiksquare : "reset()"
-
-		
+	c:
+		rubiksquare : "reset()"

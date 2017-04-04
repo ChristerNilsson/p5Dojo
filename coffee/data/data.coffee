@@ -102,6 +102,7 @@ data =
 
 	"L9: interactivity, basic" : # ch09
 		Counter:ID180
+		ClickDetector:ID188
 		Stopwatch:ID181
 		RandomDice:ID182
 		Moire:ID183

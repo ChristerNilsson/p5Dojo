@@ -1,13 +1,9 @@
-#####################################
-#	ch08 = # "L8: function, class" : 
-#####################################
-
-		ID160 = # ManyDices: 
-			b : """
+ID160 = # ManyDices: 
+	b : """
 # LOC:20 -> fc # for in if then point [] % -> ==
 
 """
-			a:"""
+	a:"""
 dots = (x,y,dots) ->
 	for dot in dots
 		if dot==1 then point x+8,y+8
@@ -32,8 +28,8 @@ for i in range 10
 """
 		
 
-		ID161 = # Girlang :
-			b:"""
+ID161 = # Girlang :
+	b:"""
 # LOC: 16 sc bg sw range # for in line class constructor new @
 
 class Cartesius
@@ -44,7 +40,7 @@ girlang = (x,y,n,width,dx,dy) ->
 
 girlang 0,0,9,5,20,20
 """		
-			a:"""
+	a:"""
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
@@ -68,8 +64,8 @@ girlang = (x,y,n,width,dx,dy) ->
 girlang 0,0,9,5,20,20			
 """
 
-		ID162 = # Braid:
-			b : """
+ID162 = # Braid:
+	b : """
 # LOC: 19 sc bg sw range # for in line class constructor new @
 
 class Cartesius
@@ -81,7 +77,7 @@ braid = (n,dx,dy,width) ->
 braid 5,18,18,6
 """
 
-			a:"""
+	a:"""
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
@@ -109,11 +105,11 @@ braid = (n,dx,dy,width) ->
 
 braid 5,18,18,6
 """
-			e:
-				braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
+	e:
+		braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
 
-		ID163 = # OlympicRings:
-			b: """
+ID163 = # OlympicRings:
+	b: """
 			# LOC:24 sc bg fc sw # arc strokeCap class constructor new @
 
 			class Ring
@@ -124,7 +120,7 @@ braid 5,18,18,6
 
 			olympic()
 			"""
-			a: """
+	a: """
 class Ring
 	constructor : (@x,@y,@radius, @r,@g,@b) ->
 	draw : (start=3,stopp=3,hour=PI/6) ->

@@ -1,9 +1,5 @@
-#####################################
-#	ch09 = # "L9: interactivity, basic" : 
-#####################################
-
-		ID180 = # Counter :
-			b:"""
+ID180 = # Counter :
+	b:"""
 # LOC:12 bg fc sc # text textAlign textSize + - class extends constructor new @ super ->
 # Klicka på reset() om du får ett felmeddelande!
 
@@ -16,7 +12,7 @@ class Counter extends Application
 
 counter = new Counter "b"     
 """
-			a:"""
+	a:"""
 class Counter extends Application
 	reset : -> 
 		super
@@ -34,11 +30,11 @@ class Counter extends Application
 
 counter = new Counter "a"   		
 """
-			c:
-				counter : "reset()|up()|down()"
+	c:
+		counter : "reset()|up()|down()"
 
-		ID181 = # Stopwatch:
-			b:"""
+ID181 = # Stopwatch:
+	b:"""
 # LOC:17 bg sc fc # for in [] '' text textSize textAlign textFont monospace
 #        int millis nf length unshift class extends constructor new @ super ->
 # OBS! Tiderna kan skilja med flera millisekunder. Sorry!
@@ -49,7 +45,7 @@ class Stopwatch extends Application
 	stopp : -> 
 stopwatch = new Stopwatch "b"
 """
-			a:"""
+	a:"""
 class Stopwatch extends Application
 	reset : -> 
 		super
@@ -73,11 +69,11 @@ class Stopwatch extends Application
 
 stopwatch = new Stopwatch "a"
 """
-			c:
-				stopwatch: "reset()|stopp()"
+	c:
+		stopwatch: "reset()|stopp()"
 				
-		ID182 = # RandomDice :
-			b: """
+ID182 = # RandomDice :
+	b: """
 # LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   
 #        for in class extends constructor new @ super ->
 
@@ -91,7 +87,7 @@ class RandomDice extends Application
 	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
 randomdice = new RandomDice "b"
 """
-			a:"""
+	a:"""
 class RandomDice extends Application
 	reset : -> 
 		super
@@ -114,11 +110,11 @@ class RandomDice extends Application
 
 randomdice = new RandomDice "a"
 """
-			c:
-				randomdice : "reset()"
+	c:
+		randomdice : "reset()"
 
-		ID183 = # Moire: 
-			b:"""
+ID183 = # Moire: 
+	b:"""
 # LOC:10 bg # for line map class extends constructor new @ super ->
 
 class Moire extends Application
@@ -129,7 +125,7 @@ class Moire extends Application
 
 moire = new Moire "b"
 			"""
-			a: """
+	a: """
 class Moire extends Application
 	reset : ->
 		super
@@ -144,12 +140,12 @@ class Moire extends Application
 
 moire = new Moire "a"
 """
-			c: 
-				moire : "reset()|more()|less()"
+	c: 
+		moire : "reset()|more()|less()"
 
 
-		ID184 = # ColorCube:
-			b: """
+ID184 = # ColorCube:
+	b: """
 # LOC:17 -> bg fc range # for in rect class extends constructor new @ super ->
 
 class ColorCube extends Application
@@ -162,7 +158,7 @@ class ColorCube extends Application
 
 cc = new ColorCube "b"
 """
-			a: """
+	a: """
 class ColorCube extends Application
 	draw : ->
 		bg 0
@@ -185,12 +181,12 @@ class ColorCube extends Application
 
 cc = new ColorCube "a"
 """
-			c: 
-				cc : "reset()|moreDetails()|lessDetails()|moreBlue()|lessBlue()"
+	c: 
+		cc : "reset()|moreDetails()|lessDetails()|moreBlue()|lessBlue()"
 
 
-		ID185 = # Guess_a_number :
-			b:"""
+ID185 = # Guess_a_number :
+	b:"""
 # LOC:20 bg fc sc range @readInt # text textAlign for in if then else * / + - % <=
 #        int class extends constructor new @ super ->
 
@@ -201,7 +197,7 @@ class Guess extends Application
 
 guess = new Guess "b"
 """
-			a:"""
+	a:"""
 class Guess extends Application
 	reset : ->
 		super
@@ -227,14 +223,14 @@ class Guess extends Application
 
 guess = new Guess "a"
 			"""
-			c:
-				guess : "reset()|readGuess()"
+	c:
+		guess : "reset()|readGuess()"
 
 
 
 
-		ID186 = # RecursiveCircle: 
-			b: """
+ID186 = # RecursiveCircle: 
+	b: """
 # LOC:10 -> sc circle # if return < class extends constructor new @ super ->
 
 class RecursiveCircle extends Application
@@ -246,7 +242,7 @@ class RecursiveCircle extends Application
 
 rc = new RecursiveCircle "b"
 """
-			a: """
+	a: """
 
 class RecursiveCircle extends Application
 	reset : -> 
@@ -263,11 +259,11 @@ class RecursiveCircle extends Application
 
 rc = new RecursiveCircle "a"
 """
-			c:
-				rc : "reset()|more()|less()"
+	c:
+		rc : "reset()|more()|less()"
 
-		ID187 = # Laboratorium :
-			b:"""		
+ID187 = # Laboratorium :
+	b:"""		
 # Här kan du laborera med egna idéer!
 
 class Laboratorium extends Application
@@ -295,7 +291,7 @@ class Laboratorium extends Application
 
 laboratorium = new Laboratorium "b"     
 """
-			a:"""
+	a:"""
 class Laboratorium extends Application
 	reset : -> super
 	draw : -> 
@@ -312,5 +308,39 @@ class Laboratorium extends Application
 
 laboratorium = new Laboratorium "a"   		
 """
-			c:
-				laboratorium : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
+	c:
+		laboratorium : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
+
+ID188 = # ClickDetector :
+	b:"""		
+# LOC:16 circle # {} class extends constructor new @ super ->
+#        if then < and / ++ + - text textAlign textSize rectMode 
+
+class ClickDetector extends Application
+	reset : -> super
+	draw  : -> super
+	mousePressed : (mx,my) ->
+clickdetector = new ClickDetector "b"   		
+"""
+	a:"""
+class ClickDetector extends Application
+	reset : -> 
+		super
+		@a = {x:70,y:70,radius:50,counter:0}
+		@b = {x:130,y:130,w:100,h:100,counter:0}
+	draw : -> 
+		rectMode CENTER
+		textAlign CENTER,CENTER
+		textSize 50
+		rect @b.x,@b.y,@b.w,@b.h
+		text @b.counter,@b.x,@b.y
+		circle @a.x,@a.y,@a.radius
+		text @a.counter,@a.x,@a.y
+	mousePressed : (mx,my) ->
+		if dist(mx,my,@a.x,@a.y) < @a.radius then @a.counter++ 
+		if @b.x-@b.w/2 < mx < @b.x+@b.w/2 and @b.y-@b.h/2 < my < @b.y+@b.h/2 then @b.counter++ 
+
+clickdetector = new ClickDetector "a"   		
+"""
+	c:
+		clickdetector : "reset()"

@@ -2,7 +2,7 @@
 var ID000, ID001, ID002, ID003, ID004, ID005, ID006, ID007, ID008, ID009, ID010, ID011, ID012, ID013, ID014, ID015;
 
 ID000 = {
-  b: "# NYHETER 2017 APR 08\n#   LB: Hex\n# NYHETER 2017 APR 01\n#   LB: Nand2Tetris ALU\n#   LB: RandomDice ColorPair RubikSquare\n# NYHETER 2017 MAR 26\n#   L9: EngineeringNotation\n#   LA: Stopwatch\n#   LB: Kalkylator Nian Korsord\n# NYHETER 2017 MAR 19\n#   LA: PickingBerries\n# NYHETER 2017 MAR 12\n#   L7: Roulette\n# NYHETER 2017 MAR 5\n#   L6: Two Arcs\n#   L9: BoardGame, SevenSegment, OlympicRing\n#   LA: Connect4, RushHour, Girlang, Braid, OlympicRings, ChessGame\n#   LB: Alphanumeric, GoldenStar, SpaceShip\n\n# Klicka nu på L1!\n\n# Eller besök Utställningen.\n# Dessa program är skapade av deltagare på p5Dojo.\n# Vill du också visa upp ditt alster? \n#   Skicka i så fall koden till p5dojo@googlegroups.com ",
+  b: "# NYHETER 2017 APR 08\n#   L9: ClickDetector\n#   LC: Hex\n# NYHETER 2017 APR 01\n#   L9: RandomDice C\n#   LC: ColorPair \n#   LD: Nand2Tetris ALU RubikSquare\n# NYHETER 2017 MAR 26\n#   L9: Stopwatch\n#   LA: Korsord EngineeringNotation\n#   LB: Nian\n#   LC: Kalkylator\n# NYHETER 2017 MAR 19\n#   LC: PickingBerries\n# NYHETER 2017 MAR 12\n#   L7: Roulette\n# NYHETER 2017 MAR 5\n#   L6: Two Arcs\n#   L8: Girlang, Braid, OlympicRings\n#   LA: GoldenStar, Alphanumeric, BoardGame, SevenSegment\n#   LB: Connect4, SpaceShip\n#   LD: RushHour, ChessGame\n\n# Klicka nu på L1!\n\n# Eller besök Utställningen.\n# Dessa program är skapade av deltagare på p5Dojo.\n# Vill du också visa upp ditt alster? \n#   Skicka i så fall koden till p5dojo@googlegroups.com ",
   a: ""
 };
 

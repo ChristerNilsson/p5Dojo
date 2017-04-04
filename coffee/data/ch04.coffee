@@ -1,9 +1,5 @@
-#####################################
-#	ch04= # "L4: for lerp rect" : 
-#####################################
-
-		ID080 = # HorizontalSquares: 
-			b:"""
+ID080 = # HorizontalSquares: 
+	b:"""
 # LOC:3 range # rect for in lerp 
 
 rect  5,5,10,10
@@ -12,32 +8,32 @@ for i in range 5
 	x = lerp 5,25,i 
 	rect
 """
-			a:"""
+	a:"""
 for i in range 10
 	x = 5+20*i
 	rect x,5, 10,10
 """
 
-		ID081 = # VerticalSquares: 
-			b:"# LOC:3 range # rect for in lerp\n"
-			a:"""
+ID081 = # VerticalSquares: 
+	b:"# LOC:3 range # rect for in lerp\n"
+	a:"""
 for i in range 10
 	y = 5+20*i
 	rect 5,y, 10,10
 """
 
-		ID082 = # DiagonalSquares: 
-			b:"# LOC:4 range # rect for in lerp\n"
-			a:"""
+ID082 = # DiagonalSquares: 
+	b:"# LOC:4 range # rect for in lerp\n"
+	a:"""
 for i in range 10
 	x = 5+20*i
 	y = 5+20*i
 	rect x,y, 10,10
 """
 
-		ID083 = # DoubleForLoop: 
-			b:"# LOC:5 range # rect for in lerp\n"
-			a:"""
+ID083 = # DoubleForLoop: 
+	b:"# LOC:5 range # rect for in lerp\n"
+	a:"""
 for i in range 10
 	for j in range 10
 		x = 5+20*i
@@ -45,9 +41,9 @@ for i in range 10
 		rect x,y, 10,10
 """
 
-		ID084 = # GrowingSquares: 
-			b:"# LOC:7 range # rect rectMode for in lerp\n"
-			a:"""
+ID084 = # GrowingSquares: 
+	b:"# LOC:7 range # rect rectMode for in lerp\n"
+	a:"""
 rectMode CENTER
 for i in range 10
 	x = 10+20*i
@@ -57,9 +53,9 @@ for i in range 10
 	rect x,y, w,h
 """
 
-		ID085 = # GrowingRedSquares: 
-			b:"# LOC:8 fc range # for in lerp rect rectMode\n"
-			a:"""
+ID085 = # GrowingRedSquares: 
+	b:"# LOC:8 fc range # for in lerp rect rectMode\n"
+	a:"""
 rectMode CENTER
 for i in range 10
 	fc i/10.0,0,0
@@ -70,9 +66,9 @@ for i in range 10
 	rect x,y,w,h
 """
 
-		ID086 = # GrowingCircles: 
-			b:"# LOC:6 range fc circle # for in lerp\n"
-			a:"""
+ID086 = # GrowingCircles: 
+	b:"# LOC:6 range fc circle # for in lerp\n"
+	a:"""
 for i in range 10
 	fc i/10.0,0,0
 	x = 10+20*i
@@ -81,20 +77,20 @@ for i in range 10
 	circle x,y,r
 """
 
-		ID087 = # ShrinkingCircles: 
-			b:"# LOC:4 range fc circle # for in lerp\n"
-			a:"""
+ID087 = # ShrinkingCircles: 
+	b:"# LOC:4 range fc circle # for in lerp\n"
+	a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
 	r = 10 * i
 	circle 100,100, r
 """
 
-		ID088 = # RedCone: 
-			b:"""
+ID088 = # RedCone: 
+	b:"""
 # LOC:6 range fc circle # for in lerp
 """
-			a:"""
+	a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
 	x = 10*i
@@ -103,11 +99,11 @@ for i in range 10,0,-1
 	circle x,y,r
 """
 
-		ID089 = # PentaLerp: 
-			b:"""
+ID089 = # PentaLerp: 
+	b:"""
 # LOC:11 bg sc fc range circle # for in lerp
 """
-			a:"""
+	a:"""
 bg 0.5
 sc()
 for i in range 10

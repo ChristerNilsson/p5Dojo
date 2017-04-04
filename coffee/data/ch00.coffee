@@ -1,27 +1,27 @@
-#####################################
-#ch00 = # Nyheter :
-#####################################
-
-	ID000 = # Nyheter :
-		b:"""
+ID000 = # Nyheter :
+	b:"""
 # NYHETER 2017 APR 08
-#   LB: Hex
+#   L9: ClickDetector
+#   LC: Hex
 # NYHETER 2017 APR 01
-#   LB: Nand2Tetris ALU
-#   LB: RandomDice ColorPair RubikSquare
+#   L9: RandomDice C
+#   LC: ColorPair 
+#   LD: Nand2Tetris ALU RubikSquare
 # NYHETER 2017 MAR 26
-#   L9: EngineeringNotation
-#   LA: Stopwatch
-#   LB: Kalkylator Nian Korsord
+#   L9: Stopwatch
+#   LA: Korsord EngineeringNotation
+#   LB: Nian
+#   LC: Kalkylator
 # NYHETER 2017 MAR 19
-#   LA: PickingBerries
+#   LC: PickingBerries
 # NYHETER 2017 MAR 12
 #   L7: Roulette
 # NYHETER 2017 MAR 5
 #   L6: Two Arcs
-#   L9: BoardGame, SevenSegment, OlympicRing
-#   LA: Connect4, RushHour, Girlang, Braid, OlympicRings, ChessGame
-#   LB: Alphanumeric, GoldenStar, SpaceShip
+#   L8: Girlang, Braid, OlympicRings
+#   LA: GoldenStar, Alphanumeric, BoardGame, SevenSegment
+#   LB: Connect4, SpaceShip
+#   LD: RushHour, ChessGame
 
 # Klicka nu på L1!
 
@@ -30,15 +30,15 @@
 # Vill du också visa upp ditt alster? 
 #   Skicka i så fall koden till p5dojo@googlegroups.com 
 """
-		a:"""
+	a:"""
 """
 
-	ID001 = # clown:
-		b:"""
+ID001 = # clown:
+	b:"""
 # LOC:30 bg circle fc sc sw # line lerp (David Larsson)
 
 """
-		a:"""
+	a:"""
 bg 0, 1, 0, 0.5
 fc 1, 0, 0
 circle 10, 10, 5
@@ -71,12 +71,12 @@ sc 1, 0, 0
 circle 100, 100, 10
 """
 
-	ID002 = #tomteluva:
-		b:"""
+ID002 = #tomteluva:
+	b:"""
 # LOC:12 circle fc sc triangle (Sabrina Larsson)
 
 """
-		a:"""
+	a:"""
 bg 0,1,0
 fc 1,0,0
 sc 1,0,0
@@ -91,12 +91,12 @@ circle 140,140,10
 circle 100,60,10		
 """
 
-	ID003 = # snowman:
-		b:"""
+ID003 = # snowman:
+	b:"""
 # LOC:21 circle fc line sc triangle (David Larsson)
 
 """
-		a:"""
+	a:"""
 fc 1
 circle 100, 150, 50
 circle 100, 70, 40
@@ -120,12 +120,12 @@ sc 1
 rect 2, 180, 196, 20
 """
 
-	ID004 = # christmasTree:
-		b:"""
+ID004 = # christmasTree:
+	b:"""
 # LOC:35 bg circle fc line rect quad sc triangle (Sabrina Larsson)
 
 """
-		a:"""
+	a:"""
 bg 0 
 fc 0, 1, 0 
 sc 0, 1, 0 
@@ -164,12 +164,12 @@ circle 160, 130, 5
 circle 190, 180, 5 
 """
 
-	ID005 = # santa:
-		b:"""
+ID005 = # santa:
+	b:"""
 # LOC:18 bg circle ellipse fc rect quad sc triangle (Sabrina Larsson)
 
 """
-		a:"""
+	a:"""
 bg 0,0,1
 fc 1,0,0
 sc 1,0,0
@@ -190,12 +190,12 @@ rect 80,100,40,60
 triangle 100,140,0,200,200,200
 """
 
-	ID006= # dist: 
-		b:"""
+ID006= # dist: 
+	b:"""
 # LOC:10 bg circle dist fc lerp map sc
 
 """
-		a:"""
+	a:"""
 bg 0
 fc 1
 sc()
@@ -208,12 +208,12 @@ for i in range 10
 		circle x,y,r
 """ 
 		
-	ID007 = # bulge: 
-		b:"""
+ID007 = # bulge: 
+	b:"""
 # LOC:10 bg circle dist fill map noStroke sin
 
 """
-		a:"""
+	a:"""
 bg 0
 fill 255
 noStroke()
@@ -225,12 +225,12 @@ for i in range 20
 		circle x,y,r
 """
 
-	ID008 = # wave: 
-		b:"""
+ID008 = # wave: 
+	b:"""
 # LOC:9 circle colorMode fill map noStroke sin PI
 
 """
-		a:"""
+	a:"""
 colorMode HSB,360,100,100
 noStroke()
 bg 0
@@ -242,12 +242,12 @@ for i in range 21
 	circle x,y,3
 """
 
-	ID009 = # circle: 
-		b:"""
+ID009 = # circle: 
+	b:"""
 # LOC:10 bg circle colorMode cos fc map PI sc sin
 
 """
-		a:"""
+	a:"""
 bg 0
 colorMode HSB,360,100,100
 for i in range 20
@@ -260,12 +260,12 @@ for i in range 20
 	circle x,y,3
 """
 	
-	ID010 = # circles: 
-		b:"""
+ID010 = # circles: 
+	b:"""
 # LOC:12 bg circle colorMode cos fill map noStroke translate sin PI
 
 """
-		a:"""
+	a:"""
 bg 0
 noStroke()
 colorMode HSB,360,100,100
@@ -280,12 +280,12 @@ for i in range 20
 		circle x,y,r
 """
 		
-	ID011 = # sized_circles: 
-		b:"""
+ID011 = # sized_circles: 
+	b:"""
 # LOC:12 circle colorMode cos fill map noStroke PI sin translate
 
 """
-		a:"""
+	a:"""
 bg 0
 noStroke()
 colorMode HSB,360,100,100
@@ -300,12 +300,12 @@ for i in range 20
 		circle x,y,r
 """
 		
-	ID012 = # rotated_circles: 
-		b:"""
+ID012 = # rotated_circles: 
+	b:"""
 # LOC:17 circle cos map PI push pop rotate sin translate
 
 """
-		a:"""
+	a:"""
 colorMode HSB,360,100,100
 sc()
 bg 0
@@ -323,12 +323,12 @@ for i in range 20
 		pop()
 """
 
-	ID013 = # gravity : 
-		b: """
+ID013 = # gravity : 
+	b: """
 # LOC:6 circle lerp
 
 """
-		a: """
+	a: """
 fc 1
 for i in range 15
 	x=5+10*i
@@ -336,11 +336,11 @@ for i in range 15
 	circle x,y,5
 """
 
-	ID014 = # hypnoticA : 
-		b: """
+ID014 = # hypnoticA : 
+	b: """
 # LOC:6 -> bg circle cos fc sc sin
 """
-		a: """
+	a: """
 bg 0.5, 0, 0
 sc()
 fc 1
@@ -350,11 +350,11 @@ for i in range 100
 	circle x, y, 5
 """
 
-	ID015 = # hypnoticB : 
-		b: """
+ID015 = # hypnoticB : 
+	b: """
 # LOC:7 -> bg circle cos fc map sc sin
 """
-		a: """
+	a: """
 bg 0.5, 0, 0
 sc()
 fc 1
