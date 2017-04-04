@@ -182,20 +182,19 @@ function f(a,b) {
 
 ### Interaktivitet
 
-Lektionerna i slutet innehåller interaktiva moment. 
-Det innebär att man med kommandon påverkar ett objekts tillstånd. 
+Lektion 9 och framåt innehåller interaktiva övningar. 
+Det innebär att man med menykommandon och/eller musklick påverkar ett objekts tillstånd. 
 Utritningen av objektet är beroende av tillståndet. 
 
-#### Tredje listboxen
-Denna innehåller kommandona. Dessa måste definieras i koden. 
-Lämpligen gör man det i samma ordning som programkoden.
-Det innebär att man börjar med reset. Reset anropar super för att kunna rensa ut felstavade egenskaper.
-Efter reset kommer draw. Draw ritar upp bitmappen. Draw bör ej anropa super.
+#### Menykommandon
+Tredje listboxen innehåller menykommandon. Dessa definieras av programmeraren. 
+Lämpligen görs det i samma ordning. Det innebär att man börjar med reset. I Reset initialiserar man alla variabler. Låt anropet till super vara kvar.
+Efter reset kommer draw. Draw ritar upp bitmappen. Tag bort anropet till super. Draw ingår inte i menyn. Det beror på att Draw anropas automatiskt efter varje menykommando.  
 
 #### Att tänka på
 Tabellen längst ner innehåller tillståndet. 
 
-* Första kolumnen innehåller egenskapernas namn. Alltid gul.
+* Första kolumnen innehåller egenskapens namn. Alltid gul.
 * Andra kolumnen innehåller förebildens data. Alltid grön.
 * Tredje kolumnen innehåller resultat av användarens kod. Röd som blir grön. 
 * Klicka på reset om det ser konstigt ut.
@@ -208,6 +207,19 @@ Följande funktioner läser indata från textrutan under skillnadsbitmappen:
 * @readInt()
 * @readFloat()
 
+#### Mushantering
+Mousepressed kan definieras för att ta hand om musklick. Den skickar med x- och y-parametrar.
+Mushantering ger större flexibilitet, men kräver samtidigt att man måste avgöra var användaren klickat.
+
+#### Minimalt exempel
+```javascript
+class Counter extends Application
+  reset : -> super
+  draw  : -> super
+  mousePressed : (mx,my) -> 
+```    
+
+counter = new Counter "b"
 ### mera information
 
  - [download](https://p5js.org)
