@@ -430,3 +430,4 @@ fillTable = (a,b) ->
 	for key in keys
 		if key != 'name'
 			tableAppend tabell, "@" + key,a[key],b[key]
+			
