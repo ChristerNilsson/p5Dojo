@@ -74,9 +74,12 @@ ID188 = {
 };
 
 ID189 = {
-  b: "# LOC:12 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->\n\nclass IndianSun extends Application\n	reset : -> super\n	draw : -> super\n	mousePressed : (mx,my) -> \nindiansun = new IndianSun \"b\"   		",
-  a: "class IndianSun extends Application\n	reset : -> \n		super\n		@n = 5\n	draw : ->\n		points = ([100+100*cos(radians i*360/@n), 100+100*sin(radians i*360/@n)] for i in range @n)\n		for [x1,y1] in points\n			for [x2,y2] in points\n				line x1,y1,x2,y2\n	mousePressed : (mx,my) -> \n		if my < 100 then d = 1 else d = -1\n		@n = constrain @n+d, 3, 20\n\nindiansun = new IndianSun \"a\"   		",
+  b: "# LOC:13 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->\n\nclass IndianSun extends Application\n	reset : -> super\n	draw : -> super\n	mousePressed : (mx,my) -> \nindiansun = new IndianSun \"b\"   		",
+  a: "class IndianSun extends Application\n	reset : -> \n		super\n		@n = 5\n	draw : ->\n		v = radians 360/@n\n		points = ([100+100*cos(i*v), 100+100*sin(i*v)] for i in range @n)\n		for [x1,y1] in points\n			for [x2,y2] in points\n				line x1,y1,x2,y2\n	mousePressed : (mx,my) -> \n		if my < 100 then d = 1 else d = -1\n		@n = constrain @n+d, 3, 20\n\nindiansun = new IndianSun \"a\"   		",
   c: {
     indiansun: "reset()"
+  },
+  e: {
+    Kojo: "http://www.kogics.net/codesketch?id=28"
   }
 };

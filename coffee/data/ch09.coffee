@@ -347,7 +347,7 @@ clickdetector = new ClickDetector "a"
 
 ID189 = # IndianSun :
 	b:"""
-# LOC:12 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->
+# LOC:13 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->
 
 class IndianSun extends Application
 	reset : -> super
@@ -361,7 +361,8 @@ class IndianSun extends Application
 		super
 		@n = 5
 	draw : ->
-		points = ([100+100*cos(radians i*360/@n), 100+100*sin(radians i*360/@n)] for i in range @n)
+		v = radians 360/@n
+		points = ([100+100*cos(i*v), 100+100*sin(i*v)] for i in range @n)
 		for [x1,y1] in points
 			for [x2,y2] in points
 				line x1,y1,x2,y2
@@ -373,3 +374,5 @@ indiansun = new IndianSun "a"
 """
 	c:
 		indiansun : "reset()"
+	e:
+		Kojo : "http://www.kogics.net/codesketch?id=28"
