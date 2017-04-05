@@ -1,29 +1,42 @@
-ID160 = # ManyDices: 
-	b : "# LOC:20 -> fc # for in if then point [] % -> ==\n"
-	a : """
-dots = (x,y,dots) ->
-	for dot in dots
-		if dot==1 then point x+8,y+8
-		if dot==2 then point x+8,y+10
-		if dot==3 then point x+8,y+12
-		if dot==4 then point x+10,y+10
-		if dot==5 then point x+12,y+8
-		if dot==6 then point x+12,y+10
-		if dot==7 then point x+12,y+12
-dice = (x,y,d) ->
-	if d==1 then dots x,y,[4]
-	if d==2 then dots x,y,[1,7]
-	if d==3 then dots x,y,[1,4,7]
-	if d==4 then dots x,y,[1,3,5,7]
-	if d==5 then dots x,y,[1,3,4,5,7]
-	if d==6 then dots x,y,[1,2,3,5,6,7]
+# ID160 = # ManyDices: 
+# 	b : "# LOC:20 -> fc # for in if then point [] % -> ==\n"
+# 	a : """
+# dots = (x,y,dots) ->
+# 	for dot in dots
+# 		if dot==1 then point x+8,y+8
+# 		if dot==2 then point x+8,y+10
+# 		if dot==3 then point x+8,y+12
+# 		if dot==4 then point x+10,y+10
+# 		if dot==5 then point x+12,y+8
+# 		if dot==6 then point x+12,y+10
+# 		if dot==7 then point x+12,y+12
+# dice = (x,y,d) ->
+# 	if d==1 then dots x,y,[4]
+# 	if d==2 then dots x,y,[1,7]
+# 	if d==3 then dots x,y,[1,4,7]
+# 	if d==4 then dots x,y,[1,3,5,7]
+# 	if d==5 then dots x,y,[1,3,4,5,7]
+# 	if d==6 then dots x,y,[1,2,3,5,6,7]
 
-fc 0
+# fc 0
+# for i in range 10
+# 	for j in range 10
+# 		dice 20*i,20*j,1+(i+j)%6
+# """
+		
+ID160 = # ManyDices: 
+	b : "# LOC:8 -> range # for in if then point [] * + % & << ->\n"
+	a : """
+dice = (x,y,d) ->
+	for bits,i in [21,56,32,62,62,32,56]
+		dx = 4 * [0,-1,-1,-1,1,1,1][i]
+		dy = 4 * [0,-1,0,1,-1,0,1][i]
+		if d&bits then point 10+x+dx,10+y+dy
 for i in range 10
 	for j in range 10
-		dice 20*i,20*j,1+(i+j)%6
+		dice 20*i, 20*j, 1 << (i+j) % 6
 """
-		
+
 ID161 = # Girlang :
 	b:"""
 # LOC: 16 sc bg sw range # for in line class constructor new @

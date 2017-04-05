@@ -2,8 +2,8 @@
 var ID160, ID161, ID162, ID163;
 
 ID160 = {
-  b: "# LOC:20 -> fc # for in if then point [] % -> ==\n",
-  a: "dots = (x,y,dots) ->\n	for dot in dots\n		if dot==1 then point x+8,y+8\n		if dot==2 then point x+8,y+10\n		if dot==3 then point x+8,y+12\n		if dot==4 then point x+10,y+10\n		if dot==5 then point x+12,y+8\n		if dot==6 then point x+12,y+10\n		if dot==7 then point x+12,y+12\ndice = (x,y,d) ->\n	if d==1 then dots x,y,[4]\n	if d==2 then dots x,y,[1,7]\n	if d==3 then dots x,y,[1,4,7]\n	if d==4 then dots x,y,[1,3,5,7]\n	if d==5 then dots x,y,[1,3,4,5,7]\n	if d==6 then dots x,y,[1,2,3,5,6,7]\n\nfc 0\nfor i in range 10\n	for j in range 10\n		dice 20*i,20*j,1+(i+j)%6"
+  b: "# LOC:8 -> range # for in if then point [] * + % & << ->\n",
+  a: "dice = (x,y,d) ->\n	for bits,i in [21,56,32,62,62,32,56]\n		dx = 4 * [0,-1,-1,-1,1,1,1][i]\n		dy = 4 * [0,-1,0,1,-1,0,1][i]\n		if d&bits then point 10+x+dx,10+y+dy\nfor i in range 10\n	for j in range 10\n		dice 20*i, 20*j, 1 << (i+j) % 6"
 };
 
 ID161 = {
