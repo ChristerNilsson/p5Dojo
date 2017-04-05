@@ -101,63 +101,28 @@ nim = new Nim "a"
 
 ID261 = # ChessGame :
 	b:"""
-# LOC:64 bg fc sc sw range # point rect rectMode class constructor new @
+# LOC:53 bg fc sc sw range circle # rect rectMode class constructor super extends new @
 #        if then else text textSize textAlign for in push split length indexOf
+#        "" toUpperCase _.isEqual % + - * / <= == [] push pop length and not substr
+# OBS!   Rockad, en passant samt bondeförvandling hanteras ej.
+#        Flytta pjäserna med musen. Klick utanför brädet innebär undo.
 
 class Chess extends Application
 	reset : -> super
 	draw  : -> super
-	move  : (d) ->
-
+	mousePressed : (mx,my) ->
 chess = new Chess "b"
 """
 	a:"""
 class Chess extends Application
-
 	reset : ->
 		super
-		@moves = "e2e4 e7e5 g1f3 b8c6 f1c4".split " "
+		@board = ['rnbqkbnr','pppppppp','........','........','........','........','PPPPPPPP','RNBQKBNR']
+		@history = []
 		@size = 22
 		@x = 100
 		@y = 100
-		@n = 0
-
-	putPieces : (pieces) ->
-		res = []
-		for i in range 64
-			res.push "" 
-		arr = pieces.split " "
-		for piece in arr
-			if piece.length == 2
-				chr = "o"
-				sq = piece
-			else
-				chr = piece[0]
-				sq = piece[1..]
-			[col,row] = @getIndex sq
-			res[8*col+row] = chr	
-		res
-
-	getIndex : (sq) ->
-		col = "abcdefgh".indexOf sq[0]
-		row = "12345678".indexOf sq[1]
-		[col,row]
-		
-	render : (pieces,c) ->
-		fc c
-		sc c
-		for row in range 8
-			for col in range 8
-				piece = pieces[8*col+row]
-				x = @x - 3.5 * @size + col * @size
-				y = @y - 3.5 * @size + (7-row) * @size
-				if piece == "o"
-					sw @size/2
-					point x,y
-				else if piece in "KQRBN"
-					sw 1-c
-					text piece,x, 1+y		
-				
+		@memory = null			
 	draw : ->
 		bg 0.5
 		textSize 0.9 * @size
@@ -166,33 +131,48 @@ class Chess extends Application
 		sc()
 		for i in range 8
 			for j in range 8
-				if (i+j)%2 == 1 then fc 0.4 else fc 0.6
-				rect @x-3.5*@size+@size*i, @y-3.5*@size+@size*j, @size, @size
-
-		white = @putPieces "Ra1 Nb1 Bc1 Qd1 Ke1 Bf1 Ng1 Rh1 a2 b2 c2 d2 e2 f2 g2 h2"
-		black = @putPieces "Ra8 Nb8 Bc8 Qd8 Ke8 Bf8 Ng8 Rh8 a7 b7 c7 d7 e7 f7 g7 h7"
-
-		for i in range @n
-			@movePiece @moves[i], if i%2==0 then white else black		
-
-		@render white,1
-		@render black,0
-
-	movePiece : (m,player) ->
-		[col1,row1] = @getIndex m[0..1]
-		[col2,row2] = @getIndex m[2..3]
-		player[col2*8+row2] = player[col1*8+row1]
-		player[col1*8+row1] = ""
-
-	move : (d) -> 
-		@n += d
-		@n = constrain @n,0,@moves.length
+				if (i+j)%2 == 1 then fc 0.6 else fc 0.8
+				x = @x-3.5*@size+@size*i
+				y = @y-3.5*@size+@size*j
+				if _.isEqual @memory,[i,j] then fc 0,1,0
+				rect x,y, @size, @size
+				piece = @board[j][i]
+				if piece in "RNBQKP" then fc 0.95 else fc 0
+				if piece != '.'
+					if piece in "pP" then circle x,y,5 else text piece.toUpperCase(),x,y
+	setCharAt : (i,j,chr) ->
+    @board[j] = @board[j].substr(0,i) + chr + @board[j].substr(i+1)
+	move : (a,b) -> 
+		[i1,j1] = a
+		[i2,j2] = b
+		taken = @board[j2][i2]
+		@setCharAt i2,j2, @board[j1][i1]
+		@setCharAt i1,j1,' '
+		@history.push [a,b,taken] 	
+	undo : () ->
+		if @history.length == 0 then return
+		[a,b,taken] = @history.pop()			
+		[i1,j1] = a
+		[i2,j2] = b
+		@setCharAt i1,j1, @board[j2][i2]
+		@setCharAt i2,j2, taken
+	mousePressed : (mx,my) ->
+		i = int (mx-20)/20
+		j = int (my-20)/20
+		if 0 <= i <= 7 and 0 <= j <= 7
+			if @memory == null
+				@memory = [i,j]
+			else
+				if not _.isEqual @memory,[i,j] then @move @memory,[i,j]
+				@memory = null
+		else
+			@undo()
 
 chess = new Chess "a"
 
 """
 	c:
-		chess : "reset()|move -1|move 1"
+		chess : "reset()"
 
 ID262 = # "Nand2Tetris ALU" :
 	b: """
