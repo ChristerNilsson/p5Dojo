@@ -2,7 +2,7 @@
 var ID220, ID221, ID222, ID223;
 
 ID220 = {
-  b: "# LOC:31 % bg fc sc sw circle range # text textAlign textSize for in\n#        push pop class extends constructor new @ super -> \n\nclass Connect4 extends Application\n	reset : -> super\n	draw  : -> super\n	move  : (nr) ->\n	undo  : ->\n\nconnect4 = new Connect4 \"b\"",
+  b: "# LOC:31 % bg fc sc sw circle range # text textAlign textSize for in\n#        push pop class extends constructor new @ super -> \n\nclass Connect4 extends Application\n	reset : -> super\n	draw  : -> super\n	move  : (nr) ->\n	undo  : ->\n\nconnect4 = new Connect4",
   a: "class Connect4 extends Application\n	reset : ->\n		super\n		@list = ([] for i in range 7)\n		@moves = []\n	draw : ->\n		size = 27\n		bg 0\n		textAlign CENTER,CENTER\n		textSize size/2\n		fc()\n		sc 0.1,0.3,1\n		sw 0.2 * size\n		for i in range 7\n			for j in range 6\n				circle 100-size*3+size*i, 180-size*j, size/2\n		for column,i in @list\n			for nr,j in column\n				fc 1,nr%2,0\n				sw 1\n				circle 100-size*3+size*i, 180-size*j, size*0.4\n				fc 0\n				sc()\n				text nr, 100-size*3+size*i, 180-size*j\n		sc()\n		fc 1,(@moves.length+1)%2,0\n		circle 100,15,10\n	move : (nr) ->\n		@moves.push nr\n		@list[nr].push @moves.length \n	undo : -> if @moves.length > 0 then @list[@moves.pop()].pop()\n\nconnect4 = new Connect4 \"a\"",
   c: {
     connect4: "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6|undo()"
@@ -10,7 +10,7 @@ ID220 = {
 };
 
 ID221 = {
-  b: "# LOC:35 sc sw rd # point triangle translate cos sin radians \n#        push pop class extends constructor new @ super ->\n\nclass Shot\n	constructor : (@x,@y,@dir) ->\n	render      : ->	\n	move        : ->\n\nclass Ship extends Application\n	constructor : (@name) ->\n		super @name\n		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)\n	reset   : -> super\n	draw    : -> super\n	left    : -> \n	right   : -> \n	forward : -> \n	shoot   : ->		\n\nship = new Ship \"b\"	",
+  b: "# LOC:35 sc sw rd # point triangle translate cos sin radians \n#        push pop class extends constructor new @ super ->\n\nclass Shot\n	constructor : (@x,@y,@dir) ->\n	render      : ->	\n	move        : ->\n\nclass Ship extends Application\n	constructor : (@name) ->\n		super @name\n		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)\n	reset   : -> super\n	draw    : -> super\n	left    : -> \n	right   : -> \n	forward : -> \n	shoot   : ->		\n\nship = new Ship	",
   a: "class Shot\n	constructor : (@x,@y,@dir) ->\n	render : ->	point @x,@y \n	move : ->\n		@x += int 5 * cos radians @dir\n		@y += int 5 * sin radians @dir\n\nclass Ship extends Application \n\n	constructor : (@name) ->\n		super @name\n		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)\n\n	reset : ->\n		super\n		@x = 100\n		@y = 100\n		@s = 10\n		@dir = 0\n		@shots = []\n\n	left    : -> @dir -= 5\n	right   : -> @dir += 5\n	forward : -> \n		@x += 5 * cos radians @dir\n		@y += 5 * sin radians @dir\n\n	shoot : ->\n		@shots.push new Shot int(@x), int(@y), @dir\n\n	draw : ->\n		push()\n		translate @x,@y\n		rd @dir\n		sc 1,1,0\n		sw 2\n		triangle 2*@s,0, -@s,@s, -@s,-@s\n		sw 5\n		point 0,0\n		pop()\n		for shot in @shots\n			shot.move()\n			shot.render()\n\nship = new Ship \"a\"	",
   c: {
     ship: "reset()|left()|right()|forward()|shoot()"
@@ -18,7 +18,7 @@ ID221 = {
 };
 
 ID222 = {
-  b: "# LOC:35 bg fc sc # [] push \"\" split indexOf reduce + * ** / % > & text textSize textAlign  \n#				 for in of {} _.countBy and if then class constructor new @ extends super \n# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med \"aaefkrrtu\"\n\nclass Nian extends Application\n	reset : -> super\n	draw  : -> super\n	enter : ->\n\nnian = new Nian \"b\"",
+  b: "# LOC:35 bg fc sc # [] push \"\" split indexOf reduce + * ** / % > & text textSize textAlign  \n#				 for in of {} _.countBy and if then class constructor new @ extends super \n# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med \"aaefkrrtu\"\n\nclass Nian extends Application\n	reset : -> super\n	draw  : -> super\n	enter : ->\n\nnian = new Nian",
   a: "class Nian extends Application\n	reset : ->\n		super\n		@found = \"\"\n	draw : -> \n		n = 15\n		bg 0\n		textAlign LEFT,TOP\n		textSize 12\n		fc 1,1,0\n		sc()\n		for word,i in @found.split \" \"\n			x = int i / n\n			y = i % n\n			text word,5+200/4*x,200*y/n\n	bits : (word) -> word.split(\"\").reduce ((acc,ch) -> acc|(2 ** \"abcdefghijklmnopqrstuvwxyzåäö\".indexOf ch)), 0\n	ok : (f1,f2) ->\n		for ch, f of f2\n			if f > f1[ch] then return false\n		true\n	enter : ->\n		words = ordlista.split \" \"\n		patterns = (@bits word for word in words)\n		@letters = @readText()\n		mandatory = @letters[4]\n		@found = []\n		p = @bits @letters\n		letters1 = @letters.split \"\"\n		freq1 = _.countBy letters1\n		for pattern,i in patterns\n			if (p & pattern) == pattern\n				letters2 = words[i].split \"\"\n				freq2 = _.countBy letters2\n				if @ok(freq1,freq2) and mandatory in letters2 then @found.push words[i]\n		@found = @found.join \" \"\n\nnian = new Nian \"a\"",
   c: {
     nian: "reset()|enter()"

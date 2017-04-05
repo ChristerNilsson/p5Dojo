@@ -10,7 +10,7 @@ class Counter extends Application
 	down  : -> 
 	mousePressed : (mx,my) -> print "mousePressed",mx,my
 
-counter = new Counter "b"     
+counter = new Counter 
 """
 	a:"""
 class Counter extends Application
@@ -43,7 +43,7 @@ class Stopwatch extends Application
 	reset : -> super
 	draw  : -> super
 	stopp : -> 
-stopwatch = new Stopwatch "b"
+stopwatch = new Stopwatch
 """
 	a:"""
 class Stopwatch extends Application
@@ -85,7 +85,7 @@ class RandomDice extends Application
 	mousePressed : (mx,my) ->
 	fraction : (x) -> x %% 1
 	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
-randomdice = new RandomDice "b"
+randomdice = new RandomDice
 """
 	a:"""
 class RandomDice extends Application
@@ -123,7 +123,7 @@ class Moire extends Application
 	more  : -> 
 	less  : -> 
 
-moire = new Moire "b"
+moire = new Moire
 			"""
 	a: """
 class Moire extends Application
@@ -156,7 +156,7 @@ class ColorCube extends Application
 	moreBlue    : ->
 	lessBlue    : ->
 
-cc = new ColorCube "b"
+cc = new ColorCube
 """
 	a: """
 class ColorCube extends Application
@@ -195,7 +195,7 @@ class Guess extends Application
 	draw      : -> super
 	readGuess : ->
 
-guess = new Guess "b"
+guess = new Guess
 """
 	a:"""
 class Guess extends Application
@@ -240,7 +240,7 @@ class RecursiveCircle extends Application
 	more    : -> 
 	less    : -> 
 
-rc = new RecursiveCircle "b"
+rc = new RecursiveCircle
 """
 	a: """
 
@@ -289,7 +289,7 @@ class Laboratorium extends Application
 	e     : -> @command = int random 1,7
 	f     : -> @command = int millis()
 
-laboratorium = new Laboratorium "b"     
+laboratorium = new Laboratorium     
 """
 	a:"""
 class Laboratorium extends Application
@@ -320,7 +320,7 @@ class ClickDetector extends Application
 	reset : -> super
 	draw  : -> super
 	mousePressed : (mx,my) ->
-clickdetector = new ClickDetector "b"   		
+clickdetector = new ClickDetector   		
 """
 	a:"""
 class ClickDetector extends Application
@@ -347,13 +347,13 @@ clickdetector = new ClickDetector "a"
 
 ID189 = # IndianSun :
 	b:"""
-# LOC:13 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->
+# LOC:10 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->
 
 class IndianSun extends Application
 	reset : -> super
 	draw : -> super
 	mousePressed : (mx,my) -> 
-indiansun = new IndianSun "b"   		
+indiansun = new IndianSun   		
 """
 	a:"""
 class IndianSun extends Application
@@ -361,14 +361,11 @@ class IndianSun extends Application
 		super
 		@n = 5
 	draw : ->
-		v = radians 360/@n
-		points = ([100+100*cos(i*v), 100+100*sin(i*v)] for i in range @n)
+		points = ([100+100*cos(i*radians 360/@n), 100+100*sin(i*radians 360/@n)] for i in range @n)
 		for [x1,y1] in points
 			for [x2,y2] in points
 				line x1,y1,x2,y2
-	mousePressed : (mx,my) -> 
-		if my < 100 then d = 1 else d = -1
-		@n = constrain @n+d, 3, 20
+	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1), 3, 20
 
 indiansun = new IndianSun "a"   		
 """

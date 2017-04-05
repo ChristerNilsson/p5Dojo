@@ -11,7 +11,7 @@ class Square extends Application
 	tjocklek     : (d) -> 
 	rotera       : (d) ->
 
-square = new Square "b"
+square = new Square
 """
 	a: """
 class Square extends Application
@@ -53,7 +53,7 @@ class Board extends Application
 	d     : (d) ->
 	n     : (d) ->
 
-board = new Board "b" 
+board = new Board 
 """
 	a:"""
 
@@ -96,7 +96,7 @@ class Ring extends Application
 	radius : (d) ->
 	width  : (d) ->
 
-ring = new Ring "b"
+ring = new Ring
 """
 	a:"""
 class Ring extends Application
@@ -133,7 +133,7 @@ class Digit extends Application
 	up    : -> 
 	down  : -> 
 
-digit = new Digit "b"
+digit = new Digit
 			"""
 	a:"""
 class Digit extends Application
@@ -187,7 +187,7 @@ class GoldenStar extends Application
 	outer : (d) ->
 	inner : (d) ->
 
-star = new GoldenStar "b"
+star = new GoldenStar
 """
 	a: """
 class GoldenStar extends Application
@@ -235,7 +235,7 @@ class Polygon extends Application
 	antalSidor : (d) ->
 	antalSteg  : (d) -> 
 
-polygon = new Polygon "b"
+polygon = new Polygon
 """
 	a:"""
 class Turtle
@@ -285,7 +285,7 @@ class AlphaNumeric extends Application
 	right : ->
 	mousePressed : (mx,my) ->
 
-alpha = new AlphaNumeric "b"
+alpha = new AlphaNumeric
 """
 	a:"""
 class AlphaNumeric extends Application
@@ -340,7 +340,7 @@ class Korg extends Application
 	thinner : ->
 	thicker : ->
 
-korg = new Korg "b"
+korg = new Korg
 """
 	a: """
 class Korg extends Application
@@ -388,7 +388,7 @@ class Korsord extends Application
 	reset : -> super
 	draw  : -> super
 	enter : -> 
-korsord = new Korsord "b"
+korsord = new Korsord
 """
 	a:"""
 class Korsord extends Application
@@ -441,7 +441,7 @@ class Engineering extends Application
 	draw  : -> super 
 	more  : -> 
 	less  : -> 
-engineering = new Engineering "b"   		
+engineering = new Engineering   		
 """
 	a:"""
 class Engineering extends Application

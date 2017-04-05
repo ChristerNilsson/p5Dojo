@@ -371,7 +371,7 @@ compare = (msg) ->  # Lägg en timer på denna. Bör vänta någon sekund
 	#print msg,millis()-start
 
 class Application
-	constructor : (@name) ->
+	constructor : (@name='b') ->
 		name = chapter + "/" + exercise + "/" + @name
 		obj = localStorage.getItem name 
 		if obj

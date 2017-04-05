@@ -533,7 +533,7 @@ compare = function(msg) {
 Application = (function() {
   function Application(name1) {
     var dict, key, name, obj, value;
-    this.name = name1;
+    this.name = name1 != null ? name1 : 'b';
     name = chapter + "/" + exercise + "/" + this.name;
     obj = localStorage.getItem(name);
     if (obj) {

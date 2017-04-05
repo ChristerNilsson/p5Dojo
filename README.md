@@ -218,7 +218,7 @@ class Counter extends Application
   reset : -> super
   draw  : -> super
   mousePressed : (mx,my) -> 
-counter = new Counter "b"
+counter = new Counter
 ```
 
 Exemplet, ej fullständigt:
@@ -232,7 +232,7 @@ class Counter extends Application
   up : ->
     @counter++
   mousePressed : (mx,my) -> 
-counter = new Counter "b"
+counter = new Counter
 ```    
 
 ### mera information

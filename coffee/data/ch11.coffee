@@ -9,7 +9,7 @@ class Connect4 extends Application
 	move  : (nr) ->
 	undo  : ->
 
-connect4 = new Connect4 "b"
+connect4 = new Connect4
 			"""
 	a:"""
 class Connect4 extends Application
@@ -70,7 +70,7 @@ class Ship extends Application
 	forward : -> 
 	shoot   : ->		
 
-ship = new Ship "b"	
+ship = new Ship	
 """
 	a: """
 class Shot
@@ -133,7 +133,7 @@ class Nian extends Application
 	draw  : -> super
 	enter : ->
 
-nian = new Nian "b"
+nian = new Nian
 """
 	a:"""
 class Nian extends Application

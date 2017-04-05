@@ -2,7 +2,7 @@
 var ID200, ID201, ID202, ID203, ID204, ID205, ID206, ID207, ID208;
 
 ID200 = {
-  b: "# LOC:21 bg sw fc rd # rect rectMode translate + class extends constructor new @ super ->\n\nclass Square extends Application\n	reset        : -> super\n	draw         : -> super\n	horisontellt : (d) -> \n	vertikalt    : (d) ->\n	storlek      : (d) -> \n	tjocklek     : (d) -> \n	rotera       : (d) ->\n\nsquare = new Square \"b\"",
+  b: "# LOC:21 bg sw fc rd # rect rectMode translate + class extends constructor new @ super ->\n\nclass Square extends Application\n	reset        : -> super\n	draw         : -> super\n	horisontellt : (d) -> \n	vertikalt    : (d) ->\n	storlek      : (d) -> \n	tjocklek     : (d) -> \n	rotera       : (d) ->\n\nsquare = new Square",
   a: "class Square extends Application\n	reset : ->\n		super\n		@x = 100\n		@y = 100\n		@size = 100\n		@w = 1\n		@dir = 0\n	draw : ->\n		bg 0\n		rectMode CENTER\n		sw @w\n		fc 0.5\n		translate @x,@y\n		rd @dir \n		rect 0,0,@size,@size\n\n	horisontellt : (d) -> @x += d\n	vertikalt : (d) -> @y += d\n	storlek : (d) -> @size += d\n	tjocklek : (d) -> @w += d\n	rotera : (d) -> @dir += d \n\nsquare = new Square \"a\"",
   c: {
     square: "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"
@@ -10,7 +10,7 @@ ID200 = {
 };
 
 ID201 = {
-  b: "# LOC:21 bg fc sc circle range # for in ->\n\nclass Board extends Application\n	reset : -> super\n	draw  : -> super\n	r     : (d) ->\n	d     : (d) ->\n	n     : (d) ->\n\nboard = new Board \"b\" ",
+  b: "# LOC:21 bg fc sc circle range # for in ->\n\nclass Board extends Application\n	reset : -> super\n	draw  : -> super\n	r     : (d) ->\n	d     : (d) ->\n	n     : (d) ->\n\nboard = new Board ",
   a: "\nclass Board extends Application\n	reset : ->\n		super\n		@_x = 100\n		@_y = 100\n		@_d = 18\n		@_r = 7\n		@_n = 5\n	draw : ->	\n		bg 1\n		fc 0\n		sc()\n		@one @_d,@_r,@_x-@_n*@_d, @_y-@_d,2*@_n+1,3\n		@one @_d,@_r,@_x-@_d, @_y-@_n*@_d,3,2*@_n+1\n	one : (d,r,x0,y0,m,n) ->\n		for i in range m\n			for j in range n\n				circle x0+d*i,y0+d*j,r\n	r : (d) -> @_r += d\n	d : (d) -> @_d += d\n	n : (d) -> @_n += d\n\nboard = new Board \"a\" ",
   c: {
     board: "reset()|r -1|r +1|d -1|d +1|n -1|n +1"
@@ -19,7 +19,7 @@ ID201 = {
 
 ({
   "OlympicRing Prep": {
-    b: "# LOC:21 sc fc sw # arc strokeCap class extends constructor new @ super ->\n\nclass Ring extends Application\n	reset  : -> super\n	draw   : -> super\n	start  : (d) ->\n	stopp  : (d) -> \n	radius : (d) ->\n	width  : (d) ->\n\nring = new Ring \"b\"",
+    b: "# LOC:21 sc fc sw # arc strokeCap class extends constructor new @ super ->\n\nclass Ring extends Application\n	reset  : -> super\n	draw   : -> super\n	start  : (d) ->\n	stopp  : (d) -> \n	radius : (d) ->\n	width  : (d) ->\n\nring = new Ring",
     a: "class Ring extends Application\n	reset : ->\n		super\n		@_start = 3\n		@_stopp = 6\n		@_w = 5\n		@_radius = 50\n	start : (d) -> @_start+=d\n	stopp : (d) -> @_stopp+=d\n	radius : (d) -> @_radius+=d\n	width : (d) -> @_w+=d\n	draw : ->\n		hour = PI/6\n		strokeCap SQUARE\n		fc()\n		sw @_w\n		sc 1,1,0\n		arc 100,100,2*@_radius,2*@_radius,(@_start-3)*hour,(@_stopp-3)*hour\n\nring = new Ring \"a\"",
     c: {
       ring: "reset()|start -1|start +1|stopp -1|stopp +1|radius -1|radius +1|width -1|width +1"
@@ -28,7 +28,7 @@ ID201 = {
 });
 
 ID202 = {
-  b: "# LOC:26 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->\n\nclass Digit extends Application\n	reset : -> super\n	draw  : -> super\n	up    : -> \n	down  : -> \n\ndigit = new Digit \"b\"",
+  b: "# LOC:26 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->\n\nclass Digit extends Application\n	reset : -> super\n	draw  : -> super\n	up    : -> \n	down  : -> \n\ndigit = new Digit",
   a: "class Digit extends Application\n	reset : ->\n		super\n		@d=0\n		@x=100\n		@y=100\n		@w=80\n		@h=18\n		@pattern = [63,6,91,79,102,109,125,7,127,111]\n	draw : ->\n		bg 0.5\n		sc()\n		fc 1,0,0\n		rectMode CENTER\n		p = @pattern[@d]\n		w0 = @w-20\n		if p & 1 then fc 1,0,0 else fc 0.3,0,0\n		rect @x,@y-@w,w0,@h \n		if p & 2 then fc 1,0,0 else fc 0.3,0,0\n		rect @x+@w/2,@y-@w/2,@h,w0 \n		if p & 4 then fc 1,0,0 else fc 0.3,0,0\n		rect @x+@w/2,@y+@w/2,@h,w0 \n		if p & 8 then fc 1,0,0 else fc 0.3,0,0\n		rect @x,@y+@w,w0,@h \n		if p & 16 then fc 1,0,0 else fc 0.3,0,0\n		rect @x-@w/2,@y+@w/2,@h,w0\n		if p & 32 then fc 1,0,0 else fc 0.3,0,0\n		rect @x-@w/2,@y-@w/2,@h,w0 \n		if p & 64 then fc 1,0,0 else fc 0.3,0,0\n		rect @x,@y,w0,@h \n	up   : -> @d = constrain @d + 1, 0, 9\n	down : -> @d = constrain @d - 1, 0, 9\n\ndigit = new Digit \"a\"",
   c: {
     digit: "reset()|up()|down()"
@@ -39,7 +39,7 @@ ID202 = {
 };
 
 ID203 = {
-  b: "# LOC:23 bg fc range # for in triangle translate rotate cos sin class extends constructor new @ super ->\n\nclass GoldenStar extends Application\n	reset : -> super\n	draw  : -> super\n	n     : (d) -> \n	outer : (d) ->\n	inner : (d) ->\n\nstar = new GoldenStar \"b\"",
+  b: "# LOC:23 bg fc range # for in triangle translate rotate cos sin class extends constructor new @ super ->\n\nclass GoldenStar extends Application\n	reset : -> super\n	draw  : -> super\n	n     : (d) -> \n	outer : (d) ->\n	inner : (d) ->\n\nstar = new GoldenStar",
   a: "class GoldenStar extends Application\n	reset : ->\n		super\n		@_x = 100\n		@_y = 100\n		@_n = 4\n		@_outer = 100\n		@_inner = 25\n	n : (d) -> @_n = constrain @_n+d,3,12\n	outer : (d) -> @_outer = constrain @_outer+d, 0, 100\n	inner : (d) -> @_inner = constrain @_inner+d, 0, 100\n	draw : ->\n		bg 0\n		translate @_x,@_y\n		v = TWO_PI/@_n\n		rotate -PI/2\n		x1 = @_inner * cos v/2\n		y1 = @_inner * sin v/2\n		for i in range @_n\n			fc 1,1,0\n			triangle 0,0, @_outer,0, x1,y1\n			fc 1,0.7,0\n			triangle 0,0, @_outer,0, x1,-y1\n			rotate v\n\nstar = new GoldenStar \"a\"",
   c: {
     star: "reset()|n -1|n +1|outer -1|outer +1|inner -1|inner +1"
@@ -47,7 +47,7 @@ ID203 = {
 };
 
 ID204 = {
-  b: "# LOC:23 bg sc range # line for in cos sin radians class extends constructor new @ super ->\n\nclass Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n	rt : (a) ->\n\nclass Polygon extends Application\n	reset      : -> super\n	draw       : -> super\n	antalSidor : (d) ->\n	antalSteg  : (d) -> \n\npolygon = new Polygon \"b\"",
+  b: "# LOC:23 bg sc range # line for in cos sin radians class extends constructor new @ super ->\n\nclass Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n	rt : (a) ->\n\nclass Polygon extends Application\n	reset      : -> super\n	draw       : -> super\n	antalSidor : (d) ->\n	antalSteg  : (d) -> \n\npolygon = new Polygon",
   a: "class Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n		dx = d*cos radians @dir\n		dy = d*sin radians @dir\n		sc @r,@g,@b\n		line @x,@y,@x+dx,@y+dy\n		@x += dx\n		@y += dy\n	rt : (a) ->\n		@dir +=a\n\nclass Polygon extends Application\n	reset : ->\n		super\n		@n = 6\n		@steg = 60\n\n	draw : ->\n		t = new Turtle()\n		bg 0\n		for i in range @n\n			t.fd @steg\n			t.rt 360/@n\n\n	antalSidor : (d) -> @n += d\n	antalSteg : (d) -> @steg += d\n\npolygon = new Polygon \"a\"",
   c: {
     polygon: "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
@@ -55,7 +55,7 @@ ID204 = {
 };
 
 ID205 = {
-  b: "# LOC:29 bg sc fc range circle # for in & + - * ^ ** %% [] length splice dist\n#        push if then else class extends constructor new @ super ->\n\nclass AlphaNumeric extends Application\n	reset : -> super\n	draw  : -> super\n	add   : -> \n	del   : ->\n	left  : -> \n	right : ->\n	mousePressed : (mx,my) ->\n\nalpha = new AlphaNumeric \"b\"",
+  b: "# LOC:29 bg sc fc range circle # for in & + - * ^ ** %% [] length splice dist\n#        push if then else class extends constructor new @ super ->\n\nclass AlphaNumeric extends Application\n	reset : -> super\n	draw  : -> super\n	add   : -> \n	del   : ->\n	left  : -> \n	right : ->\n	mousePressed : (mx,my) ->\n\nalpha = new AlphaNumeric",
   a: "class AlphaNumeric extends Application\n	reset : -> \n		super\n		@pattern = [[4,12,4,4,4,4,14], [14,17,1,2,4,8,31], [14,17,17,31,17,17,17],[30,17,17,30,17,17,30]]\n		@index = 0\n		@radius = 8\n		@distance = 20\n	draw : ->\n		bg 0\n		sc()\n		for index,j in @pattern[@index]\n			y =  40+@distance*j\n			for i in range 5\n				if index & 1<<i then fc 0,1,0 else fc 0,0.3,0\n				x = 140-@distance*i\n				circle x,y,@radius\n	add   : -> \n		@pattern.push [0,0,0,0,0,0,0]\n		@index = @pattern.length - 1\n	del   : -> @pattern.splice @index, 1\n	left  : -> @index = (@index - 1) %% @pattern.length\n	right : -> @index = (@index + 1) %% @pattern.length\n\n	mousePressed : (mx,my) ->\n		for index,j in @pattern[@index]\n			y =  40+@distance*j\n			for i in range 5\n				x = 140-@distance*i\n				if dist(x,y,mx,my) < @radius\n					@pattern[@index][j] ^= 1<<i\n\nalpha = new AlphaNumeric \"a\"",
   c: {
     alpha: "reset()|add()|del()|left()|right()"
@@ -68,7 +68,7 @@ ID205 = {
 };
 
 ID206 = {
-  b: "# LOC:27 -> bg fc sc sw # rect for if else class extends constructor new @ super ->\n\nclass Korg extends Application\n	reset   : -> super\n	draw    : -> super\n	more    : ->\n	less    : ->\n	thinner : ->\n	thicker : ->\n\nkorg = new Korg \"b\"",
+  b: "# LOC:27 -> bg fc sc sw # rect for if else class extends constructor new @ super ->\n\nclass Korg extends Application\n	reset   : -> super\n	draw    : -> super\n	more    : ->\n	less    : ->\n	thinner : ->\n	thicker : ->\n\nkorg = new Korg",
   a: "class Korg extends Application\n	reset : ->\n		super\n		@n = 1\n		@w = 5\n\n	draw : ->\n		c1 = co 1,0,0\n		c2 = co 1,1,0\n		bg 0\n		sw @w\n		fill c1\n		stroke c2\n		q = 2*@n+1\n		d = 200.0/q\n		for i in range @n\n			rect d+i*2*d,0,d,200\n		for j in range @n\n			rect 0,d+j*2*d,200,d\n		for i in range @n\n			for j in range @n\n				if (i+j) % 2 == 1\n					rect i*2*d,d+j*2*d,3*d,d\n				else\n					rect d+i*2*d,j*2*d,d,3*d\n	more : -> @n = constrain @n+1,1,10\n	less : -> @n = constrain @n-1,1,10\n	thinner : -> @w = constrain @w-1,0,10\n	thicker : -> @w = constrain @w+1,0,10\n\nkorg = new Korg \"a\"",
   c: {
     korg: "reset()|more()|less()|thinner()|thicker()"
@@ -76,7 +76,7 @@ ID206 = {
 };
 
 ID207 = {
-  b: "# LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in \n#        \"\" split join _.filter class constructor new @ extends super [] length\n# Mata in t ex b..l och få ut bill samt boll.\n\nclass Korsord extends Application\n	reset : -> super\n	draw  : -> super\n	enter : -> \nkorsord = new Korsord \"b\"",
+  b: "# LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in \n#        \"\" split join _.filter class constructor new @ extends super [] length\n# Mata in t ex b..l och få ut bill samt boll.\n\nclass Korsord extends Application\n	reset : -> super\n	draw  : -> super\n	enter : -> \nkorsord = new Korsord",
   a: "class Korsord extends Application\n	reset : -> \n		print \"reset\"\n		super\n		@found = \"\"\n		@pattern = ''\n	draw : -> \n		n = 15\n		bg 0\n		textAlign LEFT,TOP\n		textSize 12\n		fc 1,1,0\n		sc()\n		for word,i in @found.split \" \"\n			x = int i / n\n			y = i % n\n			text word,5+200/4*x,200*y/n\n	match : (word,pattern) ->\n		for letter,i in pattern\n			if letter != '.' and letter != word[i] then	return false\n		true\n	enter : -> \n		words = ordlista.split \" \"\n		@pattern = @readText()\n		@found = [] \n		for w in words\n			if w.length == @pattern.length and @match w,@pattern then @found.push w\n		#@found = _.filter words, (w) -> w.length == @pattern.length and @match w,@pattern\n		@found = @found.join \" \"\n\nkorsord = new Korsord \"a\"",
   c: {
     korsord: "reset()|enter()"
@@ -89,7 +89,7 @@ ID207 = {
 };
 
 ID208 = {
-  b: "# LOC:28 fc sc bg # Math.floor Math.log10 constrain + - * / < ** text split\n#        textAlign textSize class extends constructor new @ super ->\n\nclass Engineering extends Application\n	reset : -> super\n	draw  : -> super \n	more  : -> \n	less  : -> \nengineering = new Engineering \"b\"   		",
+  b: "# LOC:28 fc sc bg # Math.floor Math.log10 constrain + - * / < ** text split\n#        textAlign textSize class extends constructor new @ super ->\n\nclass Engineering extends Application\n	reset : -> super\n	draw  : -> super \n	more  : -> \n	less  : -> \nengineering = new Engineering   		",
   a: "class Engineering extends Application\n	reset : -> \n		super\n		@numbers = \"-273.15 1.6021766208e-19 3.1415926535 9.80665 101325 299792458 1073741824 6.022140857e23\"\n		@digits = 3\n		@prefixes = \"yzafpnµm kMGTPEZY\"\n	format : (x) -> \n		if x<0 then return \"-\" + @format(-x)\n		exponent = 3 * Math.floor Math.log10(x)/3\n		x = x / 10 ** exponent\n		if x < 10 then factor = 10 ** (@digits-1) \n		else if x < 100 then factor = 10 ** (@digits-2)\n		else factor = 10 ** (@digits-3)\n		Math.round(x * factor) / factor + @prefixes[8+exponent/3]\n	draw  : -> \n		bg 0\n		textAlign RIGHT,TOP\n		textSize 20\n		textFont \"monospace\"\n		fc 1,0,0\n		sc()\n		textAlign RIGHT,TOP\n		for nr,i in @numbers.split \" \"\n			x = parseFloat nr\n			if i<8 then text @format(1/x), 100-5,i*20\n			text @format(x), 200-5,i*20\n	more  : -> @digits = constrain @digits+1, 1,6\n	less  : -> @digits = constrain @digits-1, 1,6\n\nengineering = new Engineering \"a\"   		",
   c: {
     engineering: "reset()|more()|less()"

@@ -14,7 +14,7 @@ class Nim extends Application
 	fraction : (x) -> x %% 1
 	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
-nim = new Nim "b"  
+nim = new Nim  
 """
 	a:"""
 class Nim extends Application
@@ -111,7 +111,7 @@ class Chess extends Application
 	reset : -> super
 	draw  : -> super
 	mousePressed : (mx,my) ->
-chess = new Chess "b"
+chess = new Chess
 """
 	a:"""
 class Chess extends Application
@@ -184,7 +184,7 @@ class ALU extends Application
 	reset : -> super
 	draw  : -> super
 	mousePressed : (mx,my) ->	
-alu = new ALU "b"
+alu = new ALU
 """
 	a:"""
 class ALU extends Application
@@ -302,7 +302,7 @@ class RushHour extends Application
 	forward    : (n=1) ->
 	end        : ->
 
-rushHour = new RushHour "b"
+rushHour = new RushHour
 
 """
 	a:"""
@@ -405,7 +405,7 @@ class RubikSquare extends Application
 	reset : -> 
 	draw : ->
 	mousePressed : (mx,my) ->
-rubiksquare = new RubikSquare "b"   
+rubiksquare = new RubikSquare   
 """
 	a:"""
 class RubikSquare extends Application

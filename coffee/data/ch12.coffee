@@ -10,7 +10,7 @@ class Klocka extends Application
 	minute : (m) ->
 	second : (s) ->
 
-klocka = new Klocka "b"
+klocka = new Klocka
 			"""
 	a: """
 class Klocka extends Application
@@ -94,7 +94,7 @@ class BouncingBalls extends Application
 	prevCol : -> 
 	gravity : ->
 
-bouncingBalls = new BouncingBalls "b"
+bouncingBalls = new BouncingBalls
 """
 
 	a:"""
@@ -172,7 +172,7 @@ class Braider extends Application
 	forward : ->
 	back    : ->
 
-braider = new Braider "b"
+braider = new Braider
 """
 
 	a:"""
@@ -261,7 +261,7 @@ class ColorPair extends Application
 	mousePressed : (mx,my) ->
 	fraction : (x) -> x %% 1
 	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
-colorpair = new ColorPair "b"
+colorpair = new ColorPair
 """
 	a:"""
 class ColorPair extends Application
@@ -340,7 +340,7 @@ class Kalkylator extends Application
 	pi    : -> # ( -- n)
 	enter : -> # inmatning från textrutan under kommandolistan.
 
-kalkylator = new Kalkylator "b"
+kalkylator = new Kalkylator
 """
 	a:"""
 class Kalkylator extends Application
@@ -417,7 +417,7 @@ class Hex extends Application
 	newGame : ->
 	undo : ->
 	mousePressed : (mx,my) ->
-hex = new Hex "b"
+hex = new Hex
 """
 
 	a:"""
@@ -500,7 +500,7 @@ class PickingBerries extends Application
 	warpSpeed  : ->
 	pick       : ->
 
-berries = new PickingBerries "b"
+berries = new PickingBerries
 """
 	a:"""
 class PickingBerries extends Application
