@@ -1,9 +1,6 @@
 ID160 = # ManyDices: 
-	b : """
-# LOC:20 -> fc # for in if then point [] % -> ==
-
-"""
-	a:"""
+	b : "# LOC:20 -> fc # for in if then point [] % -> ==\n"
+	a : """
 dots = (x,y,dots) ->
 	for dot in dots
 		if dot==1 then point x+8,y+8
@@ -27,7 +24,6 @@ for i in range 10
 		dice 20*i,20*j,1+(i+j)%6
 """
 		
-
 ID161 = # Girlang :
 	b:"""
 # LOC: 16 sc bg sw range # for in line class constructor new @
@@ -110,16 +106,16 @@ braid 5,18,18,6
 
 ID163 = # OlympicRings:
 	b: """
-			# LOC:24 sc bg fc sw # arc strokeCap class constructor new @
+# LOC:24 sc bg fc sw # arc strokeCap class constructor new @
 
-			class Ring
-				constructor : (@x,@y,@r,@g,@b) ->
-				draw : (start=3,stopp=3,hour=PI/6) ->
+class Ring
+	constructor : (@x,@y,@r,@g,@b) ->
+	draw : (start=3,stopp=3,hour=PI/6) ->
 
-			olympic = (x=100,y=100,radius=50,d=60,w=10) ->
+olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 
-			olympic()
-			"""
+olympic()
+"""
 	a: """
 class Ring
 	constructor : (@x,@y,@radius, @r,@g,@b) ->

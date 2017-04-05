@@ -337,7 +337,7 @@ class ClickDetector extends Application
 		circle @a.x,@a.y,@a.radius
 		text @a.counter,@a.x,@a.y
 	mousePressed : (mx,my) ->
-		if dist(mx,my,@a.x,@a.y) < @a.radius then @a.counter++ 
+		if dist(mx,my,@a.x,@a.y) < @a.radius then return @a.counter++ 
 		if @b.x-@b.w/2 < mx < @b.x+@b.w/2 and @b.y-@b.h/2 < my < @b.y+@b.h/2 then @b.counter++ 
 
 clickdetector = new ClickDetector "a"   		

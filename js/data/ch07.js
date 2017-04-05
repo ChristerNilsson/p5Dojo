@@ -37,7 +37,7 @@ ID146 = {
 };
 
 ID147 = {
-  b: "# LOC:17 bg fc sc range rd # rect rectMode for in lerp translate push pop",
+  b: "# LOC:17 bg fc sc range rd # rect rectMode for in lerp translate push pop\n",
   a: "bg 1\nrectMode CENTER\nsc()\nfor i in range 10\n  for j in range 10\n    push()\n		x = lerp 10,30,i\n		y = lerp 10,30,j\n    translate x,y\n    rd lerp 0,10,i-j\n    r = lerp 0.1,0.2,i\n    g = lerp 0.1,0.2,j\n    fc r,g,0\n		w = lerp 5,6,i\n		h = lerp 5,6,j\n    rect 0,0, w,h\n    pop()"
 };
 

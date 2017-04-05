@@ -16,24 +16,15 @@ ID020 = # Background1:
 	a: "bg 1"
 
 ID021 = # Background2: 
-	b: """
-# LOC:1 bg
-
-"""
+	b: "# LOC:1 bg\n"
 	a: "bg 0.5"
 
 ID022 = # Background3: 
-	b: """
-# LOC:1 bg
-
-"""
+	b: "# LOC:1 bg\n"
 	a: "bg 1,0,0"
 
 ID023 = # Background4: 
-	b: """
-# LOC:1 bg
-
-"""
+	b: "# LOC:1 bg\n"
 	a: "bg 1,1,0"
 
 ID024 = # X: 
@@ -92,10 +83,7 @@ point 200,200
 """
 
 ID027 = # MidPoints: 
-	b: """
-# LOC:11 sc sw # point
-
-"""
+	b: "# LOC:11 sc sw # point\n"
 	a: """
 sw 10
 sc 1,0,0
@@ -111,10 +99,7 @@ point 100,200
 """
 
 ID028 = # CornerPoints3: 
-	b: """
-# LOC:17 sc sw # point
-
-"""
+	b: "# LOC:17 sc sw # point\n"
 	a: """
 sw 10
 sc 1,0,0
@@ -139,10 +124,7 @@ point 200,180
 """
 
 ID029 = # CornerPoints7: 
-	b: """
-# LOC:17 sc sw # point
-
-"""
+	b: "# LOC:17 sc sw # point\n"
 	a: """
 sw 10
 sc 1,0,0
@@ -165,10 +147,7 @@ point 200,170
 """
 
 ID030 = # Diagonal1: 
-	b: """
-# LOC:12 sc sw # point
-
-"""
+	b: "# LOC:12 sc sw # point\n"
 	a: """
 bg 0,1,0
 sw 20
@@ -189,10 +168,7 @@ point 200,200
 """
 
 ID031 = # Diagonal2: 
-	b: """
-# LOC:11 sc sw # point
-
-"""
+	b: "# LOC:11 sc sw # point\n"
 	a: """
 sw 20
 sc 1,0,0

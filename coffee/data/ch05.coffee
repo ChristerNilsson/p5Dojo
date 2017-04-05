@@ -93,4 +93,3 @@ for i in range 10
 		y = 20*j
 		rect x,y, 20,20
 """
-

@@ -87,9 +87,7 @@ for i in range 10,0,-1
 """
 
 ID088 = # RedCone: 
-	b:"""
-# LOC:6 range fc circle # for in lerp
-"""
+	b:"# LOC:6 range fc circle # for in lerp\n"
 	a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -100,9 +98,7 @@ for i in range 10,0,-1
 """
 
 ID089 = # PentaLerp: 
-	b:"""
-# LOC:11 bg sc fc range circle # for in lerp
-"""
+	b:"# LOC:11 bg sc fc range circle # for in lerp\n"
 	a:"""
 bg 0.5
 sc()

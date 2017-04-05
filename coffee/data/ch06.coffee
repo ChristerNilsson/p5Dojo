@@ -13,16 +13,14 @@ quad 150,100, 180,20, 40,20, 100,140
 """
 
 ID122 = # PacMan: 
-	b:"# LOC:2 fc # arc radians PIE\n"
+	b:"# LOC:2 fc # arc radians\n"
 	a:"""
 fc 1,1,0
-arc 100,100, 80,80, radians(-135),radians(135), PIE
+arc 100,100, 80,80, radians(-135),radians(135)
 """
 
 ID123 = # TwoArcs:
-	b:"""
-# LOC:7 fc sc sw # arc radians strokeCap
-"""
+	b:"# LOC:7 fc sc sw # arc radians strokeCap\n"
 	a:"""
 fc()
 sc 1,0,0
@@ -34,37 +32,33 @@ arc 100,120, 100,100, radians(90),radians(-90)
 """
 
 ID124 = # OneDiceHistogram
-	b:"""
-# LOC:9 range # floor random text textAlign for in ++ * - rect []
-
-"""
+	b:"# LOC:10 range # Array fill length floor random text textAlign for in ++ * / + - rect []\n"
 	a:"""
-counts = [0,0,0,0,0,0,0]
-dice = () -> 1 + floor 6 * random() 
+counts = Array(6).fill 0
+dice = -> floor 6 * random() 
 textAlign CENTER,CENTER
 for i in range 1000
 	counts[dice()]++
-for i in range 1,7
-	x = 30*i-20
-	rect x,0,30,counts[i]         
-	text i,x+15,10                	
-	"""
+w = 30
+for count,i in counts
+	x = w*i + (200-w*counts.length)/2
+	rect x,0,w,count         
+	text i+1,x+w/2,10                	
+"""
 
 ID125 = # TwoDiceHistogram
-	b:"""
-# LOC:9 range # floor random text textAlign for in ++ * - rect []
-
-"""
+	b:"# LOC:10 range # Array fill length floor random text textAlign for in ++ * / + - rect []\n"
 	a:"""
-counts = [0,0,0,0,0,0,0,0,0,0,0,0,0]
-dice = () -> 1 + floor 6 * random() 
+counts = Array(11).fill 0
+dice = -> floor 6 * random() 
 textAlign CENTER,CENTER
 for i in range 1000
-	counts[dice()+dice()]++
-for i in range 2,13
-	x = 16*i-20
-	rect x,0,16,counts[i]         
-	text i,x+8,10                	
-	"""
+	counts[dice() + dice()]++
+w = 16
+for count,i in counts
+	x = w*i + (200-w*counts.length)/2
+	rect x,0,w,count         
+	text i+2,x+w/2,10                	
+"""
 	e:
 		Kojo : "https://www.youtube.com/watch?v=X6YSgNkcgAs"

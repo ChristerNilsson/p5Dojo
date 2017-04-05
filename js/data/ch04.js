@@ -42,11 +42,11 @@ ID087 = {
 };
 
 ID088 = {
-  b: "# LOC:6 range fc circle # for in lerp",
+  b: "# LOC:6 range fc circle # for in lerp\n",
   a: "for i in range 10,0,-1\n	fc i/10.0,0,0\n	x = 10*i\n	y = 10*i\n	r = 10*i\n	circle x,y,r"
 };
 
 ID089 = {
-  b: "# LOC:11 bg sc fc range circle # for in lerp",
+  b: "# LOC:11 bg sc fc range circle # for in lerp\n",
   a: "bg 0.5\nsc()\nfor i in range 10\n	for j in range 10\n		r = lerp 0.1,0.2,i\n		g = lerp 0.1,0.2,j\n		fc r,g,0\n		x = lerp 10,30,i\n		y = lerp 10,30,j\n		radius = lerp 1,1.5,i+j\n		circle x,y,radius"
 };

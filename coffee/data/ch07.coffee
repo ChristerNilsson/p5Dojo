@@ -90,9 +90,7 @@ for i in range 18,-1,-1
 """ 
 
 ID147 = # "Snow White and the 7 lerps": 
-	b:"""
-# LOC:17 bg fc sc range rd # rect rectMode for in lerp translate push pop
-"""
+	b:"# LOC:17 bg fc sc range rd # rect rectMode for in lerp translate push pop\n"
 	a:"""
 bg 1
 rectMode CENTER

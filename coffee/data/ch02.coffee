@@ -1,8 +1,5 @@
 ID040 = # Dices : 
-	b : """
-# LOC:26 sc # point
-
-"""
+	b : "# LOC:26 sc # point\n"
 	a: """
 point 10,10
 
@@ -38,10 +35,7 @@ point 115,175
 """	
 		
 ID041 = # Five: 
-	b: """
-# LOC:12 bg circle fc sc #
-
-""" 
+	b: "# LOC:12 bg circle fc sc\n"
 	a: """
 bg 0.5
 sc()
@@ -58,20 +52,14 @@ circle 160,40,20
 """ 
 
 ID042 = # WhiteCircle: 
-	b:"""
-# LOC:2 circle fc #
-
-"""
+	b:"# LOC:2 circle fc\n"
 	a:"""
 fc 1
 circle 60,80,30
 """
 
 ID043 = # WhiteEmptyCircle: 
-	b:"""
-# LOC:4 circle fc sc sw #
-
-"""
+	b:"# LOC:4 circle fc sc sw\n"
 	a:"""
 sc 1
 fc()
@@ -80,10 +68,7 @@ circle 70,90,40
 """
 
 ID044 = # TwoDiscsA: 
-	b:"""
-# LOC:4 circle fc #
-
-"""
+	b:"# LOC:4 circle fc\n"
 	a:"""
 fc 1,0,0 
 circle 80,100,40
@@ -92,10 +77,7 @@ circle 100,120,50
 """
 
 ID045 = # TwoDiscsB:
-	b:"""
-# LOC:4 circle fc #
-
-"""
+	b:"# LOC:4 circle fc\n"
 	a:"""
 fc 1,0,0
 circle 80,100,40
@@ -104,10 +86,7 @@ circle 120,100,50
 """
 
 ID046 = # TextA: 
-	b:"""
-# LOC:3 fc # textSize text
-
-"""
+	b:"# LOC:3 fc # textSize text\n"
 	a:"""
 fc 1,1,0
 textSize 32
@@ -115,10 +94,7 @@ text 'Coffeescript',100,100
 """
 
 ID047 = # TextB: 
-	b:"""
-# LOC:4 fc # text textAlign textSize
-
-"""
+	b:"# LOC:4 fc # text textAlign textSize\n"
 	a:"""
 fc 1,1,0
 textSize 32

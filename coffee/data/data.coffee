@@ -1,6 +1,6 @@
-# b : comment line. LOC and keyword clues
+# b : LOC and keywords
 # a : original code
-# c : object method calls
+# c : menu
 # e : links
 
 data =

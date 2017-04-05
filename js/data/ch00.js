@@ -72,11 +72,11 @@ ID013 = {
 };
 
 ID014 = {
-  b: "# LOC:6 -> bg circle cos fc sc sin",
+  b: "# LOC:6 -> bg circle cos fc sc sin\n",
   a: "bg 0.5, 0, 0\nsc()\nfc 1\nfor i in range 100\n	x = 100 + cos(i) * i\n	y = 100 + sin(i) * i\n	circle x, y, 5"
 };
 
 ID015 = {
-  b: "# LOC:7 -> bg circle cos fc map sc sin",
+  b: "# LOC:7 -> bg circle cos fc map sc sin\n",
   a: "bg 0.5, 0, 0\nsc()\nfc 1\nfor i in range 100\n	x = 100 + cos(i) * i\n	y = 100 + sin(i) * i\n	speed = i/10.0\n	r = map sin(5*speed), -1, 1, 2, 5\n	circle x, y, r"
 };

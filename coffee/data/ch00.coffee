@@ -35,10 +35,7 @@ ID000 = # Nyheter :
 """
 
 ID001 = # clown:
-	b:"""
-# LOC:30 bg circle fc sc sw # line lerp (David Larsson)
-
-"""
+	b:"# LOC:30 bg circle fc sc sw # line lerp (David Larsson)\n"
 	a:"""
 bg 0, 1, 0, 0.5
 fc 1, 0, 0
@@ -73,10 +70,7 @@ circle 100, 100, 10
 """
 
 ID002 = #tomteluva:
-	b:"""
-# LOC:12 circle fc sc triangle (Sabrina Larsson)
-
-"""
+	b:"# LOC:12 circle fc sc triangle (Sabrina Larsson)\n"
 	a:"""
 bg 0,1,0
 fc 1,0,0
@@ -93,10 +87,7 @@ circle 100,60,10
 """
 
 ID003 = # snowman:
-	b:"""
-# LOC:21 circle fc line sc triangle (David Larsson)
-
-"""
+	b:"# LOC:21 circle fc line sc triangle (David Larsson)\n"
 	a:"""
 fc 1
 circle 100, 150, 50
@@ -122,10 +113,7 @@ rect 2, 180, 196, 20
 """
 
 ID004 = # christmasTree:
-	b:"""
-# LOC:35 bg circle fc line rect quad sc triangle (Sabrina Larsson)
-
-"""
+	b:"# LOC:35 bg circle fc line rect quad sc triangle (Sabrina Larsson)\n"
 	a:"""
 bg 0 
 fc 0, 1, 0 
@@ -166,10 +154,7 @@ circle 190, 180, 5
 """
 
 ID005 = # santa:
-	b:"""
-# LOC:18 bg circle ellipse fc rect quad sc triangle (Sabrina Larsson)
-
-"""
+	b:"# LOC:18 bg circle ellipse fc rect quad sc triangle (Sabrina Larsson)\n"
 	a:"""
 bg 0,0,1
 fc 1,0,0
@@ -192,10 +177,7 @@ triangle 100,140,0,200,200,200
 """
 
 ID006= # dist: 
-	b:"""
-# LOC:10 bg circle dist fc lerp map sc
-
-"""
+	b:"# LOC:10 bg circle dist fc lerp map sc\n"
 	a:"""
 bg 0
 fc 1
@@ -210,10 +192,7 @@ for i in range 10
 """ 
 		
 ID007 = # bulge: 
-	b:"""
-# LOC:10 bg circle dist fill map noStroke sin
-
-"""
+	b:"# LOC:10 bg circle dist fill map noStroke sin\n"
 	a:"""
 bg 0
 fill 255
@@ -227,10 +206,7 @@ for i in range 20
 """
 
 ID008 = # wave: 
-	b:"""
-# LOC:9 circle colorMode fill map noStroke sin PI
-
-"""
+	b:"# LOC:9 circle colorMode fill map noStroke sin PI\n"
 	a:"""
 colorMode HSB,360,100,100
 noStroke()
@@ -244,10 +220,7 @@ for i in range 21
 """
 
 ID009 = # circle: 
-	b:"""
-# LOC:10 bg circle colorMode cos fc map PI sc sin
-
-"""
+	b:"# LOC:10 bg circle colorMode cos fc map PI sc sin\n"
 	a:"""
 bg 0
 colorMode HSB,360,100,100
@@ -262,10 +235,7 @@ for i in range 20
 """
 	
 ID010 = # circles: 
-	b:"""
-# LOC:12 bg circle colorMode cos fill map noStroke translate sin PI
-
-"""
+	b:"# LOC:12 bg circle colorMode cos fill map noStroke translate sin PI\n"
 	a:"""
 bg 0
 noStroke()
@@ -282,10 +252,7 @@ for i in range 20
 """
 		
 ID011 = # sized_circles: 
-	b:"""
-# LOC:12 circle colorMode cos fill map noStroke PI sin translate
-
-"""
+	b:"# LOC:12 circle colorMode cos fill map noStroke PI sin translate\n"
 	a:"""
 bg 0
 noStroke()
@@ -302,10 +269,7 @@ for i in range 20
 """
 		
 ID012 = # rotated_circles: 
-	b:"""
-# LOC:17 circle cos map PI push pop rotate sin translate
-
-"""
+	b:"# LOC:17 circle cos map PI push pop rotate sin translate\n"
 	a:"""
 colorMode HSB,360,100,100
 sc()
@@ -325,10 +289,7 @@ for i in range 20
 """
 
 ID013 = # gravity : 
-	b: """
-# LOC:6 circle lerp
-
-"""
+	b: "# LOC:6 circle lerp\n"
 	a: """
 fc 1
 for i in range 15
@@ -338,9 +299,7 @@ for i in range 15
 """
 
 ID014 = # hypnoticA : 
-	b: """
-# LOC:6 -> bg circle cos fc sc sin
-"""
+	b: "# LOC:6 -> bg circle cos fc sc sin\n"
 	a: """
 bg 0.5, 0, 0
 sc()
@@ -352,9 +311,7 @@ for i in range 100
 """
 
 ID015 = # hypnoticB : 
-	b: """
-# LOC:7 -> bg circle cos fc map sc sin
-"""
+	b: "# LOC:7 -> bg circle cos fc map sc sin\n"
 	a: """
 bg 0.5, 0, 0
 sc()
@@ -366,4 +323,3 @@ for i in range 100
 	r = map sin(5*speed), -1, 1, 2, 5
 	circle x, y, r
 """
-

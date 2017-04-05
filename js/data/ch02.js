@@ -7,27 +7,27 @@ ID040 = {
 };
 
 ID041 = {
-  b: "# LOC:12 bg circle fc sc #\n",
+  b: "# LOC:12 bg circle fc sc\n",
   a: "bg 0.5\nsc()\nfc 1\ncircle 100,100,20\nfc 1,0,0\ncircle 40,40,20\nfc 1,1,0\ncircle 40,160,20\nfc 0,1,0\ncircle 160,160,20\nfc 0,0,1\ncircle 160,40,20"
 };
 
 ID042 = {
-  b: "# LOC:2 circle fc #\n",
+  b: "# LOC:2 circle fc\n",
   a: "fc 1\ncircle 60,80,30"
 };
 
 ID043 = {
-  b: "# LOC:4 circle fc sc sw #\n",
+  b: "# LOC:4 circle fc sc sw\n",
   a: "sc 1\nfc()\nsw 2\ncircle 70,90,40"
 };
 
 ID044 = {
-  b: "# LOC:4 circle fc #\n",
+  b: "# LOC:4 circle fc\n",
   a: "fc 1,0,0 \ncircle 80,100,40\nfc 0,1,0\ncircle 100,120,50"
 };
 
 ID045 = {
-  b: "# LOC:4 circle fc #\n",
+  b: "# LOC:4 circle fc\n",
   a: "fc 1,0,0\ncircle 80,100,40\nfc 0,1,0, 0.5\ncircle 120,100,50"
 };
 
