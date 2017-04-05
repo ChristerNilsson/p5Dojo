@@ -101,8 +101,8 @@ nim = new Nim "a"
 
 ID261 = # ChessGame :
 	b:"""
-# LOC:53 bg fc sc sw range circle # rect rectMode class constructor super extends new @
-#        if then else text textSize textAlign for in push split length indexOf
+# LOC:53 bg fc sc sw range circle # rectMode class constructor super extends new @
+#        rect if then else text textSize textAlign for in split length indexOf
 #        "" toUpperCase _.isEqual % + - * / <= == [] push pop length and not substr
 # OBS!   Rockad, en passant samt bondeförvandling hanteras ej.
 #        Flytta pjäserna med musen. Klick utanför brädet innebär undo.
@@ -117,7 +117,7 @@ chess = new Chess "b"
 class Chess extends Application
 	reset : ->
 		super
-		@board = ['rnbqkbnr','pppppppp','........','........','........','........','PPPPPPPP','RNBQKBNR']
+		@board = ['RNBQKBNR','PPPPPPPP','........','........','........','........','pppppppp','rnbqkbnr']
 		@history = []
 		@size = 22
 		@x = 100
@@ -131,9 +131,9 @@ class Chess extends Application
 		sc()
 		for i in range 8
 			for j in range 8
-				if (i+j)%2 == 1 then fc 0.6 else fc 0.8
+				if (i+j)%2 == 0 then fc 0.6 else fc 0.8
 				x = @x-3.5*@size+@size*i
-				y = @y-3.5*@size+@size*j
+				y = @y-3.5*@size+@size*(7-j)
 				if _.isEqual @memory,[i,j] then fc 0,1,0
 				rect x,y, @size, @size
 				piece = @board[j][i]
@@ -158,7 +158,7 @@ class Chess extends Application
 		@setCharAt i2,j2, taken
 	mousePressed : (mx,my) ->
 		i = int (mx-20)/20
-		j = int (my-20)/20
+		j = 7 - int (my-20)/20
 		if 0 <= i <= 7 and 0 <= j <= 7
 			if @memory == null
 				@memory = [i,j]
