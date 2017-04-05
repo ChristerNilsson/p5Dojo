@@ -22,7 +22,7 @@ ID023 = {
 };
 
 ID024 = {
-  b: "# LOC:5 sc sw # point\n\nsw 10\nsc 1,0,0\npoint 0,0\n",
+  b: "# LOC:5 sc sw # point\n\nsw 10      # strokeWeight, strecktjocklek i pixlar\nsc 1,0,0   # strokeColor, streckfärg red,green,blue\npoint 0,0  # ritar en punkt på koordinaten x,y\n",
   a: "sw 10\nsc 1,0,0\npoint 0,0\npoint 100,0\npoint 200,0"
 };
 
@@ -32,7 +32,7 @@ ID025 = {
 };
 
 ID026 = {
-  b: "# LOC:9 sc sw # point\n\nsw 10\nsc 1,0,0\npoint 0,0\n",
+  b: "# LOC:9 sc sw # point\n\nsw\nsc\npoint\n",
   a: "sw 10\nsc 1,0,0\npoint 0,0\nsc 0,1,0\npoint 200,0\nsc 1,1,0\npoint 0,200\nsc 0\npoint 200,200"
 };
 

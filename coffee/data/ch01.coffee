@@ -31,9 +31,9 @@ ID024 = # X:
 	b: """
 # LOC:5 sc sw # point
 
-sw 10
-sc 1,0,0
-point 0,0
+sw 10      # strokeWeight, strecktjocklek i pixlar
+sc 1,0,0   # strokeColor, streckfärg red,green,blue
+point 0,0  # ritar en punkt på koordinaten x,y
 
 """
 	a: """
@@ -65,9 +65,9 @@ ID026 = # CornerPoints:
 	b: """
 # LOC:9 sc sw # point
 
-sw 10
-sc 1,0,0
-point 0,0
+sw
+sc
+point
 
 """
 	a: """
