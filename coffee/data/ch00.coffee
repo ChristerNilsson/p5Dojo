@@ -2,7 +2,7 @@ ID000 = # Nyheter :
 	b:"""
 # NYHETER 2017 APR 08
 #   L6: OneDiceHistogram TwoDiceHistogram
-#   L9: ClickDetector
+#   L9: ClickDetector IndianSun
 #   LC: Hex
 # NYHETER 2017 APR 01
 #   L9: RandomDice 

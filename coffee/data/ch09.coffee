@@ -344,3 +344,32 @@ clickdetector = new ClickDetector "a"
 """
 	c:
 		clickdetector : "reset()"
+
+ID189 = # IndianSun :
+	b:"""
+# LOC:12 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->
+
+class IndianSun extends Application
+	reset : -> super
+	draw : -> super
+	mousePressed : (mx,my) -> 
+indiansun = new IndianSun "b"   		
+"""
+	a:"""
+class IndianSun extends Application
+	reset : -> 
+		super
+		@n = 5
+	draw : ->
+		points = ([100+100*cos(radians i*360/@n), 100+100*sin(radians i*360/@n)] for i in range @n)
+		for [x1,y1] in points
+			for [x2,y2] in points
+				line x1,y1,x2,y2
+	mousePressed : (mx,my) -> 
+		if my < 100 then d = 1 else d = -1
+		@n = constrain @n+d, 3, 20
+
+indiansun = new IndianSun "a"   		
+"""
+	c:
+		indiansun : "reset()"

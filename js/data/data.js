@@ -103,6 +103,7 @@ data = {
   "L9: interactivity, basic": {
     Counter: ID180,
     ClickDetector: ID188,
+    IndianSun: ID189,
     Stopwatch: ID181,
     RandomDice: ID182,
     Moire: ID183,
