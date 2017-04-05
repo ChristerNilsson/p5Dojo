@@ -1,29 +1,3 @@
-# ID160 = # ManyDices: 
-# 	b : "# LOC:20 -> fc # for in if then point [] % -> ==\n"
-# 	a : """
-# dots = (x,y,dots) ->
-# 	for dot in dots
-# 		if dot==1 then point x+8,y+8
-# 		if dot==2 then point x+8,y+10
-# 		if dot==3 then point x+8,y+12
-# 		if dot==4 then point x+10,y+10
-# 		if dot==5 then point x+12,y+8
-# 		if dot==6 then point x+12,y+10
-# 		if dot==7 then point x+12,y+12
-# dice = (x,y,d) ->
-# 	if d==1 then dots x,y,[4]
-# 	if d==2 then dots x,y,[1,7]
-# 	if d==3 then dots x,y,[1,4,7]
-# 	if d==4 then dots x,y,[1,3,5,7]
-# 	if d==5 then dots x,y,[1,3,4,5,7]
-# 	if d==6 then dots x,y,[1,2,3,5,6,7]
-
-# fc 0
-# for i in range 10
-# 	for j in range 10
-# 		dice 20*i,20*j,1+(i+j)%6
-# """
-		
 ID160 = # ManyDices: 
 	b : "# LOC:8 -> range # for in if then point [] * + % & << ->\n"
 	a : """

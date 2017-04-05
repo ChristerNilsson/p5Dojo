@@ -94,10 +94,13 @@ text 'Coffeescript',100,100
 """
 
 ID047 = # TextB: 
-	b:"# LOC:4 fc # text textAlign textSize\n"
+	b:"# LOC:7 bg fc sc sw # text textAlign textSize\n"
 	a:"""
+bg 1
 fc 1,1,0
-textSize 32
+sc 0
+sw 5
+textSize 100
 textAlign CENTER,CENTER
 text 'Coffeescript',100,100
 """

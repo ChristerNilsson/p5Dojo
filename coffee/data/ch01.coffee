@@ -173,12 +173,16 @@ ID031 = # Diagonal2:
 sw 20
 sc 1,0,0
 point 200,0
+
 sc 0.75,0.25,0
 point 150,50
+
 sc 0.5,0.5,0
 point 100,100
+
 sc 0.25,0.75,0
 point 50,150
+
 sc 0,1,0
 point 0,200
 """

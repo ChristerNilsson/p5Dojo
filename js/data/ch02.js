@@ -37,6 +37,6 @@ ID046 = {
 };
 
 ID047 = {
-  b: "# LOC:4 fc # text textAlign textSize\n",
-  a: "fc 1,1,0\ntextSize 32\ntextAlign CENTER,CENTER\ntext 'Coffeescript',100,100"
+  b: "# LOC:7 bg fc sc sw # text textAlign textSize\n",
+  a: "bg 1\nfc 1,1,0\nsc 0\nsw 5\ntextSize 100\ntextAlign CENTER,CENTER\ntext 'Coffeescript',100,100"
 };

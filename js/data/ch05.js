@@ -18,22 +18,22 @@ ID102 = {
 
 ID103 = {
   b: "# LOC:5 sc sw range # for in line \n",
-  a: "sc 1,1,0\nsw 2\nfor i in range 10,200,10\n	line 10,i,190,i\n	line i,190,i,10"
+  a: "sc 1,1,0\nsw 2\nfor i in range 10,200,10\n	line 10,i,190,i\n	line i,190, i,10"
 };
 
 ID104 = {
   b: "# LOC:4 bg sc range # for in lerp line",
-  a: "bg 0\nsc 1,0,0\nfor i in range 21\n	line i*10,0,200,i*10"
+  a: "bg 0\nsc 1,0,0\nfor i in range 21\n	line i*10,0, 200,i*10"
 };
 
 ID105 = {
-  b: "# LOC:5 bg sc range # for in lerp line\n",
-  a: "bg 0\nsc 1,1,0\nfor i in range 10\n	line i*20,0,200-i*20,200\n	line 0,20+i*20,200,180-i*20"
+  b: "# LOC:9 bg sc range # for in lerp line\n",
+  a: "bg 0\nsc 1,1,0\nfor i in range 10\n	x1 = lerp 0,20,i\n	x2 = lerp 200,180,i\n	line x1,0, x2,200\n	y1 = lerp 20,40,i\n	y2 = lerp 180,160,i\n	line 0,y1, 200,y2"
 };
 
 ID106 = {
   b: "# LOC:5 bg range # for in lerp line (Noel Watson)\n",
-  a: "bg 0\nfor i in range 37\n	line 10,10,190,10+i*5\n	line 10,100,190,10+i*5\n	line 10,190,190,10+i*5"
+  a: "bg 0\nfor i in range 37\n	line 10,10, 190,10+i*5\n	line 10,100, 190,10+i*5\n	line 10,190, 190,10+i*5"
 };
 
 ID107 = {

@@ -58,5 +58,5 @@ ID030 = {
 
 ID031 = {
   b: "# LOC:11 sc sw # point\n",
-  a: "sw 20\nsc 1,0,0\npoint 200,0\nsc 0.75,0.25,0\npoint 150,50\nsc 0.5,0.5,0\npoint 100,100\nsc 0.25,0.75,0\npoint 50,150\nsc 0,1,0\npoint 0,200"
+  a: "sw 20\nsc 1,0,0\npoint 200,0\n\nsc 0.75,0.25,0\npoint 150,50\n\nsc 0.5,0.5,0\npoint 100,100\n\nsc 0.25,0.75,0\npoint 50,150\n\nsc 0,1,0\npoint 0,200"
 };
