@@ -108,6 +108,7 @@ data = {
     RandomDice: ID182,
     Moire: ID183,
     Guess_a_number: ID185,
+    MultiTimer: ID184,
     RecursiveCircle: ID186,
     Laboratorium: ID187
   },
