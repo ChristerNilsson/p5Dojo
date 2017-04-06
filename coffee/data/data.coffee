@@ -144,6 +144,7 @@ data =
 	"LD: interactivity, very large" :
 		Nim:ID260
 		ChessGame:ID261
-		Nand2TetrisALU:ID262
-		RushHour:ID263
+		Shortcut:ID265
 		RubikSquare:ID264
+		RushHour:ID263
+		Nand2TetrisALU:ID262

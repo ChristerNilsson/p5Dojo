@@ -506,3 +506,84 @@ app = new RubikSquare "a"
 """
 	c:
 		app : "reset()"
+
+ID265 = # Shortcut
+	b:"""		
+# LOC:60 bg fc sc range # %% * / + [] {} text textAlign textSize for in if then else constrain
+#        and < != == push pop length return constrain class extends constructor new @ super ->
+
+class Shortcut extends Application
+	reset : -> super
+	draw : -> super
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	mousePressed : (mx,my) ->
+app = new Shortcut  
+"""
+	a:"""
+class Shortcut extends Application
+	reset : -> 
+		super
+		@seed = 0
+		@level = 1
+		@buttons = [[50,50,0],[150,50,0],[33,125,'/2'],[100,125,'+2'],[167,125,'*2'], [33,175,'undo'],[100,175,1],[167,175,'new']]
+		@createGame()
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	draw : ->
+		@buttons[0][2] = @a
+		@buttons[1][2] = @b
+		@buttons[6][2] = @level - @history.length
+		bg 0
+		textAlign CENTER,CENTER
+		textSize 30
+		fc 1,1,0
+		sc()
+		for [x,y,txt] in @buttons
+			text txt,x,y
+	newGame : ->
+		if @level >= @history.length and @a == @b then d=1 else d=-1
+		@level = constrain @level+d,1,6
+		@createGame()
+	createGame : ->
+		@history = []
+		@a = 1 + @randint 20
+		q1 = [@a]
+		q2 = []
+		visited = {}
+		visited[@a] = true
+		expand = (n) ->
+			if visited[n] then return
+			visited[n] = true
+			q2.push n
+		for level in range @level
+			for nr in q1
+				expand nr+2
+				expand nr*2
+				expand nr/2 if nr%2==0
+			q1 = q2
+			q2 = []
+		@b = q1[@randint(q1.length)]
+	undo : -> 
+		if @history.length == 0 then return
+		@a = @history.pop()
+	mousePressed : (mx,my) ->
+		index = -1
+		for [x,y,txt],i in @buttons
+			if x-33 < mx < x+33 and  y-25 < my < y+25 
+				index = i
+		a = -1
+		if index == 2 and @a % 2 == 0 then a = @a / 2
+		if index == 3 then a = @a + 2
+		if index == 4 then a = @a * 2
+		if index == 5 then @undo()
+		if index == 7 then @newGame()
+		if a != -1 
+			@history.push @a
+			@a = a 
+
+app = new Shortcut "a"   
+		
+"""
+	c:
+		app : "reset()"

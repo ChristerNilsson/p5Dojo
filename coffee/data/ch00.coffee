@@ -4,6 +4,7 @@ ID000 = # Nyheter :
 #   L6: OneDiceHistogram TwoDiceHistogram
 #   L9: ClickDetector IndianSun MultiTimer
 #   LC: Hex
+#   LD: Shortcut
 # NYHETER 2017 APR 01
 #   L9: RandomDice 
 #   LC: ColorPair 

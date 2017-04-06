@@ -142,8 +142,9 @@ data = {
   "LD: interactivity, very large": {
     Nim: ID260,
     ChessGame: ID261,
-    Nand2TetrisALU: ID262,
+    Shortcut: ID265,
+    RubikSquare: ID264,
     RushHour: ID263,
-    RubikSquare: ID264
+    Nand2TetrisALU: ID262
   }
 };
