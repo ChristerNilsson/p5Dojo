@@ -83,8 +83,7 @@ class RandomDice extends Application
 		@seed = 0
 	draw : -> super
 	mousePressed : (mx,my) ->
-	fraction : (x) -> x %% 1
-	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 app = new RandomDice
 """
 	a:"""
@@ -96,8 +95,7 @@ class RandomDice extends Application
 		@bits = [0,1,24,25,90,91,126]
 		@xy = [22,11,12,13,31,32,33]
 		@throw()
-	fraction : (x) -> x %% 1
-	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	throw : -> @value = 1 + @randint 6
 	mousePressed : (mx,my) -> @throw()
 	draw : -> 
@@ -160,8 +158,7 @@ class Guess extends Application
 		@seed = 0
 		@newGame()
 
-	fraction : (x) -> x %% 1
-	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 
 	newGame : ->
 		@start = 0

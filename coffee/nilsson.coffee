@@ -44,3 +44,5 @@ circle = (x,y,r) -> ellipse x,y,2*r,2*r
 rd = (vinkel) -> rotate radians vinkel
 print = console.log
 range = _.range
+
+fraction = (x) -> x %% 1

@@ -11,8 +11,7 @@ class Nim extends Application
 	newGame : -> 
 		[a,b,c] = [1+@randint(5),1+@randint(5),1+@randint(5)]
 		@board = [a,a+b,a+b+c]
-	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
 app = new Nim  
 """
@@ -36,8 +35,7 @@ class Nim extends Application
 			@active = index
 			@board[@active] = constrain @board[@active]-1, 0, 99
 
-	fraction : (x) -> x %% 1
-	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 
 	newGame : ->
 		[a,b,c] = [1+@randint(5),1+@randint(5),1+@randint(5)]
@@ -419,8 +417,7 @@ class RubikSquare extends Application
 		@memory = -1
 		@createGame()
 
-	fraction : (x) -> x %% 1
-	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 
 	newGame : ->
 		if @level >= @history.length and _.isEqual @board,[0,1,2,0,1,2,0,1,2] then d=1 else d=-1
@@ -515,8 +512,7 @@ ID265 = # Shortcut
 class Shortcut extends Application
 	reset : -> super
 	draw : -> super
-	fraction : (x) -> x %% 1
-	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
 app = new Shortcut  
 """
@@ -530,8 +526,7 @@ class Shortcut extends Application
 		@h = 25
 		@buttons = [[50,50,0],[150,50,0],[33,125,'/2'],[100,125,'+2'],[167,125,'*2'], [33,175,'undo'],[100,175,1],[167,175,'new']]
 		@createGame()
-	fraction : (x) -> x %% 1
-	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	draw : ->
 		@buttons[0][2] = @a
 		@buttons[1][2] = @b
@@ -590,25 +585,15 @@ app = new Shortcut "a"
 	c:
 		app : "reset()"
 
-
-
-
-
-
-
-
-
-
 ID266 = # Complex
 	b:"""		
-# LOC:77 bg fc sc range # * / + %% [] line circle text textAlign textSize for in if then else return int
+# LOC:76 bg fc sc range # * / + %% [] line circle text textAlign textSize for in if then else return int
 #        {} dist _.isEqual and < != == push pop length constrain class extends constructor new @ super ->
 
 class Complex extends Application
 	reset : -> super
 	draw : -> super
-	fraction : (x) -> x %% 1
-	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
 app = new Complex  
 """
@@ -618,11 +603,10 @@ class Complex extends Application
 		super
 		@seed = 0
 		@level = 1
-		@radius = 26
+		@radius = 25
 		@buttons = [[30,130,'m'],[70,170,'*i'],[130,170,'*2'],[170,130,'+1'],[30,30,'undo'], [170,30,'new']]
 		@createGame()
-	fraction : (x) -> x %% 1
-	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	gr : ->
 		sc 1,1,1,0.5
 		for i in range 21
@@ -636,13 +620,12 @@ class Complex extends Application
 		bg 0
 		@gr()
 		textAlign CENTER,CENTER
-		textSize 24
+		textSize 25
 		sc()
 		fc 1,0,0
-		circle 100+10*@b[0], 200-100-10*@b[1], 5
+		circle 100+10*@b[0], 100-10*@b[1], 5
 		fc 0,1,0
-		circle 100+10*@a[0], 200-100-10*@a[1], 4
-		sc()
+		circle 100+10*@a[0], 100-10*@a[1], 4
 		for [x,y,txt],i in @buttons
 			fc 1,1,0,0.4
 			circle x,y,@radius

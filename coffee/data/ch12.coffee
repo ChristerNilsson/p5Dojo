@@ -259,8 +259,7 @@ class ColorPair extends Application
 		@seed = 0
 	draw : -> super
 	mousePressed : (mx,my) ->
-	fraction : (x) -> x %% 1
-	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 app = new ColorPair
 """
 	a:"""
@@ -272,8 +271,7 @@ class ColorPair extends Application
 		@changeLevel 1
 		@radius = 40
 
-	fraction : (x) -> x %% 1
-	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 
 	draw : -> 
 		bg 1
