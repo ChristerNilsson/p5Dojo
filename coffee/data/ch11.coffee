@@ -8,7 +8,7 @@ class Connect4 extends Application
 	draw  : -> super
 	undo  : ->
 	mousePressed : (mx,my) ->
-connect4 = new Connect4
+app = new Connect4
 			"""
 	a:"""
 class Connect4 extends Application
@@ -45,10 +45,10 @@ class Connect4 extends Application
 			@list[nr].push @moves.length 
 	undo : -> if @moves.length > 0 then @list[@moves.pop()].pop()
 
-connect4 = new Connect4 "a"
+app = new Connect4 "a"
 """
 	c:
-		connect4 : "reset()|undo()"
+		app : "reset()|undo()"
 
 ID221 = # SpaceShip :
 	b:"""
@@ -71,7 +71,7 @@ class Ship extends Application
 	forward : -> 
 	shoot   : ->		
 
-ship = new Ship	
+app = new Ship	
 """
 	a: """
 class Shot
@@ -118,10 +118,10 @@ class Ship extends Application
 			shot.move()
 			shot.render()
 
-ship = new Ship "a"	
+app = new Ship "a"	
 """
 	c:
-		ship: "reset()|left()|right()|forward()|shoot()"
+		app: "reset()|left()|right()|forward()|shoot()"
 
 ID222 = # Nian :
 	b:"""
@@ -134,7 +134,7 @@ class Nian extends Application
 	draw  : -> super
 	enter : ->
 
-nian = new Nian
+app = new Nian
 """
 	a:"""
 class Nian extends Application
@@ -173,10 +173,10 @@ class Nian extends Application
 				if @ok(freq1,freq2) and mandatory in letters2 then @found.push words[i]
 		@found = @found.join " "
 
-nian = new Nian "a"
+app = new Nian "a"
 """
 	c:
-		nian : "reset()|enter()"
+		app : "reset()|enter()"
 
 	e:
 		Nian : "http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html"

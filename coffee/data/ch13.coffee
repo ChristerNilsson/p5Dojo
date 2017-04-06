@@ -14,7 +14,7 @@ class Nim extends Application
 	fraction : (x) -> x %% 1
 	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
-nim = new Nim  
+app = new Nim  
 """
 	a:"""
 class Nim extends Application
@@ -89,11 +89,11 @@ class Nim extends Application
 		if index == 4 then @cancel()
 		if index == 5 then @hint()
 
-nim = new Nim "a"   
+app = new Nim "a"   
 		
 """
 	c:
-		nim : "reset()|newGame()"
+		app : "reset()|newGame()"
 	e:
 		Nim : "https://en.wikipedia.org/wiki/Nim"
 		xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"
@@ -111,7 +111,7 @@ class Chess extends Application
 	reset : -> super
 	draw  : -> super
 	mousePressed : (mx,my) ->
-chess = new Chess
+app = new Chess
 """
 	a:"""
 class Chess extends Application
@@ -168,11 +168,11 @@ class Chess extends Application
 		else
 			@undo()
 
-chess = new Chess "a"
+app = new Chess "a"
 
 """
 	c:
-		chess : "reset()"
+		app : "reset()"
 
 ID262 = # "Nand2Tetris ALU" :
 	b: """
@@ -184,7 +184,7 @@ class ALU extends Application
 	reset : -> super
 	draw  : -> super
 	mousePressed : (mx,my) ->	
-alu = new ALU
+app = new ALU
 """
 	a:"""
 class ALU extends Application
@@ -255,10 +255,10 @@ class ALU extends Application
 		if out<0 then ng=1 else ng=0
 		[out,zr,ng]
 
-alu = new ALU "a"
+app = new ALU "a"
 """
 	c:
-		alu : "reset()"
+		app : "reset()"
 	e:
 		Nand2Tetris : "http://www.nand2tetris.org/chapters/chapter%2002.pdf"
 
@@ -302,7 +302,7 @@ class RushHour extends Application
 	forward    : (n=1) ->
 	end        : ->
 
-rushHour = new RushHour
+app = new RushHour
 
 """
 	a:"""
@@ -388,10 +388,10 @@ class RushHour extends Application
 		if i >= 0 then @cars[i].move -1
 		if j >= 0 then @cars[j].move +1
 
-rushHour = new RushHour "a"
+app = new RushHour "a"
 """
 	c:
-		rushHour : "reset()|enter_cars()|enter_move()|begin()|backward()|forward()|end()" # |hint()|undo()
+		app : "reset()|enter_cars()|enter_move()|begin()|backward()|forward()|end()" # |hint()|undo()
 	e:
 		RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
 
@@ -405,7 +405,7 @@ class RubikSquare extends Application
 	reset : -> 
 	draw : ->
 	mousePressed : (mx,my) ->
-rubiksquare = new RubikSquare   
+app = new RubikSquare   
 """
 	a:"""
 class RubikSquare extends Application
@@ -501,8 +501,8 @@ class RubikSquare extends Application
 		if index==9 then @undo()
 		if index==11 then @newGame()
 
-rubiksquare = new RubikSquare "a"   
+app = new RubikSquare "a"   
 		
 """
 	c:
-		rubiksquare : "reset()"
+		app : "reset()"

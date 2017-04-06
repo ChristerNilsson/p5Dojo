@@ -11,7 +11,7 @@ class Square extends Application
 	tjocklek     : (d) -> 
 	rotera       : (d) ->
 
-square = new Square
+app = new Square
 """
 	a: """
 class Square extends Application
@@ -37,10 +37,10 @@ class Square extends Application
 	tjocklek : (d) -> @w += d
 	rotera : (d) -> @dir += d 
 
-square = new Square "a"
+app = new Square "a"
 """
 	c: 
-		square : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"   
+		app : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"   
 
 ID201 = # BoardGame :
 	b:"""
@@ -52,8 +52,7 @@ class Board extends Application
 	r     : (d) ->
 	d     : (d) ->
 	n     : (d) ->
-
-board = new Board 
+app = new Board 
 """
 	a:"""
 
@@ -79,10 +78,10 @@ class Board extends Application
 	d : (d) -> @_d += d
 	n : (d) -> @_n += d
 
-board = new Board "a" 
+app = new Board "a" 
 """
 	c:
-		board : "reset()|r -1|r +1|d -1|d +1|n -1|n +1"
+		app : "reset()|r -1|r +1|d -1|d +1|n -1|n +1"
 		
 "OlympicRing Prep":
 	b:"""
@@ -95,8 +94,7 @@ class Ring extends Application
 	stopp  : (d) -> 
 	radius : (d) ->
 	width  : (d) ->
-
-ring = new Ring
+app = new Ring
 """
 	a:"""
 class Ring extends Application
@@ -118,10 +116,10 @@ class Ring extends Application
 		sc 1,1,0
 		arc 100,100,2*@_radius,2*@_radius,(@_start-3)*hour,(@_stopp-3)*hour
 
-ring = new Ring "a"
+app = new Ring "a"
 """
 	c: 
-		ring : "reset()|start -1|start +1|stopp -1|stopp +1|radius -1|radius +1|width -1|width +1"
+		app : "reset()|start -1|start +1|stopp -1|stopp +1|radius -1|radius +1|width -1|width +1"
 
 ID202 = # SevenSegment :
 	b : """
@@ -133,7 +131,7 @@ class Digit extends Application
 	up    : -> 
 	down  : -> 
 
-digit = new Digit
+app = new Digit
 			"""
 	a:"""
 class Digit extends Application
@@ -168,10 +166,10 @@ class Digit extends Application
 		rect @x,@y,w0,@h 
 	mousePressed : (mx,my) -> @d = constrain @d + (if my<100 then 1 else -1), 0, 9
 
-digit = new Digit "a"
+app = new Digit "a"
 """
 	c: 
-		digit : "reset()"
+		app : "reset()"
 	e: 
 				"7 segment" : "https://www.google.se/search?q=7+segment&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjg_5n55OrSAhWpZpoKHQP8DxoQ_AUIBigB&biw=1310&bih=945"
 
@@ -186,7 +184,7 @@ class GoldenStar extends Application
 	outer : (d) ->
 	inner : (d) ->
 
-star = new GoldenStar
+app = new GoldenStar
 """
 	a: """
 class GoldenStar extends Application
@@ -214,10 +212,10 @@ class GoldenStar extends Application
 			triangle 0,0, @_outer,0, x1,-y1
 			rotate v
 
-star = new GoldenStar "a"
+app = new GoldenStar "a"
 """
 	c:
-		star : "reset()|n -1|n +1|outer -1|outer +1|inner -1|inner +1"
+		app : "reset()|n -1|n +1|outer -1|outer +1|inner -1|inner +1"
 		
 ID204 = # Polygon:
 	b:"""
@@ -234,7 +232,7 @@ class Polygon extends Application
 	antalSidor : (d) ->
 	antalSteg  : (d) -> 
 
-polygon = new Polygon
+app = new Polygon
 """
 	a:"""
 class Turtle
@@ -265,10 +263,10 @@ class Polygon extends Application
 	antalSidor : (d) -> @n += d
 	antalSteg : (d) -> @steg += d
 
-polygon = new Polygon "a"
+app = new Polygon "a"
 """
 	c:
-		polygon : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
+		app : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
 
 ID205 = # Alphanumeric:
 	b:"""
@@ -284,7 +282,7 @@ class AlphaNumeric extends Application
 	right : ->
 	mousePressed : (mx,my) ->
 
-alpha = new AlphaNumeric
+app = new AlphaNumeric
 """
 	a:"""
 class AlphaNumeric extends Application
@@ -318,10 +316,10 @@ class AlphaNumeric extends Application
 				if dist(x,y,mx,my) < @radius
 					@pattern[@index][j] ^= 1<<i
 
-alpha = new AlphaNumeric "a"
+app = new AlphaNumeric "a"
 """
 	c:
-		alpha: "reset()|add()|del()|left()|right()"
+		app: "reset()|add()|del()|left()|right()"
 	e:
 		binärt : "http://www.matteboken.se/lektioner/matte-1/tal/talsystem"
 		hexadecimalt : "http://www.matteguiden.se/matte-1/grunder/binara-och-hexadecimala-tal"
@@ -338,8 +336,7 @@ class Korg extends Application
 	less    : ->
 	thinner : ->
 	thicker : ->
-
-korg = new Korg
+app = new Korg
 """
 	a: """
 class Korg extends Application
@@ -372,10 +369,10 @@ class Korg extends Application
 	thinner : -> @w = constrain @w-1,0,10
 	thicker : -> @w = constrain @w+1,0,10
 
-korg = new Korg "a"
+app = new Korg "a"
 """
 	c: 
-		korg : "reset()|more()|less()|thinner()|thicker()"
+		app : "reset()|more()|less()|thinner()|thicker()"
 
 ID207 = # Korsord :
 	b: """
@@ -387,7 +384,7 @@ class Korsord extends Application
 	reset : -> super
 	draw  : -> super
 	enter : -> 
-korsord = new Korsord
+app = new Korsord
 """
 	a:"""
 class Korsord extends Application
@@ -420,10 +417,10 @@ class Korsord extends Application
 		#@found = _.filter words, (w) -> w.length == @pattern.length and @match w,@pattern
 		@found = @found.join " "
 
-korsord = new Korsord "a"
+app = new Korsord "a"
 """
 	c:
-		korsord : "reset()|enter()"
+		app : "reset()|enter()"
 
 	e:
 		'_.some' : "http://underscorejs.org/#some"
@@ -440,7 +437,7 @@ class Engineering extends Application
 	draw  : -> super 
 	more  : -> 
 	less  : -> 
-engineering = new Engineering   		
+app = new Engineering   		
 """
 	a:"""
 class Engineering extends Application
@@ -472,10 +469,10 @@ class Engineering extends Application
 	more  : -> @digits = constrain @digits+1, 1,6
 	less  : -> @digits = constrain @digits-1, 1,6
 
-engineering = new Engineering "a"   		
+app = new Engineering "a"   		
 """
 	c:
-		engineering : "reset()|more()|less()"
+		app : "reset()|more()|less()"
 	e:
 		EngineeringNotation : "https://en.wikipedia.org/wiki/Engineering_notation"
 
@@ -489,7 +486,7 @@ class ColorCube extends Application
 	draw        : -> super
 	undo 				: ->
 	mousePressed : (mx,my) ->
-colorcube = new ColorCube
+app = new ColorCube
 """
 	a: """
 class ColorCube extends Application
@@ -528,9 +525,9 @@ class ColorCube extends Application
 
 	undo : -> if @history.length > 0 then [@r,@g,@b,@size] = @history.pop()
 
-colorcube = new ColorCube "a"
+app = new ColorCube "a"
 """
 	c: 
-		colorcube : "reset()|undo()"
+		app : "reset()|undo()"
 	e:
 		ColorCube : "https://www.google.se/search?q=color+cube&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwjo3_Cm3Y7TAhUJb5oKHcFhCKQQsAQIJg&biw=1745&bih=963&dpr=1.1"

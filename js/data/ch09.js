@@ -2,74 +2,74 @@
 var ID180, ID181, ID182, ID183, ID184, ID185, ID186, ID187, ID188, ID189;
 
 ID180 = {
-  b: "# LOC:12 bg fc sc # text textAlign textSize + - class extends constructor new @ super ->\n# Klicka på reset() om du får ett felmeddelande!\n\nclass Counter extends Application\n	reset : -> super\n	draw  : -> super\n	up    : -> \n	down  : -> \n	mousePressed : (mx,my) -> print \"mousePressed\",mx,my\n\ncounter = new Counter ",
-  a: "class Counter extends Application\n	reset : -> \n		super\n		@counter = 0\n	up : -> @counter += 1\n	down : -> @counter -= 1\n	draw : ->\n		bg 0.5\n		fc 1,1,0\n		sc()\n		textAlign CENTER,CENTER\n		textSize 100\n		text @counter,100,100\n	mousePressed : (mx,my) -> if my < 100 then @counter += 1 else @counter -= 1\n\ncounter = new Counter \"a\"   		",
+  b: "# LOC:12 bg fc sc # text textAlign textSize + - class extends constructor new @ super ->\n# Klicka på reset() om du får ett felmeddelande!\n\nclass Counter extends Application\n	reset : -> super\n	draw  : -> super\n	up    : -> \n	down  : -> \n	mousePressed : (mx,my) -> print \"mousePressed\",mx,my\n\napp = new Counter ",
+  a: "class Counter extends Application\n	reset : -> \n		super\n		@counter = 0\n	up : -> @counter += 1\n	down : -> @counter -= 1\n	draw : ->\n		bg 0.5\n		fc 1,1,0\n		sc()\n		textAlign CENTER,CENTER\n		textSize 100\n		text @counter,100,100\n	mousePressed : (mx,my) -> if my < 100 then @counter += 1 else @counter -= 1\n\napp = new Counter \"a\"   		",
   c: {
-    counter: "reset()|up()|down()"
+    app: "reset()|up()|down()"
   }
 };
 
 ID181 = {
-  b: "# LOC:17 bg sc fc # for in [] '' text textSize textAlign textFont monospace\n#        int millis nf length unshift class extends constructor new @ super ->\n# OBS! Tiderna kan skilja med flera millisekunder. Sorry!\n\nclass Stopwatch extends Application\n	reset : -> super\n	draw  : -> super\n	mousePressed : (mx,my) -> \nstopwatch = new Stopwatch",
-  a: "class Stopwatch extends Application\n	reset : -> \n		super\n		@start = int millis()\n		@times = []\n		@count = 0\n	draw : ->\n		bg 0\n		textFont \"monospace\"\n		textSize 32\n		textAlign RIGHT,BOTTOM\n		fc 1,0,0\n		sc()\n		for time,i in @times\n			text @count-i,  50, 202-40*i\n			text nf(time/1000,1,3),195, 202-40*i\n	mousePressed : (mx,my) -> \n		@count++\n		@times.unshift int millis()-@start\n		if @times.length > 5 then @times.pop()\n\nstopwatch = new Stopwatch \"a\"",
+  b: "# LOC:17 bg sc fc # for in [] '' text textSize textAlign textFont monospace\n#        int millis nf length unshift class extends constructor new @ super ->\n# OBS! Tiderna kan skilja med flera millisekunder. Sorry!\n\nclass Stopwatch extends Application\n	reset : -> super\n	draw  : -> super\n	mousePressed : (mx,my) -> \napp = new Stopwatch",
+  a: "class Stopwatch extends Application\n	reset : -> \n		super\n		@start = int millis()\n		@times = []\n		@count = 0\n	draw : ->\n		bg 0\n		textFont \"monospace\"\n		textSize 32\n		textAlign RIGHT,BOTTOM\n		fc 1,0,0\n		sc()\n		for time,i in @times\n			text @count-i,  50, 202-40*i\n			text nf(time/1000,1,3),195, 202-40*i\n	mousePressed : (mx,my) -> \n		@count++\n		@times.unshift int millis()-@start\n		if @times.length > 5 then @times.pop()\n\napp = new Stopwatch \"a\"",
   c: {
-    stopwatch: "reset()"
+    app: "reset()"
   }
 };
 
 ID182 = {
-  b: "# LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   \n#        for in class extends constructor new @ super ->\n\nclass RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n	draw : -> super\n	mousePressed : (mx,my) ->\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\nrandomdice = new RandomDice",
-  a: "class RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n		@radius = 20\n		@bits = [0,1,24,25,90,91,126]\n		@xy = [22,11,12,13,31,32,33]\n		@throw()\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\n	throw : -> @value = 1 + @randint 6\n	mousePressed : (mx,my) -> @throw()\n	draw : -> \n		bg 1\n		sc 1\n		for xy,i in @xy\n			x = int xy/10\n			y = xy % 10\n			if @bits[@value] & 1<<i then circle 50*x,50*y,@radius 			\n\nrandomdice = new RandomDice \"a\"",
+  b: "# LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   \n#        for in class extends constructor new @ super ->\n\nclass RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n	draw : -> super\n	mousePressed : (mx,my) ->\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\napp = new RandomDice",
+  a: "class RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n		@radius = 20\n		@bits = [0,1,24,25,90,91,126]\n		@xy = [22,11,12,13,31,32,33]\n		@throw()\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\n	throw : -> @value = 1 + @randint 6\n	mousePressed : (mx,my) -> @throw()\n	draw : -> \n		bg 1\n		sc 1\n		for xy,i in @xy\n			x = int xy/10\n			y = xy % 10\n			if @bits[@value] & 1<<i then circle 50*x,50*y,@radius 			\n\napp = new RandomDice \"a\"",
   c: {
-    randomdice: "reset()"
+    app: "reset()"
   }
 };
 
 ID183 = {
-  b: "# LOC:10 bg range # [] push * + for line map class extends constructor new @ super ->\n\nclass Moire extends Application\n	reset : -> super\n	draw  : -> super\n	mousePressed : (mx,my) ->\nmoire = new Moire",
-  a: "class Moire extends Application\n	reset : ->\n		super\n		@points = []\n	draw : ->\n		bg 0\n		for [x,y] in @points\n			for j in range 37\n				line x,y,190,10+j*5\n	mousePressed : (mx,my) -> @points.push [mx,my]\n\nmoire = new Moire \"a\"",
+  b: "# LOC:10 bg range # [] push * + for line map class extends constructor new @ super ->\n\nclass Moire extends Application\n	reset : -> super\n	draw  : -> super\n	mousePressed : (mx,my) ->\napp = new Moire",
+  a: "class Moire extends Application\n	reset : ->\n		super\n		@points = []\n	draw : ->\n		bg 0\n		for [x,y] in @points\n			for j in range 37\n				line x,y,190,10+j*5\n	mousePressed : (mx,my) -> @points.push [mx,my]\n\napp = new Moire \"a\"",
   c: {
-    moire: "reset()"
+    app: "reset()"
   }
 };
 
 ID185 = {
-  b: "# LOC:29 bg fc sc range # text textAlign for in if then else * / + - % <=\n#        int class extends constructor new @ super ->\n\nclass Guess extends Application\n	reset        : -> super\n	draw         : -> super\n	newGame : ->\n	mousePressed : (mx,my) -> \nguess = new Guess",
-  a: "class Guess extends Application\n	reset : ->\n		super\n		@n = 100\n		@seed = 0\n		@newGame()\n\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\n\n	newGame : ->\n		@start = 0\n		@stopp = @n-1\n		@secret = @randint @n\n\n	draw : ->\n		bg 0.1\n		textAlign CENTER,CENTER\n		for i in range @n\n			if @start <= i <= @stopp then fc 1 else fc 0.5\n			sc()\n			x = i % 10\n			y = int i / 10\n			text i, 10 + 20 * x, 10 + 20 * y\n\n	mousePressed : (mx,my) -> \n		guess = int mx/20 + 10 * int my/20\n		if guess <= @secret then @start = guess+1 \n		if guess >= @secret then @stopp = guess-1 \n\nguess = new Guess \"a\"",
+  b: "# LOC:29 bg fc sc range # text textAlign for in if then else * / + - % <=\n#        int class extends constructor new @ super ->\n\nclass Guess extends Application\n	reset        : -> super\n	draw         : -> super\n	newGame : ->\n	mousePressed : (mx,my) -> \napp = new Guess",
+  a: "class Guess extends Application\n	reset : ->\n		super\n		@n = 100\n		@seed = 0\n		@newGame()\n\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\n\n	newGame : ->\n		@start = 0\n		@stopp = @n-1\n		@secret = @randint @n\n\n	draw : ->\n		bg 0.1\n		textAlign CENTER,CENTER\n		for i in range @n\n			if @start <= i <= @stopp then fc 1 else fc 0.5\n			sc()\n			x = i % 10\n			y = int i / 10\n			text i, 10 + 20 * x, 10 + 20 * y\n\n	mousePressed : (mx,my) -> \n		guess = int mx/20 + 10 * int my/20\n		if guess <= @secret then @start = guess+1 \n		if guess >= @secret then @stopp = guess-1 \n\napp = new Guess \"a\"",
   c: {
-    guess: "reset()|newGame()"
+    app: "reset()|newGame()"
   }
 };
 
 ID186 = {
-  b: "# LOC:10 sc circle # if return < class extends constructor new @ super ->\n\nclass RecursiveCircle extends Application\n	reset   : -> super\n	draw    : -> super\n	circles : (x,y,r,level) ->\n	mousePressed : (mx,my) -> \nrc = new RecursiveCircle",
-  a: "\nclass RecursiveCircle extends Application\n	reset : -> \n		super\n		@n = 0\n	draw : -> @circles 100,100,100,@n		\n	circles : (x,y,r,level) ->\n		circle x,y,r\n		if level <= 0 then return\n		@circles x-r/2, y, r/2, level-1\n		@circles x+r/2, y, r/2, level-1\n	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1),0,10\n\nrc = new RecursiveCircle \"a\"",
+  b: "# LOC:10 sc circle # if return < class extends constructor new @ super ->\n\nclass RecursiveCircle extends Application\n	reset   : -> super\n	draw    : -> super\n	circles : (x,y,r,level) ->\n	mousePressed : (mx,my) -> \napp = new RecursiveCircle",
+  a: "\nclass RecursiveCircle extends Application\n	reset : -> \n		super\n		@n = 0\n	draw : -> @circles 100,100,100,@n		\n	circles : (x,y,r,level) ->\n		circle x,y,r\n		if level <= 0 then return\n		@circles x-r/2, y, r/2, level-1\n		@circles x+r/2, y, r/2, level-1\n	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1),0,10\n\napp = new RecursiveCircle \"a\"",
   c: {
-    rc: "reset()"
+    app: "reset()"
   }
 };
 
 ID187 = {
-  b: "# Här kan du laborera med egna idéer!\n\nclass Laboratorium extends Application\n	reset : ->\n		super\n		@x = 100\n		@y = 100\n		@command = \"Ge ett kommando!\"\n	draw  : -> \n		textAlign CENTER,CENTER\n		textSize 24\n		fc 1,1,0\n		sc()\n		text @command,@x,@y\n	mousePressed : (mx,my) ->\n	left  : -> @x -= 10\n	right : -> @x += 10\n	up    : -> @y -= 10\n	down  : -> @y += 10\n	a     : -> @command = \"a\"\n	b     : -> @command = \"b\"\n	c     : -> @command = \"c\"\n	d     : -> @command = \"d\"\n	e     : -> @command = int random 1,7\n	f     : -> @command = int millis()\n\nlaboratorium = new Laboratorium     ",
-  a: "class Laboratorium extends Application\n	reset : -> super\n	draw : -> \n	mousePressed : (mx,my) ->\n	left : -> \n	right : -> \n	up : -> \n	down : -> \n	a : -> \n	b : -> \n	c : -> \n	d : -> \n	e : -> \n	f : -> \n\nlaboratorium = new Laboratorium \"a\"   		",
+  b: "# Här kan du laborera med egna idéer!\n\nclass Laboratorium extends Application\n	reset : ->\n		super\n		@x = 100\n		@y = 100\n		@command = \"Ge ett kommando!\"\n	draw  : -> \n		textAlign CENTER,CENTER\n		textSize 24\n		fc 1,1,0\n		sc()\n		text @command,@x,@y\n	mousePressed : (mx,my) ->\n	left  : -> @x -= 10\n	right : -> @x += 10\n	up    : -> @y -= 10\n	down  : -> @y += 10\n	a     : -> @command = \"a\"\n	b     : -> @command = \"b\"\n	c     : -> @command = \"c\"\n	d     : -> @command = \"d\"\n	e     : -> @command = int random 1,7\n	f     : -> @command = int millis()\n\napp = new Laboratorium     ",
+  a: "class Laboratorium extends Application\n	reset : -> super\n	draw : -> \n	mousePressed : (mx,my) ->\n	left : -> \n	right : -> \n	up : -> \n	down : -> \n	a : -> \n	b : -> \n	c : -> \n	d : -> \n	e : -> \n	f : -> \n\napp = new Laboratorium \"a\"   		",
   c: {
-    laboratorium: "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
+    app: "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
   }
 };
 
 ID188 = {
-  b: "# LOC:16 circle # {} class extends constructor new @ super ->\n#        if then < and / ++ + - text textAlign textSize rectMode \n\nclass ClickDetector extends Application\n	reset : -> super\n	draw  : -> super\n	mousePressed : (mx,my) ->\nclickdetector = new ClickDetector   		",
-  a: "class ClickDetector extends Application\n	reset : -> \n		super\n		@a = {x:70,y:70,radius:50,counter:0}\n		@b = {x:130,y:130,w:100,h:100,counter:0}\n	draw : -> \n		rectMode CENTER\n		textAlign CENTER,CENTER\n		textSize 50\n		rect @b.x,@b.y,@b.w,@b.h\n		text @b.counter,@b.x,@b.y\n		circle @a.x,@a.y,@a.radius\n		text @a.counter,@a.x,@a.y\n	mousePressed : (mx,my) ->\n		if dist(mx,my,@a.x,@a.y) < @a.radius then return @a.counter++ \n		if @b.x-@b.w/2 < mx < @b.x+@b.w/2 and @b.y-@b.h/2 < my < @b.y+@b.h/2 then @b.counter++ \n\nclickdetector = new ClickDetector \"a\"   		",
+  b: "# LOC:16 circle # {} class extends constructor new @ super ->\n#        if then < and / ++ + - text textAlign textSize rectMode \n\nclass ClickDetector extends Application\n	reset : -> super\n	draw  : -> super\n	mousePressed : (mx,my) ->\napp = new ClickDetector   		",
+  a: "class ClickDetector extends Application\n	reset : -> \n		super\n		@a = {x:70,y:70,radius:50,counter:0}\n		@b = {x:130,y:130,w:100,h:100,counter:0}\n	draw : -> \n		rectMode CENTER\n		textAlign CENTER,CENTER\n		textSize 50\n		rect @b.x,@b.y,@b.w,@b.h\n		text @b.counter,@b.x,@b.y\n		circle @a.x,@a.y,@a.radius\n		text @a.counter,@a.x,@a.y\n	mousePressed : (mx,my) ->\n		if dist(mx,my,@a.x,@a.y) < @a.radius then return @a.counter++ \n		if @b.x-@b.w/2 < mx < @b.x+@b.w/2 and @b.y-@b.h/2 < my < @b.y+@b.h/2 then @b.counter++ \n\napp = new ClickDetector \"a\"   		",
   c: {
-    clickdetector: "reset()"
+    app: "reset()"
   }
 };
 
 ID189 = {
-  b: "# LOC:10 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->\n\nclass IndianSun extends Application\n	reset : -> super\n	draw : -> super\n	mousePressed : (mx,my) -> \nindiansun = new IndianSun   		",
-  a: "class IndianSun extends Application\n	reset : -> \n		super\n		@n = 5\n	draw : ->\n		points = ([100+100*cos(i*radians 360/@n), 100+100*sin(i*radians 360/@n)] for i in range @n)\n		for [x1,y1] in points\n			for [x2,y2] in points\n				line x1,y1,x2,y2\n	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1), 3, 20\n\nindiansun = new IndianSun \"a\"   		",
+  b: "# LOC:10 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->\n\nclass IndianSun extends Application\n	reset : -> super\n	draw : -> super\n	mousePressed : (mx,my) -> \napp = new IndianSun   		",
+  a: "class IndianSun extends Application\n	reset : -> \n		super\n		@n = 5\n	draw : ->\n		points = ([100+100*cos(i*radians 360/@n), 100+100*sin(i*radians 360/@n)] for i in range @n)\n		for [x1,y1] in points\n			for [x2,y2] in points\n				line x1,y1,x2,y2\n	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1), 3, 20\n\napp = new IndianSun \"a\"   		",
   c: {
-    indiansun: "reset()"
+    app: "reset()"
   },
   e: {
     Kojo: "http://www.kogics.net/codesketch?id=28"

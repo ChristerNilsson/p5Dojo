@@ -10,7 +10,7 @@ class Klocka extends Application
 	minute : (m) ->
 	second : (s) ->
 
-klocka = new Klocka
+app = new Klocka
 			"""
 	a: """
 class Klocka extends Application
@@ -60,10 +60,10 @@ class Klocka extends Application
 			circle 85,0, if i%5==0 then 3 else 2
 			rd 6
 
-klocka = new Klocka "a"
+app = new Klocka "a"
 """
 	c: 
-		klocka : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
+		app : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
 
 ID241 = # BouncingBalls :
 	b : """
@@ -94,7 +94,7 @@ class BouncingBalls extends Application
 	prevCol : -> 
 	gravity : ->
 
-bouncingBalls = new BouncingBalls
+app = new BouncingBalls
 """
 
 	a:"""
@@ -151,10 +151,10 @@ class BouncingBalls extends Application
 	prevCol : -> @balls[@sel].c = (@balls[@sel].c-1) %% 8
 	gravity : -> @grav = not @grav 
 
-bouncingBalls = new BouncingBalls "a"
+app = new BouncingBalls "a"
 """
 	c:
-		bouncingBalls : "reset()|update()|add()|delete()|selNext()|selPrev()|grow()|shrink()|nextCol()|prevCol()|gravity()"
+		app : "reset()|update()|add()|delete()|selNext()|selPrev()|grow()|shrink()|nextCol()|prevCol()|gravity()"
 		
 ID242 = # Braider:
 	b : """
@@ -172,7 +172,7 @@ class Braider extends Application
 	forward : ->
 	back    : ->
 
-braider = new Braider
+app = new Braider
 """
 
 	a:"""
@@ -240,10 +240,10 @@ class Braider extends Application
 	forward : -> @n++
 	back : -> @n--
 
-braider = new Braider "a"
+app = new Braider "a"
 """
 	c:
-		braider : "braid 1|braid 2|braid 3|braid 4|forward()|back()"
+		app : "braid 1|braid 2|braid 3|braid 4|forward()|back()"
 
 	e:
 		braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
@@ -261,7 +261,7 @@ class ColorPair extends Application
 	mousePressed : (mx,my) ->
 	fraction : (x) -> x %% 1
 	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
-colorpair = new ColorPair
+app = new ColorPair
 """
 	a:"""
 class ColorPair extends Application
@@ -312,10 +312,10 @@ class ColorPair extends Application
 			@circles.push [@randint(200), @randint(200), c]
 			@circles.push [@randint(200), @randint(200), c]
 
-colorpair = new ColorPair "a"
+app = new ColorPair "a"
 """
 	c:
-		colorpair : "reset()"
+		app : "reset()"
 	e: 
 		ColorPair : "https://christernilsson.github.io/ColorPair"
 
@@ -340,7 +340,7 @@ class Kalkylator extends Application
 	pi    : -> # ( -- n)
 	enter : -> # inmatning från textrutan under kommandolistan.
 
-kalkylator = new Kalkylator
+app = new Kalkylator
 """
 	a:"""
 class Kalkylator extends Application
@@ -393,10 +393,10 @@ class Kalkylator extends Application
 		if arr[0]==':' then @words[arr[1]] = arr[2..]
 		else @execute arr
 
-kalkylator = new Kalkylator "a"
+app = new Kalkylator "a"
 """
 	c:
-		kalkylator : "reset()|chs()|swap()|drop()|dup()|sqrt()|clr()|pi()|enter()"
+		app : "reset()|chs()|swap()|drop()|dup()|sqrt()|clr()|pi()|enter()"
 	e:
 		parseInt : "https://www.w3schools.com/jsref/jsref_parseint.asp"
 		stack : "https://sv.wikipedia.org/wiki/Stack_(datastruktur)"
@@ -417,7 +417,7 @@ class Hex extends Application
 	newGame : ->
 	undo : ->
 	mousePressed : (mx,my) ->
-hex = new Hex
+app = new Hex
 """
 
 	a:"""
@@ -475,10 +475,10 @@ class Hex extends Application
 					if n>0 then fc(0) else fc(1)
 					text abs(n),x,y
 
-hex = new Hex "a"
+app = new Hex "a"
 """
 	c:
-		hex : "reset()|newGame()|undo()"
+		app : "reset()|newGame()|undo()"
 	e: 
 		Hex : "https://en.wikipedia.org/wiki/Hex_(board_game)"
 
@@ -499,8 +499,7 @@ class PickingBerries extends Application
 	highSpeed  : ->
 	warpSpeed  : ->
 	pick       : ->
-
-berries = new PickingBerries
+app = new PickingBerries
 """
 	a:"""
 class PickingBerries extends Application
@@ -571,8 +570,7 @@ class PickingBerries extends Application
 				break
 		@clicks++
 
-berries = new PickingBerries "a"
+app = new PickingBerries "a"
 			"""
 	c:
-		berries : "reset()|left()|right()|up()|down()|snailSpeed()|slowSpeed()|highSpeed()|warpSpeed()|pick()"
-
+		app : "reset()|left()|right()|up()|down()|snailSpeed()|slowSpeed()|highSpeed()|warpSpeed()|pick()"

@@ -10,7 +10,7 @@ class Counter extends Application
 	down  : -> 
 	mousePressed : (mx,my) -> print "mousePressed",mx,my
 
-counter = new Counter 
+app = new Counter 
 """
 	a:"""
 class Counter extends Application
@@ -28,10 +28,10 @@ class Counter extends Application
 		text @counter,100,100
 	mousePressed : (mx,my) -> if my < 100 then @counter += 1 else @counter -= 1
 
-counter = new Counter "a"   		
+app = new Counter "a"   		
 """
 	c:
-		counter : "reset()|up()|down()"
+		app : "reset()|up()|down()"
 
 ID181 = # Stopwatch:
 	b:"""
@@ -43,7 +43,7 @@ class Stopwatch extends Application
 	reset : -> super
 	draw  : -> super
 	mousePressed : (mx,my) -> 
-stopwatch = new Stopwatch
+app = new Stopwatch
 """
 	a:"""
 class Stopwatch extends Application
@@ -67,10 +67,10 @@ class Stopwatch extends Application
 		@times.unshift int millis()-@start
 		if @times.length > 5 then @times.pop()
 
-stopwatch = new Stopwatch "a"
+app = new Stopwatch "a"
 """
 	c:
-		stopwatch: "reset()"
+		app: "reset()"
 				
 ID182 = # RandomDice :
 	b: """
@@ -85,7 +85,7 @@ class RandomDice extends Application
 	mousePressed : (mx,my) ->
 	fraction : (x) -> x %% 1
 	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
-randomdice = new RandomDice
+app = new RandomDice
 """
 	a:"""
 class RandomDice extends Application
@@ -108,10 +108,10 @@ class RandomDice extends Application
 			y = xy % 10
 			if @bits[@value] & 1<<i then circle 50*x,50*y,@radius 			
 
-randomdice = new RandomDice "a"
+app = new RandomDice "a"
 """
 	c:
-		randomdice : "reset()"
+		app : "reset()"
 
 ID183 = # Moire: 
 	b:"""
@@ -121,7 +121,7 @@ class Moire extends Application
 	reset : -> super
 	draw  : -> super
 	mousePressed : (mx,my) ->
-moire = new Moire
+app = new Moire
 			"""
 	a: """
 class Moire extends Application
@@ -135,10 +135,10 @@ class Moire extends Application
 				line x,y,190,10+j*5
 	mousePressed : (mx,my) -> @points.push [mx,my]
 
-moire = new Moire "a"
+app = new Moire "a"
 """
 	c: 
-		moire : "reset()"
+		app : "reset()"
 
 ID185 = # Guess_a_number :
 	b:"""
@@ -150,7 +150,7 @@ class Guess extends Application
 	draw         : -> super
 	newGame : ->
 	mousePressed : (mx,my) -> 
-guess = new Guess
+app = new Guess
 """
 	a:"""
 class Guess extends Application
@@ -183,10 +183,10 @@ class Guess extends Application
 		if guess <= @secret then @start = guess+1 
 		if guess >= @secret then @stopp = guess-1 
 
-guess = new Guess "a"
+app = new Guess "a"
 			"""
 	c:
-		guess : "reset()|newGame()"
+		app : "reset()|newGame()"
 
 ID186 = # RecursiveCircle: 
 	b: """
@@ -197,7 +197,7 @@ class RecursiveCircle extends Application
 	draw    : -> super
 	circles : (x,y,r,level) ->
 	mousePressed : (mx,my) -> 
-rc = new RecursiveCircle
+app = new RecursiveCircle
 """
 	a: """
 
@@ -213,10 +213,10 @@ class RecursiveCircle extends Application
 		@circles x+r/2, y, r/2, level-1
 	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1),0,10
 
-rc = new RecursiveCircle "a"
+app = new RecursiveCircle "a"
 """
 	c:
-		rc : "reset()"
+		app : "reset()"
 
 ID187 = # Laboratorium :
 	b:"""		
@@ -246,7 +246,7 @@ class Laboratorium extends Application
 	e     : -> @command = int random 1,7
 	f     : -> @command = int millis()
 
-laboratorium = new Laboratorium     
+app = new Laboratorium     
 """
 	a:"""
 class Laboratorium extends Application
@@ -264,10 +264,10 @@ class Laboratorium extends Application
 	e : -> 
 	f : -> 
 
-laboratorium = new Laboratorium "a"   		
+app = new Laboratorium "a"   		
 """
 	c:
-		laboratorium : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
+		app : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
 
 ID188 = # ClickDetector :
 	b:"""		
@@ -278,7 +278,7 @@ class ClickDetector extends Application
 	reset : -> super
 	draw  : -> super
 	mousePressed : (mx,my) ->
-clickdetector = new ClickDetector   		
+app = new ClickDetector   		
 """
 	a:"""
 class ClickDetector extends Application
@@ -298,10 +298,10 @@ class ClickDetector extends Application
 		if dist(mx,my,@a.x,@a.y) < @a.radius then return @a.counter++ 
 		if @b.x-@b.w/2 < mx < @b.x+@b.w/2 and @b.y-@b.h/2 < my < @b.y+@b.h/2 then @b.counter++ 
 
-clickdetector = new ClickDetector "a"   		
+app = new ClickDetector "a"   		
 """
 	c:
-		clickdetector : "reset()"
+		app : "reset()"
 
 ID189 = # IndianSun :
 	b:"""
@@ -311,7 +311,7 @@ class IndianSun extends Application
 	reset : -> super
 	draw : -> super
 	mousePressed : (mx,my) -> 
-indiansun = new IndianSun   		
+app = new IndianSun   		
 """
 	a:"""
 class IndianSun extends Application
@@ -325,10 +325,10 @@ class IndianSun extends Application
 				line x1,y1,x2,y2
 	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1), 3, 20
 
-indiansun = new IndianSun "a"   		
+app = new IndianSun "a"   		
 """
 	c:
-		indiansun : "reset()"
+		app : "reset()"
 	e:
 		Kojo : "http://www.kogics.net/codesketch?id=28"
 
