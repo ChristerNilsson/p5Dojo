@@ -589,3 +589,110 @@ app = new Shortcut "a"
 """
 	c:
 		app : "reset()"
+
+
+
+
+
+
+
+
+
+
+ID266 = # Complex
+	b:"""		
+# LOC:77 bg fc sc range # * / + %% [] line circle text textAlign textSize for in if then else return int
+#        {} dist _.isEqual and < != == push pop length constrain class extends constructor new @ super ->
+
+class Complex extends Application
+	reset : -> super
+	draw : -> super
+	fraction : (x) -> x %% 1
+	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	mousePressed : (mx,my) ->
+app = new Complex  
+"""
+	a:"""
+class Complex extends Application
+	reset : -> 
+		super
+		@seed = 0
+		@level = 1
+		@radius = 26
+		@buttons = [[30,130,'m'],[70,170,'*i'],[130,170,'*2'],[170,130,'+1'],[30,30,'undo'], [170,30,'new']]
+		@createGame()
+	fraction : (x) -> x %% 1
+	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
+	gr : ->
+		sc 1,1,1,0.5
+		for i in range 21
+			line 0, 10 * i, 200, 10 * i
+			line 10 * i, 0, 10 * i, 200
+		sc 1,1,1
+		line 100,0, 100,200
+		line 0,100, 200,100
+	draw : ->
+		@buttons[4][2] = @level - @history.length
+		bg 0
+		@gr()
+		textAlign CENTER,CENTER
+		textSize 24
+		sc()
+		fc 1,0,0
+		circle 100+10*@b[0], 200-100-10*@b[1], 5
+		fc 0,1,0
+		circle 100+10*@a[0], 200-100-10*@a[1], 4
+		sc()
+		for [x,y,txt],i in @buttons
+			fc 1,1,0,0.4
+			circle x,y,@radius
+			fc 1,1,0
+			text txt,x,y
+	newGame : ->
+		if @level >= @history.length and _.isEqual(@a,@b) then d=1 else d=-1
+		@level = constrain @level+d,1,6
+		@createGame()
+	createGame : ->
+		@history = []
+		@a = [-10 + @randint(20), -10 + @randint(20)]
+		q1 = [@a]
+		q2 = []
+		visited = {}
+		visited[@a] = true
+		expand = (n) ->
+			if visited[n] then return
+			visited[n] = true
+			q2.push n
+		for level in range @level
+			for [x,y] in q1
+				expand [y,x]
+				expand [-y,x]
+				expand [2*x,2*y]
+				expand [x+1,y]
+			q1 = q2
+			q2 = []
+		@b = q1[@randint(q1.length)]
+	undo : -> 
+		if @history.length == 0 then return
+		@a = @history.pop()
+	mousePressed : (mx,my) ->
+		index = -1
+		for [x,y,txt],i in @buttons
+			if dist(mx,my,x,y) < @radius then index = i
+		[x,y] = @a
+		a = []
+		if index == 0 then a = [y,x]
+		if index == 1 then a = [-y,x]
+		if index == 2 then a = [2*x,2*y]
+		if index == 3 then a = [x+1,y]
+		if index == 4 then @undo()
+		if index == 5 then @newGame()
+		if a.length != 0
+			@history.push @a
+			@a = a 
+
+app = new Complex "a"   
+		
+"""
+	c:
+		app : "reset()"

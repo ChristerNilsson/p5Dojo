@@ -148,3 +148,4 @@ data =
 		RubikSquare : ID264
 		RushHour : ID263
 		Nand2TetrisALU : ID262
+		Complex : ID266
