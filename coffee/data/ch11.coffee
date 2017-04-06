@@ -1,14 +1,13 @@
 ID220 = # Connect4 :
 	b:"""
-# LOC:31 % bg fc sc sw circle range # text textAlign textSize for in
+# LOC:33 % bg fc sc sw circle range # text textAlign textSize for in
 #        push pop class extends constructor new @ super -> 
 
 class Connect4 extends Application
 	reset : -> super
 	draw  : -> super
-	move  : (nr) ->
 	undo  : ->
-
+	mousePressed : (mx,my) ->
 connect4 = new Connect4
 			"""
 	a:"""
@@ -17,37 +16,39 @@ class Connect4 extends Application
 		super
 		@list = ([] for i in range 7)
 		@moves = []
+		@size = 27
 	draw : ->
-		size = 27
 		bg 0
 		textAlign CENTER,CENTER
 		textSize size/2
 		fc()
 		sc 0.1,0.3,1
-		sw 0.2 * size
+		sw 0.2 * @size
 		for i in range 7
 			for j in range 6
-				circle 100-size*3+size*i, 180-size*j, size/2
+				circle 100-@size*3+@size*i, 180-@size*j, @size/2
 		for column,i in @list
 			for nr,j in column
 				fc 1,nr%2,0
 				sw 1
-				circle 100-size*3+size*i, 180-size*j, size*0.4
+				circle 100-@size*3+@size*i, 180-@size*j, @size*0.4
 				fc 0
 				sc()
-				text nr, 100-size*3+size*i, 180-size*j
+				text nr, 100-@size*3+@size*i, 180-@size*j
 		sc()
 		fc 1,(@moves.length+1)%2,0
 		circle 100,15,10
-	move : (nr) ->
-		@moves.push nr
-		@list[nr].push @moves.length 
+	mousePressed : (mx,my) ->
+		nr = int (mx-(200-7*@size)/2)/@size
+		if 0 <= nr <= 6
+			@moves.push nr
+			@list[nr].push @moves.length 
 	undo : -> if @moves.length > 0 then @list[@moves.pop()].pop()
 
 connect4 = new Connect4 "a"
 """
 	c:
-		connect4 : "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6|undo()"
+		connect4 : "reset()|undo()"
 
 ID221 = # SpaceShip :
 	b:"""

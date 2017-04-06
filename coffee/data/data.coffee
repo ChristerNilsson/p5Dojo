@@ -109,7 +109,7 @@ data =
 		Stopwatch:ID181
 		RandomDice:ID182
 		Moire:ID183
-		ColorCube:ID184
+		#ID184
 		Guess_a_number:ID185
 		RecursiveCircle:ID186
 		Laboratorium:ID187
@@ -121,6 +121,7 @@ data =
 		GoldenStar: ID203
 		Polygon: ID204
 		Alphanumeric: ID205
+		ColorCube:ID209
 		Korg: ID206
 		Korsord: ID207
 		EngineeringNotation: ID208

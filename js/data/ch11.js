@@ -2,10 +2,10 @@
 var ID220, ID221, ID222, ID223;
 
 ID220 = {
-  b: "# LOC:31 % bg fc sc sw circle range # text textAlign textSize for in\n#        push pop class extends constructor new @ super -> \n\nclass Connect4 extends Application\n	reset : -> super\n	draw  : -> super\n	move  : (nr) ->\n	undo  : ->\n\nconnect4 = new Connect4",
-  a: "class Connect4 extends Application\n	reset : ->\n		super\n		@list = ([] for i in range 7)\n		@moves = []\n	draw : ->\n		size = 27\n		bg 0\n		textAlign CENTER,CENTER\n		textSize size/2\n		fc()\n		sc 0.1,0.3,1\n		sw 0.2 * size\n		for i in range 7\n			for j in range 6\n				circle 100-size*3+size*i, 180-size*j, size/2\n		for column,i in @list\n			for nr,j in column\n				fc 1,nr%2,0\n				sw 1\n				circle 100-size*3+size*i, 180-size*j, size*0.4\n				fc 0\n				sc()\n				text nr, 100-size*3+size*i, 180-size*j\n		sc()\n		fc 1,(@moves.length+1)%2,0\n		circle 100,15,10\n	move : (nr) ->\n		@moves.push nr\n		@list[nr].push @moves.length \n	undo : -> if @moves.length > 0 then @list[@moves.pop()].pop()\n\nconnect4 = new Connect4 \"a\"",
+  b: "# LOC:33 % bg fc sc sw circle range # text textAlign textSize for in\n#        push pop class extends constructor new @ super -> \n\nclass Connect4 extends Application\n	reset : -> super\n	draw  : -> super\n	undo  : ->\n	mousePressed : (mx,my) ->\nconnect4 = new Connect4",
+  a: "class Connect4 extends Application\n	reset : ->\n		super\n		@list = ([] for i in range 7)\n		@moves = []\n		@size = 27\n	draw : ->\n		bg 0\n		textAlign CENTER,CENTER\n		textSize size/2\n		fc()\n		sc 0.1,0.3,1\n		sw 0.2 * @size\n		for i in range 7\n			for j in range 6\n				circle 100-@size*3+@size*i, 180-@size*j, @size/2\n		for column,i in @list\n			for nr,j in column\n				fc 1,nr%2,0\n				sw 1\n				circle 100-@size*3+@size*i, 180-@size*j, @size*0.4\n				fc 0\n				sc()\n				text nr, 100-@size*3+@size*i, 180-@size*j\n		sc()\n		fc 1,(@moves.length+1)%2,0\n		circle 100,15,10\n	mousePressed : (mx,my) ->\n		nr = int (mx-(200-7*@size)/2)/@size\n		if 0 <= nr <= 6\n			@moves.push nr\n			@list[nr].push @moves.length \n	undo : -> if @moves.length > 0 then @list[@moves.pop()].pop()\n\nconnect4 = new Connect4 \"a\"",
   c: {
-    connect4: "reset()|move 0|move 1|move 2|move 3|move 4|move 5|move 6|undo()"
+    connect4: "reset()|undo()"
   }
 };
 

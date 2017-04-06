@@ -125,7 +125,7 @@ ring = new Ring "a"
 
 ID202 = # SevenSegment :
 	b : """
-# LOC:26 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->
+# LOC:31 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->
 
 class Digit extends Application
 	reset : -> super
@@ -166,13 +166,12 @@ class Digit extends Application
 		rect @x-@w/2,@y-@w/2,@h,w0 
 		if p & 64 then fc 1,0,0 else fc 0.3,0,0
 		rect @x,@y,w0,@h 
-	up   : -> @d = constrain @d + 1, 0, 9
-	down : -> @d = constrain @d - 1, 0, 9
+	mousePressed : (mx,my) -> @d = constrain @d + (if my<100 then 1 else -1), 0, 9
 
 digit = new Digit "a"
 """
 	c: 
-		digit : "reset()|up()|down()"
+		digit : "reset()"
 	e: 
 				"7 segment" : "https://www.google.se/search?q=7+segment&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjg_5n55OrSAhWpZpoKHQP8DxoQ_AUIBigB&biw=1310&bih=945"
 
@@ -479,3 +478,58 @@ engineering = new Engineering "a"
 		engineering : "reset()|more()|less()"
 	e:
 		EngineeringNotation : "https://en.wikipedia.org/wiki/Engineering_notation"
+
+ID209 = # ColorCube:
+	b: """
+# LOC:33 -> bg range # for in class extends constructor new @ super ->
+#           quad [] push pop fill stroke if then and * / + - <= return
+
+class ColorCube extends Application
+	reset       : -> super
+	draw        : -> super
+	undo 				: ->
+	mousePressed : (mx,my) ->
+colorcube = new ColorCube
+"""
+	a: """
+class ColorCube extends Application
+	reset : -> 
+		super
+		@minR = 0
+		@minG = 0
+		@minB = 0
+		@size = 256
+		@history = []
+	draw : ->
+		bg 0
+		@c = @size / 4
+		for b in range 4
+			for r in range 4
+				for g in range 4
+					fill   @minR+r*@c+@c/2, @minG+g*@c+@c/2, @minB+b*@c+@c/2
+					stroke @minR+r*@c+@c/2, @minG+g*@c+@c/2, @minB+b*@c+@c/2
+					x = r*40-g*10
+					y = g*10+b*50 + 5
+					quad x+40,y+0, x+80,y+0, x+70,y+10, x+30,y+10 
+	mousePressed : (mx,my) ->
+		if @size == 4 then return 
+		for b in range 4
+			for r in range 4
+				for g in range 4
+					x = r*40-g*10  
+					y = g*10+b*50 + 5
+					if x+35 <= mx <= x+75 and y <= my <= y+10 
+						@history.push [@minR,@minG,@minB,@size]
+						@size /= 4
+						@minR += r * @size
+						@minG += g * @size
+						@minB += b * @size
+						return
+
+	undo : -> if @history.length > 0 then [@minR,@minG,@minB,@size] = @history.pop()
+
+colorcube = new ColorCube "a"
+"""
+	c: 
+		colorcube : "reset()|undo()"
+

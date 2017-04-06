@@ -42,7 +42,7 @@ ID181 = # Stopwatch:
 class Stopwatch extends Application
 	reset : -> super
 	draw  : -> super
-	stopp : -> 
+	mousePressed : (mx,my) -> 
 stopwatch = new Stopwatch
 """
 	a:"""
@@ -62,7 +62,7 @@ class Stopwatch extends Application
 		for time,i in @times
 			text @count-i,  50, 202-40*i
 			text nf(time/1000,1,3),195, 202-40*i
-	stopp : -> 
+	mousePressed : (mx,my) -> 
 		@count++
 		@times.unshift int millis()-@start
 		if @times.length > 5 then @times.pop()
@@ -70,7 +70,7 @@ class Stopwatch extends Application
 stopwatch = new Stopwatch "a"
 """
 	c:
-		stopwatch: "reset()|stopp()"
+		stopwatch: "reset()"
 				
 ID182 = # RandomDice :
 	b: """
@@ -115,86 +115,41 @@ randomdice = new RandomDice "a"
 
 ID183 = # Moire: 
 	b:"""
-# LOC:10 bg # for line map class extends constructor new @ super ->
+# LOC:10 bg range # [] push * + for line map class extends constructor new @ super ->
 
 class Moire extends Application
 	reset : -> super
 	draw  : -> super
-	more  : -> 
-	less  : -> 
-
+	mousePressed : (mx,my) ->
 moire = new Moire
 			"""
 	a: """
 class Moire extends Application
 	reset : ->
 		super
-		@n = 2
+		@points = []
 	draw : ->
-		background 0
-		for i in range @n
+		bg 0
+		for [x,y] in @points
 			for j in range 37
-				line 10,map(i,0,@n-1,10,190),190,10+j*5
-	more : -> @n = constrain @n+1,2,10
-	less : -> @n = constrain @n-1,2,10
+				line x,y,190,10+j*5
+	mousePressed : (mx,my) -> @points.push [mx,my]
 
 moire = new Moire "a"
 """
 	c: 
-		moire : "reset()|more()|less()"
-
-
-ID184 = # ColorCube:
-	b: """
-# LOC:17 -> bg fc range # for in rect class extends constructor new @ super ->
-
-class ColorCube extends Application
-	reset       : -> super
-	draw        : -> super
-	moreDetails : ->
-	lessDetails : ->
-	moreBlue    : ->
-	lessBlue    : ->
-
-cc = new ColorCube
-"""
-	a: """
-class ColorCube extends Application
-	draw : ->
-		bg 0
-		d = 200.0/@n
-		m = @n-1.0
-		sc()
-		for r in range @n
-			for g in range @n
-				fc r/m,g/m,@b/m
-				sc r/m,g/m,@b/m
-				rect r*d,g*d,d,d
-	reset : -> 
-		super
-		@n=2
-		@b=0
-	moreDetails : -> if @n<255 then @n++
-	lessDetails : -> if @n>2 then @n--
-	moreBlue : -> if @b<@n-1 then @b+=1
-	lessBlue : -> if @b>0 then @b-=1
-
-cc = new ColorCube "a"
-"""
-	c: 
-		cc : "reset()|moreDetails()|lessDetails()|moreBlue()|lessBlue()"
-
+		moire : "reset()"
 
 ID185 = # Guess_a_number :
 	b:"""
-# LOC:20 bg fc sc range @readInt # text textAlign for in if then else * / + - % <=
+# LOC:29 bg fc sc range # text textAlign for in if then else * / + - % <=
 #        int class extends constructor new @ super ->
 
 class Guess extends Application
-	reset     : -> super
-	draw      : -> super
-	readGuess : ->
-
+	reset        : -> super
+	draw         : -> super
+	newGame : ->
+	mousePressed : (mx,my) -> 
 guess = new Guess
 """
 	a:"""
@@ -202,14 +157,16 @@ class Guess extends Application
 	reset : ->
 		super
 		@n = 100
+		@seed = 0
+		@newGame()
+
+	fraction : (x) -> x %% 1
+	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+
+	newGame : ->
 		@start = 0
 		@stopp = @n-1
-		@secret = 27
-
-	readGuess :-> 
-		guess = @readInt()
-		if guess <= @secret then @start = guess+1 
-		if guess >= @secret then @stopp = guess-1 
+		@secret = @randint @n
 
 	draw : ->
 		bg 0.1
@@ -221,13 +178,15 @@ class Guess extends Application
 			y = int i / 10
 			text i, 10 + 20 * x, 10 + 20 * y
 
+	mousePressed : (mx,my) -> 
+		guess = int mx/20 + 10 * int my/20
+		if guess <= @secret then @start = guess+1 
+		if guess >= @secret then @stopp = guess-1 
+
 guess = new Guess "a"
 			"""
 	c:
-		guess : "reset()|readGuess()"
-
-
-
+		guess : "reset()|newGame()"
 
 ID186 = # RecursiveCircle: 
 	b: """
@@ -237,9 +196,7 @@ class RecursiveCircle extends Application
 	reset   : -> super
 	draw    : -> super
 	circles : (x,y,r,level) ->
-	more    : -> 
-	less    : -> 
-
+	mousePressed : (mx,my) -> 
 rc = new RecursiveCircle
 """
 	a: """
@@ -254,13 +211,12 @@ class RecursiveCircle extends Application
 		if level <= 0 then return
 		@circles x-r/2, y, r/2, level-1
 		@circles x+r/2, y, r/2, level-1
-	more : -> @n = constrain @n+1,0,10
-	less : -> @n = constrain @n-1,0,10
+	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1),0,10
 
 rc = new RecursiveCircle "a"
 """
 	c:
-		rc : "reset()|more()|less()"
+		rc : "reset()"
 
 ID187 = # Laboratorium :
 	b:"""		
@@ -278,6 +234,7 @@ class Laboratorium extends Application
 		fc 1,1,0
 		sc()
 		text @command,@x,@y
+	mousePressed : (mx,my) ->
 	left  : -> @x -= 10
 	right : -> @x += 10
 	up    : -> @y -= 10
@@ -295,6 +252,7 @@ laboratorium = new Laboratorium
 class Laboratorium extends Application
 	reset : -> super
 	draw : -> 
+	mousePressed : (mx,my) ->
 	left : -> 
 	right : -> 
 	up : -> 
