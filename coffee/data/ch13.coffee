@@ -37,7 +37,7 @@ class Nim extends Application
 			@board[@active] = constrain @board[@active]-1, 0, 99
 
 	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
 
 	newGame : ->
 		[a,b,c] = [1+@randint(5),1+@randint(5),1+@randint(5)]
@@ -420,7 +420,7 @@ class RubikSquare extends Application
 		@createGame()
 
 	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
 
 	newGame : ->
 		if @level >= @history.length and _.isEqual @board,[0,1,2,0,1,2,0,1,2] then d=1 else d=-1
@@ -509,14 +509,14 @@ app = new RubikSquare "a"
 
 ID265 = # Shortcut
 	b:"""		
-# LOC:60 bg fc sc range # %% * / + [] {} text textAlign textSize for in if then else constrain
-#        and < != == push pop length return constrain class extends constructor new @ super ->
+# LOC:62 bg fc sc range # %% * / + [] text textAlign textSize for in if then else return
+#        {} and < != == push pop length constrain class extends constructor new @ super ->
 
 class Shortcut extends Application
 	reset : -> super
 	draw : -> super
 	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
 app = new Shortcut  
 """
@@ -526,20 +526,22 @@ class Shortcut extends Application
 		super
 		@seed = 0
 		@level = 1
+		@w = 33
+		@h = 25
 		@buttons = [[50,50,0],[150,50,0],[33,125,'/2'],[100,125,'+2'],[167,125,'*2'], [33,175,'undo'],[100,175,1],[167,175,'new']]
 		@createGame()
 	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
 	draw : ->
 		@buttons[0][2] = @a
 		@buttons[1][2] = @b
 		@buttons[6][2] = @level - @history.length
-		bg 0
+		bg 0.5
 		textAlign CENTER,CENTER
 		textSize 30
-		fc 1,1,0
 		sc()
-		for [x,y,txt] in @buttons
+		for [x,y,txt],i in @buttons
+			if i in [0,1,6] then fc 0 else fc 1,1,0
 			text txt,x,y
 	newGame : ->
 		if @level >= @history.length and @a == @b then d=1 else d=-1
@@ -570,7 +572,7 @@ class Shortcut extends Application
 	mousePressed : (mx,my) ->
 		index = -1
 		for [x,y,txt],i in @buttons
-			if x-33 < mx < x+33 and  y-25 < my < y+25 
+			if x-@w < mx < x+@w and  y-@h < my < y+@h 
 				index = i
 		a = -1
 		if index == 2 and @a % 2 == 0 then a = @a / 2

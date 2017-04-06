@@ -112,7 +112,7 @@ data = {
     RecursiveCircle: ID186,
     Laboratorium: ID187
   },
-  "LA: interactivity, small": {
+  "LA: interactivity, easy": {
     Square: ID200,
     BoardGame: ID201,
     SevenSegment: ID202,
@@ -130,7 +130,7 @@ data = {
     Nian: ID222,
     Asserts: ID223
   },
-  "LC: interactivity, large": {
+  "LC: interactivity, hard": {
     Klocka: ID240,
     BouncingBalls: ID241,
     Braider: ID242,
@@ -139,7 +139,7 @@ data = {
     Hex: ID245,
     PickingBerries: ID246
   },
-  "LD: interactivity, very large": {
+  "LD: interactivity, very hard": {
     Nim: ID260,
     ChessGame: ID261,
     Shortcut: ID265,

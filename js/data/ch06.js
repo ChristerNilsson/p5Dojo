@@ -22,13 +22,13 @@ ID123 = {
 };
 
 ID124 = {
-  b: "# LOC:10 range # Array fill length floor random text textAlign for in ++ * / + - rect []\n",
-  a: "counts = Array(6).fill 0\ndice = -> floor 6 * random() \ntextAlign CENTER,CENTER\nfor i in range 1000\n	counts[dice()]++\nw = 30\nfor count,i in counts\n	x = w*i + (200-w*counts.length)/2\n	rect x,0,w,count         \n	text i+1,x+w/2,10                	"
+  b: "# LOC:10 range # Array fill length int random text textAlign for in ++ * / + - rect []\n",
+  a: "counts = Array(6).fill 0\ndice = -> int 6 * random() \ntextAlign CENTER,CENTER\nfor i in range 1000\n	counts[dice()]++\nw = 30\nfor count,i in counts\n	x = w*i + (200-w*counts.length)/2\n	rect x,0,w,count         \n	text i+1,x+w/2,10                	"
 };
 
 ID125 = {
-  b: "# LOC:10 range # Array fill length floor random text textAlign for in ++ * / + - rect []\n",
-  a: "counts = Array(11).fill 0\ndice = -> floor 6 * random() \ntextAlign CENTER,CENTER\nfor i in range 1000\n	counts[dice() + dice()]++\nw = 16\nfor count,i in counts\n	x = w*i + (200-w*counts.length)/2\n	rect x,0,w,count         \n	text i+2,x+w/2,10                	",
+  b: "# LOC:10 range # Array fill length int random text textAlign for in ++ * / + - rect []\n",
+  a: "counts = Array(11).fill 0\ndice = -> int 6 * random() \ntextAlign CENTER,CENTER\nfor i in range 1000\n	counts[dice() + dice()]++\nw = 16\nfor count,i in counts\n	x = w*i + (200-w*counts.length)/2\n	rect x,0,w,count         \n	text i+2,x+w/2,10                	",
   e: {
     Kojo: "https://www.youtube.com/watch?v=X6YSgNkcgAs"
   }

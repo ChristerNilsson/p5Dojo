@@ -74,7 +74,7 @@ app = new Stopwatch "a"
 				
 ID182 = # RandomDice :
 	b: """
-# LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   
+# LOC:19 bg fc sc circle # % %% / * + << & [] int Math.sin   
 #        for in class extends constructor new @ super ->
 
 class RandomDice extends Application
@@ -84,7 +84,7 @@ class RandomDice extends Application
 	draw : -> super
 	mousePressed : (mx,my) ->
 	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
 app = new RandomDice
 """
 	a:"""
@@ -97,7 +97,7 @@ class RandomDice extends Application
 		@xy = [22,11,12,13,31,32,33]
 		@throw()
 	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
 	throw : -> @value = 1 + @randint 6
 	mousePressed : (mx,my) -> @throw()
 	draw : -> 
@@ -161,7 +161,7 @@ class Guess extends Application
 		@newGame()
 
 	fraction : (x) -> x %% 1
-	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++
+	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++
 
 	newGame : ->
 		@start = 0

@@ -32,10 +32,10 @@ arc 100,120, 100,100, radians(90),radians(-90)
 """
 
 ID124 = # OneDiceHistogram
-	b:"# LOC:10 range # Array fill length floor random text textAlign for in ++ * / + - rect []\n"
+	b:"# LOC:10 range # Array fill length int random text textAlign for in ++ * / + - rect []\n"
 	a:"""
 counts = Array(6).fill 0
-dice = -> floor 6 * random() 
+dice = -> int 6 * random() 
 textAlign CENTER,CENTER
 for i in range 1000
 	counts[dice()]++
@@ -47,10 +47,10 @@ for count,i in counts
 """
 
 ID125 = # TwoDiceHistogram
-	b:"# LOC:10 range # Array fill length floor random text textAlign for in ++ * / + - rect []\n"
+	b:"# LOC:10 range # Array fill length int random text textAlign for in ++ * / + - rect []\n"
 	a:"""
 counts = Array(11).fill 0
-dice = -> floor 6 * random() 
+dice = -> int 6 * random() 
 textAlign CENTER,CENTER
 for i in range 1000
 	counts[dice() + dice()]++

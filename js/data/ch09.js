@@ -18,8 +18,8 @@ ID181 = {
 };
 
 ID182 = {
-  b: "# LOC:19 bg fc sc circle # % %% / * + << & [] Math.floor Math.sin   \n#        for in class extends constructor new @ super ->\n\nclass RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n	draw : -> super\n	mousePressed : (mx,my) ->\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\napp = new RandomDice",
-  a: "class RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n		@radius = 20\n		@bits = [0,1,24,25,90,91,126]\n		@xy = [22,11,12,13,31,32,33]\n		@throw()\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\n	throw : -> @value = 1 + @randint 6\n	mousePressed : (mx,my) -> @throw()\n	draw : -> \n		bg 1\n		sc 1\n		for xy,i in @xy\n			x = int xy/10\n			y = xy % 10\n			if @bits[@value] & 1<<i then circle 50*x,50*y,@radius 			\n\napp = new RandomDice \"a\"",
+  b: "# LOC:19 bg fc sc circle # % %% / * + << & [] int Math.sin   \n#        for in class extends constructor new @ super ->\n\nclass RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n	draw : -> super\n	mousePressed : (mx,my) ->\n	fraction : (x) -> x %% 1\n	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++\napp = new RandomDice",
+  a: "class RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n		@radius = 20\n		@bits = [0,1,24,25,90,91,126]\n		@xy = [22,11,12,13,31,32,33]\n		@throw()\n	fraction : (x) -> x %% 1\n	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++\n	throw : -> @value = 1 + @randint 6\n	mousePressed : (mx,my) -> @throw()\n	draw : -> \n		bg 1\n		sc 1\n		for xy,i in @xy\n			x = int xy/10\n			y = xy % 10\n			if @bits[@value] & 1<<i then circle 50*x,50*y,@radius 			\n\napp = new RandomDice \"a\"",
   c: {
     app: "reset()"
   }
@@ -35,7 +35,7 @@ ID183 = {
 
 ID185 = {
   b: "# LOC:29 bg fc sc range # text textAlign for in if then else * / + - % <=\n#        int class extends constructor new @ super ->\n\nclass Guess extends Application\n	reset        : -> super\n	draw         : -> super\n	newGame : ->\n	mousePressed : (mx,my) -> \napp = new Guess",
-  a: "class Guess extends Application\n	reset : ->\n		super\n		@n = 100\n		@seed = 0\n		@newGame()\n\n	fraction : (x) -> x %% 1\n	randint : (n) -> Math.floor n * @fraction 10000 * Math.sin @seed++\n\n	newGame : ->\n		@start = 0\n		@stopp = @n-1\n		@secret = @randint @n\n\n	draw : ->\n		bg 0.1\n		textAlign CENTER,CENTER\n		for i in range @n\n			if @start <= i <= @stopp then fc 1 else fc 0.5\n			sc()\n			x = i % 10\n			y = int i / 10\n			text i, 10 + 20 * x, 10 + 20 * y\n\n	mousePressed : (mx,my) -> \n		guess = int mx/20 + 10 * int my/20\n		if guess <= @secret then @start = guess+1 \n		if guess >= @secret then @stopp = guess-1 \n\napp = new Guess \"a\"",
+  a: "class Guess extends Application\n	reset : ->\n		super\n		@n = 100\n		@seed = 0\n		@newGame()\n\n	fraction : (x) -> x %% 1\n	randint : (n) -> int n * @fraction 10000 * Math.sin @seed++\n\n	newGame : ->\n		@start = 0\n		@stopp = @n-1\n		@secret = @randint @n\n\n	draw : ->\n		bg 0.1\n		textAlign CENTER,CENTER\n		for i in range @n\n			if @start <= i <= @stopp then fc 1 else fc 0.5\n			sc()\n			x = i % 10\n			y = int i / 10\n			text i, 10 + 20 * x, 10 + 20 * y\n\n	mousePressed : (mx,my) -> \n		guess = int mx/20 + 10 * int my/20\n		if guess <= @secret then @start = guess+1 \n		if guess >= @secret then @stopp = guess-1 \n\napp = new Guess \"a\"",
   c: {
     app: "reset()|newGame()"
   }

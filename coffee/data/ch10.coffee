@@ -429,7 +429,7 @@ app = new Korsord "a"
 
 ID208 = # EngineeringNotation :
 	b:"""		
-# LOC:28 fc sc bg # Math.floor Math.log10 constrain + - * / < ** text split
+# LOC:28 fc sc bg # int Math.log10 constrain + - * / < ** text split
 #        textAlign textSize class extends constructor new @ super ->
 
 class Engineering extends Application
@@ -448,7 +448,7 @@ class Engineering extends Application
 		@prefixes = "yzafpnµm kMGTPEZY"
 	format : (x) -> 
 		if x<0 then return "-" + @format(-x)
-		exponent = 3 * Math.floor Math.log10(x)/3
+		exponent = 3 * int Math.log10(x)/3
 		x = x / 10 ** exponent
 		if x < 10 then factor = 10 ** (@digits-1) 
 		else if x < 100 then factor = 10 ** (@digits-2)
