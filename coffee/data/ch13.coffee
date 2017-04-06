@@ -398,7 +398,7 @@ rushHour = new RushHour "a"
 ID264 = # RubikSquare:
 	b:"""		
 # LOC:85 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not "" split join
-#         parseInt _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
+#        parseInt _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
 # OBS: Du bör använda variabeln rubikSquareData.
 
 class RubikSquare extends Application

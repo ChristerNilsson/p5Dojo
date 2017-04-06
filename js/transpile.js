@@ -66,9 +66,6 @@ clean = function(s) {
 transpile = function(code) {
   var j, len, line, lines, tabs, temp;
   lines = code.split('\n');
-  if (lines[0].indexOf('//ECMA') === 0) {
-    return code;
-  }
   temp = [];
   for (j = 0, len = lines.length; j < len; j++) {
     line = lines[j];

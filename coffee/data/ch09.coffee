@@ -190,7 +190,7 @@ guess = new Guess "a"
 
 ID186 = # RecursiveCircle: 
 	b: """
-# LOC:10 -> sc circle # if return < class extends constructor new @ super ->
+# LOC:10 sc circle # if return < class extends constructor new @ super ->
 
 class RecursiveCircle extends Application
 	reset   : -> super

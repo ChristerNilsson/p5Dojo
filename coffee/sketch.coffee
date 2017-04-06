@@ -302,7 +302,7 @@ reset = ->
 	sc 1
 	grid()
 
-run = (n, coffee) ->
+run = (_n, coffee) ->
 	#start = millis()
 	resetMatrix()
 	rectMode CORNER
@@ -318,7 +318,7 @@ run = (n, coffee) ->
 		code = transpile coffee
 		try
 			eval code
-			buffer[1-n] = store()
+			buffer[1-_n] = store()
 		catch e
 			setMsg e.stack.split('\n')[0]
 		pop()

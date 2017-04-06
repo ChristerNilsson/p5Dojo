@@ -68,7 +68,7 @@ ID205 = {
 };
 
 ID206 = {
-  b: "# LOC:27 -> bg fc sc sw # rect for if else class extends constructor new @ super ->\n\nclass Korg extends Application\n	reset   : -> super\n	draw    : -> super\n	more    : ->\n	less    : ->\n	thinner : ->\n	thicker : ->\n\nkorg = new Korg",
+  b: "# LOC:27 bg fc sc sw # rect for if else class extends constructor new @ super ->\n\nclass Korg extends Application\n	reset   : -> super\n	draw    : -> super\n	more    : ->\n	less    : ->\n	thinner : ->\n	thicker : ->\n\nkorg = new Korg",
   a: "class Korg extends Application\n	reset : ->\n		super\n		@n = 1\n		@w = 5\n\n	draw : ->\n		c1 = co 1,0,0\n		c2 = co 1,1,0\n		bg 0\n		sw @w\n		fill c1\n		stroke c2\n		q = 2*@n+1\n		d = 200.0/q\n		for i in range @n\n			rect d+i*2*d,0,d,200\n		for j in range @n\n			rect 0,d+j*2*d,200,d\n		for i in range @n\n			for j in range @n\n				if (i+j) % 2 == 1\n					rect i*2*d,d+j*2*d,3*d,d\n				else\n					rect d+i*2*d,j*2*d,d,3*d\n	more : -> @n = constrain @n+1,1,10\n	less : -> @n = constrain @n-1,1,10\n	thinner : -> @w = constrain @w-1,0,10\n	thicker : -> @w = constrain @w+1,0,10\n\nkorg = new Korg \"a\"",
   c: {
     korg: "reset()|more()|less()|thinner()|thicker()"
@@ -100,9 +100,12 @@ ID208 = {
 };
 
 ID209 = {
-  b: "# LOC:33 -> bg range # for in class extends constructor new @ super ->\n#           quad [] push pop fill stroke if then and * / + - <= return\n\nclass ColorCube extends Application\n	reset       : -> super\n	draw        : -> super\n	undo 				: ->\n	mousePressed : (mx,my) ->\ncolorcube = new ColorCube",
-  a: "class ColorCube extends Application\n	reset : -> \n		super\n		@minR = 0\n		@minG = 0\n		@minB = 0\n		@size = 256\n		@history = []\n	draw : ->\n		bg 0\n		@c = @size / 4\n		for b in range 4\n			for r in range 4\n				for g in range 4\n					fill   @minR+r*@c+@c/2, @minG+g*@c+@c/2, @minB+b*@c+@c/2\n					stroke @minR+r*@c+@c/2, @minG+g*@c+@c/2, @minB+b*@c+@c/2\n					x = r*40-g*10\n					y = g*10+b*50 + 5\n					quad x+40,y+0, x+80,y+0, x+70,y+10, x+30,y+10 \n	mousePressed : (mx,my) ->\n		if @size == 4 then return \n		for b in range 4\n			for r in range 4\n				for g in range 4\n					x = r*40-g*10  \n					y = g*10+b*50 + 5\n					if x+35 <= mx <= x+75 and y <= my <= y+10 \n						@history.push [@minR,@minG,@minB,@size]\n						@size /= 4\n						@minR += r * @size\n						@minG += g * @size\n						@minB += b * @size\n						return\n\n	undo : -> if @history.length > 0 then [@minR,@minG,@minB,@size] = @history.pop()\n\ncolorcube = new ColorCube \"a\"",
+  b: "# LOC:33 bg range # for in class extends constructor new @ super ->\n#        quad [] push pop fill stroke if then and * / + - <= return\n\nclass ColorCube extends Application\n	reset       : -> super\n	draw        : -> super\n	undo 				: ->\n	mousePressed : (mx,my) ->\ncolorcube = new ColorCube",
+  a: "class ColorCube extends Application\n	reset : -> \n		super\n		@r = 0\n		@g = 0\n		@b = 0\n		@size = 256\n		@history = []\n	draw : ->\n		bg 0\n		@c = @size / 4\n		for b in range 4\n			for r in range 4\n				for g in range 4\n					fill   @r+r*@c+@c/2, @g+g*@c+@c/2, @b+b*@c+@c/2\n					stroke @r+r*@c+@c/2, @g+g*@c+@c/2, @b+b*@c+@c/2\n					x = r*40-g*10\n					y = g*10+b*50 + 5\n					quad x+40,y+0, x+80,y+0, x+70,y+10, x+30,y+10 \n	mousePressed : (mx,my) ->\n		if @size == 4 then return \n		for b in range 4\n			for r in range 4\n				for g in range 4\n					x = r*40-g*10  \n					y = g*10+b*50 + 5\n					if x+35 <= mx <= x+75 and y <= my <= y+10 \n						@history.push [@r,@g,@b,@size]\n						@size /= 4\n						@r += r * @size\n						@g += g * @size\n						@b += b * @size\n						return\n\n	undo : -> if @history.length > 0 then [@r,@g,@b,@size] = @history.pop()\n\ncolorcube = new ColorCube \"a\"",
   c: {
     colorcube: "reset()|undo()"
+  },
+  e: {
+    ColorCube: "https://www.google.se/search?q=color+cube&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwjo3_Cm3Y7TAhUJb5oKHcFhCKQQsAQIJg&biw=1745&bih=963&dpr=1.1"
   }
 };

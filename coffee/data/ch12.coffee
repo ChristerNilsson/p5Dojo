@@ -67,8 +67,8 @@ klocka = new Klocka "a"
 
 ID241 = # BouncingBalls :
 	b : """
-# LOC: 43 fc sw sc circle # + ++ - -- %% == push if then for in 
-#         splice length _.create class constructor super extends new @
+# LOC:43 fc sw sc circle # + ++ - -- %% == push if then for in 
+#        splice length _.create class constructor super extends new @
 
 class Ball 
 	constructor : ->
@@ -158,7 +158,7 @@ bouncingBalls = new BouncingBalls "a"
 		
 ID242 = # Braider:
 	b : """
-# LOC: 49 sc bg sw range # for in if then + line class constructor extends new @
+# LOC:49 sc bg sw range # for in if then + line class constructor extends new @
 
 class Cartesius
 	constructor : (x,y,c) ->

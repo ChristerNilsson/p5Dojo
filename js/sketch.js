@@ -439,7 +439,7 @@ reset = function() {
   return grid();
 };
 
-run = function(n, coffee) {
+run = function(_n, coffee) {
   var code, e;
   resetMatrix();
   rectMode(CORNER);
@@ -454,7 +454,7 @@ run = function(n, coffee) {
     code = transpile(coffee);
     try {
       eval(code);
-      buffer[1 - n] = store();
+      buffer[1 - _n] = store();
     } catch (error) {
       e = error;
       setMsg(e.stack.split('\n')[0]);

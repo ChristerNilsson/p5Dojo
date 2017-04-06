@@ -42,7 +42,7 @@ ID185 = {
 };
 
 ID186 = {
-  b: "# LOC:10 -> sc circle # if return < class extends constructor new @ super ->\n\nclass RecursiveCircle extends Application\n	reset   : -> super\n	draw    : -> super\n	circles : (x,y,r,level) ->\n	mousePressed : (mx,my) -> \nrc = new RecursiveCircle",
+  b: "# LOC:10 sc circle # if return < class extends constructor new @ super ->\n\nclass RecursiveCircle extends Application\n	reset   : -> super\n	draw    : -> super\n	circles : (x,y,r,level) ->\n	mousePressed : (mx,my) -> \nrc = new RecursiveCircle",
   a: "\nclass RecursiveCircle extends Application\n	reset : -> \n		super\n		@n = 0\n	draw : -> @circles 100,100,100,@n		\n	circles : (x,y,r,level) ->\n		circle x,y,r\n		if level <= 0 then return\n		@circles x-r/2, y, r/2, level-1\n		@circles x+r/2, y, r/2, level-1\n	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1),0,10\n\nrc = new RecursiveCircle \"a\"",
   c: {
     rc: "reset()"

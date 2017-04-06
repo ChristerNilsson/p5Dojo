@@ -329,7 +329,7 @@ alpha = new AlphaNumeric "a"
 
 ID206 = # Korg: 
 	b:"""
-# LOC:27 -> bg fc sc sw # rect for if else class extends constructor new @ super ->
+# LOC:27 bg fc sc sw # rect for if else class extends constructor new @ super ->
 
 class Korg extends Application
 	reset   : -> super
@@ -481,8 +481,8 @@ engineering = new Engineering "a"
 
 ID209 = # ColorCube:
 	b: """
-# LOC:33 -> bg range # for in class extends constructor new @ super ->
-#           quad [] push pop fill stroke if then and * / + - <= return
+# LOC:33 bg range # for in class extends constructor new @ super ->
+#        quad [] push pop fill stroke if then and * / + - <= return
 
 class ColorCube extends Application
 	reset       : -> super
@@ -495,9 +495,9 @@ colorcube = new ColorCube
 class ColorCube extends Application
 	reset : -> 
 		super
-		@minR = 0
-		@minG = 0
-		@minB = 0
+		@r = 0
+		@g = 0
+		@b = 0
 		@size = 256
 		@history = []
 	draw : ->
@@ -506,8 +506,8 @@ class ColorCube extends Application
 		for b in range 4
 			for r in range 4
 				for g in range 4
-					fill   @minR+r*@c+@c/2, @minG+g*@c+@c/2, @minB+b*@c+@c/2
-					stroke @minR+r*@c+@c/2, @minG+g*@c+@c/2, @minB+b*@c+@c/2
+					fill   @r+r*@c+@c/2, @g+g*@c+@c/2, @b+b*@c+@c/2
+					stroke @r+r*@c+@c/2, @g+g*@c+@c/2, @b+b*@c+@c/2
 					x = r*40-g*10
 					y = g*10+b*50 + 5
 					quad x+40,y+0, x+80,y+0, x+70,y+10, x+30,y+10 
@@ -519,17 +519,18 @@ class ColorCube extends Application
 					x = r*40-g*10  
 					y = g*10+b*50 + 5
 					if x+35 <= mx <= x+75 and y <= my <= y+10 
-						@history.push [@minR,@minG,@minB,@size]
+						@history.push [@r,@g,@b,@size]
 						@size /= 4
-						@minR += r * @size
-						@minG += g * @size
-						@minB += b * @size
+						@r += r * @size
+						@g += g * @size
+						@b += b * @size
 						return
 
-	undo : -> if @history.length > 0 then [@minR,@minG,@minB,@size] = @history.pop()
+	undo : -> if @history.length > 0 then [@r,@g,@b,@size] = @history.pop()
 
 colorcube = new ColorCube "a"
 """
 	c: 
 		colorcube : "reset()|undo()"
-
+	e:
+		ColorCube : "https://www.google.se/search?q=color+cube&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwjo3_Cm3Y7TAhUJb5oKHcFhCKQQsAQIJg&biw=1745&bih=963&dpr=1.1"

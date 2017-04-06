@@ -37,8 +37,8 @@ clean = (s) -> s.split(' ').join("").split('\t').join("")
 
 transpile = (code) ->
   lines = code.split '\n'
-  if lines[0].indexOf('//ECMA') == 0
-    return code
+  #if lines[0].indexOf('//ECMA') == 0
+  #  return code
   temp = []
   for line in lines 
     line = spacesToTabs line
