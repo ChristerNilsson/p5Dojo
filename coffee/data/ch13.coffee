@@ -506,7 +506,7 @@ app = new RubikSquare "a"
 
 ID265 = # Shortcut
 	b:"""		
-# LOC:62 bg fc sc range # %% * / + [] text textAlign textSize for in if then else return
+# LOC:65 bg fc sc range # %% * / + [] text textAlign textSize for in if then else return
 #        {} and < != == push pop length constrain class extends constructor new @ super ->
 
 class Shortcut extends Application
@@ -540,7 +540,7 @@ class Shortcut extends Application
 			text txt,x,y
 	newGame : ->
 		if @level >= @history.length and @a == @b then d=1 else d=-1
-		@level = constrain @level+d,1,6
+		@level = constrain @level+d,1,16
 		@createGame()
 	createGame : ->
 		@history = []
@@ -560,7 +560,11 @@ class Shortcut extends Application
 				expand nr/2 if nr%2==0
 			q1 = q2
 			q2 = []
-		@b = q1[@randint(q1.length)]
+		@b = @selectTarget q1 #[@randint(q1.length)]
+	selectTarget : (lst) -> # within 1..1000, if possible
+		bs = (x for x in lst when 1 <= x <= 1000)
+		return bs[@randint(bs.length)] if bs.length > 0
+		_.min lst
 	undo : -> 
 		if @history.length == 0 then return
 		@a = @history.pop()
@@ -587,7 +591,7 @@ app = new Shortcut "a"
 
 ID266 = # Complex
 	b:"""		
-# LOC:76 bg fc sc range # * / + %% [] line circle text textAlign textSize for in if then else return int
+# LOC:80 bg fc sc range # * / + %% [] line circle text textAlign textSize for in if then else return int
 #        {} dist _.isEqual and < != == push pop length constrain class extends constructor new @ super ->
 
 class Complex extends Application
@@ -633,7 +637,7 @@ class Complex extends Application
 			text txt,x,y
 	newGame : ->
 		if @level >= @history.length and _.isEqual(@a,@b) then d=1 else d=-1
-		@level = constrain @level+d,1,6
+		@level = constrain @level+d,1,16
 		@createGame()
 	createGame : ->
 		@history = []
@@ -644,6 +648,7 @@ class Complex extends Application
 		visited[@a] = true
 		expand = (n) ->
 			if visited[n] then return
+			if n[0]*n[0] + n[1]*n[1] > 1000 then return
 			visited[n] = true
 			q2.push n
 		for level in range @level
@@ -654,7 +659,11 @@ class Complex extends Application
 				expand [x+1,y]
 			q1 = q2
 			q2 = []
-		@b = q1[@randint(q1.length)]
+		@b = @selectTarget q1
+	selectTarget : (lst) -> # within 21x21 window, if possible
+		bs = ([x,y] for [x,y] in lst when -10 <= x <= 10 and -10 <= y <= 10)
+		return bs[@randint(bs.length)] if bs.length > 0
+		_.min lst, ([x,y]) -> dist 0,0,x,y
 	undo : -> 
 		if @history.length == 0 then return
 		@a = @history.pop()
@@ -679,3 +688,5 @@ app = new Complex "a"
 """
 	c:
 		app : "reset()"
+	e: 
+		"Komplexa tal" : "http://www.matteboken.se/lektioner/matte-4/komplexa-tal/rakna-med-komplexa-tal"

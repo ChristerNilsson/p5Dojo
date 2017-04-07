@@ -105,6 +105,7 @@ sel2change = (sel) ->
 		exercise = ""
 		myCodeMirror.setValue ""
 		tableClear()
+		linksClear()		
 		bg 0.5
 		sel2.hide()
 		return 
