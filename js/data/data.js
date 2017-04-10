@@ -80,9 +80,7 @@ data = {
     Triangle: ID120,
     Quad: ID121,
     PacMan: ID122,
-    TwoArcs: ID123,
-    OneDiceHistogram: ID124,
-    TwoDiceHistogram: ID125
+    TwoArcs: ID123
   },
   "L7: translate rotate push pop": {
     TextC: ID140,
@@ -99,7 +97,9 @@ data = {
     ManyDices: ID160,
     Girlang: ID161,
     Braid: ID162,
-    OlympicRings: ID163
+    OlympicRings: ID163,
+    OneDiceHistogram: ID164,
+    TwoDiceHistogram: ID165
   },
   "L9: interactivity, basic": {
     Counter: ID180,

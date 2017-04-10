@@ -31,34 +31,3 @@ strokeCap SQUARE
 arc 100,120, 100,100, radians(90),radians(-90)
 """
 
-ID124 = # OneDiceHistogram
-	b:"# LOC:10 range # Array fill length int random text textAlign for in ++ * / + - rect []\n"
-	a:"""
-counts = Array(6).fill 0
-dice = -> int 6 * random() 
-textAlign CENTER,CENTER
-for i in range 1000
-	counts[dice()]++
-w = 30
-for count,i in counts
-	x = w*i + (200-w*counts.length)/2
-	rect x,0,w,count         
-	text i+1,x+w/2,10                	
-"""
-
-ID125 = # TwoDiceHistogram
-	b:"# LOC:10 range # Array fill length int random text textAlign for in ++ * / + - rect []\n"
-	a:"""
-counts = Array(11).fill 0
-dice = -> int 6 * random() 
-textAlign CENTER,CENTER
-for i in range 1000
-	counts[dice() + dice()]++
-w = 16
-for count,i in counts
-	x = w*i + (200-w*counts.length)/2
-	rect x,0,w,count         
-	text i+2,x+w/2,10                	
-"""
-	e:
-		Kojo : "https://www.youtube.com/watch?v=X6YSgNkcgAs"

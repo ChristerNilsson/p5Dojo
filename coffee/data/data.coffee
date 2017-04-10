@@ -22,6 +22,7 @@ data =
 		gravity : ID013
 		hypnoticA : ID014
 		hypnoticB : ID015
+
 	"L1: bg point sc sw" : 
 		Background1 : ID020
 		Background2 : ID021
@@ -82,8 +83,6 @@ data =
 		Quad : ID121
 		PacMan : ID122
 		TwoArcs : ID123
-		OneDiceHistogram : ID124
-		TwoDiceHistogram : ID125
 
 	"L7: translate rotate push pop" :
 		TextC : ID140
@@ -101,6 +100,8 @@ data =
 		Girlang : ID161
 		Braid : ID162
 		OlympicRings : ID163
+		OneDiceHistogram : ID164
+		TwoDiceHistogram : ID165
 
 	"L9: interactivity, basic" :
 		Counter : ID180
