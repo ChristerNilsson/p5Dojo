@@ -324,3 +324,48 @@ for i in range 100
 	r = map sin(5*speed), -1, 1, 2, 5
 	circle x, y, r
 """
+
+ID016 = # Rainbow : 
+	b:"# LOC:37 bg fc sc sw circle # arc (Isabel T)\n"
+	a:"""
+bg 0.5,0.8,1
+
+sw 11
+fc()
+sc 0.9,0.1,0.1
+arc 100,97,190,180,PI,PI
+sc 0.9,0.4,0.1
+arc 100,107,180,180,PI,PI
+sc 1,0.75,0
+arc 100,117,170,180,PI,PI
+sc 0.4,0.75,0.2
+arc 100,127,160,180,PI,PI
+sc 0.1,0.65,0.6
+arc 100,137,150,180,PI,PI
+sc 0.15,0.45,0.65
+arc 100,147,140,180,PI,PI
+sc 0.55,0.25,0.55
+arc 100,157,130,180,PI,PI
+
+sw 0
+fc 1
+circle 0,108,10
+circle 10,120,13
+circle 15,130,10
+circle 20,145,13
+circle 35,157,12
+circle 37,170,12
+circle 25,175,10
+circle 10,170,10
+circle 5,150,26
+
+circle 200,108,10
+circle 190,120,13
+circle 185,130,10
+circle 180,145,13
+circle 165,157,12
+circle 163,170,12
+circle 175,175,10
+circle 190,170,10
+circle 195,150,26	
+"""

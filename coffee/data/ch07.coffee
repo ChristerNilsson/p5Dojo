@@ -127,7 +127,7 @@ d = PI/numbers.length
 sw 20
 strokeCap SQUARE
 textAlign CENTER,CENTER
-for i in range numbers.length
+for number,i in numbers
 	push()
 	fc()
 	if i==0 then sc 0,1,0 else sc i%2,0,0
@@ -136,7 +136,7 @@ for i in range numbers.length
 	rd 90
 	sc()
 	fc 1
-	text numbers[i],0,0
+	text number,0,0
 	pop()
 	rotate TWO_PI / numbers.length
 """

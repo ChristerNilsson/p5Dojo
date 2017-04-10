@@ -4,6 +4,7 @@ var data;
 data = {
   Nyheter: {
     Nyheter: ID000,
+    Rainbow: ID016,
     clown: ID001,
     tomteluva: ID002,
     snowman: ID003,

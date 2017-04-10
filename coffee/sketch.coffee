@@ -298,6 +298,9 @@ run1 = ->
 reset = ->
 	colorMode RGB,255
 	angleMode RADIANS
+	sw 1
+	strokeCap ROUND
+	textAlign LEFT,BASELINE
 	bg 0
 	fc 0
 	sc 1

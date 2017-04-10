@@ -6,6 +6,7 @@
 data =
 	Nyheter : 
 		Nyheter : ID000 
+		Rainbow : ID016
 		clown : ID001
 		tomteluva : ID002
 		snowman : ID003
@@ -21,7 +22,6 @@ data =
 		gravity : ID013
 		hypnoticA : ID014
 		hypnoticB : ID015
-
 	"L1: bg point sc sw" : 
 		Background1 : ID020
 		Background2 : ID021
