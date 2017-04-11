@@ -42,6 +42,6 @@ ID147 = {
 };
 
 ID148 = {
-  b: "# LOC:17 bg sw fc sc range rd # for in if then else == % / [] \"\" PI\n#        length text textAlign arc strokeCap translate push pop\n\nnumbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]",
-  a: "numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]\nbg 0.5\ntranslate 100,100\nd = PI/numbers.length\nsw 20\nstrokeCap SQUARE\ntextAlign CENTER,CENTER\nfor number,i in numbers\n	fc()\n	if i==0 then sc 0,1,0 else sc i%2,0,0\n	arc 0,0,180,180,-PI/2-d,-PI/2+d\n	translate 0,-90\n	sc()\n	fc 1\n	text number,0,0\n	translate 0,90\n	rd 360 / numbers.length"
+  b: "# LOC:15 bg sw fc sc range rd # for in if then else == % / [] \"\" PI\n#        length text textAlign arc strokeCap translate push pop\n\nnumbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]",
+  a: "numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]\nbg 0.5\ntranslate 100,100\nd = PI/numbers.length\nsw 20\nstrokeCap SQUARE\ntextAlign CENTER,CENTER\nfor number,i in numbers\n	fc()\n	if i==0 then sc 0,1,0 else sc i%2,0,0\n	arc 0,0,180,180,-PI/2-d,-PI/2+d\n	sc()\n	fc 1\n	text number,0,-90\n	rd 360 / numbers.length"
 };

@@ -113,7 +113,7 @@ for i in range 10
 
 ID148 = # Roulette:
 	b:"""
-# LOC:17 bg sw fc sc range rd # for in if then else == % / [] "" PI
+# LOC:15 bg sw fc sc range rd # for in if then else == % / [] "" PI
 #        length text textAlign arc strokeCap translate push pop
 
 numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
@@ -130,10 +130,8 @@ for number,i in numbers
 	fc()
 	if i==0 then sc 0,1,0 else sc i%2,0,0
 	arc 0,0,180,180,-PI/2-d,-PI/2+d
-	translate 0,-90
 	sc()
 	fc 1
-	text number,0,0
-	translate 0,90
+	text number,0,-90
 	rd 360 / numbers.length
 """
