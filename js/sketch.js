@@ -517,7 +517,6 @@ compare = function(message) {
   a = buffer[0];
   b = buffer[1];
   c = a.slice(0);
-  fetch(a, 0);
   if (msg.val() === '') {
     ref = range(block / 4);
     for (l = 0, len = ref.length; l < len; l++) {
@@ -528,6 +527,9 @@ compare = function(message) {
       c[i4 + 2] = abs(c[i4 + 2] - b[i4 + 2]);
       c[i4 + 3] = 255;
     }
+  }
+  fetch(a, 0);
+  if (msg.val() === '') {
     fetch(b, 1);
     fetch(c, 2);
   }

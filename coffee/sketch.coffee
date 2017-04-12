@@ -362,8 +362,6 @@ compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
 	b = buffer[1]
 	c = a[..]
 
-	fetch a, 0 
-
 	if msg.val() == '' 
 		for i in range block/4
 			i4 = 4*i
@@ -371,6 +369,9 @@ compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
 			c[i4+1] = abs c[i4+1] - b[i4+1] 	
 			c[i4+2] = abs c[i4+2] - b[i4+2]  	
 			c[i4+3] = 255
+
+	fetch a, 0 
+	if msg.val() == '' 
 		fetch b, 1 
 		fetch c, 2
 	fix_frames()
