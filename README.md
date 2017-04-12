@@ -18,6 +18,17 @@
 ### Chrome och Windows är ett krav. 
 Ingen annan programvara behöver installeras.
 
+### Förkunskaper i Windows
+
+|Verb|Text|Filer|Kataloger|
+|---|---|---|---|
+|Skapa|x|x|x|
+|Ta bort|x|x|x|
+|Kopiera|x|x|x|
+|Flytta|x|x|x|
+|Ångra|x|x|x|
+|Byta namn||x|x|
+
 ### färger
 |r,g,b|färg|
 |---|---|
@@ -259,7 +270,7 @@ npm install -g coffee-script
 
 ### Så här arbetar du
 
-- Använd valfri texteditor t ex Sublime eller Notepad.
+- Använd texteditorn Sublime Text.
 - Kopiera [mallen](https://github.com/ChristerNilsson/000-Mall) för varje nytt projekt.
 - Klicka på transpile.bat. Om det piper: läs transpileringsfel här.
 - Den eller de javascriptfiler du använder måste anges i index.html
