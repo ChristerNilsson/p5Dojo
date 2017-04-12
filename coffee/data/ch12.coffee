@@ -251,7 +251,7 @@ app = new Braider "a"
 ID243 = # ColorPair :
 	b: """
 # LOC:41 fc circle # [] .. push dist length splice _.isEqual colorMode HSB
-#        for in class extends constructor new @ super ->
+#        _.max _.pairs _.sortBy for in class extends constructor new @ super ->
 
 class ColorPair extends Application
 	reset : -> 
@@ -259,6 +259,7 @@ class ColorPair extends Application
 		@seed = 0
 	draw : -> super
 	mousePressed : (mx,my) ->
+	enterName : ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 app = new ColorPair
 """
@@ -270,6 +271,8 @@ class ColorPair extends Application
 		@level = 0
 		@changeLevel 1
 		@radius = 40
+		@name = ""
+		@highScore = {}
 
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 
@@ -295,11 +298,18 @@ class ColorPair extends Application
 			else if _.isEqual(@memory, circle[2]) 
 				@memory = -1
 				@circles.splice i,1
-				if @circles.length == 0 then @changeLevel 1
+				if @circles.length == 0
+					@updateHighScore() if @name != ""
+					@changeLevel 1
 			else
 				@changeLevel -1
 		else
 			@changeLevel -1
+
+	updateHighScore : ->
+		@highScore[@name] = _.max [@level, @highScore[@name]] 
+		@topList = _.pairs @highScore
+		@topList = _.sortBy @topList, ([name,level]) -> -level
 
 	changeLevel : (d) ->
 		@memory = -1
@@ -310,10 +320,12 @@ class ColorPair extends Application
 			@circles.push [@randint(200), @randint(200), c]
 			@circles.push [@randint(200), @randint(200), c]
 
+	enterName : -> @name = @readText()
+
 app = new ColorPair "a"
 """
 	c:
-		app : "reset()"
+		app : "reset()|enterName()"
 	e: 
 		ColorPair : "https://christernilsson.github.io/ColorPair"
 

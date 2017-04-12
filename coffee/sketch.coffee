@@ -378,18 +378,18 @@ compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
 	#print message,millis()-start
 
 class Application
-	constructor : (@name='b') ->
-		name = chapter + "/" + exercise + "/" + @name
-		obj = localStorage.getItem name 
+	constructor : (@_name='b') ->
+		_name = chapter + "/" + exercise + "/" + @_name
+		obj = localStorage.getItem _name 
 		if obj
 			dict = JSON.parse obj
 			for key,value of dict
 				@[key] = value
 			
 	store : -> 
-		name = chapter + "/" + exercise + "/" + @name
+		_name = chapter + "/" + exercise + "/" + @_name
 		obj = JSON.stringify @
-		localStorage.setItem name, obj
+		localStorage.setItem _name, obj
 		fillTable chapter + "/" + exercise + "/a", chapter + "/" + exercise + "/b"
  
 	draw : -> 
@@ -400,7 +400,7 @@ class Application
 
 	reset : ->
 		for key in _.keys @
-			if key != "name" then delete @[key]
+			if key != "_name" then delete @[key]
 
 	readText : -> $('#input').val()
 	readInt : -> parseInt @readText()
@@ -436,6 +436,6 @@ fillTable = (a,b) ->
 	keys = _.uniq keys
 
 	for key in keys
-		if key != 'name'
+		if key != '_name'
 			tableAppend tabell, "@" + key,a[key],b[key]
 			

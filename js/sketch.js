@@ -537,11 +537,11 @@ compare = function(message) {
 };
 
 Application = (function() {
-  function Application(name1) {
-    var dict, key, name, obj, value;
-    this.name = name1 != null ? name1 : 'b';
-    name = chapter + "/" + exercise + "/" + this.name;
-    obj = localStorage.getItem(name);
+  function Application(_name1) {
+    var _name, dict, key, obj, value;
+    this._name = _name1 != null ? _name1 : 'b';
+    _name = chapter + "/" + exercise + "/" + this._name;
+    obj = localStorage.getItem(_name);
     if (obj) {
       dict = JSON.parse(obj);
       for (key in dict) {
@@ -552,10 +552,10 @@ Application = (function() {
   }
 
   Application.prototype.store = function() {
-    var name, obj;
-    name = chapter + "/" + exercise + "/" + this.name;
+    var _name, obj;
+    _name = chapter + "/" + exercise + "/" + this._name;
     obj = JSON.stringify(this);
-    localStorage.setItem(name, obj);
+    localStorage.setItem(_name, obj);
     return fillTable(chapter + "/" + exercise + "/a", chapter + "/" + exercise + "/b");
   };
 
@@ -572,7 +572,7 @@ Application = (function() {
     results = [];
     for (l = 0, len = ref.length; l < len; l++) {
       key = ref[l];
-      if (key !== "name") {
+      if (key !== "_name") {
         results.push(delete this[key]);
       } else {
         results.push(void 0);
@@ -637,7 +637,7 @@ fillTable = function(a, b) {
   results = [];
   for (l = 0, len = keys.length; l < len; l++) {
     key = keys[l];
-    if (key !== 'name') {
+    if (key !== '_name') {
       results.push(tableAppend(tabell, "@" + key, a[key], b[key]));
     } else {
       results.push(void 0);
