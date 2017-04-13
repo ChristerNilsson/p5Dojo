@@ -18,17 +18,6 @@
 ### Chrome och Windows är ett krav. 
 Ingen annan programvara behöver installeras.
 
-### Förkunskaper i Windows
-
-|Verb|Text|Filer|Kataloger|
-|---|---|---|---|
-|Skapa|x|x|x|
-|Ta bort|x|x|x|
-|Kopiera|x|x|x|
-|Flytta|x|x|x|
-|Ångra|x|x|x|
-|Byta namn||x|x|
-
 ### färger
 |r,g,b|färg|
 |---|---|
@@ -261,6 +250,22 @@ counter = new Counter
  - janchrister.nilsson snabela gmail.com
 
 ## Installation
+
+Installation är ej nödvändigt för att kunna använda p5Dojo.
+Denna installation gör du när du är klar med p5Dojo.
+
+### Förkunskaper i Windows
+
+Du måste behärska följande moment innan installation kan ske:
+
+|Verb|Text|Filer|Kataloger|
+|---|---|---|---|
+|Skapa|x|x|x|
+|Ta bort|x|x|x|
+|Kopiera|x|x|x|
+|Flytta|x|x|x|
+|Ångra|x|x|x|
+|Byta namn||x|x|
 
 - download [node.js](https://nodejs.org/en/download)
 - Skriv in följande kommando i ett terminalfönster
