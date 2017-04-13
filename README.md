@@ -18,8 +18,7 @@
 ### Chrome och Windows är ett krav. 
 Ingen annan programvara behöver installeras.
 
-### färger
-```  
+### färger```  
 r,g,b färg
 0,0,1 blå
 0,1,0 grön
@@ -29,15 +28,11 @@ r,g,b färg
 1,1,0 gul
 0     svart
 0.5   grå
-1     vit
-```  
-
-### bakgrundsfärg
-```  
+1     vit```  
+### bakgrundsfärg```  
 bg r,g,b färg
 bg 1     vit
-bg 1,1,0 gul  
-```  
+bg 1,1,0 gul```  
 
 ### fyllningsfärg
 ```  
@@ -61,8 +56,9 @@ sc 1,0,0,0.5 röd, halvgenomskinlig
 
 ### strecktjocklek
 ```  
-  sw pixlar
+sw pixlar
 ```  
+
 ### ritkommandon
 ```  
 kommando argument
