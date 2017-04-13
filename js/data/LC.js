@@ -2,10 +2,10 @@
 var ID240, ID241, ID242, ID243, ID244, ID245, ID246, ID247, ID248;
 
 ID240 = {
-  b: "# LOC:44 fc sc circle range rd # point rect rectMode for in if then else \n#        translate push pop class extends constructor new @ super ->\n\nclass Klocka extends Application\n	reset  : -> super\n	draw   : -> super\n	hour   : (h) ->\n	minute : (m) ->\n	second : (s) ->\n\napp = new Klocka",
-  a: "class Klocka extends Application\n	reset : -> \n		super\n		@h=10\n		@m=9\n		@s=30\n	draw : ->\n		bg 0.5\n		rectMode CENTER\n		translate 100,100\n		@urtavla()\n		@visare (@h+@m/60.0)*30, 7,60,1,0,0\n		@visare (@m+@s/60.0)*6,5,80,0,1,0\n		@visare @s*6,2,80,1,1,0\n	hour   : (h) -> @adjust h,0,0\n	minute : (m) -> @adjust 0,m,0\n	second : (s) -> @adjust 0,0,s\n\n	adjust : (h,m,s) ->\n		@h+=h\n		@m+=m\n		@s+=s\n		t = 3600 * @h + 60 * @m + @s\n		@s = t %% 60\n		t = (t - @s) / 60\n		@m = t %% 60\n		t = (t - @m) / 60\n		@h = t %% 24\n\n	visare : (v,w,l,r,g,b) ->\n		push()\n		rd v-90\n		translate l/2,0\n		fc r,g,b\n		rect 0,0,l,w\n		pop()\n	urtavla : ->\n		fc 0\n		sc 1\n		sw 2\n		circle 0,0,90\n		fc 1\n		sc()\n		for i in range 60\n			circle 85,0, if i%5==0 then 3 else 2\n			rd 6\n\napp = new Klocka \"a\"",
+  b: "# LOC:49 fc sc circle range rd # point rect rectMode for in if then else \n#        translate push pop class extends constructor new @ super ->\n#        Date getHours getMinutes getSeconds\n\nclass Klocka extends Application\n	reset  : -> super\n	draw   : -> super\n	hour   : (h) ->\n	minute : (m) ->\n	second : (s) ->\n	now 	 : ->\n\napp = new Klocka",
+  a: "class Klocka extends Application\n	reset : -> \n		super\n		@h=10\n		@m=9\n		@s=30\n	draw : ->\n		bg 0.5\n		rectMode CENTER\n		translate 100,100\n		@urtavla()\n		@visare (@h+@m/60.0)*30, 7,60,1,0,0\n		@visare (@m+@s/60.0)*6,5,80,0,1,0\n		@visare @s*6,2,80,1,1,0\n	hour   : (h) -> @adjust h,0,0\n	minute : (m) -> @adjust 0,m,0\n	second : (s) -> @adjust 0,0,s\n	now    : -> \n		d = new Date()\n		@h = d.getHours()\n		@m = d.getMinutes()\n		@s = d.getSeconds() \n	adjust : (h,m,s) ->\n		@h+=h\n		@m+=m\n		@s+=s\n		t = 3600 * @h + 60 * @m + @s\n		@s = t %% 60\n		t = (t - @s) / 60\n		@m = t %% 60\n		t = (t - @m) / 60\n		@h = t %% 24\n	visare : (v,w,l,r,g,b) ->\n		push()\n		rd v-90\n		translate l/2,0\n		fc r,g,b\n		rect 0,0,l,w\n		pop()\n	urtavla : ->\n		fc 0\n		sc 1\n		sw 2\n		circle 0,0,90\n		fc 1\n		sc()\n		for i in range 60\n			circle 85,0, if i%5==0 then 3 else 2\n			rd 6\n\napp = new Klocka \"a\"",
   c: {
-    app: "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
+    app: "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1|now()"
   }
 };
 

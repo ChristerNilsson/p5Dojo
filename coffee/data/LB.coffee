@@ -258,8 +258,8 @@ assert [5,6,7,8,9][-2..]   , [8,9]
 
 ID224 = # LinesOfCode
 	b:"""
-# LOC:47 bg fc sc # {} * / + ++ == if then else indexOf parseInt substring 
-#        for of text textAlign class constructor new @ extends super 
+# LOC:62 bg fc sc # {} * / + ++ == if then else indexOf parseInt substring 
+#        _.max rect for of text textAlign class constructor new @ extends super 
 
 class LinesOfCode extends Application
 	reset : -> super
@@ -273,13 +273,15 @@ class LinesOfCode extends Application
 		@chapter = -1
 		@stat = {}
 		@h = 14
+		@total = 0
 		for chapter,item1 of data
 			@stat[chapter] = {}
 			for exercise,item2 of item1
 				b = item2.b
 				p1 = b.indexOf 'LOC:'
 				p2 = b.indexOf ' ',p1
-				loc = parseInt b.substring p1+4,p2 
+				loc = parseInt b.substring p1+4,p2
+				@total += loc 
 				@stat[chapter][exercise] = loc
 	draw : ->
 		fc 1,1,0
@@ -288,6 +290,7 @@ class LinesOfCode extends Application
 	drawAll : ->
 		bg 0
 		i = 0
+		rects = []
 		for chapter,item1 of @stat
 			sum = 0
 			for exercise,item2 of item1
@@ -297,9 +300,13 @@ class LinesOfCode extends Application
 			text chapter,5,i*@h
 			textAlign RIGHT
 			text sum,195,i*@h
+			rects.push sum
+		@max = _.max rects
+		@drawRects rects, @max 
 	drawChapter : ->
 		bg 0.5
 		i=0
+		rects = []
 		for chapter,item1 of @stat
 			i++
 			if i == @chapter
@@ -310,6 +317,13 @@ class LinesOfCode extends Application
 					text exercise,5,j*@h
 					textAlign RIGHT
 					text item2,195,j*@h
+					rects.push item2
+		@drawRects rects, @max
+	drawRects : (rects,m) ->
+		fc 1,1,0,0.5
+		sc 1,1,0
+		for r,i in rects
+			rect 0,3+@h*i, 200*r/m,@h-2
 	mousePressed : (mx,my) ->
 		if @chapter == -1 
 			@chapter = 1 + int my / @h

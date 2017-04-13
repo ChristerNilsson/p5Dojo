@@ -1,7 +1,8 @@
 ID240 = # Klocka: 
 	b: """
-# LOC:44 fc sc circle range rd # point rect rectMode for in if then else 
+# LOC:49 fc sc circle range rd # point rect rectMode for in if then else 
 #        translate push pop class extends constructor new @ super ->
+#        Date getHours getMinutes getSeconds
 
 class Klocka extends Application
 	reset  : -> super
@@ -9,6 +10,7 @@ class Klocka extends Application
 	hour   : (h) ->
 	minute : (m) ->
 	second : (s) ->
+	now 	 : ->
 
 app = new Klocka
 			"""
@@ -30,7 +32,11 @@ class Klocka extends Application
 	hour   : (h) -> @adjust h,0,0
 	minute : (m) -> @adjust 0,m,0
 	second : (s) -> @adjust 0,0,s
-
+	now    : -> 
+		d = new Date()
+		@h = d.getHours()
+		@m = d.getMinutes()
+		@s = d.getSeconds() 
 	adjust : (h,m,s) ->
 		@h+=h
 		@m+=m
@@ -41,7 +47,6 @@ class Klocka extends Application
 		@m = t %% 60
 		t = (t - @m) / 60
 		@h = t %% 24
-
 	visare : (v,w,l,r,g,b) ->
 		push()
 		rd v-90
@@ -63,7 +68,7 @@ class Klocka extends Application
 app = new Klocka "a"
 """
 	c: 
-		app : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1"
+		app : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1|now()"
 
 ID241 = # BouncingBalls :
 	b : """
