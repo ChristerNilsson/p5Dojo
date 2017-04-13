@@ -142,6 +142,7 @@ data =
 		Hex : ID245
 		PickingBerries : ID246
 		Snake : ID247
+		Snake4 : ID248
 
 	"LD: interactivity, very hard" :
 		Nim : ID260

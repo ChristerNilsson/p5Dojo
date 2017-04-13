@@ -601,7 +601,7 @@ app = new Snake
 class Snake extends Application
 	reset : -> 
 		super
-		@BUTTONS = [[33,167],[100,167],[167,167]]
+		@BUTTONS = [[33,167],[167,167]]
 		@DIRS = [[1,0],[0,-1],[-1,0],[0,1]]
 		@SIZE = 20
 		@seed = 0
@@ -638,7 +638,7 @@ class Snake extends Application
 		for [x,y],i in @BUTTONS
 			if dist(x,y,mx,my) < 33 then index = i
 		if index == 0 then @dir = (@dir+1) %% 4
-		if index == 2 then @dir = (@dir-1) %% 4
+		if index == 1 then @dir = (@dir-1) %% 4
 			
 app = new Snake "a"
 """
@@ -646,3 +646,71 @@ app = new Snake "a"
 		app : "reset()"
 	e: 
 		Snake : "https://en.wikipedia.org/wiki/Snake_(video_game)"
+
+
+
+
+
+
+
+
+
+
+
+ID248 = # Snake4 :
+	b: """
+# LOC:37 bg fc # [] rect %% + ++ * == < and or push dist length for in 
+#        if then else class extends constructor new @ super ->
+
+class Snake4 extends Application
+	reset : -> super
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	draw : -> super
+	mousePressed : (mx,my) ->
+app = new Snake4
+"""
+	a:"""
+class Snake4 extends Application
+	reset : -> 
+		super
+		@BUTTONS = [[167,100], [100,33], [33,100], [100,167]]
+		@DIRS = [[1,0],[0,-1],[-1,0],[0,1]]
+		@SIZE = 20
+		@seed = 0
+		@segments = [[5,5]]
+		@dir = 0
+		@total = 2
+		@cherry = [3,3]
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	draw : -> 
+		[di,dj] = @DIRS[@dir]
+		[i,j] = @segments[0]
+		i = i+di
+		j = j+dj
+		bg 1,0,0
+		if i in [-1,10] or j in [-1,10] then return
+		bg 1			
+		@segments.unshift [i,j]
+		if @total < @segments.length then @segments.pop()
+		if i==@cherry[0] and j==@cherry[1]
+			@total++
+			@cherry = [@randint(10),@randint(10)]
+		[ci,cj] = @cherry
+		fc 1,0,0
+		rect @SIZE*ci,@SIZE*cj,@SIZE,@SIZE
+		for [i,j],k in @segments
+			if k==0 then fc 0 else fc 0.5
+			rect @SIZE*i,@SIZE*j,@SIZE,@SIZE
+		fc 0.9,0.9,0.9,0.3
+		for [x,y] in @BUTTONS
+			circle x,y,33
+	mousePressed : (mx,my) ->
+		for [x,y],i in @BUTTONS
+			if dist(x,y,mx,my) < 33 and abs(i-@dir)!=2 then @dir = i
+			
+app = new Snake4 "a"
+"""
+	c:
+		app : "reset()"
+	e: 
+		Javascript : "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"

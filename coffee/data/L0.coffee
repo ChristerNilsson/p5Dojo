@@ -2,7 +2,7 @@ ID000 = # Nyheter :
 	b:"""
 # NYHETER 2017 APR 15
 #   LC: ColorPair
-#   LC: Snake
+#   LC: Snake Snake4
 # NYHETER 2017 APR 08
 #   L6: OneDiceHistogram TwoDiceHistogram
 #   L9: ClickDetector IndianSun MultiTimer
