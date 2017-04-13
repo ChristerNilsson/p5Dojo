@@ -29,13 +29,14 @@ r,g,b färg
 1,1,0 gul
 0     svart
 0.5   grå
-1     vit```  
+1     vit
+```  
 ### bakgrundsfärg
 ```  
 bg r,g,b färg
 bg 1     vit
-bg 1,1,0 gul```  
-
+bg 1,1,0 gul
+```  
 ### fyllningsfärg
 ```  
 fc r,g,b     färg
