@@ -141,6 +141,7 @@ data =
 		Kalkylator : ID244
 		Hex : ID245
 		PickingBerries : ID246
+		Snake : ID247
 
 	"LD: interactivity, very hard" :
 		Nim : ID260
