@@ -20,41 +20,45 @@ Ingen annan programvara behöver installeras.
 
 ### färger
 ```  
-r,g,b färg
-0,0,1 blå
-0,1,0 grön
-0,1,1 cyan
-1,0,0 röd
-1,0,1 magenta
-1,1,0 gul
-0     svart
-0.5   grå
-1     vit
+r,g,b  färg
+===========
+0,0,1  blå
+0,1,0  grön
+0,1,1  cyan
+1,0,0  röd
+1,0,1  magenta
+1,1,0  gul
+0      svart
+0.5    grå
+1      vit
 ```  
 ### bakgrundsfärg
 ```  
-bg r,g,b färg
-bg 1     vit
-bg 1,1,0 gul
+bg r,g,b  färg
+==============
+bg 1      vit
+bg 1,1,0  gul
 ```  
 ### fyllningsfärg
 ```  
-fc r,g,b     färg
-fc()         ingen
-fc 1         vit
-fc 1,1,0     gul
-fc 1,0,0     röd
-fc 1,0,0,0.5 röd, halvgenomskinlig
+fc r,g,b      färg
+==================
+fc()          ingen
+fc 1          vit
+fc 1,1,0      gul
+fc 1,0,0      röd
+fc 1,0,0,0.5  röd, halvgenomskinlig
 ```  
 
 ### streckfärg
 ```  
-sc r,g,b     färg
-sc()         ingen
-sc 1         vit
-sc 1,1,0     gul
-sc 1,0,0     röd
-sc 1,0,0,0.5 röd, halvgenomskinlig
+sc r,g,b      färg
+==================
+sc()          ingen
+sc 1          vit
+sc 1,1,0      gul
+sc 1,0,0      röd
+sc 1,0,0,0.5  röd, halvgenomskinlig
 ```  
 
 ### strecktjocklek
@@ -64,27 +68,29 @@ sw pixlar
 
 ### ritkommandon
 ```  
-kommando argument
-point    x,y
-line     x1,y1, x2,y2
-ellipse  x,y, w,h
-circle   x,y,r
-rect     x,y, w,h
-triangle x1,y1, x2,y2, x3,y3
-quad     x1,y1, x2,y2, x3,y3, x4,y4
-arc      x,y, w,h, start,stopp, PIE
+kommando  argument
+==================
+point     x,y
+line      x1,y1, x2,y2
+ellipse   x,y, w,h
+circle    x,y,r
+rect      x,y, w,h
+triangle  x1,y1, x2,y2, x3,y3
+quad      x1,y1, x2,y2, x3,y3, x4,y4
+arc       x,y, w,h, start,stopp, PIE
 ```  
 
 ### lerp   
 linjär interpolation och extrapolation
 
 ```  
-lerp x0,x1,i   resultat
-lerp 10,12,-1   8
-lerp 10,12,0   10
-lerp 10,12,0.5 11
-lerp 10,12,1   12
-lerp 10,12,2   14   
+lerp x0,x1,i    resultat
+========================
+lerp 10,12,-1    8
+lerp 10,12,0    10
+lerp 10,12,0.5  11
+lerp 10,12,1    12
+lerp 10,12,2    14   
 ```  
 
 ### for loop
@@ -92,6 +98,7 @@ Glöm ej att indentera innehållet med ett tabsteg!
 
 ```  
 kommando                      resultat
+======================================
 for i in range 10             [0,1,2,3,4,5,6,7,8,9]
 for i in range 5              [0,1,2,3,4]
 for i in range 1,11           [1,2,3,4,5,6,7,8,9,10]
@@ -114,6 +121,7 @@ else
 ### koordinatsystemet
 ```  
 kommando        kommentar
+=========================
 translate x,y   flyttar origo     
 rd degrees      roterar runt origo
 scale n         skalar upp eller ner
@@ -276,6 +284,7 @@ Du måste behärska följande moment innan installation kan ske:
 
 ```    
 Uppgift        Text Filer Kataloger
+===================================
 Skapa           x     x       x
 Ta bort         x     x       x
 Markera allt    x     x       x
