@@ -185,6 +185,7 @@ app = new Nian "a"
 
 ID223 = # Asserts:
 	b:"""
+# LOC:0
 # Här kan du se några klargörande exempel.
 # Om de två parametrarna till assert är olika, skrivs de ut till console.
 # Du kan prova egna asserts här. Kontrollera med F12.
@@ -254,3 +255,71 @@ assert [5,6,7,8,9][-2..]   , [8,9]
 	a:""
 	e:
 		assert : "https://en.wikipedia.org/wiki/Assertion_(software_development)"
+
+ID224 = # LinesOfCode
+	b:"""
+# LOC:47 bg fc sc # {} * / + ++ == if then else indexOf parseInt substring 
+#        for of text textAlign class constructor new @ extends super 
+
+class LinesOfCode extends Application
+	reset : -> super
+	draw : -> super
+app = new LinesOfCode
+"""
+	a:"""
+class LinesOfCode extends Application
+	reset : ->
+		super
+		@chapter = -1
+		@stat = {}
+		@h = 14
+		for chapter,item1 of data
+			@stat[chapter] = {}
+			for exercise,item2 of item1
+				b = item2.b
+				p1 = b.indexOf 'LOC:'
+				p2 = b.indexOf ' ',p1
+				loc = parseInt b.substring p1+4,p2 
+				@stat[chapter][exercise] = loc
+	draw : ->
+		fc 1,1,0
+		sc()
+		if @chapter == -1 then @drawAll() else @drawChapter()
+	drawAll : ->
+		bg 0
+		i = 0
+		for chapter,item1 of @stat
+			sum = 0
+			for exercise,item2 of item1
+				sum += item2
+			i++
+			textAlign LEFT
+			text chapter,5,i*@h
+			textAlign RIGHT
+			text sum,195,i*@h
+	drawChapter : ->
+		bg 0.5
+		i=0
+		for chapter,item1 of @stat
+			i++
+			if i == @chapter
+				j = 0
+				for exercise,item2 of item1
+					j++
+					textAlign LEFT
+					text exercise,5,j*@h
+					textAlign RIGHT
+					text item2,195,j*@h
+	mousePressed : (mx,my) ->
+		if @chapter == -1 
+			@chapter = 1 + int my / @h
+		else
+			@chapter = -1
+
+app = new LinesOfCode 'a'
+"""
+	c:
+		app : "reset()"
+	e: 
+		LinesOfCode : "https://en.wikipedia.org/wiki/Source_lines_of_code"
+

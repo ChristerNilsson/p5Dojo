@@ -1,5 +1,6 @@
 ID020 = # Background1: 
 	b: """
+# LOC:1
 # Första bilden ska du efterlikna.
 # Andra bilden skapas av din kod.
 # Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.

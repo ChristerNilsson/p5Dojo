@@ -647,16 +647,6 @@ app = new Snake "a"
 	e: 
 		Snake : "https://en.wikipedia.org/wiki/Snake_(video_game)"
 
-
-
-
-
-
-
-
-
-
-
 ID248 = # Snake4 :
 	b: """
 # LOC:37 bg fc # [] rect %% + ++ * == < and or push dist length for in 
@@ -713,4 +703,5 @@ app = new Snake4 "a"
 	c:
 		app : "reset()"
 	e: 
-		Javascript : "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"
+		Play : "http://patorjk.com/games/snake"
+		Source : "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"

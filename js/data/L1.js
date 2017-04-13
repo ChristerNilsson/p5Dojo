@@ -2,7 +2,7 @@
 var ID020, ID021, ID022, ID023, ID024, ID025, ID026, ID027, ID028, ID029, ID030, ID031;
 
 ID020 = {
-  b: "# Första bilden ska du efterlikna.\n# Andra bilden skapas av din kod.\n# Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.\n\n# Tryck på PgDn för att komma till sista raden.\n# Skriv in följande kommando: bg 1\n# Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.\n\n# Klicka på Background2 för att komma till nästa övning.\n# Klicka på p5Dojo nere till vänster för mera information.\n# Klicka på p5 för att se fler kommandon.\n",
+  b: "# LOC:1\n# Första bilden ska du efterlikna.\n# Andra bilden skapas av din kod.\n# Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.\n\n# Tryck på PgDn för att komma till sista raden.\n# Skriv in följande kommando: bg 1\n# Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.\n\n# Klicka på Background2 för att komma till nästa övning.\n# Klicka på p5Dojo nere till vänster för mera information.\n# Klicka på p5 för att se fler kommandon.\n",
   a: "bg 1"
 };
 

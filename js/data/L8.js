@@ -7,12 +7,12 @@ ID160 = {
 };
 
 ID161 = {
-  b: "# LOC: 16 sc bg sw range # for in line class constructor new @\n\nclass Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n\ngirlang = (x,y,n,width,dx,dy) ->\n\ngirlang 0,0,9,5,20,20",
+  b: "# LOC:16 sc bg sw range # for in line class constructor new @\n\nclass Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n\ngirlang = (x,y,n,width,dx,dy) ->\n\ngirlang 0,0,9,5,20,20",
   a: "class Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n		sc @r,@g,@b\n		line @x,@y,@x+dx,@y+dy\n		[@x,@y] = [@x+dx,@y+dy]\n\ngirlang = (x,y,n,width,dx,dy) ->\n	a = new Cartesius 1,0,0, x+dx/2,0\n	b = new Cartesius 1,1,0, x,y+dy/2\n\n	bg 0\n	sw width\n\n	for i in range n\n		a.go 0,dy\n		b.go dx,0\n		b.go 0,dy\n		a.go dx,0\n\ngirlang 0,0,9,5,20,20			"
 };
 
 ID162 = {
-  b: "# LOC: 19 sc bg sw range # for in line class constructor new @\n\nclass Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n\nbraid = (n,dx,dy,width) ->	\n\nbraid 5,18,18,6",
+  b: "# LOC:19 sc bg sw range # for in line class constructor new @\n\nclass Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n\nbraid = (n,dx,dy,width) ->	\n\nbraid 5,18,18,6",
   a: "class Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n		sc @r,@g,@b\n		line @x,@y,@x+dx,@y+dy\n		[@x,@y] = [@x+dx,@y+dy]\n\nbraid = (n,dx,dy,width) ->		\n\n	a = new Cartesius 1,0,0, 100-dx/2,dy/3\n	b = new Cartesius 1,1,0, 100+dx/2,2*dy/3\n	c = new Cartesius 0,1,0, 100-dx/2,dy\n\n	bg 0\n	sw width\n\n	for i in range n\n		a.go dx,dy\n		b.go -dx,dy\n		c.go dx,dy\n\n		a.go -dx,dy\n		b.go dx,dy\n		c.go -dx,dy\n\nbraid 5,18,18,6",
   e: {
     braid: "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"

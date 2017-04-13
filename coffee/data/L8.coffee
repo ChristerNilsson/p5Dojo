@@ -13,7 +13,7 @@ for i in range 10
 
 ID161 = # Girlang :
 	b:"""
-# LOC: 16 sc bg sw range # for in line class constructor new @
+# LOC:16 sc bg sw range # for in line class constructor new @
 
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
@@ -49,7 +49,7 @@ girlang 0,0,9,5,20,20
 
 ID162 = # Braid:
 	b : """
-# LOC: 19 sc bg sw range # for in line class constructor new @
+# LOC:19 sc bg sw range # for in line class constructor new @
 
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->

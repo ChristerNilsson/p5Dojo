@@ -132,6 +132,7 @@ data =
 		SpaceShip : ID221
 		Nian : ID222
 		Asserts : ID223
+		LinesOfCode : ID224
 
 	"LC: interactivity, hard" :
 		Klocka : ID240

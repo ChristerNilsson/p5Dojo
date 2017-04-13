@@ -217,6 +217,7 @@ app = new RecursiveCircle "a"
 
 ID187 = # Laboratorium :
 	b:"""		
+# LOC:0
 # Här kan du laborera med egna idéer!
 
 class Laboratorium extends Application

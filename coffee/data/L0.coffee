@@ -1,6 +1,8 @@
 ID000 = # Nyheter :
 	b:"""
+# LOC:0
 # NYHETER 2017 APR 15
+#   LB: LinesOfCode
 #   LC: ColorPair
 #   LC: Snake Snake4
 # NYHETER 2017 APR 08

@@ -93,6 +93,7 @@ ID248 = {
     app: "reset()"
   },
   e: {
-    Javascript: "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"
+    Play: "http://patorjk.com/games/snake",
+    Source: "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"
   }
 };
