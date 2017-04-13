@@ -19,17 +19,19 @@
 Ingen annan programvara behöver installeras.
 
 ### färger
-|r,g,b|färg|
-|---|---|
-|0,0,1|blå|
-|0,1,0|grön|
-|0,1,1|cyan|
-|1,0,0|röd|
-|1,0,1|magenta|
-|1,1,0|gul|
-|0|svart|
-|0.5|grå|
-|1|vit| 
+```  
+r,g,b färg
+0,0,1 blå
+0,1,0 grön
+0,1,1 cyan
+1,0,0 röd
+1,0,1 magenta
+1,1,0 gul
+0     svart
+0.5   grå
+1     vit
+```  
+
 ### bakgrundsfärg
 |bg r,g,b|färg|
 |---|---|
@@ -262,8 +264,9 @@ Du måste behärska följande moment innan installation kan ske:
 |---|---|---|---|
 |Skapa|x|x|x|
 |Ta bort|x|x|x|
+|Markera allt|x|x|x|
 |Kopiera|x|x|x|
-|Flytta|x|x|x|
+|Klistra in|x|x|x|
 |Ångra|x|x|x|
 |Byta namn||x|x|
 
