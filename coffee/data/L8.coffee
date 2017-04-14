@@ -136,33 +136,65 @@ olympic()
 """	
 
 ID164 = # OneDiceHistogram
-	b:"# LOC:10 range # Array fill length int random text textAlign for in ++ * / + - rect []\n"
+	b:"""
+# LOC:17 fc sc range # Array fill length int random text textAlign for in ++ * / + - rect []
+# OBS: På grund av random blir bitmapparna inte likadana
+
+h = 50
+counts = Array(4).fill 150
+for count,i in counts
+	y = h*i
+	rect 0,y,count,h   
+	text y,0,y   
+"""
 	a:"""
 counts = Array(6).fill 0
 dice = -> int 6 * random() 
-textAlign CENTER,CENTER
 for i in range 1000
 	counts[dice()]++
-w = 30
+h = int 200/6
+sc()
 for count,i in counts
-	x = w*i + (200-w*counts.length)/2
-	rect x,0,w,count         
-	text i+1,x+w/2,10                	
+	y = h*i
+	fc 1,1,0,0.5
+	sc 1,1,0
+	rect 0,y,count,h-3       
+	fc 1,1,0
+	sc()
+	textAlign LEFT,CENTER
+	text i+1, 5,y+h/2        
+	textAlign RIGHT,CENTER
+	text count, count-5,y+h/2       	
 """
 
 ID165 = # TwoDiceHistogram
-	b:"# LOC:10 range # Array fill length int random text textAlign for in ++ * / + - rect []\n"
+	b:"""
+# LOC:22 bg fc sc range # Array fill length int random text textAlign if else for in ++ * / + - < rect []
+# OBS: På grund av random blir bitmapparna inte likadana
+"""
 	a:"""
 counts = Array(11).fill 0
 dice = -> int 6 * random() 
 textAlign CENTER,CENTER
 for i in range 1000
 	counts[dice() + dice()]++
-w = 16
+h = int 200/11
+bg 0
 for count,i in counts
-	x = w*i + (200-w*counts.length)/2
-	rect x,0,w,count         
-	text i+2,x+w/2,10                	
+	y = h*i
+	fc 1,1,0,0.5
+	sc 1,1,0
+	rect 0,y,count,h-3       
+	fc 1,1,0
+	sc()
+	textAlign LEFT,CENTER
+	text i+2, 5,y+h/2  
+	if count < 100
+		textAlign LEFT,CENTER
+		text count, count+5,y+h/2       	
+	else
+		textAlign RIGHT,CENTER
+		text count, count-5,y+h/2       	
 """
 	e:
-		Kojo : "https://www.youtube.com/watch?v=X6YSgNkcgAs"
+		Animering : "https://www.openprocessing.org/sketch/124236"

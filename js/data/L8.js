@@ -25,14 +25,14 @@ ID163 = {
 };
 
 ID164 = {
-  b: "# LOC:10 range # Array fill length int random text textAlign for in ++ * / + - rect []\n",
-  a: "counts = Array(6).fill 0\ndice = -> int 6 * random() \ntextAlign CENTER,CENTER\nfor i in range 1000\n	counts[dice()]++\nw = 30\nfor count,i in counts\n	x = w*i + (200-w*counts.length)/2\n	rect x,0,w,count         \n	text i+1,x+w/2,10                	"
+  b: "# LOC:17 fc sc range # Array fill length int random text textAlign for in ++ * / + - rect []\n# OBS: På grund av random blir bitmapparna inte likadana\n\nh = 50\ncounts = Array(4).fill 150\nfor count,i in counts\n	y = h*i\n	rect 0,y,count,h   \n	text y,0,y   ",
+  a: "counts = Array(6).fill 0\ndice = -> int 6 * random() \nfor i in range 1000\n	counts[dice()]++\nh = int 200/6\nsc()\nfor count,i in counts\n	y = h*i\n	fc 1,1,0,0.5\n	sc 1,1,0\n	rect 0,y,count,h-3       \n	fc 1,1,0\n	sc()\n	textAlign LEFT,CENTER\n	text i+1, 5,y+h/2        \n	textAlign RIGHT,CENTER\n	text count, count-5,y+h/2       	"
 };
 
 ID165 = {
-  b: "# LOC:10 range # Array fill length int random text textAlign for in ++ * / + - rect []\n",
-  a: "counts = Array(11).fill 0\ndice = -> int 6 * random() \ntextAlign CENTER,CENTER\nfor i in range 1000\n	counts[dice() + dice()]++\nw = 16\nfor count,i in counts\n	x = w*i + (200-w*counts.length)/2\n	rect x,0,w,count         \n	text i+2,x+w/2,10                	",
+  b: "# LOC:22 bg fc sc range # Array fill length int random text textAlign if else for in ++ * / + - < rect []\n# OBS: På grund av random blir bitmapparna inte likadana",
+  a: "counts = Array(11).fill 0\ndice = -> int 6 * random() \ntextAlign CENTER,CENTER\nfor i in range 1000\n	counts[dice() + dice()]++\nh = int 200/11\nbg 0\nfor count,i in counts\n	y = h*i\n	fc 1,1,0,0.5\n	sc 1,1,0\n	rect 0,y,count,h-3       \n	fc 1,1,0\n	sc()\n	textAlign LEFT,CENTER\n	text i+2, 5,y+h/2  \n	if count < 100\n		textAlign LEFT,CENTER\n		text count, count+5,y+h/2       	\n	else\n		textAlign RIGHT,CENTER\n		text count, count-5,y+h/2       	",
   e: {
-    Kojo: "https://www.youtube.com/watch?v=X6YSgNkcgAs"
+    Animering: "https://www.openprocessing.org/sketch/124236"
   }
 };
