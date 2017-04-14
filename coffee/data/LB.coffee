@@ -191,40 +191,40 @@ ID223 = # Asserts:
 # Du kan prova egna asserts här. Kontrollera med F12.
 
 # + - * / // **  Operatorer
-assert -10, 2 - 3 * 4
+assert -10,  2 - 3 * 4
 assert 2.75, 2 + 3 / 4
-assert 32, 4 * 2 ** 3
-assert 14, 2 + 3 * 4 
-assert 20, (2+3) * 4  
-assert 32, 4 * 2 ** 3
+assert 32,   4 * 2 ** 3
+assert 14,   2 + 3 * 4 
+assert 20,   (2+3) * 4  
+assert 32,   4 * 2 ** 3
 assert 1.75, 7 / 4
-assert 1, 7 // 4
-assert 2, 8 // 4
+assert 1,    7 // 4
+assert 2,    8 // 4
 
 # % Resten vid heltalsdivision
-assert  0, 2 % 2
-assert  1, 1 % 2
-assert  0, 0 % 2
+assert  0,  2 % 2
+assert  1,  1 % 2
+assert  0,  0 % 2
 assert -1, -1 % 2   
 assert -0, -2 % 2     
 
 # %% Resten vid heltalsdivision. Klarar även negativa tal.
-assert 0, 2 %% 2
-assert 1, 1 %% 2
-assert 0, 0 %% 2 
+assert 0,  2 %% 2
+assert 1,  1 %% 2
+assert 0,  0 %% 2 
 assert 1, -1 %% 2
 assert 0, -2 %% 2
 
 # Jämförelser
-assert true, 1+2 < 4
-assert true, 1+2 > 2
-assert true, 1+2 == 3
+assert true,  1+2 < 4
+assert true,  1+2 > 2
+assert true,  1+2 == 3
 assert false, 1+2 == 4
-assert true, 1+2 != 4
-assert true, 1+2 >= 3
-assert true, 1+2 <= 4 
-assert true, 1 < 2 and 2 < 3
-assert true, 1 < 2 < 3
+assert true,  1+2 != 4
+assert true,  1+2 >= 3
+assert true,  1+2 <= 4 
+assert true,  1 < 2 and 2 < 3
+assert true,  1 < 2 < 3
 
 # and or not  Logiska villkor
 assert false, false and false
@@ -245,51 +245,51 @@ assert 4, if 3 > 4 then 3 else 4
 assert 3, if 3 < 4 then 3 else 4
 
 # '' "" strängar
-assert 'Coffeescript', 'Coffee' + 'script'
-assert 6, 'Coffee'.length
-assert 2, 'Coffee'.indexOf 'f'
-assert -1, 'Coffee'.indexOf 'x'
-assert 3, 'Coffee'.lastIndexOf 'f'
-assert 'script', 'Coffeescript'.slice 6,12
-assert 'script', 'Coffeescript'.slice 6
-assert 'COFFEESCRIPT', 'Coffeescript'.toUpperCase()
-assert 'coffeescript', 'Coffeescript'.toLowerCase()
-assert 's', 'Coffeescript'[6]
-assert 'script', 'Coffeescript'[6..12]
-assert 'pt', 'Coffeescript'[-2..]
-assert 'esc', 'Coffeescript'[5..-5]
-assert ['abra','ka','dabra'], 'abra ka dabra'.split ' '
+assert 'Coffeescript',            'Coffee' + 'script'
+assert 6,                         'Coffee'.length
+assert 2,                         'Coffee'.indexOf 'f'
+assert -1,                        'Coffee'.indexOf 'x'
+assert 3,                         'Coffee'.lastIndexOf 'f'
+assert 'script',                  'Coffeescript'.slice 6,12
+assert 'script',                  'Coffeescript'.slice 6
+assert 'COFFEESCRIPT',            'Coffeescript'.toUpperCase()
+assert 'coffeescript',            'Coffeescript'.toLowerCase()
+assert 's',                       'Coffeescript'[6]
+assert 'script',                  'Coffeescript'[6..12]
+assert 'pt',                      'Coffeescript'[-2..]
+assert 'esc',                     'Coffeescript'[5..-5]
+assert ['abra','ka','dabra'],     'abra ka dabra'.split ' '
 assert ['C','o','f','f','e','e'], 'Coffee'.split ''
 assert ['C','o','f','f','e','e'], 'Coffee'.split ''
-assert 'Coffee', ' Coffee  '.trim()
-assert 12, parseInt '12'
-assert '12', 12.toString()
-assert 3.14, parseFloat '3.14'
-assert '3.141592653589793', Math.PI.toString()
-assert 'coffee', "coffee"
-assert true, 'coffeescript'.includes 'coffee'
-assert false, 'coffeescript'.includes 'tea'
+assert 'Coffee',                  ' Coffee  '.trim()
+assert 12,                        parseInt '12'
+assert '12',                      12.toString()
+assert 3.14,                      parseFloat '3.14'
+assert '3.141592653589793',       Math.PI.toString()
+assert 'coffee',                  "coffee"
+assert true,                      'coffeescript'.includes 'coffee'
+assert false,                     'coffeescript'.includes 'tea'
 
 # []
 assert true, 7 in [7,8]                     
-assert [7,8], (i for i in [7,8])               
+assert [7,8],         (i for i in [7,8])               
 assert [[7,0],[8,1]], ([item,i] for item,i in [7,8])   
-assert [9,16,25], (x*x for x in [3,4,5])           
-assert "1x2x3", [1,2,3].join('x')              
-assert [3,2,1] , [1,2,3].reverse()                        
-assert [1,2,3], [2,1,3].sort()                          
-assert 3, [2,1,5].length                        
+assert [9,16,25],     (x*x for x in [3,4,5])           
+assert "1x2x3",       [1,2,3].join('x')              
+assert [3,2,1] ,      [1,2,3].reverse()                        
+assert [1,2,3],       [2,1,3].sort()                          
+assert 3,             [2,1,5].length                        
 
 # {}
-assert true, 'b' of {a:7,b:8}                           
-assert ['a','b'], (key for key of {a:7,b:8})                
+assert true,              'b' of {a:7,b:8}                           
+assert ['a','b'],         (key for key of {a:7,b:8})                
 assert [['a',7],['b',8]], ([key,item] for key,item of {a:7,b:8})     
 
 # & | ^ ~ << >> Bit operationer
 assert [0,0,0,1], [0&0, 0&1, 1&0, 1&1]       # and 
 assert [0,1,1,1], [0|0, 0|1, 1|0, 1|1]       # or
-assert [0,1,1,0] , [0^0, 0^1, 1^0, 1^1]      # xor
-assert [-1,-2,-3,-4], [~0, ~1, ~2, ~3]       # not
+assert [0,1,1,0], [0^0, 0^1, 1^0, 1^1]       # xor
+assert [-1,-2,-3],[~0, ~1, ~2]               # not
 assert [1,2,4,8], [1<<0, 1<<1, 1<<2, 1<<3]   # shift left
 assert [8,4,2,1], [8>>0, 8>>1, 8>>2, 8>>3]   # shift right
 
@@ -311,13 +311,39 @@ assert [9,8,7,6,5,4,3,2,1,0]  , range 10-1,-1,-1
 # [..] [...]  range operator
 assert [0,1,2,3,4], [0..4]  
 assert [0,1,2,3,4], [0...5] 
-assert [6,7], [5,6,7,8,9][1..2] 
-assert [5,6,7], [5,6,7,8,9][..2]  
-assert [6,7,8,9], [5,6,7,8,9][1..]  
+assert [6,7],       [5,6,7,8,9][1..2] 
+assert [5,6,7],     [5,6,7,8,9][..2]  
+assert [6,7,8,9],   [5,6,7,8,9][1..]  
 assert [5,6,7,8,9], [5,6,7,8,9][..]   
-assert [5,6,7], [5,6,7,8,9][0..2]   
-assert [6,7], [5,6,7,8,9][1...-2] 
-assert [8,9], [5,6,7,8,9][-2..]
+assert [5,6,7],     [5,6,7,8,9][0..2]   
+assert [6,7],       [5,6,7,8,9][1...-2] 
+assert [8,9],       [5,6,7,8,9][-2..]
+
+# _.  underscore
+assert 1,                 _.min [2,1,3]
+assert 3,                 _.max [2,1,3]
+assert 2,                 _.first [2,1,3]
+assert 3,                 _.last [2,1,3]
+assert [1,3],             _.rest [2,1,3]
+assert [['a',1],['b',2]], _.pairs {a:1, b:2}
+assert false,             [1,2] == [1,2]
+assert true,              _.isEqual [1,2], [1,2]
+assert [1,2],             [1,2]
+assert [1,2,3],           _.sortBy [2,1,3] 
+assert ['abc','ba','d'],  _.sortBy ['ba','abc','d'] 
+assert ['d','ba','abc'],  _.sortBy ['ba','abc','d'], 'length'
+assert ['abc','ba','d'],  _.sortBy ['ba','abc','d'], (s) -> -s.length
+assert {odd: 3, even: 2}, _.countBy [1,2,3,4,5], (num) -> if num % 2 == 0 then 'even' else 'odd'
+assert [["m", 3], ["l", 4], ["c", 5]],  _.zip ['m', 'l', 'c'], [3, 4, 5]
+assert [['m', 'l', 'c'], [3, 4, 5]],  _.unzip [["m", 3], ["l", 4], ["c", 5]]
+assert [2, 4, 6],         _.filter [1, 2, 3, 4, 5, 6], (num) -> num % 2 == 0
+assert [1, 3, 5],         _.reject [1, 2, 3, 4, 5, 6], (num) -> num % 2 == 0
+assert false,             _.some [1>2, 1==2, 1>=2, 1!=1]
+assert true,              _.some [1>2, 1==2, 1>=2, 1!=2]
+assert false,             _.every [2, 4, 5], (num) -> num % 2 == 0
+assert true,              _.every [2, 4, 6], (num) -> num % 2 == 0
+assert ["a", "b", "c"],   _.keys   {a: 1, b: 2, c: 3}
+assert [1,2,3],           _.values {a: 1, b: 2, c: 3} 
 
 """
 	a:""

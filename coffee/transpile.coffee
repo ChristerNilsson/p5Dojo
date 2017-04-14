@@ -1,4 +1,4 @@
-assert = (a,b=true) -> if not _.isEqual(a, b) then print a + " != " + b
+assert = (a,b=true) -> if not _.isEqual(a, b) then print JSON.stringify(a) + " != " + JSON.stringify(b)
 
 tabcount = (s) ->
 	i = 0

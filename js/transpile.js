@@ -6,7 +6,7 @@ assert = function(a, b) {
     b = true;
   }
   if (!_.isEqual(a, b)) {
-    return print(a + " != " + b);
+    return print(JSON.stringify(a) + " != " + JSON.stringify(b));
   }
 };
 
