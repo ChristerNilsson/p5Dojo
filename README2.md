@@ -143,3 +143,8 @@ npm install -g coffee-script
   * ctrl samt förflyttningstangenter, (flyttar ordvis)
   * shift samt förflyttningstangenter, (markerar)
   * ctrl-shift samt förflyttningstangenter, (markerar ordvis)
+
+### Github och TortoiseGit
+
+På Github kan du lagra din kod och även göra dina program direkt körbara.
+TortoiseGit hjälper dig att hantera Git.
