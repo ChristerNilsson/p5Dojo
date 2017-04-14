@@ -41,36 +41,43 @@ npm install -g coffee-script
 ### Start av nytt projekt 
 
 * Tag en kopia av Mall-katalogen, t ex med ctrl-c ctrl-v
-* Byt namn på kopian till ditt nya projekt, t ex XXX.
-* Starta transpile.bat. Denna kompilerar dina .coffee till .js-filer
-* Dubbelklicka på index.html. Nu startar Chrome.
-* Klicka på den gråa ytan. Du ska nu se koordinater.
+  * Byt namn på kopian till ditt nya projekt, t ex XXX.
+* Starta transpile.bat
+  * Denna kompilerar dina .coffee till .js-filer
+* Dubbelklicka på index.html
+  * Nu startar Chrome.
+  * Klicka på den gråa ytan. Du ska nu se koordinater.
 * Starta Sublime
-* File | Open Folder 
-* Välj katalogen XXX
-* Klicka på sketch.coffee
-* Byt bg 0.5 mot bg 1
-* Spara med ctrl-s
+  * File | Open Folder 
+  * Välj katalogen XXX
+  * Klicka på sketch.coffee
+  * Byt bg 0.5 mot bg 1
+  * Spara med ctrl-s
 * Refresha din browser, dvs Chrome.
-* Nu ska bakgrunden vara vit.
+  * Nu ska bakgrunden vara vit.
 
 ### Problemhantering
 
 * Transpileringsproblem
-  * Kontrollera att transpilern är igång
-  * Kontrollera om syntaxfel har inträffat. De är rödfärgade.
-  * Dessa felmeddelande innehåller
-    * Filnamn
-    * Rad
-    * Kolumn
-    * Orsak
+  * Kontrollera att transpilern är igång.
+    * Stämmer klockslaget?
+  * Kontrollera om syntaxfel har inträffat
+    * De är rödfärgade.
+    * Dessa felmeddelande innehåller
+      * Filnamn
+      * Rad
+      * Kolumn
+      * Orsak
 * Exekveringsproblem
   * Klicka på F12 i Chrome, alternativt ctrl-shift-i
-  * Välj fliken Console.
-  * Avläs eventuellt felmeddelande
-  * Hjälper inte det, lägg in print-satser i koden. De hamnar i Console.
-  * Det går även att debugga med brytpunkter och radvis exekevering i Chrome. 
-    * Se: https://developers.google.com/web/tools/chrome-devtools/javascript
+    * Välj fliken Console.
+    * Avläs eventuellt felmeddelande
+  * Hjälper inte det 
+    * lägg in print-satser i koden. 
+    * De hamnar i Console.
+  * Hjälper inte det 
+    * Det går även att debugga med brytpunkter och radvis exekevering i Chrome. 
+      * Se: https://developers.google.com/web/tools/chrome-devtools/javascript
 
 ### Viktiga kortkommandon
 
@@ -106,4 +113,4 @@ npm install -g coffee-script
 ### Sublime
 
 * Sublime erbjuder färgsyntax för bl a Coffeescript.
-* Detta kan konfigureras med [Xavura](https://github.com/Xavura/CoffeeScript-Sublime-Plugin)
+  * Detta kan konfigureras med [Xavura](https://github.com/Xavura/CoffeeScript-Sublime-Plugin)
