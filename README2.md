@@ -28,7 +28,14 @@ npm install -g coffee-script
 ```
 - download [Sublime Text](https://www.sublimetext.com/3)
 
-### Hämta 000-Mall
+### Hämta Mallen
+
+* Mallen innehåller filer du behöver i ett projekt
+* index.html startar du med
+* Filen sketch.coffee skriver du koden i
+* Den transpileras till sketch.js
+* sketch.js anropas av index.html
+* p5-filer finns i libraries
 
 * Hämta [mallen](https://github.com/ChristerNilsson/000-Mall)
 * Du ska klicka på den gröna knappen och välja "Clone or download"
@@ -72,8 +79,7 @@ npm install -g coffee-script
     * lägg in print-satser i koden. 
     * De hamnar i Console.
   * Hjälper inte det 
-    * Det går även att debugga med brytpunkter och radvis exekevering i Chrome. 
-      * Se: https://developers.google.com/web/tools/chrome-devtools/javascript
+    * Det går även att [debugga](https://developers.google.com/web/tools/chrome-devtools/javascript) med brytpunkter och radvis exekevering i Chrome. 
 
 ### Viktiga kortkommandon
 
