@@ -22,7 +22,7 @@ class Cartesius
 girlang = (x,y,n,width,dx,dy) ->
 
 girlang 0,0,9,5,20,20
-"""		
+"""
 	a:"""
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
@@ -44,7 +44,7 @@ girlang = (x,y,n,width,dx,dy) ->
 		b.go 0,dy
 		a.go dx,0
 
-girlang 0,0,9,5,20,20			
+girlang 0,0,9,5,20,20
 """
 
 ID162 = # Braid:
@@ -132,8 +132,8 @@ olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 	r5.draw 8,10
 	r3.draw 6,8
 
-olympic()			
-"""	
+olympic()
+"""
 
 ID164 = # OneDiceHistogram
 	b:"""
@@ -144,8 +144,8 @@ h = 50
 counts = Array(4).fill 150
 for count,i in counts
 	y = h*i
-	rect 0,y,count,h   
-	text y,0,y   
+	rect 0,y,count,h
+	text y,0,y
 """
 	a:"""
 counts = Array(6).fill 0
@@ -158,13 +158,13 @@ for count,i in counts
 	y = h*i
 	fc 1,1,0,0.5
 	sc 1,1,0
-	rect 0,y,count,h-3       
+	rect 0,y,count,h-3
 	fc 1,1,0
 	sc()
 	textAlign LEFT,CENTER
-	text i+1, 5,y+h/2        
+	text i+1, 5,y+h/2
 	textAlign RIGHT,CENTER
-	text count, count-5,y+h/2       	
+	text count, count-5,y+h/2
 """
 
 ID165 = # TwoDiceHistogram
@@ -184,17 +184,17 @@ for count,i in counts
 	y = h*i
 	fc 1,1,0,0.5
 	sc 1,1,0
-	rect 0,y,count,h-3       
+	rect 0,y,count,h-3
 	fc 1,1,0
 	sc()
 	textAlign LEFT,CENTER
-	text i+2, 5,y+h/2  
+	text i+2, 5,y+h/2
 	if count < 100
 		textAlign LEFT,CENTER
-		text count, count+5,y+h/2       	
+		text count, count+5,y+h/2
 	else
 		textAlign RIGHT,CENTER
-		text count, count-5,y+h/2       	
+		text count, count-5,y+h/2
 """
 	e:
 		Animering : "https://www.openprocessing.org/sketch/124236"

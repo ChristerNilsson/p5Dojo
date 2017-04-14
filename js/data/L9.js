@@ -3,7 +3,7 @@ var ID180, ID181, ID182, ID183, ID184, ID185, ID186, ID187, ID188, ID189;
 
 ID180 = {
   b: "# LOC:12 bg fc sc # text textAlign textSize + - class extends constructor new @ super ->\n# Klicka på reset() om du får ett felmeddelande!\n\nclass Counter extends Application\n	reset : -> super\n	draw  : -> super\n	up    : -> \n	down  : -> \n	mousePressed : (mx,my) -> print \"mousePressed\",mx,my\napp = new Counter ",
-  a: "class Counter extends Application\n	reset : -> \n		super\n		@counter = 0\n	up : -> @counter += 1\n	down : -> @counter -= 1\n	draw : ->\n		bg 0.5\n		fc 1,1,0\n		sc()\n		textAlign CENTER,CENTER\n		textSize 100\n		text @counter,100,100\n	mousePressed : (mx,my) -> if my < 100 then @counter += 1 else @counter -= 1\n\napp = new Counter \"a\"   		",
+  a: "class Counter extends Application\n	reset : -> \n		super\n		@counter = 0\n	up : -> @counter += 1\n	down : -> @counter -= 1\n	draw : ->\n		bg 0.5\n		fc 1,1,0\n		sc()\n		textAlign CENTER,CENTER\n		textSize 100\n		text @counter,100,100\n	mousePressed : (mx,my) -> if my < 100 then @counter += 1 else @counter -= 1\n\napp = new Counter \"a\"",
   c: {
     app: "reset()|up()|down()"
   }
@@ -19,7 +19,7 @@ ID181 = {
 
 ID182 = {
   b: "# LOC:19 bg fc sc circle # % %% / * + << & [] int Math.sin   \n#        for in class extends constructor new @ super ->\n\nclass RandomDice extends Application\n	reset : -> \n		super\n		@seed = 0\n	draw : -> super\n	mousePressed : (mx,my) ->\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\napp = new RandomDice",
-  a: "class RandomDice extends Application\n	reset : -> \n		super\n		@RADIUS = 20\n		@BITS = [0,1,24,25,90,91,126]\n		@XY = [22,11,12,13,31,32,33]\n		@seed = 0\n		@throw()\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n	throw : -> @value = 1 + @randint 6\n	mousePressed : (mx,my) -> @throw()\n	draw : -> \n		bg 1\n		sc 1\n		for xy,i in @XY\n			x = int xy/10\n			y = xy % 10\n			if @BITS[@value] & 1<<i then circle 50*x,50*y,@RADIUS 			\n\napp = new RandomDice \"a\"",
+  a: "class RandomDice extends Application\n	reset : -> \n		super\n		@RADIUS = 20\n		@BITS = [0,1,24,25,90,91,126]\n		@XY = [22,11,12,13,31,32,33]\n		@seed = 0\n		@throw()\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n	throw : -> @value = 1 + @randint 6\n	mousePressed : (mx,my) -> @throw()\n	draw : -> \n		bg 1\n		sc 1\n		for xy,i in @XY\n			x = int xy/10\n			y = xy % 10\n			if @BITS[@value] & 1<<i then circle 50*x,50*y,@RADIUS\n\napp = new RandomDice \"a\"",
   c: {
     app: "reset()"
   }
@@ -58,16 +58,16 @@ ID187 = {
 };
 
 ID188 = {
-  b: "# LOC:16 circle # {} class extends constructor new @ super ->\n#        if then < and / ++ + - text textAlign textSize rectMode \n\nclass ClickDetector extends Application\n	reset : -> super\n	draw  : -> super\n	mousePressed : (mx,my) ->\napp = new ClickDetector   		",
-  a: "class ClickDetector extends Application\n	reset : -> \n		super\n		@a = {x:70,y:70,radius:50,counter:0}\n		@b = {x:130,y:130,w:100,h:100,counter:0}\n	draw : -> \n		rectMode CENTER\n		textAlign CENTER,CENTER\n		textSize 50\n		rect @b.x,@b.y,@b.w,@b.h\n		text @b.counter,@b.x,@b.y\n		circle @a.x,@a.y,@a.radius\n		text @a.counter,@a.x,@a.y\n	mousePressed : (mx,my) ->\n		if dist(mx,my,@a.x,@a.y) < @a.radius then return @a.counter++ \n		if @b.x-@b.w/2 < mx < @b.x+@b.w/2 and @b.y-@b.h/2 < my < @b.y+@b.h/2 then @b.counter++ \n\napp = new ClickDetector \"a\"   		",
+  b: "# LOC:16 circle # {} class extends constructor new @ super ->\n#        if then < and / ++ + - text textAlign textSize rectMode \n\nclass ClickDetector extends Application\n	reset : -> super\n	draw  : -> super\n	mousePressed : (mx,my) ->\napp = new ClickDetector",
+  a: "class ClickDetector extends Application\n	reset : -> \n		super\n		@a = {x:70,y:70,radius:50,counter:0}\n		@b = {x:130,y:130,w:100,h:100,counter:0}\n	draw : -> \n		rectMode CENTER\n		textAlign CENTER,CENTER\n		textSize 50\n		rect @b.x,@b.y,@b.w,@b.h\n		text @b.counter,@b.x,@b.y\n		circle @a.x,@a.y,@a.radius\n		text @a.counter,@a.x,@a.y\n	mousePressed : (mx,my) ->\n		if dist(mx,my,@a.x,@a.y) < @a.radius then return @a.counter++ \n		if @b.x-@b.w/2 < mx < @b.x+@b.w/2 and @b.y-@b.h/2 < my < @b.y+@b.h/2 then @b.counter++ \n\napp = new ClickDetector \"a\"",
   c: {
     app: "reset()"
   }
 };
 
 ID189 = {
-  b: "# LOC:10 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->\n\nclass IndianSun extends Application\n	reset : -> super\n	draw : -> super\n	mousePressed : (mx,my) -> \napp = new IndianSun   		",
-  a: "class IndianSun extends Application\n	reset : -> \n		super\n		@n = 5\n	draw : ->\n		points = ([100+100*cos(i*radians 360/@n), 100+100*sin(i*radians 360/@n)] for i in range @n)\n		for [x1,y1] in points\n			for [x2,y2] in points\n				line x1,y1,x2,y2\n	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1), 3, 20\n\napp = new IndianSun \"a\"   		",
+  b: "# LOC:10 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->\n\nclass IndianSun extends Application\n	reset : -> super\n	draw : -> super\n	mousePressed : (mx,my) -> \napp = new IndianSun",
+  a: "class IndianSun extends Application\n	reset : -> \n		super\n		@n = 5\n	draw : ->\n		points = ([100+100*cos(i*radians 360/@n), 100+100*sin(i*radians 360/@n)] for i in range @n)\n		for [x1,y1] in points\n			for [x2,y2] in points\n				line x1,y1,x2,y2\n	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1), 3, 20\n\napp = new IndianSun \"a\"",
   c: {
     app: "reset()"
   },

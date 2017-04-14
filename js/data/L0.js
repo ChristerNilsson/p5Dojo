@@ -8,12 +8,12 @@ ID000 = {
 
 ID001 = {
   b: "# LOC:30 bg circle fc sc sw # line lerp (David Larsson)\n",
-  a: "bg 0, 1, 0, 0.5\nfc 1, 0, 0\ncircle 10, 10, 5\ncircle 20, 20, 10\nfor i in range 10\n	x = lerp 10, 20, i\n	y = x\n	r = lerp 5, 10, i\n	circle x, y, r\nfc 0, 1, 1\ncircle 190, 10, 5\ncircle 180, 20, 10\nfor i in range 10\n	x = lerp 190, 180, i\n	y = lerp 10, 20, i\n	r = lerp 5, 10, i\n	circle x, y, r\nfc 1\ncircle 100, 100, 50\nfc 0\ncircle 80, 80, 10\ncircle 120, 80, 10\nsc 1, 1, 0\nsw 5\nline 70, 105, 80, 120\nline 80, 120, 115, 120\nline 115, 120, 130, 105\nfc 1, 0, 0\nsc 1, 0, 0\ncircle 100, 100, 10"
+  a: "bg 0, 1, 0, 0.5\nfc 1, 0, 0\ncircle 10, 10, 5\ncircle 20, 20, 10\nfor i in range 10\n	x = lerp 10, 20, i\n	y = x\n	r = lerp 5, 10, i\n	circle x, y, r\nfc 0, 1, 1\ncircle 190, 10, 5\ncircle 180, 20, 10\nfor i in range 10\n	x = lerp 190, 180, i\n	y = lerp 10, 20, i\n	r = lerp 5, 10, i\n	circle x, y, r\nfc 1\ncircle 100, 100, 50\nfc 0\ncircle 80, 80, 10\ncircle 120, 80, 10\nsc 1, 1, 0\nsw 5\nline 70, 105, 80, 120\nline 80, 120, 115, 120\nline 115, 120, 130, 105\nfc 1, 0, 0\nsc 1, 0, 0\ncircle 100, 100, 10\n"
 };
 
 ID002 = {
   b: "# LOC:12 circle fc sc triangle (Sabrina Larsson)\n",
-  a: "bg 0,1,0\nfc 1,0,0\nsc 1,0,0\ntriangle 60,140,100,60,140,140\nfc 1\nsc 1\ncircle 60,140,10\ncircle 80,140,10\ncircle 100,140,10\ncircle 120,140,10\ncircle 140,140,10\ncircle 100,60,10		"
+  a: "bg 0,1,0\nfc 1,0,0\nsc 1,0,0\ntriangle 60,140,100,60,140,140\nfc 1\nsc 1\ncircle 60,140,10\ncircle 80,140,10\ncircle 100,140,10\ncircle 120,140,10\ncircle 140,140,10\ncircle 100,60,10"
 };
 
 ID003 = {
@@ -83,5 +83,5 @@ ID015 = {
 
 ID016 = {
   b: "# LOC:37 bg fc sc sw circle # arc (Isabel T)\n",
-  a: "bg 0.5,0.8,1\n\nsw 11\nfc()\nsc 0.9,0.1,0.1\narc 100,97,190,180,PI,PI\nsc 0.9,0.4,0.1\narc 100,107,180,180,PI,PI\nsc 1,0.75,0\narc 100,117,170,180,PI,PI\nsc 0.4,0.75,0.2\narc 100,127,160,180,PI,PI\nsc 0.1,0.65,0.6\narc 100,137,150,180,PI,PI\nsc 0.15,0.45,0.65\narc 100,147,140,180,PI,PI\nsc 0.55,0.25,0.55\narc 100,157,130,180,PI,PI\n\nsw 0\nfc 1\ncircle 0,108,10\ncircle 10,120,13\ncircle 15,130,10\ncircle 20,145,13\ncircle 35,157,12\ncircle 37,170,12\ncircle 25,175,10\ncircle 10,170,10\ncircle 5,150,26\n\ncircle 200,108,10\ncircle 190,120,13\ncircle 185,130,10\ncircle 180,145,13\ncircle 165,157,12\ncircle 163,170,12\ncircle 175,175,10\ncircle 190,170,10\ncircle 195,150,26	"
+  a: "bg 0.5,0.8,1\n\nsw 11\nfc()\nsc 0.9,0.1,0.1\narc 100,97,190,180,PI,PI\nsc 0.9,0.4,0.1\narc 100,107,180,180,PI,PI\nsc 1,0.75,0\narc 100,117,170,180,PI,PI\nsc 0.4,0.75,0.2\narc 100,127,160,180,PI,PI\nsc 0.1,0.65,0.6\narc 100,137,150,180,PI,PI\nsc 0.15,0.45,0.65\narc 100,147,140,180,PI,PI\nsc 0.55,0.25,0.55\narc 100,157,130,180,PI,PI\n\nsw 0\nfc 1\ncircle 0,108,10\ncircle 10,120,13\ncircle 15,130,10\ncircle 20,145,13\ncircle 35,157,12\ncircle 37,170,12\ncircle 25,175,10\ncircle 10,170,10\ncircle 5,150,26\n\ncircle 200,108,10\ncircle 190,120,13\ncircle 185,130,10\ncircle 180,145,13\ncircle 165,157,12\ncircle 163,170,12\ncircle 175,175,10\ncircle 190,170,10\ncircle 195,150,26"
 };

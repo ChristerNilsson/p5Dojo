@@ -73,6 +73,7 @@ line 115, 120, 130, 105
 fc 1, 0, 0
 sc 1, 0, 0
 circle 100, 100, 10
+
 """
 
 ID002 = #tomteluva:
@@ -89,7 +90,7 @@ circle 80,140,10
 circle 100,140,10
 circle 120,140,10
 circle 140,140,10
-circle 100,60,10		
+circle 100,60,10
 """
 
 ID003 = # snowman:
@@ -372,5 +373,5 @@ circle 165,157,12
 circle 163,170,12
 circle 175,175,10
 circle 190,170,10
-circle 195,150,26	
+circle 195,150,26
 """

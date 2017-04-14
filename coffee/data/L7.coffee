@@ -81,12 +81,12 @@ rectMode CENTER
 sc 1
 translate 100,100
 for i in range 18,-1,-1
-  r = 1.0*i/18
-  fc r,0,0
-  w = 70+5*i
-  h = 70+5*i
-  rect 0,0, w,h
-  rd 5
+	r = 1.0*i/18
+	fc r,0,0
+	w = 70+5*i
+	h = 70+5*i
+	rect 0,0, w,h
+	rd 5
 """ 
 
 ID147 = # "Snow White and the 7 lerps": 
@@ -96,19 +96,19 @@ bg 1
 rectMode CENTER
 sc()
 for i in range 10
-  for j in range 10
-    push()
+	for j in range 10
+		push()
 		x = lerp 10,30,i
 		y = lerp 10,30,j
-    translate x,y
-    rd lerp 0,10,i-j
-    r = lerp 0.1,0.2,i
-    g = lerp 0.1,0.2,j
-    fc r,g,0
+		translate x,y
+		rd lerp 0,10,i-j
+		r = lerp 0.1,0.2,i
+		g = lerp 0.1,0.2,j
+		fc r,g,0
 		w = lerp 5,6,i
 		h = lerp 5,6,j
-    rect 0,0, w,h
-    pop()
+		rect 0,0, w,h
+		pop()
 """ 
 
 ID148 = # Roulette:

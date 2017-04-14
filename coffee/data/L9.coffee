@@ -27,7 +27,7 @@ class Counter extends Application
 		text @counter,100,100
 	mousePressed : (mx,my) -> if my < 100 then @counter += 1 else @counter -= 1
 
-app = new Counter "a"   		
+app = new Counter "a"
 """
 	c:
 		app : "reset()|up()|down()"
@@ -70,7 +70,7 @@ app = new Stopwatch "a"
 """
 	c:
 		app: "reset()"
-				
+
 ID182 = # RandomDice :
 	b: """
 # LOC:19 bg fc sc circle # % %% / * + << & [] int Math.sin   
@@ -103,7 +103,7 @@ class RandomDice extends Application
 		for xy,i in @XY
 			x = int xy/10
 			y = xy % 10
-			if @BITS[@value] & 1<<i then circle 50*x,50*y,@RADIUS 			
+			if @BITS[@value] & 1<<i then circle 50*x,50*y,@RADIUS
 
 app = new RandomDice "a"
 """
@@ -274,7 +274,7 @@ class ClickDetector extends Application
 	reset : -> super
 	draw  : -> super
 	mousePressed : (mx,my) ->
-app = new ClickDetector   		
+app = new ClickDetector
 """
 	a:"""
 class ClickDetector extends Application
@@ -294,7 +294,7 @@ class ClickDetector extends Application
 		if dist(mx,my,@a.x,@a.y) < @a.radius then return @a.counter++ 
 		if @b.x-@b.w/2 < mx < @b.x+@b.w/2 and @b.y-@b.h/2 < my < @b.y+@b.h/2 then @b.counter++ 
 
-app = new ClickDetector "a"   		
+app = new ClickDetector "a"
 """
 	c:
 		app : "reset()"
@@ -307,7 +307,7 @@ class IndianSun extends Application
 	reset : -> super
 	draw : -> super
 	mousePressed : (mx,my) -> 
-app = new IndianSun   		
+app = new IndianSun
 """
 	a:"""
 class IndianSun extends Application
@@ -321,7 +321,7 @@ class IndianSun extends Application
 				line x1,y1,x2,y2
 	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1), 3, 20
 
-app = new IndianSun "a"   		
+app = new IndianSun "a"
 """
 	c:
 		app : "reset()"

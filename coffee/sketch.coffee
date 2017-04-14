@@ -55,7 +55,7 @@ fixColor = (args) ->
 		r = args[0]
 		g = args[1]
 		b = args[2]
-		a = args[3]		
+		a = args[3]
 	color 255 * r, 255 * g, 255 * b, 255 * a
 
 bg = -> background fixColor arguments
@@ -105,7 +105,7 @@ sel2change = (sel) ->
 		exercise = ""
 		myCodeMirror.setValue ""
 		tableClear()
-		linksClear()		
+		linksClear()
 		bg 0.5
 		sel2.hide()
 		return 
@@ -159,13 +159,13 @@ mousePressed = ->
 
 setLinks = ->
 	linksClear()
-	linkAppend links,	"https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md", "p5Dojo"
-	linkAppend links,	"https://p5js.org/reference", "p5"
-	linkAppend links,	"http://coffeescript.org", "Coffeescript"
-	linkAppend links,	"https://www.w3schools.com/js", "Javascript"
-	linkAppend links,	"https://github.com/ChristerNilsson/Nilsson/blob/master/README.md", "Nilsson"
-	linkAppend links,	"https://christernilsson.github.io/p5Color", "p5Color"
-	linkAppend links,	"http://underscorejs.org/", "Underscore"
+	linkAppend links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md", "p5Dojo"
+	linkAppend links, "https://p5js.org/reference", "p5"
+	linkAppend links, "http://coffeescript.org", "Coffeescript"
+	linkAppend links, "https://www.w3schools.com/js", "Javascript"
+	linkAppend links, "https://github.com/ChristerNilsson/Nilsson/blob/master/README.md", "Nilsson"
+	linkAppend links, "https://christernilsson.github.io/p5Color", "p5Color"
+	linkAppend links, "http://underscorejs.org/", "Underscore"
 
 	for text,link of data[chapter][exercise]["e"]
 		linkAppend links,link,text
@@ -185,7 +185,7 @@ linkAppend = (t, link, text) -> # exakt en kolumn
 	s += '>' 
 	s += text 
 	s += '</a>'
-	cell1.innerHTML = s		
+	cell1.innerHTML = s
 
 decorate = (dict) -> # {klocka: "draw|incr_hour"}
 	if dict==undefined then return {}
@@ -343,7 +343,7 @@ fetch = (buffer,y0) ->
 	loadPixels()
 	for i in range block
 		pixels[gap + (gap+block)*y0 + i] = buffer[i]
-	updatePixels()	
+	updatePixels()
 
 fix_frames = ->
 	loadPixels()
@@ -354,7 +354,7 @@ fix_frames = ->
 		for i in range 20
 			pixels[j*width*4+i] = 128-64
 			pixels[j*width*4+206*4+i] = 128-64
-	updatePixels()	
+	updatePixels()
 
 compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
 	#start = millis()
@@ -365,9 +365,9 @@ compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
 	if msg.val() == '' 
 		for i in range block/4
 			i4 = 4*i
-			c[i4+0] = abs c[i4+0] - b[i4+0]  	
-			c[i4+1] = abs c[i4+1] - b[i4+1] 	
-			c[i4+2] = abs c[i4+2] - b[i4+2]  	
+			c[i4+0] = abs c[i4+0] - b[i4+0]
+			c[i4+1] = abs c[i4+1] - b[i4+1]
+			c[i4+2] = abs c[i4+2] - b[i4+2]
 			c[i4+3] = 255
 
 	fetch a, 0 
@@ -438,4 +438,3 @@ fillTable = (a,b) ->
 	for key in keys
 		if key != '_name'
 			tableAppend tabell, "@" + key,a[key],b[key]
-			
