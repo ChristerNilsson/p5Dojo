@@ -75,11 +75,8 @@ npm install -g coffee-script
   * Klicka på F12 i Chrome, alternativt ctrl-shift-i
     * Välj fliken Console.
     * Avläs eventuellt felmeddelande
-  * Hjälper inte det 
-    * lägg in print-satser i koden. 
-    * De hamnar i Console.
-  * Hjälper inte det 
-    * Det går även att [debugga](https://developers.google.com/web/tools/chrome-devtools/javascript) med brytpunkter och radvis exekevering i Chrome. 
+  * Lägg in print-satser i koden. De hamnar i Console
+  * Det går även att [debugga](https://developers.google.com/web/tools/chrome-devtools/javascript) med brytpunkter och radvis exekevering i Chrome. 
 
 ### Viktiga kortkommandon
 
@@ -152,5 +149,5 @@ npm install -g coffee-script
 
 ### Github och TortoiseGit
 
-På Github kan du lagra din kod och även göra dina program direkt körbara.
-TortoiseGit hjälper dig att hantera Git.
+* På Github kan du lagra din kod och låta alla köra dina program.
+* TortoiseGit hjälper dig att hantera Git.
