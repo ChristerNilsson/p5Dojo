@@ -62,12 +62,8 @@ npm install -g coffee-script
   * Kontrollera att transpilern är igång.
     * Stämmer klockslaget?
   * Kontrollera om syntaxfel har inträffat
-    * De är rödfärgade.
-    * Dessa felmeddelande innehåller
-      * Filnamn
-      * Rad
-      * Kolumn
-      * Orsak
+    * Dessa felmeddelande är rödfärgade.
+    * De innehåller Filnamn, Rad, Kolumn samt Orsak
 * Exekveringsproblem
   * Klicka på F12 i Chrome, alternativt ctrl-shift-i
     * Välj fliken Console.
