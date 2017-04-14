@@ -323,6 +323,7 @@ assert [8,9], [5,6,7,8,9][-2..]
 	a:""
 	e:
 		assert : "https://en.wikipedia.org/wiki/Assertion_(software_development)"
+		p5Assert : 'https://christernilsson.github.io/p5Assert'
 
 ID224 = # LinesOfCode
 	b:"""
