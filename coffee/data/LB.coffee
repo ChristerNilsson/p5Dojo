@@ -190,47 +190,115 @@ ID223 = # Asserts:
 # Om de två parametrarna till assert är olika, skrivs de ut till console.
 # Du kan prova egna asserts här. Kontrollera med F12.
 
-# + * ** Prioritet
-assert 2 + 3 * 4  , 14   
-assert 4 * 2 ** 3 , 32 
+# + - * / // **  Operatorer
+assert -10, 2 - 3 * 4
+assert 2.75, 2 + 3 / 4
+assert 32, 4 * 2 ** 3
+assert 14, 2 + 3 * 4 
+assert 20, (2+3) * 4  
+assert 32, 4 * 2 ** 3
+assert 1.75, 7 / 4
+assert 1, 7 // 4
+assert 2, 8 // 4
 
 # % Resten vid heltalsdivision
-assert  2 % 2 ,  0
-assert  1 % 2 ,  1
-assert  0 % 2 ,  0
-assert -1 % 2 , -1    
-assert -2 % 2 , -0      
+assert  0, 2 % 2
+assert  1, 1 % 2
+assert  0, 0 % 2
+assert -1, -1 % 2   
+assert -0, -2 % 2     
 
 # %% Resten vid heltalsdivision. Klarar även negativa tal.
-assert  2 %% 2 , 0
-assert  1 %% 2 , 1
-assert  0 %% 2 , 0   
-assert -1 %% 2 , 1  
-assert -2 %% 2 , 0 
+assert 0, 2 %% 2
+assert 1, 1 %% 2
+assert 0, 0 %% 2 
+assert 1, -1 %% 2
+assert 0, -2 %% 2
+
+# Jämförelser
+assert true, 1+2 < 4
+assert true, 1+2 > 2
+assert true, 1+2 == 3
+assert false, 1+2 == 4
+assert true, 1+2 != 4
+assert true, 1+2 >= 3
+assert true, 1+2 <= 4 
+assert true, 1 < 2 and 2 < 3
+assert true, 1 < 2 < 3
+
+# and or not  Logiska villkor
+assert false, false and false
+assert false, false and true
+assert false, true and false
+assert true,  true and true
  
+assert false, false or false
+assert true,  false or true
+assert true,  true or false
+assert true,  true or true
+
+assert true,  not false
+assert false, not true
+
+# if then else  
+assert 4, if 3 > 4 then 3 else 4
+assert 3, if 3 < 4 then 3 else 4
+
+# '' "" strängar
+assert 'Coffeescript', 'Coffee' + 'script'
+assert 6, 'Coffee'.length
+assert 2, 'Coffee'.indexOf 'f'
+assert -1, 'Coffee'.indexOf 'x'
+assert 3, 'Coffee'.lastIndexOf 'f'
+assert 'script', 'Coffeescript'.slice 6,12
+assert 'script', 'Coffeescript'.slice 6
+assert 'COFFEESCRIPT', 'Coffeescript'.toUpperCase()
+assert 'coffeescript', 'Coffeescript'.toLowerCase()
+assert 's', 'Coffeescript'[6]
+assert 'script', 'Coffeescript'[6..12]
+assert 'pt', 'Coffeescript'[-2..]
+assert 'esc', 'Coffeescript'[5..-5]
+assert ['abra','ka','dabra'], 'abra ka dabra'.split ' '
+assert ['C','o','f','f','e','e'], 'Coffee'.split ''
+assert ['C','o','f','f','e','e'], 'Coffee'.split ''
+assert 'Coffee', ' Coffee  '.trim()
+assert 12, parseInt '12'
+assert '12', 12.toString()
+assert 3.14, parseFloat '3.14'
+assert '3.141592653589793', Math.PI.toString()
+assert 'coffee', "coffee"
+assert true, 'coffeescript'.includes 'coffee'
+assert false, 'coffeescript'.includes 'tea'
+
 # []
-assert 7 in [7,8]                     , true
-assert (i for i in [7,8])             , [7,8]  
-assert ([item,i] for item,i in [7,8]) , [[7,0],[8,1]]   
-assert (x*x for x in [3,4,5])         , [9,16,25]   
+assert true, 7 in [7,8]                     
+assert [7,8], (i for i in [7,8])               
+assert [[7,0],[8,1]], ([item,i] for item,i in [7,8])   
+assert [9,16,25], (x*x for x in [3,4,5])           
+assert "1x2x3", [1,2,3].join('x')              
+assert [3,2,1] , [1,2,3].reverse()                        
+assert [1,2,3], [2,1,3].sort()                          
+assert 3, [2,1,5].length                        
 
 # {}
-assert 'b' of {a:7,b:8}                       , true      
-assert (key for key of {a:7,b:8})             , ['a','b']   
-assert ([key,item] for key,item of {a:7,b:8}) , [['a',7],['b',8]]    
+assert true, 'b' of {a:7,b:8}                           
+assert ['a','b'], (key for key of {a:7,b:8})                
+assert [['a',7],['b',8]], ([key,item] for key,item of {a:7,b:8})     
 
-# & | ^ ~ Bit operationer
-assert [0&0, 0&1, 1&0, 1&1] , [0,0,0,1] 
-assert [0|0, 0|1, 1|0, 1|1] , [0,1,1,1] 
-assert [0^0, 0^1, 1^0, 1^1] , [0,1,1,0] 
-assert [~0, ~1, ~2, ~3]     , [-1,-2,-3,-4] 
+# & | ^ ~ << >> Bit operationer
+assert [0,0,0,1], [0&0, 0&1, 1&0, 1&1]       # and 
+assert [0,1,1,1], [0|0, 0|1, 1|0, 1|1]       # or
+assert [0,1,1,0] , [0^0, 0^1, 1^0, 1^1]      # xor
+assert [-1,-2,-3,-4], [~0, ~1, ~2, ~3]       # not
+assert [1,2,4,8], [1<<0, 1<<1, 1<<2, 1<<3]   # shift left
+assert [8,4,2,1], [8>>0, 8>>1, 8>>2, 8>>3]   # shift right
 
 # lerp
-assert  8 , lerp 10,12,-1
-assert 10 , lerp 10,12,0
-assert 11 , lerp 10,12,0.5
-assert 12 , lerp 10,12,1
-assert 14 , lerp 10,12,2
+assert  8, lerp 10,12,-1
+assert 10, lerp 10,12,0
+assert 11, lerp 10,12,0.5
+assert 12, lerp 10,12,1
+assert 14, lerp 10,12,2
 
 # range
 assert [0,1,2,3,4,5,6,7,8,9]  , range 10
@@ -240,16 +308,16 @@ assert [0,2,4,6,8]            , range 0,10,2
 assert [10,8,6,4,2]           , range 10,0,-2
 assert [9,8,7,6,5,4,3,2,1,0]  , range 10-1,-1,-1
 
-# [..]
-assert [0..4]  , [0,1,2,3,4]
-assert [0...5] , [0,1,2,3,4]
-assert [5,6,7,8,9][1..2] , [6,7]
-assert [5,6,7,8,9][..2]  , [5,6,7]
-assert [5,6,7,8,9][1..]  , [6,7,8,9]
-assert [5,6,7,8,9][..]   , [5,6,7,8,9]
-assert [5,6,7,8,9][0..2]   , [5,6,7]
-assert [5,6,7,8,9][1...-2] , [6,7]
-assert [5,6,7,8,9][-2..]   , [8,9]
+# [..] [...]  range operator
+assert [0,1,2,3,4], [0..4]  
+assert [0,1,2,3,4], [0...5] 
+assert [6,7], [5,6,7,8,9][1..2] 
+assert [5,6,7], [5,6,7,8,9][..2]  
+assert [6,7,8,9], [5,6,7,8,9][1..]  
+assert [5,6,7,8,9], [5,6,7,8,9][..]   
+assert [5,6,7], [5,6,7,8,9][0..2]   
+assert [6,7], [5,6,7,8,9][1...-2] 
+assert [8,9], [5,6,7,8,9][-2..]
 
 """
 	a:""
