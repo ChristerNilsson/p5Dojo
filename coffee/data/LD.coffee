@@ -299,7 +299,6 @@ class RushHour extends Application
 	backward   : (n=1) ->
 	forward    : (n=1) ->
 	end        : ->
-
 app = new RushHour
 
 """

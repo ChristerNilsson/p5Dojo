@@ -2,7 +2,7 @@
 var ID180, ID181, ID182, ID183, ID184, ID185, ID186, ID187, ID188, ID189;
 
 ID180 = {
-  b: "# LOC:12 bg fc sc # text textAlign textSize + - class extends constructor new @ super ->\n# Klicka på reset() om du får ett felmeddelande!\n\nclass Counter extends Application\n	reset : -> super\n	draw  : -> super\n	up    : -> \n	down  : -> \n	mousePressed : (mx,my) -> print \"mousePressed\",mx,my\n\napp = new Counter ",
+  b: "# LOC:12 bg fc sc # text textAlign textSize + - class extends constructor new @ super ->\n# Klicka på reset() om du får ett felmeddelande!\n\nclass Counter extends Application\n	reset : -> super\n	draw  : -> super\n	up    : -> \n	down  : -> \n	mousePressed : (mx,my) -> print \"mousePressed\",mx,my\napp = new Counter ",
   a: "class Counter extends Application\n	reset : -> \n		super\n		@counter = 0\n	up : -> @counter += 1\n	down : -> @counter -= 1\n	draw : ->\n		bg 0.5\n		fc 1,1,0\n		sc()\n		textAlign CENTER,CENTER\n		textSize 100\n		text @counter,100,100\n	mousePressed : (mx,my) -> if my < 100 then @counter += 1 else @counter -= 1\n\napp = new Counter \"a\"   		",
   c: {
     app: "reset()|up()|down()"
@@ -50,7 +50,7 @@ ID186 = {
 };
 
 ID187 = {
-  b: "# LOC:0\n# Här kan du laborera med egna idéer!\n\nclass Laboratorium extends Application\n	reset : ->\n		super\n		@x = 100\n		@y = 100\n		@command = \"Ge ett kommando!\"\n	draw  : -> \n		textAlign CENTER,CENTER\n		textSize 24\n		fc 1,1,0\n		sc()\n		text @command,@x,@y\n	mousePressed : (mx,my) ->\n	left  : -> @x -= 10\n	right : -> @x += 10\n	up    : -> @y -= 10\n	down  : -> @y += 10\n	a     : -> @command = \"a\"\n	b     : -> @command = \"b\"\n	c     : -> @command = \"c\"\n	d     : -> @command = \"d\"\n	e     : -> @command = int random 1,7\n	f     : -> @command = int millis()\n\napp = new Laboratorium     ",
+  b: "# LOC:0\n# Här kan du laborera med egna idéer!\n\nclass Laboratorium extends Application\n	reset : ->\n		super\n		@x = 100\n		@y = 100\n		@command = \"Ge ett kommando!\"\n	draw  : -> \n		textAlign CENTER,CENTER\n		textSize 24\n		fc 1,1,0\n		sc()\n		text @command,@x,@y\n	mousePressed : (mx,my) ->\n	left  : -> @x -= 10\n	right : -> @x += 10\n	up    : -> @y -= 10\n	down  : -> @y += 10\n	a     : -> @command = \"a\"\n	b     : -> @command = \"b\"\n	c     : -> @command = \"c\"\n	d     : -> @command = \"d\"\n	e     : -> @command = int random 1,7\n	f     : -> @command = int millis()\napp = new Laboratorium     ",
   a: "class Laboratorium extends Application\n	reset : -> super\n	draw : -> \n	mousePressed : (mx,my) ->\n	left : -> \n	right : -> \n	up : -> \n	down : -> \n	a : -> \n	b : -> \n	c : -> \n	d : -> \n	e : -> \n	f : -> \n\napp = new Laboratorium \"a\"   		",
   c: {
     app: "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"

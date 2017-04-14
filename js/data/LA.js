@@ -2,7 +2,7 @@
 var ID200, ID201, ID202, ID203, ID204, ID205, ID206, ID207, ID208, ID209;
 
 ID200 = {
-  b: "# LOC:21 bg sw fc rd # rect rectMode translate + class extends constructor new @ super ->\n\nclass Square extends Application\n	reset        : -> super\n	draw         : -> super\n	horisontellt : (d) -> \n	vertikalt    : (d) ->\n	storlek      : (d) -> \n	tjocklek     : (d) -> \n	rotera       : (d) ->\n\napp = new Square",
+  b: "# LOC:21 bg sw fc rd # rect rectMode translate + class extends constructor new @ super ->\n\nclass Square extends Application\n	reset        : -> super\n	draw         : -> super\n	horisontellt : (d) -> \n	vertikalt    : (d) ->\n	storlek      : (d) -> \n	tjocklek     : (d) -> \n	rotera       : (d) ->\napp = new Square",
   a: "class Square extends Application\n	reset : ->\n		super\n		@x = 100\n		@y = 100\n		@size = 100\n		@w = 1\n		@dir = 0\n	draw : ->\n		bg 0\n		rectMode CENTER\n		sw @w\n		fc 0.5\n		translate @x,@y\n		rd @dir \n		rect 0,0,@size,@size\n\n	horisontellt : (d) -> @x += d\n	vertikalt : (d) -> @y += d\n	storlek : (d) -> @size += d\n	tjocklek : (d) -> @w += d\n	rotera : (d) -> @dir += d \n\napp = new Square \"a\"",
   c: {
     app: "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"
@@ -28,7 +28,7 @@ ID201 = {
 });
 
 ID202 = {
-  b: "# LOC:31 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->\n\nclass Digit extends Application\n	reset : -> super\n	draw  : -> super\n	up    : -> \n	down  : -> \n\napp = new Digit",
+  b: "# LOC:31 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->\n\nclass Digit extends Application\n	reset : -> super\n	draw  : -> super\n	up    : -> \n	down  : -> \napp = new Digit",
   a: "class Digit extends Application\n	reset : ->\n		super\n		@PATTERN = [63,6,91,79,102,109,125,7,127,111]\n		@X=100\n		@Y=100\n		@W=80\n		@H=18\n		@d=0\n	draw : ->\n		bg 0.5\n		sc()\n		fc 1,0,0\n		rectMode CENTER\n		p = @PATTERN[@d]\n		w0 = @W-20\n		if p & 1 then fc 1,0,0 else fc 0.3,0,0\n		rect @X,@Y-@W,w0,@H \n		if p & 2 then fc 1,0,0 else fc 0.3,0,0\n		rect @X+@W/2,@Y-@W/2,@H,w0 \n		if p & 4 then fc 1,0,0 else fc 0.3,0,0\n		rect @X+@W/2,@Y+@W/2,@H,w0 \n		if p & 8 then fc 1,0,0 else fc 0.3,0,0\n		rect @X,@Y+@W,w0,@H \n		if p & 16 then fc 1,0,0 else fc 0.3,0,0\n		rect @X-@W/2,@Y+@W/2,@H,w0\n		if p & 32 then fc 1,0,0 else fc 0.3,0,0\n		rect @X-@W/2,@Y-@W/2,@H,w0 \n		if p & 64 then fc 1,0,0 else fc 0.3,0,0\n		rect @X,@Y,w0,@H\n	mousePressed : (mx,my) -> @d = constrain @d + (if my<100 then 1 else -1), 0, 9\n\napp = new Digit \"a\"",
   c: {
     app: "reset()"
@@ -39,7 +39,7 @@ ID202 = {
 };
 
 ID203 = {
-  b: "# LOC:23 bg fc range # for in triangle translate rotate cos sin class extends constructor new @ super ->\n\nclass GoldenStar extends Application\n	reset : -> super\n	draw  : -> super\n	n     : (d) -> \n	outer : (d) ->\n	inner : (d) ->\n\napp = new GoldenStar",
+  b: "# LOC:23 bg fc range # for in triangle translate rotate cos sin class extends constructor new @ super ->\n\nclass GoldenStar extends Application\n	reset : -> super\n	draw  : -> super\n	n     : (d) -> \n	outer : (d) ->\n	inner : (d) ->\napp = new GoldenStar",
   a: "class GoldenStar extends Application\n	reset : ->\n		super\n		@_X = 100\n		@_Y = 100\n		@_n = 4\n		@_outer = 100\n		@_inner = 25\n	n : (d) -> @_n = constrain @_n+d,3,12\n	outer : (d) -> @_outer = constrain @_outer+d, 0, 100\n	inner : (d) -> @_inner = constrain @_inner+d, 0, 100\n	draw : ->\n		bg 0\n		translate @_X,@_Y\n		v = TWO_PI/@_n\n		rotate -PI/2\n		x1 = @_inner * cos v/2\n		y1 = @_inner * sin v/2\n		for i in range @_n\n			fc 1,1,0\n			triangle 0,0, @_outer,0, x1,y1\n			fc 1,0.7,0\n			triangle 0,0, @_outer,0, x1,-y1\n			rotate v\n\napp = new GoldenStar \"a\"",
   c: {
     app: "reset()|n -1|n +1|outer -1|outer +1|inner -1|inner +1"
@@ -47,7 +47,7 @@ ID203 = {
 };
 
 ID204 = {
-  b: "# LOC:23 bg sc range # line for in cos sin radians class extends constructor new @ super ->\n\nclass Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n	rt : (a) ->\n\nclass Polygon extends Application\n	reset      : -> super\n	draw       : -> super\n	antalSidor : (d) ->\n	antalSteg  : (d) -> \n\napp = new Polygon",
+  b: "# LOC:23 bg sc range # line for in cos sin radians class extends constructor new @ super ->\n\nclass Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n	rt : (a) ->\n\nclass Polygon extends Application\n	reset      : -> super\n	draw       : -> super\n	antalSidor : (d) ->\n	antalSteg  : (d) -> \napp = new Polygon",
   a: "class Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n		dx = d*cos radians @dir\n		dy = d*sin radians @dir\n		sc @r,@g,@b\n		line @x,@y,@x+dx,@y+dy\n		@x += dx\n		@y += dy\n	rt : (a) ->\n		@dir +=a\n\nclass Polygon extends Application\n	reset : ->\n		super\n		@n = 6\n		@steg = 60\n\n	draw : ->\n		t = new Turtle()\n		bg 0\n		for i in range @n\n			t.fd @steg\n			t.rt 360/@n\n\n	antalSidor : (d) -> @n += d\n	antalSteg : (d) -> @steg += d\n\napp = new Polygon \"a\"",
   c: {
     app: "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
@@ -55,7 +55,7 @@ ID204 = {
 };
 
 ID205 = {
-  b: "# LOC:29 bg sc fc range circle # for in & + - * ^ ** %% [] length splice dist\n#        push if then else class extends constructor new @ super ->\n\nclass AlphaNumeric extends Application\n	reset : -> super\n	draw  : -> super\n	add   : -> \n	del   : ->\n	left  : -> \n	right : ->\n	mousePressed : (mx,my) ->\n\napp = new AlphaNumeric",
+  b: "# LOC:29 bg sc fc range circle # for in & + - * ^ ** %% [] length splice dist\n#        push if then else class extends constructor new @ super ->\n\nclass AlphaNumeric extends Application\n	reset : -> super\n	draw  : -> super\n	add   : -> \n	del   : ->\n	left  : -> \n	right : ->\n	mousePressed : (mx,my) ->\napp = new AlphaNumeric",
   a: "class AlphaNumeric extends Application\n	reset : -> \n		super\n		@RADIUS = 8\n		@DISTANCE = 20\n		@pattern = [[4,12,4,4,4,4,14], [14,17,1,2,4,8,31], [14,17,17,31,17,17,17],[30,17,17,30,17,17,30]]\n		@index = 0\n	draw : ->\n		bg 0\n		sc()\n		for index,j in @pattern[@index]\n			y =  40+@DISTANCE*j\n			for i in range 5\n				if index & 1<<i then fc 0,1,0 else fc 0,0.3,0\n				x = 140-@DISTANCE*i\n				circle x,y,@RADIUS\n	add   : -> \n		@pattern.push [0,0,0,0,0,0,0]\n		@index = @pattern.length - 1\n	del   : -> @pattern.splice @index, 1\n	left  : -> @index = (@index - 1) %% @pattern.length\n	right : -> @index = (@index + 1) %% @pattern.length\n\n	mousePressed : (mx,my) ->\n		for index,j in @pattern[@index]\n			y =  40+@DISTANCE*j\n			for i in range 5\n				x = 140-@DISTANCE*i\n				if dist(x,y,mx,my) < @RADIUS\n					@pattern[@index][j] ^= 1<<i\n\napp = new AlphaNumeric \"a\"",
   c: {
     app: "reset()|add()|del()|left()|right()"

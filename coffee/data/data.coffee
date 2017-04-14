@@ -5,8 +5,8 @@
 
 data =
 	Nyheter : 
-		Nyheter : ID000 
-		Rainbow : ID016
+		nyheter : ID000 
+		rainbow : ID016
 		clown : ID001
 		tomteluva : ID002
 		snowman : ID003
@@ -17,8 +17,8 @@ data =
 		wave : ID008
 		circle : ID009
 		circles : ID010
-		sized_circles : ID011
-		rotated_circles : ID012
+		sizedCircles : ID011
+		rotatedCircles : ID012
 		gravity : ID013
 		hypnoticA : ID014
 		hypnoticB : ID015
@@ -110,7 +110,7 @@ data =
 		Stopwatch : ID181
 		RandomDice : ID182
 		Moire : ID183
-		Guess_a_number : ID185
+		GuessANumber : ID185
 		MultiTimer : ID184
 		RecursiveCircle : ID186
 		Laboratorium : ID187

@@ -9,7 +9,6 @@ class Counter extends Application
 	up    : -> 
 	down  : -> 
 	mousePressed : (mx,my) -> print "mousePressed",mx,my
-
 app = new Counter 
 """
 	a:"""
@@ -138,7 +137,7 @@ app = new Moire "a"
 	c: 
 		app : "reset()"
 
-ID185 = # Guess_a_number :
+ID185 = # GuessANumber :
 	b:"""
 # LOC:29 bg fc sc range # text textAlign for in if then else * / + - % <=
 #        int class extends constructor new @ super ->
@@ -243,7 +242,6 @@ class Laboratorium extends Application
 	d     : -> @command = "d"
 	e     : -> @command = int random 1,7
 	f     : -> @command = int millis()
-
 app = new Laboratorium     
 """
 	a:"""

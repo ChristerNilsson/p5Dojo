@@ -10,7 +10,6 @@ class Square extends Application
 	storlek      : (d) -> 
 	tjocklek     : (d) -> 
 	rotera       : (d) ->
-
 app = new Square
 """
 	a: """
@@ -130,7 +129,6 @@ class Digit extends Application
 	draw  : -> super
 	up    : -> 
 	down  : -> 
-
 app = new Digit
 			"""
 	a:"""
@@ -183,7 +181,6 @@ class GoldenStar extends Application
 	n     : (d) -> 
 	outer : (d) ->
 	inner : (d) ->
-
 app = new GoldenStar
 """
 	a: """
@@ -231,7 +228,6 @@ class Polygon extends Application
 	draw       : -> super
 	antalSidor : (d) ->
 	antalSteg  : (d) -> 
-
 app = new Polygon
 """
 	a:"""
@@ -281,7 +277,6 @@ class AlphaNumeric extends Application
 	left  : -> 
 	right : ->
 	mousePressed : (mx,my) ->
-
 app = new AlphaNumeric
 """
 	a:"""

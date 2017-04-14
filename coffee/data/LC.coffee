@@ -11,7 +11,6 @@ class Klocka extends Application
 	minute : (m) ->
 	second : (s) ->
 	now 	 : ->
-
 app = new Klocka
 			"""
 	a: """
@@ -81,11 +80,9 @@ class Ball
 	render      : (sel) ->
 
 class BouncingBalls extends Application
-
 	constructor : (@name) ->
 		super @name
 		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
-
 	reset   : -> super
 	draw    : -> super
 	update  : -> 
@@ -98,7 +95,6 @@ class BouncingBalls extends Application
 	nextCol : -> 
 	prevCol : -> 
 	gravity : ->
-
 app = new BouncingBalls
 """
 
@@ -176,7 +172,6 @@ class Braider extends Application
 	draw    : -> super
 	forward : ->
 	back    : ->
-
 app = new Braider
 """
 
@@ -354,7 +349,6 @@ class Kalkylator extends Application
 	clr   : -> # ( a b -- )
 	pi    : -> # ( -- n)
 	enter : -> # inmatning från textrutan under kommandolistan.
-
 app = new Kalkylator
 """
 	a:"""
