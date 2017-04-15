@@ -267,7 +267,7 @@ app = new ColorPair
 class ColorPair extends Application
 	reset : -> 
 		super
-		@RADIUS = 40
+		@radius = 0
 		@seed = 0
 		@level = 0
 		@changeLevel 1
@@ -283,12 +283,12 @@ class ColorPair extends Application
 		colorMode HSB
 		for [x,y,c] in @circles
 			fill color c,100,100,0.5
-			circle x,y,@RADIUS
+			circle x,y,@radius
 		
 	mousePressed : (mx,my) ->
 		hitlist = []
 		for [x,y,c],i in @circles
-			if dist(x,y,mx,my) < @RADIUS then hitlist.push i 
+			if dist(x,y,mx,my) < @radius then hitlist.push i 
 		if hitlist.length == 1
 			i = hitlist[0]
 			circle = @circles[i]
@@ -315,7 +315,9 @@ class ColorPair extends Application
 		@memory = -1
 		@level = constrain @level+d, 1, 20
 		@circles = []
+		@radius = 50
 		for i in range @level
+			@radius *= 0.95
 			c = int i * 360 / @level
 			@circles.push [@randint(200), @randint(200), c]
 			@circles.push [@randint(200), @randint(200), c]
