@@ -135,3 +135,5 @@ for number,i in numbers
 	text number,0,-90
 	rd 360 / numbers.length
 """
+	e : 
+		Wikipedia : "https://en.wikipedia.org/wiki/Roulette"

@@ -23,32 +23,50 @@ ID023 = {
 
 ID024 = {
   b: "# LOC:5 sc sw # point\n\nsw 10      # strokeWeight, strecktjocklek i pixlar\nsc 1,0,0   # strokeColor, streckfärg red,green,blue\npoint 0,0  # ritar en punkt på koordinaten x,y\n",
-  a: "sw 10\nsc 1,0,0\npoint 0,0\npoint 100,0\npoint 200,0"
+  a: "sw 10\nsc 1,0,0\npoint 0,0\npoint 100,0\npoint 200,0",
+  e: {
+    Matteboken: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+  }
 };
 
 ID025 = {
   b: "# LOC:5 sc sw # point\n\nsw 10\nsc 0,1,0\npoint 0,0\n",
-  a: "sw 10\nsc 0,1,0\npoint 0,0\npoint 0,100\npoint 0,200"
+  a: "sw 10\nsc 0,1,0\npoint 0,0\npoint 0,100\npoint 0,200",
+  e: {
+    Matteboken: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+  }
 };
 
 ID026 = {
   b: "# LOC:9 sc sw # point\n\nsw\nsc\npoint\n",
-  a: "sw 10\nsc 1,0,0\npoint 0,0\nsc 0,1,0\npoint 200,0\nsc 1,1,0\npoint 0,200\nsc 0\npoint 200,200"
+  a: "sw 10\nsc 1,0,0\npoint 0,0\nsc 0,1,0\npoint 200,0\nsc 1,1,0\npoint 0,200\nsc 0\npoint 200,200",
+  e: {
+    Matteboken: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+  }
 };
 
 ID027 = {
   b: "# LOC:11 sc sw # point\n",
-  a: "sw 10\nsc 1,0,0\npoint 100,100\nsc 0,1,0\npoint 100,0\nsc 1,1,0\npoint 0,100\nsc 0\npoint 200,100\nsc 1\npoint 100,200"
+  a: "sw 10\nsc 1,0,0\npoint 100,100\nsc 0,1,0\npoint 100,0\nsc 1,1,0\npoint 0,100\nsc 0\npoint 200,100\nsc 1\npoint 100,200",
+  e: {
+    Matteboken: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+  }
 };
 
 ID028 = {
   b: "# LOC:17 sc sw # point\n",
-  a: "sw 10\nsc 1,0,0\npoint 20,0\npoint 20,20\npoint 0,20\n\nsc 0,1,0\npoint 180,0\npoint 180,20\npoint 200,20\n\nsc 1,1,0\npoint 20,180\npoint 20,200\npoint 0,180\n\nsc 1\npoint 180,180\npoint 180,200\npoint 200,180"
+  a: "sw 10\nsc 1,0,0\npoint 20,0\npoint 20,20\npoint 0,20\n\nsc 0,1,0\npoint 180,0\npoint 180,20\npoint 200,20\n\nsc 1,1,0\npoint 20,180\npoint 20,200\npoint 0,180\n\nsc 1\npoint 180,180\npoint 180,200\npoint 200,180",
+  e: {
+    Matteboken: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+  }
 };
 
 ID029 = {
   b: "# LOC:17 sc sw # point\n",
-  a: "sw 10\nsc 1,0,0\npoint 30,0\npoint 30,10\npoint 30,20\npoint 30,30\npoint 10,30\npoint 20,30\npoint 0,30\n\nsc 0,1,0\npoint 170,200\npoint 170,190\npoint 170,180\npoint 170,170\npoint 190,170\npoint 180,170\npoint 200,170"
+  a: "sw 10\nsc 1,0,0\npoint 30,0\npoint 30,10\npoint 30,20\npoint 30,30\npoint 10,30\npoint 20,30\npoint 0,30\n\nsc 0,1,0\npoint 170,200\npoint 170,190\npoint 170,180\npoint 170,170\npoint 190,170\npoint 180,170\npoint 200,170",
+  e: {
+    Matteboken: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+  }
 };
 
 ID030 = {

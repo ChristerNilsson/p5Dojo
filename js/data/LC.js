@@ -63,7 +63,8 @@ ID245 = {
     app: "reset()|newGame()|undo()"
   },
   e: {
-    Hex: "https://en.wikipedia.org/wiki/Hex_(board_game)"
+    Play: "http://www.lutanho.net/play/hex.html",
+    Wikipedia: "https://en.wikipedia.org/wiki/Hex_(board_game)"
   }
 };
 
@@ -79,7 +80,7 @@ ID247 = {
   b: "# LOC:47 bg fc # [] rect %% + ++ * == < and push dist length for in \n#        if then else class extends constructor new @ super ->\n\nclass Snake extends Application\n	reset : -> super\n	setSize : (s) ->\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n	draw : -> super\n	mousePressed : (mx,my) ->\napp = new Snake",
   a: "class Snake extends Application\n	reset : -> \n		super\n		@BUTTONS = [[33,167],[167,167]]\n		@DIRS = [[1,0],[0,-1],[-1,0],[0,1]]\n		@setSize 20\n	setSize : (s) ->\n		@SIZE = s\n		@N = 200/@SIZE\n		@seed = 0\n		@segments = [[5,5]]\n		@dir = 0\n		@total = 2\n		@cherry = [3,3]\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n	update : ->\n		[di,dj] = @DIRS[@dir]\n		[i,j] = @segments[0]\n		i = (i+di) %% @N\n		j = (j+dj) %% @N\n		@segments.unshift [i,j]\n		if @total < @segments.length then @segments.pop()\n		if i==@cherry[0] and j==@cherry[1]\n			@total++\n			@cherry = [@randint(@N),@randint(@N)]\n	draw : -> \n		bg 1,0,0\n		[i,j] = @segments[0]\n		for [si,sj],k in @segments \n			if k>0 and i==si and j==sj then return\n		bg 1			\n		[ci,cj] = @cherry\n		fc 1,0,0\n		rect @SIZE*ci,@SIZE*cj,@SIZE,@SIZE\n		for [i,j],k in @segments\n			if k==0 then fc 0 else fc 0.5\n			rect @SIZE*i,@SIZE*j,@SIZE,@SIZE\n		fc 0.9,0.9,0.9,0.3\n		for [x,y] in @BUTTONS\n			circle x,y,33\n	mousePressed : (mx,my) ->\n		index = -1\n		for [x,y],i in @BUTTONS\n			if dist(x,y,mx,my) < 33 then index = i\n		if index == 0 then @dir = (@dir+1) %% 4\n		if index == 1 then @dir = (@dir-1) %% 4\n		@update()\n			\napp = new Snake \"a\"",
   c: {
-    app: "reset()|setSize 20|setSize 10|setSize 5"
+    app: "reset()|setSize 20|setSize 10|setSize 5|setSize 2"
   },
   e: {
     Snake: "https://en.wikipedia.org/wiki/Snake_(video_game)"
@@ -90,10 +91,11 @@ ID248 = {
   b: "# LOC:43 bg fc # [] rect %% + ++ * == < and or push dist length for in \n#        if then else class extends constructor new @ super ->\n\nclass Snake4 extends Application\n	reset : -> super\n	setSize : (s) ->\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n	draw : -> super\n	mousePressed : (mx,my) ->\napp = new Snake4",
   a: "class Snake4 extends Application\n	reset : -> \n		super\n		@BUTTONS = [[167,100], [100,33], [33,100], [100,167]]\n		@DIRS = [[1,0],[0,-1],[-1,0],[0,1]]\n		@setSize 20\n	setSize : (s) ->\n		@SIZE = s\n		@N = 200/@SIZE\n		@seed = 0\n		@segments = [[5,5]]\n		@dir = 0\n		@total = 2\n		@cherry = [3,3]\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n	update : ->\n		[di,dj] = @DIRS[@dir]\n		[i,j] = @segments[0]\n		i = i+di\n		j = j+dj\n		@segments.unshift [i,j]\n		if @total < @segments.length then @segments.pop()\n		if i==@cherry[0] and j==@cherry[1]\n			@total++\n			@cherry = [@randint(@N),@randint(@N)]\n	draw : -> \n		bg 1,0,0\n		[i,j] = @segments[0]\n		if i in [-1,@N] or j in [-1,@N] then return\n		bg 1			\n		[ci,cj] = @cherry\n		fc 1,0,0\n		rect @SIZE*ci,@SIZE*cj,@SIZE,@SIZE\n		for [i,j],k in @segments\n			if k==0 then fc 0 else fc 0.5\n			rect @SIZE*i,@SIZE*j,@SIZE,@SIZE\n		fc 0.9,0.9,0.9,0.3\n		for [x,y] in @BUTTONS\n			circle x,y,33\n	mousePressed : (mx,my) ->\n		for [x,y],i in @BUTTONS\n			if dist(x,y,mx,my) < 33 and abs(i-@dir)!=2 then @dir = i\n		@update()\n			\napp = new Snake4 \"a\"",
   c: {
-    app: "reset()|setSize 20|setSize 10|setSize 5"
+    app: "reset()|setSize 20|setSize 10|setSize 5|setSize 2"
   },
   e: {
     Play: "http://patorjk.com/games/snake",
-    Source: "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"
+    Source: "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js",
+    Wikipedia: "https://en.wikipedia.org/wiki/Snake_(video_game)"
   }
 };

@@ -29,7 +29,8 @@ ID183 = {
   b: "# LOC:10 bg range # [] push * + for line map class extends constructor new @ super ->\n\nclass Moire extends Application\n	reset : -> super\n	draw  : -> super\n	mousePressed : (mx,my) ->\napp = new Moire",
   a: "class Moire extends Application\n	reset : ->\n		super\n		@points = []\n	draw : ->\n		bg 0\n		for [x,y] in @points\n			for j in range 37\n				line x,y,190,10+j*5\n	mousePressed : (mx,my) -> @points.push [mx,my]\n\napp = new Moire \"a\"",
   c: {
-    app: "reset()"
+    app: "reset()",
+    Wikipedia: "https://en.wikipedia.org/wiki/Moir%C3%A9_pattern"
   }
 };
 

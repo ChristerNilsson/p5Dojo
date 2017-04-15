@@ -90,6 +90,7 @@ braid 5,18,18,6
 """
 	e:
 		braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
+		Wikipedia : "https://en.wikipedia.org/wiki/Braid"
 
 ID163 = # OlympicRings:
 	b: """
@@ -134,6 +135,8 @@ olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 
 olympic()
 """
+	e : 
+		Wikipedia : "https://en.wikipedia.org/wiki/Olympic_symbols"
 
 ID164 = # OneDiceHistogram
 	b:"""

@@ -5,7 +5,11 @@
 
 data =
 	Nyheter : 
-		nyheter : ID000 
+		nyheter : IDL00 
+		Asserts : IDL01
+		LinesOfCode : IDL02
+
+	Exhibition :
 		rainbow : ID016
 		clown : ID001
 		tomteluva : ID002
@@ -131,8 +135,6 @@ data =
 		Connect4 : ID220
 		SpaceShip : ID221
 		Nian : ID222
-		Asserts : ID223
-		LinesOfCode : ID224
 
 	"LC: interactivity, hard" :
 		Klocka : ID240

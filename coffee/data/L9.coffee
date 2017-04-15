@@ -136,6 +136,7 @@ app = new Moire "a"
 """
 	c: 
 		app : "reset()"
+		Wikipedia : "https://en.wikipedia.org/wiki/Moir%C3%A9_pattern"
 
 ID185 = # GuessANumber :
 	b:"""

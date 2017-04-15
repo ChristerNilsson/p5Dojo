@@ -13,7 +13,11 @@ ID121 = {
 
 ID122 = {
   b: "# LOC:2 fc # arc radians\n",
-  a: "fc 1,1,0\narc 100,100, 80,80, radians(-135),radians(135)"
+  a: "fc 1,1,0\narc 100,100, 180,180, radians(-135),radians(135)",
+  e: {
+    Play: "https://www.google.se/#q=pacman&clb=clb",
+    Wikipedia: "https://en.wikipedia.org/wiki/Pac-Man"
+  }
 };
 
 ID123 = {

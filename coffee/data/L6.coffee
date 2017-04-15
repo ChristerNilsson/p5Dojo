@@ -16,8 +16,11 @@ ID122 = # PacMan:
 	b:"# LOC:2 fc # arc radians\n"
 	a:"""
 fc 1,1,0
-arc 100,100, 80,80, radians(-135),radians(135)
+arc 100,100, 180,180, radians(-135),radians(135)
 """
+	e :
+		Play : "https://www.google.se/#q=pacman&clb=clb"
+		Wikipedia : "https://en.wikipedia.org/wiki/Pac-Man"
 
 ID123 = # TwoArcs:
 	b:"# LOC:7 fc sc sw # arc radians strokeCap\n"

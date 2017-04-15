@@ -489,7 +489,8 @@ app = new Hex "a"
 	c:
 		app : "reset()|newGame()|undo()"
 	e: 
-		Hex : "https://en.wikipedia.org/wiki/Hex_(board_game)"
+		Play : "http://www.lutanho.net/play/hex.html"
+		Wikipedia : "https://en.wikipedia.org/wiki/Hex_(board_game)"
 
 ID246 = # PickingBerries :
 	b:"""
@@ -649,7 +650,7 @@ class Snake extends Application
 app = new Snake "a"
 """
 	c:
-		app : "reset()|setSize 20|setSize 10|setSize 5"
+		app : "reset()|setSize 20|setSize 10|setSize 5|setSize 2"
 	e: 
 		Snake : "https://en.wikipedia.org/wiki/Snake_(video_game)"
 
@@ -714,7 +715,8 @@ class Snake4 extends Application
 app = new Snake4 "a"
 """
 	c:
-		app : "reset()|setSize 20|setSize 10|setSize 5"
+		app : "reset()|setSize 20|setSize 10|setSize 5|setSize 2"
 	e: 
 		Play : "http://patorjk.com/games/snake"
 		Source : "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"
+		Wikipedia : "https://en.wikipedia.org/wiki/Snake_(video_game)"

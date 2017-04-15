@@ -44,6 +44,8 @@ point 0,0
 point 100,0
 point 200,0
 """
+	e : 
+		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID025 = # Y: 
 	b: """
@@ -61,6 +63,8 @@ point 0,0
 point 0,100
 point 0,200
 """
+	e : 
+		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID026 = # CornerPoints: 
 	b: """
@@ -82,6 +86,8 @@ point 0,200
 sc 0
 point 200,200
 """
+	e : 
+		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID027 = # MidPoints: 
 	b: "# LOC:11 sc sw # point\n"
@@ -98,6 +104,8 @@ point 200,100
 sc 1
 point 100,200
 """
+	e : 
+		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID028 = # CornerPoints3: 
 	b: "# LOC:17 sc sw # point\n"
@@ -123,6 +131,8 @@ point 180,180
 point 180,200
 point 200,180
 """
+	e : 
+		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID029 = # CornerPoints7: 
 	b: "# LOC:17 sc sw # point\n"
@@ -146,6 +156,8 @@ point 190,170
 point 180,170
 point 200,170
 """
+	e : 
+		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID030 = # Diagonal1: 
 	b: "# LOC:12 sc sw # point\n"
