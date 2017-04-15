@@ -419,7 +419,7 @@ app = new Kalkylator "a"
 
 ID245 = # Hex:
 	b:"""
-# LOC:49 bg fc sc range # + * - % < == != dist for in [] push pop length quad circle
+# LOC:47 bg fc sc range # + * - % < == != dist for in [] push pop length quad circle
 #        if then else text textAlign textSize class extends constructor new @ super ->
 
 class Hex extends Application
@@ -455,9 +455,7 @@ class Hex extends Application
 
 	newGame : ->
 		@history = []
-		@board = []
-		for i in range 11*11
-			@board.push 0
+		@board = Array(11*11).fill 0
 
 	undo : ->
 		if @history.length > 0
@@ -588,11 +586,12 @@ app = new PickingBerries "a"
 
 ID247 = # Snake :
 	b: """
-# LOC:41 bg fc # [] rect %% + ++ * == < and push dist length for in 
+# LOC:47 bg fc # [] rect %% + ++ * == < and push dist length for in 
 #        if then else class extends constructor new @ super ->
 
 class Snake extends Application
 	reset : -> super
+	setSize : (s) ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	draw : -> super
 	mousePressed : (mx,my) ->
@@ -604,25 +603,26 @@ class Snake extends Application
 		super
 		@BUTTONS = [[33,167],[167,167]]
 		@DIRS = [[1,0],[0,-1],[-1,0],[0,1]]
-		@SIZE = 20
+		@setSize 20
+	setSize : (s) ->
+		@SIZE = s
+		@N = 200/@SIZE
 		@seed = 0
 		@segments = [[5,5]]
 		@dir = 0
 		@total = 2
 		@cherry = [3,3]
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
-
 	update : ->
 		[di,dj] = @DIRS[@dir]
 		[i,j] = @segments[0]
-		i = (i+di) %% 10
-		j = (j+dj) %% 10
+		i = (i+di) %% @N
+		j = (j+dj) %% @N
 		@segments.unshift [i,j]
 		if @total < @segments.length then @segments.pop()
 		if i==@cherry[0] and j==@cherry[1]
 			@total++
-			@cherry = [@randint(10),@randint(10)]
-
+			@cherry = [@randint(@N),@randint(@N)]
 	draw : -> 
 		bg 1,0,0
 		[i,j] = @segments[0]
@@ -649,17 +649,18 @@ class Snake extends Application
 app = new Snake "a"
 """
 	c:
-		app : "reset()"
+		app : "reset()|setSize 20|setSize 10|setSize 5"
 	e: 
 		Snake : "https://en.wikipedia.org/wiki/Snake_(video_game)"
 
 ID248 = # Snake4 :
 	b: """
-# LOC:37 bg fc # [] rect %% + ++ * == < and or push dist length for in 
+# LOC:43 bg fc # [] rect %% + ++ * == < and or push dist length for in 
 #        if then else class extends constructor new @ super ->
 
 class Snake4 extends Application
 	reset : -> super
+	setSize : (s) ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	draw : -> super
 	mousePressed : (mx,my) ->
@@ -671,14 +672,16 @@ class Snake4 extends Application
 		super
 		@BUTTONS = [[167,100], [100,33], [33,100], [100,167]]
 		@DIRS = [[1,0],[0,-1],[-1,0],[0,1]]
-		@SIZE = 20
+		@setSize 20
+	setSize : (s) ->
+		@SIZE = s
+		@N = 200/@SIZE
 		@seed = 0
 		@segments = [[5,5]]
 		@dir = 0
 		@total = 2
 		@cherry = [3,3]
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
-
 	update : ->
 		[di,dj] = @DIRS[@dir]
 		[i,j] = @segments[0]
@@ -688,12 +691,11 @@ class Snake4 extends Application
 		if @total < @segments.length then @segments.pop()
 		if i==@cherry[0] and j==@cherry[1]
 			@total++
-			@cherry = [@randint(10),@randint(10)]
-
+			@cherry = [@randint(@N),@randint(@N)]
 	draw : -> 
 		bg 1,0,0
 		[i,j] = @segments[0]
-		if i in [-1,10] or j in [-1,10] then return
+		if i in [-1,@N] or j in [-1,@N] then return
 		bg 1			
 		[ci,cj] = @cherry
 		fc 1,0,0
@@ -704,7 +706,6 @@ class Snake4 extends Application
 		fc 0.9,0.9,0.9,0.3
 		for [x,y] in @BUTTONS
 			circle x,y,33
-
 	mousePressed : (mx,my) ->
 		for [x,y],i in @BUTTONS
 			if dist(x,y,mx,my) < 33 and abs(i-@dir)!=2 then @dir = i
@@ -713,7 +714,7 @@ class Snake4 extends Application
 app = new Snake4 "a"
 """
 	c:
-		app : "reset()"
+		app : "reset()|setSize 20|setSize 10|setSize 5"
 	e: 
 		Play : "http://patorjk.com/games/snake"
 		Source : "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"
