@@ -192,15 +192,7 @@ sel2change = function(sel) {
   return compare('sel2change');
 };
 
-sel3change = function(sel) {
-  if (calls != null) {
-    call = calls[sel.value];
-  }
-  run1();
-  run0();
-  myCodeMirror.focus();
-  return compare('sel3click');
-};
+sel3change = function(sel) {};
 
 sel1click = function(sel) {
   return sel2.show();
@@ -212,7 +204,14 @@ sel2click = function(sel) {
   }
 };
 
-sel3click = function(sel) {};
+sel3click = function(sel) {
+  if (calls != null) {
+    call = calls[sel.value];
+  }
+  run1();
+  run0();
+  return compare('sel3click');
+};
 
 mousePressed = function() {
   var dict, objekt, p, ref, ref1, ref2, ref3;

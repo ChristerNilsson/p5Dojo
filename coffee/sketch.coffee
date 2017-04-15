@@ -135,15 +135,15 @@ sel2change = (sel) ->
 	compare('sel2change')
 
 sel3change = (sel) ->
-	if calls? then call = calls[sel.value]
-	run1()
-	run0()
-	myCodeMirror.focus()
-	compare('sel3click')	
 
 sel1click = (sel) -> sel2.show()
 sel2click = (sel) -> if sel.value=='BACK' then $("#sel2").hide()
 sel3click = (sel) ->
+	if calls? then call = calls[sel.value]
+	run1()
+	run0()
+	#myCodeMirror.focus()
+	compare('sel3click')	
 
 mousePressed = ->
 	p = null
