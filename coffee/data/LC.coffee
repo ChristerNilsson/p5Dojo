@@ -609,20 +609,24 @@ class Snake extends Application
 		@total = 2
 		@cherry = [3,3]
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
-	draw : -> 
+
+	update : ->
 		[di,dj] = @DIRS[@dir]
 		[i,j] = @segments[0]
 		i = (i+di) %% 10
 		j = (j+dj) %% 10
-		bg 1,0,0
-		for [si,sj] in @segments 
-			if i==si and j==sj then return
-		bg 1			
 		@segments.unshift [i,j]
 		if @total < @segments.length then @segments.pop()
 		if i==@cherry[0] and j==@cherry[1]
 			@total++
 			@cherry = [@randint(10),@randint(10)]
+
+	draw : -> 
+		bg 1,0,0
+		[i,j] = @segments[0]
+		for [si,sj],k in @segments 
+			if k>0 and i==si and j==sj then return
+		bg 1			
 		[ci,cj] = @cherry
 		fc 1,0,0
 		rect @SIZE*ci,@SIZE*cj,@SIZE,@SIZE
@@ -638,6 +642,7 @@ class Snake extends Application
 			if dist(x,y,mx,my) < 33 then index = i
 		if index == 0 then @dir = (@dir+1) %% 4
 		if index == 1 then @dir = (@dir-1) %% 4
+		@update()
 			
 app = new Snake "a"
 """
@@ -671,19 +676,23 @@ class Snake4 extends Application
 		@total = 2
 		@cherry = [3,3]
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
-	draw : -> 
+
+	update : ->
 		[di,dj] = @DIRS[@dir]
 		[i,j] = @segments[0]
 		i = i+di
 		j = j+dj
-		bg 1,0,0
-		if i in [-1,10] or j in [-1,10] then return
-		bg 1			
 		@segments.unshift [i,j]
 		if @total < @segments.length then @segments.pop()
 		if i==@cherry[0] and j==@cherry[1]
 			@total++
 			@cherry = [@randint(10),@randint(10)]
+
+	draw : -> 
+		bg 1,0,0
+		[i,j] = @segments[0]
+		if i in [-1,10] or j in [-1,10] then return
+		bg 1			
 		[ci,cj] = @cherry
 		fc 1,0,0
 		rect @SIZE*ci,@SIZE*cj,@SIZE,@SIZE
@@ -693,9 +702,11 @@ class Snake4 extends Application
 		fc 0.9,0.9,0.9,0.3
 		for [x,y] in @BUTTONS
 			circle x,y,33
+
 	mousePressed : (mx,my) ->
 		for [x,y],i in @BUTTONS
 			if dist(x,y,mx,my) < 33 and abs(i-@dir)!=2 then @dir = i
+		@update()
 			
 app = new Snake4 "a"
 """
