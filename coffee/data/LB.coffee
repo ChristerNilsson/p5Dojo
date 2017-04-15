@@ -326,24 +326,33 @@ assert 2,                 _.first [2,1,3]
 assert 3,                 _.last [2,1,3]
 assert [1,3],             _.rest [2,1,3]
 assert [['a',1],['b',2]], _.pairs {a:1, b:2}
+
+assert true,              "abc" == "abc"
 assert false,             [1,2] == [1,2]
 assert true,              _.isEqual [1,2], [1,2]
+assert false,              {a:1, b:2} == {a:1, b:2}
+assert true,              _.isEqual {a:1, b:2}, {a:1, b:2}
 assert [1,2],             [1,2]
+
 assert [1,2,3],           _.sortBy [2,1,3] 
 assert ['abc','ba','d'],  _.sortBy ['ba','abc','d'] 
 assert ['d','ba','abc'],  _.sortBy ['ba','abc','d'], 'length'
 assert ['abc','ba','d'],  _.sortBy ['ba','abc','d'], (s) -> -s.length
+
 assert {odd: 3, even: 2}, _.countBy [1,2,3,4,5], (num) -> if num % 2 == 0 then 'even' else 'odd'
-assert [["m", 3], ["l", 4], ["c", 5]],  _.zip ['m', 'l', 'c'], [3, 4, 5]
-assert [['m', 'l', 'c'], [3, 4, 5]],  _.unzip [["m", 3], ["l", 4], ["c", 5]]
-assert [2, 4, 6],         _.filter [1, 2, 3, 4, 5, 6], (num) -> num % 2 == 0
-assert [1, 3, 5],         _.reject [1, 2, 3, 4, 5, 6], (num) -> num % 2 == 0
+assert [["m",3], ["l",4], ["c",5]],  _.zip ['m','l','c'], [3,4,5]
+assert [['m','l','c'], [3,4,5]],  _.unzip [["m",3], ["l",4], ["c",5]]
+
+assert [2, 4, 6],         _.filter [1,2,3,4,5,6], (num) -> num % 2 == 0
+assert [1, 3, 5],         _.reject [1,2,3,4,5,6], (num) -> num % 2 == 0
+
 assert false,             _.some [1>2, 1==2, 1>=2, 1!=1]
 assert true,              _.some [1>2, 1==2, 1>=2, 1!=2]
-assert false,             _.every [2, 4, 5], (num) -> num % 2 == 0
-assert true,              _.every [2, 4, 6], (num) -> num % 2 == 0
-assert ["a", "b", "c"],   _.keys   {a: 1, b: 2, c: 3}
-assert [1,2,3],           _.values {a: 1, b: 2, c: 3} 
+assert false,             _.every [2,4,5], (num) -> num % 2 == 0
+assert true,              _.every [2,4,6], (num) -> num % 2 == 0
+
+assert ["a", "b", "c"],   _.keys   {a:1, b:2, c:3}
+assert [1,2,3],           _.values {a:1, b:2, c:3} 
 
 """
 	a:""

@@ -100,6 +100,8 @@ sel1change = (sel) ->
 	fillSelect sel2, data[chapter]
 	sel2.show()
 
+sel3change = (sel) ->
+
 sel2change = (sel) ->
 	if sel.value=='BACK' 
 		exercise = ""
