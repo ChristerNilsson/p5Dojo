@@ -230,7 +230,6 @@ mousePressed = function() {
       call = objekt + (".mousePressed(" + p[0] + "," + p[1] + "); ") + objekt + ".draw(); " + objekt + ".store()";
       run1();
       run0();
-      myCodeMirror.focus();
       return compare('mousePressed');
     }
   }
