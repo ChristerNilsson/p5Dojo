@@ -100,8 +100,6 @@ sel1change = (sel) ->
 	fillSelect sel2, data[chapter]
 	sel2.show()
 
-sel3change = (sel) ->
-
 sel2change = (sel) ->
 	if sel.value=='BACK' 
 		exercise = ""
@@ -136,14 +134,16 @@ sel2change = (sel) ->
 	myCodeMirror.focus() 
 	compare('sel2change')
 
-sel1click = (sel) -> sel2.show()
-sel2click = (sel) -> if sel.value=='BACK' then $("#sel2").hide()
-sel3click = (sel) ->
+sel3change = (sel) ->
 	if calls? then call = calls[sel.value]
 	run1()
 	run0()
 	myCodeMirror.focus()
-	compare('sel3click')
+	compare('sel3click')	
+
+sel1click = (sel) -> sel2.show()
+sel2click = (sel) -> if sel.value=='BACK' then $("#sel2").hide()
+sel3click = (sel) ->
 
 mousePressed = ->
 	p = null

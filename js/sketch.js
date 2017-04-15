@@ -158,8 +158,6 @@ sel1change = function(sel) {
   return sel2.show();
 };
 
-sel3change = function(sel) {};
-
 sel2change = function(sel) {
   var calls_without_draw;
   if (sel.value === 'BACK') {
@@ -194,6 +192,16 @@ sel2change = function(sel) {
   return compare('sel2change');
 };
 
+sel3change = function(sel) {
+  if (calls != null) {
+    call = calls[sel.value];
+  }
+  run1();
+  run0();
+  myCodeMirror.focus();
+  return compare('sel3click');
+};
+
 sel1click = function(sel) {
   return sel2.show();
 };
@@ -204,15 +212,7 @@ sel2click = function(sel) {
   }
 };
 
-sel3click = function(sel) {
-  if (calls != null) {
-    call = calls[sel.value];
-  }
-  run1();
-  run0();
-  myCodeMirror.focus();
-  return compare('sel3click');
-};
+sel3click = function(sel) {};
 
 mousePressed = function() {
   var dict, objekt, p, ref, ref1, ref2, ref3;
