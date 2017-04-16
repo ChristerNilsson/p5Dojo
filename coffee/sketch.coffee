@@ -283,7 +283,7 @@ editor_change = ->
 		call = ""
 	else # transpile, draw
 		call = calls["draw()"]
-	run1()
+	run1() if _.size(data[chapter][exercise]["a"].c) > 0
 	run0()
 	#if msg.val() == '' then compare('editor_change')
 	compare('editor_change')

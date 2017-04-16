@@ -407,7 +407,9 @@ editor_change = function() {
   } else {
     call = calls["draw()"];
   }
-  run1();
+  if (_.size(data[chapter][exercise]["a"].c) > 0) {
+    run1();
+  }
   run0();
   return compare('editor_change');
 };
