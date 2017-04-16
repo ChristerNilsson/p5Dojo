@@ -1,36 +1,74 @@
-ID120 = # Triangle: 
-	b:"# LOC:2 fc # triangle\n" 
-	a:"""
-fc 1
-triangle 20,40, 160,100, 100,140
-"""
-
-ID121 = # Quad: 
-	b:"# LOC:2 fc # quad\n"
-	a:"""
-fc 1,1,0
-quad 150,100, 180,20, 40,20, 100,140
-"""
-
-ID122 = # PacMan: 
-	b:"# LOC:2 fc # arc radians\n"
-	a:"""
-fc 1,1,0
-arc 100,100, 180,180, radians(-135),radians(135)
-"""
-	e :
-		Play : "https://www.google.se/#q=pacman&clb=clb"
-		Wikipedia : "https://en.wikipedia.org/wiki/Pac-Man"
-
-ID123 = # TwoArcs:
-	b:"# LOC:7 fc sc sw # arc radians strokeCap\n"
-	a:"""
-fc()
-sc 1,0,0
-sw 20
-arc 100,70, 100,100, radians(-90),radians(90)
+ID120 = # Sunshine:
+	b: "# LOC:9 bg sc range # for in lerp line\n"
+	a: """
+bg 0
 sc 1,1,0
-strokeCap SQUARE
-arc 100,120, 100,100, radians(90),radians(-90)
+for i in range 10
+	x1 = lerp 0,20,i
+	x2 = lerp 200,180,i
+	line x1,0, x2,200
+	y1 = lerp 20,40,i
+	y2 = lerp 180,160,i
+	line 0,y1, 200,y2
+"""
+		
+ID121 = # Lines:  
+	b:"# LOC:5 bg range # for in lerp line (Noel Watson)\n"
+	a:"""
+bg 0
+for i in range 37
+	line 10,10, 190,10+i*5
+	line 10,100, 190,10+i*5
+	line 10,190, 190,10+i*5
 """
 
+ID122 = # ChessRow: 
+	b:"# LOC:5 bg fc range # % for in lerp rect\n"
+	a:"""
+bg 0.5
+for i in range 8
+	fc i%2
+	x = 20+20*i 
+	rect x,20, 20,20
+"""
+		
+ID123 = # ChessBoard: 
+	b:"# LOC:7 bg fc range # for in lerp rect\n"
+	a:"""
+bg 0.5
+for i in range 8
+	for j in range 8
+		fc (i+j)%2
+		x = 20+20*i
+		y = 20+20*j
+		rect x,y, 20,20
+"""
+		
+ID124 = # GalaxiesColliding : 
+	b: "# LOC:8 fc range # for in lerp rect if then (David Larsson)\n"
+	a: """
+for i in range 10
+	for j in range 10
+		fc()
+		if i-j in [-2,0,2] then fc 1,1,0
+		if i+j in [7,9,11] then fc 1,0,0
+		x = 20*i
+		y = 20*j
+		rect x,y, 20,20
+"""
+
+ID125 = # ColorCross
+	b:"# LOC:11 bg sc sw range # for in point\n"
+	a:"""
+bg 0.5
+for k in range 6
+	x = [75,25,75,125,75,75][k]
+	y = [50,50,100,50,0,150][k]
+	for i in range 50
+		r = [i/50,0,i/50,1,i/50,i/50][k]
+		for j in range 50
+			g = [j/50,j/50,1,j/50,0,(50-j)/50][k]
+			b = [0,(50-i)/50,j/50,i/50,(50-j)/50,1][k]
+			sc r,g,b
+			point x+i,y+j
+"""

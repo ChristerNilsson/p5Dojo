@@ -34,27 +34,31 @@ data = {
     Y: ID025,
     CornerPoints: ID026,
     MidPoints: ID027,
-    CornerPoints3: ID028,
     CornerPoints7: ID029,
     Diagonal1: ID030,
-    Diagonal2: ID031
+    Diagonal2: ID031,
+    CornerPoints3: ID028
   },
   "L2: circle fc text": {
     Dices: ID040,
-    Five: ID041,
     WhiteCircle: ID042,
     WhiteEmptyCircle: ID043,
     TwoDiscsA: ID044,
     TwoDiscsB: ID045,
     TextA: ID046,
-    TextB: ID047
+    TextB: ID047,
+    Five: ID041
   },
-  "L3: ellipse rect": {
+  "L3: ellipse rect triangle quad arc": {
     GreenEllipse: ID060,
     GreenRect: ID061,
     RedRect: ID062,
     Cross: ID063,
-    SquareHole: ID064
+    SquareHole: ID064,
+    Triangle: ID065,
+    Quad: ID066,
+    TwoArcs: ID067,
+    PacMan: ID068
   },
   "L4: for lerp rect": {
     HorizontalSquares: ID080,
@@ -63,28 +67,25 @@ data = {
     DoubleForLoop: ID083,
     GrowingSquares: ID084,
     GrowingRedSquares: ID085,
-    GrowingCircles: ID086,
-    ShrinkingCircles: ID087,
-    RedCone: ID088,
     PentaLerp: ID089
   },
   "L5: line for lerp": {
-    HorizontalLine: ID100,
-    VerticalLine: ID101,
-    Line: ID102,
-    Grid: ID103,
-    Skislope: ID104,
-    Sunshine: ID105,
-    Lines: ID106,
-    ChessRow: ID107,
-    ChessBoard: ID108,
-    GalaxiesColliding: ID109
+    GrowingCircles: ID100,
+    ShrinkingCircles: ID101,
+    RedCone: ID102,
+    HorizontalLine: ID103,
+    VerticalLine: ID104,
+    Line: ID105,
+    Grid: ID106,
+    Skislope: ID107
   },
-  "L6: triangle quad arc": {
-    Triangle: ID120,
-    Quad: ID121,
-    PacMan: ID122,
-    TwoArcs: ID123
+  "L6: for": {
+    Sunshine: ID120,
+    Lines: ID121,
+    ChessRow: ID122,
+    ChessBoard: ID123,
+    GalaxiesColliding: ID124,
+    ColorCross: ID125
   },
   "L7: translate rotate push pop": {
     TextC: ID140,
@@ -101,55 +102,55 @@ data = {
     ManyDices: ID160,
     Girlang: ID161,
     Braid: ID162,
-    OlympicRings: ID163,
     OneDiceHistogram: ID164,
-    TwoDiceHistogram: ID165
+    TwoDiceHistogram: ID165,
+    OlympicRings: ID163
   },
   "L9: interactivity, basic": {
     Counter: ID180,
     ClickDetector: ID188,
-    IndianSun: ID189,
     Stopwatch: ID181,
     RandomDice: ID182,
     Moire: ID183,
     GuessANumber: ID185,
     MultiTimer: ID184,
     RecursiveCircle: ID186,
-    Laboratorium: ID187
+    Laboratorium: ID187,
+    IndianSun: ID189
   },
   "LA: interactivity, easy": {
     Square: ID200,
     BoardGame: ID201,
     SevenSegment: ID202,
-    GoldenStar: ID203,
     Polygon: ID204,
     Alphanumeric: ID205,
     ColorCube: ID209,
     Korg: ID206,
-    Korsord: ID207,
-    EngineeringNotation: ID208
+    GoldenStar: ID203
   },
   "LB: interactivity, medium": {
-    Connect4: ID220,
-    SpaceShip: ID221,
-    Nian: ID222
+    Korsord: ID220,
+    EngineeringNotation: ID221,
+    Connect4: ID222,
+    SpaceShip: ID223,
+    Nian: ID224,
+    Klocka: ID225,
+    BouncingBalls: ID226,
+    ColorPair: ID227
   },
   "LC: interactivity, hard": {
-    Klocka: ID240,
-    BouncingBalls: ID241,
     Braider: ID242,
-    ColorPair: ID243,
     Kalkylator: ID244,
     Hex: ID245,
     PickingBerries: ID246,
     Snake: ID247,
-    Snake4: ID248
+    Snake4: ID248,
+    RubikSquare: ID249
   },
   "LD: interactivity, very hard": {
     Nim: ID260,
     ChessGame: ID261,
     Shortcut: ID265,
-    RubikSquare: ID264,
     RushHour: ID263,
     Nand2TetrisALU: ID262,
     Complex: ID266

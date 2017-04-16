@@ -233,7 +233,7 @@ class LinesOfCode extends Application
 		super
 		@chapter = -1
 		@stat = {}
-		@h = 14
+		@h = 13
 		@total = 0
 		for chapter,item1 of data
 			@stat[chapter] = {}

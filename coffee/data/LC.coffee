@@ -1,161 +1,3 @@
-ID240 = # Klocka: 
-	b: """
-# LOC:49 fc sc circle range rd # point rect rectMode for in if then else 
-#        translate push pop class extends constructor new @ super ->
-#        Date getHours getMinutes getSeconds
-
-class Klocka extends Application
-	reset  : -> super
-	draw   : -> super
-	hour   : (h) ->
-	minute : (m) ->
-	second : (s) ->
-	now 	 : ->
-app = new Klocka
-			"""
-	a: """
-class Klocka extends Application
-	reset : -> 
-		super
-		@h=10
-		@m=9
-		@s=30
-	draw : ->
-		bg 0.5
-		rectMode CENTER
-		translate 100,100
-		@urtavla()
-		@visare (@h+@m/60.0)*30, 7,60,1,0,0
-		@visare (@m+@s/60.0)*6,5,80,0,1,0
-		@visare @s*6,2,80,1,1,0
-	hour   : (h) -> @adjust h,0,0
-	minute : (m) -> @adjust 0,m,0
-	second : (s) -> @adjust 0,0,s
-	now    : -> 
-		d = new Date()
-		@h = d.getHours()
-		@m = d.getMinutes()
-		@s = d.getSeconds() 
-	adjust : (h,m,s) ->
-		@h+=h
-		@m+=m
-		@s+=s
-		t = 3600 * @h + 60 * @m + @s
-		@s = t %% 60
-		t = (t - @s) / 60
-		@m = t %% 60
-		t = (t - @m) / 60
-		@h = t %% 24
-	visare : (v,w,l,r,g,b) ->
-		push()
-		rd v-90
-		translate l/2,0
-		fc r,g,b
-		rect 0,0,l,w
-		pop()
-	urtavla : ->
-		fc 0
-		sc 1
-		sw 2
-		circle 0,0,90
-		fc 1
-		sc()
-		for i in range 60
-			circle 85,0, if i%5==0 then 3 else 2
-			rd 6
-
-app = new Klocka "a"
-"""
-	c: 
-		app : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1|now()"
-
-ID241 = # BouncingBalls :
-	b : """
-# LOC:43 fc sw sc circle # + ++ - -- %% == push if then for in 
-#        splice length _.create class constructor super extends new @
-
-class Ball 
-	constructor : ->
-	update      : (grav) ->
-	render      : (sel) ->
-
-class BouncingBalls extends Application
-	constructor : (@name) ->
-		super @name
-		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
-	reset   : -> super
-	draw    : -> super
-	update  : -> 
-	add     : -> 
-	delete  : ->
-	selNext : -> 
-	selPrev : -> 
-	grow    : ->    
-	shrink  : ->  
-	nextCol : -> 
-	prevCol : -> 
-	gravity : ->
-app = new BouncingBalls
-"""
-
-	a:"""
-class Ball 
-	constructor : ->
-		@x = 100
-		@y = 100
-		@r = 10
-		@c = 1
-		@dx = 3
-		@dy = 4
-	update : (grav) ->
-		@x += @dx
-		@y += @dy
-		if not (@r < @x < 200-@r) then @dx = - @dx
-		if not (@r < @y < 200-@r) then @dy = - @dy
-		if grav and @y < 200-@r then @dy += 1 
-	render : (sel) ->
-		fcc @c
-		sw 2
-		if sel then scc 7 else sc()
-		circle @x,@y,@r
-
-class BouncingBalls extends Application
-
-	constructor : (@name) ->
-		super @name
-		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
-
-	reset : ->
-		super
-		@balls = []
-		@sel = -1
-		@grav = false
-	draw : ->
-		for ball,i in @balls
-			ball.render i==@sel, @grav
-	update : -> 
-		for ball in @balls
-			ball.update(@grav)
-
-	add : -> 
-		@balls.push new Ball
-		@sel = @balls.length - 1
-
-	delete :->
-		@balls.splice @sel, 1
-		if @sel >= @balls.length then @sel = @balls.length - 1  
-	selNext : -> @sel = (@sel + 1) %% @balls.length
-	selPrev : -> @sel = (@sel - 1) %% @balls.length
-	grow : ->    @balls[@sel].r++
-	shrink : ->  @balls[@sel].r--
-	nextCol : -> @balls[@sel].c = (@balls[@sel].c+1) %% 8
-	prevCol : -> @balls[@sel].c = (@balls[@sel].c-1) %% 8
-	gravity : -> @grav = not @grav 
-
-app = new BouncingBalls "a"
-"""
-	c:
-		app : "reset()|update()|add()|delete()|selNext()|selPrev()|grow()|shrink()|nextCol()|prevCol()|gravity()"
 		
 ID242 = # Braider:
 	b : """
@@ -248,88 +90,6 @@ app = new Braider "a"
 	e:
 		braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
 
-ID243 = # ColorPair :
-	b: """
-# LOC:41 fc circle # [] .. push dist length splice _.isEqual colorMode HSB
-#        _.max _.pairs _.sortBy for in class extends constructor new @ super ->
-
-class ColorPair extends Application
-	reset : -> 
-		super
-		@seed = 0
-	draw : -> super
-	mousePressed : (mx,my) ->
-	enterName : ->
-	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
-app = new ColorPair
-"""
-	a:"""
-class ColorPair extends Application
-	reset : -> 
-		super
-		@radius = 0
-		@seed = 0
-		@level = 0
-		@changeLevel 1
-		@name = ""
-		@highScore = {}
-
-	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
-
-	draw : -> 
-		bg 1
-		sw 2
-		sc 1,1,1,0.5
-		colorMode HSB
-		for [x,y,c] in @circles
-			fill color c,100,100,0.5
-			circle x,y,@radius
-		
-	mousePressed : (mx,my) ->
-		hitlist = []
-		for [x,y,c],i in @circles
-			if dist(x,y,mx,my) < @radius then hitlist.push i 
-		if hitlist.length == 1
-			i = hitlist[0]
-			circle = @circles[i]
-			if @memory == -1
-				@memory = circle[2]
-				@circles.splice i,1
-			else if _.isEqual(@memory, circle[2]) 
-				@memory = -1
-				@circles.splice i,1
-				if @circles.length == 0
-					@updateHighScore() if @name != ""
-					@changeLevel 1
-			else
-				@changeLevel -1
-		else
-			@changeLevel -1
-
-	updateHighScore : ->
-		@highScore[@name] = _.max [@level, @highScore[@name]] 
-		@topList = _.pairs @highScore
-		@topList = _.sortBy @topList, ([name,level]) -> -level
-
-	changeLevel : (d) ->
-		@memory = -1
-		@level = constrain @level+d, 1, 20
-		@circles = []
-		@radius = 50
-		for i in range @level
-			@radius *= 0.95
-			c = int i * 360 / @level
-			@circles.push [@randint(200), @randint(200), c]
-			@circles.push [@randint(200), @randint(200), c]
-
-	enterName : -> @name = @readText()
-
-app = new ColorPair "a"
-"""
-	c:
-		app : "reset()|enterName()"
-	e: 
-		ColorPair : "https://christernilsson.github.io/ColorPair"
 
 ID244 = # Kalkylator:
 	b:"""
@@ -720,3 +480,112 @@ app = new Snake4 "a"
 		Play : "http://patorjk.com/games/snake"
 		Source : "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"
 		Wikipedia : "https://en.wikipedia.org/wiki/Snake_(video_game)"
+
+ID249 = # RubikSquare:
+	b:"""		
+# LOC:85 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not "" split join
+#        parseInt _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
+# OBS: Du bör använda variabeln rubikSquareData.
+
+class RubikSquare extends Application
+	reset : -> 
+	draw : ->
+	mousePressed : (mx,my) ->
+app = new RubikSquare   
+"""
+	a:"""
+class RubikSquare extends Application
+	reset : -> 
+		super
+		@BUTTONS = [[4,3,3,3],[10,3,3,3],[16,3,3,3], [4,9,3,3],[10,9,3,3],[16,9,3,3], [4,15,3,3],[10,15,3,3],[16,15,3,3], [4,19,3,1],[10,19,3,1],[16,19,3,1]]
+		@seed = 0
+		@level = 1
+		@history = []
+		@memory = -1
+		@createGame()
+
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+
+	newGame : ->
+		if @level >= @history.length and _.isEqual @board,[0,1,2,0,1,2,0,1,2] then d=1 else d=-1
+		@level = constrain @level+d,1,6
+		@history = []
+		@createGame()
+
+	createGame : ->
+		bigstring = rubikSquareData[@level]
+		arr = bigstring.split ' '
+		s = arr[@randint(arr.length)]
+		@board = (parseInt(ch) for ch in s)
+
+	move : (m,d,board) ->
+		[i,j,k] = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8]][m]
+		bd = board[..]
+		[a,b,c] = [bd[i],bd[j],bd[k]]
+		if d==0 then [a,b,c] = [b,c,a] else [a,b,c] = [c,a,b]
+		[bd[i],bd[j],bd[k]] = [a,b,c]
+		bd
+
+	draw : ->
+		bg 0
+		textAlign CENTER,CENTER
+		textSize 20
+		rectMode CENTER,CENTER
+		for c,i in @board
+			sc 1
+			if c==0 then fc 1,0,0
+			if c==1 then fc 0,1,0
+			if c==2 then fc 0,0,1
+			[x,y,w,h] = @BUTTONS[i]
+			rect 10*x,10*y,20*w,20*h
+		if @memory >= 0 
+			[x,y,w,h] = @BUTTONS[@memory]
+			fc 0
+			sc()
+			circle 10*x,10*y,10
+		[x,y,w,h] = @BUTTONS[10]
+		fc 1,1,0
+		sc()
+		text @level-@history.length,10*x,10*y
+		if @history.length > 0
+			[x,y,w,h] = @BUTTONS[9]
+			text "undo",10*x,10*y
+			[x,y,w,h] = @BUTTONS[11]
+			text "new",10*x,10*y
+
+	undo : -> 
+		if @history.length == 0 then return
+		@board = @history.pop()
+		@memory = -1
+
+	mousePressed : (mx,my) ->
+		index = -1
+		for [x,y,w,h],i in @BUTTONS
+			if x-w <= mx/10 <= x+w and y-h <= my/10 <= y+h then index = i
+		if 0 <= index < 9
+			if @memory == -1 
+				@memory = index 
+			else if @memory == index 
+				@memory = -1
+			else
+				hash = 
+					"01":[0,1], "02":[0,0], "10":[0,0], "12":[0,1], "20":[0,1], "21":[0,0]
+					"34":[1,1], "35":[1,0], "43":[1,0], "45":[1,1], "53":[1,1], "54":[1,0]
+					"67":[2,1], "68":[2,0], "76":[2,0], "78":[2,1], "86":[2,1], "87":[2,0]
+					"03":[3,1], "06":[3,0], "30":[3,0], "36":[3,1], "60":[3,1], "63":[3,0]
+					"14":[4,1], "17":[4,0], "41":[4,0], "47":[4,1], "71":[4,1], "74":[4,0]
+					"25":[5,1], "28":[5,0], "52":[5,0], "58":[5,1], "82":[5,1], "85":[5,0]
+				pair = hash["" + @memory + index] 
+				if pair
+					[m,d] = pair
+					@history.push @board[..]
+					@board = @move m,d,@board
+					@memory = -1
+		if index==9 then @undo()
+		if index==11 then @newGame()
+
+app = new RubikSquare "a"   
+		
+"""
+	c:
+		app : "reset()"
