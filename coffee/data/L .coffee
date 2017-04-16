@@ -1,34 +1,36 @@
 IDL00 = # Nyheter :
 	b:"""
 # LOC:0
+# NYHETER 2017 APR 22
+#   SuperCircle
 # NYHETER 2017 APR 15
-#   LB: LinesOfCode
-#   LC: ColorPair
-#   LC: Snake Snake4
+#   LinesOfCode
+#   ColorPair
+#   Snake Snake4
 # NYHETER 2017 APR 08
-#   L6: OneDiceHistogram TwoDiceHistogram
-#   L9: ClickDetector IndianSun MultiTimer
-#   LC: Hex
-#   LD: Shortcut Complex
+#   OneDiceHistogram TwoDiceHistogram
+#   ClickDetector IndianSun MultiTimer
+#   Hex
+#   Shortcut Complex
 # NYHETER 2017 APR 01
-#   L9: RandomDice 
-#   LC: ColorPair 
-#   LD: Nand2TetrisALU RubikSquare
+#   RandomDice 
+#   ColorPair 
+#   Nand2TetrisALU RubikSquare
 # NYHETER 2017 MAR 26
-#   L9: Stopwatch
-#   LA: Korsord EngineeringNotation
-#   LB: Nian
-#   LC: Kalkylator
+#   Stopwatch
+#   Korsord EngineeringNotation
+#   Nian
+#   Kalkylator
 # NYHETER 2017 MAR 19
-#   LC: PickingBerries
+#   PickingBerries
 # NYHETER 2017 MAR 12
-#   L7: Roulette
+#   Roulette
 # NYHETER 2017 MAR 5
-#   L6: TwoArcs
-#   L8: Girlang, Braid, OlympicRings
-#   LA: GoldenStar, Alphanumeric, BoardGame, SevenSegment
-#   LB: Connect4, SpaceShip
-#   LD: RushHour, ChessGame
+#   TwoArcs
+#   Girlang Braid OlympicRings
+#   GoldenStar Alphanumeric BoardGame SevenSegment
+#   Connect4 SpaceShip
+#   RushHour ChessGame
 
 # Klicka nu på L1!
 

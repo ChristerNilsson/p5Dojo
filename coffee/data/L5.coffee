@@ -70,3 +70,28 @@ for i in range 21
 	line i*10,0, 200,i*10
 """
 
+ID108 = # SuperCircle:
+	b: """
+# LOC:12 bg range # * / + - for in line
+"""
+	a: """
+n = 5
+bg 0
+for i in range 200/n+1
+
+	x = n * i
+	y = 100 + n * i
+	line x,200,0,y
+	y = 100 - n * i
+	line x,0,0,y
+
+	x = 100 + n * i
+	y = 200 - n * i
+	line x,200,200,y
+	y = n * i
+	line x,0,200,y
+"""
+	e:
+		PietHein : "https://sv.wikipedia.org/wiki/Piet_Hein"
+		SuperEllips : "https://sv.wikipedia.org/wiki/Superellips"
+		SergelsTorg : "https://www.google.se/search?q=sergels+torg&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjGpt-jmanTAhWSKCwKHSsMDcQQ_AUICCgB&biw=925&bih=919#tbm=isch&q=superellips+sergels+torg&imgrc=rK6GQHPFiDHQGM:"

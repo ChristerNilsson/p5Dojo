@@ -62,7 +62,7 @@ data =
 		TwoArcs : ID067
 		PacMan : ID068
 
-	"L4: for lerp rect" : 
+	"L4: for rect circle" : 
 		HorizontalSquares : ID080
 		VerticalSquares : ID081
 		DiagonalSquares : ID082
@@ -71,7 +71,7 @@ data =
 		GrowingRedSquares : ID085
 		PentaLerp : ID089
 
-	"L5: line for lerp" :
+	"L5: for line circle" :
 		GrowingCircles : ID100
 		ShrinkingCircles : ID101
 		RedCone : ID102
@@ -80,8 +80,9 @@ data =
 		Line : ID105
 		Grid : ID106
 		Skislope : ID107
+		SuperCircle : ID108
 
-	"L6: for" :
+	"L6: for line rect point" :
 		Sunshine : ID120
 		Lines : ID121
 		ChessRow : ID122
