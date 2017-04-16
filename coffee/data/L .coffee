@@ -14,11 +14,12 @@ IDL00 = # Nyheter :
 #   Shortcut Complex
 # NYHETER 2017 APR 01
 #   RandomDice 
-#   ColorPair 
-#   Nand2TetrisALU RubikSquare
+#   Nand2TetrisALU 
+#   RubikSquare
 # NYHETER 2017 MAR 26
 #   Stopwatch
-#   Korsord EngineeringNotation
+#   Korsord 
+#   EngineeringNotation
 #   Nian
 #   Kalkylator
 # NYHETER 2017 MAR 19

@@ -42,8 +42,8 @@ ID107 = {
 };
 
 ID108 = {
-  b: "# LOC:12 bg range # * / + - for in line",
-  a: "n = 5\nbg 0\nfor i in range 200/n+1\n\n	x = n * i\n	y = 100 + n * i\n	line x,200,0,y\n	y = 100 - n * i\n	line x,0,0,y\n\n	x = 100 + n * i\n	y = 200 - n * i\n	line x,200,200,y\n	y = n * i\n	line x,0,200,y",
+  b: "# LOC:7 bg range # * + - for in line",
+  a: "bg 0\nfor i in range 41\n	ni = 5 * i\n	line ni,     200,   0, 100+ni\n	line ni,       0,   0, 100-ni\n	line 100+ni, 200, 200, 200-ni\n	line 100+ni,   0, 200, ni",
   e: {
     PietHein: "https://sv.wikipedia.org/wiki/Piet_Hein",
     SuperEllips: "https://sv.wikipedia.org/wiki/Superellips",

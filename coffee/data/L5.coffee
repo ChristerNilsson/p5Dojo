@@ -72,24 +72,16 @@ for i in range 21
 
 ID108 = # SuperCircle:
 	b: """
-# LOC:12 bg range # * / + - for in line
+# LOC:7 bg range # * + - for in line
 """
 	a: """
-n = 5
 bg 0
-for i in range 200/n+1
-
-	x = n * i
-	y = 100 + n * i
-	line x,200,0,y
-	y = 100 - n * i
-	line x,0,0,y
-
-	x = 100 + n * i
-	y = 200 - n * i
-	line x,200,200,y
-	y = n * i
-	line x,0,200,y
+for i in range 41
+	ni = 5 * i
+	line ni,     200,   0, 100+ni
+	line ni,       0,   0, 100-ni
+	line 100+ni, 200, 200, 200-ni
+	line 100+ni,   0, 200, ni
 """
 	e:
 		PietHein : "https://sv.wikipedia.org/wiki/Piet_Hein"
