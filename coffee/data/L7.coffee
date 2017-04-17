@@ -137,3 +137,20 @@ for number,i in numbers
 """
 	e : 
 		Wikipedia : "https://en.wikipedia.org/wiki/Roulette"
+
+ID149 = # CoffeescriptClock:
+	b:"""
+# LOC:10 bg fc sc range # * + - for in "" radians text textSize textAlign 
+"""
+	a:"""
+bg 1
+fc 0
+sc()
+textSize 20
+textAlign CENTER,CENTER
+for i in range 12
+	v = radians 30*i-90
+	x = 100 + 90 * cos v
+	y = 100 + 90 * sin v
+	text "Coffeescript"[i],x,y
+"""

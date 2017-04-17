@@ -97,6 +97,7 @@ data = {
     RotatedRectC: ID145,
     Cards: ID146,
     SnowWhiteAndThe7Lerps: ID147,
+    CoffeescriptClock: ID149,
     Roulette: ID148
   },
   "L8: function, class": {

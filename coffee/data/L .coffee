@@ -3,6 +3,7 @@ IDL00 = # Nyheter :
 # LOC:0
 # NYHETER 2017 APR 22
 #   SuperCircle
+#   CoffeescriptClock
 # NYHETER 2017 APR 15
 #   LinesOfCode
 #   ColorPair
