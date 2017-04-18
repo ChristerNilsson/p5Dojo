@@ -120,7 +120,7 @@ class Chess extends Application
 		@Y = 100
 		@board = ['RNBQKBNR','PPPPPPPP','........','........','........','........','pppppppp','rnbqkbnr']
 		@history = []
-		@memory = null
+		@memory = 0
 	draw : ->
 		bg 0.5
 		textSize 0.9 * @SIZE
@@ -158,11 +158,11 @@ class Chess extends Application
 		i = int (mx-20)/20
 		j = 7 - int (my-20)/20
 		if 0 <= i <= 7 and 0 <= j <= 7
-			if @memory == null
+			if @memory == 0
 				@memory = [i,j]
 			else
 				if not _.isEqual @memory,[i,j] then @move @memory,[i,j]
-				@memory = null
+				@memory = 0
 		else
 			@undo()
 

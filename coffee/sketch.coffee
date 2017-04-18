@@ -174,10 +174,10 @@ setLinks = ->
 
 linksClear = -> $("#links tr").remove()
 
-d = (s) -> "'" + s + "'"
-dd = (s) -> '"' + s + '"'
 
 linkAppend = (t, link, text) -> # exakt en kolumn
+	d = (s) -> "'" + s + "'"
+	dd = (s) -> '"' + s + '"'
 	row = t.insertRow -1
 	cell1 = row.insertCell -1
 	s = '<a href=' + d(link)
@@ -283,7 +283,8 @@ editor_change = ->
 		call = ""
 	else # transpile, draw
 		call = calls["draw()"]
-	run1() if _.size(data[chapter][exercise]["a"].c) > 0
+	dce = data[chapter][exercise]
+	run1() if dce and dce["a"] and _.size(dce["a"].c) > 0
 	run0()
 	#if msg.val() == '' then compare('editor_change')
 	compare('editor_change')
@@ -403,6 +404,9 @@ class Application
 			@mark obj[key] for key in _.keys(obj)
 
 	deserialize : (obj,classes) ->
+		#if _.isNull(obj) then return null
+		#if _.isNumber(obj) then return obj
+		#if _.isString(obj) then return obj
 		if _.isObject(obj)
 			if _.isArray(obj) then return (@deserialize(item,classes) for item in obj) # array
 			if '_type' in _.keys(obj)

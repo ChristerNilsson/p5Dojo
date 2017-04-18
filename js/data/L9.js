@@ -26,10 +26,12 @@ ID182 = {
 };
 
 ID183 = {
-  b: "# LOC:10 bg range # [] push * + for line map class extends constructor new @ super ->\n\nclass Moire extends Application\n	reset : -> super\n	draw  : ->\n	mousePressed : (mx,my) ->\napp = new Moire",
-  a: "class Moire extends Application\n	reset : ->\n		super\n		@points = []\n	draw : ->\n		bg 0\n		for [x,y] in @points\n			for j in range 37\n				line x,y,190,10+j*5\n	mousePressed : (mx,my) -> @points.push [mx,my]\n\napp = new Moire \"a\"",
+  b: "# LOC:12 bg range # * + - for line map class extends constructor new @ super ->\n\nclass Moire extends Application\n	reset : -> super\n	draw  : ->\n	mousePressed : (mx,my) ->\napp = new Moire",
+  a: "class Moire extends Application\n	reset : ->\n		super\n		[@x,@y] = [100,100]\n	draw : ->\n		bg 0\n		for i in range 40\n			line @x,@y,  0,          i*5\n			line @x,@y, i*5,         200\n			line @x,@y, 200,     200-i*5\n			line @x,@y, 200-i*5,       0\n	mousePressed : (mx,my) -> [@x,@y] = [mx,my]\n\napp = new Moire \"a\"",
   c: {
-    app: "reset()",
+    app: "reset()"
+  },
+  e: {
     Wikipedia: "https://en.wikipedia.org/wiki/Moir%C3%A9_pattern"
   }
 };

@@ -112,7 +112,7 @@ app = new RandomDice "a"
 
 ID183 = # Moire:
 	b:"""
-# LOC:10 bg range # [] push * + for line map class extends constructor new @ super ->
+# LOC:12 bg range # * + - for line map class extends constructor new @ super ->
 
 class Moire extends Application
 	reset : -> super
@@ -124,18 +124,21 @@ app = new Moire
 class Moire extends Application
 	reset : ->
 		super
-		@points = []
+		[@x,@y] = [100,100]
 	draw : ->
 		bg 0
-		for [x,y] in @points
-			for j in range 37
-				line x,y,190,10+j*5
-	mousePressed : (mx,my) -> @points.push [mx,my]
+		for i in range 40
+			line @x,@y,  0,          i*5
+			line @x,@y, i*5,         200
+			line @x,@y, 200,     200-i*5
+			line @x,@y, 200-i*5,       0
+	mousePressed : (mx,my) -> [@x,@y] = [mx,my]
 
 app = new Moire "a"
 """
 	c:
 		app : "reset()"
+	e:
 		Wikipedia : "https://en.wikipedia.org/wiki/Moir%C3%A9_pattern"
 
 ID185 = # GuessANumber :
