@@ -1,4 +1,4 @@
-ID020 = # Background1: 
+ID020 = # Background1:
 	b: """
 # LOC:1
 # Första bilden ska du efterlikna.
@@ -16,57 +16,55 @@ ID020 = # Background1:
 """
 	a: "bg 1"
 
-ID021 = # Background2: 
+ID021 = # Background2:
 	b: "# LOC:1 bg\n"
 	a: "bg 0.5"
 
-ID022 = # Background3: 
+ID022 = # Background3:
 	b: "# LOC:1 bg\n"
 	a: "bg 1,0,0"
 
-ID023 = # Background4: 
+ID023 = # Background4:
 	b: "# LOC:1 bg\n"
 	a: "bg 1,1,0"
 
-ID024 = # X: 
+ID024 = # X:
+	b: """
+# LOC:4 sw # point
+
+sw 10      # strokeWeight, strecktjocklek i pixlar
+point 100,100  # ritar en punkt på koordinaten x,y
+
+"""
+	a: """
+sw 20
+point 0,0
+point 100,0
+point 200,0
+"""
+	e :
+		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+
+ID025 = # Y:
 	b: """
 # LOC:5 sc sw # point
 
-sw 10      # strokeWeight, strecktjocklek i pixlar
+sw 20
 sc 1,0,0   # strokeColor, streckfärg red,green,blue
-point 0,0  # ritar en punkt på koordinaten x,y
+point 100,100
 
 """
 	a: """
 sw 10
 sc 1,0,0
 point 0,0
-point 100,0
-point 200,0
-"""
-	e : 
-		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
-
-ID025 = # Y: 
-	b: """
-# LOC:5 sc sw # point
-
-sw 10
-sc 0,1,0
-point 0,0
-
-"""
-	a: """
-sw 10
-sc 0,1,0
-point 0,0
 point 0,100
 point 0,200
 """
-	e : 
+	e :
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
-ID026 = # CornerPoints: 
+ID026 = # CornerPoints:
 	b: """
 # LOC:9 sc sw # point
 
@@ -86,10 +84,10 @@ point 0,200
 sc 0
 point 200,200
 """
-	e : 
+	e :
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
-ID027 = # MidPoints: 
+ID027 = # MidPoints:
 	b: "# LOC:11 sc sw # point\n"
 	a: """
 sw 10
@@ -104,10 +102,10 @@ point 200,100
 sc 1
 point 100,200
 """
-	e : 
+	e :
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
-ID028 = # CornerPoints3: 
+ID028 = # CornerPoints3:
 	b: "# LOC:17 sc sw # point\n"
 	a: """
 sw 10
@@ -131,10 +129,10 @@ point 180,180
 point 180,200
 point 200,180
 """
-	e : 
+	e :
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
-ID029 = # CornerPoints7: 
+ID029 = # CornerPoints7:
 	b: "# LOC:17 sc sw # point\n"
 	a: """
 sw 10
@@ -156,10 +154,10 @@ point 190,170
 point 180,170
 point 200,170
 """
-	e : 
+	e :
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
-ID030 = # Diagonal1: 
+ID030 = # Diagonal1:
 	b: "# LOC:12 sc sw # point\n"
 	a: """
 bg 0,1,0
@@ -180,7 +178,7 @@ sc 1,1,0
 point 200,200
 """
 
-ID031 = # Diagonal2: 
+ID031 = # Diagonal2:
 	b: "# LOC:11 sc sw # point\n"
 	a: """
 sw 20

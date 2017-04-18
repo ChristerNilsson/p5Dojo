@@ -22,16 +22,16 @@ ID023 = {
 };
 
 ID024 = {
-  b: "# LOC:5 sc sw # point\n\nsw 10      # strokeWeight, strecktjocklek i pixlar\nsc 1,0,0   # strokeColor, streckfärg red,green,blue\npoint 0,0  # ritar en punkt på koordinaten x,y\n",
-  a: "sw 10\nsc 1,0,0\npoint 0,0\npoint 100,0\npoint 200,0",
+  b: "# LOC:4 sw # point\n\nsw 10      # strokeWeight, strecktjocklek i pixlar\npoint 100,100  # ritar en punkt på koordinaten x,y\n",
+  a: "sw 20\npoint 0,0\npoint 100,0\npoint 200,0",
   e: {
     Matteboken: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
   }
 };
 
 ID025 = {
-  b: "# LOC:5 sc sw # point\n\nsw 10\nsc 0,1,0\npoint 0,0\n",
-  a: "sw 10\nsc 0,1,0\npoint 0,0\npoint 0,100\npoint 0,200",
+  b: "# LOC:5 sc sw # point\n\nsw 20\nsc 1,0,0   # strokeColor, streckfärg red,green,blue\npoint 100,100\n",
+  a: "sw 10\nsc 1,0,0\npoint 0,0\npoint 0,100\npoint 0,200",
   e: {
     Matteboken: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
   }
