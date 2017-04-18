@@ -6,7 +6,7 @@ ID220 = # Korsord :
 
 class Korsord extends Application
 	reset : -> super
-	draw  : -> super
+	draw  : ->
 	enter : ->
 app = new Korsord
 """
@@ -58,7 +58,7 @@ ID221 = # EngineeringNotation :
 
 class Engineering extends Application
 	reset : -> super
-	draw  : -> super
+	draw  : ->
 	more  : ->
 	less  : ->
 app = new Engineering
@@ -108,7 +108,7 @@ ID222 = # Connect4 :
 
 class Connect4 extends Application
 	reset : -> super
-	draw  : -> super
+	draw  : ->
 	undo  : ->
 	mousePressed : (mx,my) ->
 app = new Connect4
@@ -161,14 +161,12 @@ ID223 = # SpaceShip :
 #        push pop class extends constructor new @ super ->
 
 class Shot
-	constructor : (@x,@y,@dir,@_type='Shot') ->
+	constructor : (@x,@y,@dir) ->
 	render      : ->
 	move        : ->
 
 class Ship extends Application
-	constructor : (@_name,@_type='Ship') ->
-		super @_name, {'Shot':Shot, 'Ship':Ship}
-		#if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
+	classes : -> [Shot]
 	reset   : -> super
 	draw    : ->
 	left    : ->
@@ -179,31 +177,23 @@ class Ship extends Application
 app = new Ship
 """
 	a: """
-#classes = {}
 
 class Shot
-	constructor : (@x,@y,@dir,@_type='Shot') ->
+	constructor : (@x,@y,@dir) ->
 	render : ->	point @x,@y
 	move : ->
 		@x += int 5 * cos radians @dir
 		@y += int 5 * sin radians @dir
 
 class Ship extends Application
-
-	constructor : (@_name,@_type='Ship') ->
-		super @_name, {'Shot':Shot, 'Ship':Ship}
-		#if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
-
+	classes : -> [Shot]
 	reset : ->
-		print 1
 		super
-		print 2
 		@S = 10
 		@x = 100
 		@y = 100
 		@dir = 0
 		@shots = []
-		print 'reset',@
 
 	left    : -> @dir -= 5
 	right   : -> @dir += 5
@@ -228,10 +218,6 @@ class Ship extends Application
 			shot.move()
 			shot.render()
 
-#classes["Shot"] = Shot.prototype
-#classes["Ship"] = Ship.prototype
-#print 'classes',classes
-
 app = new Ship "a"
 """
 	c:
@@ -245,7 +231,7 @@ ID224 = # Nian :
 
 class Nian extends Application
 	reset : -> super
-	draw  : -> super
+	draw  : ->
 	enter : ->
 
 app = new Nian
@@ -305,7 +291,7 @@ ID225 = # Klocka:
 
 class Klocka extends Application
 	reset  : -> super
-	draw   : -> super
+	draw   : ->
 	hour   : (h) ->
 	minute : (m) ->
 	second : (s) ->
@@ -379,11 +365,9 @@ class Ball
 	render      : (sel) ->
 
 class BouncingBalls extends Application
-	constructor : (@name) ->
-		super @name
-		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
+	classes : -> [Ball]
 	reset   : -> super
-	draw    : -> super
+	draw    : ->
 	update  : ->
 	add     : ->
 	delete  : ->
@@ -419,11 +403,7 @@ class Ball
 		circle @x,@y,@r
 
 class BouncingBalls extends Application
-
-	constructor : (@name) ->
-		super @name
-		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
-
+	classes : -> [Ball]
 	reset : ->
 		super
 		@balls = []
@@ -465,7 +445,7 @@ class ColorPair extends Application
 	reset : ->
 		super
 		@seed = 0
-	draw : -> super
+	draw : ->
 	mousePressed : (mx,my) ->
 	enterName : ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++

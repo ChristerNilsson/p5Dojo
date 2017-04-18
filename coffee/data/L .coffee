@@ -14,12 +14,12 @@ IDL00 = # Nyheter :
 #   Hex
 #   Shortcut Complex
 # NYHETER 2017 APR 01
-#   RandomDice 
-#   Nand2TetrisALU 
+#   RandomDice
+#   Nand2TetrisALU
 #   RubikSquare
 # NYHETER 2017 MAR 26
 #   Stopwatch
-#   Korsord 
+#   Korsord
 #   EngineeringNotation
 #   Nian
 #   Kalkylator
@@ -38,8 +38,8 @@ IDL00 = # Nyheter :
 
 # Eller besök Utställningen.
 # Dessa program är skapade av deltagare på p5Dojo.
-# Vill du också visa upp ditt alster? 
-#   Skicka i så fall koden till p5dojo@googlegroups.com 
+# Vill du också visa upp ditt alster?
+#   Skicka i så fall koden till p5dojo@googlegroups.com
 """
 	a:"""
 """
@@ -55,8 +55,8 @@ IDL01 = # Asserts:
 assert -10,  2 - 3 * 4
 assert 2.75, 2 + 3 / 4
 assert 32,   4 * 2 ** 3
-assert 14,   2 + 3 * 4 
-assert 20,   (2+3) * 4  
+assert 14,   2 + 3 * 4
+assert 20,   (2+3) * 4
 assert 32,   4 * 2 ** 3
 assert 1.75, 7 / 4
 assert 1,    7 // 4
@@ -66,13 +66,13 @@ assert 2,    8 // 4
 assert  0,  2 % 2
 assert  1,  1 % 2
 assert  0,  0 % 2
-assert -1, -1 % 2   
-assert -0, -2 % 2     
+assert -1, -1 % 2
+assert -0, -2 % 2
 
 # %% Resten vid heltalsdivision. Klarar även negativa tal.
 assert 0,  2 %% 2
 assert 1,  1 %% 2
-assert 0,  0 %% 2 
+assert 0,  0 %% 2
 assert 1, -1 %% 2
 assert 0, -2 %% 2
 
@@ -83,7 +83,7 @@ assert true,  1+2 == 3
 assert false, 1+2 == 4
 assert true,  1+2 != 4
 assert true,  1+2 >= 3
-assert true,  1+2 <= 4 
+assert true,  1+2 <= 4
 assert true,  1 < 2 and 2 < 3
 assert true,  1 < 2 < 3
 
@@ -92,7 +92,7 @@ assert false, false and false
 assert false, false and true
 assert false, true and false
 assert true,  true and true
- 
+
 assert false, false or false
 assert true,  false or true
 assert true,  true or false
@@ -101,7 +101,7 @@ assert true,  true or true
 assert true,  not false
 assert false, not true
 
-# if then else  
+# if then else
 assert 4, if 3 > 4 then 3 else 4
 assert 3, if 3 < 4 then 3 else 4
 
@@ -132,22 +132,22 @@ assert true,                      'coffeescript'.includes 'coffee'
 assert false,                     'coffeescript'.includes 'tea'
 
 # []
-assert true, 7 in [7,8]                     
-assert [7,8],         (i for i in [7,8])               
-assert [[7,0],[8,1]], ([item,i] for item,i in [7,8])   
-assert [9,16,25],     (x*x for x in [3,4,5])           
-assert "1x2x3",       [1,2,3].join('x')              
-assert [3,2,1] ,      [1,2,3].reverse()                        
-assert [1,2,3],       [2,1,3].sort()                          
-assert 3,             [2,1,5].length                        
+assert true, 7 in [7,8]
+assert [7,8],         (i for i in [7,8])
+assert [[7,0],[8,1]], ([item,i] for item,i in [7,8])
+assert [9,16,25],     (x*x for x in [3,4,5])
+assert "1x2x3",       [1,2,3].join('x')
+assert [3,2,1] ,      [1,2,3].reverse()
+assert [1,2,3],       [2,1,3].sort()
+assert 3,             [2,1,5].length
 
 # {}
-assert true,              'b' of {a:7,b:8}                           
-assert ['a','b'],         (key for key of {a:7,b:8})                
-assert [['a',7],['b',8]], ([key,item] for key,item of {a:7,b:8})     
+assert true,              'b' of {a:7,b:8}
+assert ['a','b'],         (key for key of {a:7,b:8})
+assert [['a',7],['b',8]], ([key,item] for key,item of {a:7,b:8})
 
 # & | ^ ~ << >> Bit operationer
-assert [0,0,0,1], [0&0, 0&1, 1&0, 1&1]       # and 
+assert [0,0,0,1], [0&0, 0&1, 1&0, 1&1]       # and
 assert [0,1,1,1], [0|0, 0|1, 1|0, 1|1]       # or
 assert [0,1,1,0], [0^0, 0^1, 1^0, 1^1]       # xor
 assert [-1,-2,-3],[~0, ~1, ~2]               # not
@@ -170,14 +170,14 @@ assert [10,8,6,4,2]           , range 10,0,-2
 assert [9,8,7,6,5,4,3,2,1,0]  , range 10-1,-1,-1
 
 # [..] [...]  range operator
-assert [0,1,2,3,4], [0..4]  
-assert [0,1,2,3,4], [0...5] 
-assert [6,7],       [5,6,7,8,9][1..2] 
-assert [5,6,7],     [5,6,7,8,9][..2]  
-assert [6,7,8,9],   [5,6,7,8,9][1..]  
-assert [5,6,7,8,9], [5,6,7,8,9][..]   
-assert [5,6,7],     [5,6,7,8,9][0..2]   
-assert [6,7],       [5,6,7,8,9][1...-2] 
+assert [0,1,2,3,4], [0..4]
+assert [0,1,2,3,4], [0...5]
+assert [6,7],       [5,6,7,8,9][1..2]
+assert [5,6,7],     [5,6,7,8,9][..2]
+assert [6,7,8,9],   [5,6,7,8,9][1..]
+assert [5,6,7,8,9], [5,6,7,8,9][..]
+assert [5,6,7],     [5,6,7,8,9][0..2]
+assert [6,7],       [5,6,7,8,9][1...-2]
 assert [8,9],       [5,6,7,8,9][-2..]
 
 # _.  underscore
@@ -195,8 +195,8 @@ assert false,              {a:1, b:2} == {a:1, b:2}
 assert true,              _.isEqual {a:1, b:2}, {a:1, b:2}
 assert [1,2],             [1,2]
 
-assert [1,2,3],           _.sortBy [2,1,3] 
-assert ['abc','ba','d'],  _.sortBy ['ba','abc','d'] 
+assert [1,2,3],           _.sortBy [2,1,3]
+assert ['abc','ba','d'],  _.sortBy ['ba','abc','d']
 assert ['d','ba','abc'],  _.sortBy ['ba','abc','d'], 'length'
 assert ['abc','ba','d'],  _.sortBy ['ba','abc','d'], (s) -> -s.length
 
@@ -213,7 +213,7 @@ assert false,             _.every [2,4,5], (num) -> num % 2 == 0
 assert true,              _.every [2,4,6], (num) -> num % 2 == 0
 
 assert ["a", "b", "c"],   _.keys   {a:1, b:2, c:3}
-assert [1,2,3],           _.values {a:1, b:2, c:3} 
+assert [1,2,3],           _.values {a:1, b:2, c:3}
 
 """
 	a:""
@@ -223,12 +223,12 @@ assert [1,2,3],           _.values {a:1, b:2, c:3}
 
 IDL02 = # LinesOfCode
 	b:"""
-# LOC:62 bg fc sc # {} * / + ++ == if then else indexOf parseInt substring 
-#        _.max rect for of text textAlign class constructor new @ extends super 
+# LOC:62 bg fc sc # {} * / + ++ == if then else indexOf parseInt substring
+#        _.max rect for of text textAlign class constructor new @ extends super
 
 class LinesOfCode extends Application
 	reset : -> super
-	draw : -> super
+	draw : ->
 app = new LinesOfCode
 """
 	a:"""
@@ -246,7 +246,7 @@ class LinesOfCode extends Application
 				p1 = b.indexOf 'LOC:'
 				p2 = b.indexOf ' ',p1
 				loc = parseInt b.substring p1+4,p2
-				@total += loc 
+				@total += loc
 				@stat[chapter][exercise] = loc
 	draw : ->
 		fc 1,1,0
@@ -267,7 +267,7 @@ class LinesOfCode extends Application
 			text sum,195,i*@h
 			rects.push sum
 		@max = _.max rects
-		@drawRects rects, @max 
+		@drawRects rects, @max
 	drawChapter : ->
 		bg 0.5
 		i=0
@@ -290,7 +290,7 @@ class LinesOfCode extends Application
 		for r,i in rects
 			rect 0,3+@h*i, 200*r/m,@h-2
 	mousePressed : (mx,my) ->
-		if @chapter == -1 
+		if @chapter == -1
 			@chapter = 1 + int my / @h
 		else
 			@chapter = -1
@@ -299,6 +299,6 @@ app = new LinesOfCode 'a'
 """
 	c:
 		app : "reset()"
-	e: 
+	e:
 		Wikipedia : "https://en.wikipedia.org/wiki/Source_lines_of_code"
 

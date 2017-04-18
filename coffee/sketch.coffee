@@ -381,71 +381,56 @@ compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
 
 class Application
 
-	constructor : (@_name='b',classes) ->
-		print 'classes', classes
+	constructor : (@_name='b') ->
+
+		res = {}
+		for klass in @classes()
+			res[klass.name] = klass
+		classes = res
+
 		_name = chapter + "/" + exercise + "/" + @_name
 		obj = localStorage.getItem _name
-		print "constructor1", obj
 		if obj
 			for key,value of JSON.parse obj
-				@[key] = @deserialize(value,classes)
-		print "constructor2", @
+				@[key] = @deserialize value,classes
+
+	classes : -> []
 
 	mark : (obj=@) ->
-		return
-		print 'mark'
 		if _.isArray(obj) then return	(@mark item for item in obj) # array
 		if _.isObject(obj)
 			obj['_type'] = obj.constructor.name if obj.constructor.name != 'Object'
 			@mark obj[key] for key in _.keys(obj)
 
-	# serialize : () ->
-	# 	@mark()
-	# 	JSON.stringify @
-
 	deserialize : (obj,classes) ->
-		print 'deserialize',obj
-		if _.isNull(obj) then return null
-		if _.isNumber(obj) then return obj
-		if _.isString(obj) then return obj
 		if _.isObject(obj)
 			if _.isArray(obj) then return (@deserialize(item,classes) for item in obj) # array
 			if '_type' in _.keys(obj)
-				#print 'deserialize1',obj["_type"]
-				#print 'classes',classes
-				#print 'deserialize2',obj["_type"]
-				#o = _.create eval(obj["_type"]).prototype, {}
+				if classes[obj["_type"]] == undefined
+					print "Please reference " + obj["_type"] + " in constructor of Application"
+					return
 				o = _.create classes[obj["_type"]].prototype, {}
-				#print 'deserialize3 success'
 				for key,value of obj
-					o[key] = @deserialize(value,classes) #if key != '_type'
+					o[key] = @deserialize(value,classes) if key != '_type'
 				return o
 			else # dict
 				res = {}
 				for key,value of obj
 					res[key] = @deserialize(value,classes)
 				return res
-		print 'ERROR'
+		return obj # catches Number, String, Boolean, null etc
 
 	store : ->
 		_name = chapter + "/" + exercise + "/" + @_name
 		@mark()
 		obj = JSON.stringify @
-		print 'store', obj
 		localStorage.setItem _name, obj
 		fillTable chapter + "/" + exercise + "/a", chapter + "/" + exercise + "/b"
 
-	# draw : ->
-	# 	textSize 32
-	# 	textAlign CENTER,CENTER
-	# 	fc 1,1,0
-	# 	text "Define draw!",100,100
-
 	reset :  ->
-		print 'reset'
 		for key in _.keys @
 			if key != "_name" then delete @[key]
-
+	draw : ->
 	readText : -> $('#input').val()
 	readInt : -> parseInt @readText()
 	readFloat : -> parseFloat @readText()
@@ -480,5 +465,14 @@ fillTable = (a,b) ->
 	keys = _.uniq keys
 
 	for key in keys
-		if key != '_name'
-			tableAppend tabell, "@" + key,a[key],b[key]
+		if key != '_name' and  key != '_type'
+			tableAppend tabell, "@" + key,unmark(a[key]),unmark(b[key])
+
+unmark = (obj) ->
+	if _.isArray(obj) then return	(unmark item for item in obj) # array
+	if _.isObject obj
+		res = {}
+		for key,value of obj
+			res[key] = unmark(value) if key != '_type'
+		return res
+	obj

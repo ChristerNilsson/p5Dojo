@@ -1,14 +1,14 @@
-ID200 = # Square : 
+ID200 = # Square :
 	b: """
 # LOC:21 bg sw fc rd # rect rectMode translate + class extends constructor new @ super ->
 
 class Square extends Application
 	reset        : -> super
-	draw         : -> super
-	horisontellt : (d) -> 
+	draw         : ->
+	horisontellt : (d) ->
 	vertikalt    : (d) ->
-	storlek      : (d) -> 
-	tjocklek     : (d) -> 
+	storlek      : (d) ->
+	tjocklek     : (d) ->
 	rotera       : (d) ->
 app = new Square
 """
@@ -27,19 +27,19 @@ class Square extends Application
 		sw @w
 		fc 0.5
 		translate @x,@y
-		rd @dir 
+		rd @dir
 		rect 0,0,@size,@size
 
 	horisontellt : (d) -> @x += d
 	vertikalt : (d) -> @y += d
 	storlek : (d) -> @size += d
 	tjocklek : (d) -> @w += d
-	rotera : (d) -> @dir += d 
+	rotera : (d) -> @dir += d
 
 app = new Square "a"
 """
-	c: 
-		app : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"   
+	c:
+		app : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"
 
 ID201 = # BoardGame :
 	b:"""
@@ -47,11 +47,11 @@ ID201 = # BoardGame :
 
 class Board extends Application
 	reset : -> super
-	draw  : -> super
+	draw  : ->
 	r     : (d) ->
 	d     : (d) ->
 	n     : (d) ->
-app = new Board 
+app = new Board
 """
 	a:"""
 
@@ -63,7 +63,7 @@ class Board extends Application
 		@_d = 18
 		@_r = 7
 		@_n = 5
-	draw : ->	
+	draw : ->
 		bg 1
 		fc 0
 		sc()
@@ -77,20 +77,20 @@ class Board extends Application
 	d : (d) -> @_d += d
 	n : (d) -> @_n += d
 
-app = new Board "a" 
+app = new Board "a"
 """
 	c:
 		app : "reset()|r -1|r +1|d -1|d +1|n -1|n +1"
-		
+
 "OlympicRing Prep":
 	b:"""
 # LOC:21 sc fc sw # arc strokeCap class extends constructor new @ super ->
 
 class Ring extends Application
 	reset  : -> super
-	draw   : -> super
+	draw   : ->
 	start  : (d) ->
-	stopp  : (d) -> 
+	stopp  : (d) ->
 	radius : (d) ->
 	width  : (d) ->
 app = new Ring
@@ -117,7 +117,7 @@ class Ring extends Application
 
 app = new Ring "a"
 """
-	c: 
+	c:
 		app : "reset()|start -1|start +1|stopp -1|stopp +1|radius -1|radius +1|width -1|width +1"
 
 ID202 = # SevenSegment :
@@ -126,9 +126,9 @@ ID202 = # SevenSegment :
 
 class Digit extends Application
 	reset : -> super
-	draw  : -> super
-	up    : -> 
-	down  : -> 
+	draw  : ->
+	up    : ->
+	down  : ->
 app = new Digit
 			"""
 	a:"""
@@ -149,26 +149,26 @@ class Digit extends Application
 		p = @PATTERN[@d]
 		w0 = @W-20
 		if p & 1 then fc 1,0,0 else fc 0.3,0,0
-		rect @X,@Y-@W,w0,@H 
+		rect @X,@Y-@W,w0,@H
 		if p & 2 then fc 1,0,0 else fc 0.3,0,0
-		rect @X+@W/2,@Y-@W/2,@H,w0 
+		rect @X+@W/2,@Y-@W/2,@H,w0
 		if p & 4 then fc 1,0,0 else fc 0.3,0,0
-		rect @X+@W/2,@Y+@W/2,@H,w0 
+		rect @X+@W/2,@Y+@W/2,@H,w0
 		if p & 8 then fc 1,0,0 else fc 0.3,0,0
-		rect @X,@Y+@W,w0,@H 
+		rect @X,@Y+@W,w0,@H
 		if p & 16 then fc 1,0,0 else fc 0.3,0,0
 		rect @X-@W/2,@Y+@W/2,@H,w0
 		if p & 32 then fc 1,0,0 else fc 0.3,0,0
-		rect @X-@W/2,@Y-@W/2,@H,w0 
+		rect @X-@W/2,@Y-@W/2,@H,w0
 		if p & 64 then fc 1,0,0 else fc 0.3,0,0
 		rect @X,@Y,w0,@H
 	mousePressed : (mx,my) -> @d = constrain @d + (if my<100 then 1 else -1), 0, 9
 
 app = new Digit "a"
 """
-	c: 
+	c:
 		app : "reset()"
-	e: 
+	e:
 		"7 segment" : "https://www.google.se/search?q=7+segment&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjg_5n55OrSAhWpZpoKHQP8DxoQ_AUIBigB&biw=1310&bih=945"
 
 ID203 = # GoldenStar:
@@ -177,8 +177,8 @@ ID203 = # GoldenStar:
 
 class GoldenStar extends Application
 	reset : -> super
-	draw  : -> super
-	n     : (d) -> 
+	draw  : ->
+	n     : (d) ->
 	outer : (d) ->
 	inner : (d) ->
 app = new GoldenStar
@@ -213,7 +213,7 @@ app = new GoldenStar "a"
 """
 	c:
 		app : "reset()|n -1|n +1|outer -1|outer +1|inner -1|inner +1"
-		
+
 ID204 = # Polygon:
 	b:"""
 # LOC:23 bg sc range # line for in cos sin radians class extends constructor new @ super ->
@@ -225,9 +225,9 @@ class Turtle
 
 class Polygon extends Application
 	reset      : -> super
-	draw       : -> super
+	draw       : ->
 	antalSidor : (d) ->
-	antalSteg  : (d) -> 
+	antalSteg  : (d) ->
 app = new Polygon
 """
 	a:"""
@@ -271,17 +271,17 @@ ID205 = # Alphanumeric:
 
 class AlphaNumeric extends Application
 	reset : -> super
-	draw  : -> super
-	add   : -> 
+	draw  : ->
+	add   : ->
 	del   : ->
-	left  : -> 
+	left  : ->
 	right : ->
 	mousePressed : (mx,my) ->
 app = new AlphaNumeric
 """
 	a:"""
 class AlphaNumeric extends Application
-	reset : -> 
+	reset : ->
 		super
 		@RADIUS = 8
 		@DISTANCE = 20
@@ -296,7 +296,7 @@ class AlphaNumeric extends Application
 				if index & 1<<i then fc 0,1,0 else fc 0,0.3,0
 				x = 140-@DISTANCE*i
 				circle x,y,@RADIUS
-	add   : -> 
+	add   : ->
 		@pattern.push [0,0,0,0,0,0,0]
 		@index = @pattern.length - 1
 	del   : -> @pattern.splice @index, 1
@@ -320,13 +320,13 @@ app = new AlphaNumeric "a"
 		hexadecimalt : "http://www.matteguiden.se/matte-1/grunder/binara-och-hexadecimala-tal"
 		'5x7 matris' : "https://www.google.se/search?q=5x7+matrix&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjWjYen5OrSAhXhJ5oKHf8BBmgQ_AUIBigB&biw=1310&bih=945&dpr=1.1"
 
-ID206 = # Korg: 
+ID206 = # Korg:
 	b:"""
 # LOC:27 bg fc sc sw # rect for if else class extends constructor new @ super ->
 
 class Korg extends Application
 	reset   : -> super
-	draw    : -> super
+	draw    : ->
 	more    : ->
 	less    : ->
 	thinner : ->
@@ -366,7 +366,7 @@ class Korg extends Application
 
 app = new Korg "a"
 """
-	c: 
+	c:
 		app : "reset()|more()|less()|thinner()|thicker()"
 
 
@@ -377,14 +377,14 @@ ID209 = # ColorCube:
 
 class ColorCube extends Application
 	reset       : -> super
-	draw        : -> super
+	draw        : ->
 	undo 				: ->
 	mousePressed : (mx,my) ->
 app = new ColorCube
 """
 	a: """
 class ColorCube extends Application
-	reset : -> 
+	reset : ->
 		super
 		@r = 0
 		@g = 0
@@ -401,15 +401,15 @@ class ColorCube extends Application
 					stroke @r+r*@c+@c/2, @g+g*@c+@c/2, @b+b*@c+@c/2
 					x = r*40-g*10
 					y = g*10+b*50 + 5
-					quad x+40,y+0, x+80,y+0, x+70,y+10, x+30,y+10 
+					quad x+40,y+0, x+80,y+0, x+70,y+10, x+30,y+10
 	mousePressed : (mx,my) ->
-		if @size == 4 then return 
+		if @size == 4 then return
 		for b in range 4
 			for r in range 4
 				for g in range 4
-					x = r*40-g*10  
+					x = r*40-g*10
 					y = g*10+b*50 + 5
-					if x+35 <= mx <= x+75 and y <= my <= y+10 
+					if x+35 <= mx <= x+75 and y <= my <= y+10
 						@history.push [@r,@g,@b,@size]
 						@size /= 4
 						@r += r * @size
@@ -421,7 +421,7 @@ class ColorCube extends Application
 
 app = new ColorCube "a"
 """
-	c: 
+	c:
 		app : "reset()|undo()"
 	e:
 		ColorCube : "https://www.google.se/search?q=color+cube&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwjo3_Cm3Y7TAhUJb5oKHcFhCKQQsAQIJg&biw=1745&bih=963&dpr=1.1"

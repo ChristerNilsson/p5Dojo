@@ -1,4 +1,4 @@
-		
+
 ID242 = # Braider:
 	b : """
 # LOC:49 sc bg sw range # for in if then + line class constructor extends new @
@@ -10,7 +10,7 @@ class Cartesius
 	left        : (d) ->
 
 class Braider extends Application
-	braid   : (type) -> 
+	braid   : (type) ->
 	draw    : -> super
 	forward : ->
 	back    : ->
@@ -21,7 +21,7 @@ app = new Braider
 class Cartesius
 	constructor : (@x,@y,@c) ->
 	go : (dx,dy) ->
-		scc @c 
+		scc @c
 		line @x,@y,@x+dx,@y+dy
 		[@x,@y] = [@x+dx,@y+dy]
 	down : (d) -> @go 0,d
@@ -29,7 +29,7 @@ class Cartesius
 
 class Braider extends Application
 
-	braid : (@type) -> 
+	braid : (@type) ->
 		@n = 0
 		@forward()
 	draw : ->
@@ -93,19 +93,19 @@ app = new Braider "a"
 
 ID244 = # Kalkylator:
 	b:"""
-# LOC:46 bg sc fc range @readText # + - * / of {} in [] shift unshift 
-#        text textSize textAlign length for Math.sqrt Math.PI splice 
+# LOC:46 bg sc fc range @readText # + - * / of {} in [] shift unshift
+#        text textSize textAlign length for Math.sqrt Math.PI splice
 #        parseFloat "" split class extends constructor new @ super ->
-# TIPS! Börja med de fyra räknesätten. 
+# TIPS! Börja med de fyra räknesätten.
 #       @words ska kunna utökas med ":". T ex ": sq dup *"
 #       Definiera t ex invers, distans och parallella motstånd
 
 class Kalkylator extends Application
 	reset : -> super
-	draw  : -> super
-	chs   : -> # ( n -- n ) 
+	draw  : ->
+	chs   : -> # ( n -- n )
 	swap  : -> # ( a b -- b a )
-	drop  : -> # ( n -- ) 
+	drop  : -> # ( n -- )
 	dup   : -> # ( n -- n n )
 	sqrt  : -> # ( n -- n )
 	clr   : -> # ( a b -- )
@@ -131,7 +131,7 @@ class Kalkylator extends Application
 
 	shift : -> @stack.shift()
 	over : -> @stack.splice(1,1)[0]
-	unshift : (item) -> @stack.unshift item 
+	unshift : (item) -> @stack.unshift item
 	chs : -> @unshift -@shift()
 	swap : -> [@stack[0],@stack[1]] = [@stack[1],@stack[0]]
 	drop : -> @shift()
@@ -210,8 +210,8 @@ class Hex extends Application
 		if index >= 0 and @board[index] == 0
 			@history.push index
 			n = @history.length
-			if n % 2 == 0 then n = -n 
-			@board[index] = n 
+			if n % 2 == 0 then n = -n
+			@board[index] = n
 
 	newGame : ->
 		@history = []
@@ -248,22 +248,22 @@ app = new Hex "a"
 """
 	c:
 		app : "reset()|newGame()|undo()"
-	e: 
+	e:
 		Play : "http://www.lutanho.net/play/hex.html"
 		Wikipedia : "https://en.wikipedia.org/wiki/Hex_(board_game)"
 
 ID246 = # PickingBerries :
 	b:"""
-# LOC:46 bg sc fc sw # [] * + line text textSize textAlign constrain dist 
+# LOC:46 bg sc fc sw # [] * + line text textSize textAlign constrain dist
 #        splice break for in class extends constructor new @ super ->
 
 class PickingBerries extends Application
 	reset      : -> super
-	draw       : -> super
-	left       : -> 
-	right      : -> 
-	up         : -> 
-	down       : -> 
+	draw       : ->
+	left       : ->
+	right      : ->
+	up         : ->
+	down       : ->
 	snailSpeed : ->
 	slowSpeed  : ->
 	highSpeed  : ->
@@ -295,7 +295,7 @@ class PickingBerries extends Application
 		for [dx,dy] in @dxdy
 			for i in range 4
 				point @x+dx*@SPEEDS[i], @y+dy*@SPEEDS[i]
-		
+
 		fc 1,1,0
 		sc()
 		textSize 20
@@ -309,11 +309,11 @@ class PickingBerries extends Application
 			line x+3,y-3,x-3,y+3
 
 	move : (i) ->
-		[dx,dy] = @dxdy[i] 		
+		[dx,dy] = @dxdy[i]
 		@x += dx * @SPEEDS[@speed]
 		@y += dy * @SPEEDS[@speed]
 		@clicks++
-		@moves += 'abcd'[i] 
+		@moves += 'abcd'[i]
 
 	setSpeed : (index) ->
 		@speed = index
@@ -323,15 +323,15 @@ class PickingBerries extends Application
 	down    : -> @move 1
 	left    : -> @move 2
 	up      : -> @move 3
-	
+
 	snailSpeed : -> @setSpeed 0
 	slowSpeed  : -> @setSpeed 1
 	highSpeed  : -> @setSpeed 2
 	warpSpeed  : -> @setSpeed 3
 
-	step : (d) -> 
+	step : (d) ->
 		@clicks++
-		constrain @zoom+d,0,3 
+		constrain @zoom+d,0,3
 	pick : ->
 		for [x,y],i in _.zip @xs,@ys
 			if dist(x,y,@x,@y) <= 2
@@ -347,20 +347,20 @@ app = new PickingBerries "a"
 
 ID247 = # Snake :
 	b: """
-# LOC:47 bg fc # [] rect %% + ++ * == < and push dist length for in 
+# LOC:47 bg fc # [] rect %% + ++ * == < and push dist length for in
 #        if then else class extends constructor new @ super ->
 
 class Snake extends Application
 	reset : -> super
 	setSize : (s) ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
-	draw : -> super
+	draw : ->
 	mousePressed : (mx,my) ->
 app = new Snake
 """
 	a:"""
 class Snake extends Application
-	reset : -> 
+	reset : ->
 		super
 		@BUTTONS = [[33,167],[167,167]]
 		@DIRS = [[1,0],[0,-1],[-1,0],[0,1]]
@@ -384,12 +384,12 @@ class Snake extends Application
 		if i==@cherry[0] and j==@cherry[1]
 			@total++
 			@cherry = [@randint(@N),@randint(@N)]
-	draw : -> 
+	draw : ->
 		bg 1,0,0
 		[i,j] = @segments[0]
-		for [si,sj],k in @segments 
+		for [si,sj],k in @segments
 			if k>0 and i==si and j==sj then return
-		bg 1			
+		bg 1
 		[ci,cj] = @cherry
 		fc 1,0,0
 		rect @SIZE*ci,@SIZE*cj,@SIZE,@SIZE
@@ -406,30 +406,30 @@ class Snake extends Application
 		if index == 0 then @dir = (@dir+1) %% 4
 		if index == 1 then @dir = (@dir-1) %% 4
 		@update()
-			
+
 app = new Snake "a"
 """
 	c:
 		app : "reset()|setSize 20|setSize 10|setSize 5|setSize 2"
-	e: 
+	e:
 		Snake : "https://en.wikipedia.org/wiki/Snake_(video_game)"
 
 ID248 = # Snake4 :
 	b: """
-# LOC:43 bg fc # [] rect %% + ++ * == < and or push dist length for in 
+# LOC:43 bg fc # [] rect %% + ++ * == < and or push dist length for in
 #        if then else class extends constructor new @ super ->
 
 class Snake4 extends Application
 	reset : -> super
 	setSize : (s) ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
-	draw : -> super
+	draw : ->
 	mousePressed : (mx,my) ->
 app = new Snake4
 """
 	a:"""
 class Snake4 extends Application
-	reset : -> 
+	reset : ->
 		super
 		@BUTTONS = [[167,100], [100,33], [33,100], [100,167]]
 		@DIRS = [[1,0],[0,-1],[-1,0],[0,1]]
@@ -453,11 +453,11 @@ class Snake4 extends Application
 		if i==@cherry[0] and j==@cherry[1]
 			@total++
 			@cherry = [@randint(@N),@randint(@N)]
-	draw : -> 
+	draw : ->
 		bg 1,0,0
 		[i,j] = @segments[0]
 		if i in [-1,@N] or j in [-1,@N] then return
-		bg 1			
+		bg 1
 		[ci,cj] = @cherry
 		fc 1,0,0
 		rect @SIZE*ci,@SIZE*cj,@SIZE,@SIZE
@@ -471,31 +471,31 @@ class Snake4 extends Application
 		for [x,y],i in @BUTTONS
 			if dist(x,y,mx,my) < 33 and abs(i-@dir)!=2 then @dir = i
 		@update()
-			
+
 app = new Snake4 "a"
 """
 	c:
 		app : "reset()|setSize 20|setSize 10|setSize 5|setSize 2"
-	e: 
+	e:
 		Play : "http://patorjk.com/games/snake"
 		Source : "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"
 		Wikipedia : "https://en.wikipedia.org/wiki/Snake_(video_game)"
 
 ID249 = # RubikSquare:
-	b:"""		
+	b:"""
 # LOC:85 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not "" split join
 #        parseInt _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
 # OBS: Du bör använda variabeln rubikSquareData.
 
 class RubikSquare extends Application
-	reset : -> 
+	reset : ->
 	draw : ->
 	mousePressed : (mx,my) ->
-app = new RubikSquare   
+app = new RubikSquare
 """
 	a:"""
 class RubikSquare extends Application
-	reset : -> 
+	reset : ->
 		super
 		@BUTTONS = [[4,3,3,3],[10,3,3,3],[16,3,3,3], [4,9,3,3],[10,9,3,3],[16,9,3,3], [4,15,3,3],[10,15,3,3],[16,15,3,3], [4,19,3,1],[10,19,3,1],[16,19,3,1]]
 		@seed = 0
@@ -538,7 +538,7 @@ class RubikSquare extends Application
 			if c==2 then fc 0,0,1
 			[x,y,w,h] = @BUTTONS[i]
 			rect 10*x,10*y,20*w,20*h
-		if @memory >= 0 
+		if @memory >= 0
 			[x,y,w,h] = @BUTTONS[@memory]
 			fc 0
 			sc()
@@ -553,7 +553,7 @@ class RubikSquare extends Application
 			[x,y,w,h] = @BUTTONS[11]
 			text "new",10*x,10*y
 
-	undo : -> 
+	undo : ->
 		if @history.length == 0 then return
 		@board = @history.pop()
 		@memory = -1
@@ -563,19 +563,19 @@ class RubikSquare extends Application
 		for [x,y,w,h],i in @BUTTONS
 			if x-w <= mx/10 <= x+w and y-h <= my/10 <= y+h then index = i
 		if 0 <= index < 9
-			if @memory == -1 
-				@memory = index 
-			else if @memory == index 
+			if @memory == -1
+				@memory = index
+			else if @memory == index
 				@memory = -1
 			else
-				hash = 
+				hash =
 					"01":[0,1], "02":[0,0], "10":[0,0], "12":[0,1], "20":[0,1], "21":[0,0]
 					"34":[1,1], "35":[1,0], "43":[1,0], "45":[1,1], "53":[1,1], "54":[1,0]
 					"67":[2,1], "68":[2,0], "76":[2,0], "78":[2,1], "86":[2,1], "87":[2,0]
 					"03":[3,1], "06":[3,0], "30":[3,0], "36":[3,1], "60":[3,1], "63":[3,0]
 					"14":[4,1], "17":[4,0], "41":[4,0], "47":[4,1], "71":[4,1], "74":[4,0]
 					"25":[5,1], "28":[5,0], "52":[5,0], "58":[5,1], "82":[5,1], "85":[5,0]
-				pair = hash["" + @memory + index] 
+				pair = hash["" + @memory + index]
 				if pair
 					[m,d] = pair
 					@history.push @board[..]
@@ -584,8 +584,8 @@ class RubikSquare extends Application
 		if index==9 then @undo()
 		if index==11 then @newGame()
 
-app = new RubikSquare "a"   
-		
+app = new RubikSquare "a"
+
 """
 	c:
 		app : "reset()"

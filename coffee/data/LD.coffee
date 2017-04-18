@@ -1,23 +1,23 @@
 ID260 = # Nim:
-	b:"""		
-# LOC:62 bg fc sc circle # * + - ^ if then else _.isEqual return <  
+	b:"""
+# LOC:62 bg fc sc circle # * + - ^ if then else _.isEqual return <
 #        constrain text textAlign textSize class extends constructor new @ super ->
 
 class Nim extends Application
-	reset : -> 
+	reset : ->
 		super
 		@seed = 0
-	draw  : -> super
-	newGame : -> 
+	draw  : ->
+	newGame : ->
 		[a,b,c] = [1+@randint(5),1+@randint(5),1+@randint(5)]
 		@board = [a,a+b,a+b+c]
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
-app = new Nim  
+app = new Nim
 """
 	a:"""
 class Nim extends Application
-	reset : -> 
+	reset : ->
 		super
 		@RADIUS = 30
 		@BUTTONS = [[35,80],[100,80],[165,80], [35,150,'ok'],[100,150,'x'],[165,150,'hint']]
@@ -42,15 +42,15 @@ class Nim extends Application
 		@board = [a,a+b,a+b+c]
 		@init()
 
-	ok : -> 
+	ok : ->
 		if @active == -1 then return
 		@player = 1 - @player
-		@active = -1 
+		@active = -1
 		@original = @board[..]
 
 	cancel : ->
 		@board = @original
-		@active = -1 
+		@active = -1
 
 	draw : ->
 		textAlign CENTER,CENTER
@@ -65,7 +65,7 @@ class Nim extends Application
 			if i==5 and @active==-1 then circle x,y,@RADIUS
 			fc 1
 			sc()
-			if i<=2 then text @board[i],x,y 
+			if i<=2 then text @board[i],x,y
 			if i>=3 then text txt,x,y
 		fc 1,@player,0
 		circle 20 + @player * 160,20,10
@@ -87,8 +87,8 @@ class Nim extends Application
 		if index == 4 then @cancel()
 		if index == 5 then @hint()
 
-app = new Nim "a"   
-		
+app = new Nim "a"
+
 """
 	c:
 		app : "reset()|newGame()"
@@ -107,7 +107,7 @@ ID261 = # ChessGame :
 
 class Chess extends Application
 	reset : -> super
-	draw  : -> super
+	draw  : ->
 	mousePressed : (mx,my) ->
 app = new Chess
 """
@@ -120,7 +120,7 @@ class Chess extends Application
 		@Y = 100
 		@board = ['RNBQKBNR','PPPPPPPP','........','........','........','........','pppppppp','rnbqkbnr']
 		@history = []
-		@memory = null			
+		@memory = null
 	draw : ->
 		bg 0.5
 		textSize 0.9 * @SIZE
@@ -140,16 +140,16 @@ class Chess extends Application
 					if piece in "pP" then circle x,y,5 else text piece.toUpperCase(),x,y
 	setCharAt : (i,j,chr) ->
     @board[j] = @board[j].substr(0,i) + chr + @board[j].substr(i+1)
-	move : (a,b) -> 
+	move : (a,b) ->
 		[i1,j1] = a
 		[i2,j2] = b
 		taken = @board[j2][i2]
 		@setCharAt i2,j2, @board[j1][i1]
 		@setCharAt i1,j1,' '
-		@history.push [a,b,taken] 	
+		@history.push [a,b,taken]
 	undo : () ->
 		if @history.length == 0 then return
-		[a,b,taken] = @history.pop()			
+		[a,b,taken] = @history.pop()
 		[i1,j1] = a
 		[i2,j2] = b
 		@setCharAt i1,j1, @board[j2][i2]
@@ -180,13 +180,13 @@ ID262 = # "Nand2Tetris ALU" :
 
 class ALU extends Application
 	reset : -> super
-	draw  : -> super
-	mousePressed : (mx,my) ->	
+	draw  : ->
+	mousePressed : (mx,my) ->
 app = new ALU
 """
 	a:"""
 class ALU extends Application
-	reset : -> 
+	reset : ->
 		super
 		@x = 3
 		@y = 5
@@ -202,7 +202,7 @@ class ALU extends Application
 			if (value & 1<<(15-i)) != 0 then r=2.5 else r=1
 			circle x0-40+3+5*i,y0+20,r
 
-	draw : -> 
+	draw : ->
 		textAlign CENTER,CENTER
 		fc 1,1,0
 		quad 0,80, 200,80, 140,120, 60,120
@@ -243,10 +243,10 @@ class ALU extends Application
 	calc : ->
 		x=@x
 		if @flags & 1 then x=0
-		if @flags & 2 then x=~x 
+		if @flags & 2 then x=~x
 		y=@y
 		if @flags & 4 then y=0
-		if @flags & 8 then y=~y 
+		if @flags & 8 then y=~y
 		if @flags & 16 then out = x+y else out = x&y
 		if @flags & 32 then out = ~out
 		if out==0 then zr=1 else zr=0
@@ -276,7 +276,7 @@ ID263 = # RushHour :
 # Placering av fordon:
 #   horisontellt: A=2 B=3
 #   vertikalt:    C=2 D=3
-# 
+#
 # Lösningar:
 # 	Bilarna namnges i följden XABCDEFGHIJKLMNOPQR
 # 	liten bokstav: vänster/uppåt
@@ -288,11 +288,9 @@ class Car
 	move        : (d) ->
 
 class RushHour extends Application
-	constructor : (@name) ->
-		super @name
-		if @cars then @cars = (_.create(Car.prototype, car) for car in @cars)	
+	classes    : -> [Car]
 	reset      : -> super
-	draw       : -> super
+	draw       : ->
 	enter_cars : -> # Ad0sBwCoD569
 	enter_move : -> # bbbEEEAfdccGGXXXXX
 	begin      : ->
@@ -310,7 +308,7 @@ class Car
 		@j = int index / 6
 		[@w,@h] = wh
 
-	render : -> 
+	render : ->
 		fcc (@c+1) % 8
 		rect 40+20*@i+2, 40+20*@j+2, 20*@w-4, 20*@h-4
 		fc 0
@@ -325,11 +323,7 @@ class Car
 		if @h == 1 then @i += d
 
 class RushHour extends Application
-
-	constructor : (@name) ->
-		super @name
-		if @cars then @cars = (_.create(Car.prototype, car) for car in @cars)
-
+	classes : -> [Car]
 	reset : ->
 		super
 		@enter_cars1 "Ad0sBwCoD569"
@@ -348,10 +342,10 @@ class RushHour extends Application
 		for i in range 6
 			text "012345"[i],30,50+20*i
 			text "012345"[i],50+20*i,170
-		for car in @cars 
+		for car in @cars
 			car.render()
 
-	enter_cars : -> @enter_cars1 @readText() 
+	enter_cars : -> @enter_cars1 @readText()
 	enter_cars1 : (s) ->
 		@cars = []
 		@moves = ""
@@ -360,13 +354,13 @@ class RushHour extends Application
 			if ch in "ABCD" then wh = {A:[2,1], B:[3,1], C:[1,2], D:[1,3]}[ch]
 			else @cars.push new Car ch,wh,@cars.length
 
-	enter_move : -> @enter_move1 @readText() 
+	enter_move : -> @enter_move1 @readText()
 	enter_move1 : (s) ->
 		@moves = @moves[...@index]
-		@moves += s 
+		@moves += s
 		@forward s.length
-		
-	begin : -> @backward @index 
+
+	begin : -> @backward @index
 	backward : (n=1) ->
 		for i in range n
 			if @index == 0 then return
@@ -394,20 +388,20 @@ app = new RushHour "a"
 
 
 ID265 = # Shortcut
-	b:"""		
+	b:"""
 # LOC:65 bg fc sc range # %% * / + [] text textAlign textSize for in if then else return
 #        {} and < != == push pop length constrain class extends constructor new @ super ->
 
 class Shortcut extends Application
 	reset : -> super
-	draw : -> super
+	draw : ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
-app = new Shortcut  
+app = new Shortcut
 """
 	a:"""
 class Shortcut extends Application
-	reset : -> 
+	reset : ->
 		super
 		@W = 33
 		@H = 25
@@ -454,13 +448,13 @@ class Shortcut extends Application
 		bs = (x for x in lst when 1 <= x <= 1000)
 		return bs[@randint(bs.length)] if bs.length > 0
 		_.min lst
-	undo : -> 
+	undo : ->
 		if @history.length == 0 then return
 		@a = @history.pop()
 	mousePressed : (mx,my) ->
 		index = -1
 		for [x,y,txt],i in @buttons
-			if x-@W < mx < x+@W and  y-@H < my < y+@H 
+			if x-@W < mx < x+@W and  y-@H < my < y+@H
 				index = i
 		a = -1
 		if index == 2 and @a % 2 == 0 then a = @a / 2
@@ -468,31 +462,31 @@ class Shortcut extends Application
 		if index == 4 then a = @a * 2
 		if index == 5 then @undo()
 		if index == 7 then @newGame()
-		if a != -1 
+		if a != -1
 			@history.push @a
-			@a = a 
+			@a = a
 
-app = new Shortcut "a"   
-		
+app = new Shortcut "a"
+
 """
 	c:
 		app : "reset()"
 
 ID266 = # Complex
-	b:"""		
+	b:"""
 # LOC:80 bg fc sc range # * / + %% [] line circle text textAlign textSize for in if then else return int
 #        {} dist _.isEqual and < != == push pop length constrain class extends constructor new @ super ->
 
 class Complex extends Application
 	reset : -> super
-	draw : -> super
+	draw : ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
-app = new Complex  
+app = new Complex
 """
 	a:"""
 class Complex extends Application
-	reset : -> 
+	reset : ->
 		super
 		@RADIUS = 25
 		@buttons = [[30,130,'m'],[70,170,'*i'],[130,170,'*2'],[170,130,'+1'],[30,30,'undo'], [170,30,'new']]
@@ -553,7 +547,7 @@ class Complex extends Application
 		bs = ([x,y] for [x,y] in lst when -10 <= x <= 10 and -10 <= y <= 10)
 		return bs[@randint(bs.length)] if bs.length > 0
 		_.min lst, ([x,y]) -> dist 0,0,x,y
-	undo : -> 
+	undo : ->
 		if @history.length == 0 then return
 		@a = @history.pop()
 	mousePressed : (mx,my) ->
@@ -570,12 +564,12 @@ class Complex extends Application
 		if index == 5 then @newGame()
 		if a.length != 0
 			@history.push @a
-			@a = a 
+			@a = a
 
-app = new Complex "a"   
-		
+app = new Complex "a"
+
 """
 	c:
 		app : "reset()"
-	e: 
+	e:
 		"Komplexa tal" : "http://www.matteboken.se/lektioner/matte-4/komplexa-tal/rakna-med-komplexa-tal"

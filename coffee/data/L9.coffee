@@ -5,15 +5,15 @@ ID180 = # Counter :
 
 class Counter extends Application
 	reset : -> super
-	draw  : -> super
-	up    : -> 
-	down  : -> 
+	draw  : ->
+	up    : ->
+	down  : ->
 	mousePressed : (mx,my) -> print "mousePressed",mx,my
-app = new Counter 
+app = new Counter
 """
 	a:"""
 class Counter extends Application
-	reset : -> 
+	reset : ->
 		super
 		@counter = 0
 	up : -> @counter += 1
@@ -40,13 +40,13 @@ ID181 = # Stopwatch:
 
 class Stopwatch extends Application
 	reset : -> super
-	draw  : -> super
-	mousePressed : (mx,my) -> 
+	draw  : ->
+	mousePressed : (mx,my) ->
 app = new Stopwatch
 """
 	a:"""
 class Stopwatch extends Application
-	reset : -> 
+	reset : ->
 		super
 		@start = int millis()
 		@times = []
@@ -61,7 +61,7 @@ class Stopwatch extends Application
 		for time,i in @times
 			text @count-i,  50, 202-40*i
 			text nf(time/1000,1,3),195, 202-40*i
-	mousePressed : (mx,my) -> 
+	mousePressed : (mx,my) ->
 		@count++
 		@times.unshift int millis()-@start
 		if @times.length > 5 then @times.pop()
@@ -73,21 +73,21 @@ app = new Stopwatch "a"
 
 ID182 = # RandomDice :
 	b: """
-# LOC:19 bg fc sc circle # % %% / * + << & [] int Math.sin   
+# LOC:19 bg fc sc circle # % %% / * + << & [] int Math.sin
 #        for in class extends constructor new @ super ->
 
 class RandomDice extends Application
-	reset : -> 
+	reset : ->
 		super
 		@seed = 0
-	draw : -> super
+	draw : ->
 	mousePressed : (mx,my) ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 app = new RandomDice
 """
 	a:"""
 class RandomDice extends Application
-	reset : -> 
+	reset : ->
 		super
 		@RADIUS = 20
 		@BITS = [0,1,24,25,90,91,126]
@@ -97,7 +97,7 @@ class RandomDice extends Application
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	throw : -> @value = 1 + @randint 6
 	mousePressed : (mx,my) -> @throw()
-	draw : -> 
+	draw : ->
 		bg 1
 		sc 1
 		for xy,i in @XY
@@ -110,13 +110,13 @@ app = new RandomDice "a"
 	c:
 		app : "reset()"
 
-ID183 = # Moire: 
+ID183 = # Moire:
 	b:"""
 # LOC:10 bg range # [] push * + for line map class extends constructor new @ super ->
 
 class Moire extends Application
 	reset : -> super
-	draw  : -> super
+	draw  : ->
 	mousePressed : (mx,my) ->
 app = new Moire
 			"""
@@ -134,7 +134,7 @@ class Moire extends Application
 
 app = new Moire "a"
 """
-	c: 
+	c:
 		app : "reset()"
 		Wikipedia : "https://en.wikipedia.org/wiki/Moir%C3%A9_pattern"
 
@@ -145,9 +145,9 @@ ID185 = # GuessANumber :
 
 class Guess extends Application
 	reset        : -> super
-	draw         : -> super
+	draw         : ->
 	newGame : ->
-	mousePressed : (mx,my) -> 
+	mousePressed : (mx,my) ->
 app = new Guess
 """
 	a:"""
@@ -175,34 +175,34 @@ class Guess extends Application
 			y = int i / 10
 			text i, 10 + 20 * x, 10 + 20 * y
 
-	mousePressed : (mx,my) -> 
+	mousePressed : (mx,my) ->
 		guess = int mx/20 + 10 * int my/20
-		if guess <= @secret then @start = guess+1 
-		if guess >= @secret then @stopp = guess-1 
+		if guess <= @secret then @start = guess+1
+		if guess >= @secret then @stopp = guess-1
 
 app = new Guess "a"
 			"""
 	c:
 		app : "reset()|newGame()"
 
-ID186 = # RecursiveCircle: 
+ID186 = # RecursiveCircle:
 	b: """
 # LOC:10 sc circle # if return < class extends constructor new @ super ->
 
 class RecursiveCircle extends Application
 	reset   : -> super
-	draw    : -> super
+	draw    : ->
 	circles : (x,y,r,level) ->
-	mousePressed : (mx,my) -> 
+	mousePressed : (mx,my) ->
 app = new RecursiveCircle
 """
 	a: """
 
 class RecursiveCircle extends Application
-	reset : -> 
+	reset : ->
 		super
 		@n = 0
-	draw : -> @circles 100,100,100,@n		
+	draw : -> @circles 100,100,100,@n
 	circles : (x,y,r,level) ->
 		circle x,y,r
 		if level <= 0 then return
@@ -216,7 +216,7 @@ app = new RecursiveCircle "a"
 		app : "reset()"
 
 ID187 = # Laboratorium :
-	b:"""		
+	b:"""
 # LOC:0
 # Här kan du laborera med egna idéer!
 
@@ -226,7 +226,7 @@ class Laboratorium extends Application
 		@x = 100
 		@y = 100
 		@command = "Ge ett kommando!"
-	draw  : -> 
+	draw  : ->
 		textAlign CENTER,CENTER
 		textSize 24
 		fc 1,1,0
@@ -243,47 +243,47 @@ class Laboratorium extends Application
 	d     : -> @command = "d"
 	e     : -> @command = int random 1,7
 	f     : -> @command = int millis()
-app = new Laboratorium     
+app = new Laboratorium
 """
 	a:"""
 class Laboratorium extends Application
 	reset : -> super
-	draw : -> 
+	draw : ->
 	mousePressed : (mx,my) ->
-	left : -> 
-	right : -> 
-	up : -> 
-	down : -> 
-	a : -> 
-	b : -> 
-	c : -> 
-	d : -> 
-	e : -> 
-	f : -> 
+	left : ->
+	right : ->
+	up : ->
+	down : ->
+	a : ->
+	b : ->
+	c : ->
+	d : ->
+	e : ->
+	f : ->
 
-app = new Laboratorium "a"   		
+app = new Laboratorium "a"
 """
 	c:
 		app : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
 
 ID188 = # ClickDetector :
-	b:"""		
+	b:"""
 # LOC:16 circle # {} class extends constructor new @ super ->
-#        if then < and / ++ + - text textAlign textSize rectMode 
+#        if then < and / ++ + - text textAlign textSize rectMode
 
 class ClickDetector extends Application
 	reset : -> super
-	draw  : -> super
+	draw  : ->
 	mousePressed : (mx,my) ->
 app = new ClickDetector
 """
 	a:"""
 class ClickDetector extends Application
-	reset : -> 
+	reset : ->
 		super
 		@a = {x:70,y:70,radius:50,counter:0}
 		@b = {x:130,y:130,w:100,h:100,counter:0}
-	draw : -> 
+	draw : ->
 		rectMode CENTER
 		textAlign CENTER,CENTER
 		textSize 50
@@ -292,8 +292,8 @@ class ClickDetector extends Application
 		circle @a.x,@a.y,@a.radius
 		text @a.counter,@a.x,@a.y
 	mousePressed : (mx,my) ->
-		if dist(mx,my,@a.x,@a.y) < @a.radius then return @a.counter++ 
-		if @b.x-@b.w/2 < mx < @b.x+@b.w/2 and @b.y-@b.h/2 < my < @b.y+@b.h/2 then @b.counter++ 
+		if dist(mx,my,@a.x,@a.y) < @a.radius then return @a.counter++
+		if @b.x-@b.w/2 < mx < @b.x+@b.w/2 and @b.y-@b.h/2 < my < @b.y+@b.h/2 then @b.counter++
 
 app = new ClickDetector "a"
 """
@@ -306,13 +306,13 @@ ID189 = # IndianSun :
 
 class IndianSun extends Application
 	reset : -> super
-	draw : -> super
-	mousePressed : (mx,my) -> 
+	draw : ->
+	mousePressed : (mx,my) ->
 app = new IndianSun
 """
 	a:"""
 class IndianSun extends Application
-	reset : -> 
+	reset : ->
 		super
 		@n = 5
 	draw : ->
@@ -333,18 +333,18 @@ ID184 = # MultiTimer
 	b:"""
 # LOC:30 bg sc fc # for in [] '' == <= and text textSize textAlign textFont monospace nf
 #        if then else int round millis length class extends constructor new @ super ->
-#        
+#
 # OBS! Tiderna kan skilja med flera millisekunder. Sorry!
 
 class MultiTimer extends Application
 	reset : -> super
-	draw  : -> super
-	mousePressed : (mx,my) -> 
+	draw  : ->
+	mousePressed : (mx,my) ->
 app = new MultiTimer
 """
 	a:"""
 class MultiTimer extends Application
-	reset : -> 
+	reset : ->
 		super
 		@start = int millis()
 		@buttons = [[0,0,"A",0],[100,0,"B",0],[0,50,"C",0],[100,50,"D",0],[0,100,"E",0],[100,100,"F",0],[0,150,"G",0],[100,150,"H",0]]
@@ -355,22 +355,22 @@ class MultiTimer extends Application
 		textSize 24
 		sc()
 		for [x,y,txt,time],i in @buttons
-			if @active==i then fc 1,0,0 else fc 1,1,0 
+			if @active==i then fc 1,0,0 else fc 1,1,0
 			textAlign LEFT,TOP
 			text txt, x+10,y
 			textAlign RIGHT,TOP
 			secs = round time/1000
 			text nf(int(secs / 60),2) + ':' + nf(secs % 60,2), x+100,y
-	mousePressed : (mx,my) -> 
+	mousePressed : (mx,my) ->
 		for [x,y,txt,time],i in @buttons
 			if x <= mx <= x+100 and y <= my <= y+50 then active = i
 		if active == @active
-			@buttons[@active][3] += int millis() - @start 	
+			@buttons[@active][3] += int millis() - @start
 			@active = -1
 		else if @active == -1
 			@active = active
 		else # byte
-			@buttons[@active][3] += int millis() - @start 	
+			@buttons[@active][3] += int millis() - @start
 			@active = active
 		@start = int millis()
 
