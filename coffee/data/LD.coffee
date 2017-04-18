@@ -106,7 +106,8 @@ ID261 = # ChessGame :
 #        Flytta pjäserna med musen. Klick utanför brädet innebär undo.
 
 class Chess extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	mousePressed : (mx,my) ->
 app = new Chess
@@ -179,7 +180,8 @@ ID262 = # "Nand2Tetris ALU" :
 # Se länken Nand2Tetris, sidan 36, för mer information!
 
 class ALU extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	mousePressed : (mx,my) ->
 app = new ALU
@@ -289,7 +291,8 @@ class Car
 
 class RushHour extends Application
 	classes    : -> [Car]
-	reset      : -> super
+	reset      : ->
+		super
 	draw       : ->
 	enter_cars : -> # Ad0sBwCoD569
 	enter_move : -> # bbbEEEAfdccGGXXXXX
@@ -393,7 +396,8 @@ ID265 = # Shortcut
 #        {} and < != == push pop length constrain class extends constructor new @ super ->
 
 class Shortcut extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw : ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
@@ -478,7 +482,8 @@ ID266 = # Complex
 #        {} dist _.isEqual and < != == push pop length constrain class extends constructor new @ super ->
 
 class Complex extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw : ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->

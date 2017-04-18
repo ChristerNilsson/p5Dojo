@@ -46,7 +46,8 @@ ID201 = # BoardGame :
 # LOC:21 bg fc sc circle range # for in ->
 
 class Board extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	r     : (d) ->
 	d     : (d) ->
@@ -87,7 +88,8 @@ app = new Board "a"
 # LOC:21 sc fc sw # arc strokeCap class extends constructor new @ super ->
 
 class Ring extends Application
-	reset  : -> super
+	reset  : ->
+		super
 	draw   : ->
 	start  : (d) ->
 	stopp  : (d) ->
@@ -125,7 +127,8 @@ ID202 = # SevenSegment :
 # LOC:31 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->
 
 class Digit extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	up    : ->
 	down  : ->
@@ -176,7 +179,8 @@ ID203 = # GoldenStar:
 # LOC:23 bg fc range # for in triangle translate rotate cos sin class extends constructor new @ super ->
 
 class GoldenStar extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	n     : (d) ->
 	outer : (d) ->
@@ -224,7 +228,8 @@ class Turtle
 	rt : (a) ->
 
 class Polygon extends Application
-	reset      : -> super
+	reset      : ->
+		super
 	draw       : ->
 	antalSidor : (d) ->
 	antalSteg  : (d) ->
@@ -270,7 +275,8 @@ ID205 = # Alphanumeric:
 #        push if then else class extends constructor new @ super ->
 
 class AlphaNumeric extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	add   : ->
 	del   : ->
@@ -325,7 +331,8 @@ ID206 = # Korg:
 # LOC:27 bg fc sc sw # rect for if else class extends constructor new @ super ->
 
 class Korg extends Application
-	reset   : -> super
+	reset   : ->
+		super
 	draw    : ->
 	more    : ->
 	less    : ->
@@ -376,7 +383,8 @@ ID209 = # ColorCube:
 #        quad [] push pop fill stroke if then and * / + - <= return
 
 class ColorCube extends Application
-	reset       : -> super
+	reset       : ->
+		super
 	draw        : ->
 	undo 				: ->
 	mousePressed : (mx,my) ->

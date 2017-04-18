@@ -2,7 +2,7 @@
 var ID220, ID221, ID222, ID223, ID224, ID225, ID226, ID227;
 
 ID220 = {
-  b: "# LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in\n#        \"\" split join _.filter class constructor new @ extends super [] length\n# Mata in t ex b..l och få ut bill samt boll.\n\nclass Korsord extends Application\n	reset : -> super\n	draw  : ->\n	enter : ->\napp = new Korsord",
+  b: "# LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in\n#        \"\" split join _.filter class constructor new @ extends super [] length\n# Mata in t ex b..l och få ut bill samt boll.\n\nclass Korsord extends Application\n	reset : ->\n		super\n	draw  : ->\n	enter : ->\napp = new Korsord",
   a: "class Korsord extends Application\n	reset : ->\n		print \"reset\"\n		super\n		@found = \"\"\n		@pattern = ''\n	draw : ->\n		n = 15\n		bg 0\n		textAlign LEFT,TOP\n		textSize 12\n		fc 1,1,0\n		sc()\n		for word,i in @found.split \" \"\n			x = int i / n\n			y = i % n\n			text word,5+200/4*x,200*y/n\n	match : (word,pattern) ->\n		for letter,i in pattern\n			if letter != '.' and letter != word[i] then	return false\n		true\n	enter : ->\n		words = ordlista.split \" \"\n		@pattern = @readText()\n		@found = []\n		for w in words\n			if w.length == @pattern.length and @match w,@pattern then @found.push w\n		#@found = _.filter words, (w) -> w.length == @pattern.length and @match w,@pattern\n		@found = @found.join \" \"\n\napp = new Korsord \"a\"",
   c: {
     app: "reset()|enter()"
@@ -15,7 +15,7 @@ ID220 = {
 };
 
 ID221 = {
-  b: "# LOC:28 fc sc bg # int Math.log10 constrain + - * / < ** text split\n#        textAlign textSize class extends constructor new @ super ->\n\nclass Engineering extends Application\n	reset : -> super\n	draw  : ->\n	more  : ->\n	less  : ->\napp = new Engineering",
+  b: "# LOC:28 fc sc bg # int Math.log10 constrain + - * / < ** text split\n#        textAlign textSize class extends constructor new @ super ->\n\nclass Engineering extends Application\n	reset : ->\n		super\n	draw  : ->\n	more  : ->\n	less  : ->\napp = new Engineering",
   a: "class Engineering extends Application\n	reset : ->\n		super\n		@PREFIXES = \"yzafpnµm kMGTPEZY\"\n		@numbers = \"-273.15 1.6021766208e-19 3.1415926535 9.80665 101325 299792458 1073741824 6.022140857e23\"\n		@digits = 3\n	format : (x) ->\n		if x<0 then return \"-\" + @format(-x)\n		exponent = 3 * int Math.log10(x)/3\n		x = x / 10 ** exponent\n		if x < 10 then factor = 10 ** (@digits-1)\n		else if x < 100 then factor = 10 ** (@digits-2)\n		else factor = 10 ** (@digits-3)\n		Math.round(x * factor) / factor + @PREFIXES[8+exponent/3]\n	draw  : ->\n		bg 0\n		textAlign RIGHT,TOP\n		textSize 20\n		textFont \"monospace\"\n		fc 1,0,0\n		sc()\n		textAlign RIGHT,TOP\n		for nr,i in @numbers.split \" \"\n			x = parseFloat nr\n			if i<8 then text @format(1/x), 100-5,i*20\n			text @format(x), 200-5,i*20\n	more  : -> @digits = constrain @digits+1, 1,6\n	less  : -> @digits = constrain @digits-1, 1,6\n\napp = new Engineering \"a\"",
   c: {
     app: "reset()|more()|less()"
@@ -26,7 +26,7 @@ ID221 = {
 };
 
 ID222 = {
-  b: "# LOC:33 % bg fc sc sw circle range # text textAlign textSize for in\n#        push pop class extends constructor new @ super ->\n\nclass Connect4 extends Application\n	reset : -> super\n	draw  : ->\n	undo  : ->\n	mousePressed : (mx,my) ->\napp = new Connect4",
+  b: "# LOC:33 % bg fc sc sw circle range # text textAlign textSize for in\n#        push pop class extends constructor new @ super ->\n\nclass Connect4 extends Application\n	reset : ->\n		super\n	draw  : ->\n	undo  : ->\n	mousePressed : (mx,my) ->\napp = new Connect4",
   a: "class Connect4 extends Application\n	reset : ->\n		super\n		@SIZE = 27\n		@list = ([] for i in range 7)\n		@moves = []\n	draw : ->\n		bg 0\n		textAlign CENTER,CENTER\n		textSize @SIZE/2\n		fc()\n		sc 0.1,0.3,1\n		sw 0.2 * @SIZE\n		for i in range 7\n			for j in range 6\n				circle 100-@SIZE*3+@SIZE*i, 180-@SIZE*j, @SIZE/2\n		for column,i in @list\n			for nr,j in column\n				fc 1,nr%2,0\n				sw 1\n				circle 100-@SIZE*3+@SIZE*i, 180-@SIZE*j, @SIZE*0.4\n				fc 0\n				sc()\n				text nr, 100-@SIZE*3+@SIZE*i, 180-@SIZE*j\n		sc()\n		fc 1,(@moves.length+1)%2,0\n		circle 100,15,10\n	mousePressed : (mx,my) ->\n		nr = int (mx-(200-7*@SIZE)/2)/@SIZE\n		if 0 <= nr <= 6\n			@moves.push nr\n			@list[nr].push @moves.length\n	undo : -> if @moves.length > 0 then @list[@moves.pop()].pop()\n\napp = new Connect4 \"a\"",
   c: {
     app: "reset()|undo()"
@@ -37,7 +37,7 @@ ID222 = {
 };
 
 ID223 = {
-  b: "# LOC:35 sc sw rd # point triangle translate cos sin radians\n#        push pop class extends constructor new @ super ->\n\nclass Shot\n	constructor : (@x,@y,@dir) ->\n	render      : ->\n	move        : ->\n\nclass Ship extends Application\n	classes : -> [Shot]\n	reset   : -> super\n	draw    : ->\n	left    : ->\n	right   : ->\n	forward : ->\n	shoot   : ->\n\napp = new Ship",
+  b: "# LOC:35 sc sw rd # point triangle translate cos sin radians\n#        push pop class extends constructor new @ super ->\n\nclass Shot\n	constructor : (@x,@y,@dir) ->\n	render      : ->\n	move        : ->\n\nclass Ship extends Application\n	classes : -> [Shot]\n	reset   : ->\n		super\n	draw    : ->\n	left    : ->\n	right   : ->\n	forward : ->\n	shoot   : ->\n\napp = new Ship",
   a: "\nclass Shot\n	constructor : (@x,@y,@dir) ->\n	render : ->	point @x,@y\n	move : ->\n		@x += int 5 * cos radians @dir\n		@y += int 5 * sin radians @dir\n\nclass Ship extends Application\n	classes : -> [Shot]\n	reset : ->\n		super\n		@S = 10\n		@x = 100\n		@y = 100\n		@dir = 0\n		@shots = []\n\n	left    : -> @dir -= 5\n	right   : -> @dir += 5\n	forward : ->\n		@x += 5 * cos radians @dir\n		@y += 5 * sin radians @dir\n\n	shoot : ->\n		@shots.push new Shot int(@x), int(@y), @dir\n\n	draw : ->\n		push()\n		translate @x,@y\n		rd @dir\n		sc 1,1,0\n		sw 2\n		triangle 2*@S,0, -@S,@S, -@S,-@S\n		sw 5\n		point 0,0\n		pop()\n		for shot in @shots\n			shot.move()\n			shot.render()\n\napp = new Ship \"a\"",
   c: {
     app: "reset()|left()|right()|forward()|shoot()"
@@ -45,7 +45,7 @@ ID223 = {
 };
 
 ID224 = {
-  b: "# LOC:35 bg fc sc # [] push \"\" split indexOf reduce + * ** / % > & text textSize textAlign\n#				 for in of {} _.countBy and if then class constructor new @ extends super\n# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med \"aaefkrrtu\"\n\nclass Nian extends Application\n	reset : -> super\n	draw  : ->\n	enter : ->\n\napp = new Nian",
+  b: "# LOC:35 bg fc sc # [] push \"\" split indexOf reduce + * ** / % > & text textSize textAlign\n#				 for in of {} _.countBy and if then class constructor new @ extends super\n# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med \"aaefkrrtu\"\n\nclass Nian extends Application\n	reset : ->\n		super\n	draw  : ->\n	enter : ->\n\napp = new Nian",
   a: "class Nian extends Application\n	reset : ->\n		super\n		@found = \"\"\n	draw : ->\n		n = 15\n		bg 0\n		textAlign LEFT,TOP\n		textSize 12\n		fc 1,1,0\n		sc()\n		for word,i in @found.split \" \"\n			x = int i / n\n			y = i % n\n			text word,5+200/4*x,200*y/n\n	bits : (word) -> word.split(\"\").reduce ((acc,ch) -> acc|(2 ** \"abcdefghijklmnopqrstuvwxyzåäö\".indexOf ch)), 0\n	ok : (f1,f2) ->\n		for ch, f of f2\n			if f > f1[ch] then return false\n		true\n	enter : ->\n		words = ordlista.split \" \"\n		patterns = (@bits word for word in words)\n		@letters = @readText()\n		mandatory = @letters[4]\n		@found = []\n		p = @bits @letters\n		letters1 = @letters.split \"\"\n		freq1 = _.countBy letters1\n		for pattern,i in patterns\n			if (p & pattern) == pattern\n				letters2 = words[i].split \"\"\n				freq2 = _.countBy letters2\n				if @ok(freq1,freq2) and mandatory in letters2 then @found.push words[i]\n		@found = @found.join \" \"\n\napp = new Nian \"a\"",
   c: {
     app: "reset()|enter()"
@@ -58,7 +58,7 @@ ID224 = {
 };
 
 ID225 = {
-  b: "# LOC:49 fc sc circle range rd # point rect rectMode for in if then else\n#        translate push pop class extends constructor new @ super ->\n#        Date getHours getMinutes getSeconds\n\nclass Klocka extends Application\n	reset  : -> super\n	draw   : ->\n	hour   : (h) ->\n	minute : (m) ->\n	second : (s) ->\n	now 	 : ->\napp = new Klocka",
+  b: "# LOC:49 fc sc circle range rd # point rect rectMode for in if then else\n#        translate push pop class extends constructor new @ super ->\n#        Date getHours getMinutes getSeconds\n\nclass Klocka extends Application\n	reset  : ->\n		super\n	draw   : ->\n	hour   : (h) ->\n	minute : (m) ->\n	second : (s) ->\n	now 	 : ->\napp = new Klocka",
   a: "class Klocka extends Application\n	reset : ->\n		super\n		@h=10\n		@m=9\n		@s=30\n	draw : ->\n		bg 0.5\n		rectMode CENTER\n		translate 100,100\n		@urtavla()\n		@visare (@h+@m/60.0)*30, 7,60,1,0,0\n		@visare (@m+@s/60.0)*6,5,80,0,1,0\n		@visare @s*6,2,80,1,1,0\n	hour   : (h) -> @adjust h,0,0\n	minute : (m) -> @adjust 0,m,0\n	second : (s) -> @adjust 0,0,s\n	now    : ->\n		d = new Date()\n		@h = d.getHours()\n		@m = d.getMinutes()\n		@s = d.getSeconds()\n	adjust : (h,m,s) ->\n		@h+=h\n		@m+=m\n		@s+=s\n		t = 3600 * @h + 60 * @m + @s\n		@s = t %% 60\n		t = (t - @s) / 60\n		@m = t %% 60\n		t = (t - @m) / 60\n		@h = t %% 24\n	visare : (v,w,l,r,g,b) ->\n		push()\n		rd v-90\n		translate l/2,0\n		fc r,g,b\n		rect 0,0,l,w\n		pop()\n	urtavla : ->\n		fc 0\n		sc 1\n		sw 2\n		circle 0,0,90\n		fc 1\n		sc()\n		for i in range 60\n			circle 85,0, if i%5==0 then 3 else 2\n			rd 6\n\napp = new Klocka \"a\"",
   c: {
     app: "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1|now()"
@@ -66,7 +66,7 @@ ID225 = {
 };
 
 ID226 = {
-  b: "# LOC:43 fc sw sc circle # + ++ - -- %% == push if then for in\n#        splice length _.create class constructor super extends new @\n\nclass Ball\n	constructor : ->\n	update      : (grav) ->\n	render      : (sel) ->\n\nclass BouncingBalls extends Application\n	classes : -> [Ball]\n	reset   : -> super\n	draw    : ->\n	update  : ->\n	add     : ->\n	delete  : ->\n	selNext : ->\n	selPrev : ->\n	grow    : ->\n	shrink  : ->\n	nextCol : ->\n	prevCol : ->\n	gravity : ->\napp = new BouncingBalls",
+  b: "# LOC:43 fc sw sc circle # + ++ - -- %% == push if then for in\n#        splice length _.create class constructor super extends new @\n\nclass Ball\n	constructor : ->\n	update      : (grav) ->\n	render      : (sel) ->\n\nclass BouncingBalls extends Application\n	classes : -> [Ball]\n	reset   : ->\n		super\n	draw    : ->\n	update  : ->\n	add     : ->\n	delete  : ->\n	selNext : ->\n	selPrev : ->\n	grow    : ->\n	shrink  : ->\n	nextCol : ->\n	prevCol : ->\n	gravity : ->\napp = new BouncingBalls",
   a: "class Ball\n	constructor : ->\n		@x = 100\n		@y = 100\n		@r = 10\n		@c = 1\n		@dx = 3\n		@dy = 4\n	update : (grav) ->\n		@x += @dx\n		@y += @dy\n		if not (@r < @x < 200-@r) then @dx = - @dx\n		if not (@r < @y < 200-@r) then @dy = - @dy\n		if grav and @y < 200-@r then @dy += 1\n	render : (sel) ->\n		fcc @c\n		sw 2\n		if sel then scc 7 else sc()\n		circle @x,@y,@r\n\nclass BouncingBalls extends Application\n	classes : -> [Ball]\n	reset : ->\n		super\n		@balls = []\n		@sel = -1\n		@grav = false\n	draw : ->\n		for ball,i in @balls\n			ball.render i==@sel, @grav\n	update : ->\n		for ball in @balls\n			ball.update(@grav)\n\n	add : ->\n		@balls.push new Ball\n		@sel = @balls.length - 1\n\n	delete :->\n		@balls.splice @sel, 1\n		if @sel >= @balls.length then @sel = @balls.length - 1\n	selNext : -> @sel = (@sel + 1) %% @balls.length\n	selPrev : -> @sel = (@sel - 1) %% @balls.length\n	grow : ->    @balls[@sel].r++\n	shrink : ->  @balls[@sel].r--\n	nextCol : -> @balls[@sel].c = (@balls[@sel].c+1) %% 8\n	prevCol : -> @balls[@sel].c = (@balls[@sel].c-1) %% 8\n	gravity : -> @grav = not @grav\n\napp = new BouncingBalls \"a\"",
   c: {
     app: "reset()|update()|add()|delete()|selNext()|selPrev()|grow()|shrink()|nextCol()|prevCol()|gravity()"

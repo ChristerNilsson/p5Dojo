@@ -5,7 +5,8 @@ ID220 = # Korsord :
 # Mata in t ex b..l och få ut bill samt boll.
 
 class Korsord extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	enter : ->
 app = new Korsord
@@ -57,7 +58,8 @@ ID221 = # EngineeringNotation :
 #        textAlign textSize class extends constructor new @ super ->
 
 class Engineering extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	more  : ->
 	less  : ->
@@ -107,7 +109,8 @@ ID222 = # Connect4 :
 #        push pop class extends constructor new @ super ->
 
 class Connect4 extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	undo  : ->
 	mousePressed : (mx,my) ->
@@ -167,7 +170,8 @@ class Shot
 
 class Ship extends Application
 	classes : -> [Shot]
-	reset   : -> super
+	reset   : ->
+		super
 	draw    : ->
 	left    : ->
 	right   : ->
@@ -230,7 +234,8 @@ ID224 = # Nian :
 # Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med "aaefkrrtu"
 
 class Nian extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	enter : ->
 
@@ -290,7 +295,8 @@ ID225 = # Klocka:
 #        Date getHours getMinutes getSeconds
 
 class Klocka extends Application
-	reset  : -> super
+	reset  : ->
+		super
 	draw   : ->
 	hour   : (h) ->
 	minute : (m) ->
@@ -366,7 +372,8 @@ class Ball
 
 class BouncingBalls extends Application
 	classes : -> [Ball]
-	reset   : -> super
+	reset   : ->
+		super
 	draw    : ->
 	update  : ->
 	add     : ->

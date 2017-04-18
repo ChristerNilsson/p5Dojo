@@ -4,7 +4,8 @@ ID180 = # Counter :
 # Klicka på reset() om du får ett felmeddelande!
 
 class Counter extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	up    : ->
 	down  : ->
@@ -112,10 +113,11 @@ app = new RandomDice "a"
 
 ID183 = # Moire:
 	b:"""
-# LOC:12 bg range # * + - for line map class extends constructor new @ super ->
+# LOC:11 bg range # * + - for line map class extends constructor new @ super ->
 
 class Moire extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	mousePressed : (mx,my) ->
 app = new Moire
@@ -128,10 +130,9 @@ class Moire extends Application
 	draw : ->
 		bg 0
 		for i in range 40
-			line @x,@y,  0,          i*5
-			line @x,@y, i*5,         200
-			line @x,@y, 200,     200-i*5
-			line @x,@y, 200-i*5,       0
+			for j in range 4
+				[x,y] = [0,i*5,200,200-i*5,0][j..j+1]
+				line @x,@y,x,y
 	mousePressed : (mx,my) -> [@x,@y] = [mx,my]
 
 app = new Moire "a"
@@ -147,7 +148,8 @@ ID185 = # GuessANumber :
 #        int class extends constructor new @ super ->
 
 class Guess extends Application
-	reset        : -> super
+	reset        : ->
+		super
 	draw         : ->
 	newGame : ->
 	mousePressed : (mx,my) ->
@@ -193,7 +195,8 @@ ID186 = # RecursiveCircle:
 # LOC:10 sc circle # if return < class extends constructor new @ super ->
 
 class RecursiveCircle extends Application
-	reset   : -> super
+	reset   : ->
+		super
 	draw    : ->
 	circles : (x,y,r,level) ->
 	mousePressed : (mx,my) ->
@@ -250,7 +253,8 @@ app = new Laboratorium
 """
 	a:"""
 class Laboratorium extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw : ->
 	mousePressed : (mx,my) ->
 	left : ->
@@ -275,7 +279,8 @@ ID188 = # ClickDetector :
 #        if then < and / ++ + - text textAlign textSize rectMode
 
 class ClickDetector extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	mousePressed : (mx,my) ->
 app = new ClickDetector
@@ -308,7 +313,8 @@ ID189 = # IndianSun :
 # LOC:10 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->
 
 class IndianSun extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw : ->
 	mousePressed : (mx,my) ->
 app = new IndianSun
@@ -340,7 +346,8 @@ ID184 = # MultiTimer
 # OBS! Tiderna kan skilja med flera millisekunder. Sorry!
 
 class MultiTimer extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	mousePressed : (mx,my) ->
 app = new MultiTimer

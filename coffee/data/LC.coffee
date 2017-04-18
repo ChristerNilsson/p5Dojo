@@ -11,7 +11,7 @@ class Cartesius
 
 class Braider extends Application
 	braid   : (type) ->
-	draw    : -> super
+	draw    : ->
 	forward : ->
 	back    : ->
 app = new Braider
@@ -101,7 +101,8 @@ ID244 = # Kalkylator:
 #       Definiera t ex invers, distans och parallella motstånd
 
 class Kalkylator extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	chs   : -> # ( n -- n )
 	swap  : -> # ( a b -- b a )
@@ -183,7 +184,8 @@ ID245 = # Hex:
 #        if then else text textAlign textSize class extends constructor new @ super ->
 
 class Hex extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw : ->
 	newGame : ->
 	undo : ->
@@ -258,7 +260,8 @@ ID246 = # PickingBerries :
 #        splice break for in class extends constructor new @ super ->
 
 class PickingBerries extends Application
-	reset      : -> super
+	reset      : ->
+		super
 	draw       : ->
 	left       : ->
 	right      : ->
@@ -351,7 +354,8 @@ ID247 = # Snake :
 #        if then else class extends constructor new @ super ->
 
 class Snake extends Application
-	reset : -> super
+	reset : ->
+		super
 	setSize : (s) ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	draw : ->
@@ -420,7 +424,8 @@ ID248 = # Snake4 :
 #        if then else class extends constructor new @ super ->
 
 class Snake4 extends Application
-	reset : -> super
+	reset : ->
+		super
 	setSize : (s) ->
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	draw : ->
