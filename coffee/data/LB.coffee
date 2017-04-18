@@ -1,23 +1,23 @@
 ID220 = # Korsord :
 	b: """
-# LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in 
+# LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in
 #        "" split join _.filter class constructor new @ extends super [] length
 # Mata in t ex b..l och få ut bill samt boll.
 
 class Korsord extends Application
 	reset : -> super
 	draw  : -> super
-	enter : -> 
+	enter : ->
 app = new Korsord
 """
 	a:"""
 class Korsord extends Application
-	reset : -> 
+	reset : ->
 		print "reset"
 		super
 		@found = ""
 		@pattern = ''
-	draw : -> 
+	draw : ->
 		n = 15
 		bg 0
 		textAlign LEFT,TOP
@@ -32,10 +32,10 @@ class Korsord extends Application
 		for letter,i in pattern
 			if letter != '.' and letter != word[i] then	return false
 		true
-	enter : -> 
+	enter : ->
 		words = ordlista.split " "
 		@pattern = @readText()
-		@found = [] 
+		@found = []
 		for w in words
 			if w.length == @pattern.length and @match w,@pattern then @found.push w
 		#@found = _.filter words, (w) -> w.length == @pattern.length and @match w,@pattern
@@ -52,33 +52,33 @@ app = new Korsord "a"
 		'_.countBy' : "http://underscorejs.org/#countBy"
 
 ID221 = # EngineeringNotation :
-	b:"""		
+	b:"""
 # LOC:28 fc sc bg # int Math.log10 constrain + - * / < ** text split
 #        textAlign textSize class extends constructor new @ super ->
 
 class Engineering extends Application
 	reset : -> super
-	draw  : -> super 
-	more  : -> 
-	less  : -> 
-app = new Engineering   		
+	draw  : -> super
+	more  : ->
+	less  : ->
+app = new Engineering
 """
 	a:"""
 class Engineering extends Application
-	reset : -> 
+	reset : ->
 		super
 		@PREFIXES = "yzafpnµm kMGTPEZY"
 		@numbers = "-273.15 1.6021766208e-19 3.1415926535 9.80665 101325 299792458 1073741824 6.022140857e23"
 		@digits = 3
-	format : (x) -> 
+	format : (x) ->
 		if x<0 then return "-" + @format(-x)
 		exponent = 3 * int Math.log10(x)/3
 		x = x / 10 ** exponent
-		if x < 10 then factor = 10 ** (@digits-1) 
+		if x < 10 then factor = 10 ** (@digits-1)
 		else if x < 100 then factor = 10 ** (@digits-2)
 		else factor = 10 ** (@digits-3)
 		Math.round(x * factor) / factor + @PREFIXES[8+exponent/3]
-	draw  : -> 
+	draw  : ->
 		bg 0
 		textAlign RIGHT,TOP
 		textSize 20
@@ -93,7 +93,7 @@ class Engineering extends Application
 	more  : -> @digits = constrain @digits+1, 1,6
 	less  : -> @digits = constrain @digits-1, 1,6
 
-app = new Engineering "a"   		
+app = new Engineering "a"
 """
 	c:
 		app : "reset()|more()|less()"
@@ -104,7 +104,7 @@ app = new Engineering "a"
 ID222 = # Connect4 :
 	b:"""
 # LOC:33 % bg fc sc sw circle range # text textAlign textSize for in
-#        push pop class extends constructor new @ super -> 
+#        push pop class extends constructor new @ super ->
 
 class Connect4 extends Application
 	reset : -> super
@@ -145,7 +145,7 @@ class Connect4 extends Application
 		nr = int (mx-(200-7*@SIZE)/2)/@SIZE
 		if 0 <= nr <= 6
 			@moves.push nr
-			@list[nr].push @moves.length 
+			@list[nr].push @moves.length
 	undo : -> if @moves.length > 0 then @list[@moves.pop()].pop()
 
 app = new Connect4 "a"
@@ -157,52 +157,57 @@ app = new Connect4 "a"
 
 ID223 = # SpaceShip :
 	b:"""
-# LOC:35 sc sw rd # point triangle translate cos sin radians 
+# LOC:35 sc sw rd # point triangle translate cos sin radians
 #        push pop class extends constructor new @ super ->
 
 class Shot
-	constructor : (@x,@y,@dir) ->
-	render      : ->	
+	constructor : (@x,@y,@dir,@_type='Shot') ->
+	render      : ->
 	move        : ->
 
 class Ship extends Application
-	constructor : (@name) ->
-		super @name
-		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
+	constructor : (@_name,@_type='Ship') ->
+		super @_name, {'Shot':Shot, 'Ship':Ship}
+		#if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
 	reset   : -> super
-	draw    : -> super
-	left    : -> 
-	right   : -> 
-	forward : -> 
-	shoot   : ->		
+	draw    : ->
+	left    : ->
+	right   : ->
+	forward : ->
+	shoot   : ->
 
-app = new Ship	
+app = new Ship
 """
 	a: """
+#classes = {}
+
 class Shot
-	constructor : (@x,@y,@dir) ->
-	render : ->	point @x,@y 
+	constructor : (@x,@y,@dir,@_type='Shot') ->
+	render : ->	point @x,@y
 	move : ->
 		@x += int 5 * cos radians @dir
 		@y += int 5 * sin radians @dir
 
-class Ship extends Application 
+class Ship extends Application
 
-	constructor : (@name) ->
-		super @name
-		if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
+	constructor : (@_name,@_type='Ship') ->
+		super @_name, {'Shot':Shot, 'Ship':Ship}
+		#if @shots then @shots = (_.create Shot.prototype, shot for shot in @shots)
 
 	reset : ->
+		print 1
 		super
+		print 2
 		@S = 10
 		@x = 100
 		@y = 100
 		@dir = 0
 		@shots = []
+		print 'reset',@
 
 	left    : -> @dir -= 5
 	right   : -> @dir += 5
-	forward : -> 
+	forward : ->
 		@x += 5 * cos radians @dir
 		@y += 5 * sin radians @dir
 
@@ -223,15 +228,19 @@ class Ship extends Application
 			shot.move()
 			shot.render()
 
-app = new Ship "a"	
+#classes["Shot"] = Shot.prototype
+#classes["Ship"] = Ship.prototype
+#print 'classes',classes
+
+app = new Ship "a"
 """
 	c:
 		app: "reset()|left()|right()|forward()|shoot()"
 
 ID224 = # Nian :
 	b:"""
-# LOC:35 bg fc sc # [] push "" split indexOf reduce + * ** / % > & text textSize textAlign  
-#				 for in of {} _.countBy and if then class constructor new @ extends super 
+# LOC:35 bg fc sc # [] push "" split indexOf reduce + * ** / % > & text textSize textAlign
+#				 for in of {} _.countBy and if then class constructor new @ extends super
 # Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. Prova med "aaefkrrtu"
 
 class Nian extends Application
@@ -246,7 +255,7 @@ class Nian extends Application
 	reset : ->
 		super
 		@found = ""
-	draw : -> 
+	draw : ->
 		n = 15
 		bg 0
 		textAlign LEFT,TOP
@@ -288,9 +297,9 @@ app = new Nian "a"
 		'_.countBy' : "http://underscorejs.org/#countBy"
 		reduce : "https://coffeescript-cookbook.github.io/chapters/arrays/reducing-arrays"
 
-ID225 = # Klocka: 
+ID225 = # Klocka:
 	b: """
-# LOC:49 fc sc circle range rd # point rect rectMode for in if then else 
+# LOC:49 fc sc circle range rd # point rect rectMode for in if then else
 #        translate push pop class extends constructor new @ super ->
 #        Date getHours getMinutes getSeconds
 
@@ -305,7 +314,7 @@ app = new Klocka
 			"""
 	a: """
 class Klocka extends Application
-	reset : -> 
+	reset : ->
 		super
 		@h=10
 		@m=9
@@ -321,11 +330,11 @@ class Klocka extends Application
 	hour   : (h) -> @adjust h,0,0
 	minute : (m) -> @adjust 0,m,0
 	second : (s) -> @adjust 0,0,s
-	now    : -> 
+	now    : ->
 		d = new Date()
 		@h = d.getHours()
 		@m = d.getMinutes()
-		@s = d.getSeconds() 
+		@s = d.getSeconds()
 	adjust : (h,m,s) ->
 		@h+=h
 		@m+=m
@@ -356,15 +365,15 @@ class Klocka extends Application
 
 app = new Klocka "a"
 """
-	c: 
+	c:
 		app : "reset()|hour -1|hour +1|minute -1|minute +1|second -1|second +1|now()"
 
 ID226 = # BouncingBalls :
 	b : """
-# LOC:43 fc sw sc circle # + ++ - -- %% == push if then for in 
+# LOC:43 fc sw sc circle # + ++ - -- %% == push if then for in
 #        splice length _.create class constructor super extends new @
 
-class Ball 
+class Ball
 	constructor : ->
 	update      : (grav) ->
 	render      : (sel) ->
@@ -375,21 +384,21 @@ class BouncingBalls extends Application
 		if @balls then @balls = (_.create Ball.prototype, ball for ball in @balls)
 	reset   : -> super
 	draw    : -> super
-	update  : -> 
-	add     : -> 
+	update  : ->
+	add     : ->
 	delete  : ->
-	selNext : -> 
-	selPrev : -> 
-	grow    : ->    
-	shrink  : ->  
-	nextCol : -> 
-	prevCol : -> 
+	selNext : ->
+	selPrev : ->
+	grow    : ->
+	shrink  : ->
+	nextCol : ->
+	prevCol : ->
 	gravity : ->
 app = new BouncingBalls
 """
 
 	a:"""
-class Ball 
+class Ball
 	constructor : ->
 		@x = 100
 		@y = 100
@@ -402,7 +411,7 @@ class Ball
 		@y += @dy
 		if not (@r < @x < 200-@r) then @dx = - @dx
 		if not (@r < @y < 200-@r) then @dy = - @dy
-		if grav and @y < 200-@r then @dy += 1 
+		if grav and @y < 200-@r then @dy += 1
 	render : (sel) ->
 		fcc @c
 		sw 2
@@ -423,24 +432,24 @@ class BouncingBalls extends Application
 	draw : ->
 		for ball,i in @balls
 			ball.render i==@sel, @grav
-	update : -> 
+	update : ->
 		for ball in @balls
 			ball.update(@grav)
 
-	add : -> 
+	add : ->
 		@balls.push new Ball
 		@sel = @balls.length - 1
 
 	delete :->
 		@balls.splice @sel, 1
-		if @sel >= @balls.length then @sel = @balls.length - 1  
+		if @sel >= @balls.length then @sel = @balls.length - 1
 	selNext : -> @sel = (@sel + 1) %% @balls.length
 	selPrev : -> @sel = (@sel - 1) %% @balls.length
 	grow : ->    @balls[@sel].r++
 	shrink : ->  @balls[@sel].r--
 	nextCol : -> @balls[@sel].c = (@balls[@sel].c+1) %% 8
 	prevCol : -> @balls[@sel].c = (@balls[@sel].c-1) %% 8
-	gravity : -> @grav = not @grav 
+	gravity : -> @grav = not @grav
 
 app = new BouncingBalls "a"
 """
@@ -453,7 +462,7 @@ ID227 = # ColorPair :
 #        _.max _.pairs _.sortBy for in class extends constructor new @ super ->
 
 class ColorPair extends Application
-	reset : -> 
+	reset : ->
 		super
 		@seed = 0
 	draw : -> super
@@ -464,7 +473,7 @@ app = new ColorPair
 """
 	a:"""
 class ColorPair extends Application
-	reset : -> 
+	reset : ->
 		super
 		@radius = 0
 		@seed = 0
@@ -475,7 +484,7 @@ class ColorPair extends Application
 
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 
-	draw : -> 
+	draw : ->
 		bg 1
 		sw 2
 		sc 1,1,1,0.5
@@ -483,18 +492,18 @@ class ColorPair extends Application
 		for [x,y,c] in @circles
 			fill color c,100,100,0.5
 			circle x,y,@radius
-		
+
 	mousePressed : (mx,my) ->
 		hitlist = []
 		for [x,y,c],i in @circles
-			if dist(x,y,mx,my) < @radius then hitlist.push i 
+			if dist(x,y,mx,my) < @radius then hitlist.push i
 		if hitlist.length == 1
 			i = hitlist[0]
 			circle = @circles[i]
 			if @memory == -1
 				@memory = circle[2]
 				@circles.splice i,1
-			else if _.isEqual(@memory, circle[2]) 
+			else if _.isEqual(@memory, circle[2])
 				@memory = -1
 				@circles.splice i,1
 				if @circles.length == 0
@@ -506,7 +515,7 @@ class ColorPair extends Application
 			@changeLevel -1
 
 	updateHighScore : ->
-		@highScore[@name] = _.max [@level, @highScore[@name]] 
+		@highScore[@name] = _.max [@level, @highScore[@name]]
 		@topList = _.pairs @highScore
 		@topList = _.sortBy @topList, ([name,level]) -> -level
 
@@ -527,5 +536,5 @@ app = new ColorPair "a"
 """
 	c:
 		app : "reset()|enterName()"
-	e: 
+	e:
 		ColorPair : "https://christernilsson.github.io/ColorPair"

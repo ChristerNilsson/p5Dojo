@@ -64,20 +64,20 @@ fc = ->
 	n = arguments.length
 	if n == 0
 		noFill()
-	else 
+	else
 		fill fixColor arguments
 
 sc = ->
 	n = arguments.length
 	if n == 0
 		noStroke()
-	else 
+	else
 		stroke fixColor arguments
 
-bgc = (cc) -> bg cc%2, int(cc/2)%2, int(cc/4) 
-fcc = (cc) -> fc cc%2, int(cc/2)%2, int(cc/4) 
-scc = (cc) -> sc cc%2, int(cc/2)%2, int(cc/4) 
-tcc = (cc) -> fcc [7,7,0,0,7,0,0,0][cc] 
+bgc = (cc) -> bg cc%2, int(cc/2)%2, int(cc/4)
+fcc = (cc) -> fc cc%2, int(cc/2)%2, int(cc/4)
+scc = (cc) -> sc cc%2, int(cc/2)%2, int(cc/4)
+tcc = (cc) -> fcc [7,7,0,0,7,0,0,0][cc]
 
 sw = (n) -> strokeWeight n
 
@@ -101,26 +101,26 @@ sel1change = (sel) ->
 	sel2.show()
 
 sel2change = (sel) ->
-	if sel.value=='BACK' 
+	if sel.value=='BACK'
 		exercise = ""
 		myCodeMirror.setValue ""
 		tableClear()
 		linksClear()
 		bg 0.5
 		sel2.hide()
-		return 
+		return
 	exercise = sel.value
-	if exercise=="" 
+	if exercise==""
 		myCodeMirror.setValue ""
 		bg 0.5
-		return 
+		return
 	call = ""
 	calls = decorate data[chapter][exercise]["c"]
 
 	setLinks()
 	calls_without_draw = _.omit calls, 'draw()'
 
-	fillSelect sel3, calls_without_draw	 
+	fillSelect sel3, calls_without_draw
 	myCodeMirror.setValue data[chapter][exercise]["b"]
 
 	tableClear()
@@ -131,7 +131,7 @@ sel2change = (sel) ->
 
 	run1()
 	run0()
-	myCodeMirror.focus() 
+	myCodeMirror.focus()
 	compare('sel2change')
 
 sel3change = (sel) ->
@@ -143,7 +143,7 @@ sel3click = (sel) ->
 	run1()
 	run0()
 	#myCodeMirror.focus()
-	compare('sel3click')	
+	compare('sel3click')
 
 mousePressed = ->
 	p = null
@@ -180,12 +180,12 @@ dd = (s) -> '"' + s + '"'
 linkAppend = (t, link, text) -> # exakt en kolumn
 	row = t.insertRow -1
 	cell1 = row.insertCell -1
-	s = '<a href=' + d(link)  
+	s = '<a href=' + d(link)
 	s += ' target=' + d('_blank')
-	s += ' onmouseover=' + d('this.style.color=' + dd('yellow') + ';') 
-	s += ' onmouseout='  + d('this.style.color=' + dd('black') + ';') 
-	s += '>' 
-	s += text 
+	s += ' onmouseover=' + d('this.style.color=' + dd('yellow') + ';')
+	s += ' onmouseout='  + d('this.style.color=' + dd('black') + ';')
+	s += '>'
+	s += text
 	s += '</a>'
 	cell1.innerHTML = s
 
@@ -218,9 +218,9 @@ setup = ->
 
 	pixelDensity 1
 	c.parent 'canvas'
-	
+
 	msg = $('#msg')
- 
+
 	sel1 = $('#sel1')
 	sel2 = $('#sel2')
 	sel3 = $('#sel3')
@@ -230,7 +230,7 @@ setup = ->
 	fillSelect sel1, data
 
 window.onbeforeunload = ->
-	return if document.URL.indexOf("record") == -1 
+	return if document.URL.indexOf("record") == -1
 	res = []
 	for key1,chapter of data
 		for key2,exercise of chapter
@@ -257,13 +257,13 @@ window.onload = ->
 		tabSize: 2,
 		indentWithTabs: true,
 	}
-	
+
 	$(".CodeMirror").css 'font-size',"16pt"
 	myCodeMirror.on "change", editor_change
-	
+
 	chapter=""
 	exercise=""
-	
+
 	myCodeMirror.focus()
 	window.resizeTo 1000,750
 	changeLayout()
@@ -273,8 +273,8 @@ saveToKeyStorage = (b) ->
 	for line in b.split '\n'
 		if line.indexOf("#") != 0
 			s += line
-	place = data[chapter][exercise] 
-	if !place.d 
+	place = data[chapter][exercise]
+	if !place.d
 		place.d = []
 	place.d.push s
 
@@ -294,7 +294,7 @@ run0 = ->
 	data[chapter][exercise]["b"] = b
 	run 0, b + "\n" + call
 
-run1 = -> 
+run1 = ->
 	if exercise=="" then return
 	run 1, data[chapter][exercise]["a"] + "\n" + call
 
@@ -319,9 +319,9 @@ run = (_n, coffee) ->
 
 	setMsg ""
 
-	if exercise=="" then return 
+	if exercise=="" then return
 
-	try 
+	try
 		code = transpile coffee
 		try
 			eval code
@@ -335,7 +335,7 @@ run = (_n, coffee) ->
 		pop()
 		setMsg e.name + ": " + e.message
 		#print n,millis()-start
-		return false 
+		return false
 
 store = ->
 	loadPixels()
@@ -364,7 +364,7 @@ compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
 	b = buffer[1]
 	c = a[..]
 
-	if msg.val() == '' 
+	if msg.val() == ''
 		for i in range block/4
 			i4 = 4*i
 			c[i4+0] = abs c[i4+0] - b[i4+0]
@@ -372,35 +372,77 @@ compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
 			c[i4+2] = abs c[i4+2] - b[i4+2]
 			c[i4+3] = 255
 
-	fetch a, 0 
-	if msg.val() == '' 
-		fetch b, 1 
+	fetch a, 0
+	if msg.val() == ''
+		fetch b, 1
 		fetch c, 2
 	fix_frames()
 	#print message,millis()-start
 
 class Application
-	constructor : (@_name='b') ->
+
+	constructor : (@_name='b',classes) ->
+		print 'classes', classes
 		_name = chapter + "/" + exercise + "/" + @_name
-		obj = localStorage.getItem _name 
+		obj = localStorage.getItem _name
+		print "constructor1", obj
 		if obj
-			dict = JSON.parse obj
-			for key,value of dict
-				@[key] = value
-			
-	store : -> 
+			for key,value of JSON.parse obj
+				@[key] = @deserialize(value,classes)
+		print "constructor2", @
+
+	mark : (obj=@) ->
+		return
+		print 'mark'
+		if _.isArray(obj) then return	(@mark item for item in obj) # array
+		if _.isObject(obj)
+			obj['_type'] = obj.constructor.name if obj.constructor.name != 'Object'
+			@mark obj[key] for key in _.keys(obj)
+
+	# serialize : () ->
+	# 	@mark()
+	# 	JSON.stringify @
+
+	deserialize : (obj,classes) ->
+		print 'deserialize',obj
+		if _.isNull(obj) then return null
+		if _.isNumber(obj) then return obj
+		if _.isString(obj) then return obj
+		if _.isObject(obj)
+			if _.isArray(obj) then return (@deserialize(item,classes) for item in obj) # array
+			if '_type' in _.keys(obj)
+				#print 'deserialize1',obj["_type"]
+				#print 'classes',classes
+				#print 'deserialize2',obj["_type"]
+				#o = _.create eval(obj["_type"]).prototype, {}
+				o = _.create classes[obj["_type"]].prototype, {}
+				#print 'deserialize3 success'
+				for key,value of obj
+					o[key] = @deserialize(value,classes) #if key != '_type'
+				return o
+			else # dict
+				res = {}
+				for key,value of obj
+					res[key] = @deserialize(value,classes)
+				return res
+		print 'ERROR'
+
+	store : ->
 		_name = chapter + "/" + exercise + "/" + @_name
+		@mark()
 		obj = JSON.stringify @
+		print 'store', obj
 		localStorage.setItem _name, obj
 		fillTable chapter + "/" + exercise + "/a", chapter + "/" + exercise + "/b"
- 
-	draw : -> 
-		textSize 32
-		textAlign CENTER,CENTER
-		fc 1,1,0
-		text "Define draw!",100,100
 
-	reset : ->
+	# draw : ->
+	# 	textSize 32
+	# 	textAlign CENTER,CENTER
+	# 	fc 1,1,0
+	# 	text "Define draw!",100,100
+
+	reset :  ->
+		print 'reset'
 		for key in _.keys @
 			if key != "_name" then delete @[key]
 
