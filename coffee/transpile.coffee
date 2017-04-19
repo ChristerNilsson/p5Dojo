@@ -33,9 +33,9 @@ clean = (s) -> s.split(' ').join("").split('\t').join("")
 transpile = (code) ->
 	lines = code.split '\n'
 	temp = []
-	for line in lines 
+	for line in lines
 		line = spacesToTabs line
 		tabs = tabcount line
 		if clean(line).length > 0 then temp.push line
 	code = temp.join '\n'
-	CoffeeScript.compile code
+	CoffeeScript.compile code, {bare: true}

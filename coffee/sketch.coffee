@@ -291,9 +291,8 @@ editor_change = ->
 
 run0 = ->
 	if exercise=="" then return
-	b = myCodeMirror.getValue()
-	data[chapter][exercise]["b"] = b
-	run 0, b + "\n" + call
+	data[chapter][exercise]["b"] = myCodeMirror.getValue()
+	run 0, data[chapter][exercise]["b"] + "\n" + call
 
 run1 = ->
 	if exercise=="" then return
@@ -324,6 +323,7 @@ run = (_n, coffee) ->
 
 	try
 		code = transpile coffee
+
 		try
 			eval code
 			buffer[1-_n] = store()

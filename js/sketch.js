@@ -416,13 +416,11 @@ editor_change = function() {
 };
 
 run0 = function() {
-  var b;
   if (exercise === "") {
     return;
   }
-  b = myCodeMirror.getValue();
-  data[chapter][exercise]["b"] = b;
-  return run(0, b + "\n" + call);
+  data[chapter][exercise]["b"] = myCodeMirror.getValue();
+  return run(0, data[chapter][exercise]["b"] + "\n" + call);
 };
 
 run1 = function() {

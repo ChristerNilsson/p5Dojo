@@ -76,5 +76,7 @@ transpile = function(code) {
     }
   }
   code = temp.join('\n');
-  return CoffeeScript.compile(code);
+  return CoffeeScript.compile(code, {
+    bare: true
+  });
 };
