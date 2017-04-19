@@ -286,8 +286,7 @@ editor_change = ->
 	dce = data[chapter][exercise]
 	run1() if dce and dce["a"] and _.size(dce["a"].c) > 0
 	run0()
-	#if msg.val() == '' then compare('editor_change')
-	compare('editor_change')
+	compare 'editor_change'
 
 run0 = ->
 	if exercise=="" then return
@@ -384,10 +383,8 @@ class Application
 
 	constructor : (@_name='b') ->
 
-		res = {}
-		for klass in @classes()
-			res[klass.name] = klass
-		classes = res
+		classes = {}
+		classes[klass.name] = klass for klass in @classes()
 
 		_name = chapter + "/" + exercise + "/" + @_name
 		obj = localStorage.getItem _name
@@ -411,7 +408,7 @@ class Application
 			if _.isArray(obj) then return (@deserialize(item,classes) for item in obj) # array
 			if '_type' in _.keys(obj)
 				if classes[obj["_type"]] == undefined
-					print "Please reference " + obj["_type"] + " in constructor of Application"
+					print "Please define classes : -> [" + obj["_type"] + "] in your Application"
 					return
 				o = _.create classes[obj["_type"]].prototype, {}
 				for key,value of obj

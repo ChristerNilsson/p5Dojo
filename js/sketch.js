@@ -539,15 +539,14 @@ compare = function(message) {
 
 Application = (function() {
   function Application(_name1) {
-    var _name, classes, key, klass, l, len, obj, ref, ref1, res, value;
+    var _name, classes, key, klass, l, len, obj, ref, ref1, value;
     this._name = _name1 != null ? _name1 : 'b';
-    res = {};
+    classes = {};
     ref = this.classes();
     for (l = 0, len = ref.length; l < len; l++) {
       klass = ref[l];
-      res[klass.name] = klass;
+      classes[klass.name] = klass;
     }
-    classes = res;
     _name = chapter + "/" + exercise + "/" + this._name;
     obj = localStorage.getItem(_name);
     if (obj) {
@@ -609,7 +608,7 @@ Application = (function() {
       }
       if (indexOf.call(_.keys(obj), '_type') >= 0) {
         if (classes[obj["_type"]] === void 0) {
-          print("Please reference " + obj["_type"] + " in constructor of Application");
+          print("Please define classes : -> [" + obj["_type"] + "] in your Application");
           return;
         }
         o = _.create(classes[obj["_type"]].prototype, {});
