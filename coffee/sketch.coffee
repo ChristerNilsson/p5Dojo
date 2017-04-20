@@ -14,9 +14,13 @@ gap = 0
 block = 0
 buffer = [[],[],[]]
 
-setMsg = (txt) ->
-	msg.val txt
-	msg.css 'background-color', if txt == '' then '#FFFFFF' else '#FF0000'
+setMsg = (e,nr) ->
+	if e != ''
+		arr = e.stack.split '\n'
+		msg.val e.name + ': ' + e.message + arr[1].split('(')[0] + if nr==1 then "in a"
+	else
+		msg.val ""
+	msg.css 'background-color', if e == '' then '#FFFFFF' else '#FF0000'
 
 grid = ->
 	push()
@@ -140,8 +144,8 @@ sel1click = (sel) -> sel2.show()
 sel2click = (sel) -> if sel.value=='BACK' then $("#sel2").hide()
 sel3click = (sel) ->
 	if calls? then call = calls[sel.value]
-	run1()
-	run0()
+	if run1() == true
+		run0()
 	#myCodeMirror.focus()
 	compare('sel3click')
 
@@ -154,10 +158,10 @@ mousePressed = ->
 		if dict?
 			objekt = _.keys(dict)[0]
 			call = objekt + ".mousePressed(#{p[0]},#{p[1]}); " + objekt + ".draw(); " + objekt + ".store()"
-			run1()
-			run0()
-			#myCodeMirror.focus()
-			compare('mousePressed')
+			if run1() == true
+				run0()
+				#myCodeMirror.focus()
+				compare('mousePressed')
 
 setLinks = ->
 	linksClear()
@@ -173,7 +177,6 @@ setLinks = ->
 		linkAppend links,link,text
 
 linksClear = -> $("#links tr").remove()
-
 
 linkAppend = (t, link, text) -> # exakt en kolumn
 	d = (s) -> "'" + s + "'"
@@ -284,7 +287,9 @@ editor_change = ->
 	else # transpile, draw
 		call = calls["draw()"]
 	dce = data[chapter][exercise]
-	run1() if dce and dce["a"] and _.size(dce["a"].c) > 0
+	if dce and dce["a"] and _.size(dce["a"].c) > 0
+		if run1() == false # bör normalt vara true
+			return
 	run0()
 	compare 'editor_change'
 
@@ -309,16 +314,15 @@ reset = ->
 	grid()
 
 run = (_n, coffee) ->
-	#start = millis()
 	resetMatrix()
 	rectMode CORNER
 	push()
 	translate 5,5
 	reset()
 
-	setMsg ""
+	setMsg "", _n
 
-	if exercise=="" then return
+	if exercise=="" then return true
 
 	try
 		code = transpile coffee
@@ -326,15 +330,15 @@ run = (_n, coffee) ->
 		try
 			eval code
 			buffer[1-_n] = store()
+			pop()
+			return true
 		catch e
-			setMsg e.stack.split('\n')[0]
-		pop()
-		#print n,millis()-start
-		return true
+			setMsg e, _n
+			pop()
+			return false
 	catch e
+		setMsg e, _n
 		pop()
-		setMsg e.name + ": " + e.message
-		#print n,millis()-start
 		return false
 
 store = ->

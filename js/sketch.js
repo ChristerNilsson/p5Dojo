@@ -26,9 +26,15 @@ block = 0;
 
 buffer = [[], [], []];
 
-setMsg = function(txt) {
-  msg.val(txt);
-  return msg.css('background-color', txt === '' ? '#FFFFFF' : '#FF0000');
+setMsg = function(e, nr) {
+  var arr;
+  if (e !== '') {
+    arr = e.stack.split('\n');
+    msg.val(e.name + ': ' + e.message + arr[1].split('(')[0] + (nr === 1 ? "in a" : void 0));
+  } else {
+    msg.val("");
+  }
+  return msg.css('background-color', e === '' ? '#FFFFFF' : '#FF0000');
 };
 
 grid = function() {
@@ -209,8 +215,9 @@ sel3click = function(sel) {
   if (calls != null) {
     call = calls[sel.value];
   }
-  run1();
-  run0();
+  if (run1() === true) {
+    run0();
+  }
   return compare('sel3click');
 };
 
@@ -228,9 +235,10 @@ mousePressed = function() {
     if (dict != null) {
       objekt = _.keys(dict)[0];
       call = objekt + (".mousePressed(" + p[0] + "," + p[1] + "); ") + objekt + ".draw(); " + objekt + ".store()";
-      run1();
-      run0();
-      return compare('mousePressed');
+      if (run1() === true) {
+        run0();
+        return compare('mousePressed');
+      }
     }
   }
 };
@@ -409,7 +417,9 @@ editor_change = function() {
   }
   dce = data[chapter][exercise];
   if (dce && dce["a"] && _.size(dce["a"].c) > 0) {
-    run1();
+    if (run1() === false) {
+      return;
+    }
   }
   run0();
   return compare('editor_change');
@@ -449,25 +459,27 @@ run = function(_n, coffee) {
   push();
   translate(5, 5);
   reset();
-  setMsg("");
+  setMsg("", _n);
   if (exercise === "") {
-    return;
+    return true;
   }
   try {
     code = transpile(coffee);
     try {
       eval(code);
       buffer[1 - _n] = store();
+      pop();
+      return true;
     } catch (error) {
       e = error;
-      setMsg(e.stack.split('\n')[0]);
+      setMsg(e, _n);
+      pop();
+      return false;
     }
-    pop();
-    return true;
   } catch (error) {
     e = error;
+    setMsg(e, _n);
     pop();
-    setMsg(e.name + ": " + e.message);
     return false;
   }
 };
