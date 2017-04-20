@@ -376,6 +376,63 @@ app = new Korg "a"
 	c:
 		app : "reset()|more()|less()|thinner()|thicker()"
 
+ID207 = # BlackBox2D :
+	b:"""
+# LOC:33 bg sc fc range # line [] length * / // % ** & | ^ ~ << >> + - > < toString
+#        for in if then else text textSize class extends constructor new @ super ->
+
+class BlackBox2D extends Application
+	reset : ->
+		super
+	up : ->
+	down : ->
+	base : (n) ->
+	draw : ->
+	mousePressed : (mx,my) ->
+		@lst = [mx,my]
+app = new BlackBox2D
+"""
+	a:"""
+class BlackBox2D extends Application
+	reset : () ->
+		super
+		@n = 10
+		@size = 200/@n
+		@level = 0
+		@bas = 10
+		@lst = []
+	up : -> @level += 1 #if @level < @lst.length-1
+	down : -> @level -= 1 #if @level > 0
+	base : (n) -> @bas = n
+	gr : ->
+		sc 1
+		for i in range @n
+			line 0, @size * i, 200, @size * i
+		for i in range @n+1
+			line @size * i, 0, @size * i, 180
+	draw : ->
+		bg 0.5
+		@gr()
+		if @lst.length != 0
+			fc 1,1,0
+			sc()
+			textSize 24
+			text @lst[@level].toString(@bas), 5,199
+	fix : (i,j) -> if j == 0 then ['NaN','NaN'] else [i//j, i%j]
+	mousePressed : (mx,my) ->
+		[i,j] = [int(mx/@size), int(my/@size)]
+		[@x,@y] = [mx,my]
+		[@i,@j] = [i,j]
+		[a,b] = @fix i,j
+		[c,d] = @fix j,i
+		@lst = [mx,my,i,j,i+j,i-j,j-i,i-1,i+1,j-1,j+1,j*@n+i,i*@n+j,(@n-i)*@n+@n-j,(@n-j)*@n+@n-i,i*j,i*i+j*j,i**j,j**i,a,b,c,d,j&i,i|j,i^j,~i,~j,i<<j,j<<i,i>>j,j>>i,i&(2**j),j&(2**i)]
+
+app = new BlackBox2D "a"
+"""
+	c:
+		app : "reset()|up()|down()|base 2|base 10|base 16"
+	e:
+		Wikipedia : "https://en.wikipedia.org/wiki/Black_box"
 
 ID209 = # ColorCube:
 	b: """
