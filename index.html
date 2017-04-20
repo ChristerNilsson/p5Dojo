@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="lib/codemirror/theme/dracula.css">
     <script src="lib/codemirror/mode/coffeescript/coffeescript.js"></script>
 
-    <script src="ord4-9.js"></script>
     <script src="js/data/L .js"></script>
     <script src="js/data/L0.js"></script>
     <script src="js/data/L1.js"></script>
@@ -36,14 +35,16 @@
     <script src="js/data/LD.js"></script>
     <script src="js/data/data.js"></script>
 
+    <script src="js/application.js"></script>
     <script src="js/nilsson.js"></script>
     <script src="js/rubikSquareData.js"></script>
-    <script src="js/transpile.js"></script>
     <script src="js/sketch.js"></script>
+    <script src="js/transpile.js"></script>
+    <script src="ord4-9.js"></script>
 
-    <style> 
-        body {padding: 0; margin: 0;} 
-        canvas {vertical-align: top;} 
+    <style>
+        body {padding: 0; margin: 0;}
+        canvas {vertical-align: top;}
         th, td {padding: 2px;}
         a:link {color: #000000; text-decoration: none; font-family: Arial, Helvetica, sans-serif;}
         a:hover {color: #FFFF00;}
@@ -54,15 +55,15 @@
   <body bgcolor="#808080">
     <textarea id="code" wrap="soft"></textarea>
     <textarea id="msg" rows=1 wrap="soft" readonly style="font-size:20px; color:#FFFFFF; position:absolute; top:640px; left:415px; width:700px;"></textarea>
-    <table id="links" style="font-family:monospace; font-size:18px; position:absolute; top:670px; left:5px;" border="0px"></table>    
+    <table id="links" style="font-family:monospace; font-size:18px; position:absolute; top:670px; left:5px;" border="0px"></table>
     <div id="canvas" style="position:absolute; top:5px; left:210px; width:211px; height:635px"></div>
     <input type="text" id='input' onClick="this.select();" style="font-family:monospace; font-size:18px; position:absolute; top:640px; left:5px; width:403px">
-    <select onclick ="sel1click(this);" onchange="sel1change(this);" id='sel1' size="24" 
+    <select onclick ="sel1click(this);" onchange="sel1change(this);" id='sel1' size="24"
             style="position: absolute; top:5px; left:5px; width:195px"></select>
-    <select onclick ="sel2click(this);" onchange="sel2change(this);" id='sel2' size="24" 
+    <select onclick ="sel2click(this);" onchange="sel2change(this);" id='sel2' size="24"
             style="position: absolute; top:15px; left:25px; width:180px"></select>
-    <select onclick ="sel3click(this);" onchange="sel3change(this);" id='sel3' size="12" 
+    <select onclick ="sel3click(this);" onchange="sel3change(this);" id='sel3' size="12"
             style="position: absolute; top:425px; left:5px; width:200px"></select>
-    <table id="tabell" style="font-family:monospace; font-size:20px; position:absolute; top:670px; left:209px;" border="0px"></table>   
+    <table id="tabell" style="font-family:monospace; font-size:20px; position:absolute; top:670px; left:209px;" border="0px"></table>
   </body>
 </html>

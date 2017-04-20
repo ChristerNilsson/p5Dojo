@@ -528,7 +528,7 @@ app = new ColorPair "a"
 
 ID228 = # GameOfLife
 	b:"""
-# LOC:39 bg range # for in [] push Array fill * / + - == != < <= ++
+# LOC:36 bg range # for in [] push Array fill * / + - == != < <= ++
 #        if then and or int class extends constructor new @ super ->
 
 class GameOfLife extends Application
@@ -576,10 +576,7 @@ class GameOfLife extends Application
 		i = int mx/@size
 		j = int my/@size
 		key = i+' '+j
-		if @matrix[key] == '*'
-			@matrix[key] = undefined
-		else
-			@matrix[key] = '*'
+		@matrix[key] = if @matrix[key] == '*' then undefined else '*'
 
 app = new GameOfLife "a"
 
