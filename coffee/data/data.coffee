@@ -4,8 +4,8 @@
 # e : links
 
 data =
-	Nyheter : 
-		nyheter : IDL00 
+	Nyheter :
+		nyheter : IDL00
 		Asserts : IDL01
 		LinesOfCode : IDL02
 
@@ -27,7 +27,7 @@ data =
 		hypnoticA : ID014
 		hypnoticB : ID015
 
-	"L1: bg point sc sw" : 
+	"L1: bg point sc sw" :
 		Background1 : ID020
 		Background2 : ID021
 		Background3 : ID022
@@ -41,7 +41,7 @@ data =
 		Diagonal2 : ID031
 		CornerPoints3 : ID028
 
-	"L2: circle fc text" : 
+	"L2: circle fc text" :
 		Dices : ID040
 		WhiteCircle : ID042
 		WhiteEmptyCircle : ID043
@@ -62,7 +62,7 @@ data =
 		TwoArcs : ID067
 		PacMan : ID068
 
-	"L4: for rect circle" : 
+	"L4: for rect circle" :
 		HorizontalSquares : ID080
 		VerticalSquares : ID081
 		DiagonalSquares : ID082
@@ -134,6 +134,7 @@ data =
 
 	"LB: interactivity, medium" :
 		Korsord : ID220
+		GameOfLife : ID228
 		EngineeringNotation : ID221
 		Connect4 : ID222
 		SpaceShip : ID223
@@ -158,3 +159,4 @@ data =
 		RushHour : ID263
 		Nand2TetrisALU : ID262
 		Complex : ID266
+

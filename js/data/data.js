@@ -132,6 +132,7 @@ data = {
   },
   "LB: interactivity, medium": {
     Korsord: ID220,
+    GameOfLife: ID228,
     EngineeringNotation: ID221,
     Connect4: ID222,
     SpaceShip: ID223,

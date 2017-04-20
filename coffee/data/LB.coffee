@@ -525,3 +525,66 @@ app = new ColorPair "a"
 		app : "reset()|enterName()"
 	e:
 		ColorPair : "https://christernilsson.github.io/ColorPair"
+
+ID228 = # GameOfLife
+	b:"""
+# LOC:39 bg range # for in [] push Array fill * / + - == != < <= ++
+#        if then and or int class extends constructor new @ super ->
+
+class GameOfLife extends Application
+	reset : (n) ->
+		super
+	draw : ->
+	mousePressed : (mx,my) ->
+	nextGeneration : ->
+app = new GameOfLife
+
+"""
+	a:"""
+class GameOfLife extends Application
+	reset : (n) ->
+		super
+		@n = n
+		@size = 200/@n
+		@matrix = {}
+		for [i,j] in [[2,0],[2,1],[2,2],[1,2],[0,1]]
+			@matrix[i+' '+j] = '*'
+	draw : ->
+		bg 0.5
+		for i in range @n
+			for j in range @n
+				if @matrix[i+' '+j]=='*'
+					rect @size*i, @size*j, @size, @size
+	count : (x,y) ->
+		res = 0
+		for i in [-1,0,1]
+			for j in [-1,0,1]
+				res++ if @matrix[(x+i) %% @n+' '+(y+j) %% @n]=='*' and (i!=0 or j!=0)
+		res
+	nextGeneration : ->
+		m = {}
+		for i in range @n
+			for j in range @n
+				c = @count(i,j)
+				key = i+' '+j
+				if @matrix[key] == '*'
+					if 2 <= c <= 3 then m[key]='*'
+				else
+					if c==3 then m[key]='*'
+		@matrix = m
+	mousePressed : (mx,my) ->
+		i = int mx/@size
+		j = int my/@size
+		key = i+' '+j
+		if @matrix[key] == '*'
+			@matrix[key] = undefined
+		else
+			@matrix[key] = '*'
+
+app = new GameOfLife "a"
+
+"""
+	c:
+		app : "reset 10|reset 20|reset 40|nextGeneration()"
+	e:
+		Wikipedia : "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
