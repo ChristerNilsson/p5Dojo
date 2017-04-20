@@ -401,8 +401,8 @@ class BlackBox2D extends Application
 		@level = 0
 		@bas = 10
 		@lst = []
-	up : -> @level += 1 #if @level < @lst.length-1
-	down : -> @level -= 1 #if @level > 0
+	up : -> @level++
+	down : -> @level--
 	base : (n) -> @bas = n
 	gr : ->
 		sc 1
@@ -425,7 +425,7 @@ class BlackBox2D extends Application
 		[@i,@j] = [i,j]
 		[a,b] = @fix i,j
 		[c,d] = @fix j,i
-		@lst = [mx,my,i,j,i+j,i-j,j-i,i-1,i+1,j-1,j+1,j*@n+i,i*@n+j,(@n-i)*@n+@n-j,(@n-j)*@n+@n-i,i*j,i*i+j*j,i**j,j**i,a,b,c,d,j&i,i|j,i^j,~i,~j,i<<j,j<<i,i>>j,j>>i,i&(2**j),j&(2**i)]
+		@lst = [mx,my,i,j,i+j,i-j,j-i,i-1,i+1,j-1,j+1,j*@n+i,i*@n+j,(@n-i)*@n+@n-j,(@n-j)*@n+@n-i,i*j,i*i+j*j,i**j,j**i,a,b,c,d,i%2,j%2,(i+j)%2,j&i,i|j,i^j,~i,~j,i<<j,j<<i,i>>j,j>>i,i&(2**j),j&(2**i)]
 
 app = new BlackBox2D "a"
 """
