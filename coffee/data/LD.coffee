@@ -389,6 +389,61 @@ app = new RushHour "a"
 	e:
 		RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
 
+ID264 = # BlackBox2D :
+	b:"""
+# LOC:32 bg sc fc range # line [] length * / // % ** & | ^ ~ << >> + - > < == != <= >= int
+#        toString for in if then else text textSize class extends constructor new @ super ->
+
+class BlackBox2D extends Application
+	reset : ->
+		super
+	up : ->
+	down : ->
+	base : (n) ->
+	draw : ->
+	mousePressed : (mx,my) ->
+app = new BlackBox2D
+"""
+	a:"""
+class BlackBox2D extends Application
+	reset : () ->
+		super
+		@index = 0
+		@bas = 10
+		[@i,@j] = [0,0]
+		@result = 0
+	base : (n) -> @bas = n
+	up   : -> @index = (@index+1) %% 41
+	down : -> @index = (@index-1) %% 41
+	draw : ->
+		@calc()
+		bg 0.5
+		@gr()
+		fc 1,1,0
+		sc()
+		textSize 24
+		text @result.toString(@bas), 5,199
+	fix : (i,j) -> if j == 0 then ['NaN','NaN'] else [i//j, i%j]
+	gr : ->
+		sc 1
+		line 0, 20 * i, 200, 20 * i for i in range 11
+		line 20 * i, 0, 20 * i, 200 for i in range 11
+	calc : ->
+		n = 10
+		[i,j] = [@i,@j]
+		[a,b] = @fix i,j
+		[c,d] = @fix j,i
+		@result = [i,j,i+j,i-j,j-i,i-1,i+1,j-1,j+1,j*n+i,i*n+j,(n-i)*n+n-j,(n-j)*n+n-i,i*j,i*i+j*j,i**j,j**i,a,b,c,d,i%2,j%2,(i+j)%2,j&i,i|j,i^j,~i,~j,i<<j,j<<i,i>>j,j>>i,i&(2**j),j&(2**i),i==j,i!=j,i<j,i>j,i<=j,i>=j][@index]
+	mousePressed : (mx,my) ->
+		@i = int mx/20
+		@j = int my/20
+
+app = new BlackBox2D "a"
+"""
+	c:
+		app : "reset()|up()|down()|base 2|base 10|base 16"
+	e:
+		Wikipedia : "https://en.wikipedia.org/wiki/Black_box"
 
 ID265 = # Shortcut
 	b:"""

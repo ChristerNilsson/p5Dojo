@@ -128,8 +128,7 @@ data = {
     Alphanumeric: ID205,
     ColorCube: ID209,
     Korg: ID206,
-    GoldenStar: ID203,
-    BlackBox2D: ID207
+    GoldenStar: ID203
   },
   "LB: interactivity, medium": {
     Korsord: ID220,
@@ -156,6 +155,7 @@ data = {
     ChessGame: ID261,
     Shortcut: ID265,
     RushHour: ID263,
+    BlackBox2D: ID264,
     Nand2TetrisALU: ID262,
     Complex: ID266
   }
