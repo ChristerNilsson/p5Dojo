@@ -378,57 +378,52 @@ app = new Korg "a"
 
 ID207 = # BlackBox2D :
 	b:"""
-# LOC:33 bg sc fc range # line [] length * / // % ** & | ^ ~ << >> + - > < toString int
-#        for in if then else text textSize class extends constructor new @ super ->
+# LOC:32 bg sc fc range # line [] length * / // % ** & | ^ ~ << >> + - > < == != <= >= int
+#        toString for in if then else text textSize class extends constructor new @ super ->
 
 class BlackBox2D extends Application
 	reset : ->
 		super
-		@size=20
 	up : ->
 	down : ->
 	base : (n) ->
 	draw : ->
 	mousePressed : (mx,my) ->
-		i = int mx/@size
-		@lst = [i]
 app = new BlackBox2D
 """
 	a:"""
 class BlackBox2D extends Application
+	reset : () ->
+		super
+		@index = 0
+		@bas = 10
+		[@i,@j] = [0,0]
+		@result = 0
 	base : (n) -> @bas = n
-	down : -> @level-- if @level > 0
+	up   : -> @index = (@index+1) %% 41
+	down : -> @index = (@index-1) %% 41
 	draw : ->
+		@calc()
 		bg 0.5
 		@gr()
-		if @lst.length != 0
-			fc 1,1,0
-			sc()
-			textSize 24
-			text @lst[@level].toString(@bas), 5,199
-		@result = @lst[@level]
+		fc 1,1,0
+		sc()
+		textSize 24
+		text @result.toString(@bas), 5,199
 	fix : (i,j) -> if j == 0 then ['NaN','NaN'] else [i//j, i%j]
 	gr : ->
 		sc 1
-		for i in range @n+1
-			line 0, @size * i, 200, @size * i
-		for i in range @n+1
-			line @size * i, 0, @size * i, 200
-	mousePressed : (mx,my) ->
-		[i,j] = [int(mx/@size), int(my/@size)]
-		[@x,@y] = [mx,my]
-		[@i,@j] = [i,j]
+		line 0, 20 * i, 200, 20 * i for i in range 11
+		line 20 * i, 0, 20 * i, 200 for i in range 11
+	calc : ->
+		n = 10
+		[i,j] = [@i,@j]
 		[a,b] = @fix i,j
 		[c,d] = @fix j,i
-		@lst = [i,j,mx,my,i+j,i-j,j-i,i-1,i+1,j-1,j+1,j*@n+i,i*@n+j,(@n-i)*@n+@n-j,(@n-j)*@n+@n-i,i*j,i*i+j*j,i**j,j**i,a,b,c,d,i%2,j%2,(i+j)%2,j&i,i|j,i^j,~i,~j,i<<j,j<<i,i>>j,j>>i,i&(2**j),j&(2**i)]
-	reset : () ->
-		super
-		@n = 10
-		@size = 200/@n
-		@level = 0
-		@bas = 10
-		@lst = []
-	up : -> @level++
+		@result = [i,j,i+j,i-j,j-i,i-1,i+1,j-1,j+1,j*n+i,i*n+j,(n-i)*n+n-j,(n-j)*n+n-i,i*j,i*i+j*j,i**j,j**i,a,b,c,d,i%2,j%2,(i+j)%2,j&i,i|j,i^j,~i,~j,i<<j,j<<i,i>>j,j>>i,i&(2**j),j&(2**i),i==j,i!=j,i<j,i>j,i<=j,i>=j][@index]
+	mousePressed : (mx,my) ->
+		@i = int mx/20
+		@j = int my/20
 
 app = new BlackBox2D "a"
 """
