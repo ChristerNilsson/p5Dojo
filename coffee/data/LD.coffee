@@ -389,9 +389,11 @@ app = new RushHour "a"
 	e:
 		RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
 
+
+
 ID264 = # BlackBox2D :
 	b:"""
-# LOC:32 bg sc fc range # line [] length * / // % ** & | ^ ~ << >> + - > < == != <= >= int
+# LOC:58 bg sc fc range # line [] length * / // % ** & | ^ ~ << >> + - > < == != <= >= int and or
 #        toString for in if then else text textSize class extends constructor new @ super ->
 
 class BlackBox2D extends Application
@@ -399,9 +401,7 @@ class BlackBox2D extends Application
 		super
 	up : ->
 	down : ->
-	base : (n) ->
 	draw : ->
-	mousePressed : (mx,my) ->
 app = new BlackBox2D
 """
 	a:"""
@@ -409,39 +409,55 @@ class BlackBox2D extends Application
 	reset : () ->
 		super
 		@index = 0
-		@bas = 10
-		[@i,@j] = [0,0]
-		@result = 0
-	base : (n) -> @bas = n
-	up   : -> @index = (@index+1) %% 41
-	down : -> @index = (@index-1) %% 41
+	up   : -> @index = (@index+1) %% 49
+	down : -> @index = (@index-1) %% 49
 	draw : ->
-		@calc()
 		bg 0.5
 		@gr()
 		fc 1,1,0
 		sc()
-		textSize 24
-		text @result.toString(@bas), 5,199
+		textSize 16
+		textAlign CENTER,CENTER
+		n = 10
+		for i in range n
+			for j in range n
+				res = @calc(i,j).toString()
+				if res=='true'
+					fc 0,1,0
+					circle 10+20*i, 10+20*j+1, 5
+				else if res=='false'
+					fc 1,0,0
+					circle 10+20*i, 10+20*j+1, 5
+				else if res=='NaN'
+					fc 1,1,0
+					text '?', 10+20*i, 10+20*j+1
+				else if res.length>2
+					fc 1,1,0
+					text '..', 10+20*i, 10+20*j+1
+				else
+					fc 1,1,0
+					text res, 10+20*i, 10+20*j+1
 	fix : (i,j) -> if j == 0 then ['NaN','NaN'] else [i//j, i%j]
 	gr : ->
 		sc 1
 		line 0, 20 * i, 200, 20 * i for i in range 11
 		line 20 * i, 0, 20 * i, 200 for i in range 11
-	calc : ->
+	calc : (i,j) ->
 		n = 10
-		[i,j] = [@i,@j]
 		[a,b] = @fix i,j
 		[c,d] = @fix j,i
-		@result = [i,j,i+j,i-j,j-i,i-1,i+1,j-1,j+1,j*n+i,i*n+j,(n-i)*n+n-j,(n-j)*n+n-i,i*j,i*i+j*j,i**j,j**i,a,b,c,d,i%2,j%2,(i+j)%2,j&i,i|j,i^j,~i,~j,i<<j,j<<i,i>>j,j>>i,i&(2**j),j&(2**i),i==j,i!=j,i<j,i>j,i<=j,i>=j][@index]
-	mousePressed : (mx,my) ->
-		@i = int mx/20
-		@j = int my/20
+		r = [i, j, i+j, i-j, j-i, i-1, i+1, j-1, j+1]
+		r = r.concat [j*n+i, i*n+j, (n-1-i)*n+n-1-j, (n-1-j)*n+n-1-i]
+		r = r.concat [i*j, i*i+j*j, i**j, j**i, a, b, c, d, i%2, j%2, (i+j)%2]
+		r = r.concat [j&i, i|j, i^j, ~i, ~j, i<<j, j<<i, i>>j, j>>i, i&(2**j), j&(2**i)]
+		r = r.concat [i==j, i-j==1, i+j==9, i!=j, i>5, i<j, i>j, i<=j, i>=j, i==3 and j==6, i==3 or j==6]
+		r = r.concat [(2<i<7) and (1<j<7), 4 <= dist(4.5,4.5,i,j) < 5, (i+j)%2==1]
+		r[@index]
 
 app = new BlackBox2D "a"
 """
 	c:
-		app : "reset()|up()|down()|base 2|base 10|base 16"
+		app : "reset()|up()|down()"
 	e:
 		Wikipedia : "https://en.wikipedia.org/wiki/Black_box"
 
