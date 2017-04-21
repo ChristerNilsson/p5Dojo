@@ -528,7 +528,7 @@ app = new ColorPair "a"
 
 ID228 = # GameOfLife
 	b:"""
-# LOC:36 bg range # for in [] push Array fill * / + - == != < <= ++
+# LOC:40 bg range # for in [] push Array fill * / + - == != < <= ++
 #        if then and or int class extends constructor new @ super ->
 
 class GameOfLife extends Application
@@ -547,36 +547,40 @@ class GameOfLife extends Application
 		@n = n
 		@size = 200/@n
 		@matrix = {}
-		for [i,j] in [[2,0],[2,1],[2,2],[1,2],[0,1]]
-			@matrix[i+' '+j] = '*'
+		@generation = 0
+		for [i,j] in [[0,0],[2,0],[1,1],[2,1],[1,2]]
+			@matrix[i+100*j] = 1
 	draw : ->
 		bg 0.5
 		for i in range @n
 			for j in range @n
-				if @matrix[i+' '+j]=='*'
+				if @matrix[i+100*j]==1
 					rect @size*i, @size*j, @size, @size
 	count : (x,y) ->
 		res = 0
-		for i in [-1,0,1]
-			for j in [-1,0,1]
-				res++ if @matrix[(x+i) %% @n+' '+(y+j) %% @n]=='*' and (i!=0 or j!=0)
+		for dx in [-1,0,1]
+			for dy in [-1,0,1]
+				i = (x+dx) %% @n
+				j = (y+dy) %% @n
+				res++ if @matrix[i+100*j]==1 and (dx!=0 or dy!=0)
 		res
 	nextGeneration : ->
+		@generation++
 		m = {}
 		for i in range @n
 			for j in range @n
 				c = @count(i,j)
-				key = i+' '+j
-				if @matrix[key] == '*'
-					if 2 <= c <= 3 then m[key]='*'
+				key = i+100*j
+				if @matrix[key] == 1
+					if 2 <= c <= 3 then m[key]=1
 				else
-					if c==3 then m[key]='*'
+					if c==3 then m[key]=1
 		@matrix = m
 	mousePressed : (mx,my) ->
 		i = int mx/@size
 		j = int my/@size
-		key = i+' '+j
-		@matrix[key] = if @matrix[key] == '*' then undefined else '*'
+		key = i+100*j
+		@matrix[key] = if @matrix[key] == 1 then undefined else 1
 
 app = new GameOfLife "a"
 
