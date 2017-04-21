@@ -393,7 +393,7 @@ app = new RushHour "a"
 
 ID264 = # BlackBox2D :
 	b:"""
-# LOC:58 bg sc fc range # line [] length * / // % ** & | ^ ~ << >> + - > < == != <= >= int and or
+# LOC:51 bg sc fc range # line [] length * / // % ** & | ^ ~ << >> + - > < == != <= >= int and or
 #        toString for in if then else text textSize class extends constructor new @ super ->
 
 class BlackBox2D extends Application
@@ -409,6 +409,8 @@ class BlackBox2D extends Application
 	reset : () ->
 		super
 		@index = 0
+		@N = 10
+		@SIZE = 20
 	up   : -> @index = (@index+1) %% 49
 	down : -> @index = (@index-1) %% 49
 	draw : ->
@@ -418,32 +420,33 @@ class BlackBox2D extends Application
 		sc()
 		textSize 16
 		textAlign CENTER,CENTER
-		n = 10
-		for i in range n
-			for j in range n
+		for i in range @N
+			for j in range @N
+				x = @SIZE/2 + @SIZE*i
+				y = @SIZE/2 + @SIZE*j + 1
 				res = @calc(i,j).toString()
 				if res=='true'
 					fc 0,1,0
-					circle 10+20*i, 10+20*j+1, 5
+					circle x,y, 5
 				else if res=='false'
 					fc 1,0,0
-					circle 10+20*i, 10+20*j+1, 5
+					circle x,y, 5
 				else if res=='NaN'
 					fc 1,1,0
-					text '?', 10+20*i, 10+20*j+1
+					text '?', x,y
 				else if res.length>2
 					fc 1,1,0
-					text '..', 10+20*i, 10+20*j+1
+					text '..', x,y
 				else
 					fc 1,1,0
-					text res, 10+20*i, 10+20*j+1
+					text res, x,y
 	fix : (i,j) -> if j == 0 then ['NaN','NaN'] else [i//j, i%j]
 	gr : ->
 		sc 1
-		line 0, 20 * i, 200, 20 * i for i in range 11
-		line 20 * i, 0, 20 * i, 200 for i in range 11
+		line 0, @SIZE * i, 200, @SIZE * i for i in range @N+1
+		line @SIZE * i, 0, @SIZE * i, 200 for i in range @N+1
 	calc : (i,j) ->
-		n = 10
+		n = @N
 		[a,b] = @fix i,j
 		[c,d] = @fix j,i
 		r = [i, j, i+j, i-j, j-i, i-1, i+1, j-1, j+1]
