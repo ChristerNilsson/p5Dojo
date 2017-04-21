@@ -393,14 +393,17 @@ app = new RushHour "a"
 
 ID264 = # BlackBox2D :
 	b:"""
-# LOC:51 bg sc fc range # line [] length * / // % ** & | ^ ~ << >> + - > < == != <= >= int and or
-#        toString for in if then else text textSize class extends constructor new @ super ->
+# LOC:33 bg sc fc range # line [] length * / // % ** & | ^ ~ << >> + - > < == != <= >= int and or
+#        for in if then else text textSize textAlign class extends constructor new @ super ->
 
 class BlackBox2D extends Application
 	reset : ->
 		super
-	up : ->
-	down : ->
+		@index = 0
+		@N = 10
+		@SIZE = 20
+	up   : -> @index = (@index+1) %% 36
+	down : -> @index = (@index-1) %% 36
 	draw : ->
 app = new BlackBox2D
 """
@@ -411,51 +414,33 @@ class BlackBox2D extends Application
 		@index = 0
 		@N = 10
 		@SIZE = 20
-	up   : -> @index = (@index+1) %% 49
-	down : -> @index = (@index-1) %% 49
+	up   : -> @index = (@index+1) %% 36
+	down : -> @index = (@index-1) %% 36
+	paint : (r,g,b,x,y,txt) ->
+		fc r,g,b
+		if txt? then text txt,x,y else circle x,y,5
 	draw : ->
-		bg 0.5
-		@gr()
-		fc 1,1,0
 		sc()
-		textSize 16
+		textSize 14
 		textAlign CENTER,CENTER
 		for i in range @N
 			for j in range @N
 				x = @SIZE/2 + @SIZE*i
 				y = @SIZE/2 + @SIZE*j + 1
-				res = @calc(i,j).toString()
-				if res=='true'
-					fc 0,1,0
-					circle x,y, 5
-				else if res=='false'
-					fc 1,0,0
-					circle x,y, 5
-				else if res=='NaN'
-					fc 1,1,0
-					text '?', x,y
-				else if res.length>2
-					fc 1,1,0
-					text '..', x,y
-				else
-					fc 1,1,0
-					text res, x,y
+				res = @calc i,j
+				if res == true       then @paint 0,1,0,x,y
+				else if res == false then @paint 1,0,0,x,y
+				else if res == 'NaN' then @paint 1,1,0,x,y,'?'
+				else if res >= 100   then @paint 0,1,0,x,y,'..'
+				else if res <= -100  then @paint 1,0,0,x,y,'..'
+				else if res < 0      then @paint 1,0,0,x,y,-res
+				else if res > 0      then @paint 0,1,0,x,y,res
+				else                      @paint 1,1,0,x,y,res
 	fix : (i,j) -> if j == 0 then ['NaN','NaN'] else [i//j, i%j]
-	gr : ->
-		sc 1
-		line 0, @SIZE * i, 200, @SIZE * i for i in range @N+1
-		line @SIZE * i, 0, @SIZE * i, 200 for i in range @N+1
 	calc : (i,j) ->
 		n = @N
 		[a,b] = @fix i,j
-		[c,d] = @fix j,i
-		r = [i, j, i+j, i-j, j-i, i-1, i+1, j-1, j+1]
-		r = r.concat [j*n+i, i*n+j, (n-1-i)*n+n-1-j, (n-1-j)*n+n-1-i]
-		r = r.concat [i*j, i*i+j*j, i**j, j**i, a, b, c, d, i%2, j%2, (i+j)%2]
-		r = r.concat [j&i, i|j, i^j, ~i, ~j, i<<j, j<<i, i>>j, j>>i, i&(2**j), j&(2**i)]
-		r = r.concat [i==j, i-j==1, i+j==9, i!=j, i>5, i<j, i>j, i<=j, i>=j, i==3 and j==6, i==3 or j==6]
-		r = r.concat [(2<i<7) and (1<j<7), 4 <= dist(4.5,4.5,i,j) < 5, (i+j)%2==1]
-		r[@index]
+		[i, i+j, i-j, i-5, j-6, j*n+i, i*n+j, (n-1-i)*n+n-1-j, (n-1-j)*n+n-1-i, (i-4)*(j-4), i*j, i*i+j*j, i**j, a, b, i%2, (i+j)%2, j&i, i|j, i^j, ~i, i<<j, j>>i, j&(2**i), i==j, i-j==1, i+j==9, i!=j, i>5, i<j, i<=j, i==3 and j==6, i==3 or j==6, (2<i<7) and (1<j<7), 4 <= dist(4.5,4.5,i,j) < 5, (i+j)%2==1][@index]
 
 app = new BlackBox2D "a"
 """
