@@ -399,9 +399,9 @@ ID264 = # BlackBox2D :
 class BlackBox2D extends Application
 	reset : ->
 		super
-		@index = 0
 		@N = 10
 		@SIZE = 20
+		@index = 0
 	up   : -> @index = (@index+1) %% 36
 	down : -> @index = (@index-1) %% 36
 	draw : ->
@@ -411,9 +411,9 @@ app = new BlackBox2D
 class BlackBox2D extends Application
 	reset : () ->
 		super
-		@index = 0
 		@N = 10
 		@SIZE = 20
+		@index = 0
 	up   : -> @index = (@index+1) %% 36
 	down : -> @index = (@index-1) %% 36
 	paint : (r,g,b,x,y,txt) ->
@@ -447,7 +447,8 @@ app = new BlackBox2D "a"
 	c:
 		app : "reset()|up()|down()"
 	e:
-		Wikipedia : "https://en.wikipedia.org/wiki/Black_box"
+		Operatorer : "https://www.w3schools.com/jsref/jsref_operators.asp"
+		BlackBox : "https://en.wikipedia.org/wiki/Black_box"
 
 ID265 = # Shortcut
 	b:"""
