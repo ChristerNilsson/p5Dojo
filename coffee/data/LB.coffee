@@ -536,7 +536,7 @@ class GameOfLife extends Application
 		super
 	draw : ->
 	mousePressed : (mx,my) ->
-	nextGeneration : ->
+	tick : ->
 app = new GameOfLife
 
 """
@@ -547,14 +547,14 @@ class GameOfLife extends Application
 		@n = n
 		@size = 200/@n
 		@matrix = {}
-		@generation = 0
+		@ticks = 0
 		for [i,j] in [[0,0],[2,0],[1,1],[2,1],[1,2]]
-			@matrix[i+100*j] = 1
+			@matrix[i+','+j] = 1
 	draw : ->
 		bg 0.5
 		for i in range @n
 			for j in range @n
-				if @matrix[i+100*j]==1
+				if @matrix[i+','+j]==1
 					rect @size*i, @size*j, @size, @size
 	count : (x,y) ->
 		res = 0
@@ -562,15 +562,15 @@ class GameOfLife extends Application
 			for dy in [-1,0,1]
 				i = (x+dx) %% @n
 				j = (y+dy) %% @n
-				res++ if @matrix[i+100*j]==1 and (dx!=0 or dy!=0)
+				res++ if @matrix[i+','+j]==1 and (dx!=0 or dy!=0)
 		res
-	nextGeneration : ->
-		@generation++
+	tick : ->
+		@ticks++
 		m = {}
 		for i in range @n
 			for j in range @n
 				c = @count(i,j)
-				key = i+100*j
+				key = i+','+j
 				if @matrix[key] == 1
 					if 2 <= c <= 3 then m[key]=1
 				else
@@ -579,13 +579,13 @@ class GameOfLife extends Application
 	mousePressed : (mx,my) ->
 		i = int mx/@size
 		j = int my/@size
-		key = i+100*j
+		key = i+','+j
 		@matrix[key] = if @matrix[key] == 1 then undefined else 1
 
 app = new GameOfLife "a"
 
 """
 	c:
-		app : "reset 10|reset 20|reset 40|nextGeneration()"
+		app : "reset 10|reset 20|reset 40|tick()"
 	e:
 		Wikipedia : "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
