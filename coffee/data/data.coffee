@@ -160,4 +160,5 @@ data =
 		BlackBox2D : ID264
 		Nand2TetrisALU : ID262
 		Complex : ID266
+		RubikCube : ID267
 

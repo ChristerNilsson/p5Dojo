@@ -157,6 +157,7 @@ data = {
     RushHour: ID263,
     BlackBox2D: ID264,
     Nand2TetrisALU: ID262,
-    Complex: ID266
+    Complex: ID266,
+    RubikCube: ID267
   }
 };

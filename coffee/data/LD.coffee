@@ -639,3 +639,150 @@ app = new Complex "a"
 	e:
 		"Komplexa tal" : "http://www.matteboken.se/lektioner/matte-4/komplexa-tal/rakna-med-komplexa-tal"
 
+ID267 = # RubikCube
+	b:"""
+# LOC:127 bg fc sc range # [] push pop concat length if then else constrain for in int quad
+#         text textSize textAlign dist + - * / class extends constructor new @ super ->
+
+class RubikCube extends Application
+	reset : ->
+		super
+	draw : ->
+	mousePressed : (mx,my) ->
+	toggleNumbers : ->
+app = new RubikCube
+"""
+	a:"""
+class RubikCube extends Application
+	newGame : ->
+		@level = @level + if @level==@history.length then 1 else -1
+		@level = constrain @level,0,100
+		@history = []
+		@board = []
+		@memory = -1
+		@board.push i for i in range 54
+		lastSide = -1
+		for i in range @level
+			side = lastSide
+			while lastSide==side
+				side = range(6)[@randint(6)]
+			@op side, [-1,1][@randint(2)]
+			lastSide = side
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	undo : ->
+		if @history.length==0 then return
+		@memory = -1
+		[k,d] = @history.pop()
+		@op k,-d
+	turn : (a,b) -> # a,b in 0..54
+		if int(a/9) != int(b/9) then return
+		d = (a%9 - b%9)/2
+		if d in [-3,3] then d = -d/3
+		if d not in [-1,1] then return
+		k = int a/9
+		@op k,d
+		@history.push [k,d]
+	op : (k,d) -> # 0..5, [-1,1]
+		tiles = [
+			[0,1,42,41,40,   2,3,9,16,15,    4,5,20,19,18,   6,7,31,30,29]
+			[9,10,40,39,38,  11,12,49,48,47, 13,14,22,21,20, 15,16,4,3,2]
+			[18,19,6,5,4,    20,21,15,14,13, 22,23,47,46,45, 24,25,33,32,31]
+			[27,28,36,43,42, 29,30,0,7,6,    31,32,18,25,24, 33,34,45,52,51]
+			[36,37,51,50,49, 38,39,11,10,9,  40,41,2,1,0,    42,43,29,28,27]
+			[45,46,24,23,22, 47,48,13,12,11, 49,50,38,37,36, 51,52,27,34,33]]
+		arr = tiles[k]
+		carr = (@board[i] for i in arr)
+		limit = if d==1 then 5 else 15
+		carr = carr[limit..20].concat carr[0..limit]
+		@board[arr[i]] = carr[i] for i in range 20
+	reset : ->
+		super
+		@board = []
+		@memory = -1
+		@level = -1
+		@history = []
+		@buttons = [[40,140,@level], [160,140,"new"]]
+		@showNumbers = false
+		@seed = 0
+		@newGame()
+	colorize : (index,board) ->
+		k = int board[index] / 9
+		[r,g,b] = [[1,1,1],[0,0,1],[1,0,0],[0,1,0],[0.97, 0.57, 0],[1,1,0]][k]
+		fc r,g,b
+	textColorize : (index,board) -> fc [0,1,1,0,0,0][int board[index] / 9]
+	rita : (x,y,index,tilt,self) ->
+		a = 16
+		b = 9
+		self.colorize index,self.board
+		sc 0
+		if tilt == 0 then quad x-a,y, x,y-b, x+a,y, x,y+b
+		if tilt == 1 then quad x+a/2,y-b/2, x-a/2,y-3*b/2, x-a/2,y+b/2, x+a/2,y+3*b/2
+		if tilt == 2 then quad x-a/2,y-b/2, x+a/2,y-3*b/2, x+a/2,y+b/2, x-a/2,y+3*b/2
+		self.textColorize index,self.board
+		sc()
+		if self.showNumbers then text self.board[index],x,y
+		if self.memory? and index == self.memory then circle x,y,4
+		false
+	sense : (x,y,index,tilt,self) -> dist(x,y,mouseX,mouseY) < 9
+	draw : ->
+		bg 0
+		textSize 12
+		textAlign CENTER,CENTER
+		@traverse @rita
+		fc 1,1,0
+		textSize 20
+		@buttons[0][2] = @level - @history.length
+		text txt,x,y for [x,y,txt] in @buttons
+	traverse : (f) ->
+		a = 16
+		b = 9
+		y0 = 60
+		for index in range 54
+			side = int index / 9
+			if side==0 # vit
+				i = [-1,-1,-1,0,1,1,1,0,0][index % 9]
+				j = [0,1,2,2,2,1,0,0,1][index % 9]
+				if f 100+a*(i+j-1),y0+b*(i-j+1), index, 0, @ then return index
+			if side==1 # blå
+				i = [-1,-1,-1,0,1,1,1,0,0][index % 9]
+				j = [0,1,2,2,2,1,0,0,1][index % 9]
+				if f 100+a*(i+4.5),y0+b*(2*j+i-3.5), index, 1, @ then return index
+			if side==2 # röd
+				i = [-1,0,1,1,1,0,-1,-1,0][index % 9]
+				j = [0,0,0,1,2,2,2,1,1][index % 9]
+				if f 100+a*(i+1.5),y0+b*(2*j-i+2.5), index, 2, @ then return index
+			if side==3 # grön
+				i = [-1,-1,-1,0,1,1,1,0,0][index % 9]
+				j = [2,1,0,0,0,1,2,2,1][index % 9]
+				if f 100+a*(i-1.5),y0+b*(2*j+i+2.5), index, 1, @ then return index
+			if side==4 # orange
+				i = [-1, 0, 1, 1, 1, 0,-1,-1, 0][index % 9]
+				j = [ 2, 2, 2, 1, 0, 0, 0, 1, 1][index % 9]
+				if f 100+a*(i-4.5),y0+b*(2*j-i-3.5), index, 2, @ then return index
+			if side==5 # gul
+				i = [ 1, 1, 1, 0,-1,-1,-1, 0, 0][index % 9]
+				j = [ 0, 1, 2, 2, 2, 1, 0, 0, 1][index % 9]
+				if f 100+a*(i+j-1),y0+b*(i-j+13), index, 0, @ then return index
+		-1
+	mousePressed : (mx,my) ->
+		for [x,y,txt],i in @buttons
+			if dist(mx,my,x,y) < 10
+				if i==0 then return @undo()
+				if i==1 then return @newGame()
+		if @memory == -1
+			@memory = @traverse @sense
+			if @memory != -1
+				if @memory%9==8 then @memory = -1
+		else
+			index = @traverse @sense
+			if index != -1 and index%9 != 8 then @turn @memory,index
+			@memory = -1
+	toggleNumbers : ->
+		@showNumbers = not @showNumbers
+
+app = new RubikCube "a"
+"""
+	c:
+		app : "reset()|toggleNumbers()"
+	e:
+		"RubikCube" : "https://sv.wikipedia.org/wiki/Rubiks_kub"
