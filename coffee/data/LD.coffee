@@ -641,7 +641,7 @@ app = new Complex "a"
 
 ID267 = # RubikCube
 	b:"""
-# LOC:127 bg fc sc range # [] push pop concat length if then else constrain for in int quad
+# LOC:121 bg fc sc range # [] push pop concat length if then else constrain for in int quad
 #         text textSize textAlign dist + - * / class extends constructor new @ super ->
 
 class RubikCube extends Application
@@ -661,13 +661,8 @@ class RubikCube extends Application
 		@board = []
 		@memory = -1
 		@board.push i for i in range 54
-		lastSide = -1
 		for i in range @level
-			side = lastSide
-			while lastSide==side
-				side = range(6)[@randint(6)]
-			@op side, [-1,1][@randint(2)]
-			lastSide = side
+			@op @randint(6), 2*@randint(2)-1
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	undo : ->
 		if @history.length==0 then return
