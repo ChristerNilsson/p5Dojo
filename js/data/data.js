@@ -148,16 +148,17 @@ data = {
     PickingBerries: ID246,
     Snake: ID247,
     Snake4: ID248,
-    RubikSquare: ID249
+    RubikSquare: ID249,
+    Nim: ID260
   },
   "LD: interactivity, very hard": {
-    Nim: ID260,
     ChessGame: ID261,
     Shortcut: ID265,
     RushHour: ID263,
     BlackBox2D: ID264,
     Nand2TetrisALU: ID262,
     Complex: ID266,
-    RubikCube: ID267
+    RubikCube: ID267,
+    ForthHaiku: ID268
   }
 };
