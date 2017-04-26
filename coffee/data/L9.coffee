@@ -289,47 +289,71 @@ app = new ClickDetector
 
 cv = createVector
 
+class Figure
+	constructor : (xc,yc) ->
+		@xc = int xc
+		@yc = int yc
+		@counter = 0
+	draw : -> text @counter,@xc,@yc
+	detect : (bool) ->
+		if bool then @counter++
+		bool
+
+class Quad extends Figure
+	constructor : (@x1,@y1,@x2,@y2,@x3,@y3,@x4,@y4) ->
+		super (@x1+@x2+@x3+@x4)/4, (@y1+@y2+@y3+@y4)/4
+		@t1 = new Triangle @x1,@y1,@x2,@y2,@x3,@y3
+		@t2 = new Triangle @x1,@y1,@x3,@y3,@x4,@y4
+	detect : (mx,my) -> super @t1.detect(mx,my) or @t2.detect(mx,my)
+	draw : -> super quad @x1,@y1, @x2,@y2, @x3,@y3, @x4,@y4
+
+class Triangle extends Figure
+	constructor : (@x1,@y1,@x2,@y2,@x3,@y3) -> super (@x1+@x2+@x3)/3, (@y1+@y2+@y3)/3
+	detect : (mx,my) ->
+		pt = cv mx,my
+		v1 = cv @x1,@y1
+		v2 = cv @x2,@y2
+		v3 = cv @x3,@y3
+		sign = (p1,p2,p3) -> (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y)
+		b1 = sign(pt, v1, v2) < 0.0
+		b2 = sign(pt, v2, v3) < 0.0
+		b3 = sign(pt, v3, v1) < 0.0
+		super (b1 == b2) and (b2 == b3)
+	draw : -> super triangle @x1,@y1, @x2,@y2, @x3,@y3
+
+class Circle extends Figure
+	constructor : (@x,@y,@r) -> super @x,@y
+	detect : (mx,my) -> super dist(@x,@y,mx,my) < @r
+	draw : -> super circle @x,@y, @r
+
+class Rect extends Figure
+	constructor : (@x,@y,@w,@h) -> super @x,@y
+	detect : (mx,my) -> super @x-@w/2 < mx < @x+@w/2 and @y-@h/2 < my < @y+@h/2
+	draw : -> super rect @x,@y,@w,@h
+
 class ClickDetector extends Application
+	classes : -> [Circle,Rect,Triangle,Quad]
 	reset : ->
 		super
-		@a = {x:70,y:70,radius:50,    counter:0} # circle
-		@b = {x:130,y:130,w:100,h:100,counter:0} # rect
-		@c = {x1:100,y1:80, x2:120,y2:0, x3:190,y3:100, counter:0} # triangle
-		@d = {x1:20,y1:180, x2:60,y2:100, x3:100,y3:140, x4:60,y4:200, counter:0} # quad
-		print @
+		@a = new Circle 70,70,50
+		@b = new Rect 130,130,100,100
+		@c = new Triangle 100,80, 120,0, 190,100
+		@d = new Quad 20,180, 60,100, 100,140, 60,200
 	draw : ->
 		rectMode CENTER
 		textAlign CENTER,CENTER
 		textSize 50
 
-		rect @b.x,@b.y, @b.w,@b.h
-		text @b.counter,@b.x,@b.y
-
-		circle @a.x,@a.y, @a.radius
-		text @a.counter,@a.x,@a.y
-
-		triangle @c.x1,@c.y1, @c.x2,@c.y2, @c.x3,@c.y3
-		text @c.counter,(@c.x1+@c.x2+@c.x3)/3, (@c.y1+@c.y2+@c.y3)/3
-
-		quad @d.x1,@d.y1, @d.x2,@d.y2, @d.x3,@d.y3, @d.x4,@d.y4
-		text @d.counter,(@d.x1+@d.x2+@d.x3+@d.x4)/4, (@d.y1+@d.y2+@d.y3+@d.y4)/4
+		@b.draw()
+		@a.draw()
+		@c.draw()
+		@d.draw()
 
 	mousePressed : (mx,my) ->
-		return @d.counter++ if @quadDetected cv(@d.x1,@d.y1), cv(@d.x2,@d.y2), cv(@d.x3,@d.y3), cv(@d.x4,@d.y4), cv(mx,my)
-		return @c.counter++ if @triangleDetected cv(@c.x1,@c.y1), cv(@c.x2,@c.y2), cv(@c.x3,@c.y3), cv(mx,my)
-		return @a.counter++ if @circleDetected @a.x,@a.y, @a.radius, mx,my
-		return @b.counter++ if @rectDetected @b.x,@b.y, @b.w,@b.h, mx,my
-
-	circleDetected : (x,y,r,mx,my) -> dist(x,y,mx,my) < r
-	rectDetected : (x,y,w,h,mx,my) -> x-w/2 < mx < x+w/2 and y-h/2 < my < y+h/2
-	quadDetected : (v1,v2,v3,v4,m) -> @triangleDetected(v1,v2,v3,m) or @triangleDetected(v1,v3,v4,m)
-
-	triangleDetected : (v1, v2, v3, pt) ->
-		sign = (p1,p2,p3) -> (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y)
-		b1 = sign(pt, v1, v2) < 0.0
-		b2 = sign(pt, v2, v3) < 0.0
-		b3 = sign(pt, v3, v1) < 0.0
-		(b1 == b2) and (b2 == b3)
+		return if @d.detect mx,my
+		return if @c.detect mx,my
+		return if @a.detect mx,my
+		return if @b.detect mx,my
 
 app = new ClickDetector "a"
 """

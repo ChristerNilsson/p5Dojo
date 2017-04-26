@@ -10,6 +10,7 @@ class Application
 		if obj
 			for key,value of JSON.parse obj
 				@[key] = @deserialize value,classes
+		print @
 
 	classes : -> []
 
@@ -37,10 +38,14 @@ class Application
 	draw : ->
 
 	mark : (obj=@) ->
+		#print 'mark',obj
 		if _.isArray(obj) then return	(@mark(item) for item in obj) # array
 		if _.isObject(obj)
+			#print 1
 			obj['_type'] = obj.constructor.name if obj.constructor.name != 'Object'
-			for value of _.values obj # annars kommer metoderna med.
+			#print obj['_type']
+			#print 2
+			for value in _.values obj # annars kommer metoderna med.
 				@mark value
 
 	mousePressed : (mx,my) -> # print "mousePressed", mx, mx
@@ -48,7 +53,9 @@ class Application
 	store : ->
 		_name = chapter + "/" + exercise + "/" + @_name
 		@mark()
+		#print @
 		obj = JSON.stringify @
+		#print obj
 		localStorage.setItem _name, obj
 		fillTable chapter + "/" + exercise + "/a", chapter + "/" + exercise + "/b"
 

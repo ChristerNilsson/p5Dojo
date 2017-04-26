@@ -21,6 +21,7 @@ Application = (function() {
         this[key] = this.deserialize(value, classes);
       }
     }
+    print(this);
   }
 
   Application.prototype.classes = function() {
@@ -69,7 +70,7 @@ Application = (function() {
   Application.prototype.draw = function() {};
 
   Application.prototype.mark = function(obj) {
-    var item, results, value;
+    var i, item, len, ref, results, value;
     if (obj == null) {
       obj = this;
     }
@@ -88,8 +89,10 @@ Application = (function() {
       if (obj.constructor.name !== 'Object') {
         obj['_type'] = obj.constructor.name;
       }
+      ref = _.values(obj);
       results = [];
-      for (value in _.values(obj)) {
+      for (i = 0, len = ref.length; i < len; i++) {
+        value = ref[i];
         results.push(this.mark(value));
       }
       return results;
