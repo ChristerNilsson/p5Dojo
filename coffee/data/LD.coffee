@@ -737,27 +737,27 @@ class RubikCube extends Application
 			if side==0 # vit
 				i = [-1,-1,-1,0,1,1,1,0,0][index % 9]
 				j = [0,1,2,2,2,1,0,0,1][index % 9]
-				if f 100+a*(i+j-1),y0+b*(i-j+1), index, 0, @ then return index
+				if f 100+a*(i+j-1),y0+b*(i-j+1), index, 0,@ then return index
 			if side==1 # blå
 				i = [-1,-1,-1,0,1,1,1,0,0][index % 9]
 				j = [0,1,2,2,2,1,0,0,1][index % 9]
-				if f 100+a*(i+4.5),y0+b*(2*j+i-3.5), index, 1, @ then return index
+				if f 100+a*(i+4.5),y0+b*(2*j+i-3.5), index, 1,@ then return index
 			if side==2 # röd
 				i = [-1,0,1,1,1,0,-1,-1,0][index % 9]
 				j = [0,0,0,1,2,2,2,1,1][index % 9]
-				if f 100+a*(i+1.5),y0+b*(2*j-i+2.5), index, 2, @ then return index
+				if f 100+a*(i+1.5),y0+b*(2*j-i+2.5), index, 2,@ then return index
 			if side==3 # grön
 				i = [-1,-1,-1,0,1,1,1,0,0][index % 9]
 				j = [2,1,0,0,0,1,2,2,1][index % 9]
-				if f 100+a*(i-1.5),y0+b*(2*j+i+2.5), index, 1, @ then return index
+				if f 100+a*(i-1.5),y0+b*(2*j+i+2.5), index, 1,@ then return index
 			if side==4 # orange
 				i = [-1, 0, 1, 1, 1, 0,-1,-1, 0][index % 9]
 				j = [ 2, 2, 2, 1, 0, 0, 0, 1, 1][index % 9]
-				if f 100+a*(i-4.5),y0+b*(2*j-i-3.5), index, 2, @ then return index
+				if f 100+a*(i-4.5),y0+b*(2*j-i-3.5), index, 2,@ then return index
 			if side==5 # gul
 				i = [ 1, 1, 1, 0,-1,-1,-1, 0, 0][index % 9]
 				j = [ 0, 1, 2, 2, 2, 1, 0, 0, 1][index % 9]
-				if f 100+a*(i+j-1),y0+b*(i-j+13), index, 0, @ then return index
+				if f 100+a*(i+j-1),y0+b*(i-j+13), index, 0,@ then return index
 		-1
 	mousePressed : (mx,my) ->
 		for [x,y,txt],i in @buttons
@@ -776,6 +776,8 @@ class RubikCube extends Application
 		@showNumbers = not @showNumbers
 
 app = new RubikCube "a"
+
+
 """
 	c:
 		app : "reset()|toggleNumbers()"

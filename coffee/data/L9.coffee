@@ -286,22 +286,50 @@ class ClickDetector extends Application
 app = new ClickDetector
 """
 	a:"""
+
+cv = createVector
+
 class ClickDetector extends Application
 	reset : ->
 		super
-		@a = {x:70,y:70,radius:50,counter:0}
-		@b = {x:130,y:130,w:100,h:100,counter:0}
+		@a = {x:70,y:70,radius:50,    counter:0} # circle
+		@b = {x:130,y:130,w:100,h:100,counter:0} # rect
+		@c = {x1:100,y1:80, x2:120,y2:0, x3:190,y3:100, counter:0} # triangle
+		@d = {x1:20,y1:180, x2:60,y2:100, x3:100,y3:140, x4:60,y4:200, counter:0} # quad
+		print @
 	draw : ->
 		rectMode CENTER
 		textAlign CENTER,CENTER
 		textSize 50
-		rect @b.x,@b.y,@b.w,@b.h
+
+		rect @b.x,@b.y, @b.w,@b.h
 		text @b.counter,@b.x,@b.y
-		circle @a.x,@a.y,@a.radius
+
+		circle @a.x,@a.y, @a.radius
 		text @a.counter,@a.x,@a.y
+
+		triangle @c.x1,@c.y1, @c.x2,@c.y2, @c.x3,@c.y3
+		text @c.counter,(@c.x1+@c.x2+@c.x3)/3, (@c.y1+@c.y2+@c.y3)/3
+
+		quad @d.x1,@d.y1, @d.x2,@d.y2, @d.x3,@d.y3, @d.x4,@d.y4
+		text @d.counter,(@d.x1+@d.x2+@d.x3+@d.x4)/4, (@d.y1+@d.y2+@d.y3+@d.y4)/4
+
 	mousePressed : (mx,my) ->
-		if dist(mx,my,@a.x,@a.y) < @a.radius then return @a.counter++
-		if @b.x-@b.w/2 < mx < @b.x+@b.w/2 and @b.y-@b.h/2 < my < @b.y+@b.h/2 then @b.counter++
+		return @d.counter++ if @quadDetected cv(@d.x1,@d.y1), cv(@d.x2,@d.y2), cv(@d.x3,@d.y3), cv(@d.x4,@d.y4), cv(mx,my)
+		return @c.counter++ if @triangleDetected cv(@c.x1,@c.y1), cv(@c.x2,@c.y2), cv(@c.x3,@c.y3), cv(mx,my)
+		return @a.counter++ if @circleDetected @a.x,@a.y, @a.radius, mx,my
+		return @b.counter++ if @rectDetected @b.x,@b.y, @b.w,@b.h, mx,my
+
+	circleDetected : (x,y,r,mx,my) -> dist(x,y,mx,my) < r
+	rectDetected : (x,y,w,h,mx,my) -> x-w/2 < mx < x+w/2 and y-h/2 < my < y+h/2
+	quadDetected : (v1,v2,v3,v4,m) -> @triangleDetected(v1,v2,v3,m) or @triangleDetected(v1,v3,v4,m)
+
+	triangleDetected : (v1, v2, v3, pt) ->
+		sign = (p1,p2,p3) -> (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y)
+		b1 = sign(pt, v1, v2) < 0.0
+		b2 = sign(pt, v2, v3) < 0.0
+		b3 = sign(pt, v3, v1) < 0.0
+		(b1 == b2) and (b2 == b3)
 
 app = new ClickDetector "a"
 """
