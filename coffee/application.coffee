@@ -10,7 +10,6 @@ class Application
 		if obj
 			for key,value of JSON.parse obj
 				@[key] = @deserialize value,classes
-		print @
 
 	classes : -> []
 

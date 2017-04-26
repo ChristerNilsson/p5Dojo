@@ -21,7 +21,6 @@ Application = (function() {
         this[key] = this.deserialize(value, classes);
       }
     }
-    print(this);
   }
 
   Application.prototype.classes = function() {

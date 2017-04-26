@@ -275,8 +275,13 @@ app = new Laboratorium "a"
 
 ID188 = # ClickDetector :
 	b:"""
-# LOC:61 bg sc fc range circle # quad rect triangle class extends constructor new @ super ->
+# LOC:62 bg sc fc range circle # quad rect triangle class extends constructor new @ super ->
 #        or and == dist reverse if then < and * / + - ++ text textAlign textSize rectMode
+
+class Vector
+	constructor : (@x,@y) ->
+	add : (b) -> new Vector @x+b.x,@y+b.y
+	div : (n) -> new Vector @x/n,@y/n
 
 class ClickDetector extends Application
 	reset : ->
@@ -286,54 +291,59 @@ class ClickDetector extends Application
 app = new ClickDetector
 """
 	a:"""
-# Did not solve storing Vector in localstorage.
-cv = createVector
+class Vector # pga att p5.Vector krockar med min serialisering
+	constructor : (@x,@y) ->
+	add : (b) -> cv @x+b.x,@y+b.y
+	div : (n) -> cv @x/n,@y/n
+cv = (x,y) -> new Vector x,y
+
 class Figure
-	constructor : (xc,yc) ->
-		@xc = int xc
-		@yc = int yc
+	constructor : (pc) ->
+		@pc = cv(int(pc.x),int(pc.y))
 		@counter = 0
-	draw : -> text @counter,@xc,@yc
+	draw : -> text @counter,@pc.x,@pc.y
 	detect : (bool) ->
 		if bool then @counter++
 		bool
-class Quad extends Figure
-	constructor : (@x1,@y1,@x2,@y2,@x3,@y3,@x4,@y4,@r,@g,@b) ->
-		super (@x1+@x2+@x3+@x4)/4, (@y1+@y2+@y3+@y4)/4
-		@t1 = new Triangle @x1,@y1,@x2,@y2,@x3,@y3
-		@t2 = new Triangle @x1,@y1,@x3,@y3,@x4,@y4
-	detect : (mx,my) -> super @t1.detect(mx,my) or @t2.detect(mx,my)
-	draw : -> super quad @x1,@y1, @x2,@y2, @x3,@y3, @x4,@y4
+
+class Circle extends Figure
+	constructor : (@p,@radius,@r,@g,@b) -> super @p
+	detect : (mx,my) -> super @radius > dist @p.x,@p.y,mx,my
+	draw : -> super circle @p.x,@p.y, @radius
+
+class Rect extends Figure
+	constructor : (@p,@w,@h,@r,@g,@b) -> super @p
+	detect : (mx,my) -> super @p.x-@w/2 < mx < @p.x+@w/2 and @p.y-@h/2 < my < @p.y+@h/2
+	draw : -> super rect @p.x,@p.y,@w,@h
+
 class Triangle extends Figure
-	constructor : (@x1,@y1,@x2,@y2,@x3,@y3,@r=0,@g=0,@b=0) -> super (@x1+@x2+@x3)/3, (@y1+@y2+@y3)/3
+	constructor : (@v1,@v2,@v3,@r=0,@g=0,@b=0) -> super @v1.add(@v2).add(@v3).div(3)
 	detect : (mx,my) ->
 		pt = cv mx,my
-		v1 = cv @x1,@y1
-		v2 = cv @x2,@y2
-		v3 = cv @x3,@y3
 		sign = (p1,p2,p3) -> (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y)
-		b1 = 0 > sign pt, v1, v2
-		b2 = 0 > sign pt, v2, v3
-		b3 = 0 > sign pt, v3, v1
+		b1 = 0 > sign pt, @v1, @v2
+		b2 = 0 > sign pt, @v2, @v3
+		b3 = 0 > sign pt, @v3, @v1
 		super b1 == b2 and b2 == b3
-	draw : -> super triangle @x1,@y1, @x2,@y2, @x3,@y3
-class Circle extends Figure
-	constructor : (@x,@y,@radius,@r,@g,@b) -> super @x,@y
-	detect : (mx,my) -> super @radius > dist @x,@y,mx,my
-	draw : -> super circle @x,@y, @radius
-class Rect extends Figure
-	constructor : (@x,@y,@w,@h,@r,@g,@b) -> super @x,@y
-	detect : (mx,my) -> super @x-@w/2 < mx < @x+@w/2 and @y-@h/2 < my < @y+@h/2
-	draw : -> super rect @x,@y,@w,@h
+	draw : -> super triangle @v1.x,@v1.y, @v2.x,@v2.y, @v3.x,@v3.y
+
+class Quad extends Figure
+	constructor : (@v1,@v2,@v3,@v4, @r,@g,@b) -> super @v1.add(@v2).add(@v3).add(@v4).div(4)
+	detect : (mx,my) ->
+		t1 = new Triangle @v1,@v2,@v3
+		t2 = new Triangle @v1,@v3,@v4
+		super t1.detect(mx,my) or t2.detect(mx,my)
+	draw : -> super quad @v1.x,@v1.y, @v2.x,@v2.y, @v3.x,@v3.y, @v4.x,@v4.y
+
 class ClickDetector extends Application
-	classes : -> [Circle,Rect,Triangle,Quad]
+	classes : -> [Vector,Circle,Rect,Triangle,Quad]
 	reset : ->
 		super
 		@figures = []
-		@figures.push new Circle 70,70,50, 1,0,0
-		@figures.push new Rect 130,130,100,100, 1,1,0
-		@figures.push new Triangle 100,100, 120,0, 190,120, 0,1,0
-		@figures.push new Quad 0,160, 60,100, 100,120, 60,200, 0.5,0.5,0.5
+		@figures.push new Circle cv(70,70), 50, 1,0,0
+		@figures.push new Rect cv(130,130), 100,100, 1,1,0
+		@figures.push new Triangle cv(100,100), cv(120,0), cv(190,120), 0,1,0
+		@figures.push new Quad cv(0,160), cv(60,100), cv(100,120), cv(60,200), 0.5,0.5,0.5
 	draw : ->
 		rectMode CENTER
 		textAlign CENTER,CENTER
