@@ -38,13 +38,9 @@ class Application
 	draw : ->
 
 	mark : (obj=@) ->
-		#print 'mark',obj
 		if _.isArray(obj) then return	(@mark(item) for item in obj) # array
 		if _.isObject(obj)
-			#print 1
 			obj['_type'] = obj.constructor.name if obj.constructor.name != 'Object'
-			#print obj['_type']
-			#print 2
 			for value in _.values obj # annars kommer metoderna med.
 				@mark value
 
@@ -53,9 +49,7 @@ class Application
 	store : ->
 		_name = chapter + "/" + exercise + "/" + @_name
 		@mark()
-		#print @
 		obj = JSON.stringify @
-		#print obj
 		localStorage.setItem _name, obj
 		fillTable chapter + "/" + exercise + "/a", chapter + "/" + exercise + "/b"
 

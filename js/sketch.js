@@ -584,7 +584,7 @@ fillTable = function(a, b) {
   results = [];
   for (l = 0, len = keys.length; l < len; l++) {
     key = keys[l];
-    if (key !== '_name' && key !== '_type') {
+    if (key !== '_name') {
       results.push(tableAppend(tabell, "@" + key, unmark(a[key]), unmark(b[key])));
     } else {
       results.push(void 0);
@@ -610,9 +610,7 @@ unmark = function(obj) {
     res = {};
     for (key in obj) {
       value = obj[key];
-      if (key !== '_type') {
-        res[key] = unmark(value);
-      }
+      res[key] = unmark(value);
     }
     return res;
   }

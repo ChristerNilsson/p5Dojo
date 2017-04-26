@@ -412,7 +412,7 @@ fillTable = (a,b) ->
 	keys = _.uniq keys
 
 	for key in keys
-		if key != '_name' and  key != '_type'
+		if key != '_name' # and  key != '_type'
 			tableAppend tabell, "@" + key,unmark(a[key]),unmark(b[key])
 
 unmark = (obj) ->
@@ -420,6 +420,6 @@ unmark = (obj) ->
 	if _.isObject obj
 		res = {}
 		for key,value of obj
-			res[key] = unmark(value) if key != '_type'
+			res[key] = unmark(value) # if key != '_type'
 		return res
 	obj
