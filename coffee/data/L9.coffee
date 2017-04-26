@@ -298,14 +298,14 @@ class Figure
 		if bool then @counter++
 		bool
 class Quad extends Figure
-	constructor : (@x1,@y1,@x2,@y2,@x3,@y3,@x4,@y4) ->
+	constructor : (@x1,@y1,@x2,@y2,@x3,@y3,@x4,@y4,@r,@g,@b) ->
 		super (@x1+@x2+@x3+@x4)/4, (@y1+@y2+@y3+@y4)/4
 		@t1 = new Triangle @x1,@y1,@x2,@y2,@x3,@y3
 		@t2 = new Triangle @x1,@y1,@x3,@y3,@x4,@y4
 	detect : (mx,my) -> super @t1.detect(mx,my) or @t2.detect(mx,my)
 	draw : -> super quad @x1,@y1, @x2,@y2, @x3,@y3, @x4,@y4
 class Triangle extends Figure
-	constructor : (@x1,@y1,@x2,@y2,@x3,@y3) -> super (@x1+@x2+@x3)/3, (@y1+@y2+@y3)/3
+	constructor : (@x1,@y1,@x2,@y2,@x3,@y3,@r=0,@g=0,@b=0) -> super (@x1+@x2+@x3)/3, (@y1+@y2+@y3)/3
 	detect : (mx,my) ->
 		pt = cv mx,my
 		v1 = cv @x1,@y1
@@ -318,11 +318,11 @@ class Triangle extends Figure
 		super b1 == b2 and b2 == b3
 	draw : -> super triangle @x1,@y1, @x2,@y2, @x3,@y3
 class Circle extends Figure
-	constructor : (@x,@y,@r) -> super @x,@y
-	detect : (mx,my) -> super @r > dist @x,@y,mx,my
-	draw : -> super circle @x,@y, @r
+	constructor : (@x,@y,@radius,@r,@g,@b) -> super @x,@y
+	detect : (mx,my) -> super @radius > dist @x,@y,mx,my
+	draw : -> super circle @x,@y, @radius
 class Rect extends Figure
-	constructor : (@x,@y,@w,@h) -> super @x,@y
+	constructor : (@x,@y,@w,@h,@r,@g,@b) -> super @x,@y
 	detect : (mx,my) -> super @x-@w/2 < mx < @x+@w/2 and @y-@h/2 < my < @y+@h/2
 	draw : -> super rect @x,@y,@w,@h
 class ClickDetector extends Application
@@ -330,10 +330,10 @@ class ClickDetector extends Application
 	reset : ->
 		super
 		@figures = []
-		@figures.push new Circle 70,70,50
-		@figures.push new Rect 130,130,100,100
-		@figures.push new Triangle 100,100, 120,0, 190,120
-		@figures.push new Quad 0,160, 60,100, 100,120, 60,200
+		@figures.push new Circle 70,70,50, 1,0,0
+		@figures.push new Rect 130,130,100,100, 1,1,0
+		@figures.push new Triangle 100,100, 120,0, 190,120, 0,1,0
+		@figures.push new Quad 0,160, 60,100, 100,120, 60,200, 0.5,0.5,0.5
 	draw : ->
 		rectMode CENTER
 		textAlign CENTER,CENTER
@@ -341,8 +341,9 @@ class ClickDetector extends Application
 		bg 0.5
 		sc 0
 		sw 2
-		fc 1,1,0,0.5
-		figure.draw() for figure in @figures
+		for figure in @figures
+			fc figure.r,figure.g,figure.b,0.5
+			figure.draw()
 	mousePressed : (mx,my) ->
 		rev = @figures[..]
 		rev.reverse()
@@ -353,6 +354,8 @@ app = new ClickDetector "a"
 """
 	c:
 		app : "reset()"
+	e:
+		Triangle : "http://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle"
 
 ID189 = # IndianSun :
 	b:"""
