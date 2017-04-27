@@ -443,9 +443,12 @@ saveSourceCode = function() {
 
 run0 = function() {
   if (exercise === "") {
-    return;
+    return false;
   }
   data[chapter][exercise]["b"] = myCodeMirror.getValue();
+  if (data[chapter][exercise]["b"] === "") {
+    return true;
+  }
   return run(0, data[chapter][exercise]["b"] + "\n" + call);
 };
 

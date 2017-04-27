@@ -312,8 +312,9 @@ saveSourceCode = ->
 	sourceCodeTimeout = null
 
 run0 = ->
-	if exercise=="" then return
+	if exercise=="" then return false
 	data[chapter][exercise]["b"] = myCodeMirror.getValue()
+	if data[chapter][exercise]["b"] == "" then return true
 	run 0, data[chapter][exercise]["b"] + "\n" + call
 
 run1 = ->

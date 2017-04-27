@@ -206,7 +206,9 @@ function f(a,b) {
 
 ### Källkod
 
-Din källkod sparas på din maskin automatiskt. Vill du starta om, töm editorfönstret och refresha browsern. Nu ska koden ha återställts. Flera personer kan dela på samma maskin, men de bör då ha separata inloggingar.
+Din källkod sparas på din maskin automatiskt. Vill du starta om, töm editorfönstret och refresha browsern. Nu ska koden ha återställts. Flera personer kan dela på samma maskin, men de måste då ha separata inloggingar.
+
+Om du tycker att editorn är långsam, skapa medvetet ett syntaxfel, som visas med rött.
 
 ### Interaktivitet
 

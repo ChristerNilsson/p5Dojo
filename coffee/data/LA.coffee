@@ -471,7 +471,7 @@ class Sokoban extends Application
 		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweewwwwwwwwwwwwwwwweomEwwwwwwwwwweeeeeEoEwwwwwwwwwwwweoewoEwwwwwwwwwwwweweweowwwwwwwwwwwweweweewwwwwwwwwwwweweeEwwwwwwwwwwwwweeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
 		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwmwwwweewwwwwwwwwwwowwwwoewwwwwwwwweeEEeeeeewwwwwwwwweweewowwOwwwwwwwwweEeeeoEeEwwwwwwwwwwewwowwwwwwwwwwwwwweeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
 		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeewwwwwwwwwwwwweeeeeeoMwwwwwwwwwwewewwewwwwwwwwwwwwEeeeweweoeEwwwwwwweewowoeewwOewwwwwweEeeeewewwewwwwwwwewwwwwwewwewwwwwwwewwwwwweOeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
-		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeewwwwwwwwwwwwwwwEeoewwwwwwwwwwwwwwewwewwwwwwwwwwwwwweeEeeewwwwwwwwwwwwwweeeeeeOMwwwwwwwwwweeoowwwOwwwwwwwwwweeeeOwwewwwwwwwwwwweeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwEwwwwwwwwwwwwwwweeoeewwwwwwwwwwwwwewoeewwwwwwwwwwwwweEEOEwwwwwwwwwwwwwewwmewwwwwwwwwwwwweoeoewwwwwwwwwwwwwweweewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
 		@level = (@level + 1) % boards.length
 		s = boards[@level]
 		@board = []
@@ -495,12 +495,12 @@ class Sokoban extends Application
 			for i in range 18
 				size = 10
 				digit = @board[j][i]
-				fc 0.968, 0.980, 0.741 # yellow
+				fc 0.75
 				if digit == 0 then fc 1,0,0
 				if (digit & GREEN) == GREEN then fc 0,1,0
 				rect 15+10*i,15+10*j,size,size
 				if (digit & BOX) == BOX
-					fc 0.717, 0.537, 0.000
+					fc 1,1,0
 					size = 6
 					rect 15+10*i,15+10*j,size,size
 				if _.isEqual @man, [i,j]
@@ -547,3 +547,4 @@ app = new Sokoban "a"
 		app : "reset()|undo()"
 	e:
 		Sokoban : "http://www.linusakesson.net/games/autosokoban/?v=1&seed=355842047&level=1"
+		Wikipedia : "https://en.wikipedia.org/wiki/Sokoban"
