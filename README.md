@@ -1,25 +1,25 @@
 # p5Dojo - Matematik och Spelprogrammering
 
  - [p5Dojo](https://christernilsson.github.io/p5Dojo) p5dojo.com
- - [p5](https://p5js.org/reference) 
+ - [p5](https://p5js.org/reference)
  - [Coffeescript](http://coffeescript.org)
  - [Javascript](https://www.w3schools.com/js)
  - [Underscore](http://underscorejs.org)
  - [p5Assert](https://christernilsson.github.io/p5Assert)
  - [Nilsson](https://github.com/ChristerNilsson/Nilsson/blob/master/README.md)
  - [Mailgrupp](mailto:p5dojo@googlegroups.com)
- 
+
 ### Så här arbetar du!
 
 * Du ska med kod återskapa den första bitmappen
 * Resultatet av din kod hamnar i den andra bitmappen
 * Skillnaden visas i den tredje bitmappen. Den ska bli helt svart när du har löst uppgiften.
 
-### Chrome och Windows är ett krav. 
+### Chrome och Windows är ett krav.
 Ingen annan programvara behöver installeras.
 
 ### färger
-```  
+```
 r,g,b  färg
 ===========
 0,0,1  blå
@@ -31,16 +31,16 @@ r,g,b  färg
 0      svart
 0.5    grå
 1      vit
-```  
+```
 ### bakgrundsfärg
-```  
+```
 bg r,g,b  färg
 ==============
 bg 1      vit
 bg 1,1,0  gul
-```  
+```
 ### fyllningsfärg
-```  
+```
 fc r,g,b      färg
 ==================
 fc()          ingen
@@ -48,10 +48,10 @@ fc 1          vit
 fc 1,1,0      gul
 fc 1,0,0      röd
 fc 1,0,0,0.5  röd, halvgenomskinlig
-```  
+```
 
 ### streckfärg
-```  
+```
 sc r,g,b      färg
 ==================
 sc()          ingen
@@ -59,15 +59,15 @@ sc 1          vit
 sc 1,1,0      gul
 sc 1,0,0      röd
 sc 1,0,0,0.5  röd, halvgenomskinlig
-```  
+```
 
 ### strecktjocklek
-```  
+```
 sw pixlar
-```  
+```
 
 ### ritkommandon
-```  
+```
 kommando  argument
 ==================
 point     x,y
@@ -78,25 +78,25 @@ rect      x,y, w,h
 triangle  x1,y1, x2,y2, x3,y3
 quad      x1,y1, x2,y2, x3,y3, x4,y4
 arc       x,y, w,h, start,stopp, PIE
-```  
+```
 
-### lerp   
+### lerp
 linjär interpolation och extrapolation
 
-```  
+```
 lerp x0,x1,i    resultat
 ========================
 lerp 10,12,-1    8
 lerp 10,12,0    10
 lerp 10,12,0.5  11
 lerp 10,12,1    12
-lerp 10,12,2    14   
-```  
+lerp 10,12,2    14
+```
 
 ### for loop
 Glöm ej att indentera innehållet med ett tabsteg!
 
-```  
+```
 kommando                      resultat
 ======================================
 for i in range 10             [0,1,2,3,4,5,6,7,8,9]
@@ -105,8 +105,8 @@ for i in range 1,11           [1,2,3,4,5,6,7,8,9,10]
 for i in range 0,10,2         [0,2,4,6,8]
 for i in [0..10] by 2         [0,2,4,6,8,10]
 for i in range 10,0,-2        [10,8,6,4,2]
-for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]|     
-```  
+for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]|
+```
 
 ### if
 ```javascript
@@ -116,16 +116,16 @@ else if i%3==1
   fc 0.5
 else
   fc 1
-```  
+```
 
 ### koordinatsystemet
-```  
+```
 kommando        kommentar
 =========================
-translate x,y   flyttar origo     
+translate x,y   flyttar origo
 rd degrees      roterar runt origo
 scale n         skalar upp eller ner
-```  
+```
 
 ### modes
   - **rectMode** CORNER
@@ -140,7 +140,7 @@ scale n         skalar upp eller ner
     * RADIUS
 
 ### text
-  - **textAlign** LEFT,BASELINE  
+  - **textAlign** LEFT,BASELINE
     * LEFT (default)
     * CENTER
     * RIGHT
@@ -168,7 +168,7 @@ Sparar och återställer följande kommandon:
  - Funktioner skapas med ->
   * f = (x) -> x*x
   * g = (a,b) -> a+b
-  
+
 ### exempel 1: CoffeeScript
 ```javascript
 bg 1, 0.5, 1
@@ -178,7 +178,7 @@ for i in range 10
   fc i % 2
   rd 5
   rect 20 * i + 5, 5, 10, 10
-```    
+```
 
 ### exempel 1: normal Javascript
 ```javascript
@@ -190,37 +190,41 @@ for (var i = 0; i < 10; i++) {
   rotate(radians(5));
   rect(20 * i + 5, 5, 10, 10);
 }
-```    
+```
 
 ### exempel 2: funktion i Coffeescript
 ```javascript
 f = (a,b) -> a+b
-```    
+```
 
 ### exempel 2: funktion i Javascript
 ```javascript
 function f(a,b) {
   return a+b;
 }
-```    
+```
+
+### Källkod
+
+Din källkod sparas på din maskin automatiskt. Vill du starta om, töm editorfönstret och refresha browsern. Nu ska koden ha återställts. Flera personer kan dela på samma maskin, men de bör då ha separata inloggingar.
 
 ### Interaktivitet
 
-Lektion 9 och framåt innehåller interaktiva övningar. 
-Det innebär att man med menykommandon och/eller musklick påverkar ett objekts tillstånd. 
-Utritningen av objektet är beroende av tillståndet. 
+Lektion 9 och framåt innehåller interaktiva övningar.
+Det innebär att man med menykommandon och/eller musklick påverkar ett objekts tillstånd.
+Utritningen av objektet är beroende av tillståndet.
 
 #### Menykommandon
-Tredje listboxen innehåller menykommandon. Dessa definieras av programmeraren. 
+Tredje listboxen innehåller menykommandon. Dessa definieras av programmeraren.
 Lämpligen görs det i samma ordning. Det innebär att man börjar med reset. I Reset initialiserar man alla variabler. Låt anropet till super vara kvar.
-Efter reset kommer draw. Draw ritar upp bitmappen. Tag bort anropet till super. Draw ingår inte i menyn. Det beror på att Draw anropas automatiskt efter varje menykommando.  
+Efter reset kommer draw. Draw ritar upp bitmappen. Tag bort anropet till super. Draw ingår inte i menyn. Det beror på att Draw anropas automatiskt efter varje menykommando.
 
 #### Att tänka på
-Tabellen längst ner innehåller tillståndet. 
+Tabellen längst ner innehåller tillståndet.
 
 * Första kolumnen innehåller egenskapens namn. Alltid gul.
 * Andra kolumnen innehåller förebildens data. Alltid grön.
-* Tredje kolumnen innehåller resultat av användarens kod. Röd som blir grön. 
+* Tredje kolumnen innehåller resultat av användarens kod. Röd som blir grön.
 * Klicka på reset om det ser konstigt ut.
 * Draw anropas automatiskt varje gång innehållet i editorn förändras.
 
@@ -236,28 +240,28 @@ mousePressed(mx,my) kan definieras för att ta hand om musklick.
 Mushantering ger större flexibilitet, men kräver att programmeraren måste avgöra var användaren klickat.
 
 #### Minimalt exempel
-Efter funktionspilarna lägger man i sin kod. Förutom dessa metoder, tillkommer menykommandon och egna hjälpmetoder. Sista raden skapar själva objektet. 
+Efter funktionspilarna lägger man i sin kod. Förutom dessa metoder, tillkommer menykommandon och egna hjälpmetoder. Sista raden skapar själva objektet.
 ```javascript
 class Counter extends Application
   reset : -> super
   draw  : -> super
-  mousePressed : (mx,my) -> 
+  mousePressed : (mx,my) ->
 counter = new Counter
 ```
 
 Exemplet, ej fullständigt:
 ```javascript
 class Counter extends Application
-  reset : -> 
+  reset : ->
     super
     @counter = 0
-  draw  : -> 
+  draw  : ->
     text @counter,100,100
   up : ->
     @counter++
-  mousePressed : (mx,my) -> 
+  mousePressed : (mx,my) ->
 counter = new Counter
-```    
+```
 
 ### mera information
 

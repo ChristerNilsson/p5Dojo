@@ -9,6 +9,7 @@ chapter = ""
 exercise = ""
 call = ''
 calls = {}
+sourceCodeTimeout = null
 
 gap = 0
 block = 0
@@ -124,7 +125,14 @@ sel2change = (sel) ->
 	calls_without_draw = _.omit calls, 'draw()'
 
 	fillSelect sel3, calls_without_draw
-	myCodeMirror.setValue data[chapter][exercise]["b"]
+
+	# Hämta original om tomt annars från localStorage
+	_name = chapter + "/" + exercise + "/d"
+	src = localStorage[_name]
+	if src == undefined or src == ''
+		myCodeMirror.setValue data[chapter][exercise]["b"]
+	else
+		myCodeMirror.setValue src
 
 	tableClear()
 
@@ -213,6 +221,7 @@ $(window).resize ->
 		resizeTimer = setTimeout changeLayout, 10
 
 setup = ->
+	timestamp = millis()
 	c = createCanvas 5+201+5, 3*201+20
 
 	gap = 5 * width * 4
@@ -289,8 +298,18 @@ editor_change = ->
 	if dce and dce["a"] and _.size(dce["a"].c) > 0
 		if run1() == false # bör normalt vara true
 			return
-	run0()
+	res = run0()
+
+	if res # spara källkod EFTER exekvering
+		#clearTimeout sourceCodeTimeout
+		#sourceCodeTimeout = setTimeout saveSourceCode, 3000
+		saveSourceCode()
 	compare 'editor_change'
+
+saveSourceCode = ->
+	_name = chapter + "/" + exercise + "/d"
+	localStorage.setItem _name, myCodeMirror.getValue()
+	sourceCodeTimeout = null
 
 run0 = ->
 	if exercise=="" then return
