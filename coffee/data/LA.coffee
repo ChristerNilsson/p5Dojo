@@ -479,9 +479,7 @@ class Sokoban extends Application
 			@board.push []
 			for i in range 18
 				k = 18 * j + i
-				if s[k] == 'm'
-					@mani = i
-					@manj = j
+				if s[k] == 'm' then @man = [i,j]
 				if s[k] == 'w' then digit = 0
 				if s[k] in ['e','m'] then digit = OK
 				if s[k] == 'E' then digit = OK+GREEN
@@ -505,7 +503,7 @@ class Sokoban extends Application
 					fc 0.717, 0.537, 0.000
 					size = 6
 					rect 15+10*i,15+10*j,size,size
-				if @mani == i and @manj == j
+				if _.isEqual @man, [i,j]
 					fc 0,0,1
 					circle 15+10*i+0.5,15+10*j+0.5,3
 		for [x,y] in @buttons
@@ -517,21 +515,18 @@ class Sokoban extends Application
 		text @level,30,165
 		text @moves,170,165
 	move : (i,j) ->
-		if dist(i,j,@mani,@manj) != 1 then return
+		if dist(i,j,@man[0],@man[1]) != 1 then return
 		digit = @board[j][i]
-		ni = i+i-@mani
-		nj = j+j-@manj
+		ni = i+i-@man[0]
+		nj = j+j-@man[1]
 		if (digit & BOX) == BOX
 		  if @board[nj][ni] in [1,3]
 				@board[nj][ni] |= BOX
 				@board[j][i] &= OK+GREEN
 				@moves++
 				if @final() then return @newGame()
-				@mani = i
-				@manj = j
-		else if (digit & OK) == OK
-			@mani = i
-			@manj = j
+				@man = [i,j]
+		else if (digit & OK) == OK then	@man = [i,j]
 	final : ->
 		for j in range 12
 			for i in range 18
@@ -541,7 +536,7 @@ class Sokoban extends Application
 		for [x,y],i in @buttons
 			if dist(mx,my,x,y) <= 12
 				[di,dj] = [[0,-1],[1,0],[0,1],[-1,0]][i]
-				@move @mani+di,@manj+dj
+				@move @man[0]+di,@man[1]+dj
 	undo : ->
 		@level--
 		@newGame()
