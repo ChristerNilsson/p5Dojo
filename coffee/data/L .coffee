@@ -4,6 +4,7 @@ IDL00 = # Nyheter :
 # NYHETER 2017 APR 29
 #   RubikCube
 #   ForthHaiku
+#   Sokoban
 # NYHETER 2017 APR 22
 #   BlackBox2D
 #   GameOfLife

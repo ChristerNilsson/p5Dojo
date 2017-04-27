@@ -131,6 +131,7 @@ data =
 		ColorCube : ID209
 		Korg : ID206
 		GoldenStar : ID203
+		Sokoban : ID207
 
 	"LB: interactivity, medium" :
 		Korsord : ID220

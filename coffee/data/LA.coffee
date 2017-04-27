@@ -433,3 +433,122 @@ app = new ColorCube "a"
 		app : "reset()|undo()"
 	e:
 		ColorCube : "https://www.google.se/search?q=color+cube&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwjo3_Cm3Y7TAhUJb5oKHcFhCKQQsAQIJg&biw=1745&bih=963&dpr=1.1"
+
+ID207 = # Sokoban:
+	b: """
+# LOC:94 bg sc fc sw range # * + - % & | -- [] == push length for in if then else
+#        and rect circle dist class extends constructor new @ super ->
+
+class Sokoban extends Application
+	reset : ->
+		super
+	newGame : ->
+	draw : ->
+	mousePressed : (mx,my) ->
+	undo : ->
+app = new Sokoban
+"""
+	a: """
+OK = 1
+GREEN = 2
+BOX = 4
+class Sokoban extends Application
+	reset : ->
+		super
+		@level = -1
+		@newGame()
+		@buttons = []
+		@buttons.push [100,145],[120,165],[100,185],[80,165]
+	newGame : ->
+		@moves = 0
+		boards = []
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwweoeEwwwwwwwwwwwwwwmwwewwwwwwwwwwwwEeewweeeeewwwwwwwwewewweewwewwwwwwwweeoeeeewwewwwwwwwweeeeeeeeeewwwwwwwwwwweewewwwwwwwwwwwwweeewewwwwwwwwwwwwweeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeewwwwwwwwwwwwwewewewwwwwwwwwwwEeeeeoeoEeeeewwwwwewweewwwwwwwwwwwwEeoemewwwwwwwwwwwwewewwewwwwwwwwwwwweeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeewwwwwwwwwwwwwwwewewwwwwwwwwwwweeeeeeewwwwwwwwwwweeeeeeEwwwwwwwwwwweeeeEwewwwwwwwwwwwweeoewewwwwwwwwwwwwoweewewwwwwwwwwwwwmwOeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwweeeewwwwwwwwwweeEeEwwewwwwwwwwwweeeeewwewwwwwwwwweoeweEwwewwwwwwwwwmoeeeoeeeeeewwwwwweewweeewwwwwwwwwwwwwwwwewwwwwwwwwwwwwwwwwewwwwwwwwwwwwwwwwwOwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeewwwwwwwwwwwewwewweeewwwwwwwwweEeeeeeeoewwwwwwweewweoeewemwwwwwwweEeoewwewwwwwwwwwweewwewwEwwwwwwwwwwwwwwewwewwwwwwwwwwwwwweoEewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweewwwwwwwwwwwwwwwweeEeeEwwwwwwwwwwwwwEeeeeoEwwwwwwwwwwwewwoewwwwwwwwwwwwwewwmowwwwwwwwwwwwwewweewwwwwwwwwweeeeOeowwwwwwwwwwweeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweewwwwwwwwwwwwwwwweomEwwwwwwwwwweeeeeEoEwwwwwwwwwwwweoewoEwwwwwwwwwwwweweweowwwwwwwwwwwweweweewwwwwwwwwwwweweeEwwwwwwwwwwwwweeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwmwwwweewwwwwwwwwwwowwwwoewwwwwwwwweeEEeeeeewwwwwwwwweweewowwOwwwwwwwwweEeeeoEeEwwwwwwwwwwewwowwwwwwwwwwwwwweeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeewwwwwwwwwwwwweeeeeeoMwwwwwwwwwwewewwewwwwwwwwwwwwEeeeweweoeEwwwwwwweewowoeewwOewwwwwweEeeeewewwewwwwwwwewwwwwwewwewwwwwwwewwwwwweOeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeewwwwwwwwwwwwwwwEeoewwwwwwwwwwwwwwewwewwwwwwwwwwwwwweeEeeewwwwwwwwwwwwwweeeeeeOMwwwwwwwwwweeoowwwOwwwwwwwwwweeeeOwwewwwwwwwwwwweeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		@level = (@level + 1) % boards.length
+		s = boards[@level]
+		@board = []
+		for j in range 12
+			@board.push []
+			for i in range 18
+				k = 18 * j + i
+				if s[k] == 'm'
+					@mani = i
+					@manj = j
+				if s[k] == 'w' then digit = 0
+				if s[k] in ['e','m'] then digit = OK
+				if s[k] == 'E' then digit = OK+GREEN
+				if s[k] == 'o' then digit = OK+BOX
+				if s[k] == 'O' then digit = OK+BOX+GREEN
+				@board[j].push digit
+	draw : ->
+		bg 0
+		sc 0
+		sw 1
+		rectMode CENTER
+		for j in range 12
+			for i in range 18
+				size = 10
+				digit = @board[j][i]
+				fc 0.968, 0.980, 0.741 # yellow
+				if digit == 0 then fc 1,0,0
+				if (digit & GREEN) == GREEN then fc 0,1,0
+				rect 15+10*i,15+10*j,size,size
+				if (digit & BOX) == BOX
+					fc 0.717, 0.537, 0.000
+					size = 6
+					rect 15+10*i,15+10*j,size,size
+				if @mani == i and @manj == j
+					fc 0,0,1
+					circle 15+10*i+0.5,15+10*j+0.5,3
+		for [x,y] in @buttons
+			fc 1,1,1,0.5
+			circle x,y,12
+		textSize 30
+		textAlign CENTER,CENTER
+		fc 1
+		text @level,30,165
+		text @moves,170,165
+	move : (i,j) ->
+		if dist(i,j,@mani,@manj) != 1 then return
+		digit = @board[j][i]
+		ni = i+i-@mani
+		nj = j+j-@manj
+		if (digit & BOX) == BOX
+		  if @board[nj][ni] in [1,3]
+				@board[nj][ni] |= BOX
+				@board[j][i] &= OK+GREEN
+				@moves++
+				if @final() then return @newGame()
+				@mani = i
+				@manj = j
+		else if (digit & OK) == OK
+			@mani = i
+			@manj = j
+	final : ->
+		for j in range 12
+			for i in range 18
+				if @board[j][i] in [3,5] then return false
+		true
+	mousePressed : (mx,my) ->
+		for [x,y],i in @buttons
+			if dist(mx,my,x,y) <= 12
+				[di,dj] = [[0,-1],[1,0],[0,1],[-1,0]][i]
+				@move @mani+di,@manj+dj
+	undo : ->
+		@level--
+		@newGame()
+
+app = new Sokoban "a"
+"""
+	c:
+		app : "reset()|undo()"
+	e:
+		Sokoban : "http://www.linusakesson.net/games/autosokoban/?v=1&seed=355842047&level=1"
