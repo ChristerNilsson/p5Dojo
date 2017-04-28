@@ -19,7 +19,10 @@ setMsg = (e,nr) ->
 	if e == ''
 		msg.val ""
 	else
-		msg.val e.name + ': ' + e + if nr==1 then " (in A)" else ""
+		s = e.toString()
+		p = s.indexOf ':'
+		s = s.substr p+2 if p!=-1
+		msg.val s + ' (' + e.name + ')' + if nr==1 then " (in A)" else ""
 	msg.css 'background-color', if e == '' then '#FFFFFF' else '#FF0000'
 
 grid = ->

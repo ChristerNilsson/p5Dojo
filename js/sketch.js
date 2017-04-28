@@ -28,10 +28,16 @@ block = 0;
 buffer = [[], [], []];
 
 setMsg = function(e, nr) {
+  var p, s;
   if (e === '') {
     msg.val("");
   } else {
-    msg.val(e.name + ': ' + e + (nr === 1 ? " (in A)" : ""));
+    s = e.toString();
+    p = s.indexOf(':');
+    if (p !== -1) {
+      s = s.substr(p + 2);
+    }
+    msg.val(s + ' (' + e.name + ')' + (nr === 1 ? " (in A)" : ""));
   }
   return msg.css('background-color', e === '' ? '#FFFFFF' : '#FF0000');
 };
