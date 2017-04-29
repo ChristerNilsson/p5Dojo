@@ -2,46 +2,55 @@
 var ID100, ID101, ID102, ID103, ID104, ID105, ID106, ID107, ID108;
 
 ID100 = {
+  v: '2017-04-29',
   b: "# LOC:6 range fc circle # for in lerp\n",
   a: "for i in range 10\n	fc i/10.0,0,0\n	x = 10+20*i\n	y = 10\n	r = i\n	circle x,y,r"
 };
 
 ID101 = {
+  v: '2017-04-29',
   b: "# LOC:4 range fc circle # for in lerp\n",
   a: "for i in range 10,0,-1\n	fc i/10.0,0,0\n	r = 10 * i\n	circle 100,100, r"
 };
 
 ID102 = {
+  v: '2017-04-29',
   b: "# LOC:6 range fc circle # for in lerp\n",
   a: "for i in range 10,0,-1\n	fc i/10.0,0,0\n	x = 10*i\n	y = 10*i\n	r = 10*i\n	circle x,y,r"
 };
 
 ID103 = {
+  v: '2017-04-29',
   b: "# LOC:2 sc # line\n",
   a: "sc 1,0,1\nline 10,70, 190,70"
 };
 
 ID104 = {
+  v: '2017-04-29',
   b: "# LOC:3 sc sw # line\n",
   a: "sc 1,1,0\nsw 10\nline 110,30, 110,170"
 };
 
 ID105 = {
+  v: '2017-04-29',
   b: "# LOC:2 sc # line\n",
   a: "sc 1,1,0\nline 20,0, 200,20"
 };
 
 ID106 = {
+  v: '2017-04-29',
   b: "# LOC:5 sc sw range # for in line \n",
   a: "sc 1,1,0\nsw 2\nfor i in range 10,200,10\n	line 10,i,190,i\n	line i,190, i,10"
 };
 
 ID107 = {
+  v: '2017-04-29',
   b: "# LOC:4 bg sc range # for in lerp line",
   a: "bg 0\nsc 1,0,0\nfor i in range 21\n	line i*10,0, 200,i*10"
 };
 
 ID108 = {
+  v: '2017-04-29',
   b: "# LOC:7 bg range # * + - for in line",
   a: "bg 0\nfor i in range 41\n	ni = 5 * i\n	line ni,     200,   0, 100+ni\n	line ni,       0,   0, 100-ni\n	line 100+ni, 200, 200, 200-ni\n	line 100+ni,   0, 200, ni",
   e: {

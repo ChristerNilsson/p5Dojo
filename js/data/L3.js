@@ -2,46 +2,55 @@
 var ID060, ID061, ID062, ID063, ID064, ID065, ID066, ID067, ID068;
 
 ID060 = {
+  v: '2017-04-29',
   b: "# LOC:2 fc # ellipse\n",
   a: "fc 0,1,0\nellipse 120,60, 60,40"
 };
 
 ID061 = {
+  v: '2017-04-29',
   b: "# LOC:2 fc # rect\n",
   a: "fc 0,1,0\nrect 60,80, 40,50"
 };
 
 ID062 = {
+  v: '2017-04-29',
   b: "# LOC:2 fc # rect\n",
   a: "fc 1,0,0\nrect 80,70, 40,100"
 };
 
 ID063 = {
+  v: '2017-04-29',
   b: "# LOC:4 fc # rect\n",
   a: "fc 1,0,0\nsc()\nrect 85,70, 70,10\nrect 115,40, 10,100"
 };
 
 ID064 = {
+  v: '2017-04-29',
   b: "# LOC:11 fc sc sw # rect\n",
   a: "fc 0,1,1\nsc()\nrect 60,60, 80,20\nrect 60,120, 80,20\nrect 60,60, 20,80\nrect 120,60, 20,80\nfc()\nsc 1,0,0\nsw 3\nrect 60,60, 80,80\nrect 80,80, 40,40"
 };
 
 ID065 = {
+  v: '2017-04-29',
   b: "# LOC:2 fc # triangle\n",
   a: "fc 1\ntriangle 20,40, 160,100, 100,140"
 };
 
 ID066 = {
+  v: '2017-04-29',
   b: "# LOC:2 fc # quad\n",
   a: "fc 1,1,0\nquad 150,100, 180,20, 40,20, 100,140"
 };
 
 ID067 = {
+  v: '2017-04-29',
   b: "# LOC:7 fc sc sw # arc radians strokeCap\n",
   a: "fc()\nsc 1,0,0\nsw 20\narc 100,70, 100,100, radians(-90),radians(90)\nsc 1,1,0\nstrokeCap SQUARE\narc 100,120, 100,100, radians(90),radians(-90)"
 };
 
 ID068 = {
+  v: '2017-04-29',
   b: "# LOC:2 fc # arc radians\n",
   a: "fc 1,1,0\narc 100,100, 180,180, radians(-135),radians(135)",
   e: {

@@ -2,31 +2,37 @@
 var ID120, ID121, ID122, ID123, ID124, ID125;
 
 ID120 = {
+  v: '2017-04-29',
   b: "# LOC:9 bg sc range # for in lerp line\n",
   a: "bg 0\nsc 1,1,0\nfor i in range 10\n	x1 = lerp 0,20,i\n	x2 = lerp 200,180,i\n	line x1,0, x2,200\n	y1 = lerp 20,40,i\n	y2 = lerp 180,160,i\n	line 0,y1, 200,y2"
 };
 
 ID121 = {
+  v: '2017-04-29',
   b: "# LOC:5 bg range # for in lerp line (Noel Watson)\n",
   a: "bg 0\nfor i in range 37\n	line 10,10, 190,10+i*5\n	line 10,100, 190,10+i*5\n	line 10,190, 190,10+i*5"
 };
 
 ID122 = {
+  v: '2017-04-29',
   b: "# LOC:5 bg fc range # % for in lerp rect\n",
-  a: "bg 0.5\nfor i in range 8\n	fc i%2\n	x = 20+20*i \n	rect x,20, 20,20"
+  a: "bg 0.5\nfor i in range 8\n	fc i%2\n	x = 20+20*i\n	rect x,20, 20,20"
 };
 
 ID123 = {
+  v: '2017-04-29',
   b: "# LOC:7 bg fc range # for in lerp rect\n",
   a: "bg 0.5\nfor i in range 8\n	for j in range 8\n		fc (i+j)%2\n		x = 20+20*i\n		y = 20+20*j\n		rect x,y, 20,20"
 };
 
 ID124 = {
+  v: '2017-04-29',
   b: "# LOC:8 fc range # for in lerp rect if then (David Larsson)\n",
   a: "for i in range 10\n	for j in range 10\n		fc()\n		if i-j in [-2,0,2] then fc 1,1,0\n		if i+j in [7,9,11] then fc 1,0,0\n		x = 20*i\n		y = 20*j\n		rect x,y, 20,20"
 };
 
 ID125 = {
+  v: '2017-04-29',
   b: "# LOC:11 bg sc sw range # for in point\n",
   a: "bg 0.5\nfor k in range 6\n	x = [75,25,75,125,75,75][k]\n	y = [50,50,100,50,0,150][k]\n	for i in range 50\n		r = [i/50,0,i/50,1,i/50,i/50][k]\n		for j in range 50\n			g = [j/50,j/50,1,j/50,0,(50-j)/50][k]\n			b = [0,(50-i)/50,j/50,i/50,(50-j)/50,1][k]\n			sc r,g,b\n			point x+i,y+j"
 };

@@ -1,11 +1,13 @@
-ID060 = # GreenEllipse: 
+ID060 = # GreenEllipse:
+	v:'2017-04-29'
 	b:"# LOC:2 fc # ellipse\n"
 	a:"""
 fc 0,1,0
 ellipse 120,60, 60,40
 """
 
-ID061 = # GreenRect: 
+ID061 = # GreenRect:
+	v:'2017-04-29'
 	b:"# LOC:2 fc # rect\n"
 	a:"""
 fc 0,1,0
@@ -13,13 +15,15 @@ rect 60,80, 40,50
 """
 
 ID062 = # RedRect:
+	v:'2017-04-29'
 	b:"# LOC:2 fc # rect\n"
 	a:"""
 fc 1,0,0
 rect 80,70, 40,100
 """
 
-ID063 = # Cross: 
+ID063 = # Cross:
+	v:'2017-04-29'
 	b:"# LOC:4 fc # rect\n"
 	a:"""
 fc 1,0,0
@@ -28,7 +32,8 @@ rect 85,70, 70,10
 rect 115,40, 10,100
 """
 
-ID064 = # SquareHole: 
+ID064 = # SquareHole:
+	v:'2017-04-29'
 	b : "# LOC:11 fc sc sw # rect\n"
 	a : """
 fc 0,1,1
@@ -42,16 +47,18 @@ sc 1,0,0
 sw 3
 rect 60,60, 80,80
 rect 80,80, 40,40
-""" 
+"""
 
-ID065 = # Triangle: 
-	b:"# LOC:2 fc # triangle\n" 
+ID065 = # Triangle:
+	v:'2017-04-29'
+	b:"# LOC:2 fc # triangle\n"
 	a:"""
 fc 1
 triangle 20,40, 160,100, 100,140
 """
 
-ID066 = # Quad: 
+ID066 = # Quad:
+	v:'2017-04-29'
 	b:"# LOC:2 fc # quad\n"
 	a:"""
 fc 1,1,0
@@ -59,6 +66,7 @@ quad 150,100, 180,20, 40,20, 100,140
 """
 
 ID067 = # TwoArcs:
+	v:'2017-04-29'
 	b:"# LOC:7 fc sc sw # arc radians strokeCap\n"
 	a:"""
 fc()
@@ -70,7 +78,8 @@ strokeCap SQUARE
 arc 100,120, 100,100, radians(90),radians(-90)
 """
 
-ID068 = # PacMan: 
+ID068 = # PacMan:
+	v:'2017-04-29'
 	b:"# LOC:2 fc # arc radians\n"
 	a:"""
 fc 1,1,0

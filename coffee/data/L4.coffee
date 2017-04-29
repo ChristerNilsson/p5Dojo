@@ -1,11 +1,12 @@
-ID080 = # HorizontalSquares: 
+ID080 = # HorizontalSquares:
+	v:'2017-04-29'
 	b:"""
-# LOC:3 range # rect for in lerp 
+# LOC:3 range # rect for in lerp
 
 rect  5,5,10,10
 rect 25,5,10,10
 for i in range 5
-	x = lerp 5,25,i 
+	x = lerp 5,25,i
 	rect
 """
 	a:"""
@@ -14,7 +15,8 @@ for i in range 10
 	rect x,5, 10,10
 """
 
-ID081 = # VerticalSquares: 
+ID081 = # VerticalSquares:
+	v:'2017-04-29'
 	b:"# LOC:3 range # rect for in lerp\n"
 	a:"""
 for i in range 10
@@ -22,7 +24,8 @@ for i in range 10
 	rect 5,y, 10,10
 """
 
-ID082 = # DiagonalSquares: 
+ID082 = # DiagonalSquares:
+	v:'2017-04-29'
 	b:"# LOC:4 range # rect for in lerp\n"
 	a:"""
 for i in range 10
@@ -31,7 +34,8 @@ for i in range 10
 	rect x,y, 10,10
 """
 
-ID083 = # DoubleForLoop: 
+ID083 = # DoubleForLoop:
+	v:'2017-04-29'
 	b:"# LOC:5 range # rect for in lerp\n"
 	a:"""
 for i in range 10
@@ -41,7 +45,8 @@ for i in range 10
 		rect x,y, 10,10
 """
 
-ID084 = # GrowingSquares: 
+ID084 = # GrowingSquares:
+	v:'2017-04-29'
 	b:"# LOC:7 range # rect rectMode for in lerp\n"
 	a:"""
 rectMode CENTER
@@ -53,7 +58,8 @@ for i in range 10
 	rect x,y, w,h
 """
 
-ID085 = # GrowingRedSquares: 
+ID085 = # GrowingRedSquares:
+	v:'2017-04-29'
 	b:"# LOC:8 fc range # for in lerp rect rectMode\n"
 	a:"""
 rectMode CENTER
@@ -67,7 +73,8 @@ for i in range 10
 """
 
 
-ID089 = # PentaLerp: 
+ID089 = # PentaLerp:
+	v:'2017-04-29'
 	b:"# LOC:11 bg sc fc range circle # for in lerp\n"
 	a:"""
 bg 0.5

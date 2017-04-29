@@ -1,4 +1,5 @@
 IDL00 = # Nyheter :
+	v:'2017-04-29'
 	b:"""
 # LOC:0
 # NYHETER 2017 APR 29
@@ -52,6 +53,7 @@ IDL00 = # Nyheter :
 """
 
 IDL01 = # Asserts:
+	v:'2017-04-29'
 	b:"""
 # LOC:0
 # Här kan du se några klargörande exempel.
@@ -229,6 +231,7 @@ assert [1,2,3],           _.values {a:1, b:2, c:3}
 		p5Assert : 'https://christernilsson.github.io/p5Assert'
 
 IDL02 = # LinesOfCode
+	v:'2017-04-29'
 	b:"""
 # LOC:62 bg fc sc # {} * / + ++ == if then else indexOf parseInt substring
 #        _.max rect for of text textAlign class constructor new @ extends super
@@ -247,14 +250,15 @@ class LinesOfCode extends Application
 		@h = 13
 		@total = 0
 		for chapter,item1 of data
-			@stat[chapter] = {}
-			for exercise,item2 of item1
-				b = item2.b
-				p1 = b.indexOf 'LOC:'
-				p2 = b.indexOf ' ',p1
-				loc = parseInt b.substring p1+4,p2
-				@total += loc
-				@stat[chapter][exercise] = loc
+			if chapter not in ['Nyheter','Exhibition']
+				@stat[chapter] = {}
+				for exercise,item2 of item1
+					b = item2.b
+					p1 = b.indexOf 'LOC:'
+					p2 = b.indexOf ' ',p1
+					loc = parseInt b.substring p1+4,p2
+					@total += loc
+					@stat[chapter][exercise] = loc
 	draw : ->
 		fc 1,1,0
 		sc()

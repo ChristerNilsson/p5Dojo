@@ -1,4 +1,5 @@
 ID020 = # Background1:
+	v:'2017-04-29'
 	b: """
 # LOC:1
 # Första bilden ska du efterlikna.
@@ -17,18 +18,22 @@ ID020 = # Background1:
 	a: "bg 1"
 
 ID021 = # Background2:
+	v:'2017-04-29'
 	b: "# LOC:1 bg\n"
 	a: "bg 0.5"
 
 ID022 = # Background3:
+	v:'2017-04-29'
 	b: "# LOC:1 bg\n"
 	a: "bg 1,0,0"
 
 ID023 = # Background4:
+	v:'2017-04-29'
 	b: "# LOC:1 bg\n"
 	a: "bg 1,1,0"
 
 ID024 = # X:
+	v:'2017-04-29'
 	b: """
 # LOC:4 sw # point
 
@@ -46,6 +51,7 @@ point 200,0
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID025 = # Y:
+	v:'2017-04-29'
 	b: """
 # LOC:5 sc sw # point
 
@@ -65,6 +71,7 @@ point 0,200
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID026 = # CornerPoints:
+	v:'2017-04-29'
 	b: """
 # LOC:9 sc sw # point
 
@@ -88,6 +95,7 @@ point 200,200
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID027 = # MidPoints:
+	v:'2017-04-29'
 	b: "# LOC:11 sc sw # point\n"
 	a: """
 sw 10
@@ -106,6 +114,7 @@ point 100,200
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID028 = # CornerPoints3:
+	v:'2017-04-29'
 	b: "# LOC:17 sc sw # point\n"
 	a: """
 sw 10
@@ -133,6 +142,7 @@ point 200,180
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID029 = # CornerPoints7:
+	v:'2017-04-29'
 	b: "# LOC:17 sc sw # point\n"
 	a: """
 sw 10
@@ -158,6 +168,7 @@ point 200,170
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID030 = # Diagonal1:
+	v:'2017-04-29'
 	b: "# LOC:12 sc sw # point\n"
 	a: """
 bg 0,1,0
@@ -179,6 +190,7 @@ point 200,200
 """
 
 ID031 = # Diagonal2:
+	v:'2017-04-29'
 	b: "# LOC:11 sc sw # point\n"
 	a: """
 sw 20

@@ -1,4 +1,5 @@
-ID140 = # TextC: 
+ID140 = # TextC:
+	v:'2017-04-29'
 	b:"# LOC:6 fc rd # text textAlign textSize translate\n"
 	a:"""
 fc 1,1,0
@@ -9,7 +10,8 @@ rd 90
 text 'Coffeescript',0,0
 """
 
-ID141 = # TextD: 
+ID141 = # TextD:
+	v:'2017-04-29'
 	b:"# LOC:6 fc rd # text textAlign textSize translate\n"
 	a:"""
 fc 1,1,0
@@ -19,8 +21,9 @@ translate 100,100
 rd 180
 text 'Coffeescript',0,0
 """
-		
-ID142 = # RotatedEllipse: 
+
+ID142 = # RotatedEllipse:
+	v:'2017-04-29'
 	b:"# LOC:5 rd # ellipse translate\n"
 	a:"""
 fc 1,0,0
@@ -30,7 +33,8 @@ rd 45
 ellipse 0,0, 80,40
 """
 
-ID143 = # RotatedRectA: 
+ID143 = # RotatedRectA:
+	v:'2017-04-29'
 	b:"# LOC:4 fc # rect\n"
 	a:"""
 fc 1,0,0
@@ -39,7 +43,8 @@ fc 0,1,0
 rect 140,100, 40,40
 """
 
-ID144 = # RotatedRectB: 
+ID144 = # RotatedRectB:
+	v:'2017-04-29'
 	b:"# LOC:12 fc rd # rect translate push pop\n"
 	a:"""
 push()
@@ -56,7 +61,8 @@ rect 0,0, 40,40
 pop()
 """
 
-ID145 = # RotatedRectC: 
+ID145 = # RotatedRectC:
+	v:'2017-04-29'
 	b:"# LOC:13 fc rd # rect translate push pop\n"
 	a:"""
 rectMode CENTER
@@ -74,7 +80,8 @@ rect 0,0, 40,40
 pop()
 """
 
-ID146 = # Cards: 
+ID146 = # Cards:
+	v:'2017-04-29'
 	b:"# LOC:10 fc sc circle range rd # rect rectMode for in lerp translate\n"
 	a:"""
 rectMode CENTER
@@ -87,9 +94,10 @@ for i in range 18,-1,-1
 	h = 70+5*i
 	rect 0,0, w,h
 	rd 5
-""" 
+"""
 
-ID147 = # "Snow White and the 7 lerps": 
+ID147 = # "Snow White and the 7 lerps":
+	v:'2017-04-29'
 	b:"# LOC:17 bg fc sc range rd # rect rectMode for in lerp translate push pop\n"
 	a:"""
 bg 1
@@ -109,9 +117,10 @@ for i in range 10
 		h = lerp 5,6,j
 		rect 0,0, w,h
 		pop()
-""" 
+"""
 
 ID148 = # Roulette:
+	v:'2017-04-29'
 	b:"""
 # LOC:15 bg sw fc sc range rd # for in if then else == % / [] "" PI
 #        length text textAlign arc strokeCap translate push pop
@@ -135,12 +144,13 @@ for number,i in numbers
 	text number,0,-90
 	rd 360 / numbers.length
 """
-	e : 
+	e :
 		Wikipedia : "https://en.wikipedia.org/wiki/Roulette"
 
 ID149 = # CoffeescriptClock:
+	v:'2017-04-29'
 	b:"""
-# LOC:10 bg fc sc range # * + - for in "" radians text textSize textAlign 
+# LOC:10 bg fc sc range # * + - for in "" radians text textSize textAlign
 """
 	a:"""
 bg 1

@@ -1,40 +1,42 @@
-ID040 = # Dices : 
+ID040 = # Dices :
+	v:'2017-04-29'
 	b : "# LOC:26 sc # point\n"
 	a: """
 point 10,10
 
-sc 1,0,0 
-point 185,5 
-point 195,15 
+sc 1,0,0
+point 185,5
+point 195,15
 
-sc 0,1,0 
-point 85,65 
-point 90,70 
-point 95,75 
+sc 0,1,0
+point 85,65
+point 90,70
+point 95,75
 
-sc 1,1,0 
-point 165,105 
-point 165,115 
-point 175,105 
-point 175,115 
+sc 1,1,0
+point 165,105
+point 165,115
+point 175,105
+point 175,115
 
-sc 1,0,1 
-point 45,125 
-point 45,135 
-point 50,130 
-point 55,125 
-point 55,135 
+sc 1,0,1
+point 45,125
+point 45,135
+point 50,130
+point 55,125
+point 55,135
 
-sc 0,1,1 
-point 105,165 
-point 105,170 
-point 105,175 
-point 115,165 
-point 115,170 
-point 115,175 
+sc 0,1,1
+point 105,165
+point 105,170
+point 105,175
+point 115,165
+point 115,170
+point 115,175
 """
-		
-ID041 = # Five: 
+
+ID041 = # Five:
+	v:'2017-04-29'
 	b: "# LOC:12 bg circle fc sc\n"
 	a: """
 bg 0.5
@@ -49,16 +51,18 @@ fc 0,1,0
 circle 160,160,20
 fc 0,0,1
 circle 160,40,20
-""" 
+"""
 
-ID042 = # WhiteCircle: 
+ID042 = # WhiteCircle:
+	v:'2017-04-29'
 	b:"# LOC:2 circle fc\n"
 	a:"""
 fc 1
 circle 60,80,30
 """
 
-ID043 = # WhiteEmptyCircle: 
+ID043 = # WhiteEmptyCircle:
+	v:'2017-04-29'
 	b:"# LOC:4 circle fc sc sw\n"
 	a:"""
 sc 1
@@ -67,16 +71,18 @@ sw 2
 circle 70,90,40
 """
 
-ID044 = # TwoDiscsA: 
+ID044 = # TwoDiscsA:
+	v:'2017-04-29'
 	b:"# LOC:4 circle fc\n"
 	a:"""
-fc 1,0,0 
+fc 1,0,0
 circle 80,100,40
 fc 0,1,0
 circle 100,120,50
 """
 
 ID045 = # TwoDiscsB:
+	v:'2017-04-29'
 	b:"# LOC:4 circle fc\n"
 	a:"""
 fc 1,0,0
@@ -85,7 +91,8 @@ fc 0,1,0, 0.5
 circle 120,100,50
 """
 
-ID046 = # TextA: 
+ID046 = # TextA:
+	v:'2017-04-29'
 	b:"# LOC:3 fc # textSize text\n"
 	a:"""
 fc 1,1,0
@@ -93,7 +100,8 @@ textSize 32
 text 'Coffeescript',100,100
 """
 
-ID047 = # TextB: 
+ID047 = # TextB:
+	v:'2017-04-29'
 	b:"# LOC:7 bg fc sc sw # text textAlign textSize\n"
 	a:"""
 bg 1

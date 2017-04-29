@@ -1,4 +1,5 @@
-ID160 = # ManyDices: 
+ID160 = # ManyDices:
+	v:'2017-04-29'
 	b : "# LOC:8 -> range # for in if then point [] * + % & << ->\n"
 	a : """
 dice = (x,y,d) ->
@@ -12,6 +13,7 @@ for i in range 10
 """
 
 ID161 = # Girlang :
+	v:'2017-04-29'
 	b:"""
 # LOC:16 sc bg sw range # for in line class constructor new @
 
@@ -48,6 +50,7 @@ girlang 0,0,9,5,20,20
 """
 
 ID162 = # Braid:
+	v:'2017-04-29'
 	b : """
 # LOC:19 sc bg sw range # for in line class constructor new @
 
@@ -55,7 +58,7 @@ class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
 
-braid = (n,dx,dy,width) ->	
+braid = (n,dx,dy,width) ->
 
 braid 5,18,18,6
 """
@@ -68,7 +71,7 @@ class Cartesius
 		line @x,@y,@x+dx,@y+dy
 		[@x,@y] = [@x+dx,@y+dy]
 
-braid = (n,dx,dy,width) ->		
+braid = (n,dx,dy,width) ->
 
 	a = new Cartesius 1,0,0, 100-dx/2,dy/3
 	b = new Cartesius 1,1,0, 100+dx/2,2*dy/3
@@ -93,6 +96,7 @@ braid 5,18,18,6
 		Wikipedia : "https://en.wikipedia.org/wiki/Braid"
 
 ID163 = # OlympicRings:
+	v:'2017-04-29'
 	b: """
 # LOC:24 sc bg fc sw # arc strokeCap class constructor new @
 
@@ -110,7 +114,7 @@ class Ring
 	draw : (start=3,stopp=3,hour=PI/6) ->
 		sc @r,@g,@b
 		arc @x,@y,@radius,@radius,(start-3)*hour,(stopp-3)*hour
-		
+
 olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 	r1 = new Ring x-d,  y,     radius, 0,0,1
 	r2 = new Ring x,    y,     radius, 0,0,0
@@ -135,10 +139,11 @@ olympic = (x=100,y=100,radius=50,d=60,w=10) ->
 
 olympic()
 """
-	e : 
+	e :
 		Wikipedia : "https://en.wikipedia.org/wiki/Olympic_symbols"
 
 ID164 = # OneDiceHistogram
+	v:'2017-04-29'
 	b:"""
 # LOC:17 fc sc range # Array fill length int random text textAlign for in ++ * / + - rect []
 # OBS: På grund av random blir bitmapparna inte likadana
@@ -152,7 +157,7 @@ for count,i in counts
 """
 	a:"""
 counts = Array(6).fill 0
-dice = -> int 6 * random() 
+dice = -> int 6 * random()
 for i in range 1000
 	counts[dice()]++
 h = int 200/6
@@ -171,13 +176,14 @@ for count,i in counts
 """
 
 ID165 = # TwoDiceHistogram
+	v:'2017-04-29'
 	b:"""
 # LOC:22 bg fc sc range # Array fill length int random text textAlign if else for in ++ * / + - < rect []
 # OBS: På grund av random blir bitmapparna inte likadana
 """
 	a:"""
 counts = Array(11).fill 0
-dice = -> int 6 * random() 
+dice = -> int 6 * random()
 textAlign CENTER,CENTER
 for i in range 1000
 	counts[dice() + dice()]++

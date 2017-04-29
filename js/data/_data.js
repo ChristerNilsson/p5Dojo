@@ -106,60 +106,65 @@ data = {
     Braid: ID162,
     OneDiceHistogram: ID164,
     TwoDiceHistogram: ID165,
+    OlympicRingPrep: ID_OlympicRingPrep,
     OlympicRings: ID163
   },
-  "L9: interactivity, basic": {
-    Counter: ID180,
-    ClickDetector: ID188,
-    Stopwatch: ID181,
-    RandomDice: ID182,
-    Moire: ID183,
-    GuessANumber: ID185,
-    MultiTimer: ID184,
-    RecursiveCircle: ID186,
-    Laboratorium: ID187,
-    IndianSun: ID189
+  "L9: interaction": {
+    Counter: ID_Counter,
+    Square: ID_Square,
+    Moire: ID_Moire,
+    Stopwatch: ID_Stopwatch,
+    RandomDice: ID_RandomDice,
+    IndianSun: ID_IndianSun,
+    BoardGame: ID_BoardGame,
+    Laboratorium: ID_Laboratorium
   },
-  "LA: interactivity, easy": {
-    Square: ID200,
-    BoardGame: ID201,
-    SevenSegment: ID202,
-    Polygon: ID204,
-    Alphanumeric: ID205,
-    ColorCube: ID209,
-    Korg: ID206,
-    GoldenStar: ID203,
-    Sokoban: ID207
+  "LA: GuessANumber": {
+    Polygon: ID_Polygon,
+    Korg: ID_Korg,
+    Korsord: ID_Korsord,
+    GuessANumber: ID_GuessANumber,
+    SevenSegment: ID_SevenSegment,
+    GoldenStar: ID_GoldenStar
   },
-  "LB: interactivity, medium": {
-    Korsord: ID220,
-    GameOfLife: ID228,
-    EngineeringNotation: ID221,
-    Connect4: ID222,
-    SpaceShip: ID223,
-    Nian: ID224,
-    Klocka: ID225,
-    BouncingBalls: ID226,
-    ColorPair: ID227
+  "LB: Connect4": {
+    MultiTimer: ID_MultiTimer,
+    ColorCube: ID_ColorCube,
+    BlackBox2D: ID_BlackBox2D,
+    SpaceShip: ID_SpaceShip,
+    Alphanumeric: ID_Alphanumeric,
+    Connect4: ID_Connect4
   },
-  "LC: interactivity, hard": {
-    Braider: ID242,
-    Kalkylator: ID244,
-    Hex: ID245,
-    PickingBerries: ID246,
-    Snake: ID247,
-    Snake4: ID248,
-    RubikSquare: ID249,
-    Nim: ID260
+  "LC: GameOfLife": {
+    Nian: ID_Nian,
+    BouncingBalls: ID_BouncingBalls,
+    Snake4: ID_Snake4,
+    ForthHaiku: ID_ForthHaiku,
+    Kalkylator: ID_Kalkylator,
+    GameOfLife: ID_GameOfLife
   },
-  "LD: interactivity, very hard": {
-    ChessGame: ID261,
-    Shortcut: ID265,
-    RushHour: ID263,
-    BlackBox2D: ID264,
-    Nand2TetrisALU: ID262,
-    Complex: ID266,
-    RubikCube: ID267,
-    ForthHaiku: ID268
+  "LD: ColorPair": {
+    Hex: ID_Hex,
+    PickingBerries: ID_PickingBerries,
+    Snake: ID_Snake,
+    Klocka: ID_Klocka,
+    ChessGame: ID_ChessGame,
+    RecursiveCircle: ID_RecursiveCircle,
+    ColorPair: ID_ColorPair
+  },
+  "LE: RushHour": {
+    ClickDetector: ID_ClickDetector,
+    Nim: ID_Nim,
+    Shortcut: ID_Shortcut,
+    Braider: ID_Braider,
+    RushHour: ID_RushHour,
+    Nand2TetrisALU: ID_Nand2TetrisALU
+  },
+  "LF: Sokoban": {
+    Complex: ID_Complex,
+    RubikSquare: ID_RubikSquare,
+    RubikCube: ID_RubikCube,
+    Sokoban: ID_Sokoban,
+    EngineeringNotation: ID_EngineeringNotation
   }
 };

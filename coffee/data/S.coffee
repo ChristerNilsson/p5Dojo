@@ -1,0 +1,550 @@
+ID_SevenSegment =
+	v:'2017-04-29'
+	b : """
+# LOC:31 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->
+
+class Digit extends Application
+	reset : ->
+		super
+	draw  : ->
+	up    : ->
+	down  : ->
+app = new Digit
+			"""
+	a:"""
+class Digit extends Application
+	reset : ->
+		super
+		@PATTERN = [63,6,91,79,102,109,125,7,127,111]
+		@X=100
+		@Y=100
+		@W=80
+		@H=18
+		@d=0
+	draw : ->
+		bg 0.5
+		sc()
+		fc 1,0,0
+		rectMode CENTER
+		p = @PATTERN[@d]
+		w0 = @W-20
+		if p & 1 then fc 1,0,0 else fc 0.3,0,0
+		rect @X,@Y-@W,w0,@H
+		if p & 2 then fc 1,0,0 else fc 0.3,0,0
+		rect @X+@W/2,@Y-@W/2,@H,w0
+		if p & 4 then fc 1,0,0 else fc 0.3,0,0
+		rect @X+@W/2,@Y+@W/2,@H,w0
+		if p & 8 then fc 1,0,0 else fc 0.3,0,0
+		rect @X,@Y+@W,w0,@H
+		if p & 16 then fc 1,0,0 else fc 0.3,0,0
+		rect @X-@W/2,@Y+@W/2,@H,w0
+		if p & 32 then fc 1,0,0 else fc 0.3,0,0
+		rect @X-@W/2,@Y-@W/2,@H,w0
+		if p & 64 then fc 1,0,0 else fc 0.3,0,0
+		rect @X,@Y,w0,@H
+	mousePressed : (mx,my) -> @d = constrain @d + (if my<100 then 1 else -1), 0, 9
+
+app = new Digit "a"
+"""
+	c:
+		app : "reset()"
+	e:
+		"7 segment" : "https://www.google.se/search?q=7+segment&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjg_5n55OrSAhWpZpoKHQP8DxoQ_AUIBigB&biw=1310&bih=945"
+
+ID_Shortcut =
+	v:'2017-04-29'
+	b:"""
+# LOC:65 bg fc sc range # %% * / + [] text textAlign textSize for in if then else return
+#        {} and < != == push pop length constrain class extends constructor new @ super ->
+
+class Shortcut extends Application
+	reset : ->
+		super
+	draw : ->
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	mousePressed : (mx,my) ->
+app = new Shortcut
+"""
+	a:"""
+class Shortcut extends Application
+	reset : ->
+		super
+		@W = 33
+		@H = 25
+		@seed = 0
+		@level = 1
+		@buttons = [[50,50,0],[150,50,0],[33,125,'/2'],[100,125,'+2'],[167,125,'*2'], [33,175,'undo'],[100,175,1],[167,175,'new']]
+		@createGame()
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	draw : ->
+		@buttons[0][2] = @a
+		@buttons[1][2] = @b
+		@buttons[6][2] = @level - @history.length
+		bg 0.5
+		textAlign CENTER,CENTER
+		textSize 30
+		sc()
+		for [x,y,txt],i in @buttons
+			if i in [0,1,6] then fc 0 else fc 1,1,0
+			text txt,x,y
+	newGame : ->
+		if @level >= @history.length and @a == @b then d=1 else d=-1
+		@level = constrain @level+d,1,16
+		@createGame()
+	createGame : ->
+		@history = []
+		@a = 1 + @randint 20
+		q1 = [@a]
+		q2 = []
+		visited = {}
+		visited[@a] = true
+		expand = (n) ->
+			if visited[n] then return
+			visited[n] = true
+			q2.push n
+		for level in range @level
+			for nr in q1
+				expand nr+2
+				expand nr*2
+				expand nr/2 if nr%2==0
+			q1 = q2
+			q2 = []
+		@b = @selectTarget q1 #[@randint(q1.length)]
+	selectTarget : (lst) -> # within 1..1000, if possible
+		bs = (x for x in lst when 1 <= x <= 1000)
+		return bs[@randint(bs.length)] if bs.length > 0
+		_.min lst
+	undo : ->
+		if @history.length == 0 then return
+		@a = @history.pop()
+	mousePressed : (mx,my) ->
+		index = -1
+		for [x,y,txt],i in @buttons
+			if x-@W < mx < x+@W and  y-@H < my < y+@H
+				index = i
+		a = -1
+		if index == 2 and @a % 2 == 0 then a = @a / 2
+		if index == 3 then a = @a + 2
+		if index == 4 then a = @a * 2
+		if index == 5 then @undo()
+		if index == 7 then @newGame()
+		if a != -1
+			@history.push @a
+			@a = a
+
+app = new Shortcut "a"
+
+"""
+	c:
+		app : "reset()"
+
+ID_Snake =
+	v:'2017-04-29'
+	b: """
+# LOC:47 bg fc # [] rect %% + ++ * == < and push dist length for in
+#        if then else class extends constructor new @ super ->
+
+class Snake extends Application
+	reset : ->
+		super
+	setSize : (s) ->
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	draw : ->
+	mousePressed : (mx,my) ->
+app = new Snake
+"""
+	a:"""
+class Snake extends Application
+	reset : ->
+		super
+		@BUTTONS = [[33,167],[167,167]]
+		@DIRS = [[1,0],[0,-1],[-1,0],[0,1]]
+		@setSize 20
+	setSize : (s) ->
+		@SIZE = s
+		@N = 200/@SIZE
+		@seed = 0
+		@segments = [[5,5]]
+		@dir = 0
+		@total = 2
+		@cherry = [3,3]
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	update : ->
+		[di,dj] = @DIRS[@dir]
+		[i,j] = @segments[0]
+		i = (i+di) %% @N
+		j = (j+dj) %% @N
+		@segments.unshift [i,j]
+		if @total < @segments.length then @segments.pop()
+		if i==@cherry[0] and j==@cherry[1]
+			@total++
+			@cherry = [@randint(@N),@randint(@N)]
+	draw : ->
+		bg 1,0,0
+		[i,j] = @segments[0]
+		for [si,sj],k in @segments
+			if k>0 and i==si and j==sj then return
+		bg 1
+		[ci,cj] = @cherry
+		fc 1,0,0
+		rect @SIZE*ci,@SIZE*cj,@SIZE,@SIZE
+		for [i,j],k in @segments
+			if k==0 then fc 0 else fc 0.5
+			rect @SIZE*i,@SIZE*j,@SIZE,@SIZE
+		fc 0.9,0.9,0.9,0.3
+		for [x,y] in @BUTTONS
+			circle x,y,33
+	mousePressed : (mx,my) ->
+		index = -1
+		for [x,y],i in @BUTTONS
+			if dist(x,y,mx,my) < 33 then index = i
+		if index == 0 then @dir = (@dir+1) %% 4
+		if index == 1 then @dir = (@dir-1) %% 4
+		@update()
+
+app = new Snake "a"
+"""
+	c:
+		app : "reset()|setSize 20|setSize 10|setSize 5|setSize 2"
+	e:
+		Snake : "https://en.wikipedia.org/wiki/Snake_(video_game)"
+
+ID_Snake4 =
+	v:'2017-04-29'
+	b: """
+# LOC:43 bg fc # [] rect %% + ++ * == < and or push dist length for in
+#        if then else class extends constructor new @ super ->
+
+class Snake4 extends Application
+	reset : ->
+		super
+	setSize : (s) ->
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	draw : ->
+	mousePressed : (mx,my) ->
+app = new Snake4
+"""
+	a:"""
+class Snake4 extends Application
+	reset : ->
+		super
+		@BUTTONS = [[167,100], [100,33], [33,100], [100,167]]
+		@DIRS = [[1,0],[0,-1],[-1,0],[0,1]]
+		@setSize 20
+	setSize : (s) ->
+		@SIZE = s
+		@N = 200/@SIZE
+		@seed = 0
+		@segments = [[5,5]]
+		@dir = 0
+		@total = 2
+		@cherry = [3,3]
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	update : ->
+		[di,dj] = @DIRS[@dir]
+		[i,j] = @segments[0]
+		i = i+di
+		j = j+dj
+		@segments.unshift [i,j]
+		if @total < @segments.length then @segments.pop()
+		if i==@cherry[0] and j==@cherry[1]
+			@total++
+			@cherry = [@randint(@N),@randint(@N)]
+	draw : ->
+		bg 1,0,0
+		[i,j] = @segments[0]
+		if i in [-1,@N] or j in [-1,@N] then return
+		bg 1
+		[ci,cj] = @cherry
+		fc 1,0,0
+		rect @SIZE*ci,@SIZE*cj,@SIZE,@SIZE
+		for [i,j],k in @segments
+			if k==0 then fc 0 else fc 0.5
+			rect @SIZE*i,@SIZE*j,@SIZE,@SIZE
+		fc 0.9,0.9,0.9,0.3
+		for [x,y] in @BUTTONS
+			circle x,y,33
+	mousePressed : (mx,my) ->
+		for [x,y],i in @BUTTONS
+			if dist(x,y,mx,my) < 33 and abs(i-@dir)!=2 then @dir = i
+		@update()
+
+app = new Snake4 "a"
+"""
+	c:
+		app : "reset()|setSize 20|setSize 10|setSize 5|setSize 2"
+	e:
+		Play : "http://patorjk.com/games/snake"
+		Source : "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"
+		Wikipedia : "https://en.wikipedia.org/wiki/Snake_(video_game)"
+
+ID_Sokoban =
+	v:'2017-04-29'
+	b: """
+# LOC:94 bg sc fc sw range # * + - % & | -- [] == push length for in if then else
+#        and rect circle dist class extends constructor new @ super ->
+
+class Sokoban extends Application
+	reset : ->
+		super
+	newGame : ->
+	draw : ->
+	mousePressed : (mx,my) ->
+	undo : ->
+app = new Sokoban
+"""
+	a: """
+OK = 1
+GREEN = 2
+BOX = 4
+class Sokoban extends Application
+	reset : ->
+		super
+		@level = -1
+		@newGame()
+		@buttons = []
+		@buttons.push [100,145],[120,165],[100,185],[80,165]
+	newGame : ->
+		@moves = 0
+		boards = []
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwweoeEwwwwwwwwwwwwwwmwwewwwwwwwwwwwwEeewweeeeewwwwwwwwewewweewwewwwwwwwweeoeeeewwewwwwwwwweeeeeeeeeewwwwwwwwwwweewewwwwwwwwwwwwweeewewwwwwwwwwwwwweeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeewwwwwwwwwwwwwewewewwwwwwwwwwwEeeeeoeoEeeeewwwwwewweewwwwwwwwwwwwEeoemewwwwwwwwwwwwewewwewwwwwwwwwwwweeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeewwwwwwwwwwwwwwwewewwwwwwwwwwwweeeeeeewwwwwwwwwwweeeeeeEwwwwwwwwwwweeeeEwewwwwwwwwwwwweeoewewwwwwwwwwwwwoweewewwwwwwwwwwwwmwOeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwweeeewwwwwwwwwweeEeEwwewwwwwwwwwweeeeewwewwwwwwwwweoeweEwwewwwwwwwwwmoeeeoeeeeeewwwwwweewweeewwwwwwwwwwwwwwwwewwwwwwwwwwwwwwwwwewwwwwwwwwwwwwwwwwOwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeewwwwwwwwwwwewwewweeewwwwwwwwweEeeeeeeoewwwwwwweewweoeewemwwwwwwweEeoewwewwwwwwwwwweewwewwEwwwwwwwwwwwwwwewwewwwwwwwwwwwwwweoEewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweewwwwwwwwwwwwwwwweeEeeEwwwwwwwwwwwwwEeeeeoEwwwwwwwwwwwewwoewwwwwwwwwwwwwewwmowwwwwwwwwwwwwewweewwwwwwwwwweeeeOeowwwwwwwwwwweeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweewwwwwwwwwwwwwwwweomEwwwwwwwwwweeeeeEoEwwwwwwwwwwwweoewoEwwwwwwwwwwwweweweowwwwwwwwwwwweweweewwwwwwwwwwwweweeEwwwwwwwwwwwwweeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwmwwwweewwwwwwwwwwwowwwwoewwwwwwwwweeEEeeeeewwwwwwwwweweewowwOwwwwwwwwweEeeeoEeEwwwwwwwwwwewwowwwwwwwwwwwwwweeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeewwwwwwwwwwwwweeeeeeoMwwwwwwwwwwewewwewwwwwwwwwwwwEeeeweweoeEwwwwwwweewowoeewwOewwwwwweEeeeewewwewwwwwwwewwwwwwewwewwwwwwwewwwwwweOeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		boards.push 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwEwwwwwwwwwwwwwwweeoeewwwwwwwwwwwwwewoeewwwwwwwwwwwwweEEOEwwwwwwwwwwwwwewwmewwwwwwwwwwwwweoeoewwwwwwwwwwwwwweweewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
+		@level = (@level + 1) % boards.length
+		s = boards[@level]
+		@board = []
+		for j in range 12
+			@board.push []
+			for i in range 18
+				k = 18 * j + i
+				if s[k] == 'm' then @man = [i,j]
+				if s[k] == 'w' then digit = 0
+				if s[k] in ['e','m'] then digit = OK
+				if s[k] == 'E' then digit = OK+GREEN
+				if s[k] == 'o' then digit = OK+BOX
+				if s[k] == 'O' then digit = OK+BOX+GREEN
+				@board[j].push digit
+	draw : ->
+		bg 0
+		sc 0
+		sw 1
+		rectMode CENTER
+		for j in range 12
+			for i in range 18
+				size = 10
+				digit = @board[j][i]
+				fc 0.75
+				if digit == 0 then fc 1,0,0
+				if (digit & GREEN) == GREEN then fc 0,1,0
+				rect 15+10*i,15+10*j,size,size
+				if (digit & BOX) == BOX
+					fc 1,1,0
+					size = 6
+					rect 15+10*i,15+10*j,size,size
+				if _.isEqual @man, [i,j]
+					fc 0,0,1
+					circle 15+10*i+0.5,15+10*j+0.5,3
+		for [x,y] in @buttons
+			fc 1,1,1,0.5
+			circle x,y,12
+		textSize 30
+		textAlign CENTER,CENTER
+		fc 1
+		text @level,30,165
+		text @moves,170,165
+	move : (i,j) ->
+		if dist(i,j,@man[0],@man[1]) != 1 then return
+		digit = @board[j][i]
+		ni = i+i-@man[0]
+		nj = j+j-@man[1]
+		if (digit & BOX) == BOX
+		  if @board[nj][ni] in [1,3]
+				@board[nj][ni] |= BOX
+				@board[j][i] &= OK+GREEN
+				@moves++
+				if @final() then return @newGame()
+				@man = [i,j]
+		else if (digit & OK) == OK then	@man = [i,j]
+	final : ->
+		for j in range 12
+			for i in range 18
+				if @board[j][i] in [3,5] then return false
+		true
+	mousePressed : (mx,my) ->
+		for [x,y],i in @buttons
+			if dist(mx,my,x,y) <= 12
+				[di,dj] = [[0,-1],[1,0],[0,1],[-1,0]][i]
+				@move @man[0]+di,@man[1]+dj
+	undo : ->
+		@level--
+		@newGame()
+
+app = new Sokoban "a"
+"""
+	c:
+		app : "reset()|undo()"
+	e:
+		Sokoban : "http://www.linusakesson.net/games/autosokoban/?v=1&seed=355842047&level=1"
+		Wikipedia : "https://en.wikipedia.org/wiki/Sokoban"
+
+ID_SpaceShip =
+	v:'2017-04-29'
+	b:"""
+# LOC:35 sc sw rd # point triangle translate cos sin radians
+#        push pop class extends constructor new @ super ->
+
+class Shot
+	constructor : (@x,@y,@dir) ->
+	render      : ->
+	move        : ->
+
+class Ship extends Application
+	classes : -> [Shot]
+	reset   : ->
+		super
+	draw    : ->
+	left    : ->
+	right   : ->
+	forward : ->
+	shoot   : ->
+
+app = new Ship
+"""
+	a: """
+
+class Shot
+	constructor : (@x,@y,@dir) ->
+	render : ->	point @x,@y
+	move : ->
+		@x += int 5 * cos radians @dir
+		@y += int 5 * sin radians @dir
+
+class Ship extends Application
+	classes : -> [Shot]
+	reset : ->
+		super
+		@S = 10
+		@x = 100
+		@y = 100
+		@dir = 0
+		@shots = []
+
+	left    : -> @dir -= 5
+	right   : -> @dir += 5
+	forward : ->
+		@x += 5 * cos radians @dir
+		@y += 5 * sin radians @dir
+
+	shoot : ->
+		@shots.push new Shot int(@x), int(@y), @dir
+
+	draw : ->
+		push()
+		translate @x,@y
+		rd @dir
+		sc 1,1,0
+		sw 2
+		triangle 2*@S,0, -@S,@S, -@S,-@S
+		sw 5
+		point 0,0
+		pop()
+		for shot in @shots
+			shot.move()
+			shot.render()
+
+app = new Ship "a"
+"""
+	c:
+		app: "reset()|left()|right()|forward()|shoot()"
+
+ID_Square =
+	v:'2017-04-29'
+	b: """
+# LOC:21 bg sw fc rd # rect rectMode translate + class extends constructor new @ super ->
+
+class Square extends Application
+	reset        : -> super
+	draw         : ->
+	horisontellt : (d) ->
+	vertikalt    : (d) ->
+	storlek      : (d) ->
+	tjocklek     : (d) ->
+	rotera       : (d) ->
+app = new Square
+"""
+	a: """
+class Square extends Application
+	reset : ->
+		super
+		@x = 100
+		@y = 100
+		@size = 100
+		@w = 1
+		@dir = 0
+	draw : ->
+		bg 0
+		rectMode CENTER
+		sw @w
+		fc 0.5
+		translate @x,@y
+		rd @dir
+		rect 0,0,@size,@size
+
+	horisontellt : (d) -> @x += d
+	vertikalt : (d) -> @y += d
+	storlek : (d) -> @size += d
+	tjocklek : (d) -> @w += d
+	rotera : (d) -> @dir += d
+
+app = new Square "a"
+"""
+	c:
+		app : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"
+
+ID_Stopwatch =
+	v:'2017-04-29'
+	b:"""
+# LOC:17 bg sc fc # for in [] '' text textSize textAlign textFont monospace
+#        int millis nf length unshift class extends constructor new @ super ->
+# OBS! Tiderna kan skilja med flera millisekunder. Sorry!
+
+class Stopwatch extends Application
+	reset : -> super
+	draw  : ->
+	mousePressed : (mx,my) ->
+app = new Stopwatch
+"""
+	a:"""
+class Stopwatch extends Application
+	reset : ->
+		super
+		@start = int millis()
+		@times = []
+		@count = 0
+	draw : ->
+		bg 0
+		textFont "monospace"
+		textSize 32
+		textAlign RIGHT,BOTTOM
+		fc 1,0,0
+		sc()
+		for time,i in @times
+			text @count-i,  50, 202-40*i
+			text nf(time/1000,1,3),195, 202-40*i
+	mousePressed : (mx,my) ->
+		@count++
+		@times.unshift int millis()-@start
+		if @times.length > 5 then @times.pop()
+
+app = new Stopwatch "a"
+"""
+	c:
+		app: "reset()"
+
