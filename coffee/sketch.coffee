@@ -1,7 +1,7 @@
 # todo: Code Mirror hanterar inte toggleComment via Ctrl+/
 
 # if the renew button is available, a new version of the b code is available.
-# Clicking renew prints the current b code on the console.
+# Clicking renew prints the current b code on the console as a backup.
 
 myCodeMirror = null
 msg = null
@@ -12,7 +12,6 @@ chapter = ""
 exercise = ""
 call = ''
 calls = {}
-sourceCodeTimeout = null
 renew = null
 
 gap = 0
@@ -99,16 +98,7 @@ range = _.range
 fillSelect = (sel, dict) ->
 	sel.empty()
 	for key of dict
-		if sel != sel2
-			sel.append($("<option>").attr('value', key).text(key))
-		else # sel2
-			#asterisk = ''
-			#_name = key + "/" + 'v'
-			#print key, '|' + data[chapter][key]['v'] + '|' + localStorage.getItem(_name) + '|'
-			#if localStorage.getItem(_name) != null
-			#	if data[chapter][key]['v'] !=	localStorage.getItem(_name) then asterisk = '*'
-			#sel.append($("<option>").attr('value', key).text(key + asterisk))
-			sel.append($("<option>").attr('value', key).text(key))
+		sel.append($("<option>").attr('value', key).text(key))
 	if sel==sel2
 		sel.append($("<option>").attr('value', 'BACK').text('BACK'))
 
@@ -142,9 +132,11 @@ sel2change = (sel) ->
 
 	fillSelect sel3, calls_without_draw
 
-	src = localStorage.getItem exercise + "/d"
+	src = localStorage[exercise + "/d"]
 	if src == undefined or src==null or src == ''
 		src = data[chapter][exercise]["b"]
+		localStorage[exercise + "/d"] = src
+		localStorage[exercise + "/v"] = data[chapter][exercise]["v"]
 	myCodeMirror.setValue src
 
 	if localStorage[exercise + "/v"]? and localStorage[exercise + "/v"] != data[chapter][exercise]["v"]
@@ -264,8 +256,8 @@ setup = ->
 	renew.mousePressed () ->
 		print myCodeMirror.getValue()
 		myCodeMirror.setValue data[chapter][exercise]["b"]
-		localStorage.setItem exercise + "/" + 'v', data[chapter][exercise]["v"]
-		localStorage.setItem exercise + "/" + 'd', data[chapter][exercise]["b"]
+		localStorage[exercise + "/" + 'v'] = data[chapter][exercise]["v"]
+		localStorage[exercise + "/" + 'd'] = data[chapter][exercise]["b"]
 		renew.hide()
 
 window.onbeforeunload = ->
@@ -329,16 +321,10 @@ editor_change = ->
 	res = run0()
 
 	if res # spara källkod EFTER exekvering
-		#clearTimeout sourceCodeTimeout
-		#sourceCodeTimeout = setTimeout saveSourceCode, 3000
 		saveSourceCode()
 	compare 'editor_change'
 
-saveSourceCode = ->
-	#_name = chapter + "/" + exercise + "/d"
-	_name = exercise + "/d"
-	localStorage.setItem _name, myCodeMirror.getValue()
-	sourceCodeTimeout = null
+saveSourceCode = -> localStorage[exercise + "/d"] = myCodeMirror.getValue()
 
 run0 = ->
 	if exercise=="" then return false

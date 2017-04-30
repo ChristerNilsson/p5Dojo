@@ -138,6 +138,26 @@ app = new Shortcut "a"
 	c:
 		app : "reset()"
 
+ID_ShrinkingCircles =
+	v:'2017-04-29'
+	b:"# LOC:4 range fc circle # for in lerp\n"
+	a:"""
+for i in range 10,0,-1
+	fc i/10.0,0,0
+	r = 10 * i
+	circle 100,100, r
+"""
+
+ID_Skislope =
+	v:'2017-04-29'
+	b: "# LOC:4 bg sc range # for in lerp line"
+	a: """
+bg 0
+sc 1,0,0
+for i in range 21
+	line i*10,0, 200,i*10
+"""
+
 ID_Snake =
 	v:'2017-04-29'
 	b: """
@@ -277,6 +297,29 @@ app = new Snake4 "a"
 		Play : "http://patorjk.com/games/snake"
 		Source : "https://github.com/patorjk/JavaScript-Snake/blob/master/js/snake.js"
 		Wikipedia : "https://en.wikipedia.org/wiki/Snake_(video_game)"
+
+ID_SnowWhiteAndThe7Lerps =
+	v:'2017-04-29'
+	b:"# LOC:17 bg fc sc range rd # rect rectMode for in lerp translate push pop\n"
+	a:"""
+bg 1
+rectMode CENTER
+sc()
+for i in range 10
+	for j in range 10
+		push()
+		x = lerp 10,30,i
+		y = lerp 10,30,j
+		translate x,y
+		rd lerp 0,10,i-j
+		r = lerp 0.1,0.2,i
+		g = lerp 0.1,0.2,j
+		fc r,g,0
+		w = lerp 5,6,i
+		h = lerp 5,6,j
+		rect 0,0, w,h
+		pop()
+"""
 
 ID_Sokoban =
 	v:'2017-04-29'
@@ -508,6 +551,23 @@ app = new Square "a"
 	c:
 		app : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"
 
+ID_SquareHole =
+	v:'2017-04-29'
+	b : "# LOC:11 fc sc sw # rect\n"
+	a : """
+fc 0,1,1
+sc()
+rect 60,60, 80,20
+rect 60,120, 80,20
+rect 60,60, 20,80
+rect 120,60, 20,80
+fc()
+sc 1,0,0
+sw 3
+rect 60,60, 80,80
+rect 80,80, 40,40
+"""
+
 ID_Stopwatch =
 	v:'2017-04-29'
 	b:"""
@@ -548,3 +608,36 @@ app = new Stopwatch "a"
 	c:
 		app: "reset()"
 
+ID_Sunshine =
+	v:'2017-04-29'
+	b: "# LOC:9 bg sc range # for in lerp line\n"
+	a: """
+bg 0
+sc 1,1,0
+for i in range 10
+	x1 = lerp 0,20,i
+	x2 = lerp 200,180,i
+	line x1,0, x2,200
+	y1 = lerp 20,40,i
+	y2 = lerp 180,160,i
+	line 0,y1, 200,y2
+"""
+
+ID_SuperCircle =
+	v:'2017-04-29'
+	b: """
+# LOC:7 bg range # * + - for in line
+"""
+	a: """
+bg 0
+for i in range 41
+	ni = 5 * i
+	line ni,     200,   0, 100+ni
+	line ni,       0,   0, 100-ni
+	line 100+ni, 200, 200, 200-ni
+	line 100+ni,   0, 200, ni
+"""
+	e:
+		PietHein : "https://sv.wikipedia.org/wiki/Piet_Hein"
+		SuperEllips : "https://sv.wikipedia.org/wiki/Superellips"
+		SergelsTorg : "https://www.google.se/search?q=sergels+torg&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjGpt-jmanTAhWSKCwKHSsMDcQQ_AUICCgB&biw=925&bih=919#tbm=isch&q=superellips+sergels+torg&imgrc=rK6GQHPFiDHQGM:"

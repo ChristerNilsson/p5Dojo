@@ -1,3 +1,37 @@
+ID_Background1 =
+	v:'2017-04-29'
+	b: """
+# LOC:1
+# Första bilden ska du efterlikna.
+# Andra bilden skapas av din kod.
+# Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.
+
+# Tryck på PgDn för att komma till sista raden.
+# Skriv in följande kommando: bg 1
+# Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.
+
+# Klicka på Background2 för att komma till nästa övning.
+# Klicka på p5Dojo nere till vänster för mera information.
+# Klicka på p5 för att se fler kommandon.
+
+"""
+	a: "bg 1"
+
+ID_Background2 =
+	v:'2017-04-29'
+	b: "# LOC:1 bg\n"
+	a: "bg 0.5"
+
+ID_Background3 =
+	v:'2017-04-29'
+	b: "# LOC:1 bg\n"
+	a: "bg 1,0,0"
+
+ID_Background4 =
+	v:'2017-04-29'
+	b: "# LOC:1 bg\n"
+	a: "bg 1,1,0"
+
 ID_BlackBox2D =
 	v:'2017-04-29'
 	b:"""
@@ -184,6 +218,52 @@ app = new BouncingBalls "a"
 """
 	c:
 		app : "reset()|update()|add()|delete()|selNext()|selPrev()|grow()|shrink()|nextCol()|prevCol()|gravity()"
+
+ID_Braid =
+	v:'2017-04-29'
+	b : """
+# LOC:19 sc bg sw range # for in line class constructor new @
+
+class Cartesius
+	constructor : (@r,@g,@b, @x,@y) ->
+	go : (dx,dy) ->
+
+braid = (n,dx,dy,width) ->
+
+braid 5,18,18,6
+"""
+
+	a:"""
+class Cartesius
+	constructor : (@r,@g,@b, @x,@y) ->
+	go : (dx,dy) ->
+		sc @r,@g,@b
+		line @x,@y,@x+dx,@y+dy
+		[@x,@y] = [@x+dx,@y+dy]
+
+braid = (n,dx,dy,width) ->
+
+	a = new Cartesius 1,0,0, 100-dx/2,dy/3
+	b = new Cartesius 1,1,0, 100+dx/2,2*dy/3
+	c = new Cartesius 0,1,0, 100-dx/2,dy
+
+	bg 0
+	sw width
+
+	for i in range n
+		a.go dx,dy
+		b.go -dx,dy
+		c.go dx,dy
+
+		a.go -dx,dy
+		b.go dx,dy
+		c.go -dx,dy
+
+braid 5,18,18,6
+"""
+	e:
+		braid : "https://cdn.tutsplus.com/vector/uploads/legacy/tuts/000-2011/398-hair-braid/6.jpg"
+		Wikipedia : "https://en.wikipedia.org/wiki/Braid"
 
 ID_Braider =
 	v:'2017-04-29'

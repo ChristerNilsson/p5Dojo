@@ -1,4 +1,4 @@
-IDL00 = # Nyheter :
+ID_nyheter =
 	v:'2017-04-29'
 	b:"""
 # LOC:0
@@ -52,7 +52,7 @@ IDL00 = # Nyheter :
 	a:"""
 """
 
-IDL01 = # Asserts:
+ID_Asserts =
 	v:'2017-04-29'
 	b:"""
 # LOC:0
@@ -230,7 +230,7 @@ assert [1,2,3],           _.values {a:1, b:2, c:3}
 		Wikipedia : "https://en.wikipedia.org/wiki/Assertion_(software_development)"
 		p5Assert : 'https://christernilsson.github.io/p5Assert'
 
-IDL02 = # LinesOfCode
+ID_LinesOfCode =
 	v:'2017-04-29'
 	b:"""
 # LOC:62 bg fc sc # {} * / + ++ == if then else indexOf parseInt substring

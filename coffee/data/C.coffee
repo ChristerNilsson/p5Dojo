@@ -1,3 +1,32 @@
+ID_Cards =
+	v:'2017-04-29'
+	b:"# LOC:10 fc sc circle range rd # rect rectMode for in lerp translate\n"
+	a:"""
+rectMode CENTER
+sc 1
+translate 100,100
+for i in range 18,-1,-1
+	r = 1.0*i/18
+	fc r,0,0
+	w = 70+5*i
+	h = 70+5*i
+	rect 0,0, w,h
+	rd 5
+"""
+
+ID_ChessBoard =
+	v:'2017-04-29'
+	b:"# LOC:7 bg fc range # for in lerp rect\n"
+	a:"""
+bg 0.5
+for i in range 8
+	for j in range 8
+		fc (i+j)%2
+		x = 20+20*i
+		y = 20+20*j
+		rect x,y, 20,20
+"""
+
 ID_ChessGame =
 	v:'2017-04-29'
 	b:"""
@@ -74,6 +103,17 @@ app = new Chess "a"
 """
 	c:
 		app : "reset()"
+
+ID_ChessRow =
+	v:'2017-04-29'
+	b:"# LOC:5 bg fc range # % for in lerp rect\n"
+	a:"""
+bg 0.5
+for i in range 8
+	fc i%2
+	x = 20+20*i
+	rect x,20, 20,20
+"""
 
 ID_ClickDetector =
 	v:'2017-04-29'
@@ -169,6 +209,41 @@ app = new ClickDetector "a"
 		app : "reset()"
 	e:
 		Triangle : "http://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle"
+
+ID_CoffeescriptClock =
+	v:'2017-04-29'
+	b:"""
+# LOC:10 bg fc sc range # * + - for in "" radians text textSize textAlign
+"""
+	a:"""
+bg 1
+fc 0
+sc()
+textSize 20
+textAlign CENTER,CENTER
+for i in range 12
+	v = radians 30*i-90
+	x = 100 + 90 * cos v
+	y = 100 + 90 * sin v
+	text "Coffeescript"[i],x,y
+"""
+
+ID_ColorCross =
+	v:'2017-04-29'
+	b:"# LOC:11 bg sc sw range # for in point\n"
+	a:"""
+bg 0.5
+for k in range 6
+	x = [75,25,75,125,75,75][k]
+	y = [50,50,100,50,0,150][k]
+	for i in range 50
+		r = [i/50,0,i/50,1,i/50,i/50][k]
+		for j in range 50
+			g = [j/50,j/50,1,j/50,0,(50-j)/50][k]
+			b = [0,(50-i)/50,j/50,i/50,(50-j)/50,1][k]
+			sc r,g,b
+			point x+i,y+j
+"""
 
 ID_ColorCube =
 	v:'2017-04-29'
@@ -472,6 +547,84 @@ app = new Connect4 "a"
 	e:
 		Wikipedia : "https://en.wikipedia.org/wiki/Connect_Four"
 
+ID_CornerPoints =
+	v:'2017-04-29'
+	b: """
+# LOC:9 sc sw # point
+
+sw
+sc
+point
+
+"""
+	a: """
+sw 10
+sc 1,0,0
+point 0,0
+sc 0,1,0
+point 200,0
+sc 1,1,0
+point 0,200
+sc 0
+point 200,200
+"""
+	e :
+		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+
+ID_CornerPoints3 =
+	v:'2017-04-29'
+	b: "# LOC:17 sc sw # point\n"
+	a: """
+sw 10
+sc 1,0,0
+point 20,0
+point 20,20
+point 0,20
+
+sc 0,1,0
+point 180,0
+point 180,20
+point 200,20
+
+sc 1,1,0
+point 20,180
+point 20,200
+point 0,180
+
+sc 1
+point 180,180
+point 180,200
+point 200,180
+"""
+	e :
+		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+
+ID_CornerPoints7 =
+	v:'2017-04-29'
+	b: "# LOC:17 sc sw # point\n"
+	a: """
+sw 10
+sc 1,0,0
+point 30,0
+point 30,10
+point 30,20
+point 30,30
+point 10,30
+point 20,30
+point 0,30
+
+sc 0,1,0
+point 170,200
+point 170,190
+point 170,180
+point 170,170
+point 190,170
+point 180,170
+point 200,170
+"""
+	e :
+		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+
 ID_Counter =
 	v:'2017-04-29'
 	b:"""
@@ -507,4 +660,14 @@ app = new Counter "a"
 """
 	c:
 		app : "reset()|up()|down()"
+
+ID_Cross =
+	v:'2017-04-29'
+	b:"# LOC:4 fc # rect\n"
+	a:"""
+fc 1,0,0
+sc()
+rect 85,70, 70,10
+rect 115,40, 10,100
+"""
 

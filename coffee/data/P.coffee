@@ -1,3 +1,31 @@
+ID_PacMan =
+	v:'2017-04-29'
+	b:"# LOC:2 fc # arc radians\n"
+	a:"""
+fc 1,1,0
+arc 100,100, 180,180, radians(-135),radians(135)
+"""
+	e :
+		Play : "https://www.google.se/#q=pacman&clb=clb"
+		Wikipedia : "https://en.wikipedia.org/wiki/Pac-Man"
+
+ID_PentaLerp =
+	v:'2017-04-29'
+	b:"# LOC:11 bg sc fc range circle # for in lerp\n"
+	a:"""
+bg 0.5
+sc()
+for i in range 10
+	for j in range 10
+		r = lerp 0.1,0.2,i
+		g = lerp 0.1,0.2,j
+		fc r,g,0
+		x = lerp 10,30,i
+		y = lerp 10,30,j
+		radius = lerp 1,1.5,i+j
+		circle x,y,radius
+"""
+
 ID_PickingBerries =
 	v:'2017-04-29'
 	b:"""

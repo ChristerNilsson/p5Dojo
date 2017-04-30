@@ -75,3 +75,28 @@ app = new Hex "a"
 		Play : "http://www.lutanho.net/play/hex.html"
 		Wikipedia : "https://en.wikipedia.org/wiki/Hex_(board_game)"
 
+ID_HorizontalLine =
+	v:'2017-04-29'
+	b: "# LOC:2 sc # line\n"
+	a: """
+sc 1,0,1
+line 10,70, 190,70
+"""
+
+ID_HorizontalSquares =
+	v:'2017-04-29'
+	b:"""
+# LOC:3 range # rect for in lerp
+
+rect  5,5,10,10
+rect 25,5,10,10
+for i in range 5
+	x = lerp 5,25,i
+	rect
+"""
+	a:"""
+for i in range 10
+	x = 5+20*i
+	rect x,5, 10,10
+"""
+

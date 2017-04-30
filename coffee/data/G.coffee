@@ -1,3 +1,17 @@
+ID_GalaxiesColliding =
+	v:'2017-04-29'
+	b: "# LOC:8 fc range # for in lerp rect if then (David Larsson)\n"
+	a: """
+for i in range 10
+	for j in range 10
+		fc()
+		if i-j in [-2,0,2] then fc 1,1,0
+		if i+j in [7,9,11] then fc 1,0,0
+		x = 20*i
+		y = 20*j
+		rect x,y, 20,20
+"""
+
 ID_GameOfLife =
 	v:'2017-04-29'
 	b:"""
@@ -63,6 +77,43 @@ app = new GameOfLife "a"
 	e:
 		Wikipedia : "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
 
+ID_Girlang =
+	v:'2017-04-29'
+	b:"""
+# LOC:16 sc bg sw range # for in line class constructor new @
+
+class Cartesius
+	constructor : (@r,@g,@b, @x,@y) ->
+	go : (dx,dy) ->
+
+girlang = (x,y,n,width,dx,dy) ->
+
+girlang 0,0,9,5,20,20
+"""
+	a:"""
+class Cartesius
+	constructor : (@r,@g,@b, @x,@y) ->
+	go : (dx,dy) ->
+		sc @r,@g,@b
+		line @x,@y,@x+dx,@y+dy
+		[@x,@y] = [@x+dx,@y+dy]
+
+girlang = (x,y,n,width,dx,dy) ->
+	a = new Cartesius 1,0,0, x+dx/2,0
+	b = new Cartesius 1,1,0, x,y+dy/2
+
+	bg 0
+	sw width
+
+	for i in range n
+		a.go 0,dy
+		b.go dx,0
+		b.go 0,dy
+		a.go dx,0
+
+girlang 0,0,9,5,20,20
+"""
+
 ID_GoldenStar =
 	v:'2017-04-29'
 	b: """
@@ -107,6 +158,72 @@ app = new GoldenStar "a"
 """
 	c:
 		app : "reset()|n -1|n +1|outer -1|outer +1|inner -1|inner +1"
+
+ID_GreenEllipse =
+	v:'2017-04-29'
+	b:"# LOC:2 fc # ellipse\n"
+	a:"""
+fc 0,1,0
+ellipse 120,60, 60,40
+"""
+
+ID_GreenRect =
+	v:'2017-04-29'
+	b:"# LOC:2 fc # rect\n"
+	a:"""
+fc 0,1,0
+rect 60,80, 40,50
+"""
+
+ID_Grid =
+	v:'2017-04-29'
+	b:"# LOC:5 sc sw range # for in line \n"
+	a:"""
+sc 1,1,0
+sw 2
+for i in range 10,200,10
+	line 10,i,190,i
+	line i,190, i,10
+"""
+
+ID_GrowingCircles =
+	v:'2017-04-29'
+	b:"# LOC:6 range fc circle # for in lerp\n"
+	a:"""
+for i in range 10
+	fc i/10.0,0,0
+	x = 10+20*i
+	y = 10
+	r = i
+	circle x,y,r
+"""
+
+ID_GrowingRedSquares =
+	v:'2017-04-29'
+	b:"# LOC:8 fc range # for in lerp rect rectMode\n"
+	a:"""
+rectMode CENTER
+for i in range 10
+	fc i/10.0,0,0
+	x = 10+20*i
+	y = 10
+	w = 2*i
+	h = 2*i
+	rect x,y,w,h
+"""
+
+ID_GrowingSquares =
+	v:'2017-04-29'
+	b:"# LOC:7 range # rect rectMode for in lerp\n"
+	a:"""
+rectMode CENTER
+for i in range 10
+	x = 10+20*i
+	y = 10
+	w = 2*i
+	h = 2*i
+	rect x,y, w,h
+"""
 
 ID_GuessANumber =
 	v:'2017-04-29'

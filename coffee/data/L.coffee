@@ -51,3 +51,22 @@ app = new Laboratorium "a"
 	c:
 		app : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
 
+ID_Line =
+	v:'2017-04-29'
+	b: "# LOC:2 sc # line\n"
+	a: """
+sc 1,1,0
+line 20,0, 200,20
+"""
+
+ID_Lines =
+	v:'2017-04-29'
+	b:"# LOC:5 bg range # for in lerp line (Noel Watson)\n"
+	a:"""
+bg 0
+for i in range 37
+	line 10,10, 190,10+i*5
+	line 10,100, 190,10+i*5
+	line 10,190, 190,10+i*5
+"""
+

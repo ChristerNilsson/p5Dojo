@@ -1,3 +1,21 @@
+ID_Five =
+	v:'2017-04-29'
+	b: "# LOC:12 bg circle fc sc\n"
+	a: """
+bg 0.5
+sc()
+fc 1
+circle 100,100,20
+fc 1,0,0
+circle 40,40,20
+fc 1,1,0
+circle 40,160,20
+fc 0,1,0
+circle 160,160,20
+fc 0,0,1
+circle 160,40,20
+"""
+
 ID_ForthHaiku =
 	v:'2017-04-29'
 	b:"""

@@ -1,3 +1,36 @@
+ID_ManyDices =
+	v:'2017-04-29'
+	b : "# LOC:8 -> range # for in if then point [] * + % & << ->\n"
+	a : """
+dice = (x,y,d) ->
+	for bits,i in [21,56,32,62,62,32,56]
+		dx = 4 * [0,-1,-1,-1,1,1,1][i]
+		dy = 4 * [0,-1,0,1,-1,0,1][i]
+		if d&bits then point 10+x+dx,10+y+dy
+for i in range 10
+	for j in range 10
+		dice 20*i, 20*j, 1 << (i+j) % 6
+"""
+
+ID_MidPoints =
+	v:'2017-04-29'
+	b: "# LOC:11 sc sw # point\n"
+	a: """
+sw 10
+sc 1,0,0
+point 100,100
+sc 0,1,0
+point 100,0
+sc 1,1,0
+point 0,100
+sc 0
+point 200,100
+sc 1
+point 100,200
+"""
+	e :
+		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+
 ID_Moire =
 	v:'2017-04-29'
 	b:"""

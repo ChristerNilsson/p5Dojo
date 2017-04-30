@@ -70,6 +70,112 @@ app = new RecursiveCircle "a"
 	c:
 		app : "reset()"
 
+ID_RedCone =
+	v:'2017-04-29'
+	b:"# LOC:6 range fc circle # for in lerp\n"
+	a:"""
+for i in range 10,0,-1
+	fc i/10.0,0,0
+	x = 10*i
+	y = 10*i
+	r = 10*i
+	circle x,y,r
+"""
+
+ID_RedRect =
+	v:'2017-04-29'
+	b:"# LOC:2 fc # rect\n"
+	a:"""
+fc 1,0,0
+rect 80,70, 40,100
+"""
+
+ID_RotatedEllipse =
+	v:'2017-04-29'
+	b:"# LOC:5 rd # ellipse translate\n"
+	a:"""
+fc 1,0,0
+sc()
+translate 100,100
+rd 45
+ellipse 0,0, 80,40
+"""
+
+ID_RotatedRectA =
+	v:'2017-04-29'
+	b:"# LOC:4 fc # rect\n"
+	a:"""
+fc 1,0,0
+rect 60,100, 40,40
+fc 0,1,0
+rect 140,100, 40,40
+"""
+
+ID_RotatedRectB =
+	v:'2017-04-29'
+	b:"# LOC:12 fc rd # rect translate push pop\n"
+	a:"""
+push()
+fc 1,0,0
+translate 60,100
+rd 45
+rect 0,0, 40,40
+pop()
+push()
+fc 0,1,0
+translate 140,100
+rd 45
+rect 0,0, 40,40
+pop()
+"""
+
+ID_RotatedRectC =
+	v:'2017-04-29'
+	b:"# LOC:13 fc rd # rect translate push pop\n"
+	a:"""
+rectMode CENTER
+push()
+fc 1,0,0
+translate 80,120
+rd 45
+rect 0,0, 40,40
+pop()
+push()
+fc 0,1,0
+translate 160,120
+rd 45
+rect 0,0, 40,40
+pop()
+"""
+
+ID_Roulette =
+	v:'2017-04-29'
+	b:"""
+# LOC:15 bg sw fc sc range rd # for in if then else == % / [] "" PI
+#        length text textAlign arc strokeCap translate push pop
+
+numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
+"""
+	a:"""
+numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
+bg 0.5
+translate 100,100
+d = PI/numbers.length
+sw 20
+strokeCap SQUARE
+textAlign CENTER,CENTER
+for number,i in numbers
+	fc()
+	if i==0 then sc 0,1,0 else sc i%2,0,0
+	arc 0,0,180,180,-PI/2-d,-PI/2+d
+	sc()
+	fc 1
+	text number,0,-90
+	rd 360 / numbers.length
+"""
+	e :
+		Wikipedia : "https://en.wikipedia.org/wiki/Roulette"
+
 ID_RubikCube =
 	v:'2017-04-29'
 	b:"""

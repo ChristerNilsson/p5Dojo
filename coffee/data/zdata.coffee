@@ -6,9 +6,9 @@
 
 data =
 	Nyheter :
-		nyheter : IDL00
-		Asserts : IDL01
-		LinesOfCode : IDL02
+		nyheter : ID_nyheter
+		Asserts : ID_Asserts
+		LinesOfCode : ID_LinesOfCode
 
 	Exhibition :
 		rainbow : ID016
@@ -29,88 +29,88 @@ data =
 		hypnoticB : ID015
 
 	"L1: bg point sc sw" :
-		Background1 : ID020
-		Background2 : ID021
-		Background3 : ID022
-		Background4 : ID023
-		X : ID024
-		Y : ID025
-		CornerPoints : ID026
-		MidPoints : ID027
-		CornerPoints7 : ID029
-		Diagonal1 : ID030
-		Diagonal2 : ID031
-		CornerPoints3 : ID028
+		Background1 : ID_Background1
+		Background2 : ID_Background2
+		Background3 : ID_Background3
+		Background4 : ID_Background4
+		X : ID_X
+		Y : ID_Y
+		CornerPoints : ID_CornerPoints
+		MidPoints : ID_MidPoints
+		CornerPoints7 : ID_CornerPoints7
+		Diagonal1 : ID_Diagonal1
+		Diagonal2 : ID_Diagonal2
+		CornerPoints3 : ID_CornerPoints3
 
 	"L2: circle fc text" :
-		Dices : ID040
-		WhiteCircle : ID042
-		WhiteEmptyCircle : ID043
-		TwoDiscsA : ID044
-		TwoDiscsB : ID045
-		TextA : ID046
-		TextB : ID047
-		Five : ID041
+		Dices : ID_Dices
+		WhiteCircle : ID_WhiteCircle
+		WhiteEmptyCircle : ID_WhiteEmptyCircle
+		TwoDiscsA : ID_TwoDiscsA
+		TwoDiscsB : ID_TwoDiscsB
+		TextA : ID_TextA
+		TextB : ID_TextB
+		Five : ID_Five
 
 	"L3: ellipse rect triangle quad arc" :
-		GreenEllipse : ID060
-		GreenRect : ID061
-		RedRect : ID062
-		Cross : ID063
-		SquareHole : ID064
-		Triangle : ID065
-		Quad : ID066
-		TwoArcs : ID067
-		PacMan : ID068
+		GreenEllipse : ID_GreenEllipse
+		GreenRect : ID_GreenRect
+		RedRect : ID_RedRect
+		Cross : ID_Cross
+		SquareHole : ID_SquareHole
+		Triangle : ID_Triangle
+		Quad : ID_Quad
+		TwoArcs : ID_TwoArcs
+		PacMan : ID_PacMan
 
 	"L4: for rect circle" :
-		HorizontalSquares : ID080
-		VerticalSquares : ID081
-		DiagonalSquares : ID082
-		DoubleForLoop : ID083
-		GrowingSquares : ID084
-		GrowingRedSquares : ID085
-		PentaLerp : ID089
+		HorizontalSquares : ID_HorizontalSquares
+		VerticalSquares : ID_VerticalSquares
+		DiagonalSquares : ID_DiagonalSquares
+		DoubleForLoop : ID_DoubleForLoop
+		GrowingSquares : ID_GrowingSquares
+		GrowingRedSquares : ID_GrowingRedSquares
+		PentaLerp : ID_PentaLerp
 
 	"L5: for line circle" :
-		GrowingCircles : ID100
-		ShrinkingCircles : ID101
-		RedCone : ID102
-		HorizontalLine : ID103
-		VerticalLine : ID104
-		Line : ID105
-		Grid : ID106
-		Skislope : ID107
-		SuperCircle : ID108
+		GrowingCircles : ID_GrowingCircles
+		ShrinkingCircles : ID_ShrinkingCircles
+		RedCone : ID_RedCone
+		HorizontalLine : ID_HorizontalLine
+		VerticalLine : ID_VerticalLine
+		Line : ID_Line
+		Grid : ID_Grid
+		Skislope : ID_Skislope
+		SuperCircle : ID_SuperCircle
 
 	"L6: for line rect point" :
-		Sunshine : ID120
-		Lines : ID121
-		ChessRow : ID122
-		ChessBoard : ID123
-		GalaxiesColliding : ID124
-		ColorCross : ID125
+		Sunshine : ID_Sunshine
+		Lines : ID_Lines
+		ChessRow : ID_ChessRow
+		ChessBoard : ID_ChessBoard
+		GalaxiesColliding : ID_GalaxiesColliding
+		ColorCross : ID_ColorCross
 
 	"L7: translate rotate push pop" :
-		TextC : ID140
-		TextD : ID141
-		RotatedEllipse : ID142
-		RotatedRectA : ID143
-		RotatedRectB : ID144
-		RotatedRectC : ID145
-		Cards : ID146
-		SnowWhiteAndThe7Lerps : ID147
-		CoffeescriptClock : ID149
-		Roulette : ID148
+		TextC : ID_TextC
+		TextD : ID_TextD
+		RotatedEllipse : ID_RotatedEllipse
+		RotatedRectA : ID_RotatedRectA
+		RotatedRectB : ID_RotatedRectB
+		RotatedRectC : ID_RotatedRectC
+		Cards : ID_Cards
+		SnowWhiteAndThe7Lerps : ID_SnowWhiteAndThe7Lerps
+		CoffeescriptClock : ID_CoffeescriptClock
+		Roulette : ID_Roulette
 
 	"L8: function, class" :
-		ManyDices : ID160
-		Girlang : ID161
-		Braid : ID162
-		OneDiceHistogram : ID164
-		TwoDiceHistogram : ID165
+		ManyDices : ID_ManyDices
+		Girlang : ID_Girlang
+		Braid : ID_Braid
+		OneDiceHistogram : ID_OneDiceHistogram
+		TwoDiceHistogram : ID_TwoDiceHistogram
 		OlympicRingPrep : ID_OlympicRingPrep
-		OlympicRings : ID163
+		OlympicRings : ID_OlympicRings
 
 	"L9: interaction" :
 		Counter : ID_Counter
