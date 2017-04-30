@@ -1,7 +1,7 @@
 xp = 0.6
 yp = 0.9
 
-Run, C:\Users\christer\node_modules\.bin\coffee.cmd -b -o js -cw coffee
+Run, C:\Users\christer\node_modules\.bin\coffee.cmd -M -b -o js -cw coffee
 WinWait, ahk_class ConsoleWindowClass
 WinActivate, ahk_class ConsoleWindowClass
 WinMove A,, A_ScreenWidth*xp, A_ScreenHeight*yp, A_ScreenWidth*(1-xp), A_ScreenHeight*(1-yp)
