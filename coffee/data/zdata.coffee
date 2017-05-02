@@ -153,6 +153,7 @@ data =
 		Klocka : ID_Klocka
 		ChessGame : ID_ChessGame
 		RecursiveCircle : ID_RecursiveCircle
+		Reversi : ID_Reversi
 		ColorPair : ID_ColorPair
 
 	"LE: RushHour" :

@@ -1,7 +1,9 @@
 ID_nyheter =
-	v:'2017-04-29'
+	v:'2017-05-02'
 	b:"""
 # LOC:0
+# NYHETER 2017 MAJ 06
+#   Reversi
 # NYHETER 2017 APR 29
 #   RubikCube
 #   ForthHaiku
@@ -35,7 +37,7 @@ ID_nyheter =
 #   PickingBerries
 # NYHETER 2017 MAR 12
 #   Roulette
-# NYHETER 2017 MAR 5
+# NYHETER 2017 MAR 05
 #   TwoArcs
 #   Girlang Braid OlympicRings
 #   GoldenStar Alphanumeric BoardGame SevenSegment
