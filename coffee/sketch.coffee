@@ -21,11 +21,16 @@ buffer = [[],[],[]]
 setMsg = (e,nr) ->
 	if e == ''
 		msg.val ""
+		msg.hide()
 	else
 		s = e.toString()
 		p = s.indexOf ':'
-		s = s.substr p+2 if p!=-1
+		s = s.substr p+1 if p!=-1
+
+		s = s.replace /\t/g,'  '
+
 		msg.val s + ' (' + e.name + ')' + if nr==1 then " (in A)" else ""
+		msg.show()
 	msg.css 'background-color', if e == '' then '#FFFFFF' else '#FF0000'
 
 grid = ->
@@ -447,7 +452,7 @@ fillTable = (a,b) ->
 	keys = _.uniq keys
 
 	for key in keys
-		if key != '_name' # and  key != '_type'
+		if key != '_name' and  key != '_type'
 			tableAppend tabell, "@" + key,unmark(a[key]),unmark(b[key])
 
 unmark = (obj) ->

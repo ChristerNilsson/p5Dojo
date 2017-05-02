@@ -68,7 +68,6 @@ assert 2.75, 2 + 3 / 4
 assert 32,   4 * 2 ** 3
 assert 14,   2 + 3 * 4
 assert 20,   (2+3) * 4
-assert 32,   4 * 2 ** 3
 assert 1.75, 7 / 4
 assert 1,    7 // 4
 assert 2,    8 // 4

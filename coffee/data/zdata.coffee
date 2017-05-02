@@ -10,24 +10,6 @@ data =
 		Asserts : ID_Asserts
 		LinesOfCode : ID_LinesOfCode
 
-	Exhibition :
-		rainbow : ID016
-		clown : ID001
-		tomteluva : ID002
-		snowman : ID003
-		christmasTree : ID004
-		santa : ID005
-		dist : ID006
-		bulge : ID007
-		wave : ID008
-		circle : ID009
-		circles : ID010
-		sizedCircles : ID011
-		rotatedCircles : ID012
-		gravity : ID013
-		hypnoticA : ID014
-		hypnoticB : ID015
-
 	"L1: bg point sc sw" :
 		Background1 : ID_Background1
 		Background2 : ID_Background2
@@ -161,12 +143,30 @@ data =
 		Nim : ID_Nim
 		Shortcut : ID_Shortcut
 		Braider : ID_Braider
-		RushHour : ID_RushHour
 		Nand2TetrisALU : ID_Nand2TetrisALU
+		RushHour : ID_RushHour
 
 	"LF: Sokoban" :
 		Complex : ID_Complex
 		RubikSquare : ID_RubikSquare
 		RubikCube : ID_RubikCube
-		Sokoban : ID_Sokoban
 		EngineeringNotation : ID_EngineeringNotation
+		Sokoban : ID_Sokoban
+
+	Exhibition :
+		rainbow : ID016
+		clown : ID001
+		tomteluva : ID002
+		snowman : ID003
+		christmasTree : ID004
+		santa : ID005
+		dist : ID006
+		bulge : ID007
+		wave : ID008
+		circle : ID009
+		circles : ID010
+		sizedCircles : ID011
+		rotatedCircles : ID012
+		gravity : ID013
+		hypnoticA : ID014
+		hypnoticB : ID015

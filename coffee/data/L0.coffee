@@ -1,4 +1,5 @@
 ID001 = # clown:
+	v:'2017-05-02'
 	b:"# LOC:30 bg circle fc sc sw # line lerp (David Larsson)\n"
 	a:"""
 bg 0, 1, 0, 0.5
@@ -35,6 +36,7 @@ circle 100, 100, 10
 """
 
 ID002 = #tomteluva:
+	v:'2017-05-02'
 	b:"# LOC:12 circle fc sc triangle (Sabrina Larsson)\n"
 	a:"""
 bg 0,1,0
@@ -52,6 +54,7 @@ circle 100,60,10
 """
 
 ID003 = # snowman:
+	v:'2017-05-02'
 	b:"# LOC:21 circle fc line sc triangle (David Larsson)\n"
 	a:"""
 fc 1
@@ -78,47 +81,49 @@ rect 2, 180, 196, 20
 """
 
 ID004 = # christmasTree:
+	v:'2017-05-02'
 	b:"# LOC:35 bg circle fc line rect quad sc triangle (Sabrina Larsson)\n"
 	a:"""
-bg 0 
-fc 0, 1, 0 
-sc 0, 1, 0 
-triangle 100, 100, 180, 160, 20, 160 
-triangle 100, 60, 160, 120, 40, 120 
-triangle 100, 40, 140, 80, 60, 80 
-fc 0.5 
-sc 0.5 
-rect 80, 160, 40, 20 
-fc 1, 1, 0 
-sc 1, 1, 0 
-quad 100, 0, 120, 20, 100, 40, 80, 20 
-rect 85, 5, 30, 30 
-sc 1, 1, 0 
-line 80, 60, 140, 120 
-line 60, 100, 120, 160 
-fc 1, 0, 0 
-sc 1, 0, 0 
-circle 80, 100, 5 
-circle 140, 140, 5 
-circle 100, 60, 5 
-circle 60, 160, 5 
-circle 100, 120, 5 
-fc 1 
-sc 1 
-rect 0, 180, 200, 20 
-circle 20, 20, 5 
-circle 40, 40, 5 
-circle 10, 80, 5 
-circle 30, 140, 5 
-circle 50, 100, 5 
-circle 120, 50, 5 
-circle 160, 20, 5 
-circle 180, 80, 5 
-circle 160, 130, 5 
-circle 190, 180, 5 
+bg 0
+fc 0, 1, 0
+sc 0, 1, 0
+triangle 100, 100, 180, 160, 20, 160
+triangle 100, 60, 160, 120, 40, 120
+triangle 100, 40, 140, 80, 60, 80
+fc 0.5
+sc 0.5
+rect 80, 160, 40, 20
+fc 1, 1, 0
+sc 1, 1, 0
+quad 100, 0, 120, 20, 100, 40, 80, 20
+rect 85, 5, 30, 30
+sc 1, 1, 0
+line 80, 60, 140, 120
+line 60, 100, 120, 160
+fc 1, 0, 0
+sc 1, 0, 0
+circle 80, 100, 5
+circle 140, 140, 5
+circle 100, 60, 5
+circle 60, 160, 5
+circle 100, 120, 5
+fc 1
+sc 1
+rect 0, 180, 200, 20
+circle 20, 20, 5
+circle 40, 40, 5
+circle 10, 80, 5
+circle 30, 140, 5
+circle 50, 100, 5
+circle 120, 50, 5
+circle 160, 20, 5
+circle 180, 80, 5
+circle 160, 130, 5
+circle 190, 180, 5
 """
 
 ID005 = # santa:
+	v:'2017-05-02'
 	b:"# LOC:18 bg circle ellipse fc rect quad sc triangle (Sabrina Larsson)\n"
 	a:"""
 bg 0,0,1
@@ -141,7 +146,8 @@ rect 80,100,40,60
 triangle 100,140,0,200,200,200
 """
 
-ID006= # dist: 
+ID006= # dist:
+	v:'2017-05-02'
 	b:"# LOC:10 bg circle dist fc lerp map sc\n"
 	a:"""
 bg 0
@@ -154,9 +160,10 @@ for i in range 10
 		d = dist 100,100,x,y
 		r = map(d,0,150,1,20)/2
 		circle x,y,r
-""" 
-		
-ID007 = # bulge: 
+"""
+
+ID007 = # bulge:
+	v:'2017-05-02'
 	b:"# LOC:10 bg circle dist fill map noStroke sin\n"
 	a:"""
 bg 0
@@ -170,7 +177,8 @@ for i in range 20
 		circle x,y,r
 """
 
-ID008 = # wave: 
+ID008 = # wave:
+	v:'2017-05-02'
 	b:"# LOC:9 circle colorMode fill map noStroke sin PI\n"
 	a:"""
 colorMode HSB,360,100,100
@@ -184,7 +192,8 @@ for i in range 21
 	circle x,y,3
 """
 
-ID009 = # circle: 
+ID009 = # circle:
+	v:'2017-05-02'
 	b:"# LOC:10 bg circle colorMode cos fc map PI sc sin\n"
 	a:"""
 bg 0
@@ -198,8 +207,9 @@ for i in range 20
 	y=map sin(a),-1,1,0,200
 	circle x,y,3
 """
-	
-ID010 = # circles: 
+
+ID010 = # circles:
+	v:'2017-05-02'
 	b:"# LOC:12 bg circle colorMode cos fill map noStroke translate sin PI\n"
 	a:"""
 bg 0
@@ -215,8 +225,9 @@ for i in range 20
 		r = 3
 		circle x,y,r
 """
-		
-ID011 = # sized_circles: 
+
+ID011 = # sized_circles:
+	v:'2017-05-02'
 	b:"# LOC:12 circle colorMode cos fill map noStroke PI sin translate\n"
 	a:"""
 bg 0
@@ -232,8 +243,9 @@ for i in range 20
 		r = map(j,0,10,0,10)/2
 		circle x,y,r
 """
-		
-ID012 = # rotated_circles: 
+
+ID012 = # rotated_circles:
+	v:'2017-05-02'
 	b:"# LOC:17 circle cos map PI push pop rotate sin translate\n"
 	a:"""
 colorMode HSB,360,100,100
@@ -253,7 +265,8 @@ for i in range 20
 		pop()
 """
 
-ID013 = # gravity : 
+ID013 = # gravity :
+	v:'2017-05-02'
 	b: "# LOC:6 circle lerp\n"
 	a: """
 fc 1
@@ -263,7 +276,8 @@ for i in range 15
 	circle x,y,5
 """
 
-ID014 = # hypnoticA : 
+ID014 = # hypnoticA :
+	v:'2017-05-02'
 	b: "# LOC:6 -> bg circle cos fc sc sin\n"
 	a: """
 bg 0.5, 0, 0
@@ -275,7 +289,8 @@ for i in range 100
 	circle x, y, 5
 """
 
-ID015 = # hypnoticB : 
+ID015 = # hypnoticB :
+	v:'2017-05-02'
 	b: "# LOC:7 -> bg circle cos fc map sc sin\n"
 	a: """
 bg 0.5, 0, 0
@@ -289,7 +304,8 @@ for i in range 100
 	circle x, y, r
 """
 
-ID016 = # Rainbow : 
+ID016 = # Rainbow :
+	v:'2017-05-02'
 	b:"# LOC:37 bg fc sc sw circle # arc (Isabel T)\n"
 	a:"""
 bg 0.5,0.8,1
