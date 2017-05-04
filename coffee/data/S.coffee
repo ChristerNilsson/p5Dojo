@@ -152,6 +152,7 @@ class Shortcut2 extends Application
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 	mousePressed : (mx,my) ->
 app = new Shortcut2
+
 """
 	a:"""
 operNames = '+ - * / % %% ** // & | ^ ~ << >>'.split ' '
@@ -181,9 +182,9 @@ class Shortcut2 extends Application
 		@page = 1
 		@state = 0
 		@b0 = []
-		@b0 = @b0.concat [[60,80,'+2'],[60,100,'*2'],[60,120,'/2']]
-		@b0 = @b0.concat [[150,80,'+'],[170,100,'n'],[150,120,'-'],[130,100,'p']]
-		@b0 = @b0.concat [[100,180,'ok']]
+		@b0 = @b0.concat [[40,40,'+2'],[40,100,'*2'],[40,160,'/2']]
+		@b0 = @b0.concat [[140,40,'+'],[180,80,'n'],[140,120,'-'],[100,80,'p']]
+		@b0 = @b0.concat [[175,175,'ok']]
 		@keys = [0,2,2,2,3,2]
 		@b1 = [[50,50,0],[150,50,0],[33,125,''],[100,125,''],[167,125,''], [33,175,'setup'],[100,175,1],[167,175,'new']]
 		@createGame()
@@ -192,14 +193,18 @@ class Shortcut2 extends Application
 	name : (a,b) -> if operNames[@keys[a]]=='~' then '~' else operNames[@keys[a]] + @keys[b]
 	draw0 : ->
 		textAlign CENTER,CENTER
-		textSize 20
+		textSize 28
 		textFont 'monospace'
-		fc 1
-		bg 0
+		bg 0.5
 		sc()
+		sw 2
 		for i in range 3
 			@b0[i][2] = @name 2*i,2*i+1
 		for [x,y,txt],index in @b0
+			fc 0
+			sc 1
+			circle x,y,25
+			sc()
 			if @state==index then fc 1,0,0 else fc 1
 			text txt,x,y
 	draw1 : ->
@@ -252,10 +257,11 @@ class Shortcut2 extends Application
 		@a = @history.pop()
 	mousePressed0 : (mx,my) ->
 		for [x,y,txt],index in @b0
-			if dist(mx,my,x,y) < 10
+			if dist(mx,my,x,y) < 25
 				if index < 3 then @state = index
 				if txt=='ok'
 					@page = 1
+					@level = 0
 					@newGame()
 				else if index == 3 then @keys[@state*2+1]++
 				else if index == 4 then @keys[@state*2]++
