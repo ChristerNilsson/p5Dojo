@@ -1,9 +1,10 @@
 ID_nyheter =
-	v:'2017-05-02'
+	v:'2017-05-04'
 	b:"""
 # LOC:0
 # NYHETER 2017 MAJ 06
 #   Reversi
+#   Shortcut2
 # NYHETER 2017 APR 29
 #   RubikCube
 #   ForthHaiku

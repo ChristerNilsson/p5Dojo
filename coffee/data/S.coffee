@@ -138,6 +138,156 @@ app = new Shortcut "a"
 	c:
 		app : "reset()"
 
+ID_Shortcut2 =
+	v:'2017-05-04'
+	b:"""
+# LOC:126 bg fc sc range # % %% * ** / // + ++ - & | ^ ~ << >> [] length push pop
+#         for in if then else return _.min text textAlign textSize textFont dist
+#         int {} and < != == constrain class extends constructor new @ super ->
+
+class Shortcut2 extends Application
+	reset : ->
+		super
+	draw : ->
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	mousePressed : (mx,my) ->
+app = new Shortcut2
+"""
+	a:"""
+operNames = '+ - * / % %% ** // & | ^ ~ << >>'.split ' '
+operMin =   [1,1,2,2,2,2, 2, 2, 1,1,1,0,1, 1]
+opers = [
+	(a,b) -> a+b
+	(a,b) -> a-b
+	(a,b) -> a*b
+	(a,b) -> if a%b==0 then a/b else null
+	(a,b) -> a%b
+	(a,b) -> a%%b
+	(a,b) -> a**b
+	(a,b) -> a//b
+	(a,b) -> a&b
+	(a,b) -> a|b
+	(a,b) -> a^b
+	(a,b) -> ~a
+	(a,b) -> a<<b
+	(a,b) -> a>>b
+]
+
+class Shortcut2 extends Application
+	reset : ->
+		super
+		@seed = 0
+		@level = 1
+		@page = 1
+		@state = 0
+		@b0 = []
+		@b0 = @b0.concat [[60,80,'+2'],[60,100,'*2'],[60,120,'/2']]
+		@b0 = @b0.concat [[150,80,'+'],[170,100,'n'],[150,120,'-'],[130,100,'p']]
+		@b0 = @b0.concat [[100,180,'ok']]
+		@keys = [0,2,2,2,3,2]
+		@b1 = [[50,50,0],[150,50,0],[33,125,''],[100,125,''],[167,125,''], [33,175,'setup'],[100,175,1],[167,175,'new']]
+		@createGame()
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	operate : (a,op,b) -> opers[op](a,b)
+	name : (a,b) -> if operNames[@keys[a]]=='~' then '~' else operNames[@keys[a]] + @keys[b]
+	draw0 : ->
+		textAlign CENTER,CENTER
+		textSize 20
+		textFont 'monospace'
+		fc 1
+		bg 0
+		sc()
+		for i in range 3
+			@b0[i][2] = @name 2*i,2*i+1
+		for [x,y,txt],index in @b0
+			if @state==index then fc 1,0,0 else fc 1
+			text txt,x,y
+	draw1 : ->
+		textAlign CENTER,CENTER
+		textSize 20
+		textFont 'monospace'
+		@b1[0][2] = @a
+		@b1[1][2] = @b
+		@b1[2][2] = @name 0,1
+		@b1[3][2] = @name 2,3
+		@b1[4][2] = @name 4,5
+		@b1[6][2] = @level - @history.length
+		bg 0.5
+		sc()
+		for [x,y,txt],i in @b1
+			if i in [0,1] then fc 0 else fc 1,1,0
+			if i in [5,6,7] then textSize 24 else textSize 30
+			text txt,x,y
+	draw : -> if @page==0 then @draw0() else @draw1()
+	newGame : ->
+		if @level >= @history.length and @a == @b then d=1 else d=-1
+		@level = constrain @level+d,1,16
+		@createGame()
+	createGame : ->
+		@history = []
+		@a = 1 + @randint 20
+		q1 = [@a]
+		q2 = []
+		visited = {}
+		visited[@a] = true
+		expand = (n) ->
+			if n==null then return
+			if visited[n] then return
+			visited[n] = true
+			q2.push n
+		for level in range @level
+			for nr in q1
+				expand opers[@keys[0]] nr,@keys[1]
+				expand opers[@keys[2]] nr,@keys[3]
+				expand opers[@keys[4]] nr,@keys[5]
+			q1 = q2
+			q2 = []
+		@b = @selectTarget q1
+	selectTarget : (lst) ->
+		bs = (x for x in lst when -1000 <= x <= 1000)
+		return bs[@randint(bs.length)] if bs.length > 0
+		_.min lst
+	undo : ->
+		if @history.length == 0 then return
+		@a = @history.pop()
+	mousePressed0 : (mx,my) ->
+		for [x,y,txt],index in @b0
+			if dist(mx,my,x,y) < 10
+				if index < 3 then @state = index
+				if txt=='ok'
+					@page = 1
+					@newGame()
+				else if index == 3 then @keys[@state*2+1]++
+				else if index == 4 then @keys[@state*2]++
+				else if index == 5 then @keys[@state*2+1]--
+				else if index == 6 then @keys[@state*2]--
+				@keys[@state*2]   = constrain @keys[@state*2], 0, 13
+				@keys[@state*2+1] = constrain @keys[@state*2+1], operMin[@keys[@state*2]], 9
+				return
+	mousePressed1 : (mx,my) ->
+		index = -1
+		for [x,y,txt],i in @b1
+			if dist(mx,my,x,y) < 20 then index = i
+		a = null
+		if index == 2 then a = @operate @a,@keys[0],@keys[1]
+		if index == 3 then a = @operate @a,@keys[2],@keys[3]
+		if index == 4 then a = @operate @a,@keys[4],@keys[5]
+		if index == 5
+			@page=0
+			@state=0
+		if index == 6 then @undo()
+		if index == 7 then @newGame()
+		if a != null
+			@history.push @a
+			@a = a
+	mousePressed : (mx,my) -> if @page==0 then @mousePressed0 mx,my else @mousePressed1 mx,my
+
+app = new Shortcut2 "a"
+
+"""
+	c:
+		app : "reset()"
+
 ID_ShrinkingCircles =
 	v:'2017-04-29'
 	b:"# LOC:4 range fc circle # for in lerp\n"

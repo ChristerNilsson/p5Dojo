@@ -150,6 +150,7 @@ data =
 		Complex : ID_Complex
 		RubikSquare : ID_RubikSquare
 		RubikCube : ID_RubikCube
+		Shortcut2 : ID_Shortcut2
 		EngineeringNotation : ID_EngineeringNotation
 		Sokoban : ID_Sokoban
 
