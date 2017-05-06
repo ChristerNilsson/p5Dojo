@@ -1,7 +1,9 @@
 ID_nyheter =
-	v:'2017-05-04'
+	v:'2017-05-07'
 	b:"""
 # LOC:0
+# NYHETER 2017 MAJ 13
+#   Tetris
 # NYHETER 2017 MAJ 06
 #   Reversi
 #   Shortcut2

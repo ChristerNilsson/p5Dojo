@@ -144,6 +144,7 @@ data =
 		Shortcut : ID_Shortcut
 		Braider : ID_Braider
 		Nand2TetrisALU : ID_Nand2TetrisALU
+		Tetris : ID_Tetris
 		RushHour : ID_RushHour
 
 	"LF: Sokoban" :

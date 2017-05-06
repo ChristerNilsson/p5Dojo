@@ -168,7 +168,6 @@ sel3click = (sel) ->
 	if calls? then call = calls[sel.value]
 	if run1() == true
 		run0()
-	#myCodeMirror.focus()
 	compare('sel3click')
 
 mousePressed = ->
@@ -182,7 +181,6 @@ mousePressed = ->
 			call = objekt + ".mousePressed(#{p[0]},#{p[1]}); " + objekt + ".draw(); " + objekt + ".store()"
 			if run1() == true
 				run0()
-				#myCodeMirror.focus()
 				compare('mousePressed')
 
 setLinks = ->
@@ -229,6 +227,7 @@ changeLayout = ->
 	$(".CodeMirror").width w-425
 	$("#canvas").css {top: 0, left: 205, position:'absolute'}	 # w-215
 	$("#msg").width w-430
+	$("#tabell").width w-215
 
 resizeTimer = 0
 $(window).resize ->
@@ -426,20 +425,19 @@ compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
 tableClear = -> $("#tabell tr").remove()
 
 tableAppend = (t, call, expected, actual) -> # exakt tre kolumner
-	sp = "&nbsp;"
 	row = t.insertRow -1
 
 	cell1 = row.insertCell -1
-	cell1.innerHTML = sp + call + sp
-	cell1.style.backgroundColor = '#FFFF00'
+	cell1.innerHTML = call
 
 	cell2 = row.insertCell -1
-	cell2.innerHTML = sp + JSON.stringify(expected) + sp
+	cell2.innerHTML = JSON.stringify(expected)
 	cell2.style.backgroundColor = '#00FF00'
 
 	cell3 = row.insertCell -1
-	cell3.innerHTML = sp + JSON.stringify(actual) + sp
+	cell3.innerHTML = JSON.stringify(actual)
 	cell3.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
+	cell1.style.backgroundColor = cell3.style.backgroundColor
 
 fillTable = (a,b) ->
 	a = JSON.parse localStorage[a]
