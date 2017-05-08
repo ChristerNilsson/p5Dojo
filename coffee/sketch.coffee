@@ -225,7 +225,7 @@ decorate = (dict) -> # {klocka: "draw|incr_hour"}
 changeLayout = ->
 	w = $(window).width()
 	$(".CodeMirror").width w-425
-	$("#canvas").css {top: 0, left: 205, position:'absolute'}	 # w-215
+	$("#canvas").css {top: 0, left: 205, position:'absolute'}
 	$("#msg").width w-430
 	$("#tabell").width w-215
 
