@@ -103,7 +103,7 @@ range = _.range
 fillSelect = (sel, dict) ->
 	sel.empty()
 	if sel==sel2
-		sel.append($("<option>").attr('value', 'BACK').text('<< ' + chapter))
+		sel.append($("<option>").attr('value', 'BACK').text(chapter))
 	for key of dict
 		sel.append($("<option>").attr('value', key).text(key))
 
