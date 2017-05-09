@@ -132,6 +132,27 @@ quad      x1,y1, x2,y2, x3,y3, x4,y4
 arc       x,y, w,h, start,stopp, PIE
 ```
 
+### modes
+  - **rectMode** CORNER
+    * CORNER (default)
+    * CORNERS
+    * CENTER
+    * RADIUS
+  - **ellipseMode** CENTER
+    * CORNER
+    * CORNERS
+    * CENTER (default)
+    * RADIUS
+
+### [text](https://p5js.org/reference/#/p5/text)
+  - **textAlign** LEFT,BASELINE (default)
+  - **textAlign** CENTER,CENTER
+    * LEFT,CENTER,RIGHT
+    * TOP,CENTER,BOTTOM,BASELINE
+  - **textSize** n
+  - **textFont 'monospace' # t ex
+  - **text** "p5",x,y
+
 ### [range](http://underscorejs.org/#range)
 ```javascript
          range start,   stopp,    inkrement
@@ -179,6 +200,47 @@ else
   fc 1
 
 fc if i%3==0 then 0 else 0.5
+```
+
+### koordinatsystemet
+```javascript
+kommando        kommentar
+=========================
+translate x,y   flyttar origo
+rd degrees      roterar runt origo
+scale n         skalar upp eller ner
+```
+
+### rd
+Roterar en vinkel given i grader medurs. _Rotate a given angle in degrees clockwise_
+```javascript
+rd = (vinkel) -> rotate radians vinkel
+```
+
+### [radians](https://p5js.org/reference/#/p5/radians)
+```javascript
+0             == radians 0
+PI/2          == radians 90
+PI            == radians 180
+3*PI/2        == radians 270
+```
+
+### [cos](https://p5js.org/reference/#/p5/cos)
+```javascript
+1             == cos 0
+0.5           == cos PI / 3
+0.70710678118 == cos radians 45
+0             == cos PI / 2
+-1            == cos PI
+```
+
+### [sin](https://p5js.org/reference/#/p5/sin)
+```javascript
+0             == sin 0
+0.5           == sin PI / 6
+0.70710678118 == sin PI / 4
+1             == sin radians 90
+0             == sin PI
 ```
 
 ### [map](https://p5js.org/reference/#/p5/map)
@@ -241,34 +303,7 @@ _Linear interpolation and extrapolation_
 2             == sqrt 4
 5             == sqrt 25
 ```
-### rd
-Roterar en vinkel given i grader medurs. _Rotate a given angle in degrees clockwise_
-```javascript
-rd = (vinkel) -> rotate radians vinkel
-```
-### [radians](https://p5js.org/reference/#/p5/radians)
-```javascript
-0             == radians 0
-PI/2          == radians 90
-PI            == radians 180
-3*PI/2        == radians 270
-```
-### [cos](https://p5js.org/reference/#/p5/cos)
-```javascript
-1             == cos 0
-0.5           == cos PI / 3
-0.70710678118 == cos radians 45
-0             == cos PI / 2
--1            == cos PI
-```
-### [sin](https://p5js.org/reference/#/p5/sin)
-```javascript
-0             == sin 0
-0.5           == sin PI / 6
-0.70710678118 == sin PI / 4
-1             == sin radians 90
-0             == sin PI
-```
+
 ### log10
 ```javascript
 0             == log10 1
@@ -411,8 +446,6 @@ true  or true  == true
 
 ```
 
-## Kod
-
 ### while
 ```javascript
 i = 0
@@ -422,36 +455,6 @@ while i < 10
   i++
 res == [0,1,2,3,4,5,6,7,8,9]
 ```
-
-### koordinatsystemet
-```javascript
-kommando        kommentar
-=========================
-translate x,y   flyttar origo
-rd degrees      roterar runt origo
-scale n         skalar upp eller ner
-```
-
-### modes
-  - **rectMode** CORNER
-    * CORNER (default)
-    * CORNERS
-    * CENTER
-    * RADIUS
-  - **ellipseMode** CENTER
-    * CORNER
-    * CORNERS
-    * CENTER (default)
-    * RADIUS
-
-### [text](https://p5js.org/reference/#/p5/text)
-  - **textAlign** LEFT,BASELINE (default)
-  - **textAlign** CENTER,CENTER
-    * LEFT,CENTER,RIGHT
-    * TOP,CENTER,BOTTOM,BASELINE
-  - **textSize** n
-  - **textFont 'monospace' # t ex
-  - **text** "p5",x,y
 
 ### push & pop
 Sparar och återställer följande kommandon:
