@@ -361,7 +361,7 @@ counter = new Counter
 
 ### Klasser
 
-En klass skapas genom att skriva ordet class följt av namnet.
+En klass skapas genom att skriva ordet _class_ följt av namnet.
 
 Metoder, även konstruktorn, skrivs med namnet följt av ett kolon samt en pil.
 
@@ -370,7 +370,7 @@ class Tidsmaskin
   constructor: ->
 ```
 
-För att skapa en instans, använd ordet new följt av klassens namn.
+För att skapa en instans, använd ordet _new_ följt av klassens namn.
 
 ```javascript
 tidsmaskin = new Tidsmaskin
@@ -378,7 +378,7 @@ tidsmaskin = new Tidsmaskin
 
 #### Egenskaper
 
-Egenskaper inleds med tecknet @
+Egenskaper inleds med tecknet _@_
 
 ```javascript
 class Tidsmaskin
@@ -388,9 +388,8 @@ class Tidsmaskin
 
 Man kan nå egenskaperna med punkt också.
 
-tidsmaskin = new Tidsmaskin "H. G. Wells"
-
 ```javascript
+tidsmaskin = new Tidsmaskin "H. G. Wells"
 print tidsmaskin.pilot
 ```
 
@@ -411,7 +410,7 @@ class DeLorean extends Tidsmaskin
 ```
 
 Antag att de båda maskinerna har olika startljud.
-super innebär att man anropar den ärvda metoden.
+_super_ innebär att man anropar den ärvda metoden.
 
 ```javascript
 class Tidsmaskin
