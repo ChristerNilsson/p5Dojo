@@ -272,19 +272,19 @@ _Linear interpolation and extrapolation_
 ```
 ### [parseInt](https://www.w3schools.com/jsref/jsref_parseint.asp)
 ```javascript
-  3 == parseInt '3.14'
- -3 == parseInt '-3.14'
+  3 == parseInt '3'
+ -3 == parseInt '-3'
 ```
 ### [parseFloat](https://www.w3schools.com/jsref/jsref_parsefloat.asp)
 ```javascript
-  3.14 == parseInt '3.14'
- -3.14 == parseInt '-3.14'
+  3.14 == parseFloat '3.14'
+ -3.14 == parseFloat '-3.14'
 ```
 ### [dist](https://p5js.org/reference/#/p5/dist)
 ```javascript
-     dist x1,y1,x2,y2
-5 == dist  0, 3, 0, 4
-5 == dist 10,13,10,14
+      dist x1,y1,x2,y2
+ 5 == dist  0, 3, 0, 4
+13 == dist 22,10,15,10
 ```
 ### [nf](https://p5js.org/reference/#/p5/nf)
 ```javascript
@@ -676,7 +676,7 @@ class GevärsKula extends Ammunition
 class HaubitsGranat extends Ammunition
   shoot: -> super "Ka-Bom"
 
-g= new GevärsKula 20,45,5.56
+g = new GevärsKula 20,45,5.56
 h = new HaubitsGranat 42000,900,155
 
 g.shoot() # "pang" skrivs ut.
