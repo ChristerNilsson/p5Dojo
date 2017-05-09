@@ -175,17 +175,14 @@ Sparar och återställer följande kommandon:
   * f = (x) -> x*x
   * g = (a,b) -> a+b
 
-### %%
-Negativ modulo
+### modulo
  -3 % 10 == -3
 -13 %% 10 == 7
 
-### **
-Exponentiering
+### exponentiering
 2 ** 3 == 8
 
-### //
-Heltalsdivision
+### heltalsdivision
 3 / 2 == 1.5
 3 // 2 == 1
 
