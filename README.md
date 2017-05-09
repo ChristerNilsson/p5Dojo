@@ -33,7 +33,7 @@ r,g,b  färg
 1      vit
 ```
 ### bg
-bakgrundsfärg
+bakgrundsfärg _background_
 ```
 bg r,g,b  färg
 ==============
@@ -41,7 +41,7 @@ bg 1      vit
 bg 1,1,0  gul
 ```
 ### fc
-fyllningsfärg
+fyllningsfärg _fill_
 ```
 fc r,g,b      färg
 ==================
@@ -53,7 +53,7 @@ fc 1,0,0,0.5  röd, halvgenomskinlig
 ```
 
 ### sc
-streckfärg
+streckfärg _stroke_
 ```
 sc r,g,b      färg
 ==================
@@ -65,7 +65,7 @@ sc 1,0,0,0.5  röd, halvgenomskinlig
 ```
 
 ### sw
-strecktjocklek
+strecktjocklek _strokeWeight_
 ```
 sw pixlar
 ```
@@ -99,8 +99,7 @@ lerp 10,12,2    14
 
 ### for
 Glöm ej att indentera innehållet med ett tabsteg!
-
-```
+```javascript
 kommando                      resultat
 ======================================
 for i in range 10             [0,1,2,3,4,5,6,7,8,9]
@@ -110,6 +109,16 @@ for i in range 0,10,2         [0,2,4,6,8]
 for i in [0..10] by 2         [0,2,4,6,8,10]
 for i in range 10,0,-2        [10,8,6,4,2]
 for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]|
+```
+
+### while
+```javascript
+i = 0
+res = []
+while i < 10
+  res.push i
+  i++
+res == [0,1,2,3,4,5,6,7,8,9]
 ```
 
 ### if
@@ -221,13 +230,13 @@ true  and true  == false
 ```
 
 ### or
+Logisk eller. Motsvarar || i Javascript
 ```javascript
 false or false == false
 false or true  == true
 true  or false == true
 true  or true  == true
 ```
-Logisk eller. Motsvarar || i Javascript
 
 ### not
 Logisk icke. Motsvarar ! i Javascript
@@ -349,6 +358,80 @@ class Counter extends Application
   mousePressed : (mx,my) ->
 counter = new Counter
 ```
+
+### Klasser
+
+En klass skapas genom att skriva ordet class följt av namnet.
+
+Metoder, även konstruktorn, skrivs med namnet följt av ett kolon samt en pil.
+
+```javascript
+class Tidsmaskin
+  constructor: ->
+```
+
+För att skapa en instans, använd ordet new följt av klassens namn.
+
+```javascript
+tidsmaskin = new Tidsmaskin
+```
+
+#### Egenskaper
+
+Egenskaper inleds med tecknet @
+
+```javascript
+class Tidsmaskin
+  constructor: (pilot) ->
+    @pilot = pilot
+```
+
+Man kan nå egenskaperna med punkt också.
+
+tidsmaskin = new Tidsmaskin "H. G. Wells"
+
+```javascript
+print tidsmaskin.pilot
+```
+
+Man kan spara en rad kod så här:
+
+```javascript
+class Tidsmaskin
+  constructor: (@pilot) ->
+```
+
+#### Arv
+
+Så här ärver du en annan klass:
+
+```javascript
+class Tardis extends Tidsmaskin
+class DeLorean extends Tidsmaskin
+```
+
+Antag att de båda maskinerna har olika startljud.
+super innebär att man anropar den ärvda metoden.
+
+```javascript
+class Tidsmaskin
+  constructor: (@pilot) ->
+  go: (noise) -> print noise
+
+class Tardis extends Tidsmaskin
+  go: -> super "blubb"
+
+class DeLorean extends Tidsmaskin
+  go: -> super "vorp vorp"
+
+t1 = new Tardis "The Doctor"
+t2 = new DeLorean "Marty"
+
+t1.go()
+t2.go()
+```
+
+Nu skrivs de olika ljuden ut.
 
 ### mera information
 
