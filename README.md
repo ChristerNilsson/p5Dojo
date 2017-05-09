@@ -614,14 +614,14 @@ Metoder, skrivs med namnet följt av ett kolon samt en pil.
 Konstruktorn är en metod som anropas då objektet skapas.
 
 ```javascript
-class Ball
+class Ammunition
   constructor : () ->
 ```
 
 För att skapa ett objekt, använd ordet _new_ följt av klassens namn.
 
 ```javascript
-ball = new Ball
+ammunition = new Ammunition
 ```
 
 #### Egenskaper
@@ -629,7 +629,7 @@ ball = new Ball
 Egenskaper inleds med tecknet _@_ och överlever inuti objektet.
 
 ```javascript
-class Ammo
+class Ammunition
   constructor : (vikt,längd,diameter) -> # gram, mm, mm
     @vikt = vikt
     @längd = längd
@@ -639,14 +639,14 @@ class Ammo
 Man kan omvandla en parameter till en egenskap genom att prefixa den med ett @
 
 ```javascript
-class Ammo
+class Ammunition
   constructor: (@vikt,@längd,@diameter) ->
 ```
 
 Egenskaper och metoder kan nås utifrån med hjälp av punktnotation.
 
 ```javascript
-m16 = new Ammo 10,50,7.62
+m16 = new Ammunition 10,50,7.62
 print m16.diameter  # 7.62 skrivs ut
 ```
 
@@ -658,8 +658,8 @@ Dessutom kan man skapa nya metoder och egenskaper i den nya klassen.
 Ett arv innebär oftast en specialisering.
 
 ```javascript
-class GevärsAmmunition extends Ammunition
-class HaubitsAmmunition extends Ammunition
+class GevärsKula extends Ammunition
+class HaubitsGranat extends Ammunition
 ```
 
 Antag att de båda typerna låter olika då man avfyrar dem.
@@ -670,17 +670,17 @@ class Ammunition
   constructor: (@vikt,@längd,@diameter) ->
   shoot: (noise) -> print noise
 
-class GevärsAmmunition extends Ammunition
+class GevärsKula extends Ammunition
   shoot: -> super "pang"
 
-class HaubitsAmmunition extends Ammunition
+class HaubitsGranat extends Ammunition
   shoot: -> super "Ka-Bom"
 
-ga = new GevärsAmmunition 20,45,5.56
-ha = new HaubitsAmmunition 42000,900,155
+g= new GevärsKula 20,45,5.56
+h = new HaubitsGranat 42000,900,155
 
-ga.shoot() # "pang" skrivs ut.
-ha.shoot() # "Ka-Bom" skrivs ut.
+g.shoot() # "pang" skrivs ut.
+h.shoot() # "Ka-Bom" skrivs ut.
 ```
 
 ### mera information
