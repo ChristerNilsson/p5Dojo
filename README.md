@@ -1,6 +1,6 @@
-# p5Dojo - Matematik och Spelprogrammering
+# p5Dojo
 
-# _p5Dojo - Math and Game Programming_
+## Matematik och Spelprogrammering _Math and Game Programming_
 
  - [p5Dojo](https://christernilsson.github.io/p5Dojo) p5dojo.com
  - [p5](https://p5js.org/reference)
@@ -11,11 +11,14 @@
  - [Nilsson](https://github.com/ChristerNilsson/Nilsson/blob/master/README.md)
  - [Mailgrupp](mailto:p5dojo@googlegroups.com)
 
-## Så här arbetar du!  _This is the way you work!_
+### Så här arbetar du!  _This is the way you work!_
 
-* Du ska med kod återskapa den första bitmappen. _The first bitmap is your mission._
-* Resultatet av din kod hamnar i den andra bitmappen. _The result of your code is displayed in the second bitmap._
-* Skillnaden visas i den tredje bitmappen. Den ska bli helt svart när du har löst uppgiften. _The third bitmap contains the difference. When you are finished, it will be black._
+* Du ska med kod återskapa den första bitmappen.
+* _The first bitmap is your mission._
+* Resultatet av din kod hamnar i den andra bitmappen.
+* _The result of your code is displayed in the second bitmap._
+* Skillnaden visas i den tredje bitmappen. Den ska bli helt svart när du har löst uppgiften.
+* _The third bitmap contains the difference. When you are finished, it will be completely black._
 
 ### Chrome och Windows rekommenderas. _Windows and Chrome are recommended._
 Ingen annan programvara behöver installeras. _No other software is needed._
