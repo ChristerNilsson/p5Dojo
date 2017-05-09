@@ -224,11 +224,11 @@ buildKeywordLink = ->
 
 	save = (index,words) -> kwl[word] = index for word in words.split ' '
 
-	save 0,'[] "" {} .. ... @ -> class text operators comparisons logical if bg fc sc sw range circle for while rd readText readInt readFloat'
-	save 0,'PI sqrt cos sin log10 Date'
+	save 0,'[] "" {} .. ... @ -> class text operators comparisons logical if bg fc sc sw'
+	save 0,'range circle for while rd readText readInt readFloat'
+	save 0,'PI sqrt cos sin log10 Date arc rect ellipse point line triangle quad'
 	save 0,'parseInt parseFloat dist nf constrain int round map lerp radians reduce'
-	save 1,'arc rect rectMode ellipse point line triangle quad rotate translate scale push pop'
-	save 1,'random millis colorMode HSB strokeCap'
+	save 1,'rectMode rotate translate scale push pop random millis colorMode HSB strokeCap'
 	save 2,'break return'
 	save 3,'contains filter countBy isEqual last max min pairs sortBy'
 

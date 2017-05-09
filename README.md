@@ -1,5 +1,7 @@
 # p5Dojo - Matematik och Spelprogrammering
 
+# _p5Dojo - Math and Game Programming_
+
  - [p5Dojo](https://christernilsson.github.io/p5Dojo) p5dojo.com
  - [p5](https://p5js.org/reference)
  - [Coffeescript](http://coffeescript.org)
@@ -9,37 +11,41 @@
  - [Nilsson](https://github.com/ChristerNilsson/Nilsson/blob/master/README.md)
  - [Mailgrupp](mailto:p5dojo@googlegroups.com)
 
-### Så här arbetar du!
+### Så här arbetar du!  _This is the way yuo work!_
 
 * Du ska med kod återskapa den första bitmappen
 * Resultatet av din kod hamnar i den andra bitmappen
 * Skillnaden visas i den tredje bitmappen. Den ska bli helt svart när du har löst uppgiften.
 
-### Chrome och Windows är ett krav.
-Ingen annan programvara behöver installeras.
+* _The first bitmap is your mission._
+* _The result of your code is displayed in the second bitmap._
+* _The third bitmap contains the difference. When you are finished, it will be black._
 
-### färger
+### Chrome och Windows är ett krav. _Windows and Chrome are recommended._
+Ingen annan programvara behöver installeras. _No other software is necessary._
+
+### färger  _colors_
 ```
-r,g,b  färg
-===========
-0,0,1  blå
-0,1,0  grön
-0,1,1  cyan
-1,0,0  röd
-1,0,1  magenta
-1,1,0  gul
-0      svart
-0.5    grå
-1      vit
+r,g,b  färg  _color_
+===========================
+0,0,1  blå   _blue_
+0,1,0  grön  _green_
+0,1,1  cyan  _cyan_
+1,0,0  röd   _red
+1,0,1  magenta _magenta_
+1,1,0  gul   _yellow_
+0      svart _black_
+0.5    grå   _gray_
+1      vit   _white_
 ```
 ### bg
 bakgrundsfärg  [_background_](https://p5js.org/reference/#/p5/background)
 
 ```
-bg r,g,b  färg
-==============
-bg 1      vit
-bg 1,1,0  gul
+bg r,g,b  färg  _color_
+=======================
+bg 1      vit   _white_
+bg 1,1,0  gul   _yellow_
 ```
 ### fc
 fyllningsfärg  [_fill_](https://p5js.org/reference/#/p5/fill)
@@ -71,7 +77,7 @@ strecktjocklek  [_strokeWeight_](https://p5js.org/reference/#/p5/strokeWeight)
 sw pixlar
 ```
 
-## Ritkommandon
+## Ritkommandon  _Drawing commands_
 
 ### circle
 ```javascript
@@ -108,10 +114,11 @@ quad      x1,y1, x2,y2, x3,y3, x4,y4
 arc       x,y, w,h, start,stopp, PIE
 ```
 
-## Inbyggda funktioner
+## Inbyggda funktioner  _builtin finctions_
 
 ### [lerp](https://p5js.org/reference/#/p5/lerp)
-linjär interpolation och extrapolation
+linjär interpolation och extrapolation, genom att ange två startpunkter
+_Linear interpolation and extrapolation_
 ```javascript
  8 == lerp 10,12,-1
 10 == lerp 10,12,0
@@ -120,10 +127,11 @@ linjär interpolation och extrapolation
 14 == lerp 10,12,2
 ```
 ### [map](https://p5js.org/reference/#/p5/map)
-linjär interpolation och extrapolation
+linjär interpolation och extrapolation, genom att ange start- och slutpunkter
+_Linear interpolation and extrapolation_
 ```javascript
-250 == map 25, 0, 100, 0, 1000
- 30 == map 1, 0, 10, 25, 75
+250 == map 25, 0,100,  0,1000
+ 30 == map  1, 0,10, 25,75
 ```
 ### [constrain](https://p5js.org/reference/#/p5/constrain)
 ```javascript
@@ -141,12 +149,12 @@ linjär interpolation och extrapolation
   3 == round 3.14
  -3 == round -3.14
 ```
-### parseInt
+### [parseInt](https://www.w3schools.com/jsref/jsref_parseint.asp)
 ```javascript
   3 == parseInt '3.14'
  -3 == parseInt '-3.14'
 ```
-### parseFloat
+### [parseFloat](https://www.w3schools.com/jsref/jsref_parsefloat.asp)
 ```javascript
   3.14 == parseInt '3.14'
  -3.14 == parseInt '-3.14'
@@ -176,7 +184,7 @@ linjär interpolation och extrapolation
 5             == sqrt 25
 ```
 ### rd
-Roterar en vinkel given i grader medurs.
+Roterar en vinkel given i grader medurs. _Rotate a given angle in degrees clockwise_
 ```javascript
 rd = (vinkel) -> rotate radians vinkel
 ```
@@ -212,7 +220,7 @@ PI            == radians 180
 ```
 ### [Date](https://www.w3schools.com/jsref/jsref_obj_date.asp)
 ```javascript
-d  == new Date(2017, 5, 9, 18, 44, 37, 123)
+d  = new Date(2017, 5, 9, 18, 44, 37, 123)
 18 == d.getHours()
 44 == d.getMinutes()
 37 == d.getSeconds()
@@ -227,7 +235,7 @@ d  == new Date(2017, 5, 9, 18, 44, 37, 123)
 ```
 
 ### [for](http://coffeescript.org/#loops)
-Glöm ej att indentera innehållet med ett tabsteg!
+Glöm ej att indentera innehållet med ett tabsteg! _Don't forget to indent one tab!_
 ```javascript
 kommando                      resultat
 ======================================
