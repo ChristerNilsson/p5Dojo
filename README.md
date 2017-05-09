@@ -11,42 +11,60 @@
  - [Nilsson](https://github.com/ChristerNilsson/Nilsson/blob/master/README.md)
  - [Mailgrupp](mailto:p5dojo@googlegroups.com)
 
-### Så här arbetar du!  _This is the way yuo work!_
+## Så här arbetar du!  _This is the way you work!_
 
-* Du ska med kod återskapa den första bitmappen
-* Resultatet av din kod hamnar i den andra bitmappen
-* Skillnaden visas i den tredje bitmappen. Den ska bli helt svart när du har löst uppgiften.
-
-* _The first bitmap is your mission._
-* _The result of your code is displayed in the second bitmap._
-* _The third bitmap contains the difference. When you are finished, it will be black._
+* Du ska med kod återskapa den första bitmappen. _The first bitmap is your mission._
+* Resultatet av din kod hamnar i den andra bitmappen. _The result of your code is displayed in the second bitmap._
+* Skillnaden visas i den tredje bitmappen. Den ska bli helt svart när du har löst uppgiften. _The third bitmap contains the difference. When you are finished, it will be black._
 
 ### Chrome och Windows är ett krav. _Windows and Chrome are recommended._
-Ingen annan programvara behöver installeras. _No other software is necessary._
+Ingen annan programvara behöver installeras. _No other software is needed._
 
-### färger  _colors_
+### färger
 ```
-r,g,b  färg  _color_
-===========================
-0,0,1  blå   _blue_
-0,1,0  grön  _green_
-0,1,1  cyan  _cyan_
-1,0,0  röd   _red
-1,0,1  magenta _magenta_
-1,1,0  gul   _yellow_
-0      svart _black_
-0.5    grå   _gray_
-1      vit   _white_
+r,g,b  färg
+=============
+0,0,1  blå
+0,1,0  grön
+0,1,1  cyan
+1,0,0  röd
+1,0,1  magenta
+1,1,0  gul
+0      svart
+0.5    grå
+1      vit
 ```
+### _colors_
+```
+r,g,b  _color_
+==============
+0,0,1  _blue_
+0,1,0  _green_
+0,1,1  _cyan_
+1,0,0  _red_
+1,0,1  _magenta_
+1,1,0  _yellow_
+0      _black_
+0.5    _gray_
+1      _white_
+```
+
 ### bg
 bakgrundsfärg  [_background_](https://p5js.org/reference/#/p5/background)
 
 ```
-bg r,g,b  färg  _color_
-=======================
-bg 1      vit   _white_
-bg 1,1,0  gul   _yellow_
+bg r,g,b  färg
+==============
+bg 1      vit
+bg 1,1,0  gul
 ```
+```
+bg r,g,b  _color_
+==============
+bg 1      _white_
+bg 1,1,0  _yellow_
+```
+
 ### fc
 fyllningsfärg  [_fill_](https://p5js.org/reference/#/p5/fill)
 ```
