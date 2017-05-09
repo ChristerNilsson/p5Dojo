@@ -1,5 +1,6 @@
 ID_nyheter =
 	v:'2017-05-07'
+	k:''
 	b:"""
 # LOC:0
 # NYHETER 2017 MAJ 13
@@ -59,6 +60,7 @@ ID_nyheter =
 
 ID_Asserts =
 	v:'2017-04-29'
+	k:''
 	b:"""
 # LOC:0
 # Här kan du se några klargörande exempel.
@@ -236,9 +238,9 @@ assert [1,2,3],           _.values {a:1, b:2, c:3}
 
 ID_LinesOfCode =
 	v:'2017-04-29'
+	k:'bg fc sc {} operators comparisons if parseInt _.max rect for text class'
 	b:"""
-# LOC:62 bg fc sc # {} * / + ++ == if then else indexOf parseInt substring
-#        _.max rect for of text textAlign class constructor new @ extends super
+# LOC:62
 
 class LinesOfCode extends Application
 	reset : -> super

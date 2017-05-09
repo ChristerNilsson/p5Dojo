@@ -1,7 +1,8 @@
 ID_SevenSegment =
 	v:'2017-04-29'
+	k:'bg sc fc rect rectMode if operators [] class'
 	b : """
-# LOC:31 bg sc fc # rect rectMode if then & [] class extends constructor new @ super ->
+# LOC:31
 
 class Digit extends Application
 	reset : ->
@@ -53,9 +54,9 @@ app = new Digit "a"
 
 ID_Shortcut =
 	v:'2017-04-29'
+	k:'bg fc sc range operators [] text for if return {} logical comparisons constrain class'
 	b:"""
-# LOC:65 bg fc sc range # %% * / + [] text textAlign textSize for in if then else return
-#        {} and < != == push pop length constrain class extends constructor new @ super ->
+# LOC:65
 
 class Shortcut extends Application
 	reset : ->
@@ -140,10 +141,9 @@ app = new Shortcut "a"
 
 ID_Shortcut2 =
 	v:'2017-05-04'
+	k:'bg fc sc range operators [] for if return _.min text dist int {} logical comparisons constrain class'
 	b:"""
-# LOC:126 bg fc sc range # % %% * ** / // + ++ - & | ^ ~ << >> [] length push pop
-#         for in if then else return _.min text textAlign textSize textFont dist
-#         int {} and < != == constrain class extends constructor new @ super ->
+# LOC:126
 
 class Shortcut2 extends Application
 	reset : ->
@@ -296,7 +296,8 @@ app = new Shortcut2 "a"
 
 ID_ShrinkingCircles =
 	v:'2017-04-29'
-	b:"# LOC:4 range fc circle # for in lerp\n"
+	k:'range fc circle for lerp'
+	b:"# LOC:4 \n"
 	a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -306,7 +307,8 @@ for i in range 10,0,-1
 
 ID_Skislope =
 	v:'2017-04-29'
-	b: "# LOC:4 bg sc range # for in lerp line"
+	k:'bg sc range for lerp line'
+	b: "# LOC:4 "
 	a: """
 bg 0
 sc 1,0,0
@@ -316,9 +318,9 @@ for i in range 21
 
 ID_Snake =
 	v:'2017-04-29'
+	k:'bg fc [] rect operators comparisons logical dist for if class'
 	b: """
-# LOC:47 bg fc # [] rect %% + ++ * == < and push dist length for in
-#        if then else class extends constructor new @ super ->
+# LOC:47
 
 class Snake extends Application
 	reset : ->
@@ -387,9 +389,9 @@ app = new Snake "a"
 
 ID_Snake4 =
 	v:'2017-04-29'
+	k:'bg fc [] rect operators comparisons logical dist for if class'
 	b: """
-# LOC:43 bg fc # [] rect %% + ++ * == < and or push dist length for in
-#        if then else class extends constructor new @ super ->
+# LOC:43
 
 class Snake4 extends Application
 	reset : ->
@@ -456,7 +458,8 @@ app = new Snake4 "a"
 
 ID_SnowWhiteAndThe7Lerps =
 	v:'2017-04-29'
-	b:"# LOC:17 bg fc sc range rd # rect rectMode for in lerp translate push pop\n"
+	k:'bg fc sc range rd rect rectMode for lerp translate push pop'
+	b:"# LOC:17 \n"
 	a:"""
 bg 1
 rectMode CENTER
@@ -479,9 +482,9 @@ for i in range 10
 
 ID_Sokoban =
 	v:'2017-04-29'
+	k:'bg sc fc sw range operators [] text comparisons for if logical rect circle dist class'
 	b: """
-# LOC:94 bg sc fc sw range # * + - % & | -- [] == push length for in if then else
-#        and rect circle dist class extends constructor new @ super ->
+# LOC:94
 
 class Sokoban extends Application
 	reset : ->
@@ -595,9 +598,9 @@ app = new Sokoban "a"
 
 ID_SpaceShip =
 	v:'2017-04-29'
+	k:'sc sw rd point triangle translate cos sin radians push pop class'
 	b:"""
-# LOC:35 sc sw rd # point triangle translate cos sin radians
-#        push pop class extends constructor new @ super ->
+# LOC:35
 
 class Shot
 	constructor : (@x,@y,@dir) ->
@@ -665,8 +668,9 @@ app = new Ship "a"
 
 ID_Square =
 	v:'2017-04-29'
+	k:'bg sw fc rd rect rectMode translate operators class'
 	b: """
-# LOC:21 bg sw fc rd # rect rectMode translate + class extends constructor new @ super ->
+# LOC:21
 
 class Square extends Application
 	reset        : -> super
@@ -709,7 +713,8 @@ app = new Square "a"
 
 ID_SquareHole =
 	v:'2017-04-29'
-	b : "# LOC:11 fc sc sw # rect\n"
+	k:'fc sc sw rect'
+	b : "# LOC:11 \n"
 	a : """
 fc 0,1,1
 sc()
@@ -726,9 +731,9 @@ rect 80,80, 40,40
 
 ID_Stopwatch =
 	v:'2017-04-29'
+	k:'bg sc fc for [] text int millis nf class'
 	b:"""
-# LOC:17 bg sc fc # for in [] '' text textSize textAlign textFont monospace
-#        int millis nf length unshift class extends constructor new @ super ->
+# LOC:20
 # OBS! Tiderna kan skilja med flera millisekunder. Sorry!
 
 class Stopwatch extends Application
@@ -752,7 +757,7 @@ class Stopwatch extends Application
 		fc 1,0,0
 		sc()
 		for time,i in @times
-			text @count-i,  50, 202-40*i
+			text @count-i, 50, 202-40*i
 			text nf(time/1000,1,3),195, 202-40*i
 	mousePressed : (mx,my) ->
 		@count++
@@ -766,7 +771,8 @@ app = new Stopwatch "a"
 
 ID_Sunshine =
 	v:'2017-04-29'
-	b: "# LOC:9 bg sc range # for in lerp line\n"
+	k:'bg sc range for lerp line'
+	b: "# LOC:9 \n"
 	a: """
 bg 0
 sc 1,1,0
@@ -781,8 +787,9 @@ for i in range 10
 
 ID_SuperCircle =
 	v:'2017-04-29'
+	k:'bg range operators for line'
 	b: """
-# LOC:7 bg range # * + - for in line
+# LOC:7
 """
 	a: """
 bg 0

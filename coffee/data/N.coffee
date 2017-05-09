@@ -1,8 +1,8 @@
 ID_Nand2TetrisALU =
 	v:'2017-04-29'
+	k:'sc fc sw range text class point quad dist for if operators comparisons'
 	b: """
-# LOC:63 sc fc sw range # text textAlign textSize class extends constructor new @ super ->
-#        point quad dist for in if then else << - -- + ++ * != & ^ ~ split
+# LOC:63
 # Se länken Nand2Tetris, sidan 36, för mer information!
 
 class ALU extends Application
@@ -90,9 +90,9 @@ app = new ALU "a"
 
 ID_Nian =
 	v:'2017-04-29'
+	k:'bg fc sc [] "" reduce operators comparisons text for {} _.countBy logical if class'
 	b:"""
-# LOC:35 bg fc sc # [] push "" split indexOf reduce + * ** / % > & text textSize textAlign
-#				 for in of {} _.countBy and if then class constructor new @ extends super
+# LOC:35
 # Bilda ord med fyra till nio bokstäver. Använd variabeln ordlista.
 # Den mittersta bokstaven måste ingå. Prova med "aaefkrrtu"
 
@@ -153,9 +153,9 @@ app = new Nian "a"
 
 ID_Nim =
 	v:'2017-04-29'
+	k:'bg fc sc circle operators if _.isEqual return comparisons constrain text class'
 	b:"""
-# LOC:62 bg fc sc circle # * + - ^ if then else _.isEqual return <
-#        constrain text textAlign textSize class extends constructor new @ super ->
+# LOC:62
 
 class Nim extends Application
 	reset : ->
@@ -250,5 +250,3 @@ app = new Nim "a"
 		Nim : "https://en.wikipedia.org/wiki/Nim"
 		xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"
 		Nimrod : "https://en.wikipedia.org/wiki/Nimrod_(computing)"
-
-

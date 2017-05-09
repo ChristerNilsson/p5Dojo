@@ -1,6 +1,7 @@
 ID_ManyDices =
 	v:'2017-04-29'
-	b : "# LOC:8 -> range # for in if then point [] * + % & << ->\n"
+	k:'-> range for if point [] operators ->'
+	b : "# LOC:8 \n"
 	a : """
 dice = (x,y,d) ->
 	for bits,i in [21,56,32,62,62,32,56]
@@ -14,7 +15,8 @@ for i in range 10
 
 ID_MidPoints =
 	v:'2017-04-29'
-	b: "# LOC:11 sc sw # point\n"
+	k:'sc sw point'
+	b: "# LOC:11 \n"
 	a: """
 sw 10
 sc 1,0,0
@@ -33,8 +35,9 @@ point 100,200
 
 ID_Moire =
 	v:'2017-04-29'
+	k:'bg range operators for line map class'
 	b:"""
-# LOC:11 bg range # * + - for line map class extends constructor new @ super ->
+# LOC:11
 
 class Moire extends Application
 	reset : ->
@@ -65,9 +68,9 @@ app = new Moire "a"
 
 ID_MultiTimer =
 	v:'2017-04-29'
+	k:'bg sc fc for [] comparisons logical text nf if int round millis class'
 	b:"""
-# LOC:30 bg sc fc # for in [] '' == <= and text textSize textAlign textFont monospace nf
-#        if then else int round millis length class extends constructor new @ super ->
+# LOC:30
 #
 # OBS! Tiderna kan skilja med flera millisekunder. Sorry!
 

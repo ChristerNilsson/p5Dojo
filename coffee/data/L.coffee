@@ -1,5 +1,6 @@
 ID_Laboratorium =
 	v:'2017-04-29'
+	k:''
 	b:"""
 # LOC:0
 # Här kan du laborera med egna idéer!
@@ -53,7 +54,8 @@ app = new Laboratorium "a"
 
 ID_Line =
 	v:'2017-04-29'
-	b: "# LOC:2 sc # line\n"
+	k:'sc line'
+	b: "# LOC:2 \n"
 	a: """
 sc 1,1,0
 line 20,0, 200,20
@@ -61,7 +63,8 @@ line 20,0, 200,20
 
 ID_Lines =
 	v:'2017-04-29'
-	b:"# LOC:5 bg range # for in lerp line (Noel Watson)\n"
+	k:'bg range for lerp line'
+	b:"# LOC:5  (Noel Watson)\n"
 	a:"""
 bg 0
 for i in range 37

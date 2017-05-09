@@ -1,7 +1,8 @@
 ID_X =
 	v:'2017-04-29'
+	k:'sw point'
 	b: """
-# LOC:4 sw # point
+# LOC:4
 
 sw 10      # strokeWeight, strecktjocklek i pixlar
 point 100,100  # ritar en punkt på koordinaten x,y

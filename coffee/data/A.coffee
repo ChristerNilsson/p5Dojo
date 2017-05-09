@@ -1,8 +1,8 @@
 ID_Alphanumeric =
 	v:'2017-04-29'
+	k:'bg sc fc range circle for operators [] splice dist if class'
 	b:"""
-# LOC:29 bg sc fc range circle # for in & + - * ^ ** %% [] length splice dist
-#        push if then else class extends constructor new @ super ->
+# LOC:29
 
 class AlphaNumeric extends Application
 	reset : ->

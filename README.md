@@ -115,6 +115,11 @@ linjär interpolation och extrapolation
   3 == int 3.14
  -3 == int -3.14
 ```
+### round
+```javascript
+  3 == round 3.14
+ -3 == round -3.14
+```
 ### parseInt
 ```javascript
   3 == parseInt '3.14'
@@ -149,6 +154,18 @@ linjär interpolation och extrapolation
 2             == sqrt 4
 5             == sqrt 25
 ```
+### rd
+Roterar en vinkel given i grader medurs.
+```javascript
+rd = (vinkel) -> rotate radians vinkel
+```
+### radians
+```javascript
+0             == radians 0
+PI/2          == radians 90
+PI            == radians 180
+3*PI/2        == radians 270
+```
 ### cos
 ```javascript
 1             == cos 0
@@ -174,7 +191,7 @@ linjär interpolation och extrapolation
 ```
 ### Date
 ```javascript
-d             == new Date(2017, 5, 9, 18, 44, 37, 123)
+d  == new Date(2017, 5, 9, 18, 44, 37, 123)
 18 == d.getHours()
 44 == d.getMinutes()
 37 == d.getSeconds()

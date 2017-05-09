@@ -1,12 +1,13 @@
 # v : version YY-MM-DD
-# b : LOC and keywords
+# k : keywords
+# b : LOC
 # a : original code
-# c : menu
+# c : commands
 # e : links
 
 data =
-	Nyheter :
-		nyheter : ID_nyheter
+	Start :
+		Nyheter : ID_nyheter
 		Asserts : ID_Asserts
 		LinesOfCode : ID_LinesOfCode
 

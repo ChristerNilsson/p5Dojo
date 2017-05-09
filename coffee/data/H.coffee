@@ -1,8 +1,8 @@
 ID_Hex =
 	v:'2017-04-29'
+	k:'bg fc sc range operators comparisons dist for [] quad circle if text class'
 	b:"""
-# LOC:47 bg fc sc range # + * - % < == != dist for in [] push pop length quad circle
-#        if then else text textAlign textSize class extends constructor new @ super ->
+# LOC:47
 
 class Hex extends Application
 	reset : ->
@@ -77,7 +77,8 @@ app = new Hex "a"
 
 ID_HorizontalLine =
 	v:'2017-04-29'
-	b: "# LOC:2 sc # line\n"
+	k:'sc line'
+	b: "# LOC:2 \n"
 	a: """
 sc 1,0,1
 line 10,70, 190,70
@@ -85,9 +86,9 @@ line 10,70, 190,70
 
 ID_HorizontalSquares =
 	v:'2017-04-29'
+	k:'range rect for lerp'
 	b:"""
-# LOC:3 range # rect for in lerp
-
+# LOC:3
 rect  5,5,10,10
 rect 25,5,10,10
 for i in range 5

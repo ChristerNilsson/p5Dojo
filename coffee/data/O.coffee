@@ -1,7 +1,8 @@
 ID_OlympicRingPrep =
 	v:'2017-04-29'
+	k:'sc fc sw arc strokeCap class'
 	b:"""
-# LOC:21 sc fc sw # arc strokeCap class extends constructor new @ super ->
+# LOC:21
 
 class Ring extends Application
 	reset  : ->
@@ -40,8 +41,9 @@ app = new Ring "a"
 
 ID_OlympicRings =
 	v:'2017-04-29'
+	k:'sc bg fc sw arc strokeCap class'
 	b: """
-# LOC:24 sc bg fc sw # arc strokeCap class constructor new @
+# LOC:24
 
 class Ring
 	constructor : (@x,@y,@r,@g,@b) ->
@@ -87,8 +89,9 @@ olympic()
 
 ID_OneDiceHistogram =
 	v:'2017-04-29'
+	k:'fc sc range int random text for operators rect []'
 	b:"""
-# LOC:17 fc sc range # Array fill length int random text textAlign for in ++ * / + - rect []
+# LOC:17
 # OBS: På grund av random blir bitmapparna inte likadana
 
 h = 50

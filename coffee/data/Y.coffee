@@ -1,7 +1,8 @@
 ID_Y =
 	v:'2017-04-29'
+	k:'sc sw point'
 	b: """
-# LOC:5 sc sw # point
+# LOC:5
 
 sw 20
 sc 1,0,0   # strokeColor, streckfärg red,green,blue

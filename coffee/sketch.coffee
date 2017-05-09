@@ -8,11 +8,14 @@ msg = null
 sel1 = null
 sel2 = null
 sel3 = null
+sel4 = null
 chapter = ""
 exercise = ""
 call = ''
 calls = {}
 renew = null
+kwl = {}
+kwlinks = []
 
 gap = 0
 block = 0
@@ -129,13 +132,20 @@ sel2change = (sel) ->
 		myCodeMirror.setValue ""
 		bg 0.5
 		return
+
+	sel3.empty()
+	sel3.append($("<option>").attr('value', 'BACK').text(exercise))
+	keywords = data[chapter][exercise]["k"].split ' '
+	keywords.sort()
+	for keyword in keywords
+		sel3.append($("<option>").attr('value', keyword).text(keyword))
+	sel3.show()
+
 	call = ""
 	calls = decorate data[chapter][exercise]["c"]
-
 	setLinks()
 	calls_without_draw = _.omit calls, 'draw()'
-
-	fillSelect sel3, calls_without_draw
+	fillSelect sel4, calls_without_draw
 
 	src = localStorage[exercise + "/d"]
 	if src == undefined or src==null or src == ''
@@ -152,7 +162,7 @@ sel2change = (sel) ->
 	tableClear()
 
 	if calls?
-		sel3.val("draw()").change()
+		sel4.val("draw()").change()
 		call = calls["draw()"]
 
 	run1()
@@ -160,15 +170,69 @@ sel2change = (sel) ->
 	myCodeMirror.focus()
 	compare('sel2change')
 
+sel3click = (sel) ->
+	if sel.value=='BACK'
+		#exercise = ""
+		#myCodeMirror.setValue ""
+		#tableClear()
+		#linksClear()
+		#bg 0.5
+		sel3.hide()
+		return
+	url = buildLink sel.value
+	if url?
+		win = window.open url, '_blank'
+		win.focus()
+
 sel3change = (sel) ->
+sel4change = (sel) ->
 
 sel1click = (sel) -> sel2.show()
 sel2click = (sel) -> if sel.value=='BACK' then $("#sel2").hide()
-sel3click = (sel) ->
+#sel3click = (sel) -> #if sel.value=='BACK' then $("#sel3").hide()
+sel4click = (sel) ->
 	if calls? then call = calls[sel.value]
 	if run1() == true
 		run0()
-	compare('sel3click')
+	compare('sel4click')
+
+buildLink = (keyword) ->
+	if keyword.indexOf('_.')==0 then keyword = keyword.replace('_.','')
+	print keyword
+	nr = kwl[keyword]
+	if nr==0 then keyword = keyword.toLowerCase()
+	if nr==null
+		print keyword
+		null
+	else
+		keyword = keyword.replace('[]','array')
+		keyword = keyword.replace('""','string')
+		keyword = keyword.replace('{}','object')
+		keyword = keyword.replace('->','pil')
+		keyword = keyword.replace('@','this')
+		keyword = keyword.replace('...','exclusiverange')
+		keyword = keyword.replace('..','inclusiverange')
+		keyword = keyword.replace('HSB','colorMode')
+		kwlinks[nr].replace('{}',keyword)
+
+buildKeywordLink = ->
+	kwl = {}
+	kwlinks = []
+
+	kwlinks.push 'https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#{}'
+	kwlinks.push 'https://p5js.org/reference/#/p5/{}'
+	kwlinks.push 'https://www.w3schools.com/jsref/jsref_{}.asp'
+	kwlinks.push 'https://github.com/ChristerNilsson/p5Dojo/blob/master/_.md#{}'
+
+	save = (index,words) -> kwl[word] = index for word in words.split ' '
+
+	save 0,'[] "" {} .. ... @ -> class text operators comparisons logical if bg fc sc sw range circle for while rd readText readInt readFloat'
+	save 0,'PI sqrt cos sin log10 Date'
+	save 0,'parseInt parseFloat dist nf constrain int round map lerp radians reduce'
+	save 1,'arc rect rectMode ellipse point line triangle quad rotate translate scale push pop'
+	save 1,'random millis colorMode HSB strokeCap'
+	save 2,'break return'
+	save 3,'contains filter countBy isEqual last max min pairs sortBy'
 
 mousePressed = ->
 	p = null
@@ -238,6 +302,8 @@ setup = ->
 	timestamp = millis()
 	c = createCanvas 5+201+5, 3*201+20
 
+	buildKeywordLink()
+
 	gap = 5 * width * 4
 	block = 201 * width * 4
 
@@ -249,8 +315,10 @@ setup = ->
 	sel1 = $('#sel1')
 	sel2 = $('#sel2')
 	sel3 = $('#sel3')
+	sel4 = $('#sel4')
 
 	sel2.hide()
+	sel3.hide()
 
 	fillSelect sel1, data
 

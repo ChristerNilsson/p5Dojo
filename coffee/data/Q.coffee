@@ -1,6 +1,7 @@
 ID_Quad =
 	v:'2017-04-29'
-	b:"# LOC:2 fc # quad\n"
+	k:'fc quad'
+	b:"# LOC:2 \n"
 	a:"""
 fc 1,1,0
 quad 150,100, 180,20, 40,20, 100,140

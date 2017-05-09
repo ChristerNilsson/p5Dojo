@@ -1,8 +1,8 @@
 ID_RandomDice =
 	v:'2017-04-29'
+	k:'bg fc sc circle operators [] int sin for class'
 	b: """
-# LOC:19 bg fc sc circle # % %% / * + << & [] int Math.sin
-#        for in class extends constructor new @ super ->
+# LOC:19
 
 class RandomDice extends Application
 	reset : ->
@@ -40,8 +40,9 @@ app = new RandomDice "a"
 
 ID_RecursiveCircle =
 	v:'2017-04-29'
+	k:'sc circle if return comparisons class'
 	b: """
-# LOC:10 sc circle # if return < class extends constructor new @ super ->
+# LOC:10
 
 class RecursiveCircle extends Application
 	reset   : ->
@@ -72,7 +73,8 @@ app = new RecursiveCircle "a"
 
 ID_RedCone =
 	v:'2017-04-29'
-	b:"# LOC:6 range fc circle # for in lerp\n"
+	k:'range fc circle for lerp'
+	b:"# LOC:6 \n"
 	a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -84,7 +86,8 @@ for i in range 10,0,-1
 
 ID_RedRect =
 	v:'2017-04-29'
-	b:"# LOC:2 fc # rect\n"
+	k:'fc rect'
+	b:"# LOC:2 \n"
 	a:"""
 fc 1,0,0
 rect 80,70, 40,100
@@ -92,9 +95,9 @@ rect 80,70, 40,100
 
 ID_Reversi =
 	v:'2017-05-02'
+	k:'sc fc bg range [] rect circle logical while if operators comparisons class'
 	b: """
-# LOC:49 sc fc bg range # [] push length rect circle not and while if then
-#        % + - * / <= < == class extends constructor new @ super ->
+# LOC:49
 
 class Reversi extends Application
 	reset : ->
@@ -163,7 +166,8 @@ app = new Reversi "a"
 
 ID_RotatedEllipse =
 	v:'2017-04-29'
-	b:"# LOC:5 rd # ellipse translate\n"
+	k:'rd ellipse translate'
+	b:"# LOC:5\n"
 	a:"""
 fc 1,0,0
 sc()
@@ -174,7 +178,8 @@ ellipse 0,0, 80,40
 
 ID_RotatedRectA =
 	v:'2017-04-29'
-	b:"# LOC:4 fc # rect\n"
+	k:'fc rect'
+	b:"# LOC:4 \n"
 	a:"""
 fc 1,0,0
 rect 60,100, 40,40
@@ -184,7 +189,8 @@ rect 140,100, 40,40
 
 ID_RotatedRectB =
 	v:'2017-04-29'
-	b:"# LOC:12 fc rd # rect translate push pop\n"
+	k:'fc rd rect translate push pop'
+	b:"# LOC:12 \n"
 	a:"""
 push()
 fc 1,0,0
@@ -202,7 +208,8 @@ pop()
 
 ID_RotatedRectC =
 	v:'2017-04-29'
-	b:"# LOC:13 fc rd # rect translate push pop\n"
+	k:'fc rd rect translate push pop'
+	b:"# LOC:13\n"
 	a:"""
 rectMode CENTER
 push()
@@ -221,9 +228,9 @@ pop()
 
 ID_Roulette =
 	v:'2017-04-29'
+	k:'bg sw fc sc range rd for if comparisons operators [] "" PI text arc strokeCap translate'
 	b:"""
-# LOC:15 bg sw fc sc range rd # for in if then else == % / [] "" PI
-#        length text textAlign arc strokeCap translate push pop
+# LOC:15
 
 numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
 """
@@ -249,9 +256,9 @@ for number,i in numbers
 
 ID_RubikCube =
 	v:'2017-04-29'
+	k:'bg fc sc range [] if constrain for int quad text dist operators class'
 	b:"""
-# LOC:121 bg fc sc range # [] push pop concat length if then else constrain for in int quad
-#         text textSize textAlign dist + - * / class extends constructor new @ super ->
+# LOC:121
 
 class RubikCube extends Application
 	reset : ->
@@ -395,9 +402,9 @@ app = new RubikCube "a"
 
 ID_RubikSquare =
 	v:'2017-04-29'
+	k:'bg fc sc circle [] int .. operators comparisons if rectMode rect logical "" parseInt _.isEqual text while constrain class'
 	b:"""
-# LOC:85 bg fc sc circle # [] push length int .. + - * / % %% == < & << if then else rectMode rect push pop not "" split join
-#        parseInt _.isEqual text textAlign textSize rectMode while and constrain class extends constructor new @ super ->
+# LOC:85
 # OBS: Du bör använda variabeln rubikSquareData.
 
 class RubikSquare extends Application
@@ -505,9 +512,9 @@ app = new RubikSquare "a"
 
 ID_RushHour =
 	v:'2017-04-29'
+	k:'bg sc fc range operators comparisons "" [] {} class rect text for if readText'
 	b:"""
-# LOC:71 bg sc fc range # / % + * - == >= ++ -- "" [] {} push class extends constructor new @ super ->
-#        rect text textAlign for in if then else toLowerCase indexOf _.create prototype length @readText
+# LOC:71
 
 # De 36 rutorna numreras:
 #   0 1 2 3 4 5
@@ -627,7 +634,7 @@ class RushHour extends Application
 app = new RushHour "a"
 """
 	c:
-		app : "reset()|enter_cars()|enter_move()|begin()|backward()|forward()|end()" # |hint()|undo()
+		app : "reset()|enter_cars()|enter_move()|begin()|backward()|forward()|end()"
 	e:
 		RushHour : "https://en.wikipedia.org/wiki/Rush_Hour_(board_game)"
 

@@ -1,6 +1,7 @@
 ID_PacMan =
 	v:'2017-04-29'
-	b:"# LOC:2 fc # arc radians\n"
+	k:'fc arc radians'
+	b:"# LOC:2 \n"
 	a:"""
 fc 1,1,0
 arc 100,100, 180,180, radians(-135),radians(135)
@@ -11,7 +12,8 @@ arc 100,100, 180,180, radians(-135),radians(135)
 
 ID_PentaLerp =
 	v:'2017-04-29'
-	b:"# LOC:11 bg sc fc range circle # for in lerp\n"
+	k:'bg sc fc range circle for lerp'
+	b:"# LOC:11 \n"
 	a:"""
 bg 0.5
 sc()
@@ -28,9 +30,9 @@ for i in range 10
 
 ID_PickingBerries =
 	v:'2017-04-29'
+	k:'bg sc fc sw [] operators line text constrain dist break for class'
 	b:"""
-# LOC:46 bg sc fc sw # [] * + line text textSize textAlign constrain dist
-#        splice break for in class extends constructor new @ super ->
+# LOC:46
 
 class PickingBerries extends Application
 	reset      : ->
@@ -123,8 +125,9 @@ app = new PickingBerries "a"
 
 ID_Polygon =
 	v:'2017-04-29'
+	k:'bg sc range line for cos sin radians class'
 	b:"""
-# LOC:23 bg sc range # line for in cos sin radians class extends constructor new @ super ->
+# LOC:23
 
 class Turtle
 	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->

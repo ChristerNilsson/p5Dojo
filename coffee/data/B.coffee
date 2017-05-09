@@ -1,5 +1,6 @@
 ID_Background1 =
 	v:'2017-04-29'
+	k:'bg'
 	b: """
 # LOC:1
 # Första bilden ska du efterlikna.
@@ -19,24 +20,27 @@ ID_Background1 =
 
 ID_Background2 =
 	v:'2017-04-29'
-	b: "# LOC:1 bg\n"
+	k:'bg'
+	b: "# LOC:1\n"
 	a: "bg 0.5"
 
 ID_Background3 =
 	v:'2017-04-29'
-	b: "# LOC:1 bg\n"
+	k:'bg'
+	b: "# LOC:1\n"
 	a: "bg 1,0,0"
 
 ID_Background4 =
 	v:'2017-04-29'
-	b: "# LOC:1 bg\n"
+	k:'bg'
+	b: "# LOC:1n"
 	a: "bg 1,1,0"
 
 ID_BlackBox2D =
 	v:'2017-04-29'
+	k:'bg sc fc range line [] operators int logical for if text class'
 	b:"""
-# LOC:33 bg sc fc range # line [] length * / // % ** & | ^ ~ << >> + - > < == != <= >= int and or
-#        for in if then else text textSize textAlign class extends constructor new @ super ->
+# LOC:33
 
 class BlackBox2D extends Application
 	reset : ->
@@ -94,8 +98,9 @@ app = new BlackBox2D "a"
 
 ID_BoardGame =
 	v:'2017-04-29'
+	k:'bg fc sc circle range for ->'
 	b:"""
-# LOC:21 bg fc sc circle range # for in ->
+# LOC:21
 
 class Board extends Application
 	reset : ->
@@ -137,9 +142,9 @@ app = new Board "a"
 
 ID_BouncingBalls =
 	v:'2017-04-29'
+	k:'fc sw sc circle operators comparisons [] if for class'
 	b : """
-# LOC:43 fc sw sc circle # + ++ - -- %% == push if then for in
-#        splice length _.create class constructor super extends new @
+# LOC:43
 
 class Ball
 	constructor : ->
@@ -221,8 +226,9 @@ app = new BouncingBalls "a"
 
 ID_Braid =
 	v:'2017-04-29'
+	k:'sc bg sw range for line class'
 	b : """
-# LOC:19 sc bg sw range # for in line class constructor new @
+# LOC:19
 
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
@@ -267,8 +273,9 @@ braid 5,18,18,6
 
 ID_Braider =
 	v:'2017-04-29'
-	b : """
-# LOC:49 sc bg sw range # for in if then + line class constructor extends new @
+	k:'sc bg sw range for if operators line class'
+	b: """
+# LOC:49
 
 class Cartesius
 	constructor : (x,y,c) ->

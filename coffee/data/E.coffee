@@ -1,8 +1,8 @@
 ID_EngineeringNotation =
 	v:'2017-04-29'
+	k:'fc sc bg int log10 constrain comparisons operators text class'
 	b:"""
-# LOC:28 fc sc bg # int Math.log10 constrain + - * / < ** text split
-#        textAlign textSize class extends constructor new @ super ->
+# LOC:28
 
 class Engineering extends Application
 	reset : ->

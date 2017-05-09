@@ -1,9 +1,8 @@
 ID_Kalkylator =
 	v:'2017-04-29'
+	k:'bg sc fc range readText operators {} [] text for sqrt PI parseFloat "" class'
 	b:"""
-# LOC:46 bg sc fc range @readText # + - * / of {} in [] shift unshift
-#        text textSize textAlign length for Math.sqrt Math.PI splice
-#        parseFloat "" split class extends constructor new @ super ->
+# LOC:46
 # TIPS! Börja med de fyra räknesätten.
 #       @words ska kunna utökas med ":". T ex ": sq dup *"
 #       Definiera t ex invers, distans och parallella motstånd
@@ -88,10 +87,9 @@ app = new Kalkylator "a"
 
 ID_Klocka =
 	v:'2017-04-29'
+	k:'fc sc circle range rd point rect rectMode for if translate push pop class Date'
 	b: """
-# LOC:49 fc sc circle range rd # point rect rectMode for in if then else
-#        translate push pop class extends constructor new @ super ->
-#        Date getHours getMinutes getSeconds
+# LOC:49
 
 class Klocka extends Application
 	reset  : ->
@@ -161,8 +159,9 @@ app = new Klocka "a"
 
 ID_Korg =
 	v:'2017-04-29'
+	k:'bg fc sc sw rect for if class'
 	b:"""
-# LOC:27 bg fc sc sw # rect for if else class extends constructor new @ super ->
+# LOC:27
 
 class Korg extends Application
 	reset   : ->
@@ -212,9 +211,9 @@ app = new Korg "a"
 
 ID_Korsord =
 	v:'2017-04-29'
+	k:'bg fc sc readText operators comparisons logical text if for "" _.filter class []'
 	b: """
-# LOC:29 bg fc sc @readText # / % + * != and text textAlign textSize if then for in
-#        "" split join _.filter class constructor new @ extends super [] length
+# LOC:29
 # Mata in t ex b..l och få ut bill samt boll. Använd variabeln ordlista.
 
 class Korsord extends Application

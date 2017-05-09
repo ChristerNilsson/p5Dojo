@@ -1,6 +1,7 @@
 ID_Cards =
 	v:'2017-04-29'
-	b:"# LOC:10 fc sc circle range rd # rect rectMode for in lerp translate\n"
+	k:'fc sc circle range rd rect rectMode for lerp translate'
+	b:"# LOC:10\n"
 	a:"""
 rectMode CENTER
 sc 1
@@ -16,7 +17,8 @@ for i in range 18,-1,-1
 
 ID_ChessBoard =
 	v:'2017-04-29'
-	b:"# LOC:7 bg fc range # for in lerp rect\n"
+	k:'bg fc range for lerp rect'
+	b:"# LOC:7\n"
 	a:"""
 bg 0.5
 for i in range 8
@@ -29,10 +31,10 @@ for i in range 8
 
 ID_ChessGame =
 	v:'2017-04-29'
+	k:'bg fc sc sw range circle rectMode class rect if text for "" _.isEqual operators comparisons [] logical'
 	b:"""
-# LOC:53 bg fc sc sw range circle # rectMode class constructor super extends new @
-#        rect if then else text textSize textAlign for in split length indexOf
-#        "" toUpperCase _.isEqual % + - * / <= == [] push pop length and not substr
+# LOC:53
+
 # OBS!   Rockad, en passant samt bondeförvandling hanteras ej.
 #        Flytta pjäserna med musen. Klick utanför brädet innebär undo.
 
@@ -106,7 +108,8 @@ app = new Chess "a"
 
 ID_ChessRow =
 	v:'2017-04-29'
-	b:"# LOC:5 bg fc range # % for in lerp rect\n"
+	k:'bg fc range operators for lerp rect'
+	b:"# LOC:5 \n"
 	a:"""
 bg 0.5
 for i in range 8
@@ -117,9 +120,9 @@ for i in range 8
 
 ID_ClickDetector =
 	v:'2017-04-29'
+	k:'bg sc fc range circle quad rect triangle class dist if comparisons logical operators text rectMode'
 	b:"""
-# LOC:62 bg sc fc range circle # quad rect triangle class extends constructor new @ super ->
-#        or and == dist reverse if then < and * / + - ++ text textAlign textSize rectMode
+# LOC:62
 
 class Vector
 	constructor : (@x,@y) ->
@@ -212,8 +215,9 @@ app = new ClickDetector "a"
 
 ID_CoffeescriptClock =
 	v:'2017-04-29'
+	k:'bg fc sc range operators for "" radians text'
 	b:"""
-# LOC:10 bg fc sc range # * + - for in "" radians text textSize textAlign
+# LOC:10
 """
 	a:"""
 bg 1
@@ -230,7 +234,8 @@ for i in range 12
 
 ID_ColorCross =
 	v:'2017-04-29'
-	b:"# LOC:11 bg sc sw range # for in point\n"
+	k:'bg sc sw range for point'
+	b:"# LOC:11 \n"
 	a:"""
 bg 0.5
 for k in range 6
@@ -247,9 +252,9 @@ for k in range 6
 
 ID_ColorCube =
 	v:'2017-04-29'
+	k:'bg range for class quad [] stroke if logical operators comparisons return'
 	b: """
-# LOC:33 bg range # for in class extends constructor new @ super ->
-#        quad [] push pop fill stroke if then and * / + - <= return
+# LOC:33
 
 class ColorCube extends Application
 	reset       : ->
@@ -305,9 +310,9 @@ app = new ColorCube "a"
 
 ID_ColorPair =
 	v:'2017-04-29'
+	k:'fc circle [] .. dist _.isEqual colorMode HSB _.max _.pairs _.sortBy for class'
 	b: """
-# LOC:41 fc circle # [] .. push dist length splice _.isEqual colorMode HSB
-#        _.max _.pairs _.sortBy for in class extends constructor new @ super ->
+# LOC:41
 
 class ColorPair extends Application
 	reset : ->
@@ -389,9 +394,9 @@ app = new ColorPair "a"
 
 ID_Complex =
 	v:'2017-04-29'
+	k:'bg fc sc range operators [] line circle text for if return int {} dist _.isEqual logical comparisons constrain class'
 	b:"""
-# LOC:80 bg fc sc range # * / + %% [] line circle text textAlign textSize for in if then else return int
-#        {} dist _.isEqual and < != == push pop length constrain class extends constructor new @ super ->
+# LOC:80
 
 class Complex extends Application
 	reset : ->
@@ -493,9 +498,9 @@ app = new Complex "a"
 
 ID_Connect4 =
 	v:'2017-04-29'
+	k:'operators bg fc sc sw circle range text for class'
 	b:"""
-# LOC:33 % bg fc sc sw circle range # text textAlign textSize for in
-#        push pop class extends constructor new @ super ->
+# LOC:33
 
 class Connect4 extends Application
 	reset : ->
@@ -549,8 +554,9 @@ app = new Connect4 "a"
 
 ID_CornerPoints =
 	v:'2017-04-29'
+	k:'sc sw point'
 	b: """
-# LOC:9 sc sw # point
+# LOC:9
 
 sw
 sc
@@ -573,7 +579,8 @@ point 200,200
 
 ID_CornerPoints3 =
 	v:'2017-04-29'
-	b: "# LOC:17 sc sw # point\n"
+	k:'sc sw point'
+	b: "# LOC:17\n"
 	a: """
 sw 10
 sc 1,0,0
@@ -601,7 +608,8 @@ point 200,180
 
 ID_CornerPoints7 =
 	v:'2017-04-29'
-	b: "# LOC:17 sc sw # point\n"
+	k:'sc sw point'
+	b: "# LOC:17 \n"
 	a: """
 sw 10
 sc 1,0,0
@@ -627,8 +635,9 @@ point 200,170
 
 ID_Counter =
 	v:'2017-04-29'
+	k:'bg fc sc text operators class'
 	b:"""
-# LOC:12 bg fc sc # text textAlign textSize + - class extends constructor new @ super ->
+# LOC:12
 # Klicka på reset() om du får ett felmeddelande!
 
 class Counter extends Application
@@ -663,7 +672,8 @@ app = new Counter "a"
 
 ID_Cross =
 	v:'2017-04-29'
-	b:"# LOC:4 fc # rect\n"
+	k:'fc rect'
+	b:"# LOC:4\n"
 	a:"""
 fc 1,0,0
 sc()

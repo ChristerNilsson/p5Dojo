@@ -1,7 +1,8 @@
 ID_IndianSun =
 	v:'2017-04-29'
+	k:'range line sin cos radians for if constrain operators class'
 	b:"""
-# LOC:10 range # line sin cos radians for in if then else constrain * / + - class extends constructor new @ super ->
+# LOC:10
 
 class IndianSun extends Application
 	reset : ->

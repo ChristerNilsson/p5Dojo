@@ -1,6 +1,7 @@
 ID_GalaxiesColliding =
 	v:'2017-04-29'
-	b: "# LOC:8 fc range # for in lerp rect if then (David Larsson)\n"
+	k:'fc range for lerp rect if'
+	b: "# LOC:8 (David Larsson)\n"
 	a: """
 for i in range 10
 	for j in range 10
@@ -14,9 +15,9 @@ for i in range 10
 
 ID_GameOfLife =
 	v:'2017-04-29'
+	k:'bg range for [] operators comparisons logical if int class'
 	b:"""
-# LOC:40 bg range # for in [] push Array fill * / + - == != < <= ++
-#        if then and or int class extends constructor new @ super ->
+# LOC:40
 
 class GameOfLife extends Application
 	reset : (n) ->
@@ -79,8 +80,9 @@ app = new GameOfLife "a"
 
 ID_Girlang =
 	v:'2017-04-29'
+	k:'sc bg sw range for line class'
 	b:"""
-# LOC:16 sc bg sw range # for in line class constructor new @
+# LOC:16
 
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
@@ -116,8 +118,9 @@ girlang 0,0,9,5,20,20
 
 ID_GoldenStar =
 	v:'2017-04-29'
+	k:'bg fc range for triangle translate rotate cos sin class'
 	b: """
-# LOC:23 bg fc range # for in triangle translate rotate cos sin class extends constructor new @ super ->
+# LOC:23
 
 class GoldenStar extends Application
 	reset : ->
@@ -161,7 +164,8 @@ app = new GoldenStar "a"
 
 ID_GreenEllipse =
 	v:'2017-04-29'
-	b:"# LOC:2 fc # ellipse\n"
+	k:'fc ellipse'
+	b:"# LOC:2 \n"
 	a:"""
 fc 0,1,0
 ellipse 120,60, 60,40
@@ -169,7 +173,8 @@ ellipse 120,60, 60,40
 
 ID_GreenRect =
 	v:'2017-04-29'
-	b:"# LOC:2 fc # rect\n"
+	k:'fc rect'
+	b:"# LOC:2 \n"
 	a:"""
 fc 0,1,0
 rect 60,80, 40,50
@@ -177,7 +182,8 @@ rect 60,80, 40,50
 
 ID_Grid =
 	v:'2017-04-29'
-	b:"# LOC:5 sc sw range # for in line \n"
+	k:'sc sw range for line'
+	b:"# LOC:5 \n"
 	a:"""
 sc 1,1,0
 sw 2
@@ -188,7 +194,8 @@ for i in range 10,200,10
 
 ID_GrowingCircles =
 	v:'2017-04-29'
-	b:"# LOC:6 range fc circle # for in lerp\n"
+	k:'range fc circle for lerp'
+	b:"# LOC:6 \n"
 	a:"""
 for i in range 10
 	fc i/10.0,0,0
@@ -200,7 +207,8 @@ for i in range 10
 
 ID_GrowingRedSquares =
 	v:'2017-04-29'
-	b:"# LOC:8 fc range # for in lerp rect rectMode\n"
+	k:'fc range for lerp rect rectMode'
+	b:"# LOC:8 \n"
 	a:"""
 rectMode CENTER
 for i in range 10
@@ -214,7 +222,8 @@ for i in range 10
 
 ID_GrowingSquares =
 	v:'2017-04-29'
-	b:"# LOC:7 range # rect rectMode for in lerp\n"
+	k:'range rect rectMode for lerp'
+	b:"# LOC:7 \n"
 	a:"""
 rectMode CENTER
 for i in range 10
@@ -227,9 +236,9 @@ for i in range 10
 
 ID_GuessANumber =
 	v:'2017-04-29'
+	k:'bg fc sc range text for if operators comparisons int class'
 	b:"""
-# LOC:29 bg fc sc range # text textAlign for in if then else * / + - % <=
-#        int class extends constructor new @ super ->
+# LOC:29
 
 class Guess extends Application
 	reset        : ->
