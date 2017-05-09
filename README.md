@@ -156,14 +156,11 @@ scale n         skalar upp eller ner
 
 ### text
   - **textAlign** LEFT,BASELINE
-    * LEFT (default)
-    * CENTER
-    * RIGHT
-    * TOP
-    * CENTER
-    * BOTTOM
-    * BASELINE (default)
+  - **textAlign** CENTER,CENTER
+    * LEFT,CENTER,RIGHT
+    * TOP,CENTER,BOTTOM,BASELINE
   - **textSize** n
+  - **textFont 'monospace' # t ex
   - **text** "p5",x,y
 
 ### push & pop
@@ -203,6 +200,18 @@ a = [7,8,9]
 a[0] == 7
 a.push 10
 a.length == 4
+8 in a == true
+a.pop() == 10
+a == [7,8,9]
+a.unshift 6
+a == [6,7,8,9]
+a.shift() == 6
+a == [7,8,9]
+a.splice(1,1) == [8]
+a.reverse() == [9,7]
+a.join(':') == '9:7'
+a.splice(1,0,8) == [9,8,7]
+a.concat([4]) == [9,8,7,4]
 ```
 
 ### operators
@@ -259,7 +268,7 @@ a.length == 4
 false and false == false  # Logisk och. Motsvarar && i Javascript
 false and true  == false
 true  and false == false
-true  and true  == false
+true  and true  == true
 ```
 ```javascript
 false or false == false  # Logisk eller. Motsvarar || i Javascript
@@ -349,19 +358,19 @@ Tabellen längst ner innehåller tillståndet.
 * Klicka på reset om det ser konstigt ut.
 * Draw anropas automatiskt varje gång innehållet i editorn förändras.
 
-#### readText
+### readText
 Läser en textrad från textrutan under skillnadsbitmappen
 ```javascript
 @readText()
 ```
 
-#### readInt
+### readInt
 Läser ett heltal från textrutan under skillnadsbitmappen
 ```javascript
 @readInt()
 ```
 
-#### readFloat
+### readFloat
 Läser ett flyttal från textrutan under skillnadsbitmappen
 ```javascript
 @readFloat()
