@@ -395,7 +395,7 @@ class Counter extends Application
 counter = new Counter
 ```
 
-### Klasser
+### class
 
 En klass skapas genom att skriva ordet _class_ följt av namnet.
 
