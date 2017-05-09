@@ -17,7 +17,7 @@
 * Resultatet av din kod hamnar i den andra bitmappen. _The result of your code is displayed in the second bitmap._
 * Skillnaden visas i den tredje bitmappen. Den ska bli helt svart när du har löst uppgiften. _The third bitmap contains the difference. When you are finished, it will be black._
 
-### Chrome och Windows är ett krav. _Windows and Chrome are recommended._
+### Chrome och Windows rekommenderas. _Windows and Chrome are recommended._
 Ingen annan programvara behöver installeras. _No other software is needed._
 
 ### färger
@@ -36,17 +36,17 @@ r,g,b  färg
 ```
 ### _colors_
 ```
-r,g,b  _color_
+r,g,b  color
 ==============
-0,0,1  _blue_
-0,1,0  _green_
-0,1,1  _cyan_
-1,0,0  _red_
-1,0,1  _magenta_
-1,1,0  _yellow_
-0      _black_
-0.5    _gray_
-1      _white_
+0,0,1  blue
+0,1,0  green
+0,1,1  cyan
+1,0,0  red
+1,0,1  magenta
+1,1,0  yellow
+0      black
+0.5    gray
+1      white
 ```
 
 ### bg
@@ -59,10 +59,10 @@ bg 1      vit
 bg 1,1,0  gul
 ```
 ```
-bg r,g,b  _color_
+bg r,g,b  color
 ==============
-bg 1      _white_
-bg 1,1,0  _yellow_
+bg 1      white
+bg 1,1,0  yellow
 ```
 
 ### fc
@@ -132,10 +132,10 @@ quad      x1,y1, x2,y2, x3,y3, x4,y4
 arc       x,y, w,h, start,stopp, PIE
 ```
 
-## Inbyggda funktioner  _builtin finctions_
+## Inbyggda funktioner  _builtin functions_
 
 ### [lerp](https://p5js.org/reference/#/p5/lerp)
-linjär interpolation och extrapolation, genom att ange två startpunkter
+linjär interpolation och extrapolation, genom att ange två startpunkter.
 _Linear interpolation and extrapolation_
 ```javascript
  8 == lerp 10,12,-1
@@ -145,7 +145,7 @@ _Linear interpolation and extrapolation_
 14 == lerp 10,12,2
 ```
 ### [map](https://p5js.org/reference/#/p5/map)
-linjär interpolation och extrapolation, genom att ange start- och slutpunkter
+linjär interpolation och extrapolation, genom att ange start- och slutpunkter.
 _Linear interpolation and extrapolation_
 ```javascript
 250 == map 25, 0,100,  0,1000
