@@ -176,43 +176,79 @@ Sparar och återställer följande kommandon:
   * g = (a,b) -> a+b
 
 ### modulo
-* -3 % 10 == -3
-* -13 %% 10 == 7
+```javascript
+-3 % 10 == -3
+-13 %% 10 == 7
+```
 
 ### exponentiering
-* 2 ** 3 == 8
-
+```javascript
+2 ** 3 == 8
+```
 ### heltalsdivision
-* 3 / 2 == 1.5
-* 3 // 2 == 1
+```javascript
+3 / 2 == 1.5
+3 // 2 == 1
+```
 
 ### inclusiveRange
-* 2..4 == [2,3,4]
-* 'abcde'[2..4] == 'cde'
+```javascript
+2..4 == [2,3,4]
+'abcde'[2..4] == 'cde'
+```
 
 ### exclusiveRange
-* 2...4 == [2,3]
-* 'abcde'[2...4] == 'cd'
+```javascript
+2...4 == [2,3]
+'abcde'[2...4] == 'cd'
+```
 
-### []
-* []
-* []
+### array
+```javascript
+a = [7,8,9]
+a[0] == 7
+a.push 10
+a.length == 4
+```
 
 ### and
 Logisk och. Motsvarar && i Javascript
+```javascript
+false and false == false
+false and true  == false
+true  and false == false
+true  and true  == false
+```
 
 ### or
+```javascript
+false or false == false
+false or true  == true
+true  or false == true
+true  or true  == true
+```
 Logisk eller. Motsvarar || i Javascript
 
 ### not
 Logisk icke. Motsvarar ! i Javascript
+```javascript
+not false == true
+not true  == false
+```
 
 ### this
 @ i Coffescript motsvarar this i Javascript.
 Används för att komma åt egenskaper och metoder i det egna objektet.
+```javascript
+class Animal
+  constructor : ()
+    @legs = 4
+```
 
 ### pil
+```javascript
 ->
+```
 Används av Coffescript i stället för function i Javascript.
 Se exempel nedan.
 
