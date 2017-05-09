@@ -89,7 +89,7 @@ quad      x1,y1, x2,y2, x3,y3, x4,y4
 arc       x,y, w,h, start,stopp, PIE
 ```
 
-### lerp
+### [lerp](https://p5js.org/reference/#/p5/lerp)
 linjär interpolation och extrapolation
 ```javascript
  8 == lerp 10,12,-1
