@@ -186,13 +186,13 @@ Sparar och återställer följande kommandon:
 * 3 / 2 == 1.5
 * 3 // 2 == 1
 
-### ..
-* ..
-* ..
+### inclusiveRange
+* 2..4 == [2,3,4]
+* 'abcde'[2..4] == 'cde'
 
-### ...
-* ...
-* ...
+### exclusiveRange
+* 2...4 == [2,3]
+* 'abcde'[2...4] == 'cd'
 
 ### []
 * []
