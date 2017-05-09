@@ -176,15 +176,15 @@ Sparar och återställer följande kommandon:
   * g = (a,b) -> a+b
 
 ### modulo
- -3 % 10 == -3
--13 %% 10 == 7
+* -3 % 10 == -3
+* -13 %% 10 == 7
 
 ### exponentiering
-2 ** 3 == 8
+* 2 ** 3 == 8
 
 ### heltalsdivision
-3 / 2 == 1.5
-3 // 2 == 1
+* 3 / 2 == 1.5
+* 3 // 2 == 1
 
 ### and
 Logisk och. Motsvarar && i Javascript
@@ -195,11 +195,12 @@ Logisk eller. Motsvarar || i Javascript
 ### not
 Logisk icke. Motsvarar ! i Javascript
 
-### @
-Används av Coffescript i stället för this. i Javascript.
+### this
+@ i Coffescript motsvarar this i Javascript.
 Används för att komma åt egenskaper och metoder i det egna objektet.
 
-### ->
+### pil
+->
 Används av Coffescript i stället för function i Javascript.
 Se exempel nedan.
 
