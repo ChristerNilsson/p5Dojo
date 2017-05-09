@@ -32,14 +32,16 @@ r,g,b  färg
 0.5    grå
 1      vit
 ```
-### bakgrundsfärg
+### bg
+bakgrundsfärg
 ```
 bg r,g,b  färg
 ==============
 bg 1      vit
 bg 1,1,0  gul
 ```
-### fyllningsfärg
+### fc
+fyllningsfärg
 ```
 fc r,g,b      färg
 ==================
@@ -50,7 +52,8 @@ fc 1,0,0      röd
 fc 1,0,0,0.5  röd, halvgenomskinlig
 ```
 
-### streckfärg
+### sc
+streckfärg
 ```
 sc r,g,b      färg
 ==================
@@ -61,7 +64,8 @@ sc 1,0,0      röd
 sc 1,0,0,0.5  röd, halvgenomskinlig
 ```
 
-### strecktjocklek
+### sw
+strecktjocklek
 ```
 sw pixlar
 ```
@@ -93,7 +97,7 @@ lerp 10,12,1    12
 lerp 10,12,2    14
 ```
 
-### for loop
+### for
 Glöm ej att indentera innehållet med ett tabsteg!
 
 ```
@@ -116,6 +120,8 @@ else if i%3==1
   fc 0.5
 else
   fc 1
+
+fc if i%3==0 then 0 else 0.5
 ```
 
 ### koordinatsystemet
@@ -168,6 +174,37 @@ Sparar och återställer följande kommandon:
  - Funktioner skapas med ->
   * f = (x) -> x*x
   * g = (a,b) -> a+b
+
+### %%
+Negativ modulo
+ -3 % 10 == -3
+-13 %% 10 == 7
+
+### **
+Exponentiering
+2 ** 3 == 8
+
+### //
+Heltalsdivision
+3 / 2 == 1.5
+3 // 2 == 1
+
+### and
+Logisk och. Motsvarar && i Javascript
+
+### or
+Logisk eller. Motsvarar || i Javascript
+
+### not
+Logisk icke. Motsvarar ! i Javascript
+
+### @
+Används av Coffescript i stället för this. i Javascript.
+Används för att komma åt egenskaper och metoder i det egna objektet.
+
+### ->
+Används av Coffescript i stället för function i Javascript.
+Se exempel nedan.
 
 ### exempel 1: CoffeeScript
 ```javascript
@@ -230,12 +267,14 @@ Tabellen längst ner innehåller tillståndet.
 * Klicka på reset om det ser konstigt ut.
 * Draw anropas automatiskt varje gång innehållet i editorn förändras.
 
-#### Indata
-Följande funktioner läser indata från textrutan under skillnadsbitmappen:
+#### @readText
+Läser text från textrutan under skillnadsbitmappen
 
-* @readText()
-* @readInt()
-* @readFloat()
+#### @readInt
+Läser heltal från textrutan under skillnadsbitmappen
+
+#### @readFloat
+Läser flyttal från textrutan under skillnadsbitmappen
 
 #### Mushantering
 mousePressed(mx,my) kan definieras för att ta hand om musklick.
