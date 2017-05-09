@@ -91,23 +91,102 @@ arc       x,y, w,h, start,stopp, PIE
 
 ### lerp
 linjär interpolation och extrapolation
-
+```javascript
+ 8 == lerp 10,12,-1
+10 == lerp 10,12,0
+11 == lerp 10,12,0.5
+12 == lerp 10,12,1
+14 == lerp 10,12,2
 ```
-lerp x0,x1,i    resultat
-========================
-lerp 10,12,-1    8
-lerp 10,12,0    10
-lerp 10,12,0.5  11
-lerp 10,12,1    12
-lerp 10,12,2    14
+### map
+linjär interpolation och extrapolation
+```javascript
+250 == map 25, 0, 100, 0, 1000
+ 30 == map 1, 0, 10, 25, 75
 ```
-
+### constrain
+```javascript
+  0 == constrain -10,0,100
+ 10 == constrain 10,0,100
+100 == constrain 120,0,100
+```
+### int
+```javascript
+  3 == int 3.14
+ -3 == int -3.14
+```
+### parseInt
+```javascript
+  3 == parseInt '3.14'
+ -3 == parseInt '-3.14'
+```
+### parseFloat
+```javascript
+  3.14 == parseInt '3.14'
+ -3.14 == parseInt '-3.14'
+```
+### dist
+```javascript
+5 == dist 0,3,0,4
+5 == dist 10,13,10,14
+```
+### nf
+```javascript
+'00112.53'   == nf 112.53096155, 5, 2
+'0112.531'   == nf 112.53096155, 4, 3
+'112.530962' == nf 112.53096155, 3, 6
+```
+### PI
+```javascript
+0.78539816339          == QUARTER_PI
+1.57079632679489661923 == HALF_PI
+3.14159265358979323846 == PI
+6.28318530717958647693 == TWO_PI
+```
+### sqrt
+```javascript
+1.41421356237 == sqrt 2
+2             == sqrt 4
+5             == sqrt 25
+```
+### cos
+```javascript
+1             == cos 0
+0.5           == cos PI / 3
+0.70710678118 == cos PI / 4
+0             == cos PI / 2
+-1            == cos PI
+```
+### sin
+```javascript
+0             == sin 0
+0.5           == sin PI / 6
+0.70710678118 == sin PI / 4
+1             == sin PI / 2
+0             == sin PI
+```
+### log10
+```javascript
+0             == log10 1
+0.30102999566 == log10 2
+1             == log10 10
+2             == log10 100
+```
+### Date
+```javascript
+d             == new Date(2017, 5, 9, 18, 44, 37, 123)
+18 == d.getHours()
+44 == d.getMinutes()
+37 == d.getSeconds()
+```
 ### range
+```javascript
 [0,1,2,3,4,5,6,7,8,9]  == range 10
 [0,1,2,3,4]            == range 5
 [1,2,3,4,5,6,7,8,9,10] == range 1,11
 [0,2,4,6,8]            == range 0,10,2
 [10,8,6,4,2]           == range 10,0,-2
+```
 
 ### for
 Glöm ej att indentera innehållet med ett tabsteg!
@@ -141,17 +220,20 @@ a.reverse() == [9,7]
 a.join(':') == '9:7'
 a.splice(1,0,8) == [9,8,7]
 a.concat([4]) == [9,8,7,4]
+a.sort()
+a == [7,8,9]
 Array(5).fill(0) == [0,0,0,0,0]
+10 == [1,2,3,4].reduce ((total,num) -> total + num)
 ```
 
 ### string
 ```javascript
 "CoffeeScript".toUpperCase() == "COFFEESCRIPT"
 "CoffeeScript".toLowerCase() == "coffeescript"
-"CoffeeScript"[6] == "S"
-"CoffeeScript".substr(0,6) == "Coffee"
-"10,20,30".split(',') = ['10','20','30']
-"CoffeeScript".indexOf('c') == 7
+"CoffeeScript"[6]            == "S"
+"CoffeeScript".substr(0,6)   == "Coffee"
+"10,20,30".split(',')        == ['10','20','30']
+"CoffeeScript".indexOf('c')  == 7
 ```
 
 ### object
@@ -162,93 +244,22 @@ b['z'] = 3
 b == {x:1, y:2, z:3}
 keys = []
 values = []
-for key,value of b
+for key,value of b # Notera att of används här.
   keys.push key
   values.push value
 keys == ['x','y','z']
 values == [1,2,3]
 ```
 
-### while
-```javascript
-i = 0
-res = []
-while i < 10
-  res.push i
-  i++
-res == [0,1,2,3,4,5,6,7,8,9]
-```
-
-### if
-```javascript
-if i%3==0
-  fc 0
-else if i%3==1
-  fc 0.5
-else
-  fc 1
-
-fc if i%3==0 then 0 else 0.5
-```
-
-### koordinatsystemet
-```
-kommando        kommentar
-=========================
-translate x,y   flyttar origo
-rd degrees      roterar runt origo
-scale n         skalar upp eller ner
-```
-
-### modes
-  - **rectMode** CORNER
-    * CORNER (default)
-    * CORNERS
-    * CENTER
-    * RADIUS
-  - **ellipseMode** CENTER
-    * CORNER
-    * CORNERS
-    * CENTER (default)
-    * RADIUS
-
-### text
-  - **textAlign** LEFT,BASELINE
-  - **textAlign** CENTER,CENTER
-    * LEFT,CENTER,RIGHT
-    * TOP,CENTER,BOTTOM,BASELINE
-  - **textSize** n
-  - **textFont 'monospace' # t ex
-  - **text** "p5",x,y
-
-### push & pop
-Sparar och återställer följande kommandon:
- - rotate scale translate fc sc sw rectMode
- - tint strokeCap strokeJoin imageMode ellipseMode colorMode
- - textAlign textFont textMode textSize textLeading
- - [information](https://www.processing.org/tutorials/transform2d)
-
-### coffeescript
- - Orsak: Programmering ska vara så enkelt som möjligt
- - Kodblock indenteras med tab (som Python) i stället för blockparenteser {}
-  * Tabstorlek alltid två mellanslag
-  * Python-kolon används ej
- - Semikolon är frivilliga
- - Parenteser behövs bara för att anropa funktioner som saknar parametrar.
- - Funktioner skapas med ->
-  * f = (x) -> x*x
-  * g = (a,b) -> a+b
-
-
 ### inclusiveRange
 ```javascript
-2..4 == [2,3,4]
+[2..4] == [2,3,4]
 'abcde'[2..4] == 'cde'
 ```
 
 ### exclusiveRange
 ```javascript
-2...4 == [2,3]
+[2...4] == [2,3]
 'abcde'[2...4] == 'cd'
 ```
 
@@ -319,6 +330,79 @@ not false == true  # Logisk icke. Motsvarar ! i Javascript
 not true  == false
 ```
 
+## Kod
+
+### while
+```javascript
+i = 0
+res = []
+while i < 10
+  res.push i
+  i++
+res == [0,1,2,3,4,5,6,7,8,9]
+```
+
+### if
+```javascript
+if i%3==0
+  fc 0
+else if i%3==1
+  fc 0.5
+else
+  fc 1
+
+fc if i%3==0 then 0 else 0.5
+```
+
+### koordinatsystemet
+```javascript
+kommando        kommentar
+=========================
+translate x,y   flyttar origo
+rd degrees      roterar runt origo
+scale n         skalar upp eller ner
+```
+
+### modes
+  - **rectMode** CORNER
+    * CORNER (default)
+    * CORNERS
+    * CENTER
+    * RADIUS
+  - **ellipseMode** CENTER
+    * CORNER
+    * CORNERS
+    * CENTER (default)
+    * RADIUS
+
+### text
+  - **textAlign** LEFT,BASELINE (default)
+  - **textAlign** CENTER,CENTER
+    * LEFT,CENTER,RIGHT
+    * TOP,CENTER,BOTTOM,BASELINE
+  - **textSize** n
+  - **textFont 'monospace' # t ex
+  - **text** "p5",x,y
+
+### push & pop
+Sparar och återställer följande kommandon:
+ - rotate scale translate fc sc sw rectMode
+ - tint strokeCap strokeJoin imageMode ellipseMode colorMode
+ - textAlign textFont textMode textSize textLeading
+ - [information](https://www.processing.org/tutorials/transform2d)
+
+### coffeescript
+ - Orsak: Programmering ska vara så enkelt som möjligt
+ - Kodblock indenteras med tab (som Python) i stället för blockparenteser {}
+  * Tabstorlek alltid två mellanslag
+  * Python-kolon används ej
+ - Semikolon är frivilliga
+ - Parenteser behövs bara för att anropa funktioner som saknar parametrar.
+ - Funktioner skapas med ->
+  * f = (x) -> x*x
+  * g = (a,b) -> a+b
+
+
 ### this
 @ i Coffescript motsvarar this i Javascript.
 Används för att komma åt egenskaper och metoder i det egna objektet.
@@ -332,8 +416,8 @@ class Animal
 ```javascript
 ->
 ```
-Används av Coffescript i stället för function i Javascript.
-Se exempel nedan.
+Används av Coffescript i stället för ordet function i Javascript.
+Se exempel 2 nedan.
 
 ### exempel 1: CoffeeScript
 ```javascript
