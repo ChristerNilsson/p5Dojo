@@ -541,18 +541,19 @@ Det innebär att man med menykommandon och/eller musklick påverkar ett objekts 
 Utritningen av objektet är beroende av tillståndet.
 
 #### Menykommandon
-Tredje listboxen innehåller menykommandon. Dessa definieras av programmeraren.
-Lämpligen görs det i samma ordning. Det innebär att man börjar med reset. I Reset initialiserar man alla variabler. Låt anropet till super vara kvar.
-Efter reset kommer draw. Draw ritar upp bitmappen. Tag bort anropet till super. Draw ingår inte i menyn. Det beror på att Draw anropas automatiskt efter varje menykommando.
+Den kvadratiska listboxen innehåller kommandon. Dessa definieras av programmeraren.
+Lämpligen görs det i samma ordning. Det innebär att man börjar med _reset_.
+I _reset_ initialiserar man alla variabler. Låt anropet till _super_ vara kvar.
+Efter _reset_ kommer _draw_ som ritar upp bitmappen. _draw_ anropas automatiskt efter varje kommando.
 
 #### Att tänka på
-Tabellen längst ner innehåller tillståndet.
+Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska bli helgrön.
 
-* Första kolumnen innehåller egenskapens namn. Alltid gul.
-* Andra kolumnen innehåller förebildens data. Alltid grön.
-* Tredje kolumnen innehåller resultat av användarens kod. Röd som blir grön.
-* Klicka på reset om det ser konstigt ut.
-* Draw anropas automatiskt varje gång innehållet i editorn förändras.
+* Första kolumnen innehåller egenskapens namn.
+* Andra kolumnen innehåller förebildens data.
+* Tredje kolumnen innehåller resultat av användarens kod.
+* Klicka på _reset_ om kod och data är i otakt.
+* _draw_ anropas automatiskt varje gång innehållet i editorn förändras.
 
 ### readText
 Läser en textrad från textrutan under skillnadsbitmappen
@@ -602,73 +603,84 @@ counter = new Counter
 
 ### class
 
+Man kan säga att instanser är substantiv, metoder verb och egenskaper adjektiv.
+Klassen är ett slags formulär, mall eller prototyp.
+
 En klass skapas genom att skriva ordet _class_ följt av namnet.
 
-Metoder, även konstruktorn, skrivs med namnet följt av ett kolon samt en pil.
+#### Metoder
+
+Metoder, skrivs med namnet följt av ett kolon samt en pil.
+Konstruktorn är en metod som anropas då objektet skapas.
 
 ```javascript
-class Tidsmaskin
-  constructor: ->
+class Ball
+  constructor : () ->
 ```
 
-För att skapa en instans, använd ordet _new_ följt av klassens namn.
+För att skapa ett objekt, använd ordet _new_ följt av klassens namn.
 
 ```javascript
-tidsmaskin = new Tidsmaskin
+ball = new Ball
 ```
 
 #### Egenskaper
 
-Egenskaper inleds med tecknet _@_
+Egenskaper inleds med tecknet _@_ och överlever inuti objektet.
 
 ```javascript
-class Tidsmaskin
-  constructor: (pilot) ->
-    @pilot = pilot
+class Ammo
+  constructor : (vikt,längd,diameter) -> # gram, mm, mm
+    @vikt = vikt
+    @längd = längd
+    @diameter = diameter
 ```
 
-Man kan nå egenskaperna med punkt också.
+Man kan omvandla en parameter till en egenskap genom att prefixa den med ett @
 
 ```javascript
-tidsmaskin = new Tidsmaskin "H. G. Wells"
-print tidsmaskin.pilot  # "H. G. Wells" skrivs ut
+class Ammo
+  constructor: (@vikt,@längd,@diameter) ->
 ```
 
-Man kan spara en rad kod så här:
+Egenskaper och metoder kan nås utifrån med hjälp av punktnotation.
 
 ```javascript
-class Tidsmaskin
-  constructor: (@pilot) ->
+m16 = new Ammo 10,50,7.62
+print m16.diameter  # 7.62 skrivs ut
 ```
 
 #### Arv
 
-Så här ärver du en annan klass:
+Du kan ärva en klass med _extends_.
+Det innebär att den nya klassen ärver alla metoder och egenskaper från föräldern.
+Dessutom kan man skapa nya metoder och egenskaper i den nya klassen.
+Ett arv innebär oftast en specialisering.
 
 ```javascript
-class Tardis extends Tidsmaskin
-class DeLorean extends Tidsmaskin
+class GevärsAmmunition extends Ammunition
+class HaubitsAmmunition extends Ammunition
 ```
 
-Antag att de båda maskinerna har olika startljud.
+Antag att de båda typerna låter olika då man avfyrar dem.
 _super_ innebär att man anropar den ärvda metoden.
 
 ```javascript
-class Tidsmaskin
-  constructor: (@pilot) ->
-  go: (noise) -> print noise
+class Ammunition
+  constructor: (@vikt,@längd,@diameter) ->
+  shoot: (noise) -> print noise
 
-class Tardis extends Tidsmaskin
-  go: -> super "blubb"
+class GevärsAmmunition extends Ammunition
+  shoot: -> super "pang"
 
-class DeLorean extends Tidsmaskin
-  go: -> super "vorp vorp"
+class HaubitsAmmunition extends Ammunition
+  shoot: -> super "Ka-Bom"
 
-t1 = new Tardis "The Doctor"
-t2 = new DeLorean "Marty"
+ga = new GevärsAmmunition 20,45,5.56
+ha = new HaubitsAmmunition 42000,900,155
 
-t1.go() # "blubb" skrivs ut.
-t2.go() # "vorp vorp" skrivs ut.
+ga.shoot() # "pang" skrivs ut.
+ha.shoot() # "Ka-Bom" skrivs ut.
 ```
 
 ### mera information
