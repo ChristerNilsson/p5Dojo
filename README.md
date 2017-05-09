@@ -33,7 +33,8 @@ r,g,b  färg
 1      vit
 ```
 ### bg
-bakgrundsfärg _background_
+bakgrundsfärg  [_background_](https://p5js.org/reference/#/p5/background)
+
 ```
 bg r,g,b  färg
 ==============
@@ -41,7 +42,7 @@ bg 1      vit
 bg 1,1,0  gul
 ```
 ### fc
-fyllningsfärg _fill_
+fyllningsfärg  [_fill_](https://p5js.org/reference/#/p5/fill)
 ```
 fc r,g,b      färg
 ==================
@@ -53,7 +54,7 @@ fc 1,0,0,0.5  röd, halvgenomskinlig
 ```
 
 ### sc
-streckfärg _stroke_
+streckfärg  [_stroke_](https://p5js.org/reference/#/p5/stroke)
 ```
 sc r,g,b      färg
 ==================
@@ -65,29 +66,49 @@ sc 1,0,0,0.5  röd, halvgenomskinlig
 ```
 
 ### sw
-strecktjocklek _strokeWeight_
+strecktjocklek  [_strokeWeight_](https://p5js.org/reference/#/p5/strokeWeight)
 ```
 sw pixlar
 ```
+
+## Ritkommandon
 
 ### circle
 ```javascript
 circle    x,y,r
 ```
 
-### ritkommandon
+### [point](https://p5js.org/reference/#/p5/point)
 ```javascript
-kommando  argument
-==================
 point     x,y
+```
+
+### [line](https://p5js.org/reference/#/p5/line)
+```javascript
 line      x1,y1, x2,y2
+```
+### [ellipse](https://p5js.org/reference/#/p5/ellipse)
+```javascript
 ellipse   x,y, w,h
-circle    x,y,r
+```
+### [rect](https://p5js.org/reference/#/p5/rect)
+```javascript
 rect      x,y, w,h
+```
+### [triangle](https://p5js.org/reference/#/p5/triangle)
+```javascript
 triangle  x1,y1, x2,y2, x3,y3
+```
+### [quad](https://p5js.org/reference/#/p5/quad)
+```javascript
 quad      x1,y1, x2,y2, x3,y3, x4,y4
+```
+### [arc](https://p5js.org/reference/#/p5/arc)
+```javascript
 arc       x,y, w,h, start,stopp, PIE
 ```
+
+## Inbyggda funktioner
 
 ### [lerp](https://p5js.org/reference/#/p5/lerp)
 linjär interpolation och extrapolation
@@ -98,24 +119,24 @@ linjär interpolation och extrapolation
 12 == lerp 10,12,1
 14 == lerp 10,12,2
 ```
-### map
+### [map](https://p5js.org/reference/#/p5/map)
 linjär interpolation och extrapolation
 ```javascript
 250 == map 25, 0, 100, 0, 1000
  30 == map 1, 0, 10, 25, 75
 ```
-### constrain
+### [constrain](https://p5js.org/reference/#/p5/constrain)
 ```javascript
   0 == constrain -10,0,100
  10 == constrain 10,0,100
 100 == constrain 120,0,100
 ```
-### int
+### [int](https://p5js.org/reference/#/p5/int)
 ```javascript
   3 == int 3.14
  -3 == int -3.14
 ```
-### round
+### [round](https://p5js.org/reference/#/p5/round)
 ```javascript
   3 == round 3.14
  -3 == round -3.14
@@ -130,25 +151,25 @@ linjär interpolation och extrapolation
   3.14 == parseInt '3.14'
  -3.14 == parseInt '-3.14'
 ```
-### dist
+### [dist](https://p5js.org/reference/#/p5/dist)
 ```javascript
 5 == dist 0,3,0,4
 5 == dist 10,13,10,14
 ```
-### nf
+### [nf](https://p5js.org/reference/#/p5/nf)
 ```javascript
 '00112.53'   == nf 112.53096155, 5, 2
 '0112.531'   == nf 112.53096155, 4, 3
 '112.530962' == nf 112.53096155, 3, 6
 ```
-### PI
+### [PI](https://p5js.org/reference/#/p5/PI)
 ```javascript
 0.78539816339          == QUARTER_PI
 1.57079632679489661923 == HALF_PI
 3.14159265358979323846 == PI
 6.28318530717958647693 == TWO_PI
 ```
-### sqrt
+### [sqrt](https://p5js.org/reference/#/p5/sqrt)
 ```javascript
 1.41421356237 == sqrt 2
 2             == sqrt 4
@@ -159,14 +180,14 @@ Roterar en vinkel given i grader medurs.
 ```javascript
 rd = (vinkel) -> rotate radians vinkel
 ```
-### radians
+### [radians](https://p5js.org/reference/#/p5/radians)
 ```javascript
 0             == radians 0
 PI/2          == radians 90
 PI            == radians 180
 3*PI/2        == radians 270
 ```
-### cos
+### [cos](https://p5js.org/reference/#/p5/cos)
 ```javascript
 1             == cos 0
 0.5           == cos PI / 3
@@ -174,7 +195,7 @@ PI            == radians 180
 0             == cos PI / 2
 -1            == cos PI
 ```
-### sin
+### [sin](https://p5js.org/reference/#/p5/sin)
 ```javascript
 0             == sin 0
 0.5           == sin PI / 6
@@ -189,14 +210,14 @@ PI            == radians 180
 1             == log10 10
 2             == log10 100
 ```
-### Date
+### [Date](https://www.w3schools.com/jsref/jsref_obj_date.asp)
 ```javascript
 d  == new Date(2017, 5, 9, 18, 44, 37, 123)
 18 == d.getHours()
 44 == d.getMinutes()
 37 == d.getSeconds()
 ```
-### range
+### [range](http://underscorejs.org/#range)
 ```javascript
 [0,1,2,3,4,5,6,7,8,9]  == range 10
 [0,1,2,3,4]            == range 5
@@ -205,7 +226,7 @@ d  == new Date(2017, 5, 9, 18, 44, 37, 123)
 [10,8,6,4,2]           == range 10,0,-2
 ```
 
-### for
+### [for](http://coffeescript.org/#loops)
 Glöm ej att indentera innehållet med ett tabsteg!
 ```javascript
 kommando                      resultat
@@ -219,7 +240,7 @@ for i in range 10,0,-2        [10,8,6,4,2]
 for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]
 ```
 
-### array
+### [array](http://coffeescript.org/#literals)
 ```javascript
 a = [7,8,9]
 a[0] == 7
@@ -243,7 +264,7 @@ Array(5).fill(0) == [0,0,0,0,0]
 10 == [1,2,3,4].reduce ((total,num) -> total + num)
 ```
 
-### string
+### [string](https://www.w3schools.com/js/js_string_methods.asp)
 ```javascript
 "CoffeeScript".toUpperCase() == "COFFEESCRIPT"
 "CoffeeScript".toLowerCase() == "coffeescript"
@@ -253,7 +274,7 @@ Array(5).fill(0) == [0,0,0,0,0]
 "CoffeeScript".indexOf('c')  == 7
 ```
 
-### object
+### [object](http://coffeescript.org/#literals)
 ```javascript
 b = {x:1}
 b.y = 2
@@ -268,13 +289,13 @@ keys == ['x','y','z']
 values == [1,2,3]
 ```
 
-### inclusiveRange
+### [inclusiveRange](http://coffeescript.org/#slices)
 ```javascript
 [2..4] == [2,3,4]
 'abcde'[2..4] == 'cde'
 ```
 
-### exclusiveRange
+### [exclusiveRange](http://coffeescript.org/#slices)
 ```javascript
 [2...4] == [2,3]
 'abcde'[2...4] == 'cd'
@@ -359,7 +380,7 @@ while i < 10
 res == [0,1,2,3,4,5,6,7,8,9]
 ```
 
-### if
+### [if](http://coffeescript.org/#conditionals)
 ```javascript
 if i%3==0
   fc 0
@@ -392,7 +413,7 @@ scale n         skalar upp eller ner
     * CENTER (default)
     * RADIUS
 
-### text
+### [text](https://p5js.org/reference/#/p5/text)
   - **textAlign** LEFT,BASELINE (default)
   - **textAlign** CENTER,CENTER
     * LEFT,CENTER,RIGHT
@@ -420,7 +441,7 @@ Sparar och återställer följande kommandon:
   * g = (a,b) -> a+b
 
 
-### this
+### [this](http://coffeescript.org/#classes)
 @ i Coffescript motsvarar this i Javascript.
 Används för att komma åt egenskaper och metoder i det egna objektet.
 ```javascript
@@ -429,7 +450,7 @@ class Animal
     @legs = 4
 ```
 
-### pil
+### [pil](http://coffeescript.org/#language)
 ```javascript
 ->
 ```

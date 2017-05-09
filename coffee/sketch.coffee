@@ -198,11 +198,9 @@ sel4click = (sel) ->
 
 buildLink = (keyword) ->
 	if keyword.indexOf('_.')==0 then keyword = keyword.replace('_.','')
-	print keyword
 	nr = kwl[keyword]
 	if nr==0 then keyword = keyword.toLowerCase()
 	if nr==null
-		print keyword
 		null
 	else
 		keyword = keyword.replace('[]','array')
