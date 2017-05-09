@@ -70,8 +70,13 @@ strecktjocklek _strokeWeight_
 sw pixlar
 ```
 
-### ritkommandon
+### circle
+```javascript
+circle    x,y,r
 ```
+
+### ritkommandon
+```javascript
 kommando  argument
 ==================
 point     x,y
@@ -97,6 +102,13 @@ lerp 10,12,1    12
 lerp 10,12,2    14
 ```
 
+### range
+[0,1,2,3,4,5,6,7,8,9]  == range 10
+[0,1,2,3,4]            == range 5
+[1,2,3,4,5,6,7,8,9,10] == range 1,11
+[0,2,4,6,8]            == range 0,10,2
+[10,8,6,4,2]           == range 10,0,-2
+
 ### for
 Glöm ej att indentera innehållet med ett tabsteg!
 ```javascript
@@ -108,7 +120,53 @@ for i in range 1,11           [1,2,3,4,5,6,7,8,9,10]
 for i in range 0,10,2         [0,2,4,6,8]
 for i in [0..10] by 2         [0,2,4,6,8,10]
 for i in range 10,0,-2        [10,8,6,4,2]
-for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]|
+for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]
+```
+
+### array
+```javascript
+a = [7,8,9]
+a[0] == 7
+a.push 10
+a.length == 4
+8 in a == true
+a.pop() == 10
+a == [7,8,9]
+a.unshift 6
+a == [6,7,8,9]
+a.shift() == 6
+a == [7,8,9]
+a.splice(1,1) == [8]
+a.reverse() == [9,7]
+a.join(':') == '9:7'
+a.splice(1,0,8) == [9,8,7]
+a.concat([4]) == [9,8,7,4]
+Array(5).fill(0) == [0,0,0,0,0]
+```
+
+### string
+```javascript
+"CoffeeScript".toUpperCase() == "COFFEESCRIPT"
+"CoffeeScript".toLowerCase() == "coffeescript"
+"CoffeeScript"[6] == "S"
+"CoffeeScript".substr(0,6) == "Coffee"
+"10,20,30".split(',') = ['10','20','30']
+"CoffeeScript".indexOf('c') == 7
+```
+
+### object
+```javascript
+b = {x:1}
+b.y = 2
+b['z'] = 3
+b == {x:1, y:2, z:3}
+keys = []
+values = []
+for key,value of b
+  keys.push key
+  values.push value
+keys == ['x','y','z']
+values == [1,2,3]
 ```
 
 ### while
@@ -192,26 +250,6 @@ Sparar och återställer följande kommandon:
 ```javascript
 2...4 == [2,3]
 'abcde'[2...4] == 'cd'
-```
-
-### array
-```javascript
-a = [7,8,9]
-a[0] == 7
-a.push 10
-a.length == 4
-8 in a == true
-a.pop() == 10
-a == [7,8,9]
-a.unshift 6
-a == [6,7,8,9]
-a.shift() == 6
-a == [7,8,9]
-a.splice(1,1) == [8]
-a.reverse() == [9,7]
-a.join(':') == '9:7'
-a.splice(1,0,8) == [9,8,7]
-a.concat([4]) == [9,8,7,4]
 ```
 
 ### operators
