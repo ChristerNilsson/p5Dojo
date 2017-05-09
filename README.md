@@ -132,23 +132,22 @@ quad      x1,y1, x2,y2, x3,y3, x4,y4
 arc       x,y, w,h, start,stopp, PIE
 ```
 
-### rectMode
-  * CORNER (default)
+### [rectMode](https://p5js.org/reference/#/p5/rectMode)
+  * **CORNER**
   * CORNERS
   * CENTER
   * RADIUS
 
-### ellipseMode
+### [ellipseMode](https://p5js.org/reference/#/p5/ellipseMode)
   * CORNER
   * CORNERS
-  * CENTER (default)
+  * **CENTER**
   * RADIUS
 
 ### [text](https://p5js.org/reference/#/p5/text)
-  - textAlign LEFT,BASELINE (default)
-  - textAlign CENTER,CENTER
-    * LEFT,CENTER,RIGHT
-    * TOP,CENTER,BOTTOM,BASELINE
+  - textAlign _horisontal_,_vertical_
+    * **LEFT**,CENTER,RIGHT
+    * TOP,CENTER,BOTTOM,**BASELINE**
   - textSize pixels
   - textFont 'monospace' # t ex
   - **text** "p5",x,y
