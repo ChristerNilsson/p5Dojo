@@ -184,21 +184,6 @@ Sparar och återställer följande kommandon:
   * f = (x) -> x*x
   * g = (a,b) -> a+b
 
-### modulo
-```javascript
--3 % 10 == -3
--13 %% 10 == 7
-```
-
-### exponentiering
-```javascript
-2 ** 3 == 8
-```
-### heltalsdivision
-```javascript
-3 / 2 == 1.5
-3 // 2 == 1
-```
 
 ### inclusiveRange
 ```javascript
@@ -220,28 +205,70 @@ a.push 10
 a.length == 4
 ```
 
-### and
-Logisk och. Motsvarar && i Javascript
+### operators
 ```javascript
-false and false == false
+2 ** 3 == 2*2*2
+3 / 2 == 1.5
+3 // 2 == 1
+3 % 2 == 1
+4 % 2 == 0
+-3 %% 2 == 1
+2 + 3 * 4 == 14
+(2 + 3) * 4 == 20
+1 + 2 == 3
+1 - 2 == -1
+
+0 & 0 == 0 # bitwise and
+0 & 1 == 0
+1 & 0 == 0
+1 & 1 == 1
+
+0 | 0 == 0 # bitwise or
+0 | 1 == 1
+1 | 0 == 1
+1 | 1 == 1
+
+0 ^ 0 == 0 # bitwise xor
+0 ^ 1 == 1
+1 ^ 0 == 1
+1 ^ 1 == 0
+
+~0 == 1 # bitwise not
+~1 == 0
+
+1 << 2 == 4 # shift left
+5 >> 2 == 1 # shift right
+```
+
+### comparisons
+```javascript
+(2 < 3)  == true
+(2 > 3)  == false
+(2 == 3) == false
+(2 == 2) == true
+(2 >= 3) == false
+(2 >= 2) == true
+(2 <= 3) == true
+(2 <= 2) == true
+(2 != 3) == true
+(2 != 2) == false
+```
+
+### logical
+```javascript
+false and false == false  # Logisk och. Motsvarar && i Javascript
 false and true  == false
 true  and false == false
 true  and true  == false
 ```
-
-### or
-Logisk eller. Motsvarar || i Javascript
 ```javascript
-false or false == false
+false or false == false  # Logisk eller. Motsvarar || i Javascript
 false or true  == true
 true  or false == true
 true  or true  == true
 ```
-
-### not
-Logisk icke. Motsvarar ! i Javascript
 ```javascript
-not false == true
+not false == true  # Logisk icke. Motsvarar ! i Javascript
 not true  == false
 ```
 
