@@ -132,7 +132,30 @@ quad      x1,y1, x2,y2, x3,y3, x4,y4
 arc       x,y, w,h, start,stopp, PIE
 ```
 
-## Inbyggda funktioner  _builtin functions_
+### [range](http://underscorejs.org/#range)
+```javascript
+         range start,   stopp,    inkrement
+compare: for i=start; i<stopp; i+=inkrement
+[0,1,2,3,4,5,6,7,8,9]  == range 10
+[0,1,2,3,4]            == range 5
+[1,2,3,4,5,6,7,8,9,10] == range 1,11
+[0,2,4,6,8]            == range 0,10,2
+[10,8,6,4,2]           == range 10,0,-2
+```
+
+### [for](http://coffeescript.org/#loops)
+Glöm ej att indentera innehållet med ett tabsteg! _Don't forget to indent one tab!_
+```javascript
+kommando                      resultat
+======================================
+for i in range 10             [0,1,2,3,4,5,6,7,8,9]
+for i in range 5              [0,1,2,3,4]
+for i in range 1,11           [1,2,3,4,5,6,7,8,9,10]
+for i in range 0,10,2         [0,2,4,6,8]
+for i in [0..10] by 2         [0,2,4,6,8,10]
+for i in range 10,0,-2        [10,8,6,4,2]
+for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]
+```
 
 ### [lerp](https://p5js.org/reference/#/p5/lerp)
 linjär interpolation och extrapolation, genom att ange två startpunkter.
@@ -145,6 +168,19 @@ _Linear interpolation and extrapolation_
 12 == lerp 10,12,1
 14 == lerp 10,12,2
 ```
+
+### [if](http://coffeescript.org/#conditionals)
+```javascript
+if i%3==0
+  fc 0
+else if i%3==1
+  fc 0.5
+else
+  fc 1
+
+fc if i%3==0 then 0 else 0.5
+```
+
 ### [map](https://p5js.org/reference/#/p5/map)
 linjär interpolation och extrapolation, genom att ange start- och slutpunkter.
 _Linear interpolation and extrapolation_
@@ -247,30 +283,6 @@ d  = new Date(2017, 5, 9, 18, 44, 37, 123)
 44 == d.getMinutes()
 37 == d.getSeconds()
 ```
-### [range](http://underscorejs.org/#range)
-```javascript
-         range start,   stopp,    inkrement
-compare: for i=start; i<stopp; i+=inkrement
-[0,1,2,3,4,5,6,7,8,9]  == range 10
-[0,1,2,3,4]            == range 5
-[1,2,3,4,5,6,7,8,9,10] == range 1,11
-[0,2,4,6,8]            == range 0,10,2
-[10,8,6,4,2]           == range 10,0,-2
-```
-
-### [for](http://coffeescript.org/#loops)
-Glöm ej att indentera innehållet med ett tabsteg! _Don't forget to indent one tab!_
-```javascript
-kommando                      resultat
-======================================
-for i in range 10             [0,1,2,3,4,5,6,7,8,9]
-for i in range 5              [0,1,2,3,4]
-for i in range 1,11           [1,2,3,4,5,6,7,8,9,10]
-for i in range 0,10,2         [0,2,4,6,8]
-for i in [0..10] by 2         [0,2,4,6,8,10]
-for i in range 10,0,-2        [10,8,6,4,2]
-for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]
-```
 
 ### [array](http://coffeescript.org/#literals)
 ```javascript
@@ -334,13 +346,13 @@ values == [1,2,3]
 ```
 
 ### [operators](https://www.w3schools.com/js/js_arithmetic.asp)
-### comparisons
-### logical
+### [comparisons](https://www.w3schools.com/js/js_comparisons.asp)
+### [logical](https://www.w3schools.com/js/js_comparisons.asp)
 ### [precedence](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 ```javascript
 (2 + 3) * 4 == 20
 
-not false == true  # Logisk icke. Motsvarar ! i Javascript
+not false == true  # Logic not. ! in Javascript
 not true  == false
 
 ~0 == 1 # bitwise not
@@ -387,12 +399,12 @@ not true  == false
 1 | 0 == 1
 1 | 1 == 1
 
-false and false == false  # Logisk och. Motsvarar && i Javascript
+false and false == false  # Logic and. && in Javascript
 false and true  == false
 true  and false == false
 true  and true  == true
 
-false or false == false  # Logisk eller. Motsvarar || i Javascript
+false or false == false  # Logic or. || in Javascript
 false or true  == true
 true  or false == true
 true  or true  == true
@@ -409,18 +421,6 @@ while i < 10
   res.push i
   i++
 res == [0,1,2,3,4,5,6,7,8,9]
-```
-
-### [if](http://coffeescript.org/#conditionals)
-```javascript
-if i%3==0
-  fc 0
-else if i%3==1
-  fc 0.5
-else
-  fc 1
-
-fc if i%3==0 then 0 else 0.5
 ```
 
 ### koordinatsystemet
