@@ -138,6 +138,7 @@ arc       x,y, w,h, start,stopp, PIE
 linjär interpolation och extrapolation, genom att ange två startpunkter.
 _Linear interpolation and extrapolation_
 ```javascript
+      lerp y0,y1,i
  8 == lerp 10,12,-1
 10 == lerp 10,12,0
 11 == lerp 10,12,0.5
@@ -148,14 +149,16 @@ _Linear interpolation and extrapolation_
 linjär interpolation och extrapolation, genom att ange start- och slutpunkter.
 _Linear interpolation and extrapolation_
 ```javascript
-250 == map 25, 0,100,  0,1000
- 30 == map  1, 0,10, 25,75
+ yi == map xi, x0, xn, y0,  yn
+250 == map 25,  0,100,  0,1000
+ 30 == map  1,  0, 10, 25,  75
 ```
 ### [constrain](https://p5js.org/reference/#/p5/constrain)
 ```javascript
-  0 == constrain -10,0,100
- 10 == constrain 10,0,100
-100 == constrain 120,0,100
+       constrain   x, xmin, xmax
+  0 == constrain -10,    0,  100
+ 10 == constrain  10,    0,  100
+100 == constrain 120,    0,  100
 ```
 ### [int](https://p5js.org/reference/#/p5/int)
 ```javascript
@@ -179,7 +182,8 @@ _Linear interpolation and extrapolation_
 ```
 ### [dist](https://p5js.org/reference/#/p5/dist)
 ```javascript
-5 == dist 0,3,0,4
+     dist x1,y1,x2,y2
+5 == dist  0, 3, 0, 4
 5 == dist 10,13,10,14
 ```
 ### [nf](https://p5js.org/reference/#/p5/nf)
@@ -217,7 +221,7 @@ PI            == radians 180
 ```javascript
 1             == cos 0
 0.5           == cos PI / 3
-0.70710678118 == cos PI / 4
+0.70710678118 == cos radians 45
 0             == cos PI / 2
 -1            == cos PI
 ```
@@ -226,7 +230,7 @@ PI            == radians 180
 0             == sin 0
 0.5           == sin PI / 6
 0.70710678118 == sin PI / 4
-1             == sin PI / 2
+1             == sin radians 90
 0             == sin PI
 ```
 ### log10
@@ -245,6 +249,8 @@ d  = new Date(2017, 5, 9, 18, 44, 37, 123)
 ```
 ### [range](http://underscorejs.org/#range)
 ```javascript
+         range start,   stopp,    inkrement
+compare: for i=start; i<stopp; i+=inkrement
 [0,1,2,3,4,5,6,7,8,9]  == range 10
 [0,1,2,3,4]            == range 5
 [1,2,3,4,5,6,7,8,9,10] == range 1,11
@@ -327,71 +333,70 @@ values == [1,2,3]
 'abcde'[2...4] == 'cd'
 ```
 
-### operators
+### [operators](https://www.w3schools.com/js/js_arithmetic.asp)
+### comparisons
+### logical
+### [precedence](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 ```javascript
-2 ** 3 == 2*2*2
-3 / 2 == 1.5
-3 // 2 == 1
-3 % 2 == 1
-4 % 2 == 0
--3 %% 2 == 1
-2 + 3 * 4 == 14
 (2 + 3) * 4 == 20
-1 + 2 == 3
-1 - 2 == -1
+
+not false == true  # Logisk icke. Motsvarar ! i Javascript
+not true  == false
+
+~0 == 1 # bitwise not
+~1 == 0
+
+2 ** 3      == 2*2*2
+3 / 2       == 1.5
+3 // 2      == 1
+3 % 2       == 1
+4 % 2       == 0
+-3 %% 2     == 1
+
+2 + 3 * 4   == 14
+1 + 2       == 3
+1 - 2       == -1
+
+1 << 2 == 4 # shift left
+5 >> 2 == 1 # shift right
+
+2 < 3  == true
+2 > 3  == false
+2 >= 3 == false
+2 >= 2 == true
+2 <= 3 == true
+2 <= 2 == true
+
+2 == 3 == false
+2 == 2 == true
+2 != 3 == true
+2 != 2 == false
 
 0 & 0 == 0 # bitwise and
 0 & 1 == 0
 1 & 0 == 0
 1 & 1 == 1
 
-0 | 0 == 0 # bitwise or
-0 | 1 == 1
-1 | 0 == 1
-1 | 1 == 1
-
 0 ^ 0 == 0 # bitwise xor
 0 ^ 1 == 1
 1 ^ 0 == 1
 1 ^ 1 == 0
 
-~0 == 1 # bitwise not
-~1 == 0
+0 | 0 == 0 # bitwise or
+0 | 1 == 1
+1 | 0 == 1
+1 | 1 == 1
 
-1 << 2 == 4 # shift left
-5 >> 2 == 1 # shift right
-```
-
-### comparisons
-```javascript
-(2 < 3)  == true
-(2 > 3)  == false
-(2 == 3) == false
-(2 == 2) == true
-(2 >= 3) == false
-(2 >= 2) == true
-(2 <= 3) == true
-(2 <= 2) == true
-(2 != 3) == true
-(2 != 2) == false
-```
-
-### logical
-```javascript
 false and false == false  # Logisk och. Motsvarar && i Javascript
 false and true  == false
 true  and false == false
 true  and true  == true
-```
-```javascript
+
 false or false == false  # Logisk eller. Motsvarar || i Javascript
 false or true  == true
 true  or false == true
 true  or true  == true
-```
-```javascript
-not false == true  # Logisk icke. Motsvarar ! i Javascript
-not true  == false
+
 ```
 
 ## Kod
@@ -472,7 +477,7 @@ Sparar och återställer följande kommandon:
 Används för att komma åt egenskaper och metoder i det egna objektet.
 ```javascript
 class Animal
-  constructor : ()
+  constructor : ->
     @legs = 4
 ```
 
@@ -494,7 +499,7 @@ for i in range 10
   rect 20 * i + 5, 5, 10, 10
 ```
 
-### exempel 1: normal Javascript
+### exempel 1: Javascript
 ```javascript
 background(255, 127, 255);
 strokeWeight(2);
