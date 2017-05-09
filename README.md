@@ -186,6 +186,18 @@ Sparar och återställer följande kommandon:
 * 3 / 2 == 1.5
 * 3 // 2 == 1
 
+### ..
+* ..
+* ..
+
+### ...
+* ...
+* ...
+
+### []
+* []
+* []
+
 ### and
 Logisk och. Motsvarar && i Javascript
 
