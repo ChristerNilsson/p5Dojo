@@ -322,14 +322,23 @@ Tabellen längst ner innehåller tillståndet.
 * Klicka på reset om det ser konstigt ut.
 * Draw anropas automatiskt varje gång innehållet i editorn förändras.
 
-#### @readText
-Läser text från textrutan under skillnadsbitmappen
+#### readText
+Läser en textrad från textrutan under skillnadsbitmappen
+```javascript
+@readText()
+```
 
-#### @readInt
-Läser heltal från textrutan under skillnadsbitmappen
+#### readInt
+Läser ett heltal från textrutan under skillnadsbitmappen
+```javascript
+@readInt()
+```
 
-#### @readFloat
-Läser flyttal från textrutan under skillnadsbitmappen
+#### readFloat
+Läser ett flyttal från textrutan under skillnadsbitmappen
+```javascript
+@readFloat()
+```
 
 #### Mushantering
 mousePressed(mx,my) kan definieras för att ta hand om musklick.
@@ -390,7 +399,7 @@ Man kan nå egenskaperna med punkt också.
 
 ```javascript
 tidsmaskin = new Tidsmaskin "H. G. Wells"
-print tidsmaskin.pilot
+print tidsmaskin.pilot  # "H. G. Wells" skrivs ut
 ```
 
 Man kan spara en rad kod så här:
@@ -426,11 +435,9 @@ class DeLorean extends Tidsmaskin
 t1 = new Tardis "The Doctor"
 t2 = new DeLorean "Marty"
 
-t1.go()
-t2.go()
+t1.go() # "blubb" skrivs ut.
+t2.go() # "vorp vorp" skrivs ut.
 ```
-
-Nu skrivs de olika ljuden ut.
 
 ### mera information
 
