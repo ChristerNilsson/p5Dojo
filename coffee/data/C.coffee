@@ -79,7 +79,7 @@ class Chess extends Application
 		[i2,j2] = b
 		taken = @board[j2][i2]
 		@setCharAt i2,j2, @board[j1][i1]
-		@setCharAt i1,j1,' '
+		@setCharAt i1,j1,'.'
 		@history.push [a,b,taken]
 	undo : () ->
 		if @history.length == 0 then return

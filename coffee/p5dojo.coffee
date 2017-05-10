@@ -503,26 +503,38 @@ compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
 	fix_frames()
 	#print message,millis()-start
 
-
 tableClear = -> $("#tabell tr").remove()
 
-tableAppend = (t, call, expected, actual) -> # exakt tre kolumner
+tableAppend = (t, call, expected, actual) -> # exakt tre rader
 	row = t.insertRow -1
-
 	cell1 = row.insertCell -1
-	cell1.innerHTML = call
-	#cell1.style.width = 0
-
 	cell2 = row.insertCell -1
+	cell1.innerHTML = call
 	cell2.innerHTML = JSON.stringify(expected)
 	cell2.style.backgroundColor = '#00FF00'
-	#cell2.style.width = 0
 
-	cell3 = row.insertCell -1
-	cell3.innerHTML = JSON.stringify(actual)
-	cell3.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
-	#cell3.style.width = 0
-	cell1.style.backgroundColor = cell3.style.backgroundColor
+	row = t.insertRow -1
+	dummy = row.insertCell -1
+	cell4 = row.insertCell -1
+	cell4.innerHTML = JSON.stringify(actual)
+
+	if _.isEqual(expected, actual)
+		cell4.style.backgroundColor = '#00FF00'
+		return
+	else
+		cell4.style.backgroundColor = '#FF0000'
+
+	row = t.insertRow -1
+	dummy = row.insertCell -1
+	cell6 = row.insertCell -1
+	cell6.innerHTML = firstDiff cell2.innerHTML,cell4.innerHTML
+
+firstDiff = (a,b) -> # return index and differing characters
+	res = ''
+	if a==b then return ''
+	for i in range _.min [a.length,b.length]
+		res += if a[i] == b[i] then '.' else '^'
+	res
 
 fillTable = (a,b) ->
 	try
