@@ -513,16 +513,16 @@ tableAppend = (t, call, expected, actual) -> # exakt tre rader
 	cell2.innerHTML = JSON.stringify(expected)
 	cell2.style.backgroundColor = '#00FF00'
 
+	if _.isEqual(expected, actual) then return
+	#cell4.style.backgroundColor = '#00FF00'
+	#return
+	#else
+
 	row = t.insertRow -1
 	dummy = row.insertCell -1
 	cell4 = row.insertCell -1
 	cell4.innerHTML = JSON.stringify(actual)
-
-	if _.isEqual(expected, actual)
-		cell4.style.backgroundColor = '#00FF00'
-		return
-	else
-		cell4.style.backgroundColor = '#FF0000'
+	cell4.style.backgroundColor = '#FF0000'
 
 	row = t.insertRow -1
 	dummy = row.insertCell -1
@@ -533,7 +533,7 @@ firstDiff = (a,b) -> # return index and differing characters
 	res = ''
 	if a==b then return ''
 	for i in range _.min [a.length,b.length]
-		res += if a[i] == b[i] then '.' else '^'
+		res += if a[i] == b[i] then '·' else '^'
 	res
 
 fillTable = (a,b) ->
