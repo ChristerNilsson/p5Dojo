@@ -296,7 +296,7 @@ changeLayout = ->
 	$(".CodeMirror").width w-425
 	$("#canvas").css {top: 0, left: 205, position:'absolute'}
 	$("#msg").width w-430
-	$("#tabell").width w-215
+	#$("#tabell").width w-215
 
 resizeTimer = 0
 $(window).resize ->
@@ -511,14 +511,17 @@ tableAppend = (t, call, expected, actual) -> # exakt tre kolumner
 
 	cell1 = row.insertCell -1
 	cell1.innerHTML = call
+	#cell1.style.width = 0
 
 	cell2 = row.insertCell -1
 	cell2.innerHTML = JSON.stringify(expected)
 	cell2.style.backgroundColor = '#00FF00'
+	#cell2.style.width = 0
 
 	cell3 = row.insertCell -1
 	cell3.innerHTML = JSON.stringify(actual)
 	cell3.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
+	#cell3.style.width = 0
 	cell1.style.backgroundColor = cell3.style.backgroundColor
 
 fillTable = (a,b) ->
