@@ -1,6 +1,7 @@
 # p5Dojo
 
-## Matematik och Spelprogrammering _Math and Game Programming_
+## Matematik och Spelprogrammering
+## _Math and Game Programming_
 
  - [p5Dojo](https://christernilsson.github.io/p5Dojo) p5dojo.com
  - [p5](https://p5js.org/reference)
@@ -23,49 +24,29 @@
 ### Chrome och Windows rekommenderas. _Windows and Chrome are recommended._
 Ingen annan programvara behöver installeras. _No other software is needed._
 
-### färger
+### färger     _colors_
 ```
-r,g,b  färg
-=============
-0,0,1  blå
-0,1,0  grön
-0,1,1  cyan
-1,0,0  röd
-1,0,1  magenta
-1,1,0  gul
-0      svart
-0.5    grå
-1      vit
-```
-### _colors_
-```
-r,g,b  color
-==============
-0,0,1  blue
-0,1,0  green
-0,1,1  cyan
-1,0,0  red
-1,0,1  magenta
-1,1,0  yellow
-0      black
-0.5    gray
-1      white
+r,g,b  färg    colors
+=====================
+0,0,1  blå     blue
+0,1,0  grön    green
+0,1,1  cyan    cyan
+1,0,0  röd     red
+1,0,1  magenta magenta
+1,1,0  gul     yellow
+0      svart   black
+0.5    grå     gray
+1      vit     white
 ```
 
 ### bg
 bakgrundsfärg  [_background_](https://p5js.org/reference/#/p5/background)
 
 ```
-bg r,g,b  färg
-==============
-bg 1      vit
-bg 1,1,0  gul
-```
-```
-bg r,g,b  color
-==============
-bg 1      white
-bg 1,1,0  yellow
+bg r,g,b  färg color
+=====================
+bg 1      vit  white
+bg 1,1,0  gul  yellow
 ```
 
 ### fc
@@ -194,14 +175,14 @@ _Linear interpolation and extrapolation_
 
 ### [if](http://coffeescript.org/#conditionals)
 ```javascript
-if i%3==0
+if i % 3 == 0
   fc 0
-else if i%3==1
+else if i % 3 == 1
   fc 0.5
 else
   fc 1
 
-fc if i%3==0 then 0 else 0.5
+fc if i % 3 == 0 then 0 else 0.5
 ```
 
 ### koordinatsystemet
@@ -315,7 +296,7 @@ _Linear interpolation and extrapolation_
 ```
 ### [Date](https://www.w3schools.com/jsref/jsref_obj_date.asp)
 ```javascript
-d  = new Date(2017, 5, 9, 18, 44, 37, 123)
+d  = new Date 2017, 5, 9, 18, 44, 37, 123
 18 == d.getHours()
 44 == d.getMinutes()
 37 == d.getSeconds()
@@ -383,9 +364,7 @@ values == [1,2,3]
 ```
 
 ### [operators](https://www.w3schools.com/js/js_arithmetic.asp)
-### [comparisons](https://www.w3schools.com/js/js_comparisons.asp)
-### [logical](https://www.w3schools.com/js/js_comparisons.asp)
-### [precedence](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+[Precedence](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 ```javascript
 (2 + 3) * 4 == 20
 
@@ -445,7 +424,6 @@ false or false == false  # Logic or. || in Javascript
 false or true  == true
 true  or false == true
 true  or true  == true
-
 ```
 
 ### while
@@ -476,7 +454,6 @@ Sparar och återställer följande kommandon:
   * f = (x) -> x*x
   * g = (a,b) -> a+b
 
-
 ### [this](http://coffeescript.org/#classes)
 @ i Coffescript motsvarar this i Javascript.
 Används för att komma åt egenskaper och metoder i det egna objektet.
@@ -487,9 +464,7 @@ class Animal
 ```
 
 ### [pil](http://coffeescript.org/#language)
-```javascript
-->
-```
+```javascript -> ```
 Används av Coffescript i stället för ordet function i Javascript.
 Se exempel 2 nedan.
 
