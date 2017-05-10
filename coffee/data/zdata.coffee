@@ -103,6 +103,7 @@ data =
 	"LA: GuessANumber" :
 		Polygon : ID_Polygon
 		Korg : ID_Korg
+		Coordinator : ID_Coordinator
 		Korsord : ID_Korsord
 		GuessANumber : ID_GuessANumber
 		SevenSegment : ID_SevenSegment

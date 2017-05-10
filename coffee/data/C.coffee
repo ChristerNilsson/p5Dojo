@@ -552,6 +552,58 @@ app = new Connect4 "a"
 	e:
 		Wikipedia : "https://en.wikipedia.org/wiki/Connect_Four"
 
+ID_Coordinator =
+	v:'2017-05-11'
+	k:'sc fc circle class dist if operators text'
+	b:"""
+# LOC:29
+
+class Coordinator extends Application
+	reset : ->
+		super
+		@seed = 0
+	draw : ->
+	mousePressed : (mx,my) ->
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+app = new Coordinator
+"""
+	a:"""
+
+class Coordinator extends Application
+	reset : ->
+		super
+		@seed = 0
+		@level = 1
+		@errors = 0
+		@newGame 0
+	newGame : (d) ->
+		if d==-1 then @errors++
+		@level = constrain @level+d, 1, 100
+		@radius = int 100/@level
+		@x = @randint 200
+		@y = @randint 200
+	draw : ->
+		fc 1,1,0
+		sc()
+		textAlign CENTER,CENTER
+		textSize 50
+		text @x + "," + @y,100,50
+		fc 0,1,0
+		text @level,67,150
+		fc 1,0,0
+		text @errors,133,150
+		fc()
+		sc 1,1,0
+		circle 100,100,@radius
+	mousePressed : (mx,my) ->
+		@newGame if @radius >= dist mx,my,@x,@y then 1 else -1
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+
+app = new Coordinator "a"
+"""
+	c:
+		app : "reset()"
+
 ID_CornerPoints =
 	v:'2017-04-29'
 	k:'sc sw point'

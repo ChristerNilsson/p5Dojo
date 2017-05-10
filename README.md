@@ -465,14 +465,12 @@ class Animal
   constructor : ->
     @legs = 4
 ```
-
 ### [pil](http://coffeescript.org/#language)
+Används av Coffescript i stället för ordet function i Javascript.
+Se exempel 2 nedan.
 ```javascript
 ->
 ```
-Används av Coffescript i stället för ordet function i Javascript.
-Se exempel 2 nedan.
-
 ### exempel 1: CoffeeScript
 ```javascript
 bg 1, 0.5, 1
@@ -510,9 +508,9 @@ function f(a,b) {
 
 ### Källkod
 
-Din källkod sparas på din maskin automatiskt. Vill du starta om, töm editorfönstret och refresha browsern. Nu ska koden ha återställts. Flera personer kan dela på samma maskin, men de måste då ha separata inloggingar.
+Din källkod sparas på din maskin automatiskt. Töm editorfönstret (ctrl-A) om du vill starta om. Flera personer kan dela på samma maskin, men de måste då ha egna inloggningar.
 
-Om du tycker att editorn är långsam, skapa medvetet ett syntaxfel, som visas med rött.
+Om du tycker att editorn är långsam, skapa medvetet ett syntaxfel.
 
 ### Interaktivitet
 
@@ -521,9 +519,8 @@ Det innebär att man med menykommandon och/eller musklick påverkar ett objekts 
 Utritningen av objektet är beroende av tillståndet.
 
 #### Menykommandon
-Den kvadratiska listboxen innehåller kommandon. Dessa definieras av programmeraren.
-Lämpligen görs det i samma ordning. Det innebär att man börjar med _reset_.
-I _reset_ initialiserar man alla variabler. Låt anropet till _super_ vara kvar.
+Den kvadratiska listboxen innehåller kommandon. Dessa måste fyllas med kod.
+I _reset_ initialiserar man egenskaperna. Låt anropet till _super_ vara kvar.
 Efter _reset_ kommer _draw_ som ritar upp bitmappen. _draw_ anropas automatiskt efter varje kommando.
 
 #### Att tänka på
@@ -533,20 +530,18 @@ Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska b
 * Andra kolumnen innehåller förebildens data.
 * Tredje kolumnen innehåller resultat av användarens kod.
 * Klicka på _reset_ om kod och data är i otakt.
-* _draw_ anropas automatiskt varje gång innehållet i editorn förändras.
+* _draw_ anropas automatiskt för varje tangent, kommando och musklick.
 
 ### readText
 Läser en textrad från textrutan under skillnadsbitmappen
 ```javascript
 @readText()
 ```
-
 ### readInt
 Läser ett heltal från textrutan under skillnadsbitmappen
 ```javascript
 @readInt()
 ```
-
 ### readFloat
 Läser ett flyttal från textrutan under skillnadsbitmappen
 ```javascript
