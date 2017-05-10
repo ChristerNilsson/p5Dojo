@@ -85,13 +85,11 @@ sw pixlar
 ```javascript
 circle    x,y,r
 ```
-
-#### [point](https://p5js.org/reference/#/p5/point)
+### [point](https://p5js.org/reference/#/p5/point)
 ```javascript
 point     x,y
 ```
-
-##### [line](https://p5js.org/reference/#/p5/line)
+### [line](https://p5js.org/reference/#/p5/line)
 ```javascript
 line      x1,y1, x2,y2
 ```
@@ -112,8 +110,13 @@ triangle  x1,y1, x2,y2, x3,y3
 quad      x1,y1, x2,y2, x3,y3, x4,y4
 ```
 ### [arc](https://p5js.org/reference/#/p5/arc)
+Du ritar en cirkel, fast med startvinkel och stoppvinkel.
+Bågen ritas medurs med start klockan tre.
+Använd sc, sw samt fc för att styra utritningen.
 ```javascript
-arc       x,y, w,h, start,stopp, PIE
+start = radians 180
+stopp = radians 270
+arc       x,y, w,h, start,stopp
 ```
 
 ### [rectMode](https://p5js.org/reference/#/p5/rectMode)
