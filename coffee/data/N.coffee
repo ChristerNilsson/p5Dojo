@@ -1,6 +1,6 @@
 ID_Nand2TetrisALU =
 	v:'2017-04-29'
-	k:'sc fc sw range text class point quad dist for if operators comparisons'
+	k:'sc fc sw range text class point quad dist for if operators'
 	b: """
 # LOC:63
 # Se länken Nand2Tetris, sidan 36, för mer information!
@@ -90,7 +90,7 @@ app = new ALU "a"
 
 ID_Nian =
 	v:'2017-04-29'
-	k:'bg fc sc [] "" reduce operators comparisons text for {} _.countBy logical if class'
+	k:'bg fc sc [] "" reduce operators text for {} _.countBy if class'
 	b:"""
 # LOC:35
 # Bilda ord med fyra till nio bokstäver. Använd variabeln ordlista.
@@ -153,7 +153,7 @@ app = new Nian "a"
 
 ID_Nim =
 	v:'2017-04-29'
-	k:'bg fc sc circle operators if _.isEqual return comparisons constrain text class'
+	k:'bg fc sc circle operators if _.isEqual return constrain text class'
 	b:"""
 # LOC:62
 

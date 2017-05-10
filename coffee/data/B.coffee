@@ -1,5 +1,5 @@
 ID_Background1 =
-	v:'2017-04-29'
+	v:'2017-05-10'
 	k:'bg'
 	b: """
 # LOC:1
@@ -11,9 +11,7 @@ ID_Background1 =
 # Skriv in följande kommando: bg 1
 # Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.
 
-# Klicka på Background2 för att komma till nästa övning.
-# Klicka på p5Dojo nere till vänster för mera information.
-# Klicka på p5 för att se fler kommandon.
+# Klicka därefter på Background1 följt av Background2 för att komma till nästa övning.
 
 """
 	a: "bg 1"
@@ -38,7 +36,7 @@ ID_Background4 =
 
 ID_BlackBox2D =
 	v:'2017-04-29'
-	k:'bg sc fc range line [] operators int logical for if text class'
+	k:'bg sc fc range line [] operators int for if text class'
 	b:"""
 # LOC:33
 
@@ -142,7 +140,7 @@ app = new Board "a"
 
 ID_BouncingBalls =
 	v:'2017-04-29'
-	k:'fc sw sc circle operators comparisons [] if for class'
+	k:'fc sw sc circle operators [] if for class'
 	b : """
 # LOC:43
 

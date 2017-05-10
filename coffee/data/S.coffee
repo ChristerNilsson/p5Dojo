@@ -54,7 +54,7 @@ app = new Digit "a"
 
 ID_Shortcut =
 	v:'2017-04-29'
-	k:'bg fc sc range operators [] text for if return {} logical comparisons constrain class'
+	k:'bg fc sc range operators [] text for if return {} constrain class'
 	b:"""
 # LOC:65
 
@@ -141,7 +141,7 @@ app = new Shortcut "a"
 
 ID_Shortcut2 =
 	v:'2017-05-04'
-	k:'bg fc sc range operators [] for if return _.min text dist int {} logical comparisons constrain class'
+	k:'bg fc sc range operators [] for if return _.min text dist int {} constrain class'
 	b:"""
 # LOC:126
 
@@ -318,7 +318,7 @@ for i in range 21
 
 ID_Snake =
 	v:'2017-04-29'
-	k:'bg fc [] rect operators comparisons logical dist for if class'
+	k:'bg fc [] rect operators dist for if class'
 	b: """
 # LOC:47
 
@@ -389,7 +389,7 @@ app = new Snake "a"
 
 ID_Snake4 =
 	v:'2017-04-29'
-	k:'bg fc [] rect operators comparisons logical dist for if class'
+	k:'bg fc [] rect operators dist for if class'
 	b: """
 # LOC:43
 
@@ -482,7 +482,7 @@ for i in range 10
 
 ID_Sokoban =
 	v:'2017-04-29'
-	k:'bg sc fc sw range operators [] text comparisons for if logical rect circle dist class'
+	k:'bg sc fc sw range operators [] text for if rect circle dist class'
 	b: """
 # LOC:94
 

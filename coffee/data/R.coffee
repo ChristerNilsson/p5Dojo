@@ -40,7 +40,7 @@ app = new RandomDice "a"
 
 ID_RecursiveCircle =
 	v:'2017-04-29'
-	k:'sc circle if return comparisons class'
+	k:'sc circle if return operators class'
 	b: """
 # LOC:10
 
@@ -95,7 +95,7 @@ rect 80,70, 40,100
 
 ID_Reversi =
 	v:'2017-05-02'
-	k:'sc fc bg range [] rect circle logical while if operators comparisons class'
+	k:'sc fc bg range [] rect circle while if operators class'
 	b: """
 # LOC:49
 
@@ -228,7 +228,7 @@ pop()
 
 ID_Roulette =
 	v:'2017-04-29'
-	k:'bg sw fc sc range rd for if comparisons operators [] "" PI text arc strokeCap translate'
+	k:'bg sw fc sc range rd for if operators [] "" PI text arc strokeCap translate'
 	b:"""
 # LOC:15
 
@@ -402,7 +402,7 @@ app = new RubikCube "a"
 
 ID_RubikSquare =
 	v:'2017-04-29'
-	k:'bg fc sc circle [] int .. operators comparisons if rectMode rect logical "" parseInt _.isEqual text while constrain class'
+	k:'bg fc sc circle [] int .. operators if rectMode rect "" parseInt _.isEqual text while constrain class'
 	b:"""
 # LOC:85
 # OBS: Du bör använda variabeln rubikSquareData.
@@ -512,7 +512,7 @@ app = new RubikSquare "a"
 
 ID_RushHour =
 	v:'2017-04-29'
-	k:'bg sc fc range operators comparisons "" [] {} class rect text for if readText'
+	k:'bg sc fc range operators "" [] {} class rect text for if readText'
 	b:"""
 # LOC:71
 

@@ -1,6 +1,6 @@
 ID_EngineeringNotation =
 	v:'2017-04-29'
-	k:'fc sc bg int log10 constrain comparisons operators text class'
+	k:'fc sc bg int log10 constrain operators text class'
 	b:"""
 # LOC:28
 

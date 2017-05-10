@@ -15,7 +15,7 @@ for i in range 10
 
 ID_GameOfLife =
 	v:'2017-04-29'
-	k:'bg range for [] operators comparisons logical if int class'
+	k:'bg range for [] operators if int class'
 	b:"""
 # LOC:40
 
@@ -236,7 +236,7 @@ for i in range 10
 
 ID_GuessANumber =
 	v:'2017-04-29'
-	k:'bg fc sc range text for if operators comparisons int class'
+	k:'bg fc sc range text for if operators int class'
 	b:"""
 # LOC:29
 

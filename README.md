@@ -86,12 +86,12 @@ sw pixlar
 circle    x,y,r
 ```
 
-### [point](https://p5js.org/reference/#/p5/point)
+#### [point](https://p5js.org/reference/#/p5/point)
 ```javascript
 point     x,y
 ```
 
-### [line](https://p5js.org/reference/#/p5/line)
+##### [line](https://p5js.org/reference/#/p5/line)
 ```javascript
 line      x1,y1, x2,y2
 ```
@@ -464,7 +464,9 @@ class Animal
 ```
 
 ### [pil](http://coffeescript.org/#language)
-```javascript -> ```
+```javascript
+->
+```
 Används av Coffescript i stället för ordet function i Javascript.
 Se exempel 2 nedan.
 

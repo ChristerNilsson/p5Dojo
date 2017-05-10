@@ -374,6 +374,8 @@ window.onload = ->
 	chapter=""
 	exercise=""
 
+	myCodeMirror.setValue '# Klicka först på L1:\n# Klicka därefter på Background1'
+
 	myCodeMirror.focus()
 	window.resizeTo 1000,750
 	changeLayout()
@@ -389,6 +391,7 @@ saveToKeyStorage = (b) ->
 	place.d.push s
 
 editor_change = ->
+	if exercise=='' then return
 	if _.size(calls) == 0
 		call = ""
 	else # transpile, draw

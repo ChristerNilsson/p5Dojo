@@ -68,7 +68,7 @@ app = new Moire "a"
 
 ID_MultiTimer =
 	v:'2017-04-29'
-	k:'bg sc fc for [] comparisons logical text nf if int round millis class'
+	k:'bg sc fc for [] operators text nf if int round millis class'
 	b:"""
 # LOC:30
 #

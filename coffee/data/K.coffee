@@ -211,7 +211,7 @@ app = new Korg "a"
 
 ID_Korsord =
 	v:'2017-04-29'
-	k:'bg fc sc readText operators comparisons logical text if for "" _.filter class []'
+	k:'bg fc sc readText operators text if for "" _.filter class []'
 	b: """
 # LOC:29
 # Mata in t ex b..l och få ut bill samt boll. Använd variabeln ordlista.

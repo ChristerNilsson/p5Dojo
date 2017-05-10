@@ -1,6 +1,6 @@
 ID_Tetris =
 	v:'2017-05-07'
-	k:'bg fc range [] {} for rect if while _.contains logical class'
+	k:'bg fc range [] {} for rect if while _.contains operators class'
 	b:"""
 # LOC:113
 
@@ -207,7 +207,7 @@ arc 100,120, 100,100, radians(90),radians(-90)
 
 ID_TwoDiceHistogram =
 	v:'2017-04-29'
-	k:'bg fc sc range int random text if for operators comparisons rect []'
+	k:'bg fc sc range int random text if for operators rect []'
 	b:"""
 # LOC:22
 # OBS: På grund av random blir bitmapparna inte likadana

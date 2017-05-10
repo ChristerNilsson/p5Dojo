@@ -31,7 +31,7 @@ for i in range 8
 
 ID_ChessGame =
 	v:'2017-04-29'
-	k:'bg fc sc sw range circle rectMode class rect if text for "" _.isEqual operators comparisons [] logical'
+	k:'bg fc sc sw range circle rectMode class rect if text for "" _.isEqual operators []'
 	b:"""
 # LOC:53
 
@@ -120,7 +120,7 @@ for i in range 8
 
 ID_ClickDetector =
 	v:'2017-04-29'
-	k:'bg sc fc range circle quad rect triangle class dist if comparisons logical operators text rectMode'
+	k:'bg sc fc range circle quad rect triangle class dist if operators text rectMode'
 	b:"""
 # LOC:62
 
@@ -252,7 +252,7 @@ for k in range 6
 
 ID_ColorCube =
 	v:'2017-04-29'
-	k:'bg range for class quad [] stroke if logical operators comparisons return'
+	k:'bg range for class quad [] stroke if operators return'
 	b: """
 # LOC:33
 
@@ -394,7 +394,7 @@ app = new ColorPair "a"
 
 ID_Complex =
 	v:'2017-04-29'
-	k:'bg fc sc range operators [] line circle text for if return int {} dist _.isEqual logical comparisons constrain class'
+	k:'bg fc sc range operators [] line circle text for if return int {} dist _.isEqual constrain class'
 	b:"""
 # LOC:80
 

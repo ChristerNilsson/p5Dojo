@@ -238,7 +238,7 @@ assert [1,2,3],           _.values {a:1, b:2, c:3}
 
 ID_LinesOfCode =
 	v:'2017-04-29'
-	k:'bg fc sc {} operators comparisons if parseInt _.max rect for text class'
+	k:'bg fc sc [] {} operators if parseInt _.max rect for text class'
 	b:"""
 # LOC:62
 
