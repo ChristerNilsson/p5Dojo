@@ -99,8 +99,7 @@ ellipse   x,y, w,h
 ```
 ### [rect](https://p5js.org/reference/#/p5/rect)
 ```javascript
-rect      x,y, w,h
-```
+rect      x,y, w,h```
 ### [triangle](https://p5js.org/reference/#/p5/triangle)
 ```javascript
 triangle  x1,y1, x2,y2, x3,y3
