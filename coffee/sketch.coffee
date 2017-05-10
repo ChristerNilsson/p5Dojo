@@ -131,8 +131,8 @@ setState = (st) ->
 	btn3.text exercise
 
 	if st<=1
-		if myCodeMirror?
-			myCodeMirror.setValue ""
+		#if myCodeMirror?
+			#myCodeMirror.setValue ""
 		tableClear()
 		linksClear()
 		bg 0.5
@@ -406,7 +406,7 @@ editor_change = ->
 		saveSourceCode()
 	compare 'editor_change'
 
-saveSourceCode = -> localStorage[exercise + "/d"] = myCodeMirror.getValue()
+saveSourceCode = ->	localStorage[exercise + "/d"] = myCodeMirror.getValue()
 
 run0 = ->
 	if exercise=="" then return false
