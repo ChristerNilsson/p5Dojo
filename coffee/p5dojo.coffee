@@ -126,6 +126,7 @@ setState = (st) ->
 	if st==2 then $('#input').show() else $('#input').hide()
 	if st==2 then $('#sel4').show() else $('#sel4').hide()
 	if st==2 then msg.show() else msg.hide()
+	if st==2 then $(".CodeMirror").show() else $(".CodeMirror").hide()
 
 	btn2.text chapter
 	btn3.text exercise
@@ -207,6 +208,7 @@ sel4click = (sel) ->
 buildLink = (keyword) ->
 	if keyword.indexOf('_.')==0 then keyword = keyword.replace('_.','')
 	nr = kwl[keyword]
+	if nr == undefined then return
 	if nr==0 then keyword = keyword.toLowerCase()
 	if nr==null
 		null
@@ -366,6 +368,7 @@ window.onload = ->
 		lineWiseCopyCut: true,
 		tabSize: 2,
 		indentWithTabs: true,
+		matchBrackets : true,
 	}
 
 	$(".CodeMirror").css 'font-size',"16pt"
@@ -379,6 +382,7 @@ window.onload = ->
 	myCodeMirror.focus()
 	window.resizeTo 1000,750
 	changeLayout()
+	setState 0
 
 saveToKeyStorage = (b) ->
 	s = ""
@@ -518,18 +522,20 @@ tableAppend = (t, call, expected, actual) -> # exakt tre kolumner
 	cell1.style.backgroundColor = cell3.style.backgroundColor
 
 fillTable = (a,b) ->
-	a = JSON.parse localStorage[a]
-	b = JSON.parse localStorage[b]
-	tableClear()
-	keys = []
-	keys.push key for key,value of a
-	keys.push key for key,value of b
-	sort keys
-	keys = _.uniq keys
+	try
+		a = JSON.parse localStorage[a]
+		b = JSON.parse localStorage[b]
+		tableClear()
+		keys = []
+		keys.push key for key,value of a
+		keys.push key for key,value of b
+		sort keys
+		keys = _.uniq keys
 
-	for key in keys
-		if key != '_name' and  key != '_type'
-			tableAppend tabell, "@" + key,unmark(a[key]),unmark(b[key])
+		for key in keys
+			if key != '_name' and  key != '_type'
+				tableAppend tabell, "@" + key,unmark(a[key]),unmark(b[key])
+	catch
 
 unmark = (obj) ->
 	if _.isArray(obj) then return	(unmark item for item in obj) # array
