@@ -55,12 +55,13 @@
     <script src="ord4-9.js"></script>
 
     <style>
-        body {padding: 0; margin: 0;}
-        canvas {vertical-align: top;}
-        th, td {padding: 2px;}
-        a:link {color: #000000; text-decoration: none; font-family: Arial, Helvetica, sans-serif;}
-        a:hover {color: #FFFF00;}
-        a:visited {color: #000000;}
+      select {overflow-y: auto; font-family:monospace;}
+      body {padding: 0; margin: 0;}
+      canvas {vertical-align: top;}
+      th, td {padding: 2px;}
+      a:link {color: #000000; text-decoration: none; font-family: Arial, Helvetica, sans-serif;}
+      a:hover {color: #FFFF00;}
+      a:visited {color: #000000;}
     </style>
 
   </head>
@@ -69,14 +70,18 @@
     <table id="links" style="font-family:monospace; font-size:18px; position:absolute; top:670px; left:5px;" border="0px"></table>
     <div id="canvas" style="position:absolute; top:5px; left:210px; width:211px; height:635px"></div>
     <input type="text" id='input' onClick="this.select();" style="font-family:monospace; font-size:18px; position:absolute; top:640px; left:5px; width:403px">
-    <select onclick ="sel1click(this);" onchange="sel1change(this);" id='sel1' size="24"
-            style="position: absolute; top:5px; left:5px; width:195px"></select>
-    <select onclick ="sel2click(this);" onchange="sel2change(this);" id='sel2' size="24"
-            style="position: absolute; top:5px; left:5px; width:195px; background-color:#000000; color:#FFFFFF"></select>
-    <select onclick ="sel3click(this);" onchange="sel3change(this);" id='sel3' size="24"
-            style="position: absolute; top:5px; left:5px; width:195px; background-color:#000000; color:#FFFF00"></select>
-    <select onclick ="sel4click(this);" onchange="sel4change(this);" id='sel4' size="12"
-            style="position: absolute; top:425px; left:5px; width:200px"></select>
+    <select onclick="sel1click(this);" id='sel1' size="24"
+            style="position: absolute; top:0px; left:0px; width:205px"></select>
+    <select onclick="sel2click(this);" id='sel2' size="23"
+            style="position: absolute; top:20px; left:0px; width:205px; background-color:#000000; color:#FFFFFF"></select>
+    <select onclick ="sel3click(this);" onchange="sel3change(this);" id='sel3' size="22"
+            style="position: absolute; top:40px; left:0px; width:205px; background-color:#000000; color:#FFFF00"></select>
+    <select onclick ="sel4click(this);" id='sel4' size="12"
+            style="position: absolute; top:420px; left:0px; width:205px"></select>
+
+    <button id="btn2" style="position: absolute; top: 0px; left:0px; width:205px">Chapter</button>
+    <button id="btn3" style="position: absolute; top:20px; left:0px; width:205px">Exercise</button>
+
     <table id="tabell" style="font-family:monospace; font-size:20px; position:absolute; top:670px; left:209px;" border="0px"></table>
     <textarea id="msg" rows=3 wrap="soft" readonly style="font-size:20px; color:#FFFFFF; position:absolute; top:640px; left:415px; width:700px;"></textarea>
   </body>

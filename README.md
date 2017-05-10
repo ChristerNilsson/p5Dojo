@@ -607,6 +607,9 @@ Man kan säga att instanser är substantiv, metoder verb och egenskaper adjektiv
 Klassen är ett slags formulär, mall eller prototyp.
 
 En klass skapas genom att skriva ordet _class_ följt av namnet.
+```javascript
+class Ammunition
+```
 
 #### Metoder
 
@@ -668,19 +671,19 @@ _super_ innebär att man anropar den ärvda metoden.
 ```javascript
 class Ammunition
   constructor: (@vikt,@längd,@diameter) ->
-  shoot: (noise) -> print noise
+  skjut: (ljud) -> print ljud
 
 class GevärsKula extends Ammunition
-  shoot: -> super "pang"
+  skjut: -> super "pang"
 
 class HaubitsGranat extends Ammunition
-  shoot: -> super "Ka-Bom"
+  skjut: -> super "Ka-Bom"
 
 g = new GevärsKula 20,45,5.56
 h = new HaubitsGranat 42000,900,155
 
-g.shoot() # "pang" skrivs ut.
-h.shoot() # "Ka-Bom" skrivs ut.
+g.skjut() # "pang" skrivs ut.
+h.skjut() # "Ka-Bom" skrivs ut.
 ```
 
 ### mera information

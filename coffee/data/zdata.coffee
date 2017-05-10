@@ -6,11 +6,6 @@
 # e : links
 
 data =
-	Start :
-		Nyheter : ID_nyheter
-		Asserts : ID_Asserts
-		LinesOfCode : ID_LinesOfCode
-
 	"L1: bg point sc sw" :
 		Background1 : ID_Background1
 		Background2 : ID_Background2
@@ -155,6 +150,11 @@ data =
 		Shortcut2 : ID_Shortcut2
 		EngineeringNotation : ID_EngineeringNotation
 		Sokoban : ID_Sokoban
+
+	Start :
+		Nyheter : ID_nyheter
+		Asserts : ID_Asserts
+		LinesOfCode : ID_LinesOfCode
 
 	Exhibition :
 		rainbow : ID016

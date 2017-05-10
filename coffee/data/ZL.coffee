@@ -256,13 +256,13 @@ class LinesOfCode extends Application
 		@h = 13
 		@total = 0
 		for chapter,item1 of data
-			if chapter not in ['Nyheter','Exhibition']
+			if chapter not in ['Start','Exhibition']
 				@stat[chapter] = {}
 				for exercise,item2 of item1
 					b = item2.b
 					p1 = b.indexOf 'LOC:'
-					p2 = b.indexOf ' ',p1
-					loc = parseInt b.substring p1+4,p2
+					#p2 = b.indexOf ' ',p1
+					loc = parseInt b.substring p1+4 #,p2
 					@total += loc
 					@stat[chapter][exercise] = loc
 	draw : ->

@@ -5,10 +5,17 @@
 
 myCodeMirror = null
 msg = null
+
 sel1 = null
 sel2 = null
 sel3 = null
 sel4 = null
+
+btn2 = null
+btn3 = null
+
+state = 0
+
 chapter = ""
 exercise = ""
 call = ''
@@ -105,28 +112,43 @@ range = _.range
 
 fillSelect = (sel, dict) ->
 	sel.empty()
-	if sel==sel2
-		sel.append($("<option>").attr('value', 'BACK').text(chapter))
 	for key of dict
 		sel.append($("<option>").attr('value', key).text(key))
 
-sel1change = (sel) ->
+setState = (st) ->
+	state = st
+
+	if st>=1 then btn2.show() else btn2.hide()
+	if st>=1 then sel2.show() else sel2.hide()
+
+	if st==2 then btn3.show() else btn3.hide()
+	if st==2 then sel3.show() else sel3.hide()
+	if st==2 then $('#input').show() else $('#input').hide()
+	if st==2 then $('#sel4').show() else $('#sel4').hide()
+	if st==2 then msg.show() else msg.hide()
+
+	btn2.text chapter
+	btn3.text exercise
+
+	if st<=1
+		if myCodeMirror?
+			myCodeMirror.setValue ""
+		tableClear()
+		linksClear()
+		bg 0.5
+
+	if st==1
+		exercise = ""
+
+sel1click = (sel) ->
 	chapter = sel.value
 	exercise = ""
 	call = ""
 	calls = {}
 	fillSelect sel2,data[chapter]
-	sel2.show()
+	setState 1
 
-sel2change = (sel) ->
-	if sel.value=='BACK'
-		exercise = ""
-		myCodeMirror.setValue ""
-		tableClear()
-		linksClear()
-		bg 0.5
-		sel2.hide()
-		return
+sel2click = (sel) ->
 	exercise = sel.value
 	if exercise==""
 		myCodeMirror.setValue ""
@@ -134,12 +156,11 @@ sel2change = (sel) ->
 		return
 
 	sel3.empty()
-	sel3.append($("<option>").attr('value', 'BACK').text(exercise))
 	keywords = data[chapter][exercise]["k"].split ' '
 	keywords.sort()
 	for keyword in keywords
 		sel3.append($("<option>").attr('value', keyword).text(keyword))
-	sel3.show()
+	setState 2
 
 	call = ""
 	calls = decorate data[chapter][exercise]["c"]
@@ -171,30 +192,17 @@ sel2change = (sel) ->
 	compare('sel2change')
 
 sel3click = (sel) ->
-	if sel.value=='BACK'
-		#exercise = ""
-		#myCodeMirror.setValue ""
-		#tableClear()
-		#linksClear()
-		#bg 0.5
-		sel3.hide()
-		return
 	url = buildLink sel.value
 	if url?
 		win = window.open url, '_blank'
 		win.focus()
 
-sel3change = (sel) ->
-sel4change = (sel) ->
-
-sel1click = (sel) -> sel2.show()
-sel2click = (sel) -> if sel.value=='BACK' then $("#sel2").hide()
-#sel3click = (sel) -> #if sel.value=='BACK' then $("#sel3").hide()
 sel4click = (sel) ->
 	if calls? then call = calls[sel.value]
 	if run1() == true
 		run0()
 	compare('sel4click')
+
 
 buildLink = (keyword) ->
 	if keyword.indexOf('_.')==0 then keyword = keyword.replace('_.','')
@@ -216,14 +224,11 @@ buildLink = (keyword) ->
 buildKeywordLink = ->
 	kwl = {}
 	kwlinks = []
-
 	kwlinks.push 'https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#{}'
 	kwlinks.push 'https://p5js.org/reference/#/p5/{}'
 	kwlinks.push 'https://www.w3schools.com/jsref/jsref_{}.asp'
 	kwlinks.push 'https://github.com/ChristerNilsson/p5Dojo/blob/master/_.md#{}'
-
 	save = (index,words) -> kwl[word] = index for word in words.split ' '
-
 	save 0,'[] "" {} .. ... @ -> class text operators comparisons logical if bg fc sc sw'
 	save 0,'range circle for while rd readText readInt readFloat'
 	save 0,'PI sqrt cos sin log10 Date arc rect ellipse point line triangle quad'
@@ -315,10 +320,14 @@ setup = ->
 	sel3 = $('#sel3')
 	sel4 = $('#sel4')
 
-	sel2.hide()
-	sel3.hide()
+	btn2 = $('#btn2')
+	btn3 = $('#btn3')
 
 	fillSelect sel1, data
+	setState 0
+
+	btn2.click () -> setState 0
+	btn3.click () -> setState 1
 
 	renew = createButton 'Renew'
 	renew.position 352,644
