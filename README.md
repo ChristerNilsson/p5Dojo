@@ -532,7 +532,7 @@ Efter _reset_ kommer _draw_ som ritar upp bitmappen. _draw_ anropas automatiskt 
 #### Att tänka på
 Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska bli helgrön.
 
-![Differens](diff.png)
+![Differens](diff.PNG)
 
 * Första kolumnen innehåller egenskapens namn.
 * Andra kolumnen innehåller data, både för förebilden och din kod.
