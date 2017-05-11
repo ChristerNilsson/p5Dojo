@@ -654,7 +654,7 @@ class Excalibur extends Ammunition
 Antag att de båda typerna låter olika då man avfyrar dem.
 _super_ innebär att man anropar den ärvda metoden.
 
-```javascript
+```coffeescript
 class Ammunition
   constructor: (@diameter) ->
   skjut: (ljud) -> print ljud
