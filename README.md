@@ -82,38 +82,38 @@ sw pixlar
 ## Ritkommandon  _Drawing commands_
 
 ### circle
-```javascript
+```coffeescript
 circle    x,y,r
 ```
 ### [point](https://p5js.org/reference/#/p5/point)
-```javascript
+```coffeescript
 point     x,y
 ```
 ### [line](https://p5js.org/reference/#/p5/line)
-```javascript
+```coffeescript
 line      x1,y1, x2,y2
 ```
 ### [ellipse](https://p5js.org/reference/#/p5/ellipse)
-```javascript
+```coffeescript
 ellipse   x,y, w,h
 ```
 ### [rect](https://p5js.org/reference/#/p5/rect)
-```javascript
+```coffeescript
 rect      x,y, w,h
 ```
 ### [triangle](https://p5js.org/reference/#/p5/triangle)
-```javascript
+```coffeescript
 triangle  x1,y1, x2,y2, x3,y3
 ```
 ### [quad](https://p5js.org/reference/#/p5/quad)
-```javascript
+```coffeescript
 quad      x1,y1, x2,y2, x3,y3, x4,y4
 ```
 ### [arc](https://p5js.org/reference/#/p5/arc)
 Du ritar en cirkel, fast med startvinkel och stoppvinkel.
 Bågen ritas medurs med start klockan tre.
 Använd sc, sw samt fc för att styra utritningen.
-```javascript
+```coffeescript
 start = radians 180
 stopp = radians 270
 arc       x,y, w,h, start,stopp
@@ -140,7 +140,7 @@ arc       x,y, w,h, start,stopp
   - **text** "p5",x,y
 
 ### [range](http://underscorejs.org/#range)
-```javascript
+```coffeescript
          range start,   stopp,    inkrement
 compare: for i=start; i<stopp; i+=inkrement
 [0,1,2,3,4,5,6,7,8,9]  == range 10
@@ -152,7 +152,7 @@ compare: for i=start; i<stopp; i+=inkrement
 
 ### [for](http://coffeescript.org/#loops)
 Glöm ej att indentera innehållet med ett tabsteg! _Don't forget to indent one tab!_
-```javascript
+```coffeescript
 kommando                      resultat
 ======================================
 for i in range 10             [0,1,2,3,4,5,6,7,8,9]
@@ -167,7 +167,7 @@ for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]
 ### [lerp](https://p5js.org/reference/#/p5/lerp)
 linjär interpolation och extrapolation, genom att ange två startpunkter.
 _Linear interpolation and extrapolation_
-```javascript
+```coffeescript
       lerp y0,y1,i
  8 == lerp 10,12,-1
 10 == lerp 10,12,0
@@ -177,7 +177,7 @@ _Linear interpolation and extrapolation_
 ```
 
 ### [if](http://coffeescript.org/#conditionals)
-```javascript
+```coffeescript
 if i % 3 == 0
   fc 0
 else if i % 3 == 1
@@ -189,7 +189,7 @@ fc if i % 3 == 0 then 0 else 0.5
 ```
 
 ### koordinatsystemet
-```javascript
+```coffeescript
 kommando        kommentar
 =========================
 translate x,y   flyttar origo
@@ -199,12 +199,12 @@ scale n         skalar upp eller ner
 
 ### rd
 Roterar en vinkel given i grader medurs. _Rotate a given angle in degrees clockwise_
-```javascript
+```coffeescript
 rd = (vinkel) -> rotate radians vinkel
 ```
 
 ### [radians](https://p5js.org/reference/#/p5/radians)
-```javascript
+```coffeescript
 0             == radians 0
 PI/2          == radians 90
 PI            == radians 180
@@ -212,7 +212,7 @@ PI            == radians 180
 ```
 
 ### [cos](https://p5js.org/reference/#/p5/cos)
-```javascript
+```coffeescript
 1             == cos 0
 0.5           == cos PI / 3
 0.70710678118 == cos radians 45
@@ -221,7 +221,7 @@ PI            == radians 180
 ```
 
 ### [sin](https://p5js.org/reference/#/p5/sin)
-```javascript
+```coffeescript
 0             == sin 0
 0.5           == sin PI / 6
 0.70710678118 == sin PI / 4
@@ -232,73 +232,73 @@ PI            == radians 180
 ### [map](https://p5js.org/reference/#/p5/map)
 linjär interpolation och extrapolation, genom att ange start- och slutpunkter.
 _Linear interpolation and extrapolation_
-```javascript
+```coffeescript
  yi == map xi, x0, xn, y0,  yn
 250 == map 25,  0,100,  0,1000
  30 == map  1,  0, 10, 25,  75
 ```
 ### [constrain](https://p5js.org/reference/#/p5/constrain)
-```javascript
+```coffeescript
        constrain   x, xmin, xmax
   0 == constrain -10,    0,  100
  10 == constrain  10,    0,  100
 100 == constrain 120,    0,  100
 ```
 ### [int](https://p5js.org/reference/#/p5/int)
-```javascript
+```coffeescript
   3 == int 3.14
  -3 == int -3.14
 ```
 ### [round](https://p5js.org/reference/#/p5/round)
-```javascript
+```coffeescript
   3 == round 3.14
  -3 == round -3.14
 ```
 ### [parseInt](https://www.w3schools.com/jsref/jsref_parseint.asp)
-```javascript
+```coffeescript
   3 == parseInt '3'
  -3 == parseInt '-3'
 ```
 ### [parseFloat](https://www.w3schools.com/jsref/jsref_parsefloat.asp)
-```javascript
+```coffeescript
   3.14 == parseFloat '3.14'
  -3.14 == parseFloat '-3.14'
 ```
 ### [dist](https://p5js.org/reference/#/p5/dist)
-```javascript
+```coffeescript
       dist x1,y1,x2,y2
  5 == dist  3, 0, 0, 4
 13 == dist 10,10,22, 5
 ```
 ### [nf](https://p5js.org/reference/#/p5/nf)
-```javascript
+```coffeescript
 '00112.53'   == nf 112.53096155, 5, 2
 '0112.531'   == nf 112.53096155, 4, 3
 '112.530962' == nf 112.53096155, 3, 6
 ```
 ### [PI](https://p5js.org/reference/#/p5/PI)
-```javascript
+```coffeescript
 0.78539816339          == QUARTER_PI
 1.57079632679489661923 == HALF_PI
 3.14159265358979323846 == PI
 6.28318530717958647693 == TWO_PI
 ```
 ### [sqrt](https://p5js.org/reference/#/p5/sqrt)
-```javascript
+```coffeescript
 1.41421356237 == sqrt 2
 2             == sqrt 4
 5             == sqrt 25
 ```
 
 ### log10
-```javascript
+```coffeescript
 0             == log10 1
 0.30102999566 == log10 2
 1             == log10 10
 2             == log10 100
 ```
 ### [Date](https://www.w3schools.com/jsref/jsref_obj_date.asp)
-```javascript
+```coffeescript
 d  = new Date 2017, 5, 9, 18, 44, 37, 123
 18 == d.getHours()
 44 == d.getMinutes()
@@ -306,7 +306,7 @@ d  = new Date 2017, 5, 9, 18, 44, 37, 123
 ```
 
 ### [array](http://coffeescript.org/#literals)
-```javascript
+```coffeescript
 a = [7,8,9]
 a[0] == 7
 a.push 10
@@ -330,7 +330,7 @@ Array(5).fill(0) == [0,0,0,0,0]
 ```
 
 ### [string](https://www.w3schools.com/js/js_string_methods.asp)
-```javascript
+```coffeescript
 "CoffeeScript".toUpperCase() == "COFFEESCRIPT"
 "CoffeeScript".toLowerCase() == "coffeescript"
 "CoffeeScript"[6]            == "S"
@@ -340,7 +340,7 @@ Array(5).fill(0) == [0,0,0,0,0]
 ```
 
 ### [object](http://coffeescript.org/#literals)
-```javascript
+```coffeescript
 b = {x:1}
 b.y = 2
 b['z'] = 3
@@ -355,20 +355,20 @@ values == [1,2,3]
 ```
 
 ### [inclusiveRange](http://coffeescript.org/#slices)
-```javascript
+```coffeescript
 [2..4] == [2,3,4]
 'abcde'[2..4] == 'cde'
 ```
 
 ### [exclusiveRange](http://coffeescript.org/#slices)
-```javascript
+```coffeescript
 [2...4] == [2,3]
 'abcde'[2...4] == 'cd'
 ```
 
 ### [operators](https://www.w3schools.com/js/js_arithmetic.asp)
 [Precedence](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
-```javascript
+```coffeescript
 (2 + 3) * 4 == 20
 
 not false == true  # Logic not. ! in Javascript
@@ -430,7 +430,7 @@ true  or true  == true
 ```
 
 ### while
-```javascript
+```coffeescript
 i = 0
 res = []
 while i < 10
@@ -459,7 +459,7 @@ Sparar och återställer följande kommandon:
 
 ### Javascript
 Omge Javascript med backtick.
-```javascript
+```coffeescript
 `function g(a,b) { return a+b; }`
 c = g 1,2  # 3
 ```
@@ -467,18 +467,18 @@ c = g 1,2  # 3
 ### [thisDot](http://coffeescript.org/#classes)
 @ i Coffeescript motsvarar this. i Javascript.
 Används för att komma åt egenskaper och metoder i det egna objektet.
-```javascript
+```coffeescript
 class Animal
   constructor : -> @legs = 4  # javascript: this.legs = 4
 ```
 ### [pil](http://coffeescript.org/#language)
 Används av Coffeescript i stället för ordet function i Javascript.
 Se exempel 2 nedan.
-```javascript
+```coffeescript
 ->
 ```
 ### exempel 1: Coffeescript
-```javascript
+```coffeescript
 bg 1, 0.5, 1
 sw 2
 sc 0.5
@@ -489,7 +489,7 @@ for i in range 10
 ```
 
 ### exempel 1: Javascript
-```javascript
+```coffeescript
 background(255, 127, 255);
 strokeWeight(2);
 stroke(127);
@@ -501,12 +501,12 @@ for (var i = 0; i < 10; i++) {
 ```
 
 ### exempel 2: funktion i Coffeescript
-```javascript
+```coffeescript
 lerp = (x0,x1,i) -> x0 + (x1-x0) * i
 ```
 
 ### exempel 2: funktion i Javascript
-```javascript
+```coffeescript
 function lerp(x0,x1,i) {
   return x0 + (x1-x0) * i;
 }
@@ -544,17 +544,17 @@ Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska b
 
 ### readText
 Läser en textrad från textrutan under skillnadsbitmappen
-```javascript
+```coffeescript
 @readText()
 ```
 ### readInt
 Läser ett heltal från textrutan under skillnadsbitmappen
-```javascript
+```coffeescript
 @readInt()
 ```
 ### readFloat
 Läser ett flyttal från textrutan under skillnadsbitmappen
-```javascript
+```coffeescript
 @readFloat()
 ```
 
@@ -564,7 +564,7 @@ Mushantering ger större flexibilitet, men kräver att programmeraren måste avg
 
 #### Minimalt exempel
 Efter funktionspilarna lägger man i sin kod. Förutom dessa metoder, tillkommer menykommandon och egna hjälpmetoder. Sista raden skapar själva objektet.
-```javascript
+```coffeescript
 class Counter extends Application
   reset : -> super
   draw  : -> super
@@ -573,7 +573,7 @@ counter = new Counter
 ```
 
 Exemplet, ej fullständigt:
-```javascript
+```coffeescript
 class Counter extends Application
   reset : ->
     super
@@ -592,7 +592,7 @@ Man kan säga att instanser är substantiv, metoder verb och egenskaper adjektiv
 Klassen är ett slags formulär, mall eller prototyp.
 
 En klass skapas genom att skriva ordet _class_ följt av namnet.
-```javascript
+```coffeescript
 class Ammunition
 ```
 
@@ -601,14 +601,14 @@ class Ammunition
 Metoder, skrivs med namnet följt av ett kolon samt en pil.
 Konstruktorn är en metod som anropas då objektet skapas.
 
-```javascript
+```coffeescript
 class Ammunition
   constructor : () ->
 ```
 
 För att skapa ett objekt, använd ordet _new_ följt av klassens namn.
 
-```javascript
+```coffeescript
 ammunition = new Ammunition
 ```
 
@@ -616,7 +616,7 @@ ammunition = new Ammunition
 
 Egenskaper inleds med tecknet _@_ och överlever inuti objektet.
 
-```javascript
+```coffeescript
 class Ammunition
   constructor : (diameter) -> # mm
     @diameter = diameter
@@ -624,14 +624,14 @@ class Ammunition
 
 Man kan omvandla en parameter till en egenskap genom att sätta ett @ före.
 
-```javascript
+```coffeescript
 class Ammunition
   constructor: (@diameter) ->
 ```
 
 Egenskaper och metoder kan nås utifrån med hjälp av punktnotation.
 
-```javascript
+```coffeescript
 ammunition = new Ammunition 5.56
 print ammunition.diameter  # 5.56 skrivs ut
 ```
@@ -646,7 +646,7 @@ Ett arv innebär oftast en specialisering.
 ![rifle](images/5.56.jpg)
 ![excalibur](images/excalibur.jpg)
 
-```javascript
+```coffeescript
 class Rifle extends Ammunition
 class Excalibur extends Ammunition
 ```
