@@ -617,22 +617,23 @@ Egenskaper inleds med tecknet _@_ och överlever inuti objektet.
 
 ```coffeescript
 class Djur
-  constructor : (antalBen) ->
-    @antalBen = antalBen
+  constructor : (namn,födelseår) ->
+    @namn = namn
+    @födelseår = födelseår
 ```
 
 Man kan omvandla en parameter till en egenskap genom att sätta ett @ före.
 
 ```coffeescript
 class Djur
-  constructor: (antalBen) ->
+  constructor: (@namn,@födelseår) ->
 ```
 
 Egenskaper och metoder kan nås utifrån med hjälp av punktnotation.
 
 ```coffeescript
-spindel = new Djur 8
-print spindel.antalBen  # 8 skrivs ut
+misse = new Djur "Misse", 2012
+print misse.namn  # Misse skrivs ut
 ```
 
 #### Arv
@@ -647,25 +648,29 @@ class Hund extends Djur
 class Uggla extends Djur
 ```
 
+![pluto](images/pluto.gif)
+![jakob](images/jakob.jpg)
+
+
 Antag att de båda djuren talar olika.
 _super_ innebär att man anropar den ärvda metoden.
 
 ```coffeescript
 class Djur
-  constructor: (@antalBen) ->
+  constructor: (@namn,@födelseår) ->
   tala: (ljud) -> print ljud
 
 class Hund extends Djur
-  tala: -> super "voff"
+  tala: -> super "voff!"
 
 class Uggla extends Djur
-  tala: -> super "boho"
+  tala: -> super "simma lugnt!"
 
-hund = new Hund 4
-uggla = new Uggla 2
+pluto = new Hund "Pluto", 1930
+jakob = new Uggla "Jakob", 1968
 
-hund.tala()  # "voff" skrivs ut.
-uggla.tala() # "boho" skrivs ut.
+pluto.tala() # "voff!" skrivs ut.
+jakob.tala() # "simma lugnt!" skrivs ut.
 ```
 
 ### mera information
