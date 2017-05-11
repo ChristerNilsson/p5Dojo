@@ -362,7 +362,6 @@ for key,value of b # Notera att of används här.
 keys == ['x','y','z']
 values == [1,2,3]
 ```
-.....
 
 ### [operators](https://www.w3schools.com/js/js_arithmetic.asp)
 [Precedence](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
@@ -528,8 +527,6 @@ function lerp(x0,x1,i) {
 Din källkod sparas på din dator automatiskt. Töm editorfönstret (ctrl-A) om du vill starta om. Flera personer kan dela på samma maskin, men de måste då ha egna inloggningar.
 
 Om du tycker att editorn är långsam, skapa medvetet ett syntaxfel.
-
-.....
 
 ### Interaktivitet
 
