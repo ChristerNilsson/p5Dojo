@@ -624,7 +624,7 @@ class Ammunition
     @diameter = diameter
 ```
 
-Man kan omvandla en parameter till en egenskap genom att prefixa den med ett @
+Man kan omvandla en parameter till en egenskap genom att sätta ett @ före.
 
 ```javascript
 class Ammunition
@@ -634,8 +634,8 @@ class Ammunition
 Egenskaper och metoder kan nås utifrån med hjälp av punktnotation.
 
 ```javascript
-m16 = new Ammunition 10,50,7.62
-print m16.diameter  # 7.62 skrivs ut
+ammunition = new Ammunition 12,45,5.56
+print ammunition.diameter  # 5.56 skrivs ut
 ```
 
 #### Arv
@@ -645,12 +645,12 @@ Det innebär att den nya klassen ärver alla metoder och egenskaper från förä
 Dessutom kan man skapa nya metoder och egenskaper i den nya klassen.
 Ett arv innebär oftast en specialisering.
 
-![5.56](images/5.56.jpg)
-![Excalibur](images/excalibur.jpg)
+![rifle](images/5.56.jpg)
+![excalibur](images/excalibur.jpg)
 
 ```javascript
-class GevärsKula extends Ammunition
-class HaubitsGranat extends Ammunition
+class Rifle extends Ammunition
+class Excalibur extends Ammunition
 ```
 
 Antag att de båda typerna låter olika då man avfyrar dem.
@@ -661,17 +661,17 @@ class Ammunition
   constructor: (@vikt,@längd,@diameter) ->
   skjut: (ljud) -> print ljud
 
-class GevärsKula extends Ammunition
+class Rifle extends Ammunition
   skjut: -> super "pang"
 
-class HaubitsGranat extends Ammunition
+class Excalibur extends Ammunition
   skjut: -> super "Ka-Bom"
 
-g = new GevärsKula 20,45,5.56
-h = new HaubitsGranat 42000,900,155
+rifle = new Rifle 12,45,5.56
+excalibur = new Excalibur 48000,996,155
 
-g.skjut() # "pang" skrivs ut.
-h.skjut() # "Ka-Bom" skrivs ut.
+rifle.skjut() # "pang" skrivs ut.
+excalibur.skjut() # "Ka-Bom" skrivs ut.
 ```
 
 ### mera information
