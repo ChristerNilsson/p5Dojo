@@ -674,5 +674,5 @@ pluto.tala() # "voff!" skrivs ut.
 jakob.tala() # "simma lugnt!" skrivs ut.
 ```
 .....
-![grid](grid.jpg)
-![biggrid](biggrid.jpg)
+![grid](images/grid.jpg)
+![biggrid](images/biggrid.jpg)
