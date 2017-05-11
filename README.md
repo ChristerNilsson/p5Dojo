@@ -465,19 +465,19 @@ c = g 1,2  # 3
 ```
 
 ### [thisDot](http://coffeescript.org/#classes)
-@ i Coffescript motsvarar this. i Javascript.
+@ i Coffeescript motsvarar this. i Javascript.
 Används för att komma åt egenskaper och metoder i det egna objektet.
 ```javascript
 class Animal
   constructor : -> @legs = 4  # javascript: this.legs = 4
 ```
 ### [pil](http://coffeescript.org/#language)
-Används av Coffescript i stället för ordet function i Javascript.
+Används av Coffeescript i stället för ordet function i Javascript.
 Se exempel 2 nedan.
 ```javascript
 ->
 ```
-### exempel 1: CoffeeScript
+### exempel 1: Coffeescript
 ```javascript
 bg 1, 0.5, 1
 sw 2
@@ -532,13 +532,13 @@ Efter _reset_ kommer _draw_ som ritar upp bitmappen. _draw_ anropas automatiskt 
 #### Att tänka på
 Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska bli helgrön.
 
-![Differens](diff.PNG)
+![Differens](images/diff.png)
 
 * Första kolumnen innehåller egenskapens namn.
 * Andra kolumnen innehåller data, både för förebilden och din kod.
-* Första raden innehåller förebildens egenskap
-* Andra raden innehåller egenskapen i din kod
-* Tredje raden pekar ut skillnaderna.
+* Den gröna raden innehåller förebildens värde
+* Den röda raden innehåller egenskapens värde i din kod
+* Den gråa raden pekar ut skillnaderna.
 * Klicka på _reset_ om kod och data är i otakt.
 * _draw_ anropas automatiskt för varje tangent, kommando och musklick.
 
@@ -644,6 +644,9 @@ Du kan ärva en klass med _extends_.
 Det innebär att den nya klassen ärver alla metoder och egenskaper från föräldern.
 Dessutom kan man skapa nya metoder och egenskaper i den nya klassen.
 Ett arv innebär oftast en specialisering.
+
+![5.56](images/5.56.jpg)
+![Excalibur](images/excalibur.jpg)
 
 ```javascript
 class GevärsKula extends Ammunition
