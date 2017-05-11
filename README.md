@@ -24,6 +24,17 @@
 ### Chrome och Windows rekommenderas. _Windows and Chrome are recommended._
 Ingen annan programvara behöver installeras. _No other software is needed._
 
+### mera information
+
+ - [download](https://p5js.org)
+ - [manual p5.js](https://p5js.org/reference)
+ - [coffeescript](http://coffeescript.org)
+ - [engelsk e-bok i färg (om fem minuter) av Lauren McCarthy, SEK 55](https://play.google.com/store/books/details?id=iP3GCgAAQBAJ&rdid=book-iP3GCgAAQBAJ&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb)
+ - [svartvit pappersbok (om fem dagar), 130 SEK](https://www.adlibris.com/se/bok/getting-started-with-p5js-making-interactive-graphics-in-javascript-and-processing-9781457186776)
+ - [funprogramming](https://www.youtube.com/user/hamoid)
+ - [p5.js video tutorial](https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=14)
+
+Kontakt: janchrister.nilsson kanelbulle gmail.com
 .....
 ### färger     _colors_
 ```
@@ -119,13 +130,12 @@ start = radians 180
 stopp = radians 270
 arc x,y, w,h, start,stopp
 ```
-.....
 ### [rectMode](https://p5js.org/reference/#/p5/rectMode)
   * **CORNER**
   * CORNERS
   * CENTER
   * RADIUS
-
+.....
 ### [ellipseMode](https://p5js.org/reference/#/p5/ellipseMode)
   * CORNER
   * CORNERS
@@ -164,7 +174,6 @@ for i in [0..10] by 2         [0,2,4,6,8,10]
 for i in range 10,0,-2        [10,8,6,4,2]
 for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]
 ```
-.....
 ### [lerp](https://p5js.org/reference/#/p5/lerp)
 linjär interpolation och extrapolation, genom att ange två startpunkter.
 _Linear interpolation and extrapolation_
@@ -176,7 +185,7 @@ _Linear interpolation and extrapolation_
 12 == lerp 10,12,1
 14 == lerp 10,12,2
 ```
-
+.....
 ### [if](http://coffeescript.org/#conditionals)
 ```coffeescript
 if i % 3 == 0
@@ -211,7 +220,6 @@ PI/2          == radians 90
 PI            == radians 180
 3*PI/2        == radians 270
 ```
-.....
 ### [cos](https://p5js.org/reference/#/p5/cos)
 ### [sin](https://p5js.org/reference/#/p5/sin)
 [Grafik](https://www.openprocessing.org/sketch/183592)
@@ -233,6 +241,7 @@ _Linear interpolation and extrapolation_
 250 == map 25,  0,100,  0,1000
  30 == map  1,  0, 10, 25,  75
 ```
+.....
 ### [constrain](https://p5js.org/reference/#/p5/constrain)
 ```coffeescript
        constrain   x, xmin, xmax
@@ -250,7 +259,6 @@ _Linear interpolation and extrapolation_
   3 == round 3.14
  -3 == round -3.14
 ```
-.....
 ### [parseInt](https://www.w3schools.com/jsref/jsref_parseint.asp)
 ```coffeescript
   3 == parseInt '3'
@@ -286,7 +294,7 @@ _Linear interpolation and extrapolation_
 2             == sqrt 4
 5             == sqrt 25
 ```
-
+.....
 ### log10
 ```coffeescript
 0             == log10 1
@@ -351,18 +359,6 @@ keys == ['x','y','z']
 values == [1,2,3]
 ```
 .....
-### [inclusiveRange](http://coffeescript.org/#slices)
-```coffeescript
-[2..4] == [2,3,4]
-'abcde'[2..4] == 'cde'
-```
-
-### [exclusiveRange](http://coffeescript.org/#slices)
-```coffeescript
-[2...4] == [2,3]
-'abcde'[2...4] == 'cd'
-```
-
 ### [operators](https://www.w3schools.com/js/js_arithmetic.asp)
 [Precedence](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 ```coffeescript
@@ -425,7 +421,7 @@ false or true  == true
 true  or false == true
 true  or true  == true
 ```
-
+.....
 ### while
 ```coffeescript
 i = 0
@@ -442,7 +438,7 @@ Sparar och återställer följande kommandon:
  - tint strokeCap strokeJoin imageMode ellipseMode colorMode
  - textAlign textFont textMode textSize textLeading
  - [information](https://www.processing.org/tutorials/transform2d)
-.....
+
 ### Coffeescript
  - Orsak: Programmering ska vara så enkelt som möjligt
  - Kodblock indenteras med tab (som Python) i stället för blockparenteser {}
@@ -468,13 +464,13 @@ Används för att komma åt egenskaper och metoder i det egna objektet.
 class Animal
   constructor : -> @legs = 4  # javascript: this.legs = 4
 ```
+.....
 ### [pil](http://coffeescript.org/#language)
 Används av Coffeescript i stället för ordet function i Javascript.
 Se exempel 2 nedan.
 ```coffeescript
 ->
 ```
-.....
 ### exempel 1: Coffeescript
 ```coffeescript
 bg 1, 0.5, 1
@@ -509,7 +505,17 @@ function lerp(x0,x1,i) {
   return x0 + (x1-x0) * i;
 }
 ```
+### [inclusiveRange](http://coffeescript.org/#slices)
+```coffeescript
+[2..4] == [2,3,4]
+'abcde'[2..4] == 'cde'
+```
 
+### [exclusiveRange](http://coffeescript.org/#slices)
+```coffeescript
+[2...4] == [2,3]
+'abcde'[2...4] == 'cd'
+```
 ### Källkod
 
 Din källkod sparas på din dator automatiskt. Töm editorfönstret (ctrl-A) om du vill starta om. Flera personer kan dela på samma maskin, men de måste då ha egna inloggningar.
@@ -552,10 +558,10 @@ Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska b
 ```coffeescript
 @readFloat()  # Läser ett flyttal från textrutan under skillnadsbitmappen
 ```
-
-#### Mushantering
-mousePressed(mx,my) kan definieras för att ta hand om musklick.
-Mushantering ger större flexibilitet, men kräver att programmeraren måste avgöra var användaren klickat.
+.....
+#### mousePressed
+mousePressed kan definieras för att ta hand om musklick.
+Detta ger större flexibilitet, men kräver att programmeraren måste avgöra var användaren klickat.
 
 #### Minimalt exempel
 Efter funktionspilarna lägger man i sin kod. Förutom dessa metoder, tillkommer menykommandon och egna hjälpmetoder. Sista raden skapar själva objektet.
@@ -643,10 +649,9 @@ Ett arv innebär oftast en specialisering.
 class Hund extends Djur
 class Uggla extends Djur
 ```
-
+.....
 ![pluto](images/pluto.gif)
 ![jakob](images/jakob.jpg)
-
 
 Antag att de båda djuren talar olika.
 _super_ innebär att man anropar den ärvda metoden.
@@ -668,17 +673,6 @@ jakob = new Uggla "Jakob", 1968
 pluto.tala() # "voff!" skrivs ut.
 jakob.tala() # "simma lugnt!" skrivs ut.
 ```
-
-### mera information
-
- - [download](https://p5js.org)
- - [manual p5.js](https://p5js.org/reference)
- - [coffeescript](http://coffeescript.org)
- - [engelsk e-bok i färg (om fem minuter) av Lauren McCarthy, SEK 55](https://play.google.com/store/books/details?id=iP3GCgAAQBAJ&rdid=book-iP3GCgAAQBAJ&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb)
- - [svartvit pappersbok (om fem dagar), 130 SEK](https://www.adlibris.com/se/bok/getting-started-with-p5js-making-interactive-graphics-in-javascript-and-processing-9781457186776)
- - [funprogramming](https://www.youtube.com/user/hamoid)
- - [p5.js video tutorial](https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=14)
-
-### kontakt, synpunkter, felrapportering, förslag till exempelkod
-
- - janchrister.nilsson snabela gmail.com
+.....
+![grid](grid.jpg)
+![biggrid](biggrid.jpg)
