@@ -537,9 +537,10 @@ Utritningen av objektet är beroende av tillståndet.
 ![nian](images/nian.png)
 
 #### Menykommandon
-Den kvadratiska listboxen innehåller kommandon. Dessa måste fyllas med kod.
-I _reset_ initialiserar man egenskaperna. Låt anropet till _super_ vara kvar.
-Efter _reset_ kommer _draw_ som ritar upp bitmappen. _draw_ anropas automatiskt efter varje kommando.
+Den kvadratiska listboxen innehåller kommandon. Dessa måste skapas med kod.
+I _reset()_ initialiserar man egenskaperna. Låt anropet till _super_ vara kvar.
+Texten "aaefkrrtu" i bilden kan matas in med ett klick på kommandot _enter()_.
+_draw_ anropas automatiskt efter varje kommando.
 
 #### Att tänka på
 Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska bli helgrön.
@@ -552,7 +553,9 @@ Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska b
 * Den röda raden innehåller egenskapens värde i din kod
 * Den gråa raden pekar ut skillnaderna.
 * Klicka på _reset_ om kod och data är i otakt.
-* _draw_ anropas automatiskt för varje tangent, kommando och musklick.
+* _draw()_ anropas automatiskt för varje tangent, kommando och musklick.
+
+.....
 
 ### readText
 ```coffeescript
@@ -566,8 +569,6 @@ Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska b
 ```coffeescript
 @readFloat()  # Läser ett flyttal från textrutan under skillnadsbitmappen
 ```
-.....
-
 #### mousePressed
 mousePressed kan definieras för att ta hand om musklick.
 Detta ger större flexibilitet, men kräver att programmeraren måste avgöra var användaren klickat.
