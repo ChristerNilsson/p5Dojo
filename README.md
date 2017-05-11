@@ -135,8 +135,8 @@ arc x,y, w,h, start,stopp
   * CORNERS
   * CENTER
   * RADIUS
-.....
 
+.....
 ### [ellipseMode](https://p5js.org/reference/#/p5/ellipseMode)
   * CORNER
   * CORNERS
