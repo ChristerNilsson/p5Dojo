@@ -212,16 +212,15 @@ PI            == radians 180
 ```
 
 ### [cos](https://p5js.org/reference/#/p5/cos)
+### [sin](https://p5js.org/reference/#/p5/sin)
+[Grafik](https://www.openprocessing.org/sketch/183592)
 ```coffeescript
 1             == cos 0
 0.5           == cos PI / 3
 0.70710678118 == cos radians 45
 0             == cos PI / 2
 -1            == cos PI
-```
 
-### [sin](https://p5js.org/reference/#/p5/sin)
-```coffeescript
 0             == sin 0
 0.5           == sin PI / 6
 0.70710678118 == sin PI / 4
@@ -593,7 +592,7 @@ Klassen är ett slags formulär, mall eller prototyp.
 
 En klass skapas genom att skriva ordet _class_ följt av namnet.
 ```coffeescript
-class Ammunition
+class Djur
 ```
 
 #### Metoder
@@ -602,14 +601,14 @@ Metoder, skrivs med namnet följt av ett kolon samt en pil.
 Konstruktorn är en metod som anropas då objektet skapas.
 
 ```coffeescript
-class Ammunition
+class Djur
   constructor : () ->
 ```
 
 För att skapa ett objekt, använd ordet _new_ följt av klassens namn.
 
 ```coffeescript
-ammunition = new Ammunition
+djur = new Djur
 ```
 
 #### Egenskaper
@@ -617,23 +616,23 @@ ammunition = new Ammunition
 Egenskaper inleds med tecknet _@_ och överlever inuti objektet.
 
 ```coffeescript
-class Ammunition
-  constructor : (diameter) -> # mm
-    @diameter = diameter
+class Djur
+  constructor : (antalBen) ->
+    @antalBen = antalBen
 ```
 
 Man kan omvandla en parameter till en egenskap genom att sätta ett @ före.
 
 ```coffeescript
-class Ammunition
-  constructor: (@diameter) ->
+class Djur
+  constructor: (antalBen) ->
 ```
 
 Egenskaper och metoder kan nås utifrån med hjälp av punktnotation.
 
 ```coffeescript
-ammunition = new Ammunition 5.56
-print ammunition.diameter  # 5.56 skrivs ut
+spindel = new Djur 8
+print spindel.antalBen  # 8 skrivs ut
 ```
 
 #### Arv
@@ -643,33 +642,30 @@ Det innebär att den nya klassen ärver alla metoder och egenskaper från förä
 Dessutom kan man skapa nya metoder och egenskaper i den nya klassen.
 Ett arv innebär oftast en specialisering.
 
-![rifle](images/5.56.jpg)
-![excalibur](images/excalibur.jpg)
-
 ```coffeescript
-class Rifle extends Ammunition
-class Excalibur extends Ammunition
+class Hund extends Djur
+class Uggla extends Djur
 ```
 
-Antag att de båda typerna låter olika då man avfyrar dem.
+Antag att de båda djuren talar olika.
 _super_ innebär att man anropar den ärvda metoden.
 
 ```coffeescript
-class Ammunition
-  constructor: (@diameter) ->
-  skjut: (ljud) -> print ljud
+class Djur
+  constructor: (@antalBen) ->
+  tala: (ljud) -> print ljud
 
-class Rifle extends Ammunition
-  skjut: -> super "pang"
+class Hund extends Djur
+  tala: -> super "voff"
 
-class Excalibur extends Ammunition
-  skjut: -> super "Ka-Bom"
+class Uggla extends Djur
+  tala: -> super "boho"
 
-rifle = new Rifle 5.56
-excalibur = new Excalibur 155
+hund = new Hund 4
+uggla = new Uggla 2
 
-rifle.skjut() # "pang" skrivs ut.
-excalibur.skjut() # "Ka-Bom" skrivs ut.
+hund.tala()  # "voff" skrivs ut.
+uggla.tala() # "boho" skrivs ut.
 ```
 
 ### mera information
@@ -679,7 +675,7 @@ excalibur.skjut() # "Ka-Bom" skrivs ut.
  - [coffeescript](http://coffeescript.org)
  - [engelsk e-bok i färg (om fem minuter) av Lauren McCarthy, SEK 55](https://play.google.com/store/books/details?id=iP3GCgAAQBAJ&rdid=book-iP3GCgAAQBAJ&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb)
  - [svartvit pappersbok (om fem dagar), 130 SEK](https://www.adlibris.com/se/bok/getting-started-with-p5js-making-interactive-graphics-in-javascript-and-processing-9781457186776)
- - [funprogramming](http://funprogramming.org)
+ - [funprogramming](https://www.youtube.com/user/hamoid)
  - [p5.js video tutorial](https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=14)
 
 ### kontakt, synpunkter, felrapportering, förslag till exempelkod
