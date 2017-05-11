@@ -24,6 +24,7 @@
 ### Chrome och Windows rekommenderas. _Windows and Chrome are recommended._
 Ingen annan programvara behöver installeras. _No other software is needed._
 
+=====
 ### färger     _colors_
 ```
 r,g,b  färg    colors
@@ -78,36 +79,36 @@ strecktjocklek  [_strokeWeight_](https://p5js.org/reference/#/p5/strokeWeight)
 ```
 sw pixlar
 ```
-
+=====
 ## Ritkommandon  _Drawing commands_
 
 ### circle
 ```coffeescript
-circle    x,y,r
+circle x,y,r
 ```
 ### [point](https://p5js.org/reference/#/p5/point)
 ```coffeescript
-point     x,y
+point x,y
 ```
 ### [line](https://p5js.org/reference/#/p5/line)
 ```coffeescript
-line      x1,y1, x2,y2
+line x1,y1, x2,y2
 ```
 ### [ellipse](https://p5js.org/reference/#/p5/ellipse)
 ```coffeescript
-ellipse   x,y, w,h
+ellipse x,y, w,h
 ```
 ### [rect](https://p5js.org/reference/#/p5/rect)
 ```coffeescript
-rect      x,y, w,h
+rect x,y, w,h
 ```
 ### [triangle](https://p5js.org/reference/#/p5/triangle)
 ```coffeescript
-triangle  x1,y1, x2,y2, x3,y3
+triangle x1,y1, x2,y2, x3,y3
 ```
 ### [quad](https://p5js.org/reference/#/p5/quad)
 ```coffeescript
-quad      x1,y1, x2,y2, x3,y3, x4,y4
+quad x1,y1, x2,y2, x3,y3, x4,y4
 ```
 ### [arc](https://p5js.org/reference/#/p5/arc)
 Du ritar en cirkel, fast med startvinkel och stoppvinkel.
@@ -116,9 +117,9 @@ Använd sc, sw samt fc för att styra utritningen.
 ```coffeescript
 start = radians 180
 stopp = radians 270
-arc       x,y, w,h, start,stopp
+arc x,y, w,h, start,stopp
 ```
-
+=====
 ### [rectMode](https://p5js.org/reference/#/p5/rectMode)
   * **CORNER**
   * CORNERS
@@ -163,7 +164,7 @@ for i in [0..10] by 2         [0,2,4,6,8,10]
 for i in range 10,0,-2        [10,8,6,4,2]
 for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]
 ```
-
+=====
 ### [lerp](https://p5js.org/reference/#/p5/lerp)
 linjär interpolation och extrapolation, genom att ange två startpunkter.
 _Linear interpolation and extrapolation_
@@ -210,22 +211,18 @@ PI/2          == radians 90
 PI            == radians 180
 3*PI/2        == radians 270
 ```
-
+=====
 ### [cos](https://p5js.org/reference/#/p5/cos)
 ### [sin](https://p5js.org/reference/#/p5/sin)
 [Grafik](https://www.openprocessing.org/sketch/183592)
 ```coffeescript
-1             == cos 0
-0.5           == cos PI / 3
-0.70710678118 == cos radians 45
-0             == cos PI / 2
--1            == cos PI
-
-0             == sin 0
-0.5           == sin PI / 6
-0.70710678118 == sin PI / 4
-1             == sin radians 90
-0             == sin PI
+radianer  grader    cos     sin
+0           0       1       0
+PI / 6     30       0.866   0.5
+PI / 4     45       0.707   0.707
+PI / 3     60       0.5     0.866
+PI / 2     90       0       1
+PI        180      -1       0
 ```
 
 ### [map](https://p5js.org/reference/#/p5/map)
@@ -253,6 +250,7 @@ _Linear interpolation and extrapolation_
   3 == round 3.14
  -3 == round -3.14
 ```
+=====
 ### [parseInt](https://www.w3schools.com/jsref/jsref_parseint.asp)
 ```coffeescript
   3 == parseInt '3'
@@ -303,7 +301,7 @@ d  = new Date 2017, 5, 9, 18, 44, 37, 123
 44 == d.getMinutes()
 37 == d.getSeconds()
 ```
-
+=====
 ### [array](http://coffeescript.org/#literals)
 ```coffeescript
 a = [7,8,9]
@@ -352,7 +350,7 @@ for key,value of b # Notera att of används här.
 keys == ['x','y','z']
 values == [1,2,3]
 ```
-
+=====
 ### [inclusiveRange](http://coffeescript.org/#slices)
 ```coffeescript
 [2..4] == [2,3,4]
@@ -444,7 +442,7 @@ Sparar och återställer följande kommandon:
  - tint strokeCap strokeJoin imageMode ellipseMode colorMode
  - textAlign textFont textMode textSize textLeading
  - [information](https://www.processing.org/tutorials/transform2d)
-
+=====
 ### Coffeescript
  - Orsak: Programmering ska vara så enkelt som möjligt
  - Kodblock indenteras med tab (som Python) i stället för blockparenteser {}
@@ -476,6 +474,7 @@ Se exempel 2 nedan.
 ```coffeescript
 ->
 ```
+=====
 ### exempel 1: Coffeescript
 ```coffeescript
 bg 1, 0.5, 1
@@ -516,7 +515,7 @@ function lerp(x0,x1,i) {
 Din källkod sparas på din dator automatiskt. Töm editorfönstret (ctrl-A) om du vill starta om. Flera personer kan dela på samma maskin, men de måste då ha egna inloggningar.
 
 Om du tycker att editorn är långsam, skapa medvetet ett syntaxfel.
-
+=====
 ### Interaktivitet
 
 Lektion 9 och framåt innehåller interaktiva övningar.
@@ -542,19 +541,16 @@ Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska b
 * _draw_ anropas automatiskt för varje tangent, kommando och musklick.
 
 ### readText
-Läser en textrad från textrutan under skillnadsbitmappen
 ```coffeescript
-@readText()
+@readText()  # Läser en textrad från textrutan under skillnadsbitmappen
 ```
 ### readInt
-Läser ett heltal från textrutan under skillnadsbitmappen
 ```coffeescript
-@readInt()
+@readInt()  # Läser ett heltal från textrutan under skillnadsbitmappen
 ```
 ### readFloat
-Läser ett flyttal från textrutan under skillnadsbitmappen
 ```coffeescript
-@readFloat()
+@readFloat()  # Läser ett flyttal från textrutan under skillnadsbitmappen
 ```
 
 #### Mushantering
@@ -584,7 +580,7 @@ class Counter extends Application
   mousePressed : (mx,my) ->
 counter = new Counter
 ```
-
+=====
 ### class
 
 Man kan säga att instanser är substantiv, metoder verb och egenskaper adjektiv.
