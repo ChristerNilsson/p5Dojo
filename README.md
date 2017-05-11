@@ -267,8 +267,8 @@ _Linear interpolation and extrapolation_
 ### [dist](https://p5js.org/reference/#/p5/dist)
 ```javascript
       dist x1,y1,x2,y2
- 5 == dist  0, 3, 0, 4
-13 == dist 22,10,15,10
+ 5 == dist  3, 0, 0, 4
+13 == dist 10,10,22, 5
 ```
 ### [nf](https://p5js.org/reference/#/p5/nf)
 ```javascript
@@ -446,7 +446,7 @@ Sparar och återställer följande kommandon:
  - textAlign textFont textMode textSize textLeading
  - [information](https://www.processing.org/tutorials/transform2d)
 
-### coffeescript
+### Coffeescript
  - Orsak: Programmering ska vara så enkelt som möjligt
  - Kodblock indenteras med tab (som Python) i stället för blockparenteser {}
   * Tabstorlek alltid två mellanslag
@@ -457,13 +457,19 @@ Sparar och återställer följande kommandon:
   * f = (x) -> x*x
   * g = (a,b) -> a+b
 
-### [this](http://coffeescript.org/#classes)
-@ i Coffescript motsvarar this i Javascript.
+### Javascript
+Omge Javascript med backtick.
+```javascript
+`function g(a,b) { return a+b; }`
+c = g 1,2  # 3
+```
+
+### [thisDot](http://coffeescript.org/#classes)
+@ i Coffescript motsvarar this. i Javascript.
 Används för att komma åt egenskaper och metoder i det egna objektet.
 ```javascript
 class Animal
-  constructor : ->
-    @legs = 4
+  constructor : -> @legs = 4  # javascript: this.legs = 4
 ```
 ### [pil](http://coffeescript.org/#language)
 Används av Coffescript i stället för ordet function i Javascript.
@@ -496,19 +502,19 @@ for (var i = 0; i < 10; i++) {
 
 ### exempel 2: funktion i Coffeescript
 ```javascript
-f = (a,b) -> a+b
+lerp = (x0,x1,i) -> x0 + (x1-x0) * i
 ```
 
 ### exempel 2: funktion i Javascript
 ```javascript
-function f(a,b) {
-  return a+b;
+function lerp(x0,x1,i) {
+  return x0 + (x1-x0) * i;
 }
 ```
 
 ### Källkod
 
-Din källkod sparas på din maskin automatiskt. Töm editorfönstret (ctrl-A) om du vill starta om. Flera personer kan dela på samma maskin, men de måste då ha egna inloggningar.
+Din källkod sparas på din dator automatiskt. Töm editorfönstret (ctrl-A) om du vill starta om. Flera personer kan dela på samma maskin, men de måste då ha egna inloggningar.
 
 Om du tycker att editorn är långsam, skapa medvetet ett syntaxfel.
 
@@ -526,9 +532,13 @@ Efter _reset_ kommer _draw_ som ritar upp bitmappen. _draw_ anropas automatiskt 
 #### Att tänka på
 Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska bli helgrön.
 
+![Differens](diff.png)
+
 * Första kolumnen innehåller egenskapens namn.
-* Andra kolumnen innehåller förebildens data.
-* Tredje kolumnen innehåller resultat av användarens kod.
+* Andra kolumnen innehåller data, både för förebilden och din kod.
+* Första raden innehåller förebildens egenskap
+* Andra raden innehåller egenskapen i din kod
+* Tredje raden pekar ut skillnaderna.
 * Klicka på _reset_ om kod och data är i otakt.
 * _draw_ anropas automatiskt för varje tangent, kommando och musklick.
 
