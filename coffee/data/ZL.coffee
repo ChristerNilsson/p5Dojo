@@ -1,9 +1,10 @@
 ID_nyheter =
-	v:'2017-05-10'
+	v:'2017-05-11'
 	k:''
 	b:"""
 # LOC:0
 # NYHETER 2017 MAJ 13
+#   GuessANumberHex
 #   Coordinator
 #   Tetris
 # NYHETER 2017 MAJ 06

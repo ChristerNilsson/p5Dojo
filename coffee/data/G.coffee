@@ -283,3 +283,58 @@ app = new Guess "a"
 	c:
 		app : "reset()|newGame()"
 
+ID_GuessANumberHex =
+	v:'2017-05-11'
+	k:'bg fc sc range text for if operators int class'
+	b:"""
+# LOC:33 hex
+
+class GuessANumberHex extends Application
+	reset        : ->
+		super
+	draw         : ->
+	newGame : ->
+	mousePressed : (mx,my) ->
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+app = new GuessANumberHex
+"""
+	a:"""
+class GuessANumberHex extends Application
+	reset : ->
+		super
+		@BASE = 16
+		@N = @BASE*@BASE
+		@S = 200 / @BASE
+		@seed = 1
+		@newGame()
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	newGame : ->
+		@start = 0
+		@stopp = @N-1
+		@secret = @randint @N
+		@count = 0
+	draw : ->
+		bg 0
+		textAlign CENTER,CENTER
+		textSize 9
+		for i in range @N
+			if @start <= i <= @stopp then fc 1 else fc 0.5
+			sc()
+			x = i % @BASE
+			y = int i / @BASE
+			text hex(i,2), @S/2 + @S * x, @S/2 + @S * y
+		fc 1,1,1,0.5
+		textSize 100
+		text @count,100,100
+	mousePressed : (mx,my) ->
+		guess = int mx/@S + @BASE * int my/@S
+		@seed += mx % 2
+		@count++
+		if guess <= @secret then @start = guess+1
+		if guess >= @secret then @stopp = guess-1
+
+app = new GuessANumberHex "a"
+			"""
+	c:
+		app : "reset()|newGame()"
+

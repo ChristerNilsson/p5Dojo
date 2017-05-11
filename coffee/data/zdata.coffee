@@ -98,19 +98,20 @@ data =
 		RandomDice : ID_RandomDice
 		IndianSun : ID_IndianSun
 		BoardGame : ID_BoardGame
+		Coordinator : ID_Coordinator
 		Laboratorium : ID_Laboratorium
 
 	"LA: GuessANumber" :
 		Polygon : ID_Polygon
 		Korg : ID_Korg
-		Coordinator : ID_Coordinator
 		Korsord : ID_Korsord
 		GuessANumber : ID_GuessANumber
-		SevenSegment : ID_SevenSegment
+		GuessANumberHex : ID_GuessANumberHex
 		GoldenStar : ID_GoldenStar
 
 	"LB: Connect4" :
 		MultiTimer : ID_MultiTimer
+		SevenSegment : ID_SevenSegment
 		ColorCube : ID_ColorCube
 		BlackBox2D : ID_BlackBox2D
 		SpaceShip : ID_SpaceShip
