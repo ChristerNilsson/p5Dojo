@@ -656,7 +656,7 @@ _super_ innebär att man anropar den ärvda metoden.
 
 ```javascript
 class Ammunition
-  constructor: (@vikt,@längd,@diameter) ->
+  constructor: (@diameter) ->
   skjut: (ljud) -> print ljud
 
 class Rifle extends Ammunition
