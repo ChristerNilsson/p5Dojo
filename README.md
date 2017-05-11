@@ -534,6 +534,8 @@ Lektion 9 och framåt innehåller interaktiva övningar.
 Det innebär att man med menykommandon och/eller musklick påverkar ett objekts tillstånd.
 Utritningen av objektet är beroende av tillståndet.
 
+![nian](images/nian.png)
+
 #### Menykommandon
 Den kvadratiska listboxen innehåller kommandon. Dessa måste fyllas med kod.
 I _reset_ initialiserar man egenskaperna. Låt anropet till _super_ vara kvar.
