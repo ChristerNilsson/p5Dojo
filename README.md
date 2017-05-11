@@ -24,7 +24,7 @@
 ### Chrome och Windows rekommenderas. _Windows and Chrome are recommended._
 Ingen annan programvara behöver installeras. _No other software is needed._
 
-=====
+.....
 ### färger     _colors_
 ```
 r,g,b  färg    colors
@@ -79,7 +79,7 @@ strecktjocklek  [_strokeWeight_](https://p5js.org/reference/#/p5/strokeWeight)
 ```
 sw pixlar
 ```
-=====
+.....
 ## Ritkommandon  _Drawing commands_
 
 ### circle
@@ -119,7 +119,7 @@ start = radians 180
 stopp = radians 270
 arc x,y, w,h, start,stopp
 ```
-=====
+.....
 ### [rectMode](https://p5js.org/reference/#/p5/rectMode)
   * **CORNER**
   * CORNERS
@@ -164,7 +164,7 @@ for i in [0..10] by 2         [0,2,4,6,8,10]
 for i in range 10,0,-2        [10,8,6,4,2]
 for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]
 ```
-=====
+.....
 ### [lerp](https://p5js.org/reference/#/p5/lerp)
 linjär interpolation och extrapolation, genom att ange två startpunkter.
 _Linear interpolation and extrapolation_
@@ -211,7 +211,7 @@ PI/2          == radians 90
 PI            == radians 180
 3*PI/2        == radians 270
 ```
-=====
+.....
 ### [cos](https://p5js.org/reference/#/p5/cos)
 ### [sin](https://p5js.org/reference/#/p5/sin)
 [Grafik](https://www.openprocessing.org/sketch/183592)
@@ -250,7 +250,7 @@ _Linear interpolation and extrapolation_
   3 == round 3.14
  -3 == round -3.14
 ```
-=====
+.....
 ### [parseInt](https://www.w3schools.com/jsref/jsref_parseint.asp)
 ```coffeescript
   3 == parseInt '3'
@@ -301,7 +301,7 @@ d  = new Date 2017, 5, 9, 18, 44, 37, 123
 44 == d.getMinutes()
 37 == d.getSeconds()
 ```
-=====
+.....
 ### [array](http://coffeescript.org/#literals)
 ```coffeescript
 a = [7,8,9]
@@ -350,7 +350,7 @@ for key,value of b # Notera att of används här.
 keys == ['x','y','z']
 values == [1,2,3]
 ```
-=====
+.....
 ### [inclusiveRange](http://coffeescript.org/#slices)
 ```coffeescript
 [2..4] == [2,3,4]
@@ -442,7 +442,7 @@ Sparar och återställer följande kommandon:
  - tint strokeCap strokeJoin imageMode ellipseMode colorMode
  - textAlign textFont textMode textSize textLeading
  - [information](https://www.processing.org/tutorials/transform2d)
-=====
+.....
 ### Coffeescript
  - Orsak: Programmering ska vara så enkelt som möjligt
  - Kodblock indenteras med tab (som Python) i stället för blockparenteser {}
@@ -474,7 +474,7 @@ Se exempel 2 nedan.
 ```coffeescript
 ->
 ```
-=====
+.....
 ### exempel 1: Coffeescript
 ```coffeescript
 bg 1, 0.5, 1
@@ -515,7 +515,7 @@ function lerp(x0,x1,i) {
 Din källkod sparas på din dator automatiskt. Töm editorfönstret (ctrl-A) om du vill starta om. Flera personer kan dela på samma maskin, men de måste då ha egna inloggningar.
 
 Om du tycker att editorn är långsam, skapa medvetet ett syntaxfel.
-=====
+.....
 ### Interaktivitet
 
 Lektion 9 och framåt innehåller interaktiva övningar.
@@ -580,7 +580,7 @@ class Counter extends Application
   mousePressed : (mx,my) ->
 counter = new Counter
 ```
-=====
+.....
 ### class
 
 Man kan säga att instanser är substantiv, metoder verb och egenskaper adjektiv.
