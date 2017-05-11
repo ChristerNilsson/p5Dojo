@@ -184,7 +184,9 @@ _Linear interpolation and extrapolation_
 11 == lerp 10,12,0.5
 12 == lerp 10,12,1
 14 == lerp 10,12,2
-```.....
+```
+.....
+
 ### [if](http://coffeescript.org/#conditionals)
 ```coffeescript
 if i % 3 == 0
@@ -239,7 +241,9 @@ _Linear interpolation and extrapolation_
  yi == map xi, x0, xn, y0,  yn
 250 == map 25,  0,100,  0,1000
  30 == map  1,  0, 10, 25,  75
-```.....
+```
+.....
+
 ### [constrain](https://p5js.org/reference/#/p5/constrain)
 ```coffeescript
        constrain   x, xmin, xmax
@@ -291,7 +295,9 @@ _Linear interpolation and extrapolation_
 1.41421356237 == sqrt 2
 2             == sqrt 4
 5             == sqrt 25
-```.....
+```
+.....
+
 ### log10
 ```coffeescript
 0             == log10 1
@@ -354,7 +360,9 @@ for key,value of b # Notera att of används här.
   values.push value
 keys == ['x','y','z']
 values == [1,2,3]
-```.....
+```
+.....
+
 ### [operators](https://www.w3schools.com/js/js_arithmetic.asp)
 [Precedence](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 ```coffeescript
@@ -416,7 +424,9 @@ false or false == false  # Logic or. || in Javascript
 false or true  == true
 true  or false == true
 true  or true  == true
-```.....
+```
+.....
+
 ### while
 ```coffeescript
 i = 0
@@ -458,7 +468,9 @@ Används för att komma åt egenskaper och metoder i det egna objektet.
 ```coffeescript
 class Animal
   constructor : -> @legs = 4  # javascript: this.legs = 4
-```.....
+```
+.....
+
 ### [pil](http://coffeescript.org/#language)
 Används av Coffeescript i stället för ordet function i Javascript.
 Se exempel 2 nedan.
@@ -515,7 +527,9 @@ function lerp(x0,x1,i) {
 Din källkod sparas på din dator automatiskt. Töm editorfönstret (ctrl-A) om du vill starta om. Flera personer kan dela på samma maskin, men de måste då ha egna inloggningar.
 
 Om du tycker att editorn är långsam, skapa medvetet ett syntaxfel.
+
 .....
+
 ### Interaktivitet
 
 Lektion 9 och framåt innehåller interaktiva övningar.
@@ -551,7 +565,9 @@ Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska b
 ### readFloat
 ```coffeescript
 @readFloat()  # Läser ett flyttal från textrutan under skillnadsbitmappen
-```.....
+```
+.....
+
 #### mousePressed
 mousePressed kan definieras för att ta hand om musklick.
 Detta ger större flexibilitet, men kräver att programmeraren måste avgöra var användaren klickat.
@@ -578,7 +594,9 @@ class Counter extends Application
     @counter++
   mousePressed : (mx,my) ->
 counter = new Counter
-```.....
+```
+.....
+
 ### class
 
 Man kan säga att instanser är substantiv, metoder verb och egenskaper adjektiv.
@@ -642,6 +660,7 @@ class Hund extends Djur
 class Uggla extends Djur
 ```
 .....
+
 ![pluto](images/pluto.gif)
 ![jakob](images/jakob.jpg)
 
