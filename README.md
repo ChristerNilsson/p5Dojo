@@ -26,9 +26,6 @@ Ingen annan programvara behöver installeras. _No other software is needed._
 
 ### mera information
 
- - [download](https://p5js.org)
- - [manual p5.js](https://p5js.org/reference)
- - [coffeescript](http://coffeescript.org)
  - [engelsk e-bok i färg (om fem minuter) av Lauren McCarthy, SEK 55](https://play.google.com/store/books/details?id=iP3GCgAAQBAJ&rdid=book-iP3GCgAAQBAJ&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb)
  - [svartvit pappersbok (om fem dagar), 130 SEK](https://www.adlibris.com/se/bok/getting-started-with-p5js-making-interactive-graphics-in-javascript-and-processing-9781457186776)
  - [funprogramming](https://www.youtube.com/user/hamoid)
@@ -445,15 +442,13 @@ Sparar och återställer följande kommandon:
  - [information](https://www.processing.org/tutorials/transform2d)
 
 ### Coffeescript
- - Orsak: Programmering ska vara så enkelt som möjligt
- - Kodblock indenteras med tab (som Python) i stället för blockparenteser {}
-  * Tabstorlek alltid två mellanslag
-  * Python-kolon används ej
- - Semikolon är frivilliga
- - Parenteser behövs bara för att anropa funktioner som saknar parametrar.
- - Funktioner skapas med ->
-  * f = (x) -> x*x
-  * g = (a,b) -> a+b
+* Orsak: Programmering ska vara så enkelt som möjligt
+* Kodblock indenteras med tab (som Python) i stället för blockparenteser {}
+* Tabstorlek alltid två mellanslag
+* Python-kolon används ej
+* Semikolon är frivilliga
+* Parenteser behövs bara för att anropa funktioner som saknar parametrar.
+* Funktioner skapas med ->
 
 ### Javascript
 Omge Javascript med backtick.
@@ -463,7 +458,7 @@ c = g 1,2  # 3
 ```
 
 ### [thisDot](http://coffeescript.org/#classes)
-@ i Coffeescript motsvarar this. i Javascript.
+@ i Coffeescript motsvarar _this._ i Javascript.
 Används för att komma åt egenskaper och metoder i det egna objektet.
 ```coffeescript
 class Animal
@@ -472,7 +467,7 @@ class Animal
 .....
 
 ### [pil](http://coffeescript.org/#language)
-Används av Coffeescript i stället för ordet function i Javascript.
+Används av Coffeescript i stället för _function_ i Javascript.
 Se exempel 2 nedan.
 ```coffeescript
 ->
@@ -536,11 +531,10 @@ Utritningen av objektet är beroende av tillståndet.
 
 ![nian](images/nian.png)
 
-#### Menykommandon
+#### Kommandomenyn
 Den kvadratiska listboxen innehåller kommandon. Dessa måste skapas med kod.
 I _reset()_ initialiserar man egenskaperna. Låt anropet till _super_ vara kvar.
 Texten "aaefkrrtu" i bilden kan matas in med ett klick på kommandot _enter()_.
-_draw_ anropas automatiskt efter varje kommando.
 
 #### Att tänka på
 Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska bli helgrön.
@@ -552,8 +546,8 @@ Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska b
 * Den gröna raden innehåller förebildens värde
 * Den röda raden innehåller egenskapens värde i din kod
 * Den gråa raden pekar ut skillnaderna.
-* Klicka på _reset_ om kod och data är i otakt.
-* _draw()_ anropas automatiskt för varje tangent, kommando och musklick.
+* Klicka på _reset()_ om kod och data är i otakt.
+* _draw()_ anropas automatiskt.
 
 .....
 
@@ -570,29 +564,31 @@ Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska b
 @readFloat()  # Läser ett flyttal från textrutan under skillnadsbitmappen
 ```
 #### mousePressed
-mousePressed kan definieras för att ta hand om musklick.
+_mousePressed()_ kan definieras för att ta hand om musklick.
 Detta ger större flexibilitet, men kräver att programmeraren måste avgöra var användaren klickat.
 
 #### Minimalt exempel
-Efter funktionspilarna lägger man i sin kod. Förutom dessa metoder, tillkommer menykommandon och egna hjälpmetoder. Sista raden skapar själva objektet.
+Efter funktionspilarna lägger man in sin kod. Förutom dessa metoder, tillkommer menykommandon och egna hjälpmetoder. Sista raden skapar själva objektet.
 ```coffeescript
 class Counter extends Application
   reset : -> super
   draw  : -> super
+  up : ->
+  down : ->
   mousePressed : (mx,my) ->
 counter = new Counter
 ```
 
 Exemplet, ej fullständigt:
+
 ```coffeescript
 class Counter extends Application
   reset : ->
     super
     @counter = 0
-  draw  : ->
-    text @counter,100,100
-  up : ->
-    @counter++
+  draw  : -> text @counter,100,100
+  up : -> @counter++
+  down : -> @counter--
   mousePressed : (mx,my) ->
 counter = new Counter
 ```
@@ -626,7 +622,7 @@ djur = new Djur
 
 #### Egenskaper
 
-Egenskaper inleds med tecknet _@_ och överlever inuti objektet.
+Egenskaper inleds med tecknet @ och överlever inuti objektet.
 
 ```coffeescript
 class Djur
@@ -634,6 +630,7 @@ class Djur
     @namn = namn
     @födelseår = födelseår
 ```
+
 
 Man kan omvandla en parameter till en egenskap genom att sätta ett @ före.
 
@@ -666,6 +663,7 @@ class Uggla extends Djur
 ![jakob](images/jakob.jpg)
 
 Antag att de båda djuren talar olika.
+
 _super_ innebär att man anropar den ärvda metoden.
 
 ```coffeescript
