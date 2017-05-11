@@ -618,9 +618,7 @@ Egenskaper inleds med tecknet _@_ och överlever inuti objektet.
 
 ```javascript
 class Ammunition
-  constructor : (vikt,längd,diameter) -> # gram, mm, mm
-    @vikt = vikt
-    @längd = längd
+  constructor : (diameter) -> # mm
     @diameter = diameter
 ```
 
@@ -628,13 +626,13 @@ Man kan omvandla en parameter till en egenskap genom att sätta ett @ före.
 
 ```javascript
 class Ammunition
-  constructor: (@vikt,@längd,@diameter) ->
+  constructor: (@diameter) ->
 ```
 
 Egenskaper och metoder kan nås utifrån med hjälp av punktnotation.
 
 ```javascript
-ammunition = new Ammunition 12,45,5.56
+ammunition = new Ammunition 5.56
 print ammunition.diameter  # 5.56 skrivs ut
 ```
 
@@ -667,8 +665,8 @@ class Rifle extends Ammunition
 class Excalibur extends Ammunition
   skjut: -> super "Ka-Bom"
 
-rifle = new Rifle 12,45,5.56
-excalibur = new Excalibur 48000,996,155
+rifle = new Rifle 5.56
+excalibur = new Excalibur 155
 
 rifle.skjut() # "pang" skrivs ut.
 excalibur.skjut() # "Ka-Bom" skrivs ut.
