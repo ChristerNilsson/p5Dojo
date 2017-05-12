@@ -691,7 +691,7 @@ ID_Counter =
 	k:'bg fc sc text operators class'
 	b:"""
 # LOC:12
-# Klicka på reset() om du får ett felmeddelande!
+# Klicka på reset() !
 
 class Counter extends Application
 	reset : ->
@@ -716,7 +716,7 @@ class Counter extends Application
 		textAlign CENTER,CENTER
 		textSize 100
 		text @counter,100,100
-	mousePressed : (mx,my) -> if my < 100 then @counter += 1 else @counter -= 1
+	mousePressed : (mx,my) -> @counter += if my < 100 then 1 else -1
 
 app = new Counter "a"
 """

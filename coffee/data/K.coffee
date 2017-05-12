@@ -226,7 +226,6 @@ app = new Korsord
 	a:"""
 class Korsord extends Application
 	reset : ->
-		print "reset"
 		super
 		@found = ""
 		@pattern = ''

@@ -673,7 +673,8 @@ ID_Square =
 # LOC:21
 
 class Square extends Application
-	reset        : -> super
+	reset        : ->
+		super
 	draw         : ->
 	horisontellt : (d) ->
 	vertikalt    : (d) ->
@@ -737,7 +738,8 @@ ID_Stopwatch =
 # OBS! Tiderna kan skilja med flera millisekunder. Sorry!
 
 class Stopwatch extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	mousePressed : (mx,my) ->
 app = new Stopwatch

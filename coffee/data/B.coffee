@@ -31,7 +31,7 @@ ID_Background3 =
 ID_Background4 =
 	v:'2017-04-29'
 	k:'bg'
-	b: "# LOC:1n"
+	b: "# LOC:1\n"
 	a: "bg 1,1,0"
 
 ID_BlackBox2D =

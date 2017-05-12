@@ -5,7 +5,8 @@ ID_Tetris =
 # LOC:113
 
 class Tetris extends Application
-	reset : -> super
+	reset : ->
+		super
 	draw  : ->
 	mousePressed : (mx,my) ->
 app = new Tetris

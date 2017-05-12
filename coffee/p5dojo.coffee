@@ -128,6 +128,19 @@ setState = (st) ->
 	if st==2 then msg.show() else msg.hide()
 	if st==2 then $(".CodeMirror").show() else $(".CodeMirror").hide()
 
+	if st==2
+		call = ""
+		calls = decorate data[chapter][exercise]["c"]
+		setLinks()
+		calls_without_draw = _.omit calls, 'draw()'
+		fillSelect sel4, calls_without_draw
+		if _.size(calls_without_draw) > 0
+			sel4.show()
+			$('#input').show()
+		else
+			sel4.hide()
+			$('#input').hide()
+
 	btn2.text chapter
 	btn3.text exercise
 
@@ -136,6 +149,7 @@ setState = (st) ->
 			#myCodeMirror.setValue ""
 		tableClear()
 		linksClear()
+		setLinks()
 		bg 0.5
 
 	if st==1
@@ -162,12 +176,6 @@ sel2click = (sel) ->
 	for keyword in keywords
 		sel3.append($("<option>").attr('value', keyword).text(keyword))
 	setState 2
-
-	call = ""
-	calls = decorate data[chapter][exercise]["c"]
-	setLinks()
-	calls_without_draw = _.omit calls, 'draw()'
-	fillSelect sel4, calls_without_draw
 
 	src = localStorage[exercise + "/d"]
 	if src == undefined or src==null or src == ''
@@ -254,11 +262,12 @@ mousePressed = ->
 
 setLinks = ->
 	linksClear()
-	linkAppend links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md", "p5Dojo"
+	linkAppend links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo", "p5Dojo"
+	if exercise=='' then return
 	linkAppend links, "https://p5js.org/reference", "p5"
 	linkAppend links, "http://coffeescript.org", "Coffeescript"
 	linkAppend links, "https://www.w3schools.com/js", "Javascript"
-	linkAppend links, "https://github.com/ChristerNilsson/Nilsson/blob/master/README.md", "Nilsson"
+	linkAppend links, "https://github.com/ChristerNilsson/Nilsson/blob/master/README.md#nilsson", "Nilsson"
 	linkAppend links, "https://christernilsson.github.io/p5Color", "p5Color"
 	linkAppend links, "http://underscorejs.org/", "Underscore"
 
