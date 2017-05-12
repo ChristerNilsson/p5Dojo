@@ -94,6 +94,14 @@ app = new BlackBox2D "a"
 		Operatorer : "https://www.w3schools.com/jsref/jsref_operators.asp"
 		BlackBox : "https://en.wikipedia.org/wiki/Black_box"
 
+ID_Blank =
+	v:'2017-05-12'
+	k:''
+	b: """
+# Här kan du laborera med egna idéer!
+"""
+	a: "a=null"
+
 ID_BoardGame =
 	v:'2017-04-29'
 	k:'bg fc sc circle range for ->'

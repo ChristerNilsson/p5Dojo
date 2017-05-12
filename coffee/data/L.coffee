@@ -2,7 +2,6 @@ ID_Laboratorium =
 	v:'2017-04-29'
 	k:''
 	b:"""
-# LOC:0
 # Här kan du laborera med egna idéer!
 
 class Laboratorium extends Application

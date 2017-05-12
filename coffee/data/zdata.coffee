@@ -99,7 +99,6 @@ data =
 		IndianSun : ID_IndianSun
 		BoardGame : ID_BoardGame
 		Coordinator : ID_Coordinator
-		Laboratorium : ID_Laboratorium
 
 	"LA: GuessANumber" :
 		Polygon : ID_Polygon
@@ -153,10 +152,12 @@ data =
 		EngineeringNotation : ID_EngineeringNotation
 		Sokoban : ID_Sokoban
 
-	Start :
+	Information :
 		Nyheter : ID_nyheter
 		Asserts : ID_Asserts
 		LinesOfCode : ID_LinesOfCode
+		Blank : ID_Blank
+		Laboratorium : ID_Laboratorium
 
 	Exhibition :
 		rainbow : ID016

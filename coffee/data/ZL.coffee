@@ -1,5 +1,5 @@
 ID_nyheter =
-	v:'2017-05-11'
+	v:'2017-05-12'
 	k:''
 	b:"""
 # LOC:0
@@ -7,6 +7,7 @@ ID_nyheter =
 #   GuessANumberHex
 #   Coordinator
 #   Tetris
+#   Blank
 # NYHETER 2017 MAJ 06
 #   Reversi
 #   Shortcut2
@@ -49,13 +50,6 @@ ID_nyheter =
 #   GoldenStar Alphanumeric BoardGame SevenSegment
 #   Connect4 SpaceShip
 #   RushHour ChessGame
-
-# Klicka nu på L1!
-
-# Eller besök Utställningen.
-# Dessa program är skapade av deltagare på p5Dojo.
-# Vill du också visa upp ditt alster?
-#   Skicka i så fall koden till p5dojo@googlegroups.com
 """
 	a:"""
 """
@@ -239,7 +233,7 @@ assert [1,2,3],           _.values {a:1, b:2, c:3}
 		p5Assert : 'https://christernilsson.github.io/p5Assert'
 
 ID_LinesOfCode =
-	v:'2017-04-29'
+	v:'2017-05-12'
 	k:'bg fc sc [] {} operators if parseInt _.max rect for text class'
 	b:"""
 # LOC:62
@@ -258,7 +252,7 @@ class LinesOfCode extends Application
 		@h = 13
 		@total = 0
 		for chapter,item1 of data
-			if chapter not in ['Start','Exhibition']
+			if chapter not in ['Information','Exhibition']
 				@stat[chapter] = {}
 				for exercise,item2 of item1
 					b = item2.b
