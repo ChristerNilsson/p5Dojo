@@ -183,6 +183,67 @@ rd 180
 text 'Coffeescript',0,0
 """
 
+ID_TowerOfHanoi =
+	v:'2017-05-13'
+	k:'bg fc sc range operators [] text for if return constrain class line'
+	b:"""
+# LOC:40
+
+class TowerOfHanoi extends Application
+	reset : ->
+		super
+	draw : ->
+	mousePressed : (mx,my) ->
+app = new TowerOfHanoi
+"""
+	a:"""
+class TowerOfHanoi extends Application
+	reset : ->
+		super
+		@board = []
+		@level = 0
+		@H = 10
+		@buttons = [33,100,167]
+		@disk = -1
+		@newGame()
+	draw : ->
+		bg 0.75
+		sc()
+		for pile,i in @board
+			x = @buttons[i]
+			sc 0.5
+			sw 3
+			line x,55,x,140
+			sc 0
+			line 0,140,200,140
+			sw @H
+			for disk,j in pile
+				y = 134 - j*@H
+				scc disk
+				line x-3*(disk+1),y, x+3*(disk+1),y
+	newGame : ->
+		@level = constrain @level+1,1,8
+		@board = [range(@level).reverse(), [], []]
+	mousePressed : (mx,my) ->
+		if @disk==-1 and @board[0].length==0 and @board[1].length==0
+			@newGame()
+		else
+			for x,index in @buttons
+				if x-33 <= mx <= x+33
+					if @disk == -1
+						@disk = @board[index].pop()
+					else
+						pile = @board[index]
+						if pile.length == 0 or _.last(pile) > @disk
+							pile.push @disk
+							@disk = -1
+
+app = new TowerOfHanoi "a"
+
+"""
+	c:
+		app : "reset()"
+
 ID_Triangle =
 	v:'2017-04-29'
 	k:'fc triangle'

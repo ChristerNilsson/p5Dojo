@@ -1,7 +1,6 @@
 class Application
 
 	constructor : (@_name='b') ->
-
 		classes = {}
 		classes[klass.name] = klass for klass in @classes()
 
@@ -34,6 +33,7 @@ class Application
 	draw : ->
 
 	mark : (obj=@) ->
+		if _.isNull(obj) then return
 		if _.isArray(obj) then return	(@mark(item) for item in obj) # array
 		if _.isObject(obj)
 			obj['_type'] = obj.constructor.name if obj.constructor.name != 'Object'

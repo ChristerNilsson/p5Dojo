@@ -134,6 +134,7 @@ data =
 		ChessGame : ID_ChessGame
 		RecursiveCircle : ID_RecursiveCircle
 		Reversi : ID_Reversi
+		TowerOfHanoi : ID_TowerOfHanoi
 		ColorPair : ID_ColorPair
 
 	"LE: RushHour" :
