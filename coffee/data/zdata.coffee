@@ -121,6 +121,7 @@ data =
 		Nian : ID_Nian
 		BouncingBalls : ID_BouncingBalls
 		Snake4 : ID_Snake4
+		Angle : ID_Angle
 		ForthHaiku : ID_ForthHaiku
 		Kalkylator : ID_Kalkylator
 		GameOfLife : ID_GameOfLife

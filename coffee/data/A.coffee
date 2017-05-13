@@ -56,3 +56,80 @@ app = new AlphaNumeric "a"
 		hexadecimalt : "http://www.matteguiden.se/matte-1/grunder/binara-och-hexadecimala-tal"
 		'5x7 matris' : "https://www.google.se/search?q=5x7+matrix&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjWjYen5OrSAhXhJ5oKHf8BBmgQ_AUIBigB&biw=1310&bih=945&dpr=1.1"
 
+ID_Angle =
+	v:'2017-05-13'
+	k:'bg sc fc sw circle class dist if operators text sin cos atan2 radians arc _.min line for range abs'
+	b:"""
+# LOC:54
+# Svart linje markerar 0 grader. Vit linje 90 grader.
+
+class Angle extends Application
+	reset : ->
+		super
+		@seed = 0
+	draw : ->
+	mousePressed : (mx,my) ->
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+app = new Angle
+"""
+	a:"""
+
+class Angle extends Application
+	reset : ->
+		super
+		@seed = 0
+		@level = 2
+		@errors = 0
+		@R1 = 50
+		@R2 = 100
+		@newGame 0
+	newGame : (d) ->
+		if d==-1 then @errors++
+		@level = constrain @level+d, 1, 100
+		@angle = int 360/@level * @randint @level # hela grader
+		@marginal = 180/@level # grader
+	draw : ->
+		bg 0.5
+		sw 50
+		strokeCap SQUARE
+		start = radians 135-@marginal
+		stopp = radians 135+@marginal
+		fc()
+		sc 1,1,0
+		arc 100,100,150,150,start,stopp
+		sw 1
+		for i in range 12
+			if i==0 then sc 1 else sc 0
+			v = i * 30 * PI/180
+			x1 = 100+@R1*cos v
+			y1 = 100+@R1*sin v
+			x2 = 100+@R2*cos v
+			y2 = 100+@R2*sin v
+			line x1,y1,x2,y2
+		sc 1,1,0
+		circle 100,100,@R1
+		circle 100,100,@R2
+		sc()
+		fc 1
+		textSize 16
+		textAlign CENTER,CENTER
+		fc 1,1,0
+		text @angle,100,100
+		fc 1,0,0
+		text @errors,100,75
+		fc 0,1,0
+		text @level,100,125
+	mousePressed : (mx,my) ->
+		d = dist 100,100,mx,my
+		if @R1 <= d <= @R2
+			v = -180/PI * atan2 my-100,mx-100
+			@seed += mx % 10
+			res = @angleDist(v,@angle) <= @marginal
+			@newGame if res then 1 else -1
+	angleDist : (u,v) -> _.min [abs(u-v), abs(360+u-v)]
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+
+app = new Angle "a"
+"""
+	c:
+		app : "reset()"

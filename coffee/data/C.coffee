@@ -214,8 +214,8 @@ app = new ClickDetector "a"
 		Triangle : "http://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle"
 
 ID_CoffeescriptClock =
-	v:'2017-04-29'
-	k:'bg fc sc range operators for "" radians text'
+	v:'2017-05-13'
+	k:'bg fc sc range operators for "" radians text sin cos'
 	b:"""
 # LOC:10
 """
@@ -233,8 +233,8 @@ for i in range 12
 """
 
 ID_ColorCross =
-	v:'2017-04-29'
-	k:'bg sc sw range for point'
+	v:'2017-05-13'
+	k:'bg sc range for point'
 	b:"# LOC:11 \n"
 	a:"""
 bg 0.5

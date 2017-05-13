@@ -232,6 +232,20 @@ PI / 2     90       0       1
 PI        180      -1       0
 ```
 
+### [atan2](https://p5js.org/reference/#/p5/atan2)
+```coffeescript
+   y    x   atan2 y,x
+            radianer grader
+   0  100   0          0
+ 100  100   PI/4      45
+ 100    0   PI/2      90
+ 100 -100   3*PI/4   135
+   0 -100   PI       180
+-100 -100   5*PI/4   225
+-100    0   3*PI/2   270
+-100  100   7*PI/4   315
+```
+
 ### [map](https://p5js.org/reference/#/p5/map)
 linjär interpolation och extrapolation, genom att ange start- och slutpunkter.
 _Linear interpolation and extrapolation_
@@ -268,6 +282,11 @@ _Linear interpolation and extrapolation_
 ```coffeescript
   3.14 == parseFloat '3.14'
  -3.14 == parseFloat '-3.14'
+```
+### [abs](https://p5js.org/reference/#/p5/abs)
+```coffeescript
+ 1 == abs 1
+ 1 == abs -1
 ```
 ### [dist](https://p5js.org/reference/#/p5/dist)
 ```coffeescript
