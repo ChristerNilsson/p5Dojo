@@ -57,11 +57,11 @@ app = new AlphaNumeric "a"
 		'5x7 matris' : "https://www.google.se/search?q=5x7+matrix&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjWjYen5OrSAhXhJ5oKHf8BBmgQ_AUIBigB&biw=1310&bih=945&dpr=1.1"
 
 ID_Angle =
-	v:'2017-05-13'
+	v:'2017-05-12'
 	k:'bg sc fc sw circle class dist if operators text sin cos atan2 radians arc _.min line for range abs'
 	b:"""
 # LOC:54
-# Svart linje markerar 0 grader. Vit linje 90 grader.
+# Vit linje markerar 0 grader.
 
 class Angle extends Application
 	reset : ->

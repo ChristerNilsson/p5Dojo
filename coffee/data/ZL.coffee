@@ -1,5 +1,5 @@
 ID_nyheter =
-	v:'2017-05-12'
+	v:'2017-05-13'
 	k:''
 	b:"""
 # LOC:0
@@ -8,6 +8,7 @@ ID_nyheter =
 #   Coordinator
 #   Tetris
 #   Blank
+#   Angle
 # NYHETER 2017 MAJ 06
 #   Reversi
 #   Shortcut2
