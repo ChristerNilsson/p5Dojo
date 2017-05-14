@@ -205,7 +205,7 @@ class TowerOfHanoi extends Application
 		@level = 0
 		@H = 10
 		@buttons = [33,100,167]
-		@disk = -1
+		@disk = null
 		@newGame()
 	draw : ->
 		bg 0.75
@@ -226,18 +226,18 @@ class TowerOfHanoi extends Application
 		@level = constrain @level+1,1,8
 		@board = [range(@level).reverse(), [], []]
 	mousePressed : (mx,my) ->
-		if @disk==-1 and @board[0].length==0 and @board[1].length==0
+		if @disk==null and @board[0].length==0 and @board[1].length==0
 			@newGame()
 		else
 			for x,index in @buttons
 				if x-33 <= mx <= x+33
-					if @disk == -1
+					if @disk == null
 						@disk = @board[index].pop()
 					else
 						pile = @board[index]
 						if pile.length == 0 or _.last(pile) > @disk
 							pile.push @disk
-							@disk = -1
+							@disk = null
 
 app = new TowerOfHanoi "a"
 
