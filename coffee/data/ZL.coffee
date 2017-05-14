@@ -3,6 +3,8 @@ ID_nyheter =
 	k:''
 	l:0
 	b:"""
+# NYHETER 2017 MAJ 20
+#   Paint
 # NYHETER 2017 MAJ 13
 #   TowerOfHanoi
 #   GuessANumberHex

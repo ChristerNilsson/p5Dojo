@@ -11,6 +11,56 @@ arc 100,100, 180,180, radians(-135),radians(135)
 		Play : "https://www.google.se/#q=pacman&clb=clb"
 		Wikipedia : "https://en.wikipedia.org/wiki/Pac-Man"
 
+ID_Paint =
+	v:'2017-05-14'
+	k:'bg sc range rect circle for class []'
+	l:30
+	b:"""
+class Paint extends Application
+	reset      : ->
+		super
+	draw       : ->
+	mousePressed : (mx,my) ->
+	undo : ->
+app = new Paint
+"""
+	a:"""
+class Paint extends Application
+	reset : ->
+		super
+		@picture = (Array(20).fill(0) for i in range 18)
+		@selected = 1
+		@history = []
+	draw : ->
+		sc()
+		for i in range 8
+			fcc i
+			rect 10*i,0,10,10
+		tcc @selected
+		circle 5 + @selected * 10,5,3
+		for i in range 20
+			for j in range 18
+				fcc @picture[j][i]
+				rect 10*i,20+10*j,10,10
+	mousePressed : (mx,my) ->
+		i = int mx/10
+		j = int my/10
+		if j==0 or j==1
+			if i<=7 then @selected = i
+		else
+			j -= 2
+			@history.push [j,i,@picture[j][i]]
+			@picture[j][i] = @selected
+	undo : ->
+		if @history.length==0 then return
+		[a,b,c] = @history.pop()
+		@picture[a][b] = c
+
+app = new Paint "a"
+"""
+	c:
+		app : "reset()|undo()"
+
 ID_PentaLerp =
 	v:'2017-05-13'
 	k:'bg sc fc range circle for lerp'

@@ -8,13 +8,9 @@ fc 1,1,0
 quad 150,100, 180,20, 40,20, 100,140
 """
 
-
-
-
-
 ID_Quiz =
 	v:'2017-05-13'
-	k:'bg sw fc rd rect rectMode translate operators class'
+	k:'bg sw fc text operators class for range []'
 	l:0
 	b: """
 class Quiz extends Application

@@ -108,6 +108,7 @@ data =
 		Korsord : ID_Korsord
 		GuessANumber : ID_GuessANumber
 		GuessANumberHex : ID_GuessANumberHex
+		Paint : ID_Paint
 		GoldenStar : ID_GoldenStar
 
 	"LB: Connect4" :
