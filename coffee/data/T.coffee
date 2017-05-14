@@ -209,7 +209,10 @@ class TowerOfHanoi extends Application
 		@newGame()
 	draw : ->
 		bg 0.75
+		textSize 32
+		textAlign CENTER,CENTER
 		sc()
+		text @counter,100,180
 		for pile,i in @board
 			x = @buttons[i]
 			sc 0.5
@@ -223,6 +226,7 @@ class TowerOfHanoi extends Application
 				scc disk
 				line x-3*(disk+1),y, x+3*(disk+1),y
 	newGame : ->
+		@counter=0
 		@level = constrain @level+1,1,8
 		@board = [range(@level).reverse(), [], []]
 	mousePressed : (mx,my) ->
@@ -236,6 +240,7 @@ class TowerOfHanoi extends Application
 					else
 						pile = @board[index]
 						if pile.length == 0 or _.last(pile) > @disk
+							@counter++
 							pile.push @disk
 							@disk = null
 
