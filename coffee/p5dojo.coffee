@@ -142,11 +142,10 @@ setState = (st) ->
 			$('#input').hide()
 
 	btn2.text chapter
-	btn3.text exercise
+	if data[chapter]? and data[chapter][exercise]?
+		btn3.text exercise + ' : ' + data[chapter][exercise]["l"]
 
 	if st<=1
-		#if myCodeMirror?
-			#myCodeMirror.setValue ""
 		tableClear()
 		linksClear()
 		setLinks()
@@ -305,7 +304,6 @@ changeLayout = ->
 	$(".CodeMirror").width w-425
 	$("#canvas").css {top: 0, left: 205, position:'absolute'}
 	$("#msg").width w-430
-	#$("#tabell").width w-215
 
 resizeTimer = 0
 $(window).resize ->
@@ -523,9 +521,6 @@ tableAppend = (t, call, expected, actual) -> # exakt tre rader
 	cell2.style.backgroundColor = '#00FF00'
 
 	if _.isEqual(expected, actual) then return
-	#cell4.style.backgroundColor = '#00FF00'
-	#return
-	#else
 
 	row = t.insertRow -1
 	dummy = row.insertCell -1

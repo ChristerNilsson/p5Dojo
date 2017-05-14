@@ -1,9 +1,8 @@
 ID_IndianSun =
 	v:'2017-04-29'
 	k:'range line sin cos radians for if constrain operators class'
+	l:10
 	b:"""
-# LOC:10
-
 class IndianSun extends Application
 	reset : ->
 		super

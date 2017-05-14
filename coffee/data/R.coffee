@@ -1,9 +1,8 @@
 ID_RandomDice =
 	v:'2017-04-29'
 	k:'bg fc sc circle operators [] int sin for class'
+	l:19
 	b: """
-# LOC:19
-
 class RandomDice extends Application
 	reset : ->
 		super
@@ -41,9 +40,8 @@ app = new RandomDice "a"
 ID_RecursiveCircle =
 	v:'2017-04-29'
 	k:'sc circle if return operators class'
+	l:10
 	b: """
-# LOC:10
-
 class RecursiveCircle extends Application
 	reset   : ->
 		super
@@ -74,7 +72,8 @@ app = new RecursiveCircle "a"
 ID_RedCone =
 	v:'2017-04-29'
 	k:'range fc circle for lerp'
-	b:"# LOC:6 \n"
+	l:6
+	b:""
 	a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -87,7 +86,8 @@ for i in range 10,0,-1
 ID_RedRect =
 	v:'2017-04-29'
 	k:'fc rect'
-	b:"# LOC:2 \n"
+	l:2
+	b:""
 	a:"""
 fc 1,0,0
 rect 80,70, 40,100
@@ -96,9 +96,8 @@ rect 80,70, 40,100
 ID_Reversi =
 	v:'2017-05-02'
 	k:'sc fc bg range [] rect circle while if operators class'
+	l:49
 	b: """
-# LOC:49
-
 class Reversi extends Application
 	reset : ->
 		super
@@ -167,7 +166,8 @@ app = new Reversi "a"
 ID_RotatedEllipse =
 	v:'2017-04-29'
 	k:'rd ellipse translate'
-	b:"# LOC:5\n"
+	l:5
+	b:""
 	a:"""
 fc 1,0,0
 sc()
@@ -179,7 +179,8 @@ ellipse 0,0, 80,40
 ID_RotatedRectA =
 	v:'2017-04-29'
 	k:'fc rect'
-	b:"# LOC:4 \n"
+	l:4
+	b:""
 	a:"""
 fc 1,0,0
 rect 60,100, 40,40
@@ -190,7 +191,8 @@ rect 140,100, 40,40
 ID_RotatedRectB =
 	v:'2017-04-29'
 	k:'fc rd rect translate push pop'
-	b:"# LOC:12 \n"
+	l:12
+	b:""
 	a:"""
 push()
 fc 1,0,0
@@ -209,7 +211,8 @@ pop()
 ID_RotatedRectC =
 	v:'2017-04-29'
 	k:'fc rd rect translate push pop'
-	b:"# LOC:13\n"
+	l:13
+	b:""
 	a:"""
 rectMode CENTER
 push()
@@ -229,9 +232,8 @@ pop()
 ID_Roulette =
 	v:'2017-04-29'
 	k:'bg sw fc sc range rd for if operators [] "" PI text arc strokeCap translate'
+	l:15
 	b:"""
-# LOC:15
-
 numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
 """
 	a:"""
@@ -257,9 +259,8 @@ for number,i in numbers
 ID_RubikCube =
 	v:'2017-04-29'
 	k:'bg fc sc range [] if constrain for int quad text dist operators class'
+	l:121
 	b:"""
-# LOC:121
-
 class RubikCube extends Application
 	reset : ->
 		super
@@ -403,8 +404,8 @@ app = new RubikCube "a"
 ID_RubikSquare =
 	v:'2017-04-29'
 	k:'bg fc sc circle [] int .. operators if rectMode rect "" parseInt _.isEqual text while constrain class'
+	l:85
 	b:"""
-# LOC:85
 # OBS: Du bör använda variabeln rubikSquareData.
 
 class RubikSquare extends Application
@@ -513,9 +514,8 @@ app = new RubikSquare "a"
 ID_RushHour =
 	v:'2017-04-29'
 	k:'bg sc fc range operators "" [] {} class rect text for if readText'
+	l:71
 	b:"""
-# LOC:71
-
 # De 36 rutorna numreras:
 #   0 1 2 3 4 5
 #   6 7 8 9 a b

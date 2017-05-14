@@ -1,7 +1,8 @@
 ID_Diagonal1 =
 	v:'2017-04-29'
 	k:'sc sw point'
-	b: "# LOC:12\n"
+	l:12
+	b: ""
 	a: """
 bg 0,1,0
 sw 20
@@ -24,7 +25,8 @@ point 200,200
 ID_Diagonal2 =
 	v:'2017-04-29'
 	k:'sc sw point'
-	b: "# LOC:11\n"
+	l:11
+	b: ""
 	a: """
 sw 20
 sc 1,0,0
@@ -46,7 +48,8 @@ point 0,200
 ID_DiagonalSquares =
 	v:'2017-04-29'
 	k:'range rect for lerp'
-	b:"# LOC:4\n"
+	l:4
+	b:""
 	a:"""
 for i in range 10
 	x = 5+20*i
@@ -57,7 +60,8 @@ for i in range 10
 ID_DoubleForLoop =
 	v:'2017-04-29'
 	k:'range rect for lerp'
-	b:"# LOC:5 \n"
+	l:5
+	b:""
 	a:"""
 for i in range 10
 	for j in range 10
@@ -69,7 +73,8 @@ for i in range 10
 ID_Dices =
 	v:'2017-04-29'
 	k:'sc point'
-	b : "# LOC:26\n"
+	l:26
+	b : ""
 	a: """
 point 10,10
 

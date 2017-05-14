@@ -1,9 +1,8 @@
 ID_Hex =
 	v:'2017-04-29'
 	k:'bg fc sc range operators dist for [] quad circle if text class'
+	l:47
 	b:"""
-# LOC:47
-
 class Hex extends Application
 	reset : ->
 		super
@@ -78,7 +77,8 @@ app = new Hex "a"
 ID_HorizontalLine =
 	v:'2017-04-29'
 	k:'sc line'
-	b: "# LOC:2 \n"
+	l:2
+	b: ""
 	a: """
 sc 1,0,1
 line 10,70, 190,70
@@ -87,8 +87,8 @@ line 10,70, 190,70
 ID_HorizontalSquares =
 	v:'2017-04-29'
 	k:'range rect for lerp'
+	l:3
 	b:"""
-# LOC:3
 rect  5,5,10,10
 rect 25,5,10,10
 for i in range 5

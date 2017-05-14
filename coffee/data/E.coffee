@@ -1,9 +1,8 @@
 ID_EngineeringNotation =
 	v:'2017-04-29'
 	k:'fc sc bg int log10 constrain operators text class'
+	l:28
 	b:"""
-# LOC:28
-
 class Engineering extends Application
 	reset : ->
 		super

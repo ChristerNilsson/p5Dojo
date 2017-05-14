@@ -1,8 +1,8 @@
 ID_nyheter =
 	v:'2017-05-14'
 	k:''
+	l:0
 	b:"""
-# LOC:0
 # NYHETER 2017 MAJ 13
 #   TowerOfHanoi
 #   GuessANumberHex
@@ -59,8 +59,8 @@ ID_nyheter =
 ID_Asserts =
 	v:'2017-04-29'
 	k:''
+	l:0
 	b:"""
-# LOC:0
 # Här kan du se några klargörande exempel.
 # Om de två parametrarna till assert är olika, skrivs de ut till console.
 # Du kan prova egna asserts här. Kontrollera med F12.
@@ -235,11 +235,10 @@ assert [1,2,3],           _.values {a:1, b:2, c:3}
 		p5Assert : 'https://christernilsson.github.io/p5Assert'
 
 ID_LinesOfCode =
-	v:'2017-05-12'
+	v:'2017-05-13'
 	k:'bg fc sc [] {} operators if parseInt _.max rect for text class'
+	l:60
 	b:"""
-# LOC:62
-
 class LinesOfCode extends Application
 	reset : -> super
 	draw : ->
@@ -257,10 +256,7 @@ class LinesOfCode extends Application
 			if chapter not in ['Information','Exhibition']
 				@stat[chapter] = {}
 				for exercise,item2 of item1
-					b = item2.b
-					p1 = b.indexOf 'LOC:'
-					#p2 = b.indexOf ' ',p1
-					loc = parseInt b.substring p1+4 #,p2
+					loc = item2.l
 					@total += loc
 					@stat[chapter][exercise] = loc
 	draw : ->

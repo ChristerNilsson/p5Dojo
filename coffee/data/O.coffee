@@ -1,9 +1,8 @@
 ID_OlympicRingPrep =
 	v:'2017-04-29'
 	k:'sc fc sw arc strokeCap class'
+	l:21
 	b:"""
-# LOC:21
-
 class Ring extends Application
 	reset  : ->
 		super
@@ -42,9 +41,8 @@ app = new Ring "a"
 ID_OlympicRings =
 	v:'2017-04-29'
 	k:'sc bg fc sw arc strokeCap class'
+	l:24
 	b: """
-# LOC:24
-
 class Ring
 	constructor : (@x,@y,@r,@g,@b) ->
 	draw : (start=3,stopp=3,hour=PI/6) ->
@@ -90,8 +88,8 @@ olympic()
 ID_OneDiceHistogram =
 	v:'2017-04-29'
 	k:'fc sc range int random text for operators rect []'
+	l:17
 	b:"""
-# LOC:17
 # OBS: På grund av random blir bitmapparna inte likadana
 
 h = 50

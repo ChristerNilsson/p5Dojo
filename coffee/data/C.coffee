@@ -1,7 +1,8 @@
 ID_Cards =
 	v:'2017-04-29'
 	k:'fc sc circle range rd rect rectMode for lerp translate'
-	b:"# LOC:10\n"
+	l:10
+	b:""
 	a:"""
 rectMode CENTER
 sc 1
@@ -18,7 +19,8 @@ for i in range 18,-1,-1
 ID_ChessBoard =
 	v:'2017-04-29'
 	k:'bg fc range for lerp rect'
-	b:"# LOC:7\n"
+	l:7
+	b:""
 	a:"""
 bg 0.5
 for i in range 8
@@ -32,9 +34,8 @@ for i in range 8
 ID_ChessGame =
 	v:'2017-04-29'
 	k:'bg fc sc sw range circle rectMode class rect if text for "" _.isEqual operators []'
+	l:53
 	b:"""
-# LOC:53
-
 # OBS!   Rockad, en passant samt bondeförvandling hanteras ej.
 #        Flytta pjäserna med musen. Klick utanför brädet innebär undo.
 
@@ -109,7 +110,8 @@ app = new Chess "a"
 ID_ChessRow =
 	v:'2017-04-29'
 	k:'bg fc range operators for lerp rect'
-	b:"# LOC:5 \n"
+	l:5
+	b:""
 	a:"""
 bg 0.5
 for i in range 8
@@ -121,9 +123,8 @@ for i in range 8
 ID_ClickDetector =
 	v:'2017-04-29'
 	k:'bg sc fc range circle quad rect triangle class dist if operators text rectMode'
+	l:62
 	b:"""
-# LOC:62
-
 class Vector
 	constructor : (@x,@y) ->
 	add : (b) -> new Vector @x+b.x,@y+b.y
@@ -216,9 +217,8 @@ app = new ClickDetector "a"
 ID_CoffeescriptClock =
 	v:'2017-05-13'
 	k:'bg fc sc range operators for "" radians text sin cos'
-	b:"""
-# LOC:10
-"""
+	l:10
+	b:""
 	a:"""
 bg 1
 fc 0
@@ -235,7 +235,8 @@ for i in range 12
 ID_ColorCross =
 	v:'2017-05-13'
 	k:'bg sc range for point'
-	b:"# LOC:11 \n"
+	l:11
+	b:""
 	a:"""
 bg 0.5
 for k in range 6
@@ -253,9 +254,8 @@ for k in range 6
 ID_ColorCube =
 	v:'2017-04-29'
 	k:'bg range for class quad [] stroke if operators return'
+	l:33
 	b: """
-# LOC:33
-
 class ColorCube extends Application
 	reset       : ->
 		super
@@ -311,9 +311,8 @@ app = new ColorCube "a"
 ID_ColorPair =
 	v:'2017-04-29'
 	k:'fc circle [] .. dist _.isEqual colorMode HSB _.max _.pairs _.sortBy for class'
+	l:41
 	b: """
-# LOC:41
-
 class ColorPair extends Application
 	reset : ->
 		super
@@ -395,9 +394,8 @@ app = new ColorPair "a"
 ID_Complex =
 	v:'2017-04-29'
 	k:'bg fc sc range operators [] line circle text for if return int {} dist _.isEqual constrain class'
+	l:80
 	b:"""
-# LOC:80
-
 class Complex extends Application
 	reset : ->
 		super
@@ -499,9 +497,8 @@ app = new Complex "a"
 ID_Connect4 =
 	v:'2017-04-29'
 	k:'operators bg fc sc sw circle range text for class'
+	l:33
 	b:"""
-# LOC:33
-
 class Connect4 extends Application
 	reset : ->
 		super
@@ -555,9 +552,8 @@ app = new Connect4 "a"
 ID_Coordinator =
 	v:'2017-05-10'
 	k:'sc fc circle class dist if operators text'
+	l:30
 	b:"""
-# LOC:30
-
 class Coordinator extends Application
 	reset : ->
 		super
@@ -608,9 +604,8 @@ app = new Coordinator "a"
 ID_CornerPoints =
 	v:'2017-04-29'
 	k:'sc sw point'
+	l:9
 	b: """
-# LOC:9
-
 sw
 sc
 point
@@ -633,7 +628,8 @@ point 200,200
 ID_CornerPoints3 =
 	v:'2017-04-29'
 	k:'sc sw point'
-	b: "# LOC:17\n"
+	l:17
+	b: ""
 	a: """
 sw 10
 sc 1,0,0
@@ -662,7 +658,8 @@ point 200,180
 ID_CornerPoints7 =
 	v:'2017-04-29'
 	k:'sc sw point'
-	b: "# LOC:17 \n"
+	l:17
+	b: ""
 	a: """
 sw 10
 sc 1,0,0
@@ -689,8 +686,8 @@ point 200,170
 ID_Counter =
 	v:'2017-04-29'
 	k:'bg fc sc text operators class'
+	l:12
 	b:"""
-# LOC:12
 # Klicka på reset() !
 
 class Counter extends Application
@@ -726,11 +723,11 @@ app = new Counter "a"
 ID_Cross =
 	v:'2017-04-29'
 	k:'fc rect'
-	b:"# LOC:4\n"
+	l:4
+	b:""
 	a:"""
 fc 1,0,0
 sc()
 rect 85,70, 70,10
 rect 115,40, 10,100
 """
-

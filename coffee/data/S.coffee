@@ -1,9 +1,8 @@
 ID_SevenSegment =
 	v:'2017-04-29'
 	k:'bg sc fc rect rectMode if operators [] class'
+	l:31
 	b : """
-# LOC:31
-
 class Digit extends Application
 	reset : ->
 		super
@@ -55,9 +54,8 @@ app = new Digit "a"
 ID_Shortcut =
 	v:'2017-04-29'
 	k:'bg fc sc range operators [] text for if return {} constrain class'
+	l:65
 	b:"""
-# LOC:65
-
 class Shortcut extends Application
 	reset : ->
 		super
@@ -142,9 +140,8 @@ app = new Shortcut "a"
 ID_Shortcut2 =
 	v:'2017-05-04'
 	k:'bg fc sc range operators [] for if return _.min text dist int {} constrain class'
+	l:126
 	b:"""
-# LOC:126
-
 class Shortcut2 extends Application
 	reset : ->
 		super
@@ -297,7 +294,8 @@ app = new Shortcut2 "a"
 ID_ShrinkingCircles =
 	v:'2017-04-29'
 	k:'range fc circle for lerp'
-	b:"# LOC:4 \n"
+	l:4
+	b:""
 	a:"""
 for i in range 10,0,-1
 	fc i/10.0,0,0
@@ -308,7 +306,8 @@ for i in range 10,0,-1
 ID_Skislope =
 	v:'2017-04-29'
 	k:'bg sc range for lerp line'
-	b: "# LOC:4 "
+	l:4
+	b: ""
 	a: """
 bg 0
 sc 1,0,0
@@ -319,9 +318,8 @@ for i in range 21
 ID_Snake =
 	v:'2017-04-29'
 	k:'bg fc [] rect operators dist for if class'
+	l:47
 	b: """
-# LOC:47
-
 class Snake extends Application
 	reset : ->
 		super
@@ -390,9 +388,8 @@ app = new Snake "a"
 ID_Snake4 =
 	v:'2017-04-29'
 	k:'bg fc [] rect operators dist for if class'
+	l:43
 	b: """
-# LOC:43
-
 class Snake4 extends Application
 	reset : ->
 		super
@@ -459,7 +456,8 @@ app = new Snake4 "a"
 ID_SnowWhiteAndThe7Lerps =
 	v:'2017-04-29'
 	k:'bg fc sc range rd rect rectMode for lerp translate push pop'
-	b:"# LOC:17 \n"
+	l:17
+	b:""
 	a:"""
 bg 1
 rectMode CENTER
@@ -483,9 +481,8 @@ for i in range 10
 ID_Sokoban =
 	v:'2017-04-29'
 	k:'bg sc fc sw range operators [] text for if rect circle dist class'
+	l:94
 	b: """
-# LOC:94
-
 class Sokoban extends Application
 	reset : ->
 		super
@@ -599,9 +596,8 @@ app = new Sokoban "a"
 ID_SpaceShip =
 	v:'2017-04-29'
 	k:'sc sw rd point triangle translate cos sin radians push pop class'
+	l:35
 	b:"""
-# LOC:35
-
 class Shot
 	constructor : (@x,@y,@dir) ->
 	render      : ->
@@ -669,9 +665,8 @@ app = new Ship "a"
 ID_Square =
 	v:'2017-04-29'
 	k:'bg sw fc rd rect rectMode translate operators class'
+	l:21
 	b: """
-# LOC:21
-
 class Square extends Application
 	reset        : ->
 		super
@@ -713,9 +708,10 @@ app = new Square "a"
 		app : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"
 
 ID_SquareHole =
-	v:'2017-04-29'
-	k:'fc sc sw rect'
-	b : "# LOC:11 \n"
+	v : '2017-04-29'
+	k : 'fc sc sw rect'
+	l : 11
+	b : ""
 	a : """
 fc 0,1,1
 sc()
@@ -733,8 +729,8 @@ rect 80,80, 40,40
 ID_Stopwatch =
 	v:'2017-04-29'
 	k:'bg sc fc for [] text int millis nf class'
+	l:20
 	b:"""
-# LOC:20
 # OBS! Tiderna kan skilja med flera millisekunder. Sorry!
 
 class Stopwatch extends Application
@@ -774,7 +770,8 @@ app = new Stopwatch "a"
 ID_Sunshine =
 	v:'2017-04-29'
 	k:'bg sc range for lerp line'
-	b: "# LOC:9 \n"
+	l:9
+	b: ""
 	a: """
 bg 0
 sc 1,1,0
@@ -790,9 +787,8 @@ for i in range 10
 ID_SuperCircle =
 	v:'2017-04-29'
 	k:'bg range operators for line'
-	b: """
-# LOC:7
-"""
+	l:7
+	b: ""
 	a: """
 bg 0
 for i in range 41

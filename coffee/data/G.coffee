@@ -1,7 +1,8 @@
 ID_GalaxiesColliding =
 	v:'2017-04-29'
 	k:'fc range for lerp rect if'
-	b: "# LOC:8 (David Larsson)\n"
+	l:8
+	b: "# (David Larsson)\n"
 	a: """
 for i in range 10
 	for j in range 10
@@ -16,9 +17,8 @@ for i in range 10
 ID_GameOfLife =
 	v:'2017-04-29'
 	k:'bg range for [] operators if int class'
+	l:40
 	b:"""
-# LOC:40
-
 class GameOfLife extends Application
 	reset : (n) ->
 		super
@@ -81,9 +81,8 @@ app = new GameOfLife "a"
 ID_Girlang =
 	v:'2017-04-29'
 	k:'sc bg sw range for line class'
+	l:16
 	b:"""
-# LOC:16
-
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
@@ -119,9 +118,8 @@ girlang 0,0,9,5,20,20
 ID_GoldenStar =
 	v:'2017-04-29'
 	k:'bg fc range for triangle translate rotate cos sin class'
+	l:23
 	b: """
-# LOC:23
-
 class GoldenStar extends Application
 	reset : ->
 		super
@@ -165,7 +163,8 @@ app = new GoldenStar "a"
 ID_GreenEllipse =
 	v:'2017-04-29'
 	k:'fc ellipse'
-	b:"# LOC:2 \n"
+	l:2
+	b:""
 	a:"""
 fc 0,1,0
 ellipse 120,60, 60,40
@@ -174,7 +173,8 @@ ellipse 120,60, 60,40
 ID_GreenRect =
 	v:'2017-04-29'
 	k:'fc rect'
-	b:"# LOC:2 \n"
+	l:2
+	b:""
 	a:"""
 fc 0,1,0
 rect 60,80, 40,50
@@ -183,7 +183,8 @@ rect 60,80, 40,50
 ID_Grid =
 	v:'2017-04-29'
 	k:'sc sw range for line'
-	b:"# LOC:5 \n"
+	l:5
+	b:""
 	a:"""
 sc 1,1,0
 sw 2
@@ -195,7 +196,8 @@ for i in range 10,200,10
 ID_GrowingCircles =
 	v:'2017-04-29'
 	k:'range fc circle for lerp'
-	b:"# LOC:6 \n"
+	l:6
+	b:""
 	a:"""
 for i in range 10
 	fc i/10.0,0,0
@@ -208,7 +210,8 @@ for i in range 10
 ID_GrowingRedSquares =
 	v:'2017-04-29'
 	k:'fc range for lerp rect rectMode'
-	b:"# LOC:8 \n"
+	l:8
+	b:""
 	a:"""
 rectMode CENTER
 for i in range 10
@@ -223,7 +226,8 @@ for i in range 10
 ID_GrowingSquares =
 	v:'2017-04-29'
 	k:'range rect rectMode for lerp'
-	b:"# LOC:7 \n"
+	l:7
+	b:""
 	a:"""
 rectMode CENTER
 for i in range 10
@@ -237,9 +241,8 @@ for i in range 10
 ID_GuessANumber =
 	v:'2017-04-29'
 	k:'bg fc sc range text for if operators int class'
+	l:29
 	b:"""
-# LOC:29
-
 class Guess extends Application
 	reset        : ->
 		super
@@ -286,9 +289,8 @@ app = new Guess "a"
 ID_GuessANumberHex =
 	v:'2017-05-11'
 	k:'bg fc sc range text for if operators int class'
+	l:33
 	b:"""
-# LOC:33 hex
-
 class GuessANumberHex extends Application
 	reset        : ->
 		super

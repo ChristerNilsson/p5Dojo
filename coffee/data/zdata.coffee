@@ -1,6 +1,7 @@
 # v : version YY-MM-DD
 # k : keywords
-# b : LOC
+# l : lines of code
+# b : user code
 # a : original code
 # c : commands
 # e : links

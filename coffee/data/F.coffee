@@ -1,7 +1,8 @@
 ID_Five =
 	v:'2017-04-29'
 	k:'bg circle fc sc'
-	b: "# LOC:12\n"
+	l:12
+	b: ""
 	a: """
 bg 0.5
 sc()
@@ -20,8 +21,8 @@ circle 160,40,20
 ID_ForthHaiku =
 	v:'2017-04-29'
 	k:'fc range if [] _.last rect for parseFloat class'
+	l:45
 	b:"""
-# LOC:45
 # Lös först exemplen mha länken nedan!
 
 class ForthHaiku extends Application

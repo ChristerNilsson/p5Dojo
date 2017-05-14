@@ -1,9 +1,8 @@
 ID_Alphanumeric =
 	v:'2017-04-29'
 	k:'bg sc fc range circle for operators [] splice dist if class'
+	l: 29
 	b:"""
-# LOC:29
-
 class AlphaNumeric extends Application
 	reset : ->
 		super
@@ -59,8 +58,8 @@ app = new AlphaNumeric "a"
 ID_Angle =
 	v:'2017-05-12'
 	k:'bg sc fc sw circle class dist if operators text sin cos atan2 radians arc _.min line for range abs'
+	l:54
 	b:"""
-# LOC:54
 # Vit linje markerar 0 grader.
 
 class Angle extends Application

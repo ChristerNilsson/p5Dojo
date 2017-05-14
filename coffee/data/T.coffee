@@ -1,9 +1,8 @@
 ID_Tetris =
 	v:'2017-05-07'
 	k:'bg fc range [] {} for rect if while _.contains operators class'
+	l:113
 	b:"""
-# LOC:113
-
 class Tetris extends Application
 	reset : ->
 		super
@@ -137,7 +136,8 @@ app = new Tetris "a"
 ID_TextA =
 	v:'2017-04-29'
 	k:'fc text'
-	b:"# LOC:4 \n"
+	l:4
+	b:""
 	a:"""
 fc 1,1,0
 sc()
@@ -148,7 +148,8 @@ text 'Coffeescript',0,100
 ID_TextB =
 	v:'2017-04-29'
 	k:'bg fc sc sw text'
-	b:"# LOC:5 \n"
+	l:5
+	b:""
 	a:"""
 fc 1,1,0
 sc()
@@ -160,7 +161,8 @@ text 'Coffeescript',100,100
 ID_TextC =
 	v:'2017-04-29'
 	k:'fc rd text translate'
-	b:"# LOC:6 \n"
+	l:6
+	b:""
 	a:"""
 fc 1,1,0
 textSize 32
@@ -173,7 +175,8 @@ text 'Coffeescript',0,0
 ID_TextD =
 	v:'2017-04-29'
 	k:'fc rd text translate'
-	b:"# LOC:6 \n"
+	l:6
+	b:""
 	a:"""
 fc 1,1,0
 textSize 32
@@ -186,9 +189,8 @@ text 'Coffeescript',0,0
 ID_TowerOfHanoi =
 	v:'2017-05-13'
 	k:'bg fc sc range operators [] text for if return constrain class line'
+	l:40
 	b:"""
-# LOC:40
-
 class TowerOfHanoi extends Application
 	reset : ->
 		super
@@ -200,7 +202,6 @@ app = new TowerOfHanoi
 class TowerOfHanoi extends Application
 	reset : ->
 		super
-		@board = []
 		@level = 0
 		@H = 10
 		@buttons = [33,100,167]
@@ -243,11 +244,14 @@ app = new TowerOfHanoi "a"
 """
 	c:
 		app : "reset()"
+	e:
+		Wikipedia : "https://en.wikipedia.org/wiki/Tower_of_Hanoi"
 
 ID_Triangle =
 	v:'2017-04-29'
 	k:'fc triangle'
-	b:"# LOC:2 \n"
+	l:2
+	b:""
 	a:"""
 fc 1
 triangle 20,40, 160,100, 100,140
@@ -256,7 +260,8 @@ triangle 20,40, 160,100, 100,140
 ID_TwoArcs =
 	v:'2017-04-29'
 	k:'fc sc sw arc radians strokeCap'
-	b:"# LOC:7 \n"
+	l:7
+	b:""
 	a:"""
 fc()
 sc 1,0,0
@@ -270,8 +275,8 @@ arc 100,120, 100,100, radians(90),radians(-90)
 ID_TwoDiceHistogram =
 	v:'2017-04-29'
 	k:'bg fc sc range int random text if for operators rect []'
+	l:22
 	b:"""
-# LOC:22
 # OBS: På grund av random blir bitmapparna inte likadana
 """
 	a:"""
@@ -304,7 +309,8 @@ for count,i in counts
 ID_TwoDiscsA =
 	v:'2017-04-29'
 	k:'circle fc'
-	b:"# LOC:4 \n"
+	l:4
+	b:""
 	a:"""
 fc 1,0,0
 circle 80,100,40
@@ -315,7 +321,8 @@ circle 100,120,50
 ID_TwoDiscsB =
 	v:'2017-04-29'
 	k:'circle fc'
-	b:"# LOC:4 \n"
+	l:4
+	b:""
 	a:"""
 fc 1,0,0
 circle 80,100,40

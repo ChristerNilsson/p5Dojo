@@ -1,7 +1,8 @@
 ID_WhiteCircle =
 	v:'2017-04-29'
 	k:'circle fc'
-	b:"# LOC:2 \n"
+	l:2
+	b:""
 	a:"""
 fc 1
 circle 60,80,30
@@ -10,7 +11,8 @@ circle 60,80,30
 ID_WhiteEmptyCircle =
 	v:'2017-04-29'
 	k:'circle fc sc sw'
-	b:"# LOC:4 \n"
+	l:4
+	b:""
 	a:"""
 sc 1
 fc()

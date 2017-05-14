@@ -1,8 +1,8 @@
 ID_Background1 =
 	v:'2017-05-10'
 	k:'bg'
+	l:1
 	b: """
-# LOC:1
 # Första bilden ska du efterlikna.
 # Andra bilden skapas av din kod.
 # Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.
@@ -19,27 +19,29 @@ ID_Background1 =
 ID_Background2 =
 	v:'2017-04-29'
 	k:'bg'
-	b: "# LOC:1\n"
+	l:1
+	b: ""
 	a: "bg 0.5"
 
 ID_Background3 =
 	v:'2017-04-29'
 	k:'bg'
-	b: "# LOC:1\n"
+	l:1
+	b: ""
 	a: "bg 1,0,0"
 
 ID_Background4 =
 	v:'2017-04-29'
 	k:'bg'
-	b: "# LOC:1\n"
+	l:1
+	b: ""
 	a: "bg 1,1,0"
 
 ID_BlackBox2D =
 	v:'2017-04-29'
 	k:'bg sc fc range line [] operators int for if text class'
+	l:33
 	b:"""
-# LOC:33
-
 class BlackBox2D extends Application
 	reset : ->
 		super
@@ -105,9 +107,8 @@ ID_Blank =
 ID_BoardGame =
 	v:'2017-04-29'
 	k:'bg fc sc circle range for ->'
+	l:21
 	b:"""
-# LOC:21
-
 class Board extends Application
 	reset : ->
 		super
@@ -149,9 +150,8 @@ app = new Board "a"
 ID_BouncingBalls =
 	v:'2017-04-29'
 	k:'fc sw sc circle operators [] if for class'
+	l:43
 	b : """
-# LOC:43
-
 class Ball
 	constructor : ->
 	update      : (grav) ->
@@ -233,9 +233,8 @@ app = new BouncingBalls "a"
 ID_Braid =
 	v:'2017-04-29'
 	k:'sc bg sw range for line class'
+	l:19
 	b : """
-# LOC:19
-
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
@@ -280,9 +279,8 @@ braid 5,18,18,6
 ID_Braider =
 	v:'2017-04-29'
 	k:'sc bg sw range for if operators line class'
+	l:49
 	b: """
-# LOC:49
-
 class Cartesius
 	constructor : (x,y,c) ->
 	go          : (dx,dy) ->
