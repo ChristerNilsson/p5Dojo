@@ -104,6 +104,10 @@ fcc = (cc) -> fc cc%2, int(cc/2)%2, int(cc/4)
 scc = (cc) -> sc cc%2, int(cc/2)%2, int(cc/4)
 tcc = (cc) -> fcc [7,7,0,0,7,0,0,0][cc]
 
+fcc64 = (cc) -> fc (cc%4)/3, (int(cc/4)%4)/3, int(cc/16)/3
+scc64 = (cc) -> sc (cc%4)/3, (int(cc/4)%4)/3, int(cc/16)/3
+tcc64 = (cc) -> fcc64 [63,63,0,0,63,0,0,0][cc%8]
+
 sw = (n) -> strokeWeight n
 
 circle = (x,y,r) -> ellipse x,y,2*r,2*r

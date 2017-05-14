@@ -12,9 +12,9 @@ arc 100,100, 180,180, radians(-135),radians(135)
 		Wikipedia : "https://en.wikipedia.org/wiki/Pac-Man"
 
 ID_Paint =
-	v:'2017-05-14'
+	v:'2017-05-15'
 	k:'bg sc range rect circle for class []'
-	l:30
+	l:36
 	b:"""
 class Paint extends Application
 	reset      : ->
@@ -29,24 +29,30 @@ class Paint extends Application
 	reset : ->
 		super
 		@picture = (Array(20).fill(0) for i in range 18)
-		@selected = 1
+		@selected = 3
 		@history = []
+		@state = 0
 	draw : ->
 		sc()
-		for i in range 8
-			fcc i
-			rect 10*i,0,10,10
-		tcc @selected
-		circle 5 + @selected * 10,5,3
+		for i in range 32
+			index = i+@state*32
+			fcc64 index
+			x = i % 16 * 10
+			y = 10 * int i/16
+			rect x,y,10,10
+			if index == @selected
+				tcc64 @selected
+				circle x+5,y+5,3
 		for i in range 20
 			for j in range 18
-				fcc @picture[j][i]
+				fcc64 @picture[j][i]
 				rect 10*i,20+10*j,10,10
 	mousePressed : (mx,my) ->
 		i = int mx/10
 		j = int my/10
-		if j==0 or j==1
-			if i<=7 then @selected = i
+		if j<=1
+			if i <= 15 then @selected = 32*@state + 16*j + i
+			else return @state = 1-@state
 		else
 			j -= 2
 			@history.push [j,i,@picture[j][i]]
