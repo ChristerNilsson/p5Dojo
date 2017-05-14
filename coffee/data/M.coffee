@@ -1,6 +1,6 @@
 ID_ManyDices =
 	v:'2017-04-29'
-	k:'-> range for if point [] operators ->'
+	k:'-> range for if point [] operators'
 	l:8
 	b : ""
 	a : """

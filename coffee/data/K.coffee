@@ -209,8 +209,8 @@ app = new Korg "a"
 
 ID_Korsord =
 	v:'2017-04-29'
-	k:'bg fc sc readText operators text if for "" _.filter class []'
-	l:29
+	k:'bg fc sc readText operators text if for "" class []'
+	l:27
 	b: """
 # Mata in t ex b..l och få ut bill samt boll. Använd variabeln ordlista.
 
@@ -248,16 +248,10 @@ class Korsord extends Application
 		@found = []
 		for w in words
 			if w.length == @pattern.length and @match w,@pattern then @found.push w
-		#@found = _.filter words, (w) -> w.length == @pattern.length and @match w,@pattern
 		@found = @found.join " "
 
 app = new Korsord "a"
 """
 	c:
 		app : "reset()|enter()"
-
-	e:
-		'_.some' : "http://underscorejs.org/#some"
-		'_.filter' : "http://underscorejs.org/#filter"
-		'_.countBy' : "http://underscorejs.org/#countBy"
 
