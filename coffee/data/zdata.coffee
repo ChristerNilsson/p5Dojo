@@ -100,6 +100,7 @@ data =
 		IndianSun : ID_IndianSun
 		BoardGame : ID_BoardGame
 		Coordinator : ID_Coordinator
+		Quiz : ID_Quiz
 
 	"LA: GuessANumber" :
 		Polygon : ID_Polygon
