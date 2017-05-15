@@ -122,7 +122,7 @@ class Tetris extends Application
 		for row,y in matrix
 			for value,x in row
 				if value != 0
-					fcc value
+					fill cc value
 					rect 10*(x + xoff), 10*(y + yoff), 10,10
 
 app = new Tetris "a"
@@ -223,7 +223,7 @@ class TowerOfHanoi extends Application
 			sw @H
 			for disk,j in pile
 				y = 134 - j*@H
-				scc disk
+				stroke cc disk
 				line x-3*(disk+1),y, x+3*(disk+1),y
 	newGame : ->
 		@counter=0

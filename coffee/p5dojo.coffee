@@ -99,10 +99,10 @@ sc = ->
 	else
 		stroke fixColor arguments
 
-bgc = (cc) -> bg cc%2, int(cc/2)%2, int(cc/4)
-fcc = (cc) -> fc cc%2, int(cc/2)%2, int(cc/4)
-scc = (cc) -> sc cc%2, int(cc/2)%2, int(cc/4)
-tcc = (cc) -> fcc [7,7,0,0,7,0,0,0][cc]
+#b g c = (cc) -> bg cc%2, int(cc/2)%2, int(cc/4)
+#f c c = (cc) -> fc cc%2, int(cc/2)%2, int(cc/4)
+#s c c = (cc) -> sc cc%2, int(cc/2)%2, int(cc/4)
+#t c c = (cc) -> f c c [7,7,0,0,7,0,0,0][cc]
 
 cc = (n) -> # https://github.com/jonasjacek/colors with modifications
 	helper = (n,big) -> [n%2*big, int(n/2)%2*big, int(n/4)*big]

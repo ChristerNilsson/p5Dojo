@@ -561,10 +561,10 @@ class Car
 		[@w,@h] = wh
 
 	render : ->
-		fcc (@c+1) % 8
+		fill cc (@c+1) % 8
 		rect 40+20*@i+2, 40+20*@j+2, 20*@w-4, 20*@h-4
 		fc 0
-		tcc (@c+1) % 8
+		fill cct (@c+1) % 8
 		name = "XABCDEFGHIJKLMNOP"[@c]
 		small = name.toLowerCase()
 		text small, 50+20*@i,        50+20*@j

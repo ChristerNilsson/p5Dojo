@@ -191,9 +191,9 @@ class Ball
 		if not (@r < @y < 200-@r) then @dy = - @dy
 		if grav and @y < 200-@r then @dy += 1
 	render : (sel) ->
-		fcc @c
+		fill cc @c
 		sw 2
-		if sel then scc 7 else sc()
+		if sel then stroke cct @c else sc()
 		circle @x,@y,@r
 
 class BouncingBalls extends Application
@@ -221,8 +221,8 @@ class BouncingBalls extends Application
 	selPrev : -> @sel = (@sel - 1) %% @balls.length
 	grow : ->    @balls[@sel].r++
 	shrink : ->  @balls[@sel].r--
-	nextCol : -> @balls[@sel].c = (@balls[@sel].c+1) %% 8
-	prevCol : -> @balls[@sel].c = (@balls[@sel].c-1) %% 8
+	nextCol : -> @balls[@sel].c = (@balls[@sel].c+1) %% 32
+	prevCol : -> @balls[@sel].c = (@balls[@sel].c-1) %% 32
 	gravity : -> @grav = not @grav
 
 app = new BouncingBalls "a"
@@ -299,7 +299,7 @@ app = new Braider
 class Cartesius
 	constructor : (@x,@y,@c) ->
 	go : (dx,dy) ->
-		scc @c
+		stroke cc @c
 		line @x,@y,@x+dx,@y+dy
 		[@x,@y] = [@x+dx,@y+dy]
 	down : (d) -> @go 0,d
