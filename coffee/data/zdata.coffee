@@ -165,6 +165,7 @@ data =
 		Laboratorium : ID_Laboratorium
 
 	Exhibition :
+		melon : ID017
 		rainbow : ID016
 		clown : ID001
 		tomteluva : ID002

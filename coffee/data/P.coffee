@@ -17,9 +17,9 @@ ID_Paint =
 	l:36
 	b:"""
 class Paint extends Application
-	reset      : ->
+	reset : ->
 		super
-	draw       : ->
+	draw : ->
 	mousePressed : (mx,my) ->
 	undo : ->
 app = new Paint
