@@ -16,6 +16,7 @@ ID_Paint =
 	k:'bg sc range rect circle for class []'
 	l:36
 	b:"""
+# colors from cc and cct
 class Paint extends Application
 	reset : ->
 		super
@@ -36,16 +37,16 @@ class Paint extends Application
 		sc()
 		for i in range 32
 			index = i+@state*32
-			fcc64 index
+			fill cc index
 			x = i % 16 * 10
 			y = 10 * int i/16
 			rect x,y,10,10
 			if index == @selected
-				tcc64 @selected
+				fill cct @selected
 				circle x+5,y+5,3
 		for i in range 20
 			for j in range 18
-				fcc64 @picture[j][i]
+				fill cc @picture[j][i]
 				rect 10*i,20+10*j,10,10
 	mousePressed : (mx,my) ->
 		i = int mx/10

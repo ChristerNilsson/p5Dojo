@@ -104,9 +104,27 @@ fcc = (cc) -> fc cc%2, int(cc/2)%2, int(cc/4)
 scc = (cc) -> sc cc%2, int(cc/2)%2, int(cc/4)
 tcc = (cc) -> fcc [7,7,0,0,7,0,0,0][cc]
 
-fcc64 = (cc) -> fc (cc%4)/3, (int(cc/4)%4)/3, int(cc/16)/3
-scc64 = (cc) -> sc (cc%4)/3, (int(cc/4)%4)/3, int(cc/16)/3
-tcc64 = (cc) -> fcc64 [63,63,0,0,63,0,0,0][cc%8]
+cc = (n) -> # https://github.com/jonasjacek/colors with modifications
+	helper = (n,big) -> [n%2*big, int(n/2)%2*big, int(n/4)*big]
+	if n<8 then helper n,255
+	else if n==8 then [192,192,192]
+	else if n<16 then helper n-8,128
+	else if n==16 then [64,64,64]
+	else if n<232
+		n-=16
+		r=n%6; n//=6
+		g=n%6; n//=6
+		b=n
+		lst = [0,95,135,175,215,255]
+		[lst[r],lst[g],lst[b]]
+	else
+		n-=232
+		z = lerp 8,18,n
+		[z,z,z]
+
+cct = (n) -> # makes text visible
+	[r,g,b] = cc n
+	if r+g+b >= 3*128 then [0,0,0] else [255,255,255]
 
 sw = (n) -> strokeWeight n
 
