@@ -38,7 +38,7 @@ point 100,200
 ID_MineSweeper =
 	v:'2017-05-18'
 	k:'for range if while [] operators text rect circle class'
-	l:60
+	l:59
 	b:"""
 class MineSweeper extends Application
 	reset : (w,totalBombs) ->
@@ -56,13 +56,12 @@ class MineSweeper extends Application
 		@seed = 0
 		@w = w
 		@n = int 200 / @w
-		@totalBombs = totalBombs
-		@newGame()
-	newGame : () ->
+		@newGame totalBombs
+	newGame : (totalBombs) ->
 		@state = 0
 		@bombs = []
 		@revealed = []
-		while @bombs.length < @totalBombs
+		while @bombs.length < totalBombs
 			index = @randint @n*@n
 			if index not in @bombs then @bombs.push index
 	neighborCount : (i0,j0) ->
@@ -86,11 +85,11 @@ class MineSweeper extends Application
 				x = @w*i+@w/2
 				y = @w*j+@w/2
 				sc 0
-				fc()
+				fc 0.5
 				rect x, y, @w, @w
 				if @state==1 or index in @revealed
 					if index in @bombs
-						fc 1,0,0
+						fc 0
 						circle x, y, @w * 0.25
 					else
 						fc 0.75
@@ -103,7 +102,7 @@ class MineSweeper extends Application
 							text nc, x+1, y+1
 	mousePressed : (mx,my) ->
 		if @state==1
-			@newGame()
+			@newGame @bombs.length
 		else
 			i = int mx/@w
 			j = int my/@w
