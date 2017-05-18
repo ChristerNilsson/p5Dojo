@@ -36,9 +36,9 @@ point 100,200
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID_MineSweeper =
-	v:'2017-05-18'
+	v:'2017-05-19'
 	k:'for range if while [] operators text rect circle class'
-	l:59
+	l:48
 	b:"""
 class MineSweeper extends Application
 	reset : (w,totalBombs) ->
@@ -59,50 +59,39 @@ class MineSweeper extends Application
 		@newGame totalBombs
 	newGame : (totalBombs) ->
 		@state = 0
-		@bombs = []
 		@revealed = []
-		while @bombs.length < totalBombs
-			index = @randint @n*@n
-			if index not in @bombs then @bombs.push index
+		@bombs = (@randint @n*@n for i in range totalBombs)
 	neighborCount : (i0,j0) ->
 		total = 0
-		for xoff in range -1,2
-			for yoff in range -1,2
-				i = i0 + xoff
-				j = j0 + yoff
-				index = @n*j+i
+		for di in [-1,0,1]
+			for dj in [-1,0,1]
+				[i,j] = [i0 + di,j0 + dj]
 				if -1 < i < @n and -1 < j < @n
-					if index in @bombs then total++
+					if @n*j+i in @bombs then total++
 		total
 	draw : ->
 		textAlign CENTER,CENTER
 		textSize @w
 		rectMode CENTER
-		bg 1
 		for i in range @n
 			for j in range @n
 				index = @n * j + i
-				x = @w*i+@w/2
-				y = @w*j+@w/2
+				[x,y] = [@w*i+@w/2, @w*j+@w/2]
 				sc 0
 				fc 0.5
 				rect x, y, @w, @w
 				if @state==1 or index in @revealed
-					if index in @bombs
-						fc 0
-						circle x, y, @w * 0.25
+					fc 0
+					if index in @bombs then circle x, y, @w * 0.25
 					else
 						fc 0.75
 						rect x, y, @w, @w
 						nc = @neighborCount i,j
-						if nc > 0
-							fc 0
-							sc()
-							fill cc nc
-							text nc, x+1, y+1
+						sc()
+						fill cc nc
+						if nc > 0 then text nc, x+1, y+1
 	mousePressed : (mx,my) ->
-		if @state==1
-			@newGame @bombs.length
+		if @state==1 then @newGame @bombs.length
 		else
 			i = int mx/@w
 			j = int my/@w
@@ -113,7 +102,7 @@ class MineSweeper extends Application
 app = new MineSweeper "a"
 """
 	c:
-		app : "reset 20,10|reset 10,40"
+		app : "reset 20,10|reset 20,20|reset 20,30|reset 10,40"
 	e:
 		Wikipedia : "https://en.wikipedia.org/wiki/Minesweeper_(video_game)"
 
