@@ -138,6 +138,7 @@ data =
 		RecursiveCircle : ID_RecursiveCircle
 		Reversi : ID_Reversi
 		TowerOfHanoi : ID_TowerOfHanoi
+		MineSweeper : ID_MineSweeper
 		ColorPair : ID_ColorPair
 
 	"LE: RushHour" :

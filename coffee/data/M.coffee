@@ -35,6 +35,89 @@ point 100,200
 	e :
 		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
+ID_MineSweeper =
+	v:'2017-05-18'
+	k:'for range if while [] operators text rect circle class'
+	l:60
+	b:"""
+class MineSweeper extends Application
+	reset : (w,totalBombs) ->
+		super
+	draw  : ->
+	mousePressed : (mx,my) ->
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+app = new MineSweeper
+"""
+	a: """
+
+class MineSweeper extends Application
+	reset : (w,totalBombs) ->
+		super
+		@seed = 0
+		@w = w
+		@n = int 200 / @w
+		@totalBombs = totalBombs
+		@newGame()
+	newGame : () ->
+		@state = 0
+		@bombs = []
+		@revealed = []
+		while @bombs.length < @totalBombs
+			index = @randint @n*@n
+			if index not in @bombs then @bombs.push index
+	neighborCount : (i0,j0) ->
+		total = 0
+		for xoff in range -1,2
+			for yoff in range -1,2
+				i = i0 + xoff
+				j = j0 + yoff
+				index = @n*j+i
+				if -1 < i < @n and -1 < j < @n
+					if index in @bombs then total++
+		total
+	draw : ->
+		textAlign CENTER,CENTER
+		textSize @w
+		rectMode CENTER
+		bg 1
+		for i in range @n
+			for j in range @n
+				index = @n * j + i
+				x = @w*i+@w/2
+				y = @w*j+@w/2
+				sc 0
+				fc()
+				rect x, y, @w, @w
+				if @state==1 or index in @revealed
+					if index in @bombs
+						fc 1,0,0
+						circle x, y, @w * 0.25
+					else
+						fc 0.75
+						rect x, y, @w, @w
+						nc = @neighborCount i,j
+						if nc > 0
+							fc 0
+							sc()
+							fill cc nc
+							text nc, x+1, y+1
+	mousePressed : (mx,my) ->
+		if @state==1
+			@newGame()
+		else
+			i = int mx/@w
+			j = int my/@w
+			index = @n*j+i
+			if index in @bombs then	@state = 1 else	@revealed.push index
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+
+app = new MineSweeper "a"
+"""
+	c:
+		app : "reset 20,10|reset 10,40"
+	e:
+		Wikipedia : "https://en.wikipedia.org/wiki/Minesweeper_(video_game)"
+
 ID_Moire =
 	v:'2017-04-29'
 	k:'bg range operators for line map class'

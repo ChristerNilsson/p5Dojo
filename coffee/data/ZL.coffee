@@ -1,9 +1,10 @@
 ID_nyheter =
-	v:'2017-05-14'
+	v:'2017-05-18'
 	k:''
 	l:0
 	b:"""
 # NYHETER 2017 MAJ 20
+#   MineSweeper
 #   Paint
 # NYHETER 2017 MAJ 13
 #   TowerOfHanoi
