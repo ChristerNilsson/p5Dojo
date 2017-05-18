@@ -160,30 +160,20 @@ text 'Coffeescript',100,100
 
 ID_TextC =
 	v:'2017-04-29'
-	k:'fc rd text translate'
-	l:6
+	k:'sc fc rd text translate'
+	l:10
 	b:""
 	a:"""
+sc()
 fc 1,1,0
-textSize 32
+textSize 64
 textAlign CENTER,CENTER
 translate 100,100
 rd 90
-text 'Coffeescript',0,0
-"""
-
-ID_TextD =
-	v:'2017-04-29'
-	k:'fc rd text translate'
-	l:6
-	b:""
-	a:"""
-fc 1,1,0
-textSize 32
-textAlign CENTER,CENTER
-translate 100,100
-rd 180
-text 'Coffeescript',0,0
+text 'Coffee',0,0
+fc 1,0,0
+rd 90
+text 'script',0,0
 """
 
 ID_TowerOfHanoi =

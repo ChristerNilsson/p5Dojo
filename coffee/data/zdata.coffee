@@ -70,19 +70,7 @@ data =
 		GalaxiesColliding : ID_GalaxiesColliding
 		ColorCross : ID_ColorCross
 
-	"L7: translate rotate push pop" :
-		TextC : ID_TextC
-		TextD : ID_TextD
-		RotatedEllipse : ID_RotatedEllipse
-		RotatedRectA : ID_RotatedRectA
-		RotatedRectB : ID_RotatedRectB
-		RotatedRectC : ID_RotatedRectC
-		Cards : ID_Cards
-		SnowWhiteAndThe7Lerps : ID_SnowWhiteAndThe7Lerps
-		CoffeescriptClock : ID_CoffeescriptClock
-		Roulette : ID_Roulette
-
-	"L8: function, class" :
+	"L7: function, class" :
 		ManyDices : ID_ManyDices
 		Girlang : ID_Girlang
 		Braid : ID_Braid
@@ -91,49 +79,43 @@ data =
 		OlympicRingPrep : ID_OlympicRingPrep
 		OlympicRings : ID_OlympicRings
 
-	"L9: interaction" :
+	"L8: interaction" :
 		Counter : ID_Counter
 		Square : ID_Square
 		Moire : ID_Moire
 		Stopwatch : ID_Stopwatch
 		RandomDice : ID_RandomDice
-		IndianSun : ID_IndianSun
 		BoardGame : ID_BoardGame
 		Coordinator : ID_Coordinator
 		Quiz : ID_Quiz
 
-	"LA: GuessANumber" :
-		Polygon : ID_Polygon
+	"L9: GuessANumber" :
 		Korg : ID_Korg
 		Korsord : ID_Korsord
 		GuessANumber : ID_GuessANumber
 		GuessANumberHex : ID_GuessANumberHex
 		Paint : ID_Paint
-		GoldenStar : ID_GoldenStar
 
-	"LB: Connect4" :
+	"LA: Connect4" :
 		MultiTimer : ID_MultiTimer
 		SevenSegment : ID_SevenSegment
 		ColorCube : ID_ColorCube
 		BlackBox2D : ID_BlackBox2D
-		SpaceShip : ID_SpaceShip
 		Alphanumeric : ID_Alphanumeric
 		Connect4 : ID_Connect4
 
-	"LC: GameOfLife" :
+	"LB: GameOfLife" :
 		Nian : ID_Nian
 		BouncingBalls : ID_BouncingBalls
 		Snake4 : ID_Snake4
-		Angle : ID_Angle
 		ForthHaiku : ID_ForthHaiku
 		Kalkylator : ID_Kalkylator
 		GameOfLife : ID_GameOfLife
 
-	"LD: ColorPair" :
+	"LC: ColorPair" :
 		Hex : ID_Hex
 		PickingBerries : ID_PickingBerries
 		Snake : ID_Snake
-		Klocka : ID_Klocka
 		ChessGame : ID_ChessGame
 		RecursiveCircle : ID_RecursiveCircle
 		Reversi : ID_Reversi
@@ -141,7 +123,7 @@ data =
 		MineSweeper : ID_MineSweeper
 		ColorPair : ID_ColorPair
 
-	"LE: RushHour" :
+	"LD: RushHour" :
 		ClickDetector : ID_ClickDetector
 		Nim : ID_Nim
 		Shortcut : ID_Shortcut
@@ -150,13 +132,30 @@ data =
 		Tetris : ID_Tetris
 		RushHour : ID_RushHour
 
-	"LF: Sokoban" :
+	"LE: Sokoban" :
 		Complex : ID_Complex
 		RubikSquare : ID_RubikSquare
 		RubikCube : ID_RubikCube
 		Shortcut2 : ID_Shortcut2
 		EngineeringNotation : ID_EngineeringNotation
 		Sokoban : ID_Sokoban
+
+	"LF: sin cos translate rotate" :
+		TextC : ID_TextC
+		RotatedEllipse : ID_RotatedEllipse
+		RotatedRectA : ID_RotatedRectA
+		RotatedRectB : ID_RotatedRectB
+		RotatedRectC : ID_RotatedRectC
+		Cards : ID_Cards
+		SnowWhiteAndThe7Lerps : ID_SnowWhiteAndThe7Lerps
+		CoffeescriptClock : ID_CoffeescriptClock
+		Roulette : ID_Roulette
+		IndianSun : ID_IndianSun
+		Polygon : ID_Polygon
+		GoldenStar : ID_GoldenStar
+		SpaceShip : ID_SpaceShip
+		Angle : ID_Angle
+		Klocka : ID_Klocka
 
 	Information :
 		Nyheter : ID_nyheter

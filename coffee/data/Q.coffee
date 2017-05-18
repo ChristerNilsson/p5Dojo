@@ -11,10 +11,9 @@ quad 150,100, 180,20, 40,20, 100,140
 ID_Quiz =
 	v:'2017-05-13'
 	k:'bg sw fc text operators class for range []'
-	l:0
+	l:35
 	b: """
 class Quiz extends Application
-
 	reset : ->
 		super
 		@seed = 0
@@ -22,7 +21,6 @@ class Quiz extends Application
 		for i in range 5
 			@questions.push @makeQuestion @randint 2
 		@state = 0
-
 	makeQuestion : (typ) ->
 		if typ == 0
 			a = @randint 20
@@ -35,7 +33,6 @@ class Quiz extends Application
 			qs.push "Finland Helsingfors"
 			[a,b] = qs[@randint 3].split ' '
 			[("Vad heter huvudstaden i "+ a + "?"), b]
-
 	draw : ->
 		textAlign CENTER,CENTER
 		textSize 12
@@ -46,18 +43,16 @@ class Quiz extends Application
 			text "Grattis!",100,100
 		else
 			text @questions[@state][0],100,100
-
 	enter : (answer) ->
 		answer = @readText()
 		print answer,@questions[@state][1]
 		if answer == @questions[@state][1] then @state++
-
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+
 app = new Quiz
 """
 	a: """
 class Quiz extends Application
-
 	reset : ->
 		super
 		@seed = 0
@@ -65,7 +60,6 @@ class Quiz extends Application
 		for i in range 5
 			@questions.push @makeQuestion @randint 2
 		@state = 0
-
 	makeQuestion : (typ) ->
 		if typ == 0
 			a = @randint 20
@@ -78,7 +72,6 @@ class Quiz extends Application
 			qs.push "Finland Helsingfors"
 			[a,b] = qs[@randint 3].split ' '
 			[("Vad heter huvudstaden i "+ a + "?"), b]
-
 	draw : ->
 		textAlign CENTER,CENTER
 		textSize 12
@@ -89,12 +82,10 @@ class Quiz extends Application
 			text "Grattis!",100,100
 		else
 			text @questions[@state][0],100,100
-
 	enter : (answer) ->
 		answer = @readText()
 		print answer,@questions[@state][1]
 		if answer == @questions[@state][1] then @state++
-
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 
 app = new Quiz "a"
