@@ -85,20 +85,17 @@ data =
 		Moire : ID_Moire
 		RandomDice : ID_RandomDice
 		BoardGame : ID_BoardGame
-		Coordinator : ID_Coordinator
-		Stopwatch : ID_Stopwatch
-		Quiz : ID_Quiz
-		OlympicRingPrep : ID_OlympicRingPrep
-		OlympicRings : ID_OlympicRings
 		Girlang : ID_Girlang
 		Braid : ID_Braid
 
 	"L9: GuessANumber" :
 		Korg : ID_Korg
 		Korsord : ID_Korsord
+		Coordinator : ID_Coordinator
+		Stopwatch : ID_Stopwatch
+		OlympicRingPrep : ID_OlympicRingPrep
+		OlympicRings : ID_OlympicRings
 		GuessANumber : ID_GuessANumber
-		GuessANumberHex : ID_GuessANumberHex
-		Paint : ID_Paint
 
 	"LA: Connect4" :
 		MultiTimer : ID_MultiTimer
@@ -106,6 +103,7 @@ data =
 		ColorCube : ID_ColorCube
 		BlackBox2D : ID_BlackBox2D
 		Alphanumeric : ID_Alphanumeric
+		GuessANumberHex : ID_GuessANumberHex
 		Connect4 : ID_Connect4
 
 	"LB: GameOfLife" :
@@ -114,6 +112,8 @@ data =
 		Snake4 : ID_Snake4
 		ForthHaiku : ID_ForthHaiku
 		Kalkylator : ID_Kalkylator
+		Quiz : ID_Quiz
+		Paint : ID_Paint
 		GameOfLife : ID_GameOfLife
 
 	"LC: ColorPair" :
