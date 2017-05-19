@@ -1,3 +1,31 @@
+ID_P5 =
+	v:'2017-05-19'
+	k:'text fc sc'
+	l:11
+	b:"""
+skriv = (txt,x,y,r,g,b,size) ->
+
+skriv "p5",100,100,1,0,0,180
+skriv "Lauren",155,43,0,0,0,18
+skriv "McCarthy",155,180,1,1,1,18
+skriv "Coding",50,20,1,1,0,24
+skriv "Train",50,48,0,1,0,30
+"""
+	a:"""
+skriv = (txt,x,y,r,g,b,size) ->
+	textAlign CENTER,CENTER
+	textSize size
+	fc r,g,b
+	sc()
+	text txt,x,y
+
+skriv "p5",100,100,1,0,0,180
+skriv "Lauren",155,43,0,0,0,18
+skriv "McCarthy",155,180,1,1,1,18
+skriv "Coding",50,20,1,1,0,24
+skriv "Train",50,48,0,1,0,30
+"""
+
 ID_PacMan =
 	v:'2017-04-29'
 	k:'fc arc radians'

@@ -70,24 +70,28 @@ data =
 		GalaxiesColliding : ID_GalaxiesColliding
 		ColorCross : ID_ColorCross
 
-	"L7: function, class" :
+	"L7: function" :
+		p5 : ID_P5
+		Average : ID_MyAverage
+		Lerp : ID_MyLerp
+		Map : ID_MyMap
 		ManyDices : ID_ManyDices
-		Girlang : ID_Girlang
-		Braid : ID_Braid
 		OneDiceHistogram : ID_OneDiceHistogram
 		TwoDiceHistogram : ID_TwoDiceHistogram
-		OlympicRingPrep : ID_OlympicRingPrep
-		OlympicRings : ID_OlympicRings
 
-	"L8: interaction" :
+	"L8: class" :
 		Counter : ID_Counter
 		Square : ID_Square
 		Moire : ID_Moire
-		Stopwatch : ID_Stopwatch
 		RandomDice : ID_RandomDice
 		BoardGame : ID_BoardGame
 		Coordinator : ID_Coordinator
+		Stopwatch : ID_Stopwatch
 		Quiz : ID_Quiz
+		OlympicRingPrep : ID_OlympicRingPrep
+		OlympicRings : ID_OlympicRings
+		Girlang : ID_Girlang
+		Braid : ID_Braid
 
 	"L9: GuessANumber" :
 		Korg : ID_Korg
