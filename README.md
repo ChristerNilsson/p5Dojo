@@ -141,12 +141,18 @@ arc x,y, w,h, start,stopp
   * RADIUS
 
 ### [text](https://p5js.org/reference/#/p5/text)
-  - [textAlign](https://p5js.org/reference/#/p5/textAlign) _horisontal_,_vertical_
+  text "p5Dojo",x,y
+
+### [textAlign](https://p5js.org/reference/#/p5/textAlign)
+  textAlign _horisontal_,_vertical_
     * **LEFT**,CENTER,RIGHT
     * TOP,CENTER,BOTTOM,**BASELINE**
-  - [textSize](https://p5js.org/reference/#/p5/textSize) pixels
-  - [textFont](https://p5js.org/reference/#/p5/textFont) 'monospace' # t ex
-  - **text** "p5",x,y
+
+### [textSize](https://p5js.org/reference/#/p5/textSize)
+  textSize pixels
+
+### [textFont](https://p5js.org/reference/#/p5/textFont)
+  textFont 'monospace' # t ex
 
 ### [range](http://underscorejs.org/#range)
 ```coffeescript

@@ -1,9 +1,10 @@
 ID_ManyDices =
-	v:'2017-04-29'
+	v:'2017-05-20'
 	k:'-> range for if point [] operators'
-	l:8
+	l:9
 	b : ""
 	a : """
+sw 2
 dice = (x,y,d) ->
 	for bits,i in [21,56,32,62,62,32,56]
 		dx = 4 * [0,-1,-1,-1,1,1,1][i]
@@ -115,6 +116,7 @@ app = new MineSweeper "a"
 	c:
 		app : "reset 20,10|reset 20,20|reset 20,30|reset 10,40"
 	e:
+		CodingTrain : "https://www.youtube.com/watch?v=LFU5ZlrR21E"
 		Wikipedia : "https://en.wikipedia.org/wiki/Minesweeper_(video_game)"
 
 ID_Moire =

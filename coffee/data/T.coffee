@@ -1,7 +1,7 @@
 ID_Tetris =
 	v:'2017-05-07'
 	k:'bg fc range [] {} for rect if while _.contains operators class'
-	l:113
+	l:109
 	b:"""
 class Tetris extends Application
 	reset : ->
@@ -84,11 +84,7 @@ class Tetris extends Application
 			@arenaSweep()
 	playerDrop : ->
 		while not @collide()
-			@y++
-		@y--
-		@merge()
-		@playerReset()
-		@arenaSweep()
+			@playerDown()
 	playerMove : (offset) ->
 		@x += offset
 		if @collide() then @x -= offset
@@ -135,7 +131,7 @@ app = new Tetris "a"
 
 ID_TextA =
 	v:'2017-04-29'
-	k:'fc text'
+	k:'fc sc text textSize'
 	l:4
 	b:""
 	a:"""
@@ -147,7 +143,7 @@ text 'Coffeescript',0,100
 
 ID_TextB =
 	v:'2017-04-29'
-	k:'bg fc sc sw text'
+	k:'bg fc sc sw text textSize textAlign'
 	l:5
 	b:""
 	a:"""
@@ -160,7 +156,7 @@ text 'Coffeescript',100,100
 
 ID_TextC =
 	v:'2017-04-29'
-	k:'sc fc rd text translate'
+	k:'sc fc rd text translate textSize textAlign'
 	l:10
 	b:""
 	a:"""
