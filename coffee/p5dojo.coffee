@@ -424,6 +424,7 @@ saveToKeyStorage = (b) ->
 	place.d.push s
 
 editor_change = ->
+	reset()
 	if exercise=='' then return
 	if _.size(calls) == 0
 		call = ""
