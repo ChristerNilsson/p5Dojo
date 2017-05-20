@@ -260,7 +260,7 @@ buildKeywordLink = ->
 	kwlinks.push 'https://www.w3schools.com/jsref/jsref_{}.asp'
 	kwlinks.push 'https://github.com/ChristerNilsson/p5Dojo/blob/master/_.md#{}'
 	save = (index,words) -> kwl[word] = index for word in words.split ' '
-	save 0,'[] "" {} .. ... @ -> class text operators comparisons logical if bg fc sc sw'
+	save 0,'[] "" {} .. ... @ -> class text textSize textAlign textFont operators comparisons logical if bg fc sc sw'
 	save 0,'range circle for while rd readText readInt readFloat'
 	save 0,'PI sqrt atan2 abs cos sin log10 Date arc rect ellipse point line triangle quad'
 	save 0,'parseInt parseFloat dist nf constrain int round map lerp radians reduce'

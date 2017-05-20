@@ -145,8 +145,8 @@ arc x,y, w,h, start,stopp
 
 ### [textAlign](https://p5js.org/reference/#/p5/textAlign)
   textAlign _horisontal_,_vertical_
-    * **LEFT**,CENTER,RIGHT
-    * TOP,CENTER,BOTTOM,**BASELINE**
+  * **LEFT**,CENTER,RIGHT
+  * TOP,CENTER,BOTTOM,**BASELINE**
 
 ### [textSize](https://p5js.org/reference/#/p5/textSize)
   textSize pixels
