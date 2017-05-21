@@ -497,6 +497,10 @@ Se exempel 2 nedan.
 ```coffeescript
 ->
 ```
+
+### [arguments](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/arguments)
+Anger den faktiska argumentlistan som en funktion anropas med.
+
 ### exempel 1: Coffeescript
 ```coffeescript
 bg 1, 0.5, 1

@@ -30,12 +30,14 @@ app = new IndianSun "a"
 		Kojo : "http://www.kogics.net/codesketch?id=28"
 
 ID_Isometric =
-	v:'2017-05-20'
-	k:'bg sc fc range for if quad line operators class [] {}'
-	l:67
+	v:'2017-05-21'
+	k:'_.findIndex _.isEqual arguments bg sc fc range for if quad line operators class [] {}'
+	l:73
 	b:"""
+# @blocks: 0 ritas ej. 1 ritas med rgb från position. Övriga tas rgb från @colors.
 class Isometric extends Application
-	reset : (@i=0.5, @j=0.75, @k=1, @alpha=1) ->
+	reset : ->
+		super
 	draw : ->
 	box : ->
 	sphere : ->
@@ -43,35 +45,43 @@ app = new Isometric
 """
 	a:"""
 class Isometric extends Application
-	reset : (@i=0.5, @j=0.75, @k=1, @alpha=1) ->
+	reset : ->
+		super
+		@i=0.5
+		@j=0.75
+		@k=1
+		@alpha=1
 		@n=10
 		@dx=10
 		@dy=5
-		@blocks = {}
 		@w2 = 2*200/4
 		@w3 = 3*200/4
 		@w4 = 4*200/4
-		@r=1
-		@g=1
-		@b=1
-	setColor : (@r,@g,@b) ->
-	add : (i,j,k) -> @blocks[@n*@n*i+@n*j+k] = [@r,@g,@b]
+		@clear()
+	clear : ->
+		@blocks = Array(1000).fill 0
+		@colors = [0,0]
+	add : (i,j,k,r,g,b) ->
+		index = 1
+		if arguments.length==6 then index = _.findIndex @colors, (rgb) => _.isEqual rgb,[r,g,b]
+		if index == -1
+			index = @colors.length
+			@colors.push [r,g,b]
+		@blocks[@n*@n*i+@n*j+k] = index
 	draw : ->
 		bg 0.5
 		sc()
 		@drawBlock index for index in range @n*@n*@n
 	drawBlock : (index) ->
-		f = (i,j,k) =>
-			i = 10-i
-			j = 10-j
-			[@w2+i*@dx-2*j*@dy, @w4-j*@dy-i*@dx/2 - k*@dy*2]
+		f = (i,j,k) => [@w2+(10-i)*@dx-2*(10-j)*@dy, @w4-(10-j)*@dy-(10-i)*@dx/2 - k*@dy*2]
 		q = (a,b,c,d) -> quad a[0],a[1], b[0],b[1], c[0],c[1], d[0],d[1]
+		ix=index
+		k = ix % @n; ix //= @n
+		j = ix % @n; ix //= @n
+		i = ix
 		block = @blocks[index]
-		if not block? then return
-		[r,g,b] = block
-		k = index % @n; index //= @n
-		j = index % @n; index //= @n
-		i = index
+		if not block? or block==0 then return
+		[r,g,b] = if block==1 then [i/9,j/9,k/9]	else @colors[block]
 		p0 = f i,  j,  k # egentligen osynlig
 		p1 = f i+1,j,  k
 		p2 = f i,  j+1,k
@@ -91,7 +101,7 @@ class Isometric extends Application
 			line @w2+@dx*i, @w4-@dy*i,     @dx*i, @w3-@dy*i
 			line @w2-@dx*i, @w4-@dy*i, @w4-@dx*i, @w3-@dy*i
 	box : ->
-		@blocks = {}
+		@clear()
 		for i in range @n
 			for j in range @n
 				for k in range @n
@@ -99,18 +109,15 @@ class Isometric extends Application
 					if i in [2,3,4,5,6,7] then tot++
 					if j in [2,3,4,5,6,7] then tot++
 					if k in [2,3,4,5,6,7] then tot++
-					if tot <= 1
-						@setColor i/10,j/10,k/10
-						@add i,j,k
+					if tot <= 1 then @add i,j,k
 	sphere : ->
-		@blocks = {}
+		@clear()
 		for i in range @n
 			for j in range @n
 				for k in range @n
-					@setColor i/(@n-1),j/(@n-1),k/(@n-1)
-					if (i-4.5)*(i-4.5) + (j-4.5)*(j-4.5) + (k-4.5)*(k-4.5) < 23 then @add i,j,k
-
+					if (i-4.5)*(i-4.5) + (j-4.5)*(j-4.5) + (k-4.5)*(k-4.5) < 23 then @add i,j,k, 1,0,0
 app = new Isometric "a"
+
 """
 	c:
 		app : "reset()|box()|sphere()"

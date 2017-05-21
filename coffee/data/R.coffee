@@ -1,7 +1,7 @@
 ID_RandomDice =
-	v:'2017-04-29'
-	k:'bg fc sc circle operators [] int sin for class'
-	l:19
+	v:'2017-05-21'
+	k:'bg sc circle operators [] int for class'
+	l:18
 	b: """
 class RandomDice extends Application
 	reset : ->
@@ -16,9 +16,6 @@ app = new RandomDice
 class RandomDice extends Application
 	reset : ->
 		super
-		@RADIUS = 20
-		@BITS = [0,1,24,25,90,91,126]
-		@XY = [22,11,12,13,31,32,33]
 		@seed = 0
 		@throw()
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
@@ -27,12 +24,14 @@ class RandomDice extends Application
 	draw : ->
 		bg 1
 		sc 1
-		for xy,i in @XY
-			x = int xy/10
-			y = xy % 10
-			if @BITS[@value] & 1<<i then circle 50*x,50*y,@RADIUS
-
+		coords = []
+		if @value in [1,3,5] then coords.push [100,100]
+		if @value in [4,5,6] then coords = coords.concat [[150,150],[ 50,50]]
+		if @value in [2,3,4,5,6] then coords = coords.concat [[ 150,50],[ 50,150]]
+		if @value in [6] then coords = coords.concat [[ 150,100],[ 50,100]]
+		circle x,y,20 for [x,y] in coords
 app = new RandomDice "a"
+
 """
 	c:
 		app : "reset()"
