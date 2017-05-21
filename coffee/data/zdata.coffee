@@ -142,6 +142,7 @@ data =
 		RubikCube : ID_RubikCube
 		Shortcut2 : ID_Shortcut2
 		EngineeringNotation : ID_EngineeringNotation
+		Isometric : ID_Isometric
 		Sokoban : ID_Sokoban
 
 	"LF: sin cos translate rotate" :
