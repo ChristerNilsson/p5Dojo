@@ -114,29 +114,29 @@ app = new ForthHaiku3D
 class ForthHaiku3D extends Application
 	reset : ->
 		super
-		@shade = [0.5,0.75,1]
-		@n=10
-		@dx=10
-		@dy=5
+		@SHADE = [0.5,0.75,1]
+		@N=10
+		@DX=10
+		@DY=5
 		@showGrid = true
 		@clear()
 	clear : -> @blocks = Array(1000).fill 0
-	add : (i,j,k) -> @blocks[@n*@n*i+@n*j+k] = 1
+	add : (i,j,k) -> @blocks[@N*@N*i+@N*j+k] = 1
 	draw : ->
 		bg 0.5
 		if @showGrid then @grid()
 		sc()
-		@drawBlock index for index in range @n*@n*@n
+		@drawBlock index for index in range @N*@N*@N
 	drawBlock : (index) ->
-		f = (i,j,k) => [100+(10-i)*@dx-2*(10-j)*@dy, 200-(10-j)*@dy-(10-i)*@dx/2 - k*@dy*2]
+		f = (i,j,k) => [100+(10-i)*@DX-2*(10-j)*@DY, 200-(10-j)*@DY-(10-i)*@DX/2 - k*@DY*2]
 		q = (a,b,c,d) -> quad a[0],a[1], b[0],b[1], c[0],c[1], d[0],d[1]
 		ix=index
-		k = ix % @n; ix //= @n
-		j = ix % @n; ix //= @n
+		k = ix % @N; ix //= @N
+		j = ix % @N; ix //= @N
 		i = ix
 		block = @blocks[index]
 		if not block? or block==0 then return
-		[r,g,b] = [j/9,i/9,k/9] # borde vara i,j,k
+		[r,g,b] = [i/9,j/9,k/9] # borde vara i,j,k
 		p0 = f i,  j,  k # egentligen osynlig
 		p1 = f i+1,j,  k
 		p2 = f i,  j+1,k
@@ -145,30 +145,31 @@ class ForthHaiku3D extends Application
 		p5 = f i+1,j,  k+1
 		p6 = f i  ,j+1,k+1
 		p7 = f i+1,j+1,k+1
-		[si,sj,sk] = @shade
-		fc r*sk,g*sk,b*sk
-		q p4,p5,p7,p6 # roof
+		[si,sj,sk] = @SHADE
 		fc r*sj,g*sj,b*sj
 		q p2,p6,p7,p3 # left
 		fc r*si,g*si,b*si
 		q p1,p3,p7,p5 # right
+		fc r*sk,g*sk,b*sk
+		q p4,p5,p7,p6 # roof
+
 	grid : ->
 		sc 0.75
 		[w2,w3,w4] = [2*200/4,3*200/4,4*200/4]
-		for i in range @n+1
-			line w2+@dx*i, w4-@dy*i,    @dx*i, w3-@dy*i
-			line w2-@dx*i, w4-@dy*i, w4-@dx*i, w3-@dy*i
+		for i in range @N+1
+			line w2+@DX*i, w4-@DY*i,    @DX*i, w3-@DY*i
+			line w2-@DX*i, w4-@DY*i, w4-@DX*i, w3-@DY*i
 	mousePressed : ->
 		@showGrid = not @showGrid
 		@enter()
 	enter : ->
 		@clear()
-		s = @readText()
+		s = @readText().trim()
 		if s=='' then s='i 5 == j 5 == k 5 == or or'
 		arr = s.split ' '
-		for i in range 10
-			for j in range 10
-				for k in range 10
+		for i in range @N
+			for j in range @N
+				for k in range @N
 					stack = []
 					for cmd in arr
 						if cmd == 'i' then stack.push i
@@ -181,10 +182,13 @@ class ForthHaiku3D extends Application
 						else if cmd == '>=' then (stack.push if stack.pop() <= stack.pop() then 1 else 0)
 						else if cmd == '!=' then (stack.push if stack.pop() != stack.pop() then 1 else 0)
 						else if cmd == '+' then stack.push stack.pop() + stack.pop()
-						else if cmd == '-' then stack.push stack.pop() - stack.pop()
+						else if cmd == '-' then stack.push -stack.pop() + stack.pop()
 						else if cmd == '*' then stack.push stack.pop() * stack.pop()
-						else if cmd == '/' then stack.push stack.pop() / stack.pop()
-						else if cmd == '%' then stack.push stack.pop() % stack.pop()
+						else if cmd == '/' then stack.push 1 / (stack.pop() / stack.pop())
+						else if cmd == '%'
+							a = stack.pop()
+							b = stack.pop()
+							stack.push b % a
 						else if cmd == 'and' then stack.push stack.pop() * stack.pop()
 						else if cmd == 'or'
 							sum = stack.pop() + stack.pop()
@@ -192,7 +196,7 @@ class ForthHaiku3D extends Application
 						else if cmd == 'not' then stack.push 1 - stack.pop()
 						else if cmd == 'dup' then stack.push _.last stack
 						else stack.push parseFloat cmd
-					if stack.pop() == 1 then @add i,j,k
+					if stack.pop() != 0 then @add i,j,k
 app = new ForthHaiku3D "a"
 
 """
