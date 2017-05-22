@@ -134,6 +134,7 @@ data =
 		Braider : ID_Braider
 		Nand2TetrisALU : ID_Nand2TetrisALU
 		Tetris : ID_Tetris
+		EngineeringNotation : ID_EngineeringNotation
 		RushHour : ID_RushHour
 
 	"LE: Sokoban" :
@@ -141,8 +142,7 @@ data =
 		RubikSquare : ID_RubikSquare
 		RubikCube : ID_RubikCube
 		Shortcut2 : ID_Shortcut2
-		EngineeringNotation : ID_EngineeringNotation
-		Isometric : ID_Isometric
+		ForthHaiku3D : ID_ForthHaiku3D
 		Sokoban : ID_Sokoban
 
 	"LF: sin cos translate rotate" :
