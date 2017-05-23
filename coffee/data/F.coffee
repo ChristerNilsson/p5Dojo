@@ -223,8 +223,3 @@ app = new ForthHaiku3D "a"
 	e:
 		ForthHaiku : "http://forthsalon.appspot.com/haiku-editor"
 		Exempel : 'ForthHaiku3D.html'
-		Exempel1 : 'http://www.artificial.dk/articles/images/digipio0504/Beck_jung_fargkub1_lille.jpg'
-		Exempel2 : 'https://s-media-cache-ak0.pinimg.com/236x/c8/42/ba/c842baf257e9e23e938f7d6706eb4b7b.jpg'
-		Exempel3 : 'http://www.ultima15.com/resources/images/beckjung1.jpg'
-		Exempel4 : 'http://online.auktionsverket.se/1111/109534-beck-jung-computer-ink-plot/380109534.jpg'
-		Exempel5 : 'http://img.tradera.net/images/994/154314994_1.jpg'
