@@ -91,13 +91,13 @@ app = new ForthHaiku "a"
 		"ForthHaiku" : "http://forthsalon.appspot.com"
 
 ID_ForthHaiku3D =
-	v:'2017-05-22'
+	v:'2017-05-23'
 	k:'bg sc fc range for if quad line operators class []'
-	l:83
+	l:90
 	b:"""
-# Kommandon: i j k < > == <= >= != + - * / % and or not dup
+# Kommandon: i j k t < > == <= >= != + - * / % and or not dup
 # false == 0, true == 1
-# i 5 == j 5 == k 5 == or or
+# i t 10 % == j t 10 % == k t 10 % == or or
 # i 5 != j 5 != k 5 != and and
 # 2 i <= i 7 <= and 2 j <= j 7 <= and 2 k <= k 7 <= and + + 1 <=
 # i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 23 <
@@ -107,6 +107,7 @@ class ForthHaiku3D extends Application
 		super
 	draw : ->
 	enter : ->
+	tick : ->
 	mousePressed : ->
 app = new ForthHaiku3D
 """
@@ -120,6 +121,7 @@ class ForthHaiku3D extends Application
 		@DY=5
 		@showGrid = true
 		@clear()
+		@t = 0
 	clear : -> @blocks = Array(1000).fill 0
 	add : (i,j,k) -> @blocks[@N*@N*i+@N*j+k] = 1
 	draw : ->
@@ -152,7 +154,6 @@ class ForthHaiku3D extends Application
 		q p1,p3,p7,p5 # right
 		fc r*sk,g*sk,b*sk
 		q p4,p5,p7,p6 # roof
-
 	grid : ->
 		sc 0.75
 		[w2,w3,w4] = [2*200/4,3*200/4,4*200/4]
@@ -162,19 +163,24 @@ class ForthHaiku3D extends Application
 	mousePressed : ->
 		@showGrid = not @showGrid
 		@enter()
+	tick : ->
+		@t = @t + 1
+		@enter()
 	enter : ->
 		@clear()
 		s = @readText().trim()
-		if s=='' then s='i 5 == j 5 == k 5 == or or'
+		if s=='' then s='k t 10 % =='
 		arr = s.split ' '
 		for i in range @N
 			for j in range @N
 				for k in range @N
 					stack = []
 					for cmd in arr
-						if cmd == 'i' then stack.push i
+						if cmd == 'dup' then stack.push _.last stack
+						else if cmd == 'i' then stack.push i
 						else if cmd == 'j' then stack.push j
 						else if cmd == 'k' then stack.push k
+						else if cmd == 't' then stack.push @t
 						else if cmd == '<' then (stack.push if stack.pop() > stack.pop() then 1 else 0)
 						else if cmd == '>' then (stack.push if stack.pop() < stack.pop() then 1 else 0)
 						else if cmd == '==' then (stack.push if stack.pop() == stack.pop() then 1 else 0)
@@ -194,13 +200,12 @@ class ForthHaiku3D extends Application
 							sum = stack.pop() + stack.pop()
 							stack.push if sum >= 1 then 1 else 0
 						else if cmd == 'not' then stack.push 1 - stack.pop()
-						else if cmd == 'dup' then stack.push _.last stack
 						else stack.push parseFloat cmd
 					if stack.pop() != 0 then @add i,j,k
 app = new ForthHaiku3D "a"
 
 """
 	c:
-		app : "reset()|enter()"
+		app : "reset()|enter()|tick()"
 	e:
 		ForthHaiku : "http://forthsalon.appspot.com/haiku-editor"
