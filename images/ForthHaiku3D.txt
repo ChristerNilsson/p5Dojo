@@ -1,0 +1,35 @@
+0: 1
+
+14: 3 i 5 ==
+
+1: 5 i k + 9 <=
+
+2: 7 i j k + + 9 ==
+
+3: 7 i j k + + 13 ==
+
+4: 7 i j k + + 2 %
+
+5: 7 i j k + + 3 %
+
+6: 11 i 2 % j 2 % k 2 % and and
+
+7: 11 i 819 bit j 819 bit k 819 bit and and
+
+8: 11 i 975 bit j 975 bit k 975 bit and and 
+
+9: 11 i 48 bit j 48 bit k 48 bit or or
+
+10: 13 i 771 bit j 771 bit k 771 bit + + 2 >=
+
+11: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 28 <
+
+13: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 38 >
+
+12: 16 i 4.5 - abs j 4.5 - abs k 4.5 - abs + + 6 <
+
+15: 13 i 252 bit j 252 bit k 252 bit + + 2 >=
+
+17: 35 i 72 bit j 72 bit k 72 bit or or i 771 bit j 771 bit k 771 bit and and or i 975 bit j 975 bit k 975 bit and and and
+
+16: 49 0 i j + bit i 330 bit and 0 i j + bit not j 330 bit and or k 4 <= and 0 i j + bit j 330 bit and 0 i j + bit not i 330 bit and or k 4 > and or

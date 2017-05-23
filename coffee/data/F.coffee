@@ -95,12 +95,9 @@ ID_ForthHaiku3D =
 	k:'bg sc fc range for if quad line operators class []'
 	l:104
 	b:"""
-# Kommandon: i j k t < > == <= >= != + - * / // % %% abs and or not dup
+# Kommandon: i j k t < > == <= >= != + - * / // % %% abs and or not dup bit swp
 # false == 0, true == 1
-# Exempel: 1
 # Exempel: k t 10 % ==
-# Exempel: k t 10 % == i 9 == j 9 == and and
-# Exempel: i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + t 2 * 55 % <
 
 class ForthHaiku3D extends Application
 	reset : ->
@@ -172,6 +169,7 @@ class ForthHaiku3D extends Application
 		s = @readText().trim()
 		if s=='' then s='k t 10 % =='
 		arr = s.split ' '
+		@words = arr.length
 		@trace = ''
 		@count = 0
 		for i in range @N
@@ -180,6 +178,9 @@ class ForthHaiku3D extends Application
 					stack = []
 					for cmd in arr
 						if cmd == 'dup' then stack.push _.last stack
+						else if cmd == 'swp'
+							n = stack.length - 1
+							[stack[n-1],stack[n]] = [stack[n],stack[n-1]]
 						else if cmd == 'i'  then stack.push i
 						else if cmd == 'j'  then stack.push j
 						else if cmd == 'k'  then stack.push k
@@ -205,6 +206,7 @@ class ForthHaiku3D extends Application
 						else if cmd == '%%'
 							a = stack.pop()
 							stack.push stack.pop() %% a
+						else if cmd == 'bit' then stack.push (stack.pop() >> stack.pop()) & 1  # 9 1023 bit => 1
 						else if cmd == 'and' then stack.push stack.pop() * stack.pop()
 						else if cmd == 'or'  then stack.push digit stack.pop() + stack.pop() >= 1
 						else if cmd == 'not' then stack.push 1 - stack.pop()
