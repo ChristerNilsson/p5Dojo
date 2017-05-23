@@ -93,9 +93,9 @@ app = new ForthHaiku "a"
 ID_ForthHaiku3D =
 	v:'2017-05-23'
 	k:'bg sc fc range for if quad line operators class []'
-	l:89
+	l:104
 	b:"""
-# Kommandon: i j k t < > == <= >= != + - * / % and or not dup
+# Kommandon: i j k t < > == <= >= != + - * / // % %% abs and or not dup
 # false == 0, true == 1
 # Exempel: 1
 # Exempel: k t 10 % ==
@@ -172,6 +172,8 @@ class ForthHaiku3D extends Application
 		s = @readText().trim()
 		if s=='' then s='k t 10 % =='
 		arr = s.split ' '
+		@trace = ''
+		@count = 0
 		for i in range @N
 			for j in range @N
 				for k in range @N
@@ -191,15 +193,28 @@ class ForthHaiku3D extends Application
 						else if cmd == '+'  then stack.push stack.pop() + stack.pop()
 						else if cmd == '-'  then stack.push -stack.pop() + stack.pop()
 						else if cmd == '*'  then stack.push stack.pop() * stack.pop()
-						else if cmd == '/'  then stack.push 1 / (stack.pop() / stack.pop())
+						else if cmd == '/'
+							a = stack.pop()
+							stack.push stack.pop() / a
+						else if cmd == '//'
+							a = stack.pop()
+							stack.push stack.pop() // a
 						else if cmd == '%'
 							a = stack.pop()
 							stack.push stack.pop() % a
+						else if cmd == '%%'
+							a = stack.pop()
+							stack.push stack.pop() %% a
 						else if cmd == 'and' then stack.push stack.pop() * stack.pop()
 						else if cmd == 'or'  then stack.push digit stack.pop() + stack.pop() >= 1
 						else if cmd == 'not' then stack.push 1 - stack.pop()
+						else if cmd == 'abs' then stack.push abs stack.pop()
 						else stack.push parseFloat cmd
-					if stack.pop() != 0 then @add i,j,k
+						if i==9 and j==9 and k==9 then @trace += cmd + ' [' + stack.join(',') + '] '
+					if stack.pop() != 0
+						@count++
+						@add i,j,k
+		@trace = @trace.trim()
 app = new ForthHaiku3D "a"
 
 """
@@ -207,6 +222,7 @@ app = new ForthHaiku3D "a"
 		app : "reset()|enter()|tick()"
 	e:
 		ForthHaiku : "http://forthsalon.appspot.com/haiku-editor"
+		Exempel : 'ForthHaiku3D.html'
 		Exempel1 : 'http://www.artificial.dk/articles/images/digipio0504/Beck_jung_fargkub1_lille.jpg'
 		Exempel2 : 'https://s-media-cache-ak0.pinimg.com/236x/c8/42/ba/c842baf257e9e23e938f7d6706eb4b7b.jpg'
 		Exempel3 : 'http://www.ultima15.com/resources/images/beckjung1.jpg'
