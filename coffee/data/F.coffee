@@ -91,16 +91,16 @@ app = new ForthHaiku "a"
 		"ForthHaiku" : "http://forthsalon.appspot.com"
 
 ID_ForthHaiku3D =
-	v:'2017-05-23'
+	v:'2017-05-22'
 	k:'bg sc fc range for if quad line operators class []'
-	l:90
+	l:89
 	b:"""
 # Kommandon: i j k t < > == <= >= != + - * / % and or not dup
 # false == 0, true == 1
-# i t 10 % == j t 10 % == k t 10 % == or or
-# i 5 != j 5 != k 5 != and and
-# 2 i <= i 7 <= and 2 j <= j 7 <= and 2 k <= k 7 <= and + + 1 <=
-# i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 23 <
+# Exempel: 1
+# Exempel: k t 10 % ==
+# Exempel: k t 10 % == i 9 == j 9 == and and
+# Exempel: i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 23 <
 
 class ForthHaiku3D extends Application
 	reset : ->
@@ -194,12 +194,9 @@ class ForthHaiku3D extends Application
 						else if cmd == '/'  then stack.push 1 / (stack.pop() / stack.pop())
 						else if cmd == '%'
 							a = stack.pop()
-							b = stack.pop()
-							stack.push b % a
+							stack.push stack.pop() % a
 						else if cmd == 'and' then stack.push stack.pop() * stack.pop()
-						else if cmd == 'or'
-							sum = stack.pop() + stack.pop()
-							stack.push if sum >= 1 then 1 else 0
+						else if cmd == 'or'  then stack.push digit stack.pop() + stack.pop() >= 1
 						else if cmd == 'not' then stack.push 1 - stack.pop()
 						else stack.push parseFloat cmd
 					if stack.pop() != 0 then @add i,j,k
@@ -210,3 +207,8 @@ app = new ForthHaiku3D "a"
 		app : "reset()|enter()|tick()"
 	e:
 		ForthHaiku : "http://forthsalon.appspot.com/haiku-editor"
+		Exempel1 : 'http://www.artificial.dk/articles/images/digipio0504/Beck_jung_fargkub1_lille.jpg'
+		Exempel2 : 'https://s-media-cache-ak0.pinimg.com/236x/c8/42/ba/c842baf257e9e23e938f7d6706eb4b7b.jpg'
+		Exempel3 : 'http://www.ultima15.com/resources/images/beckjung1.jpg'
+		Exempel4 : 'http://online.auktionsverket.se/1111/109534-beck-jung-computer-ink-plot/380109534.jpg'
+		Exempel5 : 'http://img.tradera.net/images/994/154314994_1.jpg'
