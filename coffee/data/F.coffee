@@ -167,6 +167,7 @@ class ForthHaiku3D extends Application
 		@t = @t + 1
 		@enter()
 	enter : ->
+		digit = (bool) -> if bool then 1 else 0
 		@clear()
 		s = @readText().trim()
 		if s=='' then s='k t 10 % =='
@@ -177,20 +178,20 @@ class ForthHaiku3D extends Application
 					stack = []
 					for cmd in arr
 						if cmd == 'dup' then stack.push _.last stack
-						else if cmd == 'i' then stack.push i
-						else if cmd == 'j' then stack.push j
-						else if cmd == 'k' then stack.push k
-						else if cmd == 't' then stack.push @t
-						else if cmd == '<' then (stack.push if stack.pop() > stack.pop() then 1 else 0)
-						else if cmd == '>' then (stack.push if stack.pop() < stack.pop() then 1 else 0)
-						else if cmd == '==' then (stack.push if stack.pop() == stack.pop() then 1 else 0)
-						else if cmd == '<=' then (stack.push if stack.pop() >= stack.pop() then 1 else 0)
-						else if cmd == '>=' then (stack.push if stack.pop() <= stack.pop() then 1 else 0)
-						else if cmd == '!=' then (stack.push if stack.pop() != stack.pop() then 1 else 0)
-						else if cmd == '+' then stack.push stack.pop() + stack.pop()
-						else if cmd == '-' then stack.push -stack.pop() + stack.pop()
-						else if cmd == '*' then stack.push stack.pop() * stack.pop()
-						else if cmd == '/' then stack.push 1 / (stack.pop() / stack.pop())
+						else if cmd == 'i'  then stack.push i
+						else if cmd == 'j'  then stack.push j
+						else if cmd == 'k'  then stack.push k
+						else if cmd == 't'  then stack.push @t
+						else if cmd == '<'  then stack.push digit stack.pop() > stack.pop()
+						else if cmd == '>'  then stack.push digit stack.pop() < stack.pop()
+						else if cmd == '==' then stack.push digit stack.pop() == stack.pop()
+						else if cmd == '<=' then stack.push digit stack.pop() >= stack.pop()
+						else if cmd == '>=' then stack.push digit stack.pop() <= stack.pop()
+						else if cmd == '!=' then stack.push digit stack.pop() != stack.pop()
+						else if cmd == '+'  then stack.push stack.pop() + stack.pop()
+						else if cmd == '-'  then stack.push -stack.pop() + stack.pop()
+						else if cmd == '*'  then stack.push stack.pop() * stack.pop()
+						else if cmd == '/'  then stack.push 1 / (stack.pop() / stack.pop())
 						else if cmd == '%'
 							a = stack.pop()
 							b = stack.pop()
