@@ -91,9 +91,9 @@ app = new ForthHaiku "a"
 		"ForthHaiku" : "http://forthsalon.appspot.com"
 
 ID_ForthHaiku3D =
-	v:'2017-05-24'
+	v:'2017-05-25'
 	k:'bg sc fc range for if quad line operators class []'
-	l:113
+	l:114
 	b:"""
 # Stack-1 : < > == <= >= != + - * / // % %% and or bit
 # Stack   : abs not swp rot
@@ -107,7 +107,7 @@ ID_ForthHaiku3D =
 # Exempel: t 10 % k ==
 
 class ForthHaiku3D extends Application
-	reset : ->
+	reset : (n,dx,dy)->
 		super
 	draw : ->
 	enter : ->
@@ -117,16 +117,16 @@ app = new ForthHaiku3D
 """
 	a:"""
 class ForthHaiku3D extends Application
-	reset : ->
+	reset : (n,dx,dy)->
 		super
 		@SHADE = [0.5,0.75,1]
-		@N=10
-		@DX=10
-		@DY=5
+		@N = n
+		@DX = dx
+		@DY = dy
 		@showGrid = true
 		@clear()
 		@t = 0
-	clear : -> @blocks = Array(1000).fill 0
+	clear : -> @blocks = Array(@N*@N*@N).fill 0
 	add : (i,j,k) -> @blocks[@N*@N*i+@N*j+k] = 1
 	draw : ->
 		bg 0.5
@@ -134,7 +134,7 @@ class ForthHaiku3D extends Application
 		sc()
 		@drawBlock index for index in range @N*@N*@N
 	drawBlock : (index) ->
-		f = (i,j,k) => [100+(10-i)*@DX-2*(10-j)*@DY, 200-(10-j)*@DY-(10-i)*@DX/2 - k*@DY*2]
+		f = (i,j,k) => [100+(@N-i)*2*@DY-2*(@N-j)*@DY, 200-(@N-j)*@DY-(@N-i)*@DY - k*2*@DY]
 		q = (a,b,c,d) -> quad a[0],a[1], b[0],b[1], c[0],c[1], d[0],d[1]
 		ix=index
 		k = ix % @N; ix //= @N
@@ -142,7 +142,7 @@ class ForthHaiku3D extends Application
 		i = ix
 		block = @blocks[index]
 		if not block? or block==0 then return
-		[r,g,b] = [i/9,j/9,k/9] # borde vara i,j,k
+		[r,g,b] = [i/(@N-1),j/(@N-1),k/(@N-1)] # borde vara i,j,k
 		p0 = f i,  j,  k # egentligen osynlig
 		p1 = f i+1,j,  k
 		p2 = f i,  j+1,k
@@ -160,10 +160,11 @@ class ForthHaiku3D extends Application
 		q p4,p5,p7,p6 # roof
 	grid : ->
 		sc 0.75
-		[w2,w3,w4] = [2*200/4,3*200/4,4*200/4]
+		[h2,h3,h4] = [200-2*@N*@DY, 200-@N*@DY, 200]
+		[w2,w3,w4] = [100-@N*@DX,   100,        100+@N*@DX]
 		for i in range @N+1
-			line w2+@DX*i, w4-@DY*i,    @DX*i, w3-@DY*i
-			line w2-@DX*i, w4-@DY*i, w4-@DX*i, w3-@DY*i
+			line w3+@DX*i, h4-@DY*i, w2+@DX*i, h3-@DY*i
+			line w2+@DX*i, h3+@DY*i, w3+@DX*i, h2+@DY*i
 	mousePressed : ->
 		@showGrid = not @showGrid
 		@enter()
@@ -174,7 +175,7 @@ class ForthHaiku3D extends Application
 		digit = (bool) -> if bool then 1 else 0
 		@clear()
 		s = @readText().trim()
-		if s=='' then s='k t 10 % =='
+		if s=='' then s='k t ' + @N + ' % =='
 		arr = s.split ' '
 		@words = arr.length
 		@trace = ''
@@ -223,7 +224,7 @@ class ForthHaiku3D extends Application
 						else if cmd == 'not' then stack.push 1 - stack.pop()
 						else if cmd == 'abs' then stack.push abs stack.pop()
 						else stack.push parseFloat cmd
-						if i==9 and j==9 and k==9 then @trace += cmd + ' [' + stack.join(',') + '] '
+						if i==@N-1 and j==@N-1 and k==@N-1 then @trace += cmd + ' [' + stack.join(',') + '] '
 					if stack.pop() != 0
 						@count++
 						@add i,j,k
@@ -232,7 +233,8 @@ app = new ForthHaiku3D "a"
 
 """
 	c:
-		app : "reset()|enter()|tick()"
+		app : "reset 10,10,5|reset 17,6,3|enter()|tick()"
 	e:
 		ForthHaiku : "http://forthsalon.appspot.com/haiku-editor"
 		Exempel : 'ForthHaiku3D.html'
+		"Beck & Jung" : 'https://www.google.se/search?q=beck+jung&tbm=isch&imgil=fTDB34quIvQVtM%253A%253BujSokE1Q4La-QM%253Bhttp%25253A%25252F%25252Fonline.auktionsverket.se%25252F1111%25252F109534-beck-jung-computer-ink-plot&source=iu&pf=m&fir=fTDB34quIvQVtM%253A%252CujSokE1Q4La-QM%252C_&usg=__eBA4v2Ol5RdVComTBJqPkozH59s%3D&biw=1920&bih=1108&dpr=1&ved=0ahUKEwiH0qmqzInUAhVmDZoKHTcYD7wQyjcIQw&ei=hQsmWcf7EOaa6AS3sLzgCw#imgrc=fTDB34quIvQVtM:'
