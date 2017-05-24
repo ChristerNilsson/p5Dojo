@@ -326,6 +326,7 @@ changeLayout = ->
 	$(".CodeMirror").width w-425
 	$("#canvas").css {top: 0, left: 205, position:'absolute'}
 	$("#msg").width w-430
+	$("#input").width w-75
 
 resizeTimer = 0
 $(window).resize ->
@@ -361,7 +362,7 @@ setup = ->
 	btn3.click () -> setState 1
 
 	renew = createButton 'Renew'
-	renew.position 352,644
+	renew.position 0,644
 	renew.hide()
 	renew.mousePressed () ->
 		print myCodeMirror.getValue()
