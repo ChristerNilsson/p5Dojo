@@ -11,8 +11,14 @@ J: 4 975 bit3 and and
 K: 4 48 bit3 or or
 L: 6 771 bit3 + + 2 >=
 M: 6 252 bit3 + + 2 >=
+S: 11 i 7 == j 4 == k 1 == and and
+T: 11 i 7 == j 4 == k 1 == or and
+U: 11 i 7 == j 4 == k 1 == and or
+V: 11 i 7 == j 4 == k 1 == or or
 Q: 14 72 bit3 or or 771 bit3 and and or 975 bit3 and and and
 N: 16 i 4.5 - abs j 4.5 - abs k 4.5 - abs + + 6 <
 O: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 28 <
 P: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 38 >
 R: 41 0 i j + bit dup dup dup i 330 bit rot and j 330 bit rot not and or k 4 <= and j 330 bit rot and i 330 bit rot not and or k 4 > and or
+
+
