@@ -91,12 +91,12 @@ app = new ForthHaiku "a"
 		"ForthHaiku" : "http://forthsalon.appspot.com"
 
 ID_ForthHaiku3D =
-	v:'2017-05-25'
+	v:'2017-05-26'
 	k:'bg sc fc range for if quad line operators class []'
-	l:114
+	l:122
 	b:"""
-# Stack-1 : < > == <= >= != + - * / // % %% and or bit
-# Stack   : abs not swp rot
+# Stack-1 : < > == <= >= != + - * / // % %% and or xor bit & | ^
+# Stack   : abs not swp rot ~
 # Stack+1 : i j k t dup
 # Stack+2 : bit3
 
@@ -127,7 +127,7 @@ class ForthHaiku3D extends Application
 		@clear()
 		@t = 0
 	clear : -> @blocks = Array(@N*@N*@N).fill 0
-	add : (i,j,k) -> @blocks[@N*@N*i+@N*j+k] = 1
+	add : (i,j,k) -> @blocks[@N*@N*k+@N*j+i] = 1
 	draw : ->
 		bg 0.5
 		if @showGrid then @grid()
@@ -137,9 +137,9 @@ class ForthHaiku3D extends Application
 		f = (i,j,k) => [100+(@N-i)*2*@DY-2*(@N-j)*@DY, 200-(@N-j)*@DY-(@N-i)*@DY - k*2*@DY]
 		q = (a,b,c,d) -> quad a[0],a[1], b[0],b[1], c[0],c[1], d[0],d[1]
 		ix=index
-		k = ix % @N; ix //= @N
+		i = ix % @N; ix //= @N
 		j = ix % @N; ix //= @N
-		i = ix
+		k = ix
 		block = @blocks[index]
 		if not block? or block==0 then return
 		[r,g,b] = [i/(@N-1),j/(@N-1),k/(@N-1)] # borde vara i,j,k
@@ -219,9 +219,17 @@ class ForthHaiku3D extends Application
 						else if cmd == 'bit3'
 							bits = stack.pop()
 							stack = stack.concat [bits >> i & 1, bits >> j & 1, bits >> k & 1]
-						else if cmd == 'and' then stack.push stack.pop() * stack.pop()
-						else if cmd == 'or'  then stack.push digit stack.pop() + stack.pop() >= 1
-						else if cmd == 'not' then stack.push 1 - stack.pop()
+						else if cmd == '&' then stack.push stack.pop() & stack.pop()
+						else if cmd == '|' then stack.push stack.pop() | stack.pop()
+						else if cmd == '^' then stack.push stack.pop() ^ stack.pop()
+						else if cmd == '~' then stack.push ~stack.pop()
+						else if cmd == 'and' then stack.push digit stack.pop() != 0 and stack.pop() != 0
+						else if cmd == 'or'  then stack.push digit stack.pop() != 0 or stack.pop() != 0
+						else if cmd == 'xor'
+							a = digit stack.pop() != 0
+							b = digit stack.pop() != 0
+							stack.push digit a+b == 1
+						else if cmd == 'not' then stack.push digit stack.pop() == 0
 						else if cmd == 'abs' then stack.push abs stack.pop()
 						else stack.push parseFloat cmd
 						if i==@N-1 and j==@N-1 and k==@N-1 then @trace += cmd + ' [' + stack.join(',') + '] '
@@ -233,7 +241,7 @@ app = new ForthHaiku3D "a"
 
 """
 	c:
-		app : "reset 10,10,5|reset 17,6,3|enter()|tick()"
+		app : "reset 2,50,25|reset 10,10,5|reset 17,6,3|enter()|tick()"
 	e:
 		ForthHaiku : "http://forthsalon.appspot.com/haiku-editor"
 		Exempel : 'ForthHaiku3D.html'

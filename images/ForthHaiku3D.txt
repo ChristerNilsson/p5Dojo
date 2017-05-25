@@ -1,3 +1,4 @@
+====== 10x10x10 ======
 A: 1
 B: 3 i 5 ==
 C: 5 i k + 9 <=
@@ -20,5 +21,85 @@ N: 16 i 4.5 - abs j 4.5 - abs k 4.5 - abs + + 6 <
 O: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 28 <
 P: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 38 >
 R: 41 0 i j + bit dup dup dup i 330 bit rot and j 330 bit rot not and or k 4 <= and j 330 bit rot and i 330 bit rot not and or k 4 > and or
+
+====== 17x17x17 ======
+W: 45 words
+i 10 // j 10 // k 10 // + + 2 % dup
+i 10 % 65 bit j 10 % 127 bit and and
+j 10 % 65 bit i 10 % 127 bit and rot not and
+or
+k 130175 bit and
+
+====== 2x2x2 ======
+index = i + 2j + 4k
+0: i j k + + 0 ==
+1: i j not k not * *
+2: j 1 == i k + 0 == and
+3: j i + 2 == k 0 == and
+4: j i + 0 == k 1 == and
+5: i k + 2 == j 0 == and
+6: j k + 2 == i 0 == and
+7: i j k * *
+01: j k + 0 ==
+02: i k + 0 ==
+03: i j xor k not *
+04: i j + 0 ==
+05: i k xor not j not *
+06: j k xor not i not *
+07: i j k + + 9 bit
+012: i j * not k not and
+356: i j k + + 2 ==
+0123: k not
+0356: i j k + + 2 %
+01234: k not i not j not * or
+012345: k not j not or
+0123456: i j k * * not
+...
+01234567: 1
+
+# ej fullständig.
+00000000 0 0
+00000001 1 i j k * *
+00000011 3 j k *
+00000101 5 i k *
+00001010 10 i k bit
+00001100 12 j k bit
+00001111 15 k
+00010001 17 i j *
+00010101 21 i j k + *
+00100010 34 i j bit
+00110000 48 k j bit
+00110011 51 j
+00111100 60 j k xor
+00111111 63 j k +
+01000100 68 j i bit
+01010000 80 k i bit
+01010101 85 i
+01010111 87 i j k * +
+01011010 90 k i xor
+01011111 95 i k +
+01100110 102 i j xor
+01110111 119 i j +
+01111111 127 i j k + +
+10000000 128 i j k + + not
+10011001 153 i j ==
+10100101 165 i k ==
+10101010 170 i not
+10101111 175 i k <=
+10111011 187 i j <=
+11000011 195 j k - not
+01100110 198 i j !=
+11001100 204 j not
+11001111 207 j k <=
+11011101 221 i j >=
+11101010 234 i j k + * not
+11101110 238 i not j >=
+11110000 240 k not
+11110011 243 j k >=
+11110101 245 i k >=
+11111100 252 j k * not
+11111110 254 i j k * * not
+11111111 255 1
+
 
 
