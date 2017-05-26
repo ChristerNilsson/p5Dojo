@@ -2,6 +2,8 @@
 
 Spelprogrammering, matematik och quadflygning.
 
+[Bilder från Quad Camp Långtora 2016](https://photos.google.com/share/AF1QipMAL6lHamSviWt2DSfrqJwFjw6J7OiSdeUJRvZrHNOiOJZJWpb5RMmE6Phz_obheg?key=OHJMWFJEdkRtTjRZVkNOb1daZ2Ric21QVEZXb1RB)
+
 Kosmosklubben arrangerar detta läger för dig som vill arbeta med textbaserad programmering.
 
 Matematiken i spelprogrammering omfattar bl a
