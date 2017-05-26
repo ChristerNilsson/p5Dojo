@@ -170,6 +170,7 @@ data =
 		Laboratorium : ID_Laboratorium
 
 	Exhibition :
+		sailingBoat : ID018
 		melon : ID017
 		rainbow : ID016
 		clown : ID001

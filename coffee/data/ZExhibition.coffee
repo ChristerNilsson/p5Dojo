@@ -434,5 +434,34 @@ rect 120,70,10,10
 rect 130,50,10,10
 """
 
-
-
+ID018 = # Sailing Boat :
+	v:'2017-05-26'
+	k:'bg fc sw sc circle triangle line rd arc ellipse'
+	l:24
+	b:"# (Sabrina)\n"
+	a:"""
+bg 0,1,1
+fc 1,1,0
+sw 0
+circle 130,100,57
+sw 8
+sc 1,1,0
+noFill()
+circle 130,100,75
+circle 130,100,105
+fc 1
+sc()
+triangle 100,120,60,120,100,56
+sc 0.25,0.25,0
+sw 10
+line 100,60,100,125
+fc 0.25,0.25,0
+sw 0
+sc 0
+rd 20
+arc 130,70,100,100,0,1900,0
+fc 0,0,1
+ellipse 100,170,150,100
+ellipse 170,150,150,100
+ellipse 250,125,170,100
+"""
