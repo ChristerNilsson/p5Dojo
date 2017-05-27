@@ -283,7 +283,8 @@ mousePressed = ->
 
 setLinks = ->
 	linksClear()
-	linkAppend links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/camp.md", "Sommarläger 26-30 juni"
+
+	linkAppend links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/camp.md#sommarläger-2017", "Sommarläger 26-30 juni"
 	linkAppend links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo", "p5Dojo"
 	if exercise=='' then return
 	linkAppend links, "https://p5js.org/reference", "p5"

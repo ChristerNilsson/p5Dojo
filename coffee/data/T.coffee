@@ -249,18 +249,22 @@ triangle 20,40, 160,100, 100,140
 """
 
 ID_TwoArcs =
-	v:'2017-04-29'
+	v:'2017-05-27'
 	k:'fc sc sw arc radians strokeCap'
-	l:7
+	l:11
 	b:""
 	a:"""
 fc()
 sc 1,0,0
 sw 20
-arc 100,70, 100,100, radians(-90),radians(90)
+start = radians -90
+stopp = radians 0
+arc 100,70, 100,100, start,stopp
 sc 1,1,0
 strokeCap SQUARE
-arc 100,120, 100,100, radians(90),radians(-90)
+start = radians 0
+stopp = radians -90
+arc 100,120, 100,100, start,stopp
 """
 
 ID_TwoDiceHistogram =

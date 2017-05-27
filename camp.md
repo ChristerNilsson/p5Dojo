@@ -46,4 +46,4 @@ Dessutom finns det över ett hundra grafiska övningar som kräver mellan en och
 * Max antal deltagare: 10
 * Åldersgräns: 12- år
 * Ledare: Christer Nilsson (070-749 68 00) och Wilma Eklund
-* Anmälan: [kosmosklubben.se](http://www.kosmosklubben.se)
+* Anmälan: [kosmosklubben.se](https://minaaktiviteter.se/shop/?org=kosmosklubben;event=55725;info=1)
