@@ -552,6 +552,9 @@ Din källkod sparas på din dator automatiskt. Töm editorfönstret (ctrl-A) om 
 
 Om du tycker att editorn är långsam, skapa medvetet ett syntaxfel.
 
+### Javascript till Coffeescript
+[js2coffee](js2coffee.md)
+
 ### Interaktivitet
 
 Lektion 9 och framåt innehåller interaktiva övningar.
