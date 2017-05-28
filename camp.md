@@ -40,10 +40,14 @@ Det finns möjlighet att programmera något av följande spel:
 
 Dessutom finns det över ett hundra grafiska övningar som kräver mellan en och hundra kodrader. Vi använder Coffeescript (Javascript) och p5.
 
+En procent av avgifterna kommer i år att gå till [Processing Foundation](https://processingfoundation.org/support), organisationen bakom p5.js.
+
+Ytterligare en procent av avgifterna kommer att delas ut till Coderdojo i Stockholm av Kosmosklubben.
+
 * Tid: 26-30 juni (måndag-fredag)
 * Plats: Långtora segelflygfält. 8 mil NV Stockholm
-* Pris: 3.995:- (kost och logi ingår)
+* Pris: 3.975:- (kost och logi ingår)
 * Max antal deltagare: 10
-* Åldersgräns: 12- år
+* Åldersgräns: 10- år
 * Ledare: Christer Nilsson (070-749 68 00) och Wilma Eklund
 * Anmälan: [kosmosklubben.se](https://minaaktiviteter.se/shop/?org=kosmosklubben;event=55725;info=1)
