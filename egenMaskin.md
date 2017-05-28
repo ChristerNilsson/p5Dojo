@@ -7,19 +7,19 @@ Detta kräver installation av coffeescript samt Mall.
 
 ```coffeescript
 class Counter extends Application
-	reset : ->
-		super
-		@counter = 0
-	up : -> @counter += 1
-	down : -> @counter -= 1
-	draw : ->
-		bg 0.5
-		fc 1,1,0
-		sc()
-		textAlign CENTER,CENTER
-		textSize 100
-		text @counter,100,100
-	mousePressed : (mx,my) -> @counter += if my < 100 then 1 else -1
+  reset : ->
+    super
+    @counter = 0
+  up : -> @counter += 1
+  down : -> @counter -= 1
+  draw : ->
+    bg 0.5
+    fc 1,1,0
+    sc()
+    textAlign CENTER,CENTER
+    textSize 100
+    text @counter,100,100
+  mousePressed : (mx,my) -> @counter += if my < 100 then 1 else -1
 
 app = new Counter "a"
 ```
@@ -27,8 +27,8 @@ app = new Counter "a"
 * Skapa setup
 ```coffeescript
 setup = ->
-	createCanvas 200,200
-	app = new Counter
+  createCanvas 200,200
+  app = new Counter
 ```
 
 * Gör app till en global variabel
@@ -49,13 +49,13 @@ class Counter
 * Ersätt reset med en constructor
 ```coffeescript
 class Counter
-	reset : ->
-		super
-		@counter = 0
+  reset : ->
+    super
+    @counter = 0
 ```
 ```coffeescript
 class Counter
-	constructor : -> @counter = 0
+  constructor : -> @counter = 0
 ```
 
 * Lägg till anrop av draw
@@ -68,27 +68,27 @@ draw = -> app.draw()
 mousePressed = -> app.mousePressed mouseX,mouseY
 ```
 
-## Slutresultatet
+## Slutresultat
 
 ```coffeescript
 app = null
 
 setup = ->
-	createCanvas 200,200
-	app = new Counter
+  createCanvas 200,200
+  app = new Counter
 
 class Counter
-	constructor : -> @counter = 0
-	up : -> @counter++
-	down : -> @counter--
-	draw : ->
-		bg 0.5
-		fc 1,1,0
-		sc()
-		textAlign CENTER,CENTER
-		textSize 100
-		text @counter,100,100
-	mousePressed : (mx,my) -> if my < 100 then @up() else @down()
+  constructor : -> @counter = 0
+  up : -> @counter++
+  down : -> @counter--
+  draw : ->
+    bg 0.5
+    fc 1,1,0
+    sc()
+    textAlign CENTER,CENTER
+    textSize 100
+    text @counter,100,100
+  mousePressed : (mx,my) -> if my < 100 then @up() else @down()
 
 draw = -> app.draw()
 mousePressed = -> app.mousePressed mouseX,mouseY
@@ -100,11 +100,11 @@ mousePressed = -> app.mousePressed mouseX,mouseY
 counter = 0
 setup = -> createCanvas 200,200
 draw = ->
-	bg 0.5
-	fc 1,1,0
-	sc()
-	textAlign CENTER,CENTER
-	textSize 100
-	text counter,100,100
+  bg 0.5
+  fc 1,1,0
+  sc()
+  textAlign CENTER,CENTER
+  textSize 100
+  text counter,100,100
 mousePressed = -> if mouseY < 100 then counter++ else counter--
 ```
