@@ -555,6 +555,9 @@ Om du tycker att editorn är långsam, skapa medvetet ett syntaxfel.
 ### Javascript till Coffeescript
 [js2coffee](js2coffee.md)
 
+### Utveckling på egen maskin
+[Egen maskin](egenMaskin.md)
+
 ### Interaktivitet
 
 Lektion 9 och framåt innehåller interaktiva övningar.
