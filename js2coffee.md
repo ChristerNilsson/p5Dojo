@@ -1,5 +1,7 @@
 ### Javascript till Coffeescript
 
+Det är inte nödvändigt att översätta alla filer och all kod till Coffeescript. Det går utmärkt att blanda Coffeescript och Javascript i ett projekt, t o m i samma fil (med backtick). Men, om du gillar Coffeescripts syntax, gör du så här.
+
 Utgå från denna [Exempelfil](https://raw.githubusercontent.com/shiffman/The-Nature-of-Code-Examples-p5.js/master/chp08_fractals/NOC_8_08_SimpleLSystem/sketch.js)
 
 ```javascript
@@ -56,13 +58,17 @@ function generate() {
 }
 ```
 
-* Skapa ett nytt projekt.
+* Skapa ett nytt projekt med newProject.bat och startProject.bat
 
 * Kopiera in filerna, döp om dem till .coffee
 
 * Se till att index.html refererar till filerna.
 
-## FAS 1
+```html
+<script src="js/sketch.js"></script>
+```
+
+## FAS 1 (nödvändig)
 
 * Byt // mot # överallt.
 ```javascript
@@ -119,9 +125,11 @@ if (c === 'A') {
 if c == 'A'
 ```
 
-FAS 2 (ej nödvändig)
+## FAS 2 (frivillig)
 
-* Tag bort alla semikolon
+* Provkör innan du går vidare.
+
+* Tag bort semikolon
 ```javascript
 show.position(50,100);
 ```
@@ -129,7 +137,7 @@ show.position(50,100);
 show.position 50,100
 ```
 
-* Tag bort onödiga parenteser
+* Tag bort parenteser
 ```javascript
 show.position(50,100);
 if (c === 'A') {
@@ -140,7 +148,7 @@ show.position 50,100
 if c == 'A'
 ```
 
-* Förenkla for loopar om det går
+* Förenkla for loopar
 
 ```javascript
 for i in range current.length
@@ -160,7 +168,7 @@ results += "Generation #{++count}: #{current}<br>"
 
 * Krymp mera om det är meningsfullt.
 
-Använd ctrl+shift+i för att komma till console. Eller F12.
+Använd F12 eller ctrl+shift+i för att komma till console.
 
 ## Slutresultat
 
@@ -186,3 +194,5 @@ generate = ->
   results += "Generation #{++count}: #{current}<br>"
   show.html results
 ```
+
+[Video](https://www.youtube.com/watch?v=E1B4UoSQMFw&index=19&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH)
