@@ -152,9 +152,11 @@ for c in current
 
 * Inför string interpolation
 ```javascript
-results += 'Generation ' + count + ': ' + current + '<br>';```
+results += 'Generation ' + count + ': ' + current + '<br>';
+```
 ```coffeescript
-results += "Generation #{++count}: #{current}<br>"```
+results += "Generation #{++count}: #{current}<br>"
+```
 
 * Krymp mera om det är meningsfullt.
 
