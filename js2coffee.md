@@ -82,16 +82,6 @@ count = 0
 instructions = null
 ```
 
-* Tag bort "var".
-```javascript
-var count = 0;
-var instructions;
-```
-```coffeescript
-count = 0
-instructions = null
-```
-
 * Byt for loopar till for i in range osv.
 
 ```javascript
@@ -181,18 +171,18 @@ show = null
 results = ''
 
 setup = ->
-  instructions = createP '<a href=\'#\'>Click the mouse to generate.</a>'
+  instructions = createP "<a href='#'>Click the mouse to generate.</a>"
   instructions.position 50,50
   instructions.class 'clickable'
   instructions.mousePressed generate
 
-  results += 'Generation ' + count + ': ' + current + '<br>'
+  results += "Generation #{count}: #{current}<br>"
   show = createP results
   show.position 50,100
 
 generate = ->
   hash = {A:'AB', B:'A'}
   current = (hash[c] for c in current when hash[c]?).join ''
-  results += 'Generation ' + ++count + ': ' + current + '<br>'
+  results += "Generation #{++count}: #{current}<br>"
   show.html results
 ```
