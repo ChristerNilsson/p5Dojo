@@ -93,3 +93,18 @@ class Counter
 draw = -> app.draw()
 mousePressed = -> app.mousePressed mouseX,mouseY
 ```
+
+## Slutresultat utan användande av class
+
+```coffeescript
+counter = 0
+setup = -> createCanvas 200,200
+draw = ->
+	bg 0.5
+	fc 1,1,0
+	sc()
+	textAlign CENTER,CENTER
+	textSize 100
+	text counter,100,100
+mousePressed = -> if mouseY < 100 then counter++ else counter--
+```
