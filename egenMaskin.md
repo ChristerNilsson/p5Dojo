@@ -98,7 +98,16 @@ mousePressed = -> app.mousePressed mouseX,mouseY
 
 ```coffeescript
 counter = 0
-setup = -> createCanvas 200,200
+
+setup = ->
+  createCanvas 200,200
+
+up = ->
+  counter++
+
+down = ->
+  counter--
+
 draw = ->
   bg 0.5
   fc 1,1,0
@@ -106,5 +115,10 @@ draw = ->
   textAlign CENTER,CENTER
   textSize 100
   text counter,100,100
-mousePressed = -> if mouseY < 100 then counter++ else counter--
+
+mousePressed = ->
+  if mouseY < 100
+    up()
+  else
+    down()
 ```
