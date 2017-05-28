@@ -223,8 +223,12 @@ class ForthHaiku3D extends Application
 						else if cmd == '|' then stack.push stack.pop() | stack.pop()
 						else if cmd == '^' then stack.push stack.pop() ^ stack.pop()
 						else if cmd == '~' then stack.push ~stack.pop()
-						else if cmd == 'and' then stack.push digit stack.pop() != 0 and stack.pop() != 0
-						else if cmd == 'or'  then stack.push digit stack.pop() != 0 or stack.pop() != 0
+						else if cmd == 'and'
+							[a,b] = [stack.pop(),stack.pop()]
+							stack.push digit a!=0 and b!=0
+						else if cmd == 'or'
+							[a,b] = [stack.pop(),stack.pop()]
+							stack.push digit a!=0 or b!=0
 						else if cmd == 'xor'
 							a = digit stack.pop() != 0
 							b = digit stack.pop() != 0
