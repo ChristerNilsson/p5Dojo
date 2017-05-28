@@ -60,18 +60,34 @@ function generate() {
 
 * Kopiera in filerna, döp om dem till .coffee
 
-* Se till index.html refererar till filerna.
+* Se till att index.html refererar till filerna.
 
 ## FAS 1
 
-* Byt // till # // överallt.
+* Byt // mot # överallt.
+```javascript
+// A new StringBuffer for the next generation
+```
+```coffeescript
+# A new StringBuffer for the next generation
+```
 
 * Tag bort "var".
 ```javascript
 var count = 0;
 var instructions;
 ```
+```coffeescript
+count = 0
+instructions = null
+```
+
+* Tag bort "var".
 ```javascript
+var count = 0;
+var instructions;
+```
+```coffeescript
 count = 0
 instructions = null
 ```
@@ -79,36 +95,37 @@ instructions = null
 * Byt for loopar till for i in range osv.
 
 ```javascript
-  for (var i = 0; i < current.length; i++) {
+for (var i = 0; i < current.length; i++) {
+}
 ```
-```javascript
-  for i in range current.length
+```coffeescript
+for i in range current.length
 ```
 * Byt function mot ->:
 
 ```javascript
-  function setup() {
-  }
+function setup() {
+}
+```
+```coffeescript
+setup = () ->
 ```
 
-```javascript
-  setup = () ->
-```
 * Tag bort krullparenteser från for och if
 ```javascript
 for (var i = 0; i < current.length; i++) {
 }
 ```
-```javascript
+```coffeescript
 for (var i = 0; i < current.length; i++)
-
 ```
+
 * Byt === mot ==
 ```javascript
 if (c === 'A') {
 }
 ```
-```javascript
+```coffeescript
 if c == 'A'
 ```
 
@@ -116,31 +133,39 @@ FAS 2 (ej nödvändig)
 
 * Tag bort alla semikolon
 ```javascript
-  show.position(50,100);
+show.position(50,100);
 ```
-```javascript
-  show.position 50,100
+```coffeescript
+show.position 50,100
 ```
 
 * Tag bort onödiga parenteser
 ```javascript
-  show.position(50,100);
-  if (c === 'A') {
-  }
+show.position(50,100);
+if (c === 'A') {
+}
 ```
-```javascript
-  show.position 50,100
-	if c == 'A'
+```coffeescript
+show.position 50,100
+if c == 'A'
 ```
 
 * Förenkla for loopar om det går
 
 ```javascript
-  for i in range current.length
-    c = current.charAt(i)
+for i in range current.length
+  c = current.charAt(i)
 ```
+```coffeescript
+for c in current
+```
+
+* Inför string interpolation
 ```javascript
-  for c in current
+results += 'Generation ' + count + ': ' + current + '<br>';
+ ```
+```coffeescript
+results += "Generation #{++count}: #{current} <br>"
 ```
 
 * Krymp mera om det är meningsfullt.
@@ -149,7 +174,7 @@ Använd ctrl+shift+i för att komma till console. Eller F12.
 
 ## Slutresultat
 
-```javascript
+```coffeescript
 current = 'A'
 count = 0
 show = null
@@ -167,7 +192,7 @@ setup = ->
 
 generate = ->
   hash = {A:'AB', B:'A'}
-  next = (hash[c] for c in current when hash[c]?).join ''
+  current = (hash[c] for c in current when hash[c]?).join ''
   results += 'Generation ' + ++count + ': ' + current + '<br>'
   show.html results
 ```
