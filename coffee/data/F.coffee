@@ -91,19 +91,20 @@ app = new ForthHaiku "a"
 		"ForthHaiku" : "http://forthsalon.appspot.com"
 
 ID_ForthHaiku3D =
-	v:'2017-05-26'
+	v:'2017-05-30'
 	k:'bg sc fc range for if quad line operators class []'
-	l:122
+	l:130
 	b:"""
-# Stack-1 : < > == <= >= != + - * / // % %% and or xor bit & | ^
+# Stack-1 : < > == <= >= != + - * / // % %% and or xor bit & | ^ bit2
 # Stack   : abs not swp rot ~
 # Stack+1 : i j k t dup
 # Stack+2 : bit3
 
-# false   <=> 0
-#  true   <=> 1
-# a b bit <=> b[a]
-# b bit3  <=> i b bit j b bit k b bit
+# false      <=> 0
+#  true      <=> 1
+# i b bit    <=> b >> i & 1
+# i j b bit2 <=> i b bit j b bit
+# b bit3     <=> i b bit j b bit k b bit
 # Exempel: t 10 % k ==
 
 class ForthHaiku3D extends Application
@@ -216,6 +217,10 @@ class ForthHaiku3D extends Application
 							a = stack.pop()
 							stack.push stack.pop() %% a
 						else if cmd == 'bit' then stack.push stack.pop() >> stack.pop() & 1  # 9 1023 bit => 1
+						else if cmd == 'bit2'
+							bits = stack.pop()
+							stack = stack.concat [bits >> stack.pop() & 1, bits >> stack.pop() & 1]
+							#stack.push (bits >> stack.pop() & 1) * (bits >> stack.pop() & 1)
 						else if cmd == 'bit3'
 							bits = stack.pop()
 							stack = stack.concat [bits >> i & 1, bits >> j & 1, bits >> k & 1]

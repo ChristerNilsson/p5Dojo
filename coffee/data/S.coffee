@@ -665,7 +665,7 @@ app = new Ship "a"
 ID_Square =
 	v:'2017-04-29'
 	k:'bg sw fc rd rect rectMode translate operators class'
-	l:21
+	l:22
 	b: """
 class Square extends Application
 	reset        : ->
@@ -705,7 +705,7 @@ class Square extends Application
 app = new Square "a"
 """
 	c:
-		app : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek 1|rotera -1|rotera +1"
+		app : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek +1|rotera -1|rotera +1"
 
 ID_SquareHole =
 	v : '2017-04-29'
