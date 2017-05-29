@@ -73,8 +73,7 @@ function generate() {
 * Byt // mot # överallt.
 ```javascript
 // A new StringBuffer for the next generation
-```
-```coffeescript
+----------
 # A new StringBuffer for the next generation
 ```
 
@@ -125,6 +124,11 @@ if (c === 'A') {
 if c == 'A'
 ```
 
+* Byt indentering mot tab
+Fördelar: Färre tecken, personlig indentering
+Sublime: View|Indentation|Tab Width: 2
+Sublime: View|Indentation|Convert Indentation to Tabs
+
 ## FAS 2 (frivillig)
 
 * Provkör innan du går vidare.
@@ -149,7 +153,6 @@ if c == 'A'
 ```
 
 * Förenkla for loopar
-
 ```javascript
 for i in range current.length
   c = current.charAt(i)
