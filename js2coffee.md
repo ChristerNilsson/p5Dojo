@@ -81,8 +81,7 @@ function generate() {
 ```javascript
 var count = 0;
 var instructions;
-```
-```coffeescript
+----------
 count = 0
 instructions = null
 ```
@@ -92,8 +91,7 @@ instructions = null
 ```javascript
 for (var i = 0; i < current.length; i++) {
 }
-```
-```coffeescript
+----------
 for i in range current.length
 ```
 * Byt function mot ->
@@ -101,8 +99,7 @@ for i in range current.length
 ```javascript
 function setup() {
 }
-```
-```coffeescript
+----------
 setup = () ->
 ```
 
@@ -110,8 +107,7 @@ setup = () ->
 ```javascript
 for (var i = 0; i < current.length; i++) {
 }
-```
-```coffeescript
+----------
 for (var i = 0; i < current.length; i++)
 ```
 
@@ -119,8 +115,7 @@ for (var i = 0; i < current.length; i++)
 ```javascript
 if (c === 'A') {
 }
-```
-```coffeescript
+----------
 if c == 'A'
 ```
 
@@ -136,8 +131,7 @@ Sublime: View|Indentation|Convert Indentation to Tabs
 * Tag bort semikolon
 ```javascript
 show.position(50,100);
-```
-```coffeescript
+----------
 show.position 50,100
 ```
 
@@ -146,8 +140,7 @@ show.position 50,100
 show.position(50,100);
 if (c === 'A') {
 }
-```
-```coffeescript
+----------
 show.position 50,100
 if c == 'A'
 ```
@@ -156,16 +149,14 @@ if c == 'A'
 ```javascript
 for i in range current.length
   c = current.charAt(i)
-```
-```coffeescript
+----------
 for c in current
 ```
 
 * Inför string interpolation
 ```javascript
 results += 'Generation ' + count + ': ' + current + '<br>';
-```
-```coffeescript
+----------
 results += "Generation #{++count}: #{current}<br>"
 ```
 
