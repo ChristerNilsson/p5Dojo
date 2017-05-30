@@ -1,26 +1,26 @@
 ====== 10x10x10 ======
 A: 1
 B: 3 i 5 ==
+H: 4 819 bitijk and and
+I: 4 682 bitijk and and
+J: 4 975 bitijk and and
+K: 4 48 bitijk or or
 C: 5 i k + 9 <=
+L: 6 771 bitijk + + 2 >=
+M: 6 252 bitijk + + 2 >=
 D: 7 i j k + + 9 ==
 E: 7 i j k + + 13 ==
 F: 7 i j k + + 2 %
 G: 7 i j k + + 3 %
-H: 4 819 bit3 and and
-I: 4 682 bit3 and and
-J: 4 975 bit3 and and
-K: 4 48 bit3 or or
-L: 6 771 bit3 + + 2 >=
-M: 6 252 bit3 + + 2 >=
-S: 11 i 7 == j 4 == k 1 == and and
-T: 11 i 7 == j 4 == k 1 == or and
-U: 11 i 7 == j 4 == k 1 == and or
-V: 11 i 7 == j 4 == k 1 == or or
-Q: 14 72 bit3 or or 771 bit3 and and or 975 bit3 and and and
+S: 8 128 biti 16 bitj 2 bitk and and
+T: 8 128 biti 16 bitj 2 bitk or and
+U: 8 128 biti 16 bitj 2 bitk and or
+V: 8 128 biti 16 bitj 2 bitk or or
+Q: 14 72 bitijk or or 771 bitijk and and or 975 bitijk and and and
 N: 16 i 4.5 - abs j 4.5 - abs k 4.5 - abs + + 6 <
 O: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 28 <
 P: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 38 >
-R: 41 0 i j + bit dup dup dup i 330 bit rot and j 330 bit rot not and or k 4 <= and j 330 bit rot and i 330 bit rot not and or k 4 > and or
+R: 37 0 i j + bit dup dup dup 330 biti rot and 330 bitj rot not and or k 4 <= and 330 bitj rot and 330 biti rot not and or k 4 > and or
 Y: 66 129 bitij or 512 bitk and 516 bitij or 1 bitk and or 129 bitjk or 512 biti and 516 bitjk or 1 biti and or 129 bitik or 512 bitj and 516 bitik or 1 bitj and or or or 3 bitij and 3 bitik and or 3 bitjk and or 768 bitij and or 768 bitik and or 768 bitjk and or not and
 
 
