@@ -91,14 +91,14 @@ app = new ForthHaiku "a"
 		"ForthHaiku" : "http://forthsalon.appspot.com"
 
 ID_ForthHaiku3D =
-	v:'2017-05-30'
+	v:'2017-05-29'
 	k:'bg sc fc range for if quad line operators class []'
-	l:130
+	l:138
 	b:"""
-# Stack-1 : < > == <= >= != + - * / // % %% and or xor bit & | ^ bit2
-# Stack   : abs not swp rot ~
-# Stack+1 : i j k t dup
-# Stack+2 : bit3
+# Stack-1 : < > == <= >= != + - * / // % %% and or xor & | ^ bit
+# Stack   : abs not swp rot ~ biti bitj bitk
+# Stack+1 : i j k t dup bitij bitik bitjk
+# Stack+2 : bitijk
 
 # false      <=> 0
 #  true      <=> 1
@@ -216,12 +216,20 @@ class ForthHaiku3D extends Application
 						else if cmd == '%%'
 							a = stack.pop()
 							stack.push stack.pop() %% a
-						else if cmd == 'bit' then stack.push stack.pop() >> stack.pop() & 1  # 9 1023 bit => 1
-						else if cmd == 'bit2'
+						else if cmd == 'bit' then stack.push stack.pop() >> stack.pop() & 1
+						else if cmd == 'biti' then stack.push stack.pop() >> i & 1
+						else if cmd == 'bitj' then stack.push stack.pop() >> j & 1
+						else if cmd == 'bitk' then stack.push stack.pop() >> k & 1
+						else if cmd == 'bitij'
 							bits = stack.pop()
-							stack = stack.concat [bits >> stack.pop() & 1, bits >> stack.pop() & 1]
-							#stack.push (bits >> stack.pop() & 1) * (bits >> stack.pop() & 1)
-						else if cmd == 'bit3'
+							stack = stack.concat [bits >> i & 1, bits >> j & 1]
+						else if cmd == 'bitik'
+							bits = stack.pop()
+							stack = stack.concat [bits >> i & 1, bits >> k & 1]
+						else if cmd == 'bitjk'
+							bits = stack.pop()
+							stack = stack.concat [bits >> j & 1, bits >> k & 1]
+						else if cmd == 'bitijk'
 							bits = stack.pop()
 							stack = stack.concat [bits >> i & 1, bits >> j & 1, bits >> k & 1]
 						else if cmd == '&' then stack.push stack.pop() & stack.pop()
