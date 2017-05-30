@@ -21,7 +21,7 @@ N: 16 i 4.5 - abs j 4.5 - abs k 4.5 - abs + + 6 <
 O: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 28 <
 P: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 38 >
 R: 41 0 i j + bit dup dup dup i 330 bit rot and j 330 bit rot not and or k 4 <= and j 330 bit rot and i 330 bit rot not and or k 4 > and or
-Y: 66 129 bitij or 512 bitk and 516 bitij or 1 bitk and or 129 bitjk or 512 biti and 516 bitjk or 1 biti and or 129 bitik or 512 bitj and 516 bitik or 1 bitj and or or or 3 bitij and 3 bitik and 3 bitjk and 768 bitij and 768 bitik and 768 bitjk and or or or or or not and
+Y: 66 129 bitij or 512 bitk and 516 bitij or 1 bitk and or 129 bitjk or 512 biti and 516 bitjk or 1 biti and or 129 bitik or 512 bitj and 516 bitik or 1 bitj and or or or 3 bitij and 3 bitik and or 3 bitjk and or 768 bitij and or 768 bitik and or 768 bitjk and or not and
 
 
 ====== 17x17x17 ======

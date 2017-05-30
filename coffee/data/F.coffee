@@ -91,7 +91,7 @@ app = new ForthHaiku "a"
 		"ForthHaiku" : "http://forthsalon.appspot.com"
 
 ID_ForthHaiku3D =
-	v:'2017-05-29'
+	v:'2017-05-30'
 	k:'bg sc fc range for if quad line operators class []'
 	l:138
 	b:"""
@@ -103,8 +103,9 @@ ID_ForthHaiku3D =
 # false      <=> 0
 #  true      <=> 1
 # i b bit    <=> b >> i & 1
-# i j b bit2 <=> i b bit j b bit
-# b bit3     <=> i b bit j b bit k b bit
+# b biti     <=> b >> i & 1
+# b bitij    <=> i b bit j b bit
+# b bitijk   <=> i b bit j b bit k b bit
 # Exempel: t 10 % k ==
 
 class ForthHaiku3D extends Application
