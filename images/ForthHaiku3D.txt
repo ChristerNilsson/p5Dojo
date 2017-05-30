@@ -1,6 +1,6 @@
 ====== 10x10x10 ======
 A: 1
-B: 3 i 5 ==
+B: 2 32 biti
 H: 4 819 bitijk and and
 I: 4 682 bitijk and and
 J: 4 975 bitijk and and
@@ -22,7 +22,7 @@ O: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 28 <
 P: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 38 >
 R: 37 0 i j + bit dup dup dup 330 biti rot and 330 bitj rot not and or k 4 <= and 330 bitj rot and 330 biti rot not and or k 4 > and or
 Y: 66 129 bitij or 512 bitk and 516 bitij or 1 bitk and or 129 bitjk or 512 biti and 516 bitjk or 1 biti and or 129 bitik or 512 bitj and 516 bitik or 1 bitj and or or or 3 bitij and 3 bitik and or 3 bitjk and or 768 bitij and or 768 bitik and or 768 bitjk and or not and
-
+Y: 2j2.7i5k7I 7K5J7k 7j5i7J 7I5K7i 7k5j7K 7J5I7
 
 ====== 17x17x17 ======
 W: 45 words

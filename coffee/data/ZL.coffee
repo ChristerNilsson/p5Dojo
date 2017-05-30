@@ -1,8 +1,10 @@
 ID_nyheter =
-	v:'2017-05-22'
+	v:'2017-05-30'
 	k:''
 	l:0
 	b:"""
+# NYHETER 2017 JUN 04
+#   BeeHaiku3D
 # NYHETER 2017 MAJ 27
 #   ForthHaiku3D
 # NYHETER 2017 MAJ 20

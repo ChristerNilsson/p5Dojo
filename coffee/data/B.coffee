@@ -37,6 +37,125 @@ ID_Background4 =
 	b: ""
 	a: "bg 1,1,0"
 
+ID_BeeHaiku3D =
+	v:'2017-05-30'
+	k:'bg sc fc range for if quad line operators class []'
+	l:81
+	b:"""
+# . rita/rita ej
+# 123456789 förflyttning
+# i pos i-axel
+# I neg i-axel
+# j pos j-axel
+# J neg J-axel
+# k pos k-axel
+# K neg k-axel
+# Exempel: .9j9I9J9
+
+class BeeHaiku3D extends Application
+	reset : (n,dx,dy)->
+		super
+	draw : ->
+	enter : ->
+	tick : ->
+	mousePressed : ->
+app = new BeeHaiku3D
+"""
+	a:"""
+class BeeHaiku3D extends Application
+	reset : (n,dx,dy)->
+		super
+		@SHADE = [0.5,0.75,1]
+		@N = n
+		@DX = dx
+		@DY = dy
+		@showGrid = true
+		@clear()
+		@t = 0
+	clear : -> @blocks = Array(@N*@N*@N).fill 0
+	add : (i,j,k) -> @blocks[@N*@N*k+@N*j+i] = 1
+	draw : ->
+		bg 0.5
+		if @showGrid then @grid()
+		sc()
+		@drawBlock index for index in range @N*@N*@N
+	drawBlock : (index) ->
+		f = (i,j,k) => [100+(@N-i)*2*@DY-2*(@N-j)*@DY, 200-(@N-j)*@DY-(@N-i)*@DY - k*2*@DY]
+		q = (a,b,c,d) -> quad a[0],a[1], b[0],b[1], c[0],c[1], d[0],d[1]
+		ix=index
+		i = ix % @N; ix //= @N
+		j = ix % @N; ix //= @N
+		k = ix
+		block = @blocks[index]
+		if not block? or block==0 then return
+		[r,g,b] = [i/(@N-1),j/(@N-1),k/(@N-1)] # borde vara i,j,k
+		p0 = f i,  j,  k # egentligen osynlig
+		p1 = f i+1,j,  k
+		p2 = f i,  j+1,k
+		p3 = f i+1,j+1,k
+		p4 = f i  ,j,  k+1
+		p5 = f i+1,j,  k+1
+		p6 = f i  ,j+1,k+1
+		p7 = f i+1,j+1,k+1
+		[si,sj,sk] = @SHADE
+		fc r*sj,g*sj,b*sj
+		q p2,p6,p7,p3 # left
+		fc r*si,g*si,b*si
+		q p1,p3,p7,p5 # right
+		fc r*sk,g*sk,b*sk
+		q p4,p5,p7,p6 # roof
+	grid : ->
+		sc 0.75
+		[h2,h3,h4] = [200-2*@N*@DY, 200-@N*@DY, 200]
+		[w2,w3,w4] = [100-@N*@DX,   100,        100+@N*@DX]
+		for i in range @N+1
+			line w3+@DX*i, h4-@DY*i, w2+@DX*i, h3-@DY*i
+			line w2+@DX*i, h3+@DY*i, w3+@DX*i, h2+@DY*i
+	mousePressed : ->
+		@showGrid = not @showGrid
+		@enter()
+	tick : ->
+		@t = @t + 1
+		@enter()
+	enter : ->
+		@trace = ''
+		move = (di,dj,dk,steps) =>
+			for n in range steps
+				if pen then @add i,j,k
+				i += di
+				j += dj
+				k += dk
+			@trace += steps + ' [' + i + ' ' + j + ' ' + k + '] '
+		i = 0
+		j = 0
+		k = 0
+		dir = 'i'
+		pen = false
+		s = @readText().trim()
+		for c in s
+			if c in 'iIjJkK'
+				dir=c
+				@trace += c
+			else if c=='.' then	pen = not pen
+			else if c==' '
+			else
+				steps = parseInt c
+				if dir=='i' then move 1,0,0,steps
+				else if dir=='I' then move -1,0,0,steps
+				else if dir=='j' then move 0,1,0,steps
+				else if dir=='J' then move 0,-1,0,steps
+				else if dir=='k' then move 0,0,1,steps
+				else if dir=='K' then move 0,0,-1,steps
+app = new BeeHaiku3D "a"
+
+"""
+	c:
+		app : "reset 2,50,25|reset 10,10,5|reset 17,6,3|enter()|tick()"
+	e:
+		ForthHaiku : "http://forthsalon.appspot.com/haiku-editor"
+		Exempel : 'ForthHaiku3D.html'
+		"Beck & Jung" : 'https://www.google.se/search?q=beck+jung&tbm=isch&imgil=fTDB34quIvQVtM%253A%253BujSokE1Q4La-QM%253Bhttp%25253A%25252F%25252Fonline.auktionsverket.se%25252F1111%25252F109534-beck-jung-computer-ink-plot&source=iu&pf=m&fir=fTDB34quIvQVtM%253A%252CujSokE1Q4La-QM%252C_&usg=__eBA4v2Ol5RdVComTBJqPkozH59s%3D&biw=1920&bih=1108&dpr=1&ved=0ahUKEwiH0qmqzInUAhVmDZoKHTcYD7wQyjcIQw&ei=hQsmWcf7EOaa6AS3sLzgCw#imgrc=fTDB34quIvQVtM:'
+
 ID_BlackBox2D =
 	v:'2017-04-29'
 	k:'bg sc fc range line [] operators int for if text class'

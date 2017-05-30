@@ -143,6 +143,7 @@ data =
 		RubikCube : ID_RubikCube
 		Shortcut2 : ID_Shortcut2
 		ForthHaiku3D : ID_ForthHaiku3D
+		BeeHaiku3D : ID_BeeHaiku3D
 		Sokoban : ID_Sokoban
 
 	"LF: sin cos translate rotate" :
