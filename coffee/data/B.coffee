@@ -38,7 +38,7 @@ ID_Background4 =
 	a: "bg 1,1,0"
 
 ID_BeeHaiku3D =
-	v:'2017-05-30'
+	v:'2017-05-29'
 	k:'bg sc fc range for if quad line operators class []'
 	l:81
 	b:"""
@@ -57,7 +57,6 @@ class BeeHaiku3D extends Application
 		super
 	draw : ->
 	enter : ->
-	tick : ->
 	mousePressed : ->
 app = new BeeHaiku3D
 """
@@ -71,7 +70,6 @@ class BeeHaiku3D extends Application
 		@DY = dy
 		@showGrid = true
 		@clear()
-		@t = 0
 	clear : -> @blocks = Array(@N*@N*@N).fill 0
 	add : (i,j,k) -> @blocks[@N*@N*k+@N*j+i] = 1
 	draw : ->
@@ -114,9 +112,6 @@ class BeeHaiku3D extends Application
 	mousePressed : ->
 		@showGrid = not @showGrid
 		@enter()
-	tick : ->
-		@t = @t + 1
-		@enter()
 	enter : ->
 		@trace = ''
 		move = (di,dj,dk,steps) =>
@@ -150,7 +145,7 @@ app = new BeeHaiku3D "a"
 
 """
 	c:
-		app : "reset 2,50,25|reset 10,10,5|reset 17,6,3|enter()|tick()"
+		app : "reset 2,50,25|reset 10,10,5|reset 17,6,3|enter()"
 	e:
 		ForthHaiku : "http://forthsalon.appspot.com/haiku-editor"
 		Exempel : 'ForthHaiku3D.html'
