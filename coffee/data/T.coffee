@@ -1,3 +1,61 @@
+ID_Tetramino =
+	v:'2017-06-07'
+	k:'bg fill cc range [] for rect if operators class'
+	l:32
+	b:"""
+class Piece
+	constructor : (@color,@patterns) ->
+class Tetramino extends Application
+	reset : ->
+		super
+	classes : -> [Piece]
+	draw  : ->
+	right : ->
+	left : ->
+	prev : ->
+	next : ->
+app = new Tetramino
+"""
+	a:"""
+class Piece
+	constructor : (@color,@patterns) -> @current = 0
+	right : -> @current = (@current+1) %% @patterns.length
+	left  : -> @current = (@current-1) %% @patterns.length
+	draw  : ->
+		pattern = @patterns[@current]
+		fill cc @color
+		for i in range 16
+			if pattern >> i & 1
+				x = i % 4
+				y = i // 4
+				rect 20*x,20*y,20,20
+f = (a,b,c,d) -> 2**a + 2**b + 2**c + 2**d
+class Tetramino extends Application
+	reset : ->
+		super
+		@pieces = []
+		@pieces.push new Piece 0,[f(1,5,9,13),f(4,5,6,7)]
+		@pieces.push new Piece 1,[f(5,6,9,10)]
+		@pieces.push new Piece 2,[f(1,5,6,9),f(4,5,6,9),f(1,4,5,9),f(1,4,5,6)]
+		@pieces.push new Piece 3,[f(2,5,6,9),f(4,5,9,10)]
+		@pieces.push new Piece 4,[f(1,5,6,10),f(5,6,8,9)]
+		@pieces.push new Piece 5,[f(1,5,9,10),f(4,5,6,8),f(0,1,5,9),f(4,5,6,2)]
+		@pieces.push new Piece 6,[f(1,5,9,8),f(0,4,5,6),f(1,2,5,9),f(4,5,6,10)]
+		@current = 0
+	classes : -> [Piece]
+	draw  : -> @pieces[@current].draw()
+	right : -> @pieces[@current].right()
+	left : -> @pieces[@current].left()
+	prev : -> @current = (@current-1) %% @pieces.length
+	next : -> @current = (@current+1) %% @pieces.length
+app = new Tetramino 'a'
+"""
+	c:
+		app: "reset()|right()|left()|prev()|next()"
+	e:
+		"Wikipedia" : "https://en.wikipedia.org/wiki/Tetris"
+		"Meth Meth Method" : "https://www.youtube.com/watch?v=H2aW5V46khA"
+
 ID_Tetris =
 	v:'2017-05-07'
 	k:'bg fc range [] {} for rect if while _.contains operators class'

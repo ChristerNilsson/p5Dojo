@@ -133,6 +133,7 @@ data =
 		Shortcut : ID_Shortcut
 		Braider : ID_Braider
 		Nand2TetrisALU : ID_Nand2TetrisALU
+		Tetramino : ID_Tetramino
 		Tetris : ID_Tetris
 		EngineeringNotation : ID_EngineeringNotation
 		RushHour : ID_RushHour
