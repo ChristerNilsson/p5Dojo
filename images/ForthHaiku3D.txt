@@ -22,6 +22,7 @@ O: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 28 <
 P: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 38 >
 R: 27 i 5 // j 5 // k 5 // xor xor dup i 5 % 10 bit and swap not j 5 % 10 bit and or
 Y: 66 129 bitij or 512 bitk and 516 bitij or 1 bitk and or 129 bitjk or 512 biti and 516 bitjk or 1 biti and or 129 bitik or 512 bitj and 516 bitik or 1 bitj and or or or 3 bitij and 3 bitik and or 3 bitjk and or 768 bitij and or 768 bitik and or 768 bitjk and or not and
+Z: 18 : f bitijk + + 2 >= not and ; 511 bitijk and and 146 f 56 f
 
 ###############################
 words 2  3  4  5  6  7 reps

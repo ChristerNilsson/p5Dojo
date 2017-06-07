@@ -269,6 +269,7 @@ buildKeywordLink = ->
 	save 3,'contains filter countBy isEqual last max min pairs sortBy findIndex'
 
 mousePressed = ->
+	if chapter=='' or exercise=='' then return
 	p = null
 	if 0 <= mouseX-5 <= 200 and 0 <= mouseY-5 <= 200 then p = [mouseX-5,mouseY-5]
 	if 0 <= mouseX-5 <= 200 and 0 <= mouseY-210 <= 200 then p = [mouseX-5,mouseY-210]
