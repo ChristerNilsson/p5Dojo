@@ -1,4 +1,4 @@
-====== 10x10x10 ======
+############################### n = 10
 A: 1
 B: 2 32 biti
 H: 4 819 bitijk and and
@@ -22,7 +22,32 @@ O: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 28 <
 P: 19 i 4.5 - dup * j 4.5 - dup * k 4.5 - dup * + + 38 >
 R: 27 i 5 // j 5 // k 5 // xor xor dup i 5 % 10 bit and swap not j 5 % 10 bit and or
 Y: 66 129 bitij or 512 bitk and 516 bitij or 1 bitk and or 129 bitjk or 512 biti and 516 bitjk or 1 biti and or 129 bitik or 512 bitj and 516 bitik or 1 bitj and or or or 3 bitij and 3 bitik and or 3 bitjk and or 768 bitij and or 768 bitik and or 768 bitjk and or not and
-Z: 18 : f bitijk + + 1 <= and ; 511 bitijk and and 146 f 56 f
+
+############################### n = 5
+# Jerusalem Cross
+: dist abs swap abs + ;
+i 2 - j 2 - dist 1 <=
+j 2 - k 2 - dist 1 <=
+i 2 - k 2 - dist 1 <=
+or or not
+
+############################### n = 9
+Z: 14 menger sponge
+: f bitijk + + 1 <= and ;
+1 146 f 56 f
+
+############################### n = 17
+W: 45 words
+i 10 // j 10 // k 10 // + + 2 % dup
+i 10 % 65 bit j 10 % 127 bit and and
+j 10 % 65 bit i 10 % 127 bit and rot not and
+or
+k 130175 bit and
+
+############################### n = 27 (segt)
+Z: 16 menger sponge
+: f bitijk + + 1 <= and ;
+1 261632 f 14708792 f 38347922 f
 
 ###############################
 words 2  3  4  5  6  7 reps
@@ -94,84 +119,15 @@ k t 10 % == and
 
 Y: 2j2.7i5k7I 7K5J7k 7j5i7J 7I5K7i 7k5j7K 7J5I7
 
-====== 17x17x17 ======
-W: 45 words
-i 10 // j 10 // k 10 // + + 2 % dup
-i 10 % 65 bit j 10 % 127 bit and and
-j 10 % 65 bit i 10 % 127 bit and rot not and
-or
-k 130175 bit and
-
 ====== 2x2x2 ======
-index = i + 2j + 4k
-0: i j k + + 0 ==
-1: i j not k not * *
-2: j 1 == i k + 0 == and
-3: j i + 2 == k 0 == and
-4: j i + 0 == k 1 == and
-5: i k + 2 == j 0 == and
-6: j k + 2 == i 0 == and
-7: i j k * *
-01: j k + 0 ==
-02: i k + 0 ==
-03: i j xor k not *
-04: i j + 0 ==
-05: i k xor not j not *
-06: j k xor not i not *
-07: i j k + + 9 bit
-012: i j * not k not and
-356: i j k + + 2 ==
-0123: k not
-0356: i j k + + 2 %
-01234: k not i not j not * or
-012345: k not j not or
-0123456: i j k * * not
-...
-01234567: 1
-
-# ej fullständig.
-00000000 0 0
-00000001 1 i j k * *
-00000011 3 j k *
-00000101 5 i k *
-00001010 10 i k bit
-00001100 12 j k bit
-00001111 15 k
-00010001 17 i j *
-00010101 21 i j k + *
-00100010 34 i j bit
-00110000 48 k j bit
-00110011 51 j
-00111100 60 j k xor
-00111111 63 j k +
-01000100 68 j i bit
-01010000 80 k i bit
-01010101 85 i
-01010111 87 i j k * +
-01011010 90 k i xor
-01011111 95 i k +
-01100110 102 i j xor
-01110111 119 i j +
-01111111 127 i j k + +
-10000000 128 i j k + + not
-10011001 153 i j ==
-10100101 165 i k ==
-10101010 170 i not
-10101111 175 i k <=
-10111011 187 i j <=
-11000011 195 j k - not
-01100110 198 i j !=
-11001100 204 j not
-11001111 207 j k <=
-11011101 221 i j >=
-11101010 234 i j k + * not
-11101110 238 i not j >=
-11110000 240 k not
-11110011 243 j k >=
-11110101 245 i k >=
-11111100 252 j k * not
-11111110 254 i j k * * not
-11111111 255 1
-
-
-
+1: 1 bitijk and and         (svart)
+2: 1 bitij and              (svart blå)
+2: i j + 5 bit k 0 == and   (svart gul)
+2: i j == j k == and        (svart vit)
+3: 1 bitijk or and          (svart grön blå)
+3: i j 2 * + k 4 * + 37 bit (svart grön magenta)
+3: i j k + + 1 ==           (röd grön blå)
+4: 1 biti                   (svart grön blå cyan)
+4: i j + 2 % not            (svart blå gul vit)
+4: i j k + + 10 bit         (röd grön blå vit)
+4: i j k + + 1 <=           (svart röd grön blå)
