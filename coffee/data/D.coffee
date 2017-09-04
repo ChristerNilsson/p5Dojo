@@ -1,6 +1,6 @@
 ID_Diagonal1 =
 	v:'2017-04-29'
-	k:'sc sw point'
+	k:'bg sc sw point'
 	l:12
 	b: ""
 	a: """
@@ -58,8 +58,8 @@ for i in range 10
 """
 
 ID_Dices =
-	v:'2017-05-20'
-	k:'sc point'
+	v:'2017-09-04'
+	k:'sc sw point'
 	l:26
 	b : ""
 	a: """

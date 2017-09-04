@@ -201,7 +201,7 @@ text 'Coffeescript',0,100
 
 ID_TextB =
 	v:'2017-04-29'
-	k:'bg fc sc sw text textSize textAlign'
+	k:'fc sc text textSize textAlign'
 	l:5
 	b:""
 	a:"""
