@@ -185,6 +185,7 @@ sel1click = (sel) ->
 	setState 1
 
 sel2click = (sel) ->
+
 	exercise = sel.value
 	if exercise==""
 		myCodeMirror.setValue ""
@@ -434,6 +435,7 @@ editor_change = ->
 		call = ""
 	else # transpile, draw
 		call = calls["draw()"]
+
 	dce = data[chapter][exercise]
 	if dce and dce["a"] and _.size(dce["a"].c) > 0
 		if run1() == false # bör normalt vara true
@@ -449,7 +451,7 @@ saveSourceCode = ->	localStorage[exercise + "/d"] = myCodeMirror.getValue()
 run0 = ->
 	if exercise=="" then return false
 	src = myCodeMirror.getValue()
-	if src == "" then return true
+	#if src == "" then return true
 	run 0, src + "\n" + call
 
 run1 = ->
