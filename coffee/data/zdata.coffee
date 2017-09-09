@@ -17,8 +17,6 @@ data =
 		CornerPoints : ID_CornerPoints
 		MidPoints : ID_MidPoints
 		CornerPoints7 : ID_CornerPoints7
-		Diagonal1 : ID_Diagonal1
-		Diagonal2 : ID_Diagonal2
 		CornerPoints3 : ID_CornerPoints3
 
 	"L2: circle fc text" :
@@ -72,6 +70,8 @@ data =
 
 	"L7: function" :
 		p5 : ID_P5
+		Diagonal1 : ID_Diagonal1
+		Diagonal2 : ID_Diagonal2
 		Average : ID_MyAverage
 		Lerp : ID_MyLerp
 		Map : ID_MyMap

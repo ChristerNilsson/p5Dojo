@@ -1,7 +1,7 @@
 ID_Diagonal1 =
-	v:'2017-04-29'
+	v:'2017-09-09'
 	k:'bg sc sw point'
-	l:12
+	l:8
 	b: ""
 	a: """
 bg 0,1,0
@@ -9,14 +9,8 @@ sw 20
 sc 0,0,0
 point 0,0
 
-sc 0.25,0.25,0
-point 50,50
-
 sc 0.5,0.5,0
 point 100,100
-
-sc 0.75,0.75,0
-point 150,150
 
 sc 1,1,0
 point 200,200
@@ -58,12 +52,13 @@ for i in range 10
 """
 
 ID_Dices =
-	v:'2017-09-04'
+	v:'2017-09-09'
 	k:'sc sw point'
-	l:26
+	l:27
 	b : ""
 	a: """
-sw 2
+# sw 2 kan ge ghosteffekt
+sw 1
 point 10,10
 sc 1,0,0
 point 185,5

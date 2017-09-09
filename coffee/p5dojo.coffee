@@ -220,7 +220,7 @@ sel2click = (sel) ->
 	run1()
 	run0()
 	myCodeMirror.focus()
-	compare('sel2change')
+	compare 'sel2change'
 
 sel3click = (sel) ->
 	url = buildLink sel.value
@@ -232,8 +232,7 @@ sel4click = (sel) ->
 	if calls? then call = calls[sel.value]
 	if run1() == true
 		run0()
-	compare('sel4click')
-
+	compare 'sel4click'
 
 buildLink = (keyword) ->
 	if keyword.indexOf('_.')==0 then keyword = keyword.replace('_.','')
@@ -451,7 +450,7 @@ saveSourceCode = ->	localStorage[exercise + "/d"] = myCodeMirror.getValue()
 run0 = ->
 	if exercise=="" then return false
 	src = myCodeMirror.getValue()
-	#if src == "" then return true
+	# if src == "" then return true
 	run 0, src + "\n" + call
 
 run1 = ->
@@ -461,12 +460,12 @@ run1 = ->
 reset = ->
 	colorMode RGB,255
 	angleMode RADIANS
-	sw 1
 	strokeCap ROUND
 	textAlign LEFT,BASELINE
 	bg 0
 	fc 0
 	sc 1
+	sw 1
 	grid()
 
 run = (_n, coffee) ->
@@ -519,7 +518,6 @@ fix_frames = ->
 	updatePixels()
 
 compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
-	#start = millis()
 	a = buffer[0]
 	b = buffer[1]
 	c = a[..]
@@ -537,7 +535,6 @@ compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
 		fetch b, 1
 		fetch c, 2
 	fix_frames()
-	#print message,millis()-start
 
 tableClear = -> $("#tabell tr").remove()
 
