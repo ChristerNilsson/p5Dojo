@@ -233,22 +233,31 @@ for i in range 12
 """
 
 ID_ColorCross =
-	v:'2017-05-13'
+	v:'2017-09-09'
 	k:'bg sc range for point'
 	l:11
-	b:""
+	b:"""
+#    bM     blue
+#    BR     Black
+# bB BR RM  Red
+# CG GY YW  Magenta
+#    GY     Green
+#    CW     Cyan
+#    CW     White
+#    bM     Yellow
+"""
 	a:"""
 bg 0.5
 for k in range 6
-	x = [75,25,75,125,75,75][k]
-	y = [50,50,100,50,0,150][k]
+	x = [3,1,3,5,3,3][k]
+	y = [0,2,2,2,4,6][k]
 	for i in range 50
-		r = [i/50,0,i/50,1,i/50,i/50][k]
+		r = [i,0,i,50,i,i][k]
 		for j in range 50
-			g = [j/50,j/50,1,j/50,0,(50-j)/50][k]
-			b = [0,(50-i)/50,j/50,i/50,(50-j)/50,1][k]
-			sc r,g,b
-			point x+i,y+j
+			g = [0,j,j,j,50,50-j][k]
+			b = [50-j,50-i,0,i,j,50][k]
+			sc r/50,g/50,b/50
+			point 25*x+i,25*y+j
 """
 
 ID_ColorCube =
