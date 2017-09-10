@@ -47,12 +47,12 @@ data =
 		DoubleForLoop : ID_DoubleForLoop
 		GrowingSquares : ID_GrowingSquares
 		GrowingRedSquares : ID_GrowingRedSquares
-		PentaLerp : ID_PentaLerp
-
-	"L5: for line circle" :
 		GrowingCircles : ID_GrowingCircles
 		ShrinkingCircles : ID_ShrinkingCircles
 		RedCone : ID_RedCone
+		PentaLerp : ID_PentaLerp
+
+	"L5: for line circle" :
 		HorizontalLine : ID_HorizontalLine
 		VerticalLine : ID_VerticalLine
 		Line : ID_Line
