@@ -100,21 +100,21 @@ app = new Paint "a"
 		app : "reset()|undo()"
 
 ID_PentaLerp =
-	v:'2017-05-13'
+	v:'2017-09-11'
 	k:'bg sc fc range circle for lerp'
 	l:11
 	b:""
 	a:"""
 bg 0.5
 sc()
-for i in range 10
-	for j in range 10
-		r = lerp 0,1/9,i
-		g = lerp 0,1/9,j
+for i in range 11
+	for j in range 11
+		r = 0.1*i
+		g = 0.1*j
 		fc r,g,0
-		x = lerp 10,30,i
-		y = lerp 10,30,j
-		radius = lerp 1,1.5,i+j
+		x = 20*i
+		y = 20*j
+		radius = lerp 0,1,(i+j)/2
 		circle x,y,radius
 """
 
