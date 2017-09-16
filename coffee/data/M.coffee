@@ -247,12 +247,11 @@ app = new MultiTimer "a"
 		app: "reset()"
 
 ID_MyAverage =
-	v:'2017-05-18'
+	v:'2017-09-16'
 	k:'-> bg fc sc if text operators'
 	l:5
 	b : """
-avg = (a,b) -> 0
-average = (lst) -> 0
+average = (a,b) -> 0
 
 # Ändra ingenting nedanför denna rad!
 bg 0
@@ -266,21 +265,13 @@ test = (a,b) ->
 	text b, 100,y
 	y+=20
 
-test 5,  avg 0,10
-test 20, avg 10,30
-test 10, avg -10,30
-test 5,  average [0,10]
-test 20, average [10,30]
-test 10, average [-10,30]
-test 9,  average [1,4,9,22]
+test 5,  average 0,10
+test 20, average 10,30
+test 10, average -10,30
 """
 
 	a : """
-avg = (a,b) -> (a+b)/2
-average = (lst) ->
-	sum = 0
-	sum += item for item in lst
-	sum/lst.length
+average = (a,b) -> (a+b)/2
 
 # Ändra ingenting nedanför denna rad!
 bg 0
@@ -294,13 +285,9 @@ test = (a,b) ->
 	text b, 100,y
 	y+=20
 
-test 5,  avg 0,10
-test 20, avg 10,30
-test 10, avg -10,30
-test 5,  average [0,10]
-test 20, average [10,30]
-test 10, average [-10,30]
-test 9,  average [1,4,9,22]
+test 5,  average 0,10
+test 20, average 10,30
+test 10, average -10,30
 """
 
 ID_MyLerp =

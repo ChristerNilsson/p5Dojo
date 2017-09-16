@@ -67,17 +67,17 @@ data =
 		ColorCross : ID_ColorCross
 
 	"L7: function" :
-		p5 : ID_P5
+		TwoArcs : ID_TwoArcs
+		PacMan : ID_PacMan
 		Diagonal1 : ID_Diagonal1
 		Diagonal2 : ID_Diagonal2
+		p5 : ID_P5
 		Average : ID_MyAverage
 		Lerp : ID_MyLerp
 		Map : ID_MyMap
 		ManyDices : ID_ManyDices
-		OneDiceHistogram : ID_OneDiceHistogram
-		TwoDiceHistogram : ID_TwoDiceHistogram
-		TwoArcs : ID_TwoArcs
-		PacMan : ID_PacMan
+		#OneDiceHistogram : ID_OneDiceHistogram
+		#TwoDiceHistogram : ID_TwoDiceHistogram
 
 	"L8: class" :
 		Counter : ID_Counter
