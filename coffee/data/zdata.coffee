@@ -29,7 +29,7 @@ data =
 		TextB : ID_TextB
 		Five : ID_Five
 
-	"L3: ellipse rect triangle quad arc" :
+	"L3: ellipse rect triangle quad" :
 		GreenEllipse : ID_GreenEllipse
 		GreenRect : ID_GreenRect
 		RedRect : ID_RedRect
@@ -58,7 +58,7 @@ data =
 		Skislope : ID_Skislope
 		SuperCircle : ID_SuperCircle
 
-	"L6: for line rect point" :
+	"L6: if for line rect point" :
 		Sunshine : ID_Sunshine
 		Lines : ID_Lines
 		ChessRow : ID_ChessRow
