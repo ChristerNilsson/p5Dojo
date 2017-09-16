@@ -37,8 +37,6 @@ data =
 		SquareHole : ID_SquareHole
 		Triangle : ID_Triangle
 		Quad : ID_Quad
-		TwoArcs : ID_TwoArcs
-		PacMan : ID_PacMan
 
 	"L4: for rect circle" :
 		HorizontalSquares : ID_HorizontalSquares
@@ -78,11 +76,14 @@ data =
 		ManyDices : ID_ManyDices
 		OneDiceHistogram : ID_OneDiceHistogram
 		TwoDiceHistogram : ID_TwoDiceHistogram
+		TwoArcs : ID_TwoArcs
+		PacMan : ID_PacMan
 
 	"L8: class" :
 		Counter : ID_Counter
 		Square : ID_Square
 		Moire : ID_Moire
+		#Magnifier : ID_Magnifier
 		RandomDice : ID_RandomDice
 		BoardGame : ID_BoardGame
 		Girlang : ID_Girlang

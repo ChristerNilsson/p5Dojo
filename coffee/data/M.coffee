@@ -1,3 +1,47 @@
+ID_Magnifier =
+	v:'2017-09-16'
+	k:'for range if while [] operators text rect circle class'
+	l:69
+	b:"""
+class Magnifier extends Application
+	reset : ->
+		super
+	draw  : ->
+	up    : ->
+	down  : ->
+app = new Magnifier
+"""
+	a:"""
+class Magnifier extends Application
+	reset : ->
+		super
+		@n=2
+	draw  : ->
+		bg 0
+		n = @n
+		if n==2
+			fc 1
+			rect 0,0,200,200
+		if n>=3
+			w = int n/3
+			for i in range 200/n
+				sc 1,0,0
+				fc 1,0,0
+				rect 0*w+n*i,0,w,200
+				sc 0,1,0
+				fc 0,1,0
+				rect 1*w+n*i,0,w,200
+				sc 0,0,1
+				fc 0,0,1
+				rect 2*w+n*i,0,w,200
+	up    : -> @n++
+	down  : -> @n--
+app = new Magnifier "a"
+"""
+	c:
+		app : "reset()|up()|down()"
+
+
 ID_ManyDices =
 	v:'2017-05-20'
 	k:'-> range for if point [] operators'

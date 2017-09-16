@@ -57,8 +57,8 @@ ID_Dices =
 	l:27
 	b : ""
 	a: """
-# sw 2 kan ge ghosteffekt
-sw 1
+# sw 1 ger ej ghosteffekt, men syns knappt
+sw 2
 point 10,10
 sc 1,0,0
 point 185,5
