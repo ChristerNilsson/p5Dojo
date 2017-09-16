@@ -72,7 +72,7 @@ app = new Tetris
 class Tetris extends Application
 	reset : ->
 		super
-		@buttons = [[140,105,'-90'],[180,105,'+90'],[160,130,'dn'],[140,155,'lt'],[180,155,'rt'],[160,180,'sp'],[160,50,0]]
+		@buttons = [[140,105,'-90'],[180,105,'+90'],[160,130,'dn'],[140,155,'lt'],[180,155,'rt'],[160,180,''],[160,50,0]]
 		@seed = 0
 		@arena = (new Array(12).fill(0) for i in range 20)
 		@x=0
@@ -93,7 +93,7 @@ class Tetris extends Application
 		@buttons[6][2] = @score
 		for [x,y,txt],index in @buttons
 			fc 0.5
-			if index < 6 then circle x,y,15
+			if index < 5 then circle x,y,15
 			fc 1,1,0
 			text txt,x,y
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
@@ -105,7 +105,7 @@ class Tetris extends Application
 				if index==2 then @playerDown()    # DOWN
 				if index==3 then @playerMove -1   # LEFT
 				if index==4 then @playerMove 1    # RIGHT
-				if index==5 then @playerDrop()    # SPACE
+				#if index==5 then @playerDrop()    # SPACE
 	arenaSweep : ->
 		for i in range @arena.length
 			y = 19-i
@@ -140,7 +140,7 @@ class Tetris extends Application
 			@merge()
 			@playerReset()
 			@arenaSweep()
-	playerDrop : ->
+	playerDrop : -> # hänger sig här!
 		while not @collide()
 			@playerDown()
 	playerMove : (offset) ->
