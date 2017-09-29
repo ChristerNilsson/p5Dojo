@@ -1,8 +1,10 @@
 ID_nyheter =
-	v:'2017-06-07'
+	v:'2017-09-29'
 	k:''
 	l:0
 	b:"""
+# NYHETER 2017 SEP 29
+#   GUI
 # NYHETER 2017 JUN 11
 #   Tetramino
 # NYHETER 2017 JUN 04

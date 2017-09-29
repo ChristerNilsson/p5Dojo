@@ -88,6 +88,7 @@ data =
 		BoardGame : ID_BoardGame
 		Girlang : ID_Girlang
 		Braid : ID_Braid
+		GUI : ID_GUI
 
 	"L9: GuessANumber" :
 		Korg : ID_Korg

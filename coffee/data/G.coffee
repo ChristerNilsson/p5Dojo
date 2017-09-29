@@ -340,3 +340,58 @@ app = new GuessANumberHex "a"
 	c:
 		app : "reset()|newGame()"
 
+ID_GUI =
+	v:'2017-09-29'
+	k:'bg fc sc text for if [] operators class'
+	l:30
+	b:"""
+class GUI extends Application
+	reset : ->
+		super
+	draw : ->
+	up : ->
+	down : ->
+	left : ->
+	right : ->
+app = new GUI
+"""
+	a:"""
+class GUI extends Application
+	reset : ->
+		super
+		@current = 0
+		@prompts = []
+		@labels = []
+		@values = []
+		@add 'Fan o--- -o-- --o- ---o'
+		@add 'Temp o----- -o---- --o--- ---o-- ----o- -----o'
+		@add 'Blink Off Left Right'
+		@add 'Music Beatles Jazz Rock Stones'
+		@add 'Radio P1 P2 P3 P4 P5'
+		@add 'Volume 0 1 2 3 4 5 6 7 8 9'
+		@add 'Wipers o--- -o-- --o- ---o'
+
+	add : (s) ->
+		arr = s.split ' '
+		@prompts.push arr.shift()
+		@labels.push arr
+		@values.push 0
+
+	draw : ->
+		bg 0.5
+		sc()
+		textSize 20
+		for prompt,i in @prompts
+			if @current == i then fc 1,1,0 else fc 0
+			text prompt,10,30+25*i
+			text @labels[i][@values[i]],120,30+25*i
+
+	up : -> @current = (@current - 1) %% @prompts.length
+	down : -> @current = (@current + 1) %% @prompts.length
+	left : -> @values[@current] = (@values[@current]-1) %% @labels[@current].length
+	right : -> @values[@current] = (@values[@current]+1) %% @labels[@current].length
+
+app = new GUI "a"
+"""
+	c:
+		app : "reset()|up()|down()|left()|right()"
