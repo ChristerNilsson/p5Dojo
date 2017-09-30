@@ -153,19 +153,23 @@ Anger hur ellipsens parametrar ska tolkas
 
 ### [text](https://p5js.org/reference/#/p5/text)
 Skriver en text. fc, sc, textAlign och textSize påverkar utseendet
+```coffeescript
   text "p5Dojo",x,y
-
+```
 ### [textAlign](https://p5js.org/reference/#/p5/textAlign)
   textAlign _horisontal_,_vertical_
+```coffeescript
   * **LEFT**,CENTER,RIGHT
   * TOP,CENTER,BOTTOM,**BASELINE**
-
+```
 ### [textSize](https://p5js.org/reference/#/p5/textSize)
+```coffeescript
   textSize pixels
-
+```
 ### [textFont](https://p5js.org/reference/#/p5/textFont)
+```coffeescript
   textFont 'monospace' # t ex
-
+```
 ### [range](http://underscorejs.org/#range)
 Skapar en lista med tal
 ```coffeescript
