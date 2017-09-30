@@ -158,10 +158,9 @@ Skriver en text. fc, sc, textAlign och textSize påverkar utseendet
 ```
 ### [textAlign](https://p5js.org/reference/#/p5/textAlign)
   textAlign _horisontal_,_vertical_
-```coffeescript
   * **LEFT**,CENTER,RIGHT
   * TOP,CENTER,BOTTOM,**BASELINE**
-```
+
 ### [textSize](https://p5js.org/reference/#/p5/textSize)
 ```coffeescript
   textSize pixels
@@ -183,7 +182,8 @@ compare: for i=start; i<stopp; i+=inkrement
 ```
 
 ### [for](http://coffeescript.org/#loops)
-Används om man vill loopa ett visst antal gånger
+Används om man vill loopa ett visst antal gånger. _Loop a known number of times_
+
 Glöm ej att indentera innehållet med ett tabsteg! _Don't forget to indent one tab!_
 ```coffeescript
 kommando                      resultat
