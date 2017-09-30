@@ -1,17 +1,5 @@
 # p5Dojo
 
-## Matematik och Spelprogrammering
-## _Math and Game Programming_
-
- - [p5Dojo](https://christernilsson.github.io/p5Dojo) p5dojo.com
- - [p5](https://p5js.org/reference)
- - [Coffeescript](http://coffeescript.org)
- - [Javascript](https://www.w3schools.com/js)
- - [Underscore](http://underscorejs.org)
- - [p5Assert](https://christernilsson.github.io/p5Assert)
- - [Nilsson](https://github.com/ChristerNilsson/Nilsson/blob/master/README.md)
- - [Mailgrupp](mailto:p5dojo@googlegroups.com)
-
 ### Så här arbetar du!  _This is the way you work!_
 
 * Du ska med kod återskapa den första bitmappen.
@@ -21,10 +9,20 @@
 * Skillnaden visas i den tredje bitmappen. Den ska bli helt svart när du har löst uppgiften.
 * _The third bitmap contains the difference. When you are finished, it will be completely black._
 
-### Chrome och Windows rekommenderas. _Windows and Chrome are recommended._
+### Länkar  _Links_
+ - [p5Dojo](https://christernilsson.github.io/p5Dojo) p5dojo.com
+ - [p5](https://p5js.org/reference)
+ - [Coffeescript](http://coffeescript.org)
+ - [Javascript](https://www.w3schools.com/js)
+ - [Underscore](http://underscorejs.org)
+ - [p5Assert](https://christernilsson.github.io/p5Assert)
+ - [Nilsson](https://github.com/ChristerNilsson/Nilsson/blob/master/README.md)
+ - [Mailgrupp](mailto:p5dojo@googlegroups.com)
+
+### Chrome och Windows rekommenderas.  _Chrome and Windows are recommended._
 Ingen annan programvara behöver installeras. _No other software is needed._
 
-### mera information
+### Mera information _More information_
 
  - [engelsk e-bok i färg (om fem minuter) av Lauren McCarthy, SEK 55](https://play.google.com/store/books/details?id=iP3GCgAAQBAJ&rdid=book-iP3GCgAAQBAJ&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb)
  - [svartvit pappersbok (om fem dagar), 130 SEK](https://www.adlibris.com/se/bok/getting-started-with-p5js-making-interactive-graphics-in-javascript-and-processing-9781457186776)
@@ -33,7 +31,7 @@ Ingen annan programvara behöver installeras. _No other software is needed._
 
 Kontakt: janchrister.nilsson kanelbulle gmail.com
 .....
-### färger     _colors_
+### färger  _colors_
 ```
 r,g,b  färg    colors
 =====================
@@ -91,30 +89,37 @@ sw pixlar
 ## Ritkommandon  _Drawing commands_
 
 ### circle
+Ritar en cirkel med medelpunkt x,y och radie r
 ```coffeescript
 circle x,y,r
 ```
 ### [point](https://p5js.org/reference/#/p5/point)
+Ritar en punkt med koordinater x,y
 ```coffeescript
 point x,y
 ```
 ### [line](https://p5js.org/reference/#/p5/line)
+Ritar en linje mellan två punkter
 ```coffeescript
 line x1,y1, x2,y2
 ```
 ### [ellipse](https://p5js.org/reference/#/p5/ellipse)
+Ritar en ellips med medelpunkt x,y, bredd w och höjd h
 ```coffeescript
 ellipse x,y, w,h
 ```
 ### [rect](https://p5js.org/reference/#/p5/rect)
+Ritar en rektangel med övre vänstra hörnet i x,y, bredd w samt höjd h
 ```coffeescript
 rect x,y, w,h
 ```
 ### [triangle](https://p5js.org/reference/#/p5/triangle)
+Ritar en figur med tre hörn
 ```coffeescript
 triangle x1,y1, x2,y2, x3,y3
 ```
 ### [quad](https://p5js.org/reference/#/p5/quad)
+Ritar en figur med fyra hörn
 ```coffeescript
 quad x1,y1, x2,y2, x3,y3, x4,y4
 ```
@@ -122,14 +127,17 @@ quad x1,y1, x2,y2, x3,y3, x4,y4
 Du ritar en cirkel, fast med startvinkel och stoppvinkel.
 Bågen ritas medurs med start klockan tre.
 Använd sc, sw samt fc för att styra utritningen.
+Använd angleMode för att ange vinklar som radianer eller grader.
 ```coffeescript
 arc x,y, w,h, start,stopp
 ```
 ### [angleMode](https://p5js.org/reference/#/p5/angleMode)
+Påverkar rotate och trigonometriska funktioner, typ sinus och cosinus
   * DEGREES
   * **RADIANS**
 
 ### [rectMode](https://p5js.org/reference/#/p5/rectMode)
+Anger rektangelns ankarpunkt
   * **CORNER**
   * CORNERS
   * CENTER
@@ -137,12 +145,14 @@ arc x,y, w,h, start,stopp
 
 .....
 ### [ellipseMode](https://p5js.org/reference/#/p5/ellipseMode)
+Anger hur ellipsens parametrar ska tolkas
   * CORNER
   * CORNERS
   * **CENTER**
   * RADIUS
 
 ### [text](https://p5js.org/reference/#/p5/text)
+Skriver en text. fc, sc, textAlign och textSize påverkar utseendet
   text "p5Dojo",x,y
 
 ### [textAlign](https://p5js.org/reference/#/p5/textAlign)
@@ -157,6 +167,7 @@ arc x,y, w,h, start,stopp
   textFont 'monospace' # t ex
 
 ### [range](http://underscorejs.org/#range)
+Skapar en lista med tal
 ```coffeescript
          range start,   stopp,    inkrement
 compare: for i=start; i<stopp; i+=inkrement
@@ -168,6 +179,7 @@ compare: for i=start; i<stopp; i+=inkrement
 ```
 
 ### [for](http://coffeescript.org/#loops)
+Används om man vill loopa ett visst antal gånger
 Glöm ej att indentera innehållet med ett tabsteg! _Don't forget to indent one tab!_
 ```coffeescript
 kommando                      resultat
@@ -181,7 +193,7 @@ for i in range 10,0,-2        [10,8,6,4,2]
 for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]
 ```
 ### [lerp](https://p5js.org/reference/#/p5/lerp)
-linjär interpolation och extrapolation, genom att ange två startpunkter.
+Linjär interpolation och extrapolation, genom att ange två startpunkter.
 _Linear interpolation and extrapolation_
 ```coffeescript
  y == lerp y0,y1,i == y0 + (y1-y0) * i
@@ -210,7 +222,7 @@ fc if i % 3 == 0 then 0 else 0.5
 kommando        kommentar
 =========================
 translate x,y   flyttar origo
-rd degrees      roterar runt origo
+rotate vinkel   roterar runt origo
 scale n         skalar upp eller ner
 ```
 
@@ -220,13 +232,6 @@ Roterar en vinkel medurs. _Rotate a given angle clockwise_
 rotate vinkel
 ```
 
-### [radians](https://p5js.org/reference/#/p5/radians)
-```coffeescript
-0             == radians 0
-PI/2          == radians 90
-PI            == radians 180
-3*PI/2        == radians 270
-```
 ### [cos](https://p5js.org/reference/#/p5/cos)
 ### [sin](https://p5js.org/reference/#/p5/sin)
 [Grafik](https://www.openprocessing.org/sketch/183592)
@@ -255,7 +260,7 @@ PI        180      -1       0
 ```
 
 ### [map](https://p5js.org/reference/#/p5/map)
-linjär interpolation och extrapolation, genom att ange start- och slutpunkter.
+Linjär interpolation och extrapolation, genom att ange start- och slutpunkter.
 _Linear interpolation and extrapolation_
 ```coffeescript
  yi == map xi, x0, xn, y0, yn  ==  y0 + (xi-x0) * (yn-y0) / (xn-x0)
@@ -265,6 +270,7 @@ _Linear interpolation and extrapolation_
 .....
 
 ### [constrain](https://p5js.org/reference/#/p5/constrain)
+Begränsar ett värde
 ```coffeescript
        constrain   x, xmin, xmax
   0 == constrain -10,    0,  100
@@ -272,37 +278,44 @@ _Linear interpolation and extrapolation_
 100 == constrain 120,    0,  100
 ```
 ### [int](https://p5js.org/reference/#/p5/int)
+Tar bort decimalerna
 ```coffeescript
   3 == int 3.14
  -3 == int -3.14
 ```
 ### [round](https://p5js.org/reference/#/p5/round)
+Avrundar till närmaste heltal
 ```coffeescript
   3 == round 3.14
- -3 == round -3.14
+ -4 == round -3.54
 ```
 ### [parseInt](https://www.w3schools.com/jsref/jsref_parseint.asp)
+Konverterar från sträng till heltal
 ```coffeescript
   3 == parseInt '3'
  -3 == parseInt '-3'
 ```
 ### [parseFloat](https://www.w3schools.com/jsref/jsref_parsefloat.asp)
+Konverterar från sträng till decimaltal
 ```coffeescript
   3.14 == parseFloat '3.14'
  -3.14 == parseFloat '-3.14'
 ```
 ### [abs](https://p5js.org/reference/#/p5/abs)
+Absolutbelopp
 ```coffeescript
  1 == abs 1
  1 == abs -1
 ```
 ### [dist](https://p5js.org/reference/#/p5/dist)
+Avståndet mellan två punkter
 ```coffeescript
       dist x1,y1,x2,y2
  5 == dist  3, 0, 0, 4
 13 == dist 10,10,22, 5
 ```
 ### [nf](https://p5js.org/reference/#/p5/nf)
+Formatterar ett decimaltal
 ```coffeescript
 '00112.53'   == nf 112.53096155, 5, 2
 '0112.531'   == nf 112.53096155, 4, 3
@@ -316,6 +329,7 @@ _Linear interpolation and extrapolation_
 6.28318530717958647693 == TWO_PI
 ```
 ### [sqrt](https://p5js.org/reference/#/p5/sqrt)
+Kvadratrot
 ```coffeescript
 1.41421356237 == sqrt 2
 2             == sqrt 4
@@ -324,6 +338,7 @@ _Linear interpolation and extrapolation_
 .....
 
 ### log10
+Logaritm
 ```coffeescript
 0             == log10 1
 0.30102999566 == log10 2
@@ -331,6 +346,7 @@ _Linear interpolation and extrapolation_
 2             == log10 100
 ```
 ### [Date](https://www.w3schools.com/jsref/jsref_obj_date.asp)
+Datum
 ```coffeescript
 d  = new Date 2017, 5, 9, 18, 44, 37, 123
 18 == d.getHours()
@@ -339,6 +355,7 @@ d  = new Date 2017, 5, 9, 18, 44, 37, 123
 ```
 
 ### [array](http://coffeescript.org/#literals)
+Listor
 ```coffeescript
 a = [7,8,9]
 a[0] == 7
@@ -363,6 +380,7 @@ Array(5).fill(0) == [0,0,0,0,0]
 ```
 
 ### [string](https://www.w3schools.com/js/js_string_methods.asp)
+Strängar
 ```coffeescript
 "CoffeeScript".toUpperCase() == "COFFEESCRIPT"
 "CoffeeScript".toLowerCase() == "coffeescript"
@@ -452,6 +470,7 @@ true  or true  == true
 .....
 
 ### while
+Används när man inte vet hur många gånger man vill loopa
 ```coffeescript
 i = 0
 res = []
