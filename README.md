@@ -214,7 +214,7 @@ rd degrees      roterar runt origo
 scale n         skalar upp eller ner
 ```
 
-### rotate(https://p5js.org/reference/#/p5/rotate)
+### [rotate](https://p5js.org/reference/#/p5/rotate)
 Roterar en vinkel medurs. _Rotate a given angle clockwise_
 ```coffeescript
 rotate vinkel
