@@ -666,8 +666,8 @@ app = new Ship "a"
 		app: "reset()|left()|right()|forward()|shoot()"
 
 ID_Square =
-	v:'2017-04-29'
-	k:'bg sw fc rd rect rectMode translate operators class'
+	v:'2017-09-30'
+	k:'bg sw fc angleMode rotate rect rectMode translate operators class'
 	l:22
 	b: """
 class Square extends Application
@@ -693,10 +693,11 @@ class Square extends Application
 	draw : ->
 		bg 0
 		rectMode CENTER
+		angleMode DEGREES
 		sw @w
 		fc 0.5
 		translate @x,@y
-		rd @dir
+		rotate @dir
 		rect 0,0,@size,@size
 
 	horisontellt : (d) -> @x += d

@@ -436,7 +436,7 @@ rect 130,50,10,10
 
 ID018 = # Sailing Boat :
 	v:'2017-05-26'
-	k:'bg fc sw sc circle triangle line rd arc ellipse'
+	k:'bg fc sw sc circle triangle line angleMode rotate arc ellipse'
 	l:24
 	b:"# (Sabrina)\n"
 	a:"""
@@ -458,7 +458,7 @@ line 100,60,100,125
 fc 0.25,0.25,0
 sw 0
 sc 0
-rd 20
+rotate 20
 arc 130,70,100,100,0,1900,0
 fc 0,0,1
 ellipse 100,170,150,100

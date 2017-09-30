@@ -508,9 +508,10 @@ Anger den faktiska argumentlistan som en funktion anropas med.
 bg 1, 0.5, 1
 sw 2
 sc 0.5
+angleMode DEGREES
 for i in range 10
   fc i % 2
-  rd 5
+  rotate 5
   rect 20 * i + 5, 5, 10, 10
 ```
 
@@ -519,9 +520,10 @@ for i in range 10
 background(255, 127, 255);
 strokeWeight(2);
 stroke(127);
+angleMode(DEGREES);
 for (var i = 0; i < 10; i++) {
   fill((i % 2) * 255);
-  rotate(radians(5));
+  rotate(5);
   rect(20 * i + 5, 5, 10, 10);
 }
 ```
