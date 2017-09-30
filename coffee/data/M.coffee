@@ -59,6 +59,67 @@ for i in range 10
 		dice 20*i, 20*j, 1 << (i+j) % 6
 """
 
+ID_Map =
+	v:'2017-05-18'
+	k:'-> bg fc sc if text map operators'
+	l:1
+	b : """
+map = (x,x0,x1,y0,y1) -> 0
+
+# Ändra ingenting nedanför denna rad!
+bg 0
+y = 19
+test = (a,b) ->
+	sc()
+	textSize 20
+	fc 0,1,0
+	text a, 0,y
+	if a==b then fc 0,1,0 else fc 1,0,0
+	text b, 100,y
+	y+=20
+
+test 50,  map 10,10,20,50,150
+test 100, map 15,10,20,50,150
+test 150, map 20,10,20,50,150
+test 250, map 30,10,20,50,150
+test -50, map 0,10,20,50,150
+test 5,   map 10,10,20,5,15
+test 10,  map 15,10,20,5,15
+test 15,  map 20,10,20,5,15
+test 25,  map 30,10,20,5,15
+test -5,  map 0,10,20,5,15
+
+"""
+
+	a : """
+map = (x,x0,x1,y0,y1) -> y0 + (x-x0)*(y1-y0)/(x1-x0)
+
+# Ändra ingenting nedanför denna rad!
+bg 0
+y = 19
+test = (a,b) ->
+	sc()
+	textSize 20
+	fc 0,1,0
+	text a, 0,y
+	if a==b then fc 0,1,0 else fc 1,0,0
+	text b, 100,y
+	y+=20
+
+test 50,  map 10,10,20,50,150
+test 100, map 15,10,20,50,150
+test 150, map 20,10,20,50,150
+test 250, map 30,10,20,50,150
+test -50, map 0,10,20,50,150
+test 5,   map 10,10,20,5,15
+test 10,  map 15,10,20,5,15
+test 15,  map 20,10,20,5,15
+test 25,  map 30,10,20,5,15
+test -5,  map 0,10,20,5,15
+"""
+	e:
+		Matteboken : 'https://www.matteboken.se/lektioner/matte-2/geometri/likformighet-och-kongruens'
+
 ID_MidPoints =
 	v:'2017-04-29'
 	k:'sc sw point'
@@ -246,163 +307,3 @@ app = new MultiTimer "a"
 	c:
 		app: "reset()"
 
-ID_MyAverage =
-	v:'2017-09-16'
-	k:'-> bg fc sc if text operators'
-	l:5
-	b : """
-average = (a,b) -> 0
-
-# Ändra ingenting nedanför denna rad!
-bg 0
-y = 19
-test = (a,b) ->
-	sc()
-	textSize 20
-	fc 0,1,0
-	text a, 0,y
-	if a==b then fc 0,1,0 else fc 1,0,0
-	text b, 100,y
-	y+=20
-
-test 5,  average 0,10
-test 20, average 10,30
-test 10, average -10,30
-"""
-
-	a : """
-average = (a,b) -> (a+b)/2
-
-# Ändra ingenting nedanför denna rad!
-bg 0
-y = 19
-test = (a,b) ->
-	sc()
-	textSize 20
-	fc 0,1,0
-	text a, 0,y
-	if a==b then fc 0,1,0 else fc 1,0,0
-	text b, 100,y
-	y+=20
-
-test 5,  average 0,10
-test 20, average 10,30
-test 10, average -10,30
-"""
-
-ID_MyLerp =
-	v:'2017-05-18'
-	k:'-> bg fc sc if text lerp operators'
-	l:1
-	b : """
-lerp = (a,b,i) -> 0
-
-# Ändra ingenting nedanför denna rad!
-bg 0
-y = 19
-test = (a,b) ->
-	sc()
-	textSize 20
-	fc 0,1,0
-	text a, 0,y
-	if a==b then fc 0,1,0 else fc 1,0,0
-	text b, 100,y
-	y+=20
-
-test 10, lerp 10,20,0
-test 20, lerp 10,20,1
-test 30, lerp 10,20,2
-test 0,  lerp 10,20,-1
-test 15, lerp 10,20,0.5
-test 11, lerp 1,2,10
-test 21, lerp 1,3,10
-test -1, lerp 1,0,2
-test 2,  lerp 10,9,8
-test 0.4,lerp 0.1,0.2,3
-"""
-
-	a : """
-lerp = (a,b,i) -> a+(b-a)*i
-
-# Ändra ingenting nedanför denna rad!
-bg 0
-y = 19
-test = (a,b) ->
-	sc()
-	textSize 20
-	fc 0,1,0
-	text a, 0,y
-	if a==b then fc 0,1,0 else fc 1,0,0
-	text b, 100,y
-	y+=20
-
-test 10, lerp 10,20,0
-test 20, lerp 10,20,1
-test 30, lerp 10,20,2
-test 0,  lerp 10,20,-1
-test 15, lerp 10,20,0.5
-test 11, lerp 1,2,10
-test 21, lerp 1,3,10
-test -1, lerp 1,0,2
-test 2,  lerp 10,9,8
-test 0.4,lerp 0.1,0.2,3
-"""
-
-ID_MyMap =
-	v:'2017-05-18'
-	k:'-> bg fc sc if text map operators'
-	l:1
-	b : """
-map = (x,x0,x1,y0,y1) -> 0
-
-# Ändra ingenting nedanför denna rad!
-bg 0
-y = 19
-test = (a,b) ->
-	sc()
-	textSize 20
-	fc 0,1,0
-	text a, 0,y
-	if a==b then fc 0,1,0 else fc 1,0,0
-	text b, 100,y
-	y+=20
-
-test 50,  map 10,10,20,50,150
-test 100, map 15,10,20,50,150
-test 150, map 20,10,20,50,150
-test 250, map 30,10,20,50,150
-test -50, map 0,10,20,50,150
-test 5,   map 10,10,20,5,15
-test 10,  map 15,10,20,5,15
-test 15,  map 20,10,20,5,15
-test 25,  map 30,10,20,5,15
-test -5,  map 0,10,20,5,15
-
-"""
-
-	a : """
-map = (x,x0,x1,y0,y1) -> y0 + (x-x0)*(y1-y0)/(x1-x0)
-
-# Ändra ingenting nedanför denna rad!
-bg 0
-y = 19
-test = (a,b) ->
-	sc()
-	textSize 20
-	fc 0,1,0
-	text a, 0,y
-	if a==b then fc 0,1,0 else fc 1,0,0
-	text b, 100,y
-	y+=20
-
-test 50,  map 10,10,20,50,150
-test 100, map 15,10,20,50,150
-test 150, map 20,10,20,50,150
-test 250, map 30,10,20,50,150
-test -50, map 0,10,20,50,150
-test 5,   map 10,10,20,5,15
-test 10,  map 15,10,20,5,15
-test 15,  map 20,10,20,5,15
-test 25,  map 30,10,20,5,15
-test -5,  map 0,10,20,5,15
-"""

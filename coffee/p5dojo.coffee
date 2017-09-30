@@ -261,10 +261,10 @@ buildKeywordLink = ->
 	kwlinks.push 'https://github.com/ChristerNilsson/p5Dojo/blob/master/_.md#{}'
 	save = (index,words) -> kwl[word] = index for word in words.split ' '
 	save 0,'[] "" {} .. ... @ -> class text textSize textAlign textFont operators comparisons logical if bg fc sc sw'
-	save 0,'range circle for while rd readText readInt readFloat'
+	save 0,'range circle for while angleMode readText readInt readFloat'
 	save 0,'PI sqrt atan2 abs cos sin log10 Date arc rect ellipse point line triangle quad arguments'
-	save 0,'parseInt parseFloat dist nf constrain int round map lerp radians reduce'
-	save 1,'rectMode rotate translate scale push pop random millis colorMode HSB strokeCap'
+	save 0,'parseInt parseFloat dist nf constrain int round map lerp radians rotate reduce'
+	save 1,'rectMode translate scale push pop random millis colorMode HSB strokeCap'
 	save 2,'break return'
 	save 3,'contains filter countBy isEqual last max min pairs sortBy findIndex'
 

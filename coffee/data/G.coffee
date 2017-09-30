@@ -116,8 +116,8 @@ girlang 0,0,9,5,20,20
 """
 
 ID_GoldenStar =
-	v:'2017-04-29'
-	k:'bg fc range for triangle translate rotate cos sin class'
+	v:'2017-09-30'
+	k:'bg fc range for triangle translate angleMode rotate cos sin class'
 	l:23
 	b: """
 class GoldenStar extends Application
@@ -143,9 +143,10 @@ class GoldenStar extends Application
 	inner : (d) -> @_inner = constrain @_inner+d, 0, 100
 	draw : ->
 		bg 0
+		angleMode DEGREES
 		translate @_X,@_Y
-		v = TWO_PI/@_n
-		rotate -PI/2
+		v = 360/@_n
+		rotate -90
 		x1 = @_inner * cos v/2
 		y1 = @_inner * sin v/2
 		for i in range @_n

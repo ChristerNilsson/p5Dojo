@@ -56,11 +56,19 @@ app = new AlphaNumeric "a"
 		'5x7 matris' : "https://www.google.se/search?q=5x7+matrix&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjWjYen5OrSAhXhJ5oKHf8BBmgQ_AUIBigB&biw=1310&bih=945&dpr=1.1"
 
 ID_Angle =
-	v:'2017-05-12'
-	k:'bg sc fc sw circle class dist if operators text sin cos atan2 radians arc _.min line for range abs'
+	v:'2017-09-29'
+	k:'bg sc fc sw circle class dist if operators text sin cos atan2 angleMode arc _.min line for range abs'
 	l:54
 	b:"""
-# Vit linje markerar 0 grader.
+# Försök klicka på rätt vinkel.
+# Gul sektor indikerar felmarginalen.
+# 0 grader går mot höger (vit linje)
+# 90 grader går neråt
+# 180 grader går till vänster
+# 270 grader går uppåt
+# Gult tal är vinkeln som klickas på
+# Rött tal indikerar antal fel
+# Grönt tal indikerar Level
 
 class Angle extends Application
 	reset : ->
@@ -91,19 +99,20 @@ class Angle extends Application
 		bg 0.5
 		sw 50
 		strokeCap SQUARE
-		start = radians 135-@marginal
-		stopp = radians 135+@marginal
+		angleMode DEGREES
+		start = 135 - @marginal
+		stopp = 135 + @marginal
 		fc()
 		sc 1,1,0
-		arc 100,100,150,150,start,stopp
+		arc 100,100, 150,150, start,stopp
 		sw 1
 		for i in range 12
 			if i==0 then sc 1 else sc 0
-			v = i * 30 * PI/180
-			x1 = 100+@R1*cos v
-			y1 = 100+@R1*sin v
-			x2 = 100+@R2*cos v
-			y2 = 100+@R2*sin v
+			v = i * 30
+			x1 = 100 + @R1 * cos v
+			y1 = 100 + @R1 * sin v
+			x2 = 100 + @R2 * cos v
+			y2 = 100 + @R2 * sin v
 			line x1,y1,x2,y2
 		sc 1,1,0
 		circle 100,100,@R1
@@ -120,8 +129,9 @@ class Angle extends Application
 		text @level,100,125
 	mousePressed : (mx,my) ->
 		d = dist 100,100,mx,my
+		angleMode DEGREES
 		if @R1 <= d <= @R2
-			v = -180/PI * atan2 my-100,mx-100
+			v = atan2 my-100,mx-100
 			@seed += mx % 10
 			res = @angleDist(v,@angle) <= @marginal
 			@newGame if res then 1 else -1
@@ -132,3 +142,50 @@ app = new Angle "a"
 """
 	c:
 		app : "reset()"
+
+ID_Average =
+	v:'2017-09-16'
+	k:'-> bg fc sc if text operators'
+	l:5
+	b : """
+average = (a,b) -> 0
+
+# Ändra ingenting nedanför denna rad!
+bg 0
+y = 19
+test = (a,b) ->
+	sc()
+	textSize 20
+	fc 0,1,0
+	text a, 0,y
+	if a==b then fc 0,1,0 else fc 1,0,0
+	text b, 100,y
+	y+=20
+
+test 5,  average 0,10
+test 20, average 10,30
+test 10, average -10,30
+"""
+
+	a : """
+average = (a,b) -> (a+b)/2
+
+# Ändra ingenting nedanför denna rad!
+bg 0
+y = 19
+test = (a,b) ->
+	sc()
+	textSize 20
+	fc 0,1,0
+	text a, 0,y
+	if a==b then fc 0,1,0 else fc 1,0,0
+	text b, 100,y
+	y+=20
+
+test 5,  average 0,10
+test 20, average 10,30
+test 10, average -10,30
+"""
+
+	e:
+		Matteboken : 'https://www.matteboken.se/lektioner/skolar-5/statistik/medelvarde'

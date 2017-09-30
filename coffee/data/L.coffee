@@ -52,6 +52,66 @@ app = new Laboratorium "a"
 	c:
 		app : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
 
+ID_Lerp =
+	v:'2017-05-18'
+	k:'-> bg fc sc if text lerp operators'
+	l:1
+	b : """
+lerp = (a,b,i) -> 0
+
+# Ändra ingenting nedanför denna rad!
+bg 0
+y = 19
+test = (a,b) ->
+	sc()
+	textSize 20
+	fc 0,1,0
+	text a, 0,y
+	if a==b then fc 0,1,0 else fc 1,0,0
+	text b, 100,y
+	y+=20
+
+test 10, lerp 10,20,0
+test 20, lerp 10,20,1
+test 30, lerp 10,20,2
+test 0,  lerp 10,20,-1
+test 15, lerp 10,20,0.5
+test 11, lerp 1,2,10
+test 21, lerp 1,3,10
+test -1, lerp 1,0,2
+test 2,  lerp 10,9,8
+test 0.4,lerp 0.1,0.2,3
+"""
+	e:
+		Matteboken : "https://www.matteboken.se/lektioner/matte-1/funktioner/linjara-funktioner"
+
+	a : """
+lerp = (a,b,i) -> a+(b-a)*i
+
+# Ändra ingenting nedanför denna rad!
+bg 0
+y = 19
+test = (a,b) ->
+	sc()
+	textSize 20
+	fc 0,1,0
+	text a, 0,y
+	if a==b then fc 0,1,0 else fc 1,0,0
+	text b, 100,y
+	y+=20
+
+test 10, lerp 10,20,0
+test 20, lerp 10,20,1
+test 30, lerp 10,20,2
+test 0,  lerp 10,20,-1
+test 15, lerp 10,20,0.5
+test 11, lerp 1,2,10
+test 21, lerp 1,3,10
+test -1, lerp 1,0,2
+test 2,  lerp 10,9,8
+test 0.4,lerp 0.1,0.2,3
+"""
+
 ID_Line =
 	v:'2017-04-29'
 	k:'sc line'

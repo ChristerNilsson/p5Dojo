@@ -86,8 +86,8 @@ app = new Kalkylator "a"
 		"Forth Haiku" : "http://forthsalon.appspot.com/word-list"
 
 ID_Klocka =
-	v:'2017-04-29'
-	k:'fc sc circle range rd point rect rectMode for if translate push pop class Date'
+	v:'2017-09-30'
+	k:'fc sc circle range angleMode rotate point rect rectMode for if translate push pop class Date'
 	l:49
 	b: """
 class Klocka extends Application
@@ -110,6 +110,7 @@ class Klocka extends Application
 	draw : ->
 		bg 0.5
 		rectMode CENTER
+		angleMode DEGREES
 		translate 100,100
 		@urtavla()
 		@visare (@h+@m/60.0)*30, 7,60,1,0,0
@@ -135,7 +136,7 @@ class Klocka extends Application
 		@h = t %% 24
 	visare : (v,w,l,r,g,b) ->
 		push()
-		rd v-90
+		rotate v-90
 		translate l/2,0
 		fc r,g,b
 		rect 0,0,l,w
@@ -149,7 +150,7 @@ class Klocka extends Application
 		sc()
 		for i in range 60
 			circle 85,0, if i%5==0 then 3 else 2
-			rd 6
+			rotate 6
 
 app = new Klocka "a"
 """

@@ -31,12 +31,13 @@ skriv "Train",    50, 48,0,1,0, 30
 
 ID_PacMan =
 	v:'2017-04-29'
-	k:'fc arc radians'
+	k:'fc arc angleMode'
 	l:2
 	b:""
 	a:"""
 fc 1,1,0
-arc 100,100, 180,180, radians(-135),radians(135)
+angleMode DEGREES
+arc 100,100, 180,180, -135,135
 """
 	e :
 		Play : "https://www.google.se/#q=pacman&clb=clb"
@@ -213,8 +214,8 @@ app = new PickingBerries "a"
 		app : "reset()|left()|right()|up()|down()|snailSpeed()|slowSpeed()|highSpeed()|warpSpeed()|pick()"
 
 ID_Polygon =
-	v:'2017-04-29'
-	k:'bg sc range line for cos sin radians class'
+	v:'2017-09-30'
+	k:'bg sc range line for cos sin angleMode class'
 	l:23
 	b:"""
 class Turtle
@@ -234,8 +235,8 @@ app = new Polygon
 class Turtle
 	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->
 	fd : (d) ->
-		dx = d*cos radians @dir
-		dy = d*sin radians @dir
+		dx = d*cos @dir
+		dy = d*sin @dir
 		sc @r,@g,@b
 		line @x,@y,@x+dx,@y+dy
 		@x += dx
@@ -252,6 +253,7 @@ class Polygon extends Application
 	draw : ->
 		t = new Turtle()
 		bg 0
+		angleMode DEGREES
 		for i in range @n
 			t.fd @steg
 			t.rt 360/@n

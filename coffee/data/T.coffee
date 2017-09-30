@@ -213,8 +213,8 @@ text 'Coffeescript',100,100
 """
 
 ID_TextC =
-	v:'2017-04-29'
-	k:'sc fc rd text translate textSize textAlign'
+	v:'2017-09-30'
+	k:'sc fc angleMode rotate text translate textSize textAlign'
 	l:10
 	b:""
 	a:"""
@@ -223,10 +223,11 @@ fc 1,1,0
 textSize 64
 textAlign CENTER,CENTER
 translate 100,100
-rd 90
+angleMode DEGREES
+rotate 90
 text 'Coffee',0,0
 fc 1,0,0
-rd 90
+rotate 90
 text 'script',0,0
 """
 
@@ -307,22 +308,19 @@ triangle 20,40, 160,100, 100,140
 """
 
 ID_TwoArcs =
-	v:'2017-05-27'
-	k:'fc sc sw arc radians strokeCap'
-	l:11
+	v:'2017-09-30'
+	k:'fc sc sw arc angleMode strokeCap'
+	l:8
 	b:""
 	a:"""
 fc()
 sc 1,0,0
 sw 20
-start = radians -90
-stopp = radians 0
-arc 100,70, 100,100, start,stopp
+angleMode DEGREES
+arc 100,70, 100,100, -90,0
 sc 1,1,0
 strokeCap SQUARE
-start = radians 0
-stopp = radians -90
-arc 100,120, 100,100, start,stopp
+arc 100,120, 100,100, 0, -90
 """
 
 ID_TwoDiceHistogram =

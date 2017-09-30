@@ -163,15 +163,16 @@ app = new Reversi "a"
 		Reversi : "https://en.wikipedia.org/wiki/Reversi"
 
 ID_RotatedEllipse =
-	v:'2017-04-29'
-	k:'rd ellipse translate'
-	l:5
+	v:'2017-09-30'
+	k:'angleMode rotate ellipse translate'
+	l:6
 	b:""
 	a:"""
 fc 1,0,0
 sc()
 translate 100,100
-rd 45
+angleMode DEGREES
+rotate 45
 ellipse 0,0, 80,40
 """
 
@@ -188,28 +189,29 @@ rect 140,100, 40,40
 """
 
 ID_RotatedRectB =
-	v:'2017-04-29'
-	k:'fc rd rect translate push pop'
+	v:'2017-09-30'
+	k:'fc angleMode rotate rect translate push pop'
 	l:12
 	b:""
 	a:"""
 push()
 fc 1,0,0
 translate 60,100
-rd 45
+angleMode DEGREES
+rotate 45
 rect 0,0, 40,40
 pop()
 push()
 fc 0,1,0
 translate 140,100
-rd 45
+rotate 45
 rect 0,0, 40,40
 pop()
 """
 
 ID_RotatedRectC =
-	v:'2017-04-29'
-	k:'fc rd rect translate push pop'
+	v:'2017-09-30'
+	k:'fc angleMode rotate rect translate push pop'
 	l:13
 	b:""
 	a:"""
@@ -217,20 +219,21 @@ rectMode CENTER
 push()
 fc 1,0,0
 translate 80,120
-rd 45
+angleMode DEGREES
+rotate 45
 rect 0,0, 40,40
 pop()
 push()
 fc 0,1,0
 translate 160,120
-rd 45
+rotate 45
 rect 0,0, 40,40
 pop()
 """
 
 ID_Roulette =
-	v:'2017-04-29'
-	k:'bg sw fc sc range rd for if operators [] "" PI text arc strokeCap translate'
+	v:'2017-09-30'
+	k:'bg sw fc sc range angleMode rotate for if operators [] "" PI text arc strokeCap translate'
 	l:15
 	b:"""
 numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
@@ -239,18 +242,19 @@ numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,1
 numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
 bg 0.5
 translate 100,100
-d = PI/numbers.length
+d = 180/numbers.length
 sw 20
 strokeCap SQUARE
 textAlign CENTER,CENTER
+angleMode DEGREES
 for number,i in numbers
 	fc()
 	if i==0 then sc 0,1,0 else sc i%2,0,0
-	arc 0,0,180,180,-PI/2-d,-PI/2+d
+	arc 0,0,180,180,-90-d,-90+d
 	sc()
 	fc 1
 	text number,0,-90
-	rd 360 / numbers.length
+	rotate 360 / numbers.length
 """
 	e :
 		Wikipedia : "https://en.wikipedia.org/wiki/Roulette"

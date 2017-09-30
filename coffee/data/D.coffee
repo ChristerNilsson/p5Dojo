@@ -15,6 +15,8 @@ point 100,100
 sc 1,1,0
 point 200,200
 """
+	e:
+		Matteboken : 'https://www.matteboken.se/lektioner/skolar-5/statistik/medelvarde'
 
 ID_Diagonal2 =
 	v:'2017-04-29'
@@ -38,6 +40,8 @@ point 50,150
 sc 0,1,0
 point 0,200
 """
+	e:
+		Matteboken : 'https://www.matteboken.se/lektioner/skolar-5/statistik/medelvarde'
 
 ID_DiagonalSquares =
 	v:'2017-04-29'

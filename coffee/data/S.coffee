@@ -454,13 +454,14 @@ app = new Snake4 "a"
 		Wikipedia : "https://en.wikipedia.org/wiki/Snake_(video_game)"
 
 ID_SnowWhiteAndThe7Lerps =
-	v:'2017-04-29'
-	k:'bg fc sc range rd rect rectMode for lerp translate push pop'
+	v:'2017-09-30'
+	k:'bg fc sc range angleMode rotate rect rectMode for lerp translate push pop'
 	l:17
 	b:""
 	a:"""
 bg 1
 rectMode CENTER
+angleMode DEGREES
 sc()
 for i in range 10
 	for j in range 10
@@ -468,7 +469,7 @@ for i in range 10
 		x = lerp 10,30,i
 		y = lerp 10,30,j
 		translate x,y
-		rd lerp 0,10,i-j
+		rotate lerp 0,10,i-j
 		r = lerp 0.1,0.2,i
 		g = lerp 0.1,0.2,j
 		fc r,g,0
@@ -594,8 +595,8 @@ app = new Sokoban "a"
 		Wikipedia : "https://en.wikipedia.org/wiki/Sokoban"
 
 ID_SpaceShip =
-	v:'2017-04-29'
-	k:'sc sw rd point triangle translate cos sin radians push pop class'
+	v:'2017-09-30'
+	k:'sc sw angleMode rotate point triangle translate cos sin push pop class'
 	l:35
 	b:"""
 class Shot
@@ -621,8 +622,8 @@ class Shot
 	constructor : (@x,@y,@dir) ->
 	render : ->	point @x,@y
 	move : ->
-		@x += int 5 * cos radians @dir
-		@y += int 5 * sin radians @dir
+		@x += int 5 * cos @dir
+		@y += int 5 * sin @dir
 
 class Ship extends Application
 	classes : -> [Shot]
@@ -637,8 +638,9 @@ class Ship extends Application
 	left    : -> @dir -= 5
 	right   : -> @dir += 5
 	forward : ->
-		@x += 5 * cos radians @dir
-		@y += 5 * sin radians @dir
+		angleMode DEGREES
+		@x += 5 * cos @dir
+		@y += 5 * sin @dir
 
 	shoot : ->
 		@shots.push new Shot int(@x), int(@y), @dir
@@ -646,7 +648,8 @@ class Ship extends Application
 	draw : ->
 		push()
 		translate @x,@y
-		rd @dir
+		angleMode DEGREES
+		rotate @dir
 		sc 1,1,0
 		sw 2
 		triangle 2*@S,0, -@S,@S, -@S,-@S

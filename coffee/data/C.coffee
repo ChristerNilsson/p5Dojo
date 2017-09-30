@@ -1,10 +1,11 @@
 ID_Cards =
-	v:'2017-04-29'
-	k:'fc sc circle range rd rect rectMode for lerp translate'
+	v:'2017-09-30'
+	k:'fc sc circle range angleMode rotate rect rectMode for lerp translate'
 	l:10
 	b:""
 	a:"""
 rectMode CENTER
+angleMode DEGREES
 sc 1
 translate 100,100
 for i in range 18,-1,-1
@@ -13,7 +14,7 @@ for i in range 18,-1,-1
 	w = 70+5*i
 	h = 70+5*i
 	rect 0,0, w,h
-	rd 5
+	rotate 5
 """
 
 ID_ChessBoard =
@@ -215,8 +216,8 @@ app = new ClickDetector "a"
 		Triangle : "http://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle"
 
 ID_CoffeescriptClock =
-	v:'2017-05-13'
-	k:'bg fc sc range operators for "" radians text sin cos'
+	v:'2017-09-30'
+	k:'bg fc sc range operators for "" text angleMode sin cos'
 	l:10
 	b:""
 	a:"""
@@ -225,8 +226,9 @@ fc 0
 sc()
 textSize 20
 textAlign CENTER,CENTER
+angleMode DEGREES
 for i in range 12
-	v = radians 30*i-90
+	v = 30*i-90
 	x = 100 + 90 * cos v
 	y = 100 + 90 * sin v
 	text "Coffeescript"[i],x,y

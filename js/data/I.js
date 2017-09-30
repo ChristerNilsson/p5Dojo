@@ -2,11 +2,11 @@
 var ID_IndianSun;
 
 ID_IndianSun = {
-  v: '2017-04-29',
-  k: 'range line sin cos radians for if constrain operators class',
+  v: '2017-09-30',
+  k: 'range line sin cos angleMode for if constrain operators class',
   l: 10,
   b: "class IndianSun extends Application\n	reset : ->\n		super\n	draw : ->\n	mousePressed : (mx,my) ->\napp = new IndianSun",
-  a: "class IndianSun extends Application\n	reset : ->\n		super\n		@n = 5\n	draw : ->\n		points = ([100+100*cos(i*radians 360/@n), 100+100*sin(i*radians 360/@n)] for i in range @n)\n		for [x1,y1] in points\n			for [x2,y2] in points\n				line x1,y1,x2,y2\n	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1), 3, 20\n\napp = new IndianSun \"a\"",
+  a: "class IndianSun extends Application\n	reset : ->\n		super\n		@n = 5\n	draw : ->\n		angleMode DEGREES\n		points = ([100+100*cos(i * 360/@n), 100+100*sin(i * 360/@n)] for i in range @n)\n		for [x1,y1] in points\n			for [x2,y2] in points\n				line x1,y1,x2,y2\n	mousePressed : (mx,my) -> @n = constrain @n + (if my < 100 then 1 else -1), 3, 20\n\napp = new IndianSun \"a\"",
   c: {
     app: "reset()"
   },
@@ -15,5 +15,5 @@ ID_IndianSun = {
   }
 };
 
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSS5qcyIsInNvdXJjZVJvb3QiOiIuLlxcLi4iLCJzb3VyY2VzIjpbImNvZmZlZVxcZGF0YVxcSS5jb2ZmZWUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLElBQUE7O0FBQUEsWUFBQSxHQUNDO0VBQUEsQ0FBQSxFQUFFLFlBQUY7RUFDQSxDQUFBLEVBQUUsNkRBREY7RUFFQSxDQUFBLEVBQUUsRUFGRjtFQUdBLENBQUEsRUFBRSx3SEFIRjtFQVdBLENBQUEsRUFBRSwwV0FYRjtFQXlCQSxDQUFBLEVBQ0M7SUFBQSxHQUFBLEVBQU0sU0FBTjtHQTFCRDtFQTJCQSxDQUFBLEVBQ0M7SUFBQSxJQUFBLEVBQU8sd0NBQVA7R0E1QkQiLCJzb3VyY2VzQ29udGVudCI6WyJJRF9JbmRpYW5TdW4gPVxuXHR2OicyMDE3LTA0LTI5J1xuXHRrOidyYW5nZSBsaW5lIHNpbiBjb3MgcmFkaWFucyBmb3IgaWYgY29uc3RyYWluIG9wZXJhdG9ycyBjbGFzcydcblx0bDoxMFxuXHRiOlwiXCJcIlxuY2xhc3MgSW5kaWFuU3VuIGV4dGVuZHMgQXBwbGljYXRpb25cblx0cmVzZXQgOiAtPlxuXHRcdHN1cGVyXG5cdGRyYXcgOiAtPlxuXHRtb3VzZVByZXNzZWQgOiAobXgsbXkpIC0+XG5hcHAgPSBuZXcgSW5kaWFuU3VuXG5cIlwiXCJcblx0YTpcIlwiXCJcbmNsYXNzIEluZGlhblN1biBleHRlbmRzIEFwcGxpY2F0aW9uXG5cdHJlc2V0IDogLT5cblx0XHRzdXBlclxuXHRcdEBuID0gNVxuXHRkcmF3IDogLT5cblx0XHRwb2ludHMgPSAoWzEwMCsxMDAqY29zKGkqcmFkaWFucyAzNjAvQG4pLCAxMDArMTAwKnNpbihpKnJhZGlhbnMgMzYwL0BuKV0gZm9yIGkgaW4gcmFuZ2UgQG4pXG5cdFx0Zm9yIFt4MSx5MV0gaW4gcG9pbnRzXG5cdFx0XHRmb3IgW3gyLHkyXSBpbiBwb2ludHNcblx0XHRcdFx0bGluZSB4MSx5MSx4Mix5MlxuXHRtb3VzZVByZXNzZWQgOiAobXgsbXkpIC0+IEBuID0gY29uc3RyYWluIEBuICsgKGlmIG15IDwgMTAwIHRoZW4gMSBlbHNlIC0xKSwgMywgMjBcblxuYXBwID0gbmV3IEluZGlhblN1biBcImFcIlxuXCJcIlwiXG5cdGM6XG5cdFx0YXBwIDogXCJyZXNldCgpXCJcblx0ZTpcblx0XHRLb2pvIDogXCJodHRwOi8vd3d3LmtvZ2ljcy5uZXQvY29kZXNrZXRjaD9pZD0yOFwiXG5cbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSS5qcyIsInNvdXJjZVJvb3QiOiIuLlxcLi4iLCJzb3VyY2VzIjpbImNvZmZlZVxcZGF0YVxcSS5jb2ZmZWUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLElBQUE7O0FBQUEsWUFBQSxHQUNDO0VBQUEsQ0FBQSxFQUFFLFlBQUY7RUFDQSxDQUFBLEVBQUUsK0RBREY7RUFFQSxDQUFBLEVBQUUsRUFGRjtFQUdBLENBQUEsRUFBRSx3SEFIRjtFQVdBLENBQUEsRUFBRSxtWEFYRjtFQTBCQSxDQUFBLEVBQ0M7SUFBQSxHQUFBLEVBQU0sU0FBTjtHQTNCRDtFQTRCQSxDQUFBLEVBQ0M7SUFBQSxJQUFBLEVBQU8sd0NBQVA7R0E3QkQiLCJzb3VyY2VzQ29udGVudCI6WyJJRF9JbmRpYW5TdW4gPVxuXHR2OicyMDE3LTA5LTMwJ1xuXHRrOidyYW5nZSBsaW5lIHNpbiBjb3MgYW5nbGVNb2RlIGZvciBpZiBjb25zdHJhaW4gb3BlcmF0b3JzIGNsYXNzJ1xuXHRsOjEwXG5cdGI6XCJcIlwiXG5jbGFzcyBJbmRpYW5TdW4gZXh0ZW5kcyBBcHBsaWNhdGlvblxuXHRyZXNldCA6IC0+XG5cdFx0c3VwZXJcblx0ZHJhdyA6IC0+XG5cdG1vdXNlUHJlc3NlZCA6IChteCxteSkgLT5cbmFwcCA9IG5ldyBJbmRpYW5TdW5cblwiXCJcIlxuXHRhOlwiXCJcIlxuY2xhc3MgSW5kaWFuU3VuIGV4dGVuZHMgQXBwbGljYXRpb25cblx0cmVzZXQgOiAtPlxuXHRcdHN1cGVyXG5cdFx0QG4gPSA1XG5cdGRyYXcgOiAtPlxuXHRcdGFuZ2xlTW9kZSBERUdSRUVTXG5cdFx0cG9pbnRzID0gKFsxMDArMTAwKmNvcyhpICogMzYwL0BuKSwgMTAwKzEwMCpzaW4oaSAqIDM2MC9AbildIGZvciBpIGluIHJhbmdlIEBuKVxuXHRcdGZvciBbeDEseTFdIGluIHBvaW50c1xuXHRcdFx0Zm9yIFt4Mix5Ml0gaW4gcG9pbnRzXG5cdFx0XHRcdGxpbmUgeDEseTEseDIseTJcblx0bW91c2VQcmVzc2VkIDogKG14LG15KSAtPiBAbiA9IGNvbnN0cmFpbiBAbiArIChpZiBteSA8IDEwMCB0aGVuIDEgZWxzZSAtMSksIDMsIDIwXG5cbmFwcCA9IG5ldyBJbmRpYW5TdW4gXCJhXCJcblwiXCJcIlxuXHRjOlxuXHRcdGFwcCA6IFwicmVzZXQoKVwiXG5cdGU6XG5cdFx0S29qbyA6IFwiaHR0cDovL3d3dy5rb2dpY3MubmV0L2NvZGVza2V0Y2g/aWQ9MjhcIlxuXG4iXX0=
 //# sourceURL=C:\github\p5Dojo\coffee\data\I.coffee

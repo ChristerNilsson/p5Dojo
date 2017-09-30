@@ -72,9 +72,9 @@ data =
 		Diagonal1 : ID_Diagonal1
 		Diagonal2 : ID_Diagonal2
 		p5 : ID_P5
-		Average : ID_MyAverage
-		Lerp : ID_MyLerp
-		Map : ID_MyMap
+		Average : ID_Average
+		Lerp : ID_Lerp
+		Map : ID_Map
 		ManyDices : ID_ManyDices
 		#OneDiceHistogram : ID_OneDiceHistogram
 		#TwoDiceHistogram : ID_TwoDiceHistogram

@@ -1,6 +1,6 @@
 ID_IndianSun =
-	v:'2017-04-29'
-	k:'range line sin cos radians for if constrain operators class'
+	v:'2017-09-30'
+	k:'range line sin cos angleMode for if constrain operators class'
 	l:10
 	b:"""
 class IndianSun extends Application
@@ -16,7 +16,8 @@ class IndianSun extends Application
 		super
 		@n = 5
 	draw : ->
-		points = ([100+100*cos(i*radians 360/@n), 100+100*sin(i*radians 360/@n)] for i in range @n)
+		angleMode DEGREES
+		points = ([100+100*cos(i * 360/@n), 100+100*sin(i * 360/@n)] for i in range @n)
 		for [x1,y1] in points
 			for [x2,y2] in points
 				line x1,y1,x2,y2

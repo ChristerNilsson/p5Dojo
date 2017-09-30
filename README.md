@@ -123,10 +123,12 @@ Du ritar en cirkel, fast med startvinkel och stoppvinkel.
 Bågen ritas medurs med start klockan tre.
 Använd sc, sw samt fc för att styra utritningen.
 ```coffeescript
-start = radians 180
-stopp = radians 270
 arc x,y, w,h, start,stopp
 ```
+### [angleMode](https://p5js.org/reference/#/p5/angleMode)
+  * DEGREES
+  * **RADIANS**
+
 ### [rectMode](https://p5js.org/reference/#/p5/rectMode)
   * **CORNER**
   * CORNERS
@@ -182,7 +184,7 @@ for i in [1,1,2,3,5,8,13,21]  [1,1,2,3,5,8,13,21]
 linjär interpolation och extrapolation, genom att ange två startpunkter.
 _Linear interpolation and extrapolation_
 ```coffeescript
-      lerp y0,y1,i
+ y == lerp y0,y1,i == y0 + (y1-y0) * i
  8 == lerp 10,12,-1
 10 == lerp 10,12,0
 11 == lerp 10,12,0.5
@@ -212,10 +214,10 @@ rd degrees      roterar runt origo
 scale n         skalar upp eller ner
 ```
 
-### rd
-Roterar en vinkel given i grader medurs. _Rotate a given angle in degrees clockwise_
+### rotate
+Roterar en vinkel medurs. _Rotate a given angle clockwise_
 ```coffeescript
-rd = (vinkel) -> rotate radians vinkel
+rotate vinkel
 ```
 
 ### [radians](https://p5js.org/reference/#/p5/radians)
@@ -256,7 +258,7 @@ PI        180      -1       0
 linjär interpolation och extrapolation, genom att ange start- och slutpunkter.
 _Linear interpolation and extrapolation_
 ```coffeescript
- yi == map xi, x0, xn, y0,  yn
+ yi == map xi, x0, xn, y0, yn  ==  y0 + (xi-x0) * (yn-y0) / (xn-x0)
 250 == map 25,  0,100,  0,1000
  30 == map  1,  0, 10, 25,  75
 ```

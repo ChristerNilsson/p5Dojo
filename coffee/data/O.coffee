@@ -1,6 +1,6 @@
 ID_OlympicRingPrep =
 	v:'2017-04-29'
-	k:'sc fc sw arc strokeCap class'
+	k:'sc fc sw arc angleMode strokeCap class'
 	l:21
 	b:"""
 class Ring extends Application
