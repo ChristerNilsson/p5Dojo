@@ -634,7 +634,7 @@ sc 0
 point 200,200
 """
 	e :
-		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+		Koordinatsystem : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID_CornerPoints3 =
 	v:'2017-04-29'
@@ -664,7 +664,7 @@ point 180,200
 point 200,180
 """
 	e :
-		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+		Koordinatsystem : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID_CornerPoints7 =
 	v:'2017-04-29'
@@ -692,7 +692,7 @@ point 180,170
 point 200,170
 """
 	e :
-		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+		Koordinatsystem : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID_Counter =
 	v:'2017-04-29'

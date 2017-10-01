@@ -118,7 +118,8 @@ test 25,  map 30,10,20,5,15
 test -5,  map 0,10,20,5,15
 """
 	e:
-		Matteboken : 'https://www.matteboken.se/lektioner/matte-2/geometri/likformighet-och-kongruens'
+		Likformighet : 'https://www.matteboken.se/lektioner/matte-2/geometri/likformighet-och-kongruens'
+		Ekvationssystem : 'https://www.matteboken.se/lektioner/matte-2/linjara-funktioner-och-ekvationssystem/linjara-ekvationssystem-grafisk-losning'
 
 ID_MidPoints =
 	v:'2017-04-29'
@@ -139,7 +140,7 @@ sc 1
 point 100,200
 """
 	e :
-		Matteboken : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+		Koordinatsystem : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID_MineSweeper =
 	v:'2017-05-19'

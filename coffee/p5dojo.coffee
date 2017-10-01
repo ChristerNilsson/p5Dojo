@@ -285,18 +285,17 @@ mousePressed = ->
 setLinks = ->
 	linksClear()
 
-	linkAppend links, "https://christernilsson.github.io/p5Forth3D/", "p5Forth3D"
+	if exercise != ''
+		for text,link of data[chapter][exercise]["e"]
+			linkAppend links,link,text
+
 	linkAppend links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo", "p5Dojo"
-	if exercise=='' then return
+	linkAppend links, "https://christernilsson.github.io/p5Color", "p5Color"
 	linkAppend links, "https://p5js.org/reference", "p5"
 	linkAppend links, "http://coffeescript.org", "Coffeescript"
 	linkAppend links, "https://www.w3schools.com/js", "Javascript"
-	linkAppend links, "https://github.com/ChristerNilsson/Nilsson/blob/master/README.md#nilsson", "Nilsson"
-	linkAppend links, "https://christernilsson.github.io/p5Color", "p5Color"
 	linkAppend links, "http://underscorejs.org/", "Underscore"
-
-	for text,link of data[chapter][exercise]["e"]
-		linkAppend links,link,text
+	linkAppend links, "https://github.com/ChristerNilsson/Nilsson/blob/master/README.md#nilsson", "Nilsson"
 
 linksClear = -> $("#links tr").remove()
 
