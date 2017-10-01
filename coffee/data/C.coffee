@@ -236,7 +236,7 @@ for i in range 12
 
 ID_ColorCross =
 	v:'2017-09-09'
-	k:'bg sc range for point'
+	k:'bg sc lerp range for point'
 	l:11
 	b:"""
 #    bM     blue
@@ -261,6 +261,8 @@ for k in range 6
 			sc r/50,g/50,b/50
 			point 25*x+i,25*y+j
 """
+	e:
+		'Color Cube':'https://www.google.se/search?q=color+cube&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi7moKIxNDWAhXFC5oKHTn8B1MQ_AUICigB&biw=2133&bih=1187#imgrc=liFgIqI48junAM:'
 
 ID_ColorCube =
 	v:'2017-04-29'
