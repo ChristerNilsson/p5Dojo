@@ -47,21 +47,19 @@ npm install -g coffee-script
 
 ### Start av nytt projekt 
 
-* Tag en kopia av Mall-katalogen, t ex med ctrl-c ctrl-v
-  * Byt namn på kopian till ditt nya projekt, t ex XXX
-* Starta transpile.bat
-  * Denna kompilerar dina .coffee till .js-filer
-* Dubbelklicka på index.html
-  * Nu startar Chrome
-  * Klicka på den gråa bakgrunden. Du ska nu se koordinater
-* Starta Sublime
-  * File | Open Folder 
-  * Välj katalogen XXX
-  * Klicka på sketch.coffee
-  * Byt bg 0.5 mot bg 1
-  * Spara med ctrl-s
-* Refresha din browser, dvs Chrome
-  * Nu ska bakgrunden vara vit
+* Starta createProject.bat
+* Byt namn på den nya katalogen.
+
+### Öppna ett visst projekt
+
+* Gå in i projektkatalogen
+* Start startProject.bat
+  * Editorn startas
+  * Bakgrundstranspilering startar
+  * Browsern startas med index.html
+* Stäng irrevelanta projekt i editorn
+* Stäng alla öppna filer
+* Öppna coffee/sketch.js
 
 ### Felsökning
 

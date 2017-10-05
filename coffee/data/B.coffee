@@ -20,7 +20,9 @@ ID_Background2 =
 	v:'2017-04-29'
 	k:'bg'
 	l:1
-	b: ""
+	b: """
+# Den gula listan med kommandon som behövs är klickbar för hjälp
+	"""
 	a: "bg 0.5"
 
 ID_Background3 =

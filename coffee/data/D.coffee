@@ -92,10 +92,14 @@ point 115,175
 """
 
 ID_DoubleForLoop =
-	v:'2017-04-29'
+	v:'2017-10-05'
 	k:'range rect for lerp'
 	l:5
-	b:""
+	b:"""
+for i in range 0
+	for j in range 0
+		x = lerp
+"""
 	a:"""
 for i in range 10
 	for j in range 10

@@ -85,10 +85,14 @@ line 10,70, 190,70
 """
 
 ID_HorizontalSquares =
-	v:'2017-04-29'
+	v:'2017-10-05'
 	k:'range rect for lerp'
 	l:3
 	b:"""
+# Börja med att rita de två första kvadraterna mha rect
+# Därefter kan du börja med for-loopen
+# De parametrar som är olika är lämpliga att lerpas
+
 rect  5,5,10,10
 rect 25,5,10,10
 for i in range 5

@@ -1,10 +1,12 @@
 ID_X =
-	v:'2017-04-29'
+	v:'2017-10-05'
 	k:'sw point'
 	l:4
 	b: """
-sw 10      # strokeWeight, strecktjocklek i pixlar
-point 100,100  # ritar en punkt på koordinaten x,y
+	             # Klicka på länken Koordinatsystem nedan till vänster för hjälp
+sw 10          # strokeWeight, strecktjocklek i pixlar
+point  20, 40  # ritar en punkt med koordinaten x=20, y=40
+point 100,200  # ritar en punkt med koordinaten x=100,y=200
 
 """
 	a: """
