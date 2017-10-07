@@ -289,6 +289,7 @@ setLinks = ->
 		for text,link of data[chapter][exercise]["e"]
 			linkAppend links,link,text
 
+	linkAppend links, "https://minaaktiviteter.se/shop/?org=kosmosklubben;event=59298;info=1","Höstlovsprogrammering!"
 	linkAppend links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo", "p5Dojo"
 	linkAppend links, "https://christernilsson.github.io/p5Color", "p5Color"
 	linkAppend links, "https://p5js.org/reference", "p5"
