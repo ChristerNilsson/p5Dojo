@@ -110,6 +110,7 @@ data =
 
 	"LB: GameOfLife" :
 		Nian : ID_Nian
+		ChessOne : ID_ChessOne
 		BouncingBalls : ID_BouncingBalls
 		Snake4 : ID_Snake4
 		ForthHaiku : ID_ForthHaiku
@@ -122,7 +123,7 @@ data =
 		Hex : ID_Hex
 		PickingBerries : ID_PickingBerries
 		Snake : ID_Snake
-		ChessGame : ID_ChessGame
+		ChessMany : ID_ChessMany
 		RecursiveCircle : ID_RecursiveCircle
 		Reversi : ID_Reversi
 		TowerOfHanoi : ID_TowerOfHanoi

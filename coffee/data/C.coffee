@@ -108,6 +108,189 @@ app = new Chess "a"
 	c:
 		app : "reset()"
 
+ID_ChessOne =
+	v:'2017-10-10'
+	k:'bg fc range for rect circle class if [] {} text'
+	l:52
+	b:"""
+class ChessOne extends Application
+	reset : ->
+		super
+	draw  : ->
+	mousePressed : (mx,my) ->
+app = new ChessOne
+
+"""
+	a:"""
+class ChessOne extends Application
+	reset : ->
+		super
+		@moves =
+			King   : [false,[[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,1],[1,-1],[-1,1]]]
+			Queen  : [true,[[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,1],[1,-1],[-1,1]]]
+			Rook   : [true,[[-1,0],[1,0],[0,-1],[0,1]]]
+			Bishop : [true,[[-1,-1],[1,1],[1,-1],[-1,1]]]
+			Knight : [false,[[-1,-2],[-1,2],[1,-2],[1,2],[-2,-1],[-2,1],[2,-1],[2,1]]]
+		@currentPiece = 'King'
+		@currentCol = 4
+		@currentRow = 7
+
+	genDir : (multi,sq,dxdy) ->
+		[dx,dy] = dxdy
+		squares = []
+		maximum = if multi then 7 else 1
+		[col,row] = sq
+		for i in range maximum
+			col += dx
+			row += dy
+			if 0<=col<=7 and 0<=row<=7 then squares.push [col,row]
+		squares
+
+	oneGeneration : (piece,sq) ->
+		[multi,drag] = piece
+		squares = []
+		squares = squares.concat @genDir multi,sq,dxdy for dxdy in drag
+		squares
+
+	draw  : ->
+		bg 0.5
+		textAlign RIGHT,CENTER
+		textSize 13
+
+		for i in range 8
+			for j in range 8
+				fc (i+j+1)%2
+				rect 20*i,20*j,20,20
+
+		sc()
+		for piece,i in _.keys @moves
+			if piece == @currentPiece then fc 1,1,0 else fc 0
+			text piece,200,10+20*i
+
+		sq = [@currentCol,@currentRow]
+		[x,y] = sq
+		fc 0,1,0
+		circle 10+20*x,10+20*y,5
+
+		fc 1,0,0
+		for [x,y] in @oneGeneration @moves[@currentPiece],sq
+			circle 10+20*x,10+20*y,5
+
+	mousePressed : (mx,my) ->
+		if mx < 160
+			@currentCol = int mx/20
+			@currentRow = int my/20
+		else
+			@currentPiece = _.keys(@moves)[int my/20]
+
+app = new ChessOne "a"
+"""
+	c:
+		app : "reset()"
+
+############
+
+ID_ChessMany =
+	v:'2017-10-10'
+	k:'bg fc range for rect circle class if [] {} text'
+	l:70
+	b:"""
+class ChessMany extends Application
+	reset : ->
+		super
+	draw  : ->
+	mousePressed : (mx,my) ->
+app = new ChessMany
+
+"""
+	a:"""
+class ChessMany extends Application
+	reset : ->
+		super
+		@moves =
+			King   : [false,[[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,1],[1,-1],[-1,1]]]
+			Queen  : [true,[[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,1],[1,-1],[-1,1]]]
+			Rook   : [true,[[-1,0],[1,0],[0,-1],[0,1]]]
+			Bishop : [true,[[-1,-1],[1,1],[1,-1],[-1,1]]]
+			Knight : [false,[[-1,-2],[-1,2],[1,-2],[1,2],[-2,-1],[-2,1],[2,-1],[2,1]]]
+		@currentPiece = 'King'
+		@currentCol = 4
+		@currentRow = 7
+
+	genDir : (multi,sq,dxdy) ->
+		[dx,dy] = dxdy
+		squares = []
+		maximum = if multi then 7 else 1
+		[col,row] = sq
+		for i in range maximum
+			col += dx
+			row += dy
+			if 0<=col<=7 and 0<=row<=7 then squares.push [col,row]
+		squares
+
+	oneGeneration : (piece,sq) ->
+		[multi,drag] = @moves[piece]
+		squares = []
+		squares = squares.concat @genDir multi,sq,dxdy for dxdy in drag
+		squares
+
+	recurse : (level,piece,front,reached) ->
+		if front.length==0 then return reached
+		candidates = []
+		candidates = candidates.concat @oneGeneration piece,sq for sq in front
+		newFront = []
+		for candidate in candidates
+			key = candidate.toString()
+			if key not in _.keys reached
+				reached[key] = level
+				newFront.push candidate
+		@recurse level+1, piece, newFront, reached
+
+	solve : (piece,sq) ->
+		reached = {}
+		reached[sq.toString()] = 0
+		@recurse 1,piece,[sq],reached
+
+	draw  : ->
+		bg 0.5
+
+		for i in range 8
+			for j in range 8
+				fc (i+j+1)%2
+				rect 20*i,20*j,20,20
+
+		sc()
+		textAlign RIGHT,CENTER
+		textSize 13
+		for piece,i in _.keys @moves
+			if piece == @currentPiece then fc 1,1,0 else fc 0
+			text piece,200,10+20*i
+
+		textAlign CENTER,CENTER
+		textSize 16
+		reached = @solve @currentPiece,[@currentCol,@currentRow]
+		fc 1,0,0
+		for key,level of reached
+			arr = key.split ','
+			col = int arr[0]
+			row = int arr[1]
+			text level, 10+20*col,12+20*row
+
+	mousePressed : (mx,my) ->
+		if my >= 160 then return
+		if mx < 160
+			@currentCol = int mx/20
+			@currentRow = int my/20
+		else if my < 100
+			@currentPiece = _.keys(@moves)[int my/20]
+
+app = new ChessMany "a"
+"""
+	c:
+		app : "reset()"
+
+######
+
 ID_ChessRow =
 	v:'2017-04-29'
 	k:'bg fc range operators for lerp rect'

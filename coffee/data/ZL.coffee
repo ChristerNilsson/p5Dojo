@@ -3,6 +3,9 @@ ID_nyheter =
 	k:''
 	l:0
 	b:"""
+# NYHETER 2017 OKT 10
+#   ChessOne
+#   ChessMany
 # NYHETER 2017 SEP 29
 #   GUI
 # NYHETER 2017 JUN 11
