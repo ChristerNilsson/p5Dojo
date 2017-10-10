@@ -187,8 +187,8 @@ app = new ChessOne "a"
 """
 	c:
 		app : "reset()"
-
-############
+	e:
+		Schack : "https://schackonline.com/skolan/nyborjare/pjaser/pjaser.php"
 
 ID_ChessMany =
 	v:'2017-10-10'
@@ -288,8 +288,6 @@ app = new ChessMany "a"
 """
 	c:
 		app : "reset()"
-
-######
 
 ID_ChessRow =
 	v:'2017-04-29'
