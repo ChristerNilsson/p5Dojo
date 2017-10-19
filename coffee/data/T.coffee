@@ -1,3 +1,118 @@
+ID_2048 =
+	v:'2017-10-20'
+	k:'fc sc range [] for rect if operators class text'
+	l:104
+	b:"""
+class Button 
+	constructor : (@number,@i,@j) ->
+	draw : ->
+	click : (mx,my) ->
+
+class C2048 extends Application
+	reset : ->
+		super
+		@seed=0
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+	classes : -> [Button]
+	draw  : ->
+	right : ->
+	left : ->
+	up : ->
+	down : ->
+app = new C2048
+"""
+	a:"""
+
+class Button 
+	constructor : (@number,@i,@j) ->
+		@x = @i * 50
+		@y = @j * 50
+	draw : ->
+		fc 1
+		sc 0
+		rect @x,@y, 50,50
+		fc 0
+		textSize [0,40,40,30,20,15][str(@number).length]
+		if @number != 0 then text @number, 25+@x, 25+@y
+
+class C2048 extends Application
+	reset : ->
+		super
+		@N = 4
+		@state = ''
+		@buttons = []
+		@seed = 0
+
+		for i in range @N
+			for j in range @N
+				button = new Button 0,i,j
+				@buttons.push button 
+
+		@new_piece()
+		@new_piece()
+
+	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
+
+	new_piece : ->
+		moves = range @N*@N
+		cands = (i for i in moves when @buttons[i].number==0)
+		i = cands[@randint cands.length]
+		@buttons[i].number = [2,4][@randint 2]
+
+	shift : (numbers, index,delta) ->
+		lst = (numbers[index+i*delta] for i in range @N) 
+		lst = (item for item in lst when item != 0)
+		for i in range lst.length
+			if lst[i]==lst[i+1] and lst[i] != 0
+				lst[i] *= 2
+				lst[i+1] = 0
+
+		while lst.length < @N
+			lst.push 0
+
+		for i in range @N
+			numbers[index+i*delta] = lst[i]
+
+		numbers
+
+	move : (start,a,b) ->
+		numbers = (button.number for button in @buttons) 
+		last = numbers.slice()
+		for i in range @N
+			numbers = @shift numbers, start+i*a,b
+		for button,i in @buttons
+			button.number = numbers[i]
+		if not _.isEqual numbers,last then @new_piece()
+		numbers
+
+	up    : -> @move 0,4,1
+	down  : -> @move 3,4,-1
+	left  : -> @move 0,1,4
+	right : -> @move 12,1,-4
+	check_lose : (b) ->
+		numbers = (button.number for button in @buttons when button.number==0)
+		if numbers.length==0 then @state = 'LOSE'
+
+	classes : -> [Button]
+
+	draw : ->
+		textAlign CENTER,CENTER
+		for button in @buttons
+			button.draw()
+		@check_lose()
+		if @state != ''
+			fc 1,0,0,0.5
+			textSize 64
+			text @state,100,100
+
+app = new C2048 'a'
+"""
+
+	c:
+		app: "reset()|right()|left()|up()|down()"
+	e:
+		"2048" : "https://en.wikipedia.org/wiki/2048_(video_game)"
+
 ID_Tetramino =
 	v:'2017-06-07'
 	k:'bg fill cc range [] for rect if operators class'

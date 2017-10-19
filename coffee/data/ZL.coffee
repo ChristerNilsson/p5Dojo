@@ -1,8 +1,10 @@
 ID_nyheter =
-	v:'2017-09-29'
+	v:'2017-10-19'
 	k:''
 	l:0
 	b:"""
+# NYHETER 2017 OKT 19
+#   2048
 # NYHETER 2017 OKT 10
 #   ChessOne
 #   ChessMany
