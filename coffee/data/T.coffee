@@ -1,12 +1,11 @@
 ID_2048 =
-	v:'2017-10-20'
+	v:'2017-10-19'
 	k:'fc sc range [] for rect if operators class text'
-	l:104
+	l:103
 	b:"""
 class Button 
 	constructor : (@number,@i,@j) ->
 	draw : ->
-	click : (mx,my) ->
 
 class C2048 extends Application
 	reset : ->
