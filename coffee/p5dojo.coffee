@@ -220,7 +220,7 @@ sel2click = (sel) ->
 	run1()
 	run0()
 	myCodeMirror.focus()
-	compare 'sel2change'
+	compare()
 
 sel3click = (sel) ->
 	url = buildLink sel.value
@@ -232,7 +232,7 @@ sel4click = (sel) ->
 	if calls? then call = calls[sel.value]
 	if run1() == true
 		run0()
-	compare 'sel4click'
+	compare()
 
 buildLink = (keyword) ->
 	if keyword.indexOf('_.')==0 then keyword = keyword.replace('_.','')
@@ -280,7 +280,7 @@ mousePressed = ->
 			call = objekt + ".mousePressed(#{p[0]},#{p[1]}); " + objekt + ".draw(); " + objekt + ".store()"
 			if run1() == true
 				run0()
-				compare('mousePressed')
+				compare()
 
 setLinks = ->
 	linksClear()
@@ -444,14 +444,13 @@ editor_change = ->
 
 	if res # spara källkod EFTER exekvering
 		saveSourceCode()
-	compare 'editor_change'
+	compare()
 
 saveSourceCode = ->	localStorage[exercise + "/d"] = myCodeMirror.getValue()
 
 run0 = ->
 	if exercise=="" then return false
 	src = myCodeMirror.getValue()
-	# if src == "" then return true
 	run 0, src + "\n" + call
 
 run1 = ->
@@ -459,26 +458,28 @@ run1 = ->
 	run 1, data[chapter][exercise]["a"] + "\n" + call
 
 reset = ->
+	resetMatrix()
 	colorMode RGB,255
 	angleMode RADIANS
+	rectMode CORNER
 	strokeCap ROUND
 	textAlign LEFT,BASELINE
 	bg 0
 	fc 0
 	sc 1
 	sw 1
-	grid()
 
 run = (_n, coffee) ->
-	resetMatrix()
-	rectMode CORNER
+	reset()
 	push()
 	translate 5,5
-	reset()
+	grid()
 
 	setMsg "", _n
 
-	if exercise=="" then return true
+	if exercise == "" 
+		pop()
+		return true
 
 	try
 		code = transpile coffee
@@ -518,7 +519,7 @@ fix_frames = ->
 			pixels[j*width*4+206*4+i] = 128-64
 	updatePixels()
 
-compare = (message) ->  # Lägg en timer på denna. Bör vänta någon sekund
+compare = ->  # Lägg en timer på denna. Bör vänta någon sekund
 	a = buffer[0]
 	b = buffer[1]
 	c = a[..]

@@ -44,26 +44,30 @@ app = new Magnifier "a"
 
 ID_ManyDices =
 	v : '2017-10-22'
-	k : '-> range for if point [] operators'
-	l : 13
+	k : '-> range for if circle sc fc "" split [] operators'
+	l : 14
 	b : """
-#  2    16
-#  4  1 32
-#  8    64
+# b   e
+# c a f
+# d   g
 dice = (i,j,side) ->
 """	
 	a : """
+# b   e
+# c a f
+# d   g
 dice = (i,j,side) ->
 	x = lerp 10,30, i
 	y = lerp 10,30, j
-	dots = [1, 8+16, 1+8+16, 2+8+16+64, 1+2+8+16+64, 2+4+8+16+32+64][side]
-	for k in range 7
-		if 2**k & dots 
+	dots = 'a de dae bedg abedg bcdefg'.split(' ')[side]
+	for dot,k in 'abcdefg'
+		if dot in dots 
 			dx = [0,-1,-1,-1, 1,1,1][k]
 			dy = [0,-1, 0, 1,-1,0,1][k]
-			point x + 4*dx, y + 4*dy
+			circle x + 4*dx, y + 4*dy,1
 
-sw 2
+sc()
+fc 1
 for i in range 10
 	for j in range 10
 		dice i, j, (i+j) % 6
