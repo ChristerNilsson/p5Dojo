@@ -878,10 +878,13 @@ point 200,170
 		Koordinatsystem : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID_Counter =
-	v:'2017-04-29'
+	v:'2017-10-22'
 	k:'bg fc sc text operators class'
 	l:12
 	b:"""
+# Innan du går vidare med p5Dojo bör du gå
+# igenom lektionerna A0, A1 och A2 i p5Assert
+
 # Klicka på reset() !
 
 class Counter extends Application
