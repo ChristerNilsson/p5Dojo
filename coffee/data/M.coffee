@@ -43,20 +43,30 @@ app = new Magnifier "a"
 
 
 ID_ManyDices =
-	v:'2017-05-20'
-	k:'-> range for if point [] operators'
-	l:9
-	b : ""
+	v : '2017-10-22'
+	k : '-> range for if point [] operators'
+	l : 13
+	b : """
+#  2    16
+#  4  1 32
+#  8    64
+dice = (i,j,side) ->
+"""	
 	a : """
+dice = (i,j,side) ->
+	x = lerp 10,30, i
+	y = lerp 10,30, j
+	dots = [1, 8+16, 1+8+16, 2+8+16+64, 1+2+8+16+64, 2+4+8+16+32+64][side]
+	for k in range 7
+		if 2**k & dots 
+			dx = [0,-1,-1,-1, 1,1,1][k]
+			dy = [0,-1, 0, 1,-1,0,1][k]
+			point x + 4*dx, y + 4*dy
+
 sw 2
-dice = (x,y,d) ->
-	for bits,i in [21,56,32,62,62,32,56]
-		dx = 4 * [0,-1,-1,-1,1,1,1][i]
-		dy = 4 * [0,-1,0,1,-1,0,1][i]
-		if d&bits then point 10+x+dx,10+y+dy
 for i in range 10
 	for j in range 10
-		dice 20*i, 20*j, 1 << (i+j) % 6
+		dice i, j, (i+j) % 6
 """
 
 ID_Map =
