@@ -1,10 +1,12 @@
 ID_nyheter =
-	v:'2017-10-23'
+	v:'2017-10-22'
 	k:''
 	l:0
 	b:"""
 # NYHETER 2017 OKT 23
 #   SingaporeMult
+#   SingaporeMultComplex
+#   SingaporeMultPolynom
 # NYHETER 2017 OKT 19
 #   2048
 # NYHETER 2017 OKT 10

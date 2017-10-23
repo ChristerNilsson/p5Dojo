@@ -129,6 +129,7 @@ data =
 		Reversi : ID_Reversi
 		TowerOfHanoi : ID_TowerOfHanoi
 		MineSweeper : ID_MineSweeper
+		SingaporeMultComplex : ID_SingaporeMultComplex
 		ColorPair : ID_ColorPair
 
 	"LD: RushHour" :
@@ -150,6 +151,7 @@ data =
 		ForthHaiku3D : ID_ForthHaiku3D
 		BeeHaiku3D : ID_BeeHaiku3D
 		C2048 : ID_2048
+		SingaporeMultPolynom : ID_SingaporeMultPolynom
 		Sokoban : ID_Sokoban
 
 	"LF: sin cos translate rotate" :

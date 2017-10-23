@@ -376,6 +376,210 @@ app = new SingaporeMult "a"
 	e:
 		'46x97' : "https://youtu.be/3EIBMzDdCd0?t=4m45s"
 
+ID_SingaporeMultComplex =
+	v:'2017-10-22'
+	k:'bg fc sc rect for class readText parseFloat [] split text'
+	l:53
+	b: """
+# 3 1 innebär det komplexa talet 3+i
+class SingaporeMultComplex extends Application
+	reset : ->
+		super
+	first : -> 
+	second : ->
+	bigger : ->
+	smaller : ->
+	draw : ->
+app = new SingaporeMultComplex
+"""
+	a:"""
+class SingaporeMultComplex extends Application
+	reset : ->
+		super
+		@str1 = '3 1'
+		@str2 = '1 2'
+		@fontSize = 18
+		# assert [[3,0],[0,1],[3,1]], @add [3,1]
+		# assert [10,10], @mul [3,1],[4,2]
+		# assert ['3', '2i'], @display [3,2]
+		# assert ['3', 'i'], @display [3,1]
+		# assert ['2i'], @display [0,2]
+
+	first   : -> @str1 = @readText()
+	second  : -> @str2 = @readText()
+	bigger  : -> @fontSize++
+	smaller : -> @fontSize--
+
+	calc : () ->
+		@lst1 = (parseFloat item for item in @str1.split ' ')
+		@lst2 = (parseFloat item for item in @str2.split ' ')
+		@lst1 = @add @lst1
+		@lst2 = @add @lst2
+		@w = 200 / (@lst1.length+1)
+		@h = 25
+
+	add : (lst) ->
+		[x,y] = lst
+		[[x,0],[0,y],[x,y]]
+
+	mul : (a,b) ->
+		[x1,y1] = a
+		[x2,y2] = b
+		[x1*x2 - y1*y2, x1*y2 + x2*y1]
+
+	display : (a) -> # a is a polynom
+		res = []
+		for f,i in a
+			if f == 0
+				# nothing
+			else if f==1
+				if i==0 then res.push '1'
+				if i==1 then res.push 'i'
+				if i>=2 then res.push 'i'+i	
+			else 
+				if i==0 then res.push f
+				if i==1 then res.push f + 'i'
+				if i>=2 then res.push f + 'i' + i	
+		res 
+
+	draw : ->
+		bg 0.5
+		textAlign LEFT,TOP
+		textSize @fontSize
+
+		@calc()
+		rect @w-2, @h-5, @w*(@lst1.length-1), @h*(@lst2.length-1)
+
+		fc 1
+		sc()
+		for b,j in @lst2
+			text @display(b).join(' '), 0*@w, @h+@h*j
+		for a,i in @lst1 
+			text @display(a).join(' '), @w*(i+1), 0
+
+		for b,j in @lst2
+			for a,i in @lst1
+				if j<@lst2.length-1 or (j==@lst2.length-1 and i==@lst1.length-1) 
+					text @display(@mul(a,b)).join(' '), @w*(i+1), @h*(j+1)
+
+app = new SingaporeMultComplex "a"
+"""
+	c:
+		app : "reset()|first()|second()|bigger()|smaller()"
+	e:
+		complex : "https://www.youtube.com/watch?v=xtKEvZr3zJQ"
+
+ID_SingaporeMultPolynom =
+	v:'2017-10-23'
+	k:'bg fc sc rect for class readText parseFloat [] split text'
+	l:86
+	b: """
+# Endast faktorer >= 0 hanteras
+# 1 3 innebär polynomet 1 + 3x
+class SingaporeMultPolynom extends Application
+	reset : ->
+		super
+	first : -> 
+	second : ->
+	bigger : ->
+	smaller : ->
+	draw : ->
+app = new SingaporeMultPolynom
+"""
+	a:"""
+class SingaporeMultPolynom extends Application
+	reset : ->
+		super
+		@str1 = '3 1'
+		@str2 = '4 2 1'
+		@fontSize = 14
+		# assert [[0,1],[3],[3,1]], @add [3,1]
+		# assert [12,10,2], @mul [3,1],[4,2]
+		# assert ['x2', '2x', '3'], @display [3,2,1]
+		# assert ['x2', '3'], @display [3,0,1]
+		# assert ['2x'], @display [0,2]
+		# assert ['2x2'], @display [0,0,2]
+
+	first   : -> @str1 = @readText()
+	second  : -> @str2 = @readText()
+	bigger  : -> @fontSize++
+	smaller : -> @fontSize--
+
+	calc : () ->
+		@lst1 = (parseFloat item for item in @str1.split ' ')
+		@lst2 = (parseFloat item for item in @str2.split ' ')
+		@lst1 = @add @lst1
+		@lst2 = @add @lst2
+		@w = 200 / (@lst1.length+1)
+		@h = 25
+
+	add : (lst) ->
+		n=lst.length
+		res = []
+		res.push lst
+		for f,i in lst
+			tmp = []
+			for j in range i
+				tmp.push 0
+			tmp.push f
+			res.push tmp
+		res.slice().reverse()
+
+	mul : (a,b) ->
+		res = new Array(a.length+b.length-1).fill 0
+		for f1,i in a
+			for f2,j in b
+				res[i+j] += f1 * f2
+		res
+
+	display : (a) -> # a is a polynom
+		n = a.length
+		res = []
+		for f,i in a
+			if f == 0
+				# nothing
+			else if f==1
+				if i==0 then res.push '1'
+				if i==1 then res.push 'x'
+				if i>=2 then res.push 'x'+i	
+			else 
+				if i==0 then res.push f.toString()
+				if i==1 then res.push f.toString() + 'x'
+				if i>=2 then res.push f.toString() + 'x' + i.toString()	
+		res.slice().reverse()
+
+	draw : ->
+		bg 0.5
+		textAlign LEFT,TOP
+		textSize @fontSize
+
+		@calc()
+		rect @w-2, @h-5, @w*(@lst1.length-1), @h*(@lst2.length-1)
+
+		fc 1
+		sc()
+		for b,j in @lst2
+			text @display(b).join('+'), 0*@w, @h+@h*j
+		for a,i in @lst1 
+			text @display(a).join('+'), @w*(i+1), 0
+
+		for b,j in @lst2
+			for a,i in @lst1
+				if j<@lst2.length-1 or (j==@lst2.length-1 and i==@lst1.length-1) 
+					if j==@lst2.length-1 and i==@lst1.length-1
+						textAlign RIGHT,TOP
+						text @display(@mul(a,b)).join('+'), @w*(i+2), @h*(j+1)
+					else
+						textAlign LEFT,TOP
+						text @display(@mul(a,b)).join('+'), @w*(i+1), @h*(j+1)
+
+app = new SingaporeMultPolynom "a"
+"""
+	c:
+		app : "reset()|first()|second()|bigger()|smaller()"
+	e:
+		polynom : "https://www.youtube.com/watch?v=fGy9UMSm-_M"
+
 ID_Skislope =
 	v:'2017-04-29'
 	k:'bg sc range for lerp line'
