@@ -303,6 +303,79 @@ for i in range 10,0,-1
 	circle 100,100, r
 """
 
+ID_SingaporeMult =
+	v:'2017-10-23'
+	k:'bg fc sc rect for class readText parseFloat [] split text'
+	l:40
+	b: """
+class SingaporeMult extends Application
+	reset : ->
+		super
+	first : -> 
+	second : ->
+	more : ->
+	less : ->
+	bigger : ->
+	smaller : ->
+	draw : ->
+app = new SingaporeMult
+"""
+	a:"""
+class SingaporeMult extends Application
+	reset : ->
+		super
+		@str1 = '40 6'
+		@str2 = '90 7'
+		@fontSize = 16
+		@decimals = 0	
+
+	first   : -> @str1 = @readText()
+	second  : -> @str2 = @readText()
+	more    : -> @decimals++
+	less    : -> @decimals--
+	bigger  : -> @fontSize++
+	smaller : -> @fontSize--
+
+	nf : (a,b,c) ->
+		a = a * 10 ** c
+		a = round a
+		a = a * 10 ** -c
+		nf a,b,c
+
+	sum : (lst) -> lst.reduce (res, item) -> res+item
+
+	calc : () ->
+		@lst1 = (parseFloat item for item in @str1.split ' ')
+		@lst2 = (parseFloat item for item in @str2.split ' ')
+		@lst1.push @sum @lst1 
+		@lst2.push @sum @lst2
+		@w = 200 / (@lst1.length+1)
+		@h = 25
+
+	draw : ->
+		bg 0.5
+		textAlign RIGHT,TOP
+		textSize @fontSize
+
+		@calc()
+		rect @w+2, @h-5, @w*(@lst1.length-1), @h*(@lst2.length-1)
+
+		fc 1
+		sc()
+		for b,j in @lst2
+			text b, @w, @h+@h*j
+		for a,i in @lst1 
+			text a, @w*(i+2), 0
+			for b,j in @lst2
+				text @nf(a*b,1, @decimals), @w*(i+2),@h*(j+1)
+
+app = new SingaporeMult "a"
+"""
+	c:
+		app : "reset()|first()|second()|more()|less()|bigger()|smaller()"
+	e:
+		'46x97' : "https://youtu.be/3EIBMzDdCd0?t=4m45s"
+
 ID_Skislope =
 	v:'2017-04-29'
 	k:'bg sc range for lerp line'

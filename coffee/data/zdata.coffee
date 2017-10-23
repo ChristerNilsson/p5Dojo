@@ -106,6 +106,7 @@ data =
 		BlackBox2D : ID_BlackBox2D
 		Alphanumeric : ID_Alphanumeric
 		GuessANumberHex : ID_GuessANumberHex
+		SingaporeMult : ID_SingaporeMult
 		Connect4 : ID_Connect4
 
 	"LB: GameOfLife" :
