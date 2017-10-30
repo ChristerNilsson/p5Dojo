@@ -109,17 +109,20 @@ npm install -g coffee-script
 
 ### Sublime
 
-* Sublime erbjuder färgsyntax för bl a Coffeescript.
-  * Detta kan konfigureras med [Xavura](https://github.com/Xavura/CoffeeScript-Sublime-Plugin)
+* Install Package Better Coffeescript
+	* Färgsyntax
+	* Transpilering
+	* Snippets
+* Install Package Browser Refresh
   
 ### Fönsterhantering
 
 * Lämpligt är att ha Sublime på vänstra sidan av skärmen.
   * ctrl-s sparar. Då startar transpileringen.
-* Transpilern på nedersta tredjedelen på högra sidan
+* Transpilering sker automatiskt då man byter flik
   * Transpilern piper vid syntaxfel.
-* Chrome överst på högra sidan
-  * ctrl-r hämtar senaste .js-filen
+* Chrome på högra sidan
+  * Refresh sker automatiskt
   
 ### Undvik att använda musen
 
