@@ -918,8 +918,8 @@ app = new Counter "a"
 		app : "reset()|up()|down()"
 
 ID_Cross =
-	v:'2017-04-29'
-	k:'fc rect'
+	v:'2017-10-31'
+	k:'fc rect sc'
 	l:4
 	b:""
 	a:"""

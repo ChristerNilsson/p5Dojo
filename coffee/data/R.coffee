@@ -82,15 +82,15 @@ for i in range 10,0,-1
 	circle x,y,r
 """
 
-ID_RedRect =
-	v:'2017-04-29'
-	k:'fc rect'
-	l:2
-	b:""
-	a:"""
-fc 1,0,0
-rect 80,70, 40,100
-"""
+# ID_RedRect =
+# 	v:'2017-04-29'
+# 	k:'fc rect'
+# 	l:2
+# 	b:""
+# 	a:"""
+# fc 1,0,0
+# rect 80,70, 40,100
+# """
 
 ID_Reversi =
 	v:'2017-05-02'

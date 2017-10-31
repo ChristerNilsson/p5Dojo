@@ -32,7 +32,7 @@ data =
 	"L3: ellipse rect triangle quad" :
 		GreenEllipse : ID_GreenEllipse
 		GreenRect : ID_GreenRect
-		RedRect : ID_RedRect
+		#RedRect : ID_RedRect
 		Cross : ID_Cross
 		SquareHole : ID_SquareHole
 		Triangle : ID_Triangle

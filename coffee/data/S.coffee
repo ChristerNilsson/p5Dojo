@@ -292,9 +292,9 @@ app = new Shortcut2 "a"
 		app : "reset()"
 
 ID_ShrinkingCircles =
-	v:'2017-04-29'
+	v:'2017-10-31'
 	k:'range fc circle for lerp'
-	l:4
+	l:5
 	b:""
 	a:"""
 for i in range 10,0,-1
@@ -581,9 +581,9 @@ app = new SingaporeMultPolynom "a"
 		polynom : "https://www.youtube.com/watch?v=fGy9UMSm-_M"
 
 ID_Skislope =
-	v:'2017-04-29'
+	v:'2017-10-31'
 	k:'bg sc range for lerp line'
-	l:4
+	l:5
 	b: ""
 	a: """
 bg 0
@@ -1072,7 +1072,7 @@ ID_SuperCircle =
 	b: ""
 	a: """
 bg 0
-for i in range 41
+for i in range 21
 	ni = 5 * i
 	line ni,     200,   0, 100+ni
 	line ni,       0,   0, 100-ni
