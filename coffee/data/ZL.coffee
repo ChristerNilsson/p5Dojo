@@ -1,8 +1,10 @@
 ID_nyheter =
-	v:'2017-10-22'
+	v:'2017-11-03'
 	k:''
 	l:0
 	b:"""
+# NYHETER 2017 NOV 03
+#   LinearRegression
 # NYHETER 2017 OKT 23
 #   SingaporeMult
 #   SingaporeMultComplex

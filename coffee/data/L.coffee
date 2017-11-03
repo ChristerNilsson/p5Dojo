@@ -122,6 +122,62 @@ sc 1,1,0
 line 20,0, 200,20
 """
 
+ID_LinearRegression =
+	v:'2017-11-03'
+	k:'class line [] for in'
+	l: 33
+	b: """
+class LinearRegression extends Application
+	reset : ->
+		super
+	draw : ->
+	mousePressed : (mx,my) ->
+app = new LinearRegression
+	"""
+	a: """
+class LinearRegression extends Application
+	reset : ->
+		super
+		@points = [] # [[20,100],[40,80],[60,140],[80,180],[100,140],[120,180],[140,200]]
+		@k=0
+		@m=0
+		@n=0
+		@r=0
+	draw : ->
+		sw 3
+		@n = @points.length
+		for [x,y] in @points
+			point x,y
+		if @n<2 then return 
+		@linReg()
+		x1 = 0
+		x2 = 200
+		y1 = @k*x1+@m
+		y2 = @k*x2+@m
+		sw 1
+		line x1,y1,x2,y2
+	mousePressed : (mx,my) -> @points.push [mx,my]
+	linReg : ->
+		@sxy=@sx=@sy=@sxx=@syy=0
+		for [x,y] in @points
+			@sxy += x*y
+			@sx  += x
+			@sy  += y
+			@sxx += x*x
+			@syy += y*y
+		@k = (@n*@sxy - @sx*@sy) / (@n*@sxx - @sx*@sx)
+		@m = @sy/@n - @k*@sx/@n
+		@r = (@n * @sxy - @sx * @sy) / Math.sqrt((@n*@sxx - @sx**2) * (@n*@syy - @sy**2))
+
+app = new LinearRegression "a"
+"""	
+	c:
+		app : "reset()"
+	e:
+		k_and_m : "images/k_and_m.gif"
+		r : "images/r.PNG"
+		"LinearRegression" : "http://www.ollevejde.se/statistikord/regressionsanalys.htm"
+
 ID_Lines =
 	v:'2017-04-29'
 	k:'bg range for lerp line'
@@ -134,4 +190,3 @@ for i in range 37
 	line 10,100, 190,10+i*5
 	line 10,190, 190,10+i*5
 """
-

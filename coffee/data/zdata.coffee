@@ -98,6 +98,7 @@ data =
 		OlympicRingPrep : ID_OlympicRingPrep
 		OlympicRings : ID_OlympicRings
 		GuessANumber : ID_GuessANumber
+		LinearRegression : ID_LinearRegression
 
 	"LA: Connect4" :
 		MultiTimer : ID_MultiTimer
