@@ -174,7 +174,7 @@ app = new LinearRegression "a"
 	c:
 		app : "reset()"
 	e:
-		k_and_m : "images/k_and_m.gif"
+		k_and_m : "images/k_and_m.JPG"
 		r : "images/r.PNG"
 		"LinearRegression" : "http://www.ollevejde.se/statistikord/regressionsanalys.htm"
 
