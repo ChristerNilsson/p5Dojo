@@ -123,15 +123,16 @@ line 20,0, 200,20
 """
 
 ID_LinearRegression =
-	v:'2017-11-03'
+	v:'2017-11-02'
 	k:'class line [] for in'
-	l: 33
+	l: 34
 	b: """
 class LinearRegression extends Application
 	reset : ->
 		super
 	draw : ->
 	mousePressed : (mx,my) ->
+	pop : ->
 app = new LinearRegression
 	"""
 	a: """
@@ -143,6 +144,7 @@ class LinearRegression extends Application
 		@m=0
 		@n=0
 		@r=0
+
 	draw : ->
 		sw 3
 		@n = @points.length
@@ -156,7 +158,10 @@ class LinearRegression extends Application
 		y2 = @k*x2+@m
 		sw 1
 		line x1,y1,x2,y2
+
 	mousePressed : (mx,my) -> @points.push [mx,my]
+	pop : -> @points.pop() if @points.length > 0 
+
 	linReg : ->
 		@sxy=@sx=@sy=@sxx=@syy=0
 		for [x,y] in @points
@@ -172,7 +177,7 @@ class LinearRegression extends Application
 app = new LinearRegression "a"
 """	
 	c:
-		app : "reset()"
+		app : "reset()|pop()"
 	e:
 		k_and_m : "images/k_and_m.JPG"
 		r : "images/r.PNG"
