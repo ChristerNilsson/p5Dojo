@@ -181,7 +181,7 @@ app = new LinearRegression "a"
 	e:
 		k_and_m : "images/k_and_m.JPG"
 		r : "images/r.PNG"
-		"LinearRegression" : "http://www.ollevejde.se/statistikord/regressionsanalys.htm"
+		"LinearRegression" : "https://www.youtube.com/watch?v=9ytvxgxq0OQ"
 
 ID_Lines =
 	v:'2017-04-29'
