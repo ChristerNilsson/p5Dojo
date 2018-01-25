@@ -6,18 +6,8 @@
 myCodeMirror = null
 msg = null
 
-sel1 = null
-sel2 = null
-sel3 = null
 sel4 = null
 
-btn2 = null
-btn3 = null
-
-state = 0
-
-chapter = ""
-exercise = ""
 call = ''
 calls = {}
 renew = null
@@ -27,6 +17,8 @@ kwlinks = []
 gap = 0
 block = 0
 buffer = [[],[],[]]
+
+meny = null
 
 setMsg = (e,nr) ->
 	if e == ''
@@ -137,103 +129,6 @@ fillSelect = (sel, dict) ->
 	for key of dict
 		sel.append($("<option>").attr('value', key).text(key))
 
-setState = (st) ->
-	state = st
-
-	if st>=1 then btn2.show() else btn2.hide()
-	if st>=1 then sel2.show() else sel2.hide()
-
-	if st==2 then btn3.show() else btn3.hide()
-	if st==2 then sel3.show() else sel3.hide()
-	if st==2 then $('#input').show() else $('#input').hide()
-	if st==2 then $('#sel4').show() else $('#sel4').hide()
-	if st==2 then msg.show() else msg.hide()
-	if st==2 then $(".CodeMirror").show() else $(".CodeMirror").hide()
-
-	if st==2
-		call = ""
-		calls = decorate data[chapter][exercise]["c"]
-		setLinks()
-		calls_without_draw = _.omit calls, 'draw()'
-		fillSelect sel4, calls_without_draw
-		if _.size(calls_without_draw) > 0
-			sel4.show()
-			$('#input').show()
-		else
-			sel4.hide()
-			$('#input').hide()
-
-	btn2.text chapter
-	if data[chapter]? and data[chapter][exercise]?
-		btn3.text exercise + ' : ' + data[chapter][exercise]["l"]
-
-	if st<=1
-		tableClear()
-		linksClear()
-		setLinks()
-		bg 0.5
-
-	if st==1
-		exercise = ""
-
-sel1click = (sel) ->
-	chapter = sel.value
-	exercise = ""
-	call = ""
-	calls = {}
-	fillSelect sel2,data[chapter]
-	setState 1
-
-sel2click = (sel) ->
-
-	exercise = sel.value
-	if exercise==""
-		myCodeMirror.setValue ""
-		bg 0.5
-		return
-
-	sel3.empty()
-	keywords = data[chapter][exercise]["k"].split ' '
-	keywords.sort()
-	for keyword in keywords
-		sel3.append($("<option>").attr('value', keyword).text(keyword))
-	setState 2
-
-	src = localStorage[exercise + "/d"]
-	if src == undefined or src==null or src == ''
-		src = data[chapter][exercise]["b"]
-		localStorage[exercise + "/d"] = src
-		localStorage[exercise + "/v"] = data[chapter][exercise]["v"]
-	myCodeMirror.setValue src
-
-	if localStorage[exercise + "/v"]? and localStorage[exercise + "/v"] != data[chapter][exercise]["v"]
-		renew.show()
-	else
-		renew.hide()
-
-	tableClear()
-
-	if calls?
-		sel4.val("draw()").change()
-		call = calls["draw()"]
-
-	run1()
-	run0()
-	myCodeMirror.focus()
-	compare()
-
-sel3click = (sel) ->
-	url = buildLink sel.value
-	if url?
-		win = window.open url, '_blank'
-		win.focus()
-
-sel4click = (sel) ->
-	if calls? then call = calls[sel.value]
-	if run1() == true
-		run0()
-	compare()
-
 buildLink = (keyword) ->
 	if keyword.indexOf('_.')==0 then keyword = keyword.replace('_.','')
 	nr = kwl[keyword]
@@ -269,12 +164,12 @@ buildKeywordLink = ->
 	save 3,'contains filter countBy isEqual last max min pairs sortBy findIndex'
 
 mousePressed = ->
-	if chapter=='' or exercise=='' then return
+	if meny.chapter=='' or meny.exercise=='' then return
 	p = null
 	if 0 <= mouseX-5 <= 200 and 0 <= mouseY-5 <= 200 then p = [mouseX-5,mouseY-5]
 	if 0 <= mouseX-5 <= 200 and 0 <= mouseY-210 <= 200 then p = [mouseX-5,mouseY-210]
 	if p
-		dict = data[chapter][exercise]["c"]
+		dict = data[meny.chapter][meny.exercise].c
 		if dict?
 			objekt = _.keys(dict)[0]
 			call = objekt + ".mousePressed(#{p[0]},#{p[1]}); " + objekt + ".draw(); " + objekt + ".store()"
@@ -285,12 +180,10 @@ mousePressed = ->
 setLinks = ->
 	linksClear()
 
-	if exercise != ''
-		for text,link of data[chapter][exercise]["e"]
+	if meny.exercise != ''
+		for text,link of data[meny.chapter][meny.exercise].e
 			linkAppend links,link,text
 
-	#linkAppend links, "https://minaaktiviteter.se/shop/?org=kosmosklubben;event=59298;info=1","Höstlovet tisdag"
-	#linkAppend links, "https://minaaktiviteter.se/shop/?org=kosmosklubben;event=59299;info=1","Höstlovet onsdag"
 	linkAppend links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo", "p5Dojo"
 	linkAppend links, "https://christernilsson.github.io/p5Color", "p5Color"
 	linkAppend links, "https://p5js.org/reference", "p5"
@@ -337,7 +230,15 @@ $(window).resize ->
 		clearTimeout resizeTimer
 		resizeTimer = setTimeout changeLayout, 10
 
+updateTables = ->
+	meny.rensa()
+	meny.traverse()
+
 setup = ->
+
+	meny = new Menu data, document.getElementById "meny"
+	updateTables()
+
 	timestamp = millis()
 	c = createCanvas 5+201+5, 3*201+20
 
@@ -351,28 +252,16 @@ setup = ->
 
 	msg = $('#msg')
 
-	sel1 = $('#sel1')
-	sel2 = $('#sel2')
-	sel3 = $('#sel3')
 	sel4 = $('#sel4')
-
-	btn2 = $('#btn2')
-	btn3 = $('#btn3')
-
-	fillSelect sel1, data
-	setState 0
-
-	btn2.click () -> setState 0
-	btn3.click () -> setState 1
 
 	renew = createButton 'Renew'
 	renew.position 0,644
 	renew.hide()
 	renew.mousePressed () ->
-		print myCodeMirror.getValue()
-		myCodeMirror.setValue data[chapter][exercise]["b"]
-		localStorage[exercise + "/" + 'v'] = data[chapter][exercise]["v"]
-		localStorage[exercise + "/" + 'd'] = data[chapter][exercise]["b"]
+		#print myCodeMirror.getValue()
+		myCodeMirror.setValue data[meny.chapter][meny.exercise]["b"]
+		localStorage[meny.exercise + "/" + 'v'] = data[meny.chapter][meny.exercise]["v"]
+		localStorage[meny.exercise + "/" + 'd'] = data[meny.chapter][meny.exercise]["b"]
 		renew.hide()
 
 window.onbeforeunload = ->
@@ -408,35 +297,35 @@ window.onload = ->
 	$(".CodeMirror").css 'font-size',"16pt"
 	myCodeMirror.on "change", editor_change
 
-	chapter=""
-	exercise=""
+	meny.chapter = ""
+	meny.exercise = ""
 
 	myCodeMirror.setValue '# Klicka först på L1:\n# Klicka därefter på Background1'
 
 	myCodeMirror.focus()
 	window.resizeTo 1000,750
 	changeLayout()
-	setState 0
+	meny.setState 0
 
 saveToKeyStorage = (b) ->
 	s = ""
 	for line in b.split '\n'
 		if line.indexOf("#") != 0
 			s += line
-	place = data[chapter][exercise]
+	place = data[meny.chapter][meny.exercise]
 	if !place.d
 		place.d = []
 	place.d.push s
 
 editor_change = ->
 	reset()
-	if exercise=='' then return
+	if meny.exercise=='' then return
 	if _.size(calls) == 0
 		call = ""
 	else # transpile, draw
 		call = calls["draw()"]
 
-	dce = data[chapter][exercise]
+	dce = data[meny.chapter][meny.exercise]
 	if dce and dce["a"] and _.size(dce["a"].c) > 0
 		if run1() == false # bör normalt vara true
 			return
@@ -446,16 +335,16 @@ editor_change = ->
 		saveSourceCode()
 	compare()
 
-saveSourceCode = ->	localStorage[exercise + "/d"] = myCodeMirror.getValue()
+saveSourceCode = ->	localStorage[meny.exercise + "/d"] = myCodeMirror.getValue()
 
 run0 = ->
-	if exercise=="" then return false
+	if meny.exercise=="" then return false
 	src = myCodeMirror.getValue()
 	run 0, src + "\n" + call
 
 run1 = ->
-	if exercise=="" then return
-	run 1, data[chapter][exercise]["a"] + "\n" + call
+	if meny.exercise=="" then return
+	run 1, data[meny.chapter][meny.exercise]["a"] + "\n" + call
 
 reset = ->
 	resetMatrix()
@@ -478,7 +367,7 @@ run = (_n, coffee) ->
 
 	setMsg "", _n
 
-	if exercise == "" 
+	if meny.exercise == "" 
 		pop()
 		return true
 

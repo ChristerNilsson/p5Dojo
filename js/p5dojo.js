@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
@@ -7,29 +7,13 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 // if the renew button is available, a new version of the b code is available.
 // Clicking renew prints the current b code on the console as a backup.
-var bg, block, btn2, btn3, buffer, buildKeywordLink, buildLink, call, calls, cc, cct, changeLayout, chapter, circle, co, compare, decorate, editor_change, exercise, fc, fetch, fillSelect, fillTable, firstDiff, fixColor, fix_frames, gap, grid, ip, kwl, kwlinks, linkAppend, linksClear, mousePressed, msg, myCodeMirror, myprint, range, rd, renew, reset, resizeTimer, run, run0, run1, saveSourceCode, saveToKeyStorage, sc, sel1, sel1click, sel2, sel2click, sel3, sel3click, sel4, sel4click, setLinks, setMsg, setState, setup, state, store, sw, tableAppend, tableClear, _unmark;
+var bg, block, buffer, buildKeywordLink, buildLink, call, calls, cc, cct, changeLayout, circle, co, compare, decorate, editor_change, fc, fetch, fillSelect, fillTable, firstDiff, fixColor, fix_frames, gap, grid, ip, kwl, kwlinks, linkAppend, linksClear, meny, mousePressed, msg, myCodeMirror, myprint, range, rd, renew, reset, resizeTimer, run, run0, run1, saveSourceCode, saveToKeyStorage, sc, sel4, setLinks, setMsg, setup, store, sw, tableAppend, tableClear, _unmark, updateTables;
 
 myCodeMirror = null;
 
 msg = null;
 
-sel1 = null;
-
-sel2 = null;
-
-sel3 = null;
-
 sel4 = null;
-
-btn2 = null;
-
-btn3 = null;
-
-state = 0;
-
-chapter = "";
-
-exercise = "";
 
 call = '';
 
@@ -46,6 +30,8 @@ gap = 0;
 block = 0;
 
 buffer = [[], [], []];
+
+meny = null;
 
 setMsg = function setMsg(e, nr) {
   var p, s;
@@ -220,145 +206,6 @@ fillSelect = function fillSelect(sel, dict) {
   return results;
 };
 
-setState = function setState(st) {
-  var calls_without_draw;
-  state = st;
-  if (st >= 1) {
-    btn2.show();
-  } else {
-    btn2.hide();
-  }
-  if (st >= 1) {
-    sel2.show();
-  } else {
-    sel2.hide();
-  }
-  if (st === 2) {
-    btn3.show();
-  } else {
-    btn3.hide();
-  }
-  if (st === 2) {
-    sel3.show();
-  } else {
-    sel3.hide();
-  }
-  if (st === 2) {
-    $('#input').show();
-  } else {
-    $('#input').hide();
-  }
-  if (st === 2) {
-    $('#sel4').show();
-  } else {
-    $('#sel4').hide();
-  }
-  if (st === 2) {
-    msg.show();
-  } else {
-    msg.hide();
-  }
-  if (st === 2) {
-    $(".CodeMirror").show();
-  } else {
-    $(".CodeMirror").hide();
-  }
-  if (st === 2) {
-    call = "";
-    calls = decorate(data[chapter][exercise]["c"]);
-    setLinks();
-    calls_without_draw = _.omit(calls, 'draw()');
-    fillSelect(sel4, calls_without_draw);
-    if (_.size(calls_without_draw) > 0) {
-      sel4.show();
-      $('#input').show();
-    } else {
-      sel4.hide();
-      $('#input').hide();
-    }
-  }
-  btn2.text(chapter);
-  if (data[chapter] != null && data[chapter][exercise] != null) {
-    btn3.text(exercise + ' : ' + data[chapter][exercise]["l"]);
-  }
-  if (st <= 1) {
-    tableClear();
-    linksClear();
-    setLinks();
-    bg(0.5);
-  }
-  if (st === 1) {
-    return exercise = "";
-  }
-};
-
-sel1click = function sel1click(sel) {
-  chapter = sel.value;
-  exercise = "";
-  call = "";
-  calls = {};
-  fillSelect(sel2, data[chapter]);
-  return setState(1);
-};
-
-sel2click = function sel2click(sel) {
-  var keyword, keywords, l, len, src;
-  exercise = sel.value;
-  if (exercise === "") {
-    myCodeMirror.setValue("");
-    bg(0.5);
-    return;
-  }
-  sel3.empty();
-  keywords = data[chapter][exercise]["k"].split(' ');
-  keywords.sort();
-  for (l = 0, len = keywords.length; l < len; l++) {
-    keyword = keywords[l];
-    sel3.append($("<option>").attr('value', keyword).text(keyword));
-  }
-  setState(2);
-  src = localStorage[exercise + "/d"];
-  if (src === void 0 || src === null || src === '') {
-    src = data[chapter][exercise]["b"];
-    localStorage[exercise + "/d"] = src;
-    localStorage[exercise + "/v"] = data[chapter][exercise]["v"];
-  }
-  myCodeMirror.setValue(src);
-  if (localStorage[exercise + "/v"] != null && localStorage[exercise + "/v"] !== data[chapter][exercise]["v"]) {
-    renew.show();
-  } else {
-    renew.hide();
-  }
-  tableClear();
-  if (calls != null) {
-    sel4.val("draw()").change();
-    call = calls["draw()"];
-  }
-  run1();
-  run0();
-  myCodeMirror.focus();
-  return compare();
-};
-
-sel3click = function sel3click(sel) {
-  var url, win;
-  url = buildLink(sel.value);
-  if (url != null) {
-    win = window.open(url, '_blank');
-    return win.focus();
-  }
-};
-
-sel4click = function sel4click(sel) {
-  if (calls != null) {
-    call = calls[sel.value];
-  }
-  if (run1() === true) {
-    run0();
-  }
-  return compare();
-};
-
 buildLink = function buildLink(keyword) {
   var nr;
   if (keyword.indexOf('_.') === 0) {
@@ -415,7 +262,7 @@ buildKeywordLink = function buildKeywordLink() {
 
 mousePressed = function mousePressed() {
   var dict, objekt, p, ref, ref1, ref2, ref3;
-  if (chapter === '' || exercise === '') {
+  if (meny.chapter === '' || meny.exercise === '') {
     return;
   }
   p = null;
@@ -426,10 +273,10 @@ mousePressed = function mousePressed() {
     p = [mouseX - 5, mouseY - 210];
   }
   if (p) {
-    dict = data[chapter][exercise]["c"];
+    dict = data[meny.chapter][meny.exercise].c;
     if (dict != null) {
       objekt = _.keys(dict)[0];
-      call = objekt + (".mousePressed(" + p[0] + "," + p[1] + "); ") + objekt + ".draw(); " + objekt + ".store()";
+      call = objekt + ('.mousePressed(' + p[0] + ',' + p[1] + '); ') + objekt + ".draw(); " + objekt + ".store()";
       if (run1() === true) {
         run0();
         return compare();
@@ -441,15 +288,13 @@ mousePressed = function mousePressed() {
 setLinks = function setLinks() {
   var link, ref, text;
   linksClear();
-  if (exercise !== '') {
-    ref = data[chapter][exercise]["e"];
+  if (meny.exercise !== '') {
+    ref = data[meny.chapter][meny.exercise].e;
     for (text in ref) {
       link = ref[text];
       linkAppend(links, link, text);
     }
   }
-  //linkAppend links, "https://minaaktiviteter.se/shop/?org=kosmosklubben;event=59298;info=1","Höstlovet tisdag"
-  //linkAppend links, "https://minaaktiviteter.se/shop/?org=kosmosklubben;event=59299;info=1","Höstlovet onsdag"
   linkAppend(links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo", "p5Dojo");
   linkAppend(links, "https://christernilsson.github.io/p5Color", "p5Color");
   linkAppend(links, "https://p5js.org/reference", "p5");
@@ -526,8 +371,15 @@ $(window).resize(function () {
   return resizeTimer = setTimeout(changeLayout, 10);
 });
 
+updateTables = function updateTables() {
+  meny.rensa();
+  return meny.traverse();
+};
+
 setup = function setup() {
   var c, timestamp;
+  meny = new Menu(data, document.getElementById("meny"));
+  updateTables();
   timestamp = millis();
   c = createCanvas(5 + 201 + 5, 3 * 201 + 20);
   buildKeywordLink();
@@ -536,34 +388,21 @@ setup = function setup() {
   pixelDensity(1);
   c.parent('canvas');
   msg = $('#msg');
-  sel1 = $('#sel1');
-  sel2 = $('#sel2');
-  sel3 = $('#sel3');
   sel4 = $('#sel4');
-  btn2 = $('#btn2');
-  btn3 = $('#btn3');
-  fillSelect(sel1, data);
-  setState(0);
-  btn2.click(function () {
-    return setState(0);
-  });
-  btn3.click(function () {
-    return setState(1);
-  });
   renew = createButton('Renew');
   renew.position(0, 644);
   renew.hide();
   return renew.mousePressed(function () {
-    print(myCodeMirror.getValue());
-    myCodeMirror.setValue(data[chapter][exercise]["b"]);
-    localStorage[exercise + "/" + 'v'] = data[chapter][exercise]["v"];
-    localStorage[exercise + "/" + 'd'] = data[chapter][exercise]["b"];
+    //print myCodeMirror.getValue()
+    myCodeMirror.setValue(data[meny.chapter][meny.exercise]["b"]);
+    localStorage[meny.exercise + "/" + 'v'] = data[meny.chapter][meny.exercise]["v"];
+    localStorage[meny.exercise + "/" + 'd'] = data[meny.chapter][meny.exercise]["b"];
     return renew.hide();
   });
 };
 
 window.onbeforeunload = function () {
-  var blob, i, key1, key2, l, len, ref, res, s;
+  var blob, chapter, exercise, i, key1, key2, l, len, ref, res, s;
   if (document.URL.indexOf("record") === -1) {
     return;
   }
@@ -573,11 +412,11 @@ window.onbeforeunload = function () {
     for (key2 in chapter) {
       exercise = chapter[key2];
       if (exercise.d) {
-        res.push("### " + key1 + " ### " + key2 + "\n");
+        res.push('### ' + key1 + ' ### ' + key2 + '\n');
         ref = exercise.d;
         for (i = l = 0, len = ref.length; l < len; i = ++l) {
           s = ref[i];
-          res.push("=== " + i + "\n");
+          res.push('=== ' + i + '\n');
           res.push(s + "\n");
         }
       }
@@ -606,13 +445,13 @@ window.onload = function () {
   });
   $(".CodeMirror").css('font-size', "16pt");
   myCodeMirror.on("change", editor_change);
-  chapter = "";
-  exercise = "";
+  meny.chapter = "";
+  meny.exercise = "";
   myCodeMirror.setValue('# Klicka först på L1:\n# Klicka därefter på Background1');
   myCodeMirror.focus();
   window.resizeTo(1000, 750);
   changeLayout();
-  return setState(0);
+  return meny.setState(0);
 };
 
 saveToKeyStorage = function saveToKeyStorage(b) {
@@ -625,7 +464,7 @@ saveToKeyStorage = function saveToKeyStorage(b) {
       s += line;
     }
   }
-  place = data[chapter][exercise];
+  place = data[meny.chapter][meny.exercise];
   if (!place.d) {
     place.d = [];
   }
@@ -635,7 +474,7 @@ saveToKeyStorage = function saveToKeyStorage(b) {
 editor_change = function editor_change() {
   var dce, res;
   reset();
-  if (exercise === '') {
+  if (meny.exercise === '') {
     return;
   }
   if (_.size(calls) === 0) {
@@ -643,7 +482,7 @@ editor_change = function editor_change() {
   } else {
     call = calls["draw()"];
   }
-  dce = data[chapter][exercise];
+  dce = data[meny.chapter][meny.exercise];
   if (dce && dce["a"] && _.size(dce["a"].c) > 0) {
     if (run1() === false) {
       // bör normalt vara true
@@ -659,12 +498,12 @@ editor_change = function editor_change() {
 };
 
 saveSourceCode = function saveSourceCode() {
-  return localStorage[exercise + "/d"] = myCodeMirror.getValue();
+  return localStorage[meny.exercise + "/d"] = myCodeMirror.getValue();
 };
 
 run0 = function run0() {
   var src;
-  if (exercise === "") {
+  if (meny.exercise === "") {
     return false;
   }
   src = myCodeMirror.getValue();
@@ -672,10 +511,10 @@ run0 = function run0() {
 };
 
 run1 = function run1() {
-  if (exercise === "") {
+  if (meny.exercise === "") {
     return;
   }
-  return run(1, data[chapter][exercise]["a"] + "\n" + call);
+  return run(1, data[meny.chapter][meny.exercise]["a"] + "\n" + call);
 };
 
 reset = function reset() {
@@ -699,7 +538,7 @@ run = function run(_n, coffee) {
   translate(5, 5);
   grid();
   setMsg("", _n);
-  if (exercise === "") {
+  if (meny.exercise === "") {
     pop();
     return true;
   }

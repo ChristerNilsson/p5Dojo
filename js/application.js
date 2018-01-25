@@ -22,7 +22,7 @@ Application = function () {
       klass = ref[i];
       classes[klass.name] = klass;
     }
-    _name = exercise + "/" + this._name;
+    _name = meny.exercise + "/" + this._name;
     obj = localStorage.getItem(_name);
     if (obj) {
       ref1 = JSON.parse(obj);
@@ -127,11 +127,11 @@ Application = function () {
     key: 'store',
     value: function store() {
       var _name, obj;
-      _name = exercise + "/" + this._name;
+      _name = meny.exercise + "/" + this._name;
       this.mark();
       obj = JSON.stringify(this);
       localStorage.setItem(_name, obj);
-      return fillTable(exercise + "/a", exercise + "/b");
+      return fillTable(meny.exercise + "/a", meny.exercise + "/b");
     }
   }, {
     key: 'readText',

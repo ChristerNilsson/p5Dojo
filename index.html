@@ -54,6 +54,8 @@
 
     <script src="js/nilsson.js"></script>
     <script src="js/rubikSquareData.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/menu.js"></script>    
     <script src="js/p5dojo.js"></script>
     <script src="js/transpile.js"></script>
     <script src="ord4-9.js"></script>
@@ -62,7 +64,7 @@
       select {overflow-y: auto; font-family:monospace;}
       body {padding: 0; margin: 0;}
       canvas {vertical-align: top;}
-      th, td {padding: 2px;}
+      table, th, td {padding: 0px;}
       a:link {color: #000000; text-decoration: none; font-family: Arial, Helvetica, sans-serif;}
       a:hover {color: #FFFF00;}
       a:visited {color: #000000;}
@@ -70,21 +72,16 @@
 
   </head>
   <body bgcolor="#808080">
+
+    <table id='meny' style="position:absolute; top:0px; left:0px; width:211px; border-spacing:0px"></table>
+
+    <select onclick="sel4click(this);" id='sel4' size="12"
+            style="position: absolute; top:420px; left:0px; width:205px"></select>
+
     <textarea id="code" wrap="soft"></textarea>
     <table id="links" style="font-family:monospace; font-size:18px; position:absolute; top:670px; left:5px;" border="0px"></table>
     <div id="canvas" style="position:absolute; top:5px; left:210px; width:211px; height:635px"></div>
     <input type="text" id='input' onClick="this.select();" style="font-family:monospace; font-size:18px; position:absolute; top:640px; left:60px; width:403px">
-    <select onclick="sel1click(this);" id='sel1' size="24"
-            style="position: absolute; top:0px; left:0px; width:205px"></select>
-    <select onclick="sel2click(this);" id='sel2' size="23"
-            style="position: absolute; top:20px; left:0px; width:205px; background-color:#000000; color:#FFFFFF"></select>
-    <select onclick="sel3click(this);" id='sel3' size="22"
-            style="position: absolute; top:40px; left:0px; width:205px; background-color:#000000; color:#FFFF00"></select>
-    <select onclick="sel4click(this);" id='sel4' size="12"
-            style="position: absolute; top:420px; left:0px; width:205px"></select>
-
-    <button id="btn2" style="position: absolute; top: 0px; left:0px; width:205px">Chapter</button>
-    <button id="btn3" style="position: absolute; top:20px; left:0px; width:205px">Exercise</button>
 
     <table id="tabell" style="font-family:monospace; font-size:20px; position:absolute; top:670px; left:209px;" border="0px"></table>
     <textarea id="msg" rows=3 wrap="soft" readonly style="font-size:20px; color:#FFFFFF; position:absolute; top:640px; left:415px; width:700px;"></textarea>

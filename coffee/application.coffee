@@ -4,7 +4,7 @@ class Application
 		classes = {}
 		classes[klass.name] = klass for klass in @classes()
 
-		_name = exercise + "/" + @_name
+		_name = meny.exercise + "/" + @_name
 		obj = localStorage.getItem _name
 		if obj
 			for key,value of JSON.parse obj
@@ -43,11 +43,11 @@ class Application
 	mousePressed : (mx,my) -> # print "mousePressed", mx, mx
 
 	store : ->
-		_name = exercise + "/" + @_name
+		_name = meny.exercise + "/" + @_name
 		@mark()
 		obj = JSON.stringify @
 		localStorage.setItem _name, obj
-		fillTable exercise + "/a", exercise + "/b"
+		fillTable meny.exercise + "/a", meny.exercise + "/b"
 
 	readText : -> $('#input').val()
 	readInt : -> parseInt @readText()

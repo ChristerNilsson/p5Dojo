@@ -29,7 +29,7 @@ data =
 		TextB : ID_TextB
 		Five : ID_Five
 
-	"L3: ellipse rect triangle quad" :
+	"L3: ellipse rect triangle" :
 		GreenEllipse : ID_GreenEllipse
 		GreenRect : ID_GreenRect
 		#RedRect : ID_RedRect
