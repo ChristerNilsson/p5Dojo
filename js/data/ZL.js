@@ -8,7 +8,10 @@ ID_nyheter = {
   k: '',
   l: 0,
   b: "# NYHETER 2017 NOV 03\n#   LinearRegression\n# NYHETER 2017 OKT 23\n#   SingaporeMult\n#   SingaporeMultComplex\n#   SingaporeMultPolynom\n# NYHETER 2017 OKT 19\n#   2048\n# NYHETER 2017 OKT 10\n#   ChessOne\n#   ChessMany\n# NYHETER 2017 SEP 29\n#   GUI\n# NYHETER 2017 JUN 11\n#   Tetramino\n# NYHETER 2017 JUN 04\n#   BeeHaiku3D\n# NYHETER 2017 MAJ 27\n#   ForthHaiku3D\n# NYHETER 2017 MAJ 20\n#   MineSweeper\n#   Paint\n# NYHETER 2017 MAJ 13\n#   TowerOfHanoi\n#   GuessANumberHex\n#   Coordinator\n#   Tetris\n#   Blank\n#   Angle\n# NYHETER 2017 MAJ 06\n#   Reversi\n#   Shortcut2\n# NYHETER 2017 APR 29\n#   RubikCube\n#   ForthHaiku\n#   Sokoban\n# NYHETER 2017 APR 22\n#   BlackBox2D\n#   GameOfLife\n#   Moire\n#   SuperCircle\n#   CoffeescriptClock\n# NYHETER 2017 APR 15\n#   LinesOfCode\n#   ColorPair\n#   Snake Snake4\n# NYHETER 2017 APR 08\n#   OneDiceHistogram TwoDiceHistogram\n#   ClickDetector IndianSun MultiTimer\n#   Hex\n#   Shortcut Complex\n# NYHETER 2017 APR 01\n#   RandomDice\n#   Nand2TetrisALU\n#   RubikSquare\n# NYHETER 2017 MAR 26\n#   Stopwatch\n#   Korsord\n#   EngineeringNotation\n#   Nian\n#   Kalkylator\n# NYHETER 2017 MAR 19\n#   PickingBerries\n# NYHETER 2017 MAR 12\n#   Roulette\n# NYHETER 2017 MAR 05\n#   TwoArcs\n#   Girlang Braid OlympicRings\n#   GoldenStar Alphanumeric BoardGame SevenSegment\n#   Connect4 SpaceShip\n#   RushHour ChessGame",
-  a: ""
+  a: "",
+  e: {
+    "Blandat": "https://christernilsson.github.io/Lab"
+  }
 };
 
 ID_Asserts = {
