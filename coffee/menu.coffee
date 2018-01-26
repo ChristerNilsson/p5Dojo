@@ -93,7 +93,7 @@ class Menu
 		code = @calls[title]
 		b.onclick = -> 
 			if run1(code) == true
-				run0(code)
+				run0 code
 			compare()
 		@handleRow b
 		b
@@ -101,12 +101,14 @@ class Menu
 	setState : (st) ->
 		@state = st
 
-		if st==2 then @calls = data[@chapter][@exercise].c
-		if st==2 and _.size(@calls) > 0 then $('#input').show() else $('#input').hide()
+		#if st==2 then @calls = data[@chapter][@exercise].c else @calls = {}
+		$('#input').hide()
+		if _.size(@calls) > 0 then $('#input').show() 
 		if st==2 then msg.show() else msg.hide()
 		if st==2 then $(".CodeMirror").show() else $(".CodeMirror").hide()
 
 		if st<=1
+			@calls = {}
 			tableClear()
 			bg 0.5
 
@@ -124,7 +126,7 @@ class Menu
 			myCodeMirror.setValue ""
 			bg 0.5
 			return
-
+		@calls = data[@chapter][@exercise].c
 		@setState 2
 
 		src = localStorage[@exercise + "/d"]
@@ -140,7 +142,6 @@ class Menu
 		if _.size(calls) > 0 
 			code = @calls["draw()"]
 			if code
-				print code 
 				if run1(code) == true
 					run0 code 
 

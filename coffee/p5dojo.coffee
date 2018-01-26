@@ -290,13 +290,11 @@ editor_change = ->
 saveSourceCode = ->	localStorage[meny.exercise + "/d"] = myCodeMirror.getValue()
 
 run0 = (code) ->
-	print 'run0',code
 	if meny.exercise=="" then return false
 	src = myCodeMirror.getValue()
 	run 0, src + "\n" + code
 
 run1 = (code) ->
-	print 'run1',code
 	if meny.exercise=="" then return
 	run 1, data[meny.chapter][meny.exercise].a + "\n" + code
 

@@ -197,13 +197,10 @@ Menu = function () {
     key: "setState",
     value: function setState(st) {
       this.state = st;
-      if (st === 2) {
-        this.calls = data[this.chapter][this.exercise].c;
-      }
-      if (st === 2 && _.size(this.calls) > 0) {
+      //if st==2 then @calls = data[@chapter][@exercise].c else @calls = {}
+      $('#input').hide();
+      if (_.size(this.calls) > 0) {
         $('#input').show();
-      } else {
-        $('#input').hide();
       }
       if (st === 2) {
         msg.show();
@@ -216,6 +213,7 @@ Menu = function () {
         $(".CodeMirror").hide();
       }
       if (st <= 1) {
+        this.calls = {};
         tableClear();
         bg(0.5);
       }
@@ -241,6 +239,7 @@ Menu = function () {
         bg(0.5);
         return;
       }
+      this.calls = data[this.chapter][this.exercise].c;
       this.setState(2);
       src = localStorage[this.exercise + "/d"];
       if (src === void 0 || src === null || src === '') {
@@ -254,7 +253,6 @@ Menu = function () {
       if (_.size(calls) > 0) {
         code = this.calls["draw()"];
         if (code) {
-          print(code);
           if (run1(code) === true) {
             run0(code);
           }
