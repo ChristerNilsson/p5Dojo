@@ -40,7 +40,7 @@ Menu = function () {
       var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
       var br = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
 
-      var children, i, item, j, k, key, keywords, l, len, len1, len2, ref, ref1, results;
+      var b, children, i, item, j, k, key, keywords, l, len, len1, len2, ref, ref1;
       if (false === goDeeper(this.branch, br)) {
         return;
       }
@@ -78,15 +78,23 @@ Menu = function () {
         }
         // commands
         this.calls = decorate(data[this.chapter][this.exercise].c);
-        results = [];
         for (key in this.calls) {
           if (key !== 'draw()') {
-            results.push(this.addCommand(key, level, i, br));
-          } else {
-            results.push(void 0);
+            this.addCommand(key, level, BLUE, YELLOW);
           }
         }
-        return results;
+        // renew
+        if (localStorage[this.exercise + "/v"] != null && localStorage[this.exercise + "/v"] !== data[this.chapter][this.exercise].v) {
+          b = this.addCommand("Renew", level, RED, WHITE);
+          return b.onclick = function () {
+            var exercise;
+            print(myCodeMirror.getValue());
+            exercise = data[meny.chapter][meny.exercise];
+            myCodeMirror.setValue(exercise.b);
+            localStorage[meny.exercise + "/" + 'v'] = exercise.v;
+            return localStorage[meny.exercise + "/" + 'd'] = exercise.b;
+          };
+        }
       }
     }
   }, {
@@ -104,16 +112,13 @@ Menu = function () {
 
       var b;
       if (level === 2) {
-        b = makeButton(title, BLACK, YELLOW);
+        b = makeButton(title, level, BLACK, YELLOW);
       } else if (this.branch[level] === i) {
-        b = makeButton(title, WHITE, BLACK);
+        b = makeButton(title, level, WHITE, BLACK);
       } else {
-        b = makeButton(title, BLACK, WHITE);
+        b = makeButton(title, level, BLACK, WHITE);
       }
-      b.style.width = '205px';
-      b.style.textAlign = 'left';
       b.branch = br;
-      b.style.paddingLeft = 10 * level + "px";
       b.onclick = function () {
         if (level === 0) {
           _this.sel1click(b.value);
@@ -138,12 +143,9 @@ Menu = function () {
     }
   }, {
     key: 'addCommand',
-    value: function addCommand(title, level, i, br) {
+    value: function addCommand(title, level, color1, color2) {
       var b, code;
-      b = makeButton(title, BLUE, YELLOW);
-      b.style.width = '205px';
-      b.style.textAlign = 'left';
-      b.style.paddingLeft = 10 * level + "px";
+      b = makeButton(title, level, color1, color2);
       code = this.calls[title];
       b.onclick = function () {
         if (run1(code) === true) {
@@ -209,11 +211,6 @@ Menu = function () {
         localStorage[this.exercise + "/v"] = data[this.chapter][this.exercise].v;
       }
       myCodeMirror.setValue(src);
-      if (localStorage[this.exercise + "/v"] != null && localStorage[this.exercise + "/v"] !== data[this.chapter][this.exercise].v) {
-        renew.show();
-      } else {
-        renew.hide();
-      }
       tableClear();
       code = this.calls["draw()"];
       run1(code);

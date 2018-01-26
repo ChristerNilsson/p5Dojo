@@ -6,7 +6,6 @@
 myCodeMirror = null
 msg = null
 
-renew = null
 kwl = {}
 kwlinks = []
 
@@ -247,17 +246,6 @@ setup = ->
 	c.parent 'canvas'
 
 	msg = $('#msg')
-
-	renew = createButton 'Renew'
-	renew.position 0,644
-	renew.hide()
-	renew.mousePressed () ->
-		#print myCodeMirror.getValue()
-		exercise = data[meny.chapter][meny.exercise]
-		myCodeMirror.setValue exercise.b
-		localStorage[meny.exercise + "/" + 'v'] = exercise.v
-		localStorage[meny.exercise + "/" + 'd'] = exercise.b
-		renew.hide()
 
 window.onbeforeunload = ->
 	return if document.URL.indexOf("record") == -1

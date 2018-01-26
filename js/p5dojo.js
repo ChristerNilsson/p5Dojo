@@ -7,13 +7,11 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 // if the renew button is available, a new version of the b code is available.
 // Clicking renew prints the current b code on the console as a backup.
-var bg, block, buffer, buildKeywordLink, buildLink, cc, cct, changeLayout, circle, co, compare, decorate, editor_change, fc, fetch, fillSelect, fillTable, firstDiff, fixColor, fix_frames, gap, grid, ip, kwl, kwlinks, linkAppend, linksClear, meny, mousePressed, msg, myCodeMirror, myprint, range, rd, renew, reset, resizeTimer, run, run0, run1, saveSourceCode, saveToKeyStorage, sc, setLinks, setMsg, setup, store, sw, tableAppend, tableClear, _unmark, updateTables;
+var bg, block, buffer, buildKeywordLink, buildLink, cc, cct, changeLayout, circle, co, compare, decorate, editor_change, fc, fetch, fillSelect, fillTable, firstDiff, fixColor, fix_frames, gap, grid, ip, kwl, kwlinks, linkAppend, linksClear, meny, mousePressed, msg, myCodeMirror, myprint, range, rd, reset, resizeTimer, run, run0, run1, saveSourceCode, saveToKeyStorage, sc, setLinks, setMsg, setup, store, sw, tableAppend, tableClear, _unmark, updateTables;
 
 myCodeMirror = null;
 
 msg = null;
-
-renew = null;
 
 kwl = {};
 
@@ -381,19 +379,7 @@ setup = function setup() {
   block = 201 * width * 4;
   pixelDensity(1);
   c.parent('canvas');
-  msg = $('#msg');
-  renew = createButton('Renew');
-  renew.position(0, 644);
-  renew.hide();
-  return renew.mousePressed(function () {
-    var exercise;
-    //print myCodeMirror.getValue()
-    exercise = data[meny.chapter][meny.exercise];
-    myCodeMirror.setValue(exercise.b);
-    localStorage[meny.exercise + "/" + 'v'] = exercise.v;
-    localStorage[meny.exercise + "/" + 'd'] = exercise.b;
-    return renew.hide();
-  });
+  return msg = $('#msg');
 };
 
 window.onbeforeunload = function () {

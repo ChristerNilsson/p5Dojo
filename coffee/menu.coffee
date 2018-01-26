@@ -34,7 +34,17 @@ class Menu
 			@calls = decorate data[@chapter][@exercise].c
 			for key of @calls
 				if key != 'draw()'
-					@addCommand key, level, i, br
+					@addCommand key, level, BLUE, YELLOW
+
+			# renew
+			if localStorage[@exercise + "/v"]? and localStorage[@exercise + "/v"] != data[@chapter][@exercise].v
+				b = @addCommand "Renew", level, RED, WHITE
+				b.onclick = ->
+					print myCodeMirror.getValue()
+					exercise = data[meny.chapter][meny.exercise]
+					myCodeMirror.setValue exercise.b
+					localStorage[meny.exercise + "/" + 'v'] = exercise.v
+					localStorage[meny.exercise + "/" + 'd'] = exercise.b
 
 	handleRow : (b) ->
 		tr = document.createElement "tr"
@@ -42,13 +52,10 @@ class Menu
 		@table.appendChild tr
 
 	addTitle : (title,level,i,br) ->
-		if level == 2 then b = makeButton title, BLACK,YELLOW
-		else if @branch[level] == i then b = makeButton title, WHITE, BLACK
-		else b = makeButton title, BLACK, WHITE
-		b.style.width = '205px'
-		b.style.textAlign = 'left'
+		if level == 2 then b = makeButton title, level, BLACK, YELLOW
+		else if @branch[level] == i then b = makeButton title, level, WHITE, BLACK
+		else b = makeButton title, level, BLACK, WHITE
 		b.branch = br
-		b.style.paddingLeft = 10*level + "px"
 
 		b.onclick = => 
 			if level == 0 then @sel1click b.value
@@ -64,11 +71,8 @@ class Menu
 		@handleRow b
 		b
 
-	addCommand : (title,level,i,br) ->
-		b = makeButton title, BLUE,YELLOW
-		b.style.width = '205px'
-		b.style.textAlign = 'left'
-		b.style.paddingLeft = 10*level + "px"
+	addCommand : (title,level,color1, color2) ->
+		b = makeButton title, level, color1, color2
 		code = @calls[title]
 		b.onclick = -> 
 			if run1(code) == true
@@ -113,11 +117,6 @@ class Menu
 			localStorage[@exercise + "/d"] = src
 			localStorage[@exercise + "/v"] = data[@chapter][@exercise].v
 		myCodeMirror.setValue src
-
-		if localStorage[@exercise + "/v"]? and localStorage[@exercise + "/v"] != data[@chapter][@exercise].v
-			renew.show()
-		else
-			renew.hide()
 
 		tableClear()
 

@@ -81,14 +81,16 @@ goDeeper = function goDeeper(a, b) {
 // assert false, goDeeper [1],[0]
 // assert false, goDeeper [0,0],[0,1]
 // assert false, goDeeper [1,0],[0]
-makeButton = function makeButton(value, bg, sc) {
+makeButton = function makeButton(value, level, bg, sc) {
   var res;
   res = document.createElement("input");
   res.type = 'button';
   res.value = value;
-  res.style.cssText = "font-size:100%; white-space:normal; width:100%;";
   res.style.backgroundColor = bg;
   res.style.color = sc;
+  res.style.width = '205px';
+  res.style.textAlign = 'left';
+  res.style.paddingLeft = 10 * level + "px";
   return res;
 };
 
