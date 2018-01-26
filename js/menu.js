@@ -84,7 +84,9 @@ Menu = function () {
         // keywords
         for (l = 0, len2 = items.length; l < len2; l++) {
           item = items[l];
-          this.addTitle(item, level, i, br);
+          if (item !== '') {
+            this.addTitle(item, level, i, br);
+          }
         }
         // commands
         this.calls = decorate(data[this.chapter][this.exercise].c);
@@ -98,7 +100,7 @@ Menu = function () {
           b = this.addCommand("Renew", level, RED, WHITE);
           b.onclick = function () {
             var exercise;
-            print(myCodeMirror.getValue());
+            print(myCodeMirror.getValue()); // Låt stå!
             exercise = data[meny.chapter][meny.exercise];
             myCodeMirror.setValue(exercise.b);
             localStorage[meny.exercise + "/" + 'v'] = exercise.v;
@@ -110,9 +112,7 @@ Menu = function () {
           ref2 = data[this.chapter][this.exercise].e;
           fn = function fn(link) {
             return b.onclick = function () {
-              var win;
-              win = window.open(link, '_blank');
-              return win.focus();
+              return window.open(link, '_blank').focus();
             };
           };
           for (text in ref2) {
@@ -126,9 +126,7 @@ Menu = function () {
             b = this.addCommand(text, 0, GREEN, BLACK);
             results.push(function (link) {
               return b.onclick = function () {
-                var win;
-                win = window.open(link, '_blank');
-                return win.focus();
+                return window.open(link, '_blank').focus();
               };
             }(link));
           }
@@ -198,8 +196,12 @@ Menu = function () {
   }, {
     key: "setState",
     value: function setState(st) {
+      var calls;
       this.state = st;
       if (st === 2) {
+        calls = data[this.chapter][this.exercise].c;
+      }
+      if (st === 2 && _.size(calls) > 0) {
         $('#input').show();
       } else {
         $('#input').hide();

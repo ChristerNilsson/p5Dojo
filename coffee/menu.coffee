@@ -37,19 +37,18 @@ class Menu
 		if level == 2 
 			# keywords
 			for item in items 
-				@addTitle item, level, i, br
+				if item != '' then @addTitle item, level, i, br
 
 			# commands
 			@calls = decorate data[@chapter][@exercise].c
 			for key of @calls
-				if key != 'draw()'
-					@addCommand key, level, BLUE, YELLOW
+				if key != 'draw()' then @addCommand key, level, BLUE, YELLOW
 
 			# renew
 			if localStorage[@exercise + "/v"]? and localStorage[@exercise + "/v"] != data[@chapter][@exercise].v
 				b = @addCommand "Renew", level, RED, WHITE
 				b.onclick = ->
-					print myCodeMirror.getValue()
+					print myCodeMirror.getValue() # Låt stå!
 					exercise = data[meny.chapter][meny.exercise]
 					myCodeMirror.setValue exercise.b
 					localStorage[meny.exercise + "/" + 'v'] = exercise.v
@@ -59,16 +58,10 @@ class Menu
 			if @exercise != ''
 				for text,link of data[@chapter][@exercise].e
 					b = @addCommand text, level, GREEN, BLACK
-					do (link) ->
-						b.onclick = ->
-							win = window.open link, '_blank'
-							win.focus()
+					do (link) -> b.onclick = -> window.open(link, '_blank').focus()
 				for text,link of LINKS 
 					b = @addCommand text, 0, GREEN, BLACK
-					do (link) ->
-						b.onclick = ->
-							win = window.open link, '_blank'
-							win.focus()
+					do (link) -> b.onclick = -> window.open(link, '_blank').focus()
 
 	handleRow : (b) ->
 		tr = document.createElement "tr"
@@ -108,7 +101,8 @@ class Menu
 	setState : (st) ->
 		@state = st
 
-		if st==2 then $('#input').show() else $('#input').hide()
+		if st==2 then calls = data[@chapter][@exercise].c
+		if st==2 and _.size(calls) > 0 then $('#input').show() else $('#input').hide()
 		if st==2 then msg.show() else msg.hide()
 		if st==2 then $(".CodeMirror").show() else $(".CodeMirror").hide()
 
