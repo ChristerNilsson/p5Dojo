@@ -6,10 +6,6 @@
 myCodeMirror = null
 msg = null
 
-sel4 = null
-
-call = ''
-calls = {}
 renew = null
 kwl = {}
 kwlinks = []
@@ -172,9 +168,9 @@ mousePressed = ->
 		dict = data[meny.chapter][meny.exercise].c
 		if dict?
 			objekt = _.keys(dict)[0]
-			call = objekt + ".mousePressed(#{p[0]},#{p[1]}); " + objekt + ".draw(); " + objekt + ".store()"
-			if run1() == true
-				run0()
+			code = objekt + ".mousePressed(#{p[0]},#{p[1]}); " + objekt + ".draw(); " + objekt + ".store()"
+			if run1(code) == true
+				run0(code)
 				compare()
 
 setLinks = ->
@@ -252,16 +248,15 @@ setup = ->
 
 	msg = $('#msg')
 
-	sel4 = $('#sel4')
-
 	renew = createButton 'Renew'
 	renew.position 0,644
 	renew.hide()
 	renew.mousePressed () ->
 		#print myCodeMirror.getValue()
-		myCodeMirror.setValue data[meny.chapter][meny.exercise]["b"]
-		localStorage[meny.exercise + "/" + 'v'] = data[meny.chapter][meny.exercise]["v"]
-		localStorage[meny.exercise + "/" + 'd'] = data[meny.chapter][meny.exercise]["b"]
+		exercise = data[meny.chapter][meny.exercise]
+		myCodeMirror.setValue exercise.b
+		localStorage[meny.exercise + "/" + 'v'] = exercise.v
+		localStorage[meny.exercise + "/" + 'd'] = exercise.b
 		renew.hide()
 
 window.onbeforeunload = ->
@@ -320,16 +315,16 @@ saveToKeyStorage = (b) ->
 editor_change = ->
 	reset()
 	if meny.exercise=='' then return
-	if _.size(calls) == 0
-		call = ""
+	if _.size(meny.calls) == 0
+		code = ""
 	else # transpile, draw
-		call = calls["draw()"]
+		code = meny.calls["draw()"]
 
 	dce = data[meny.chapter][meny.exercise]
 	if dce and dce["a"] and _.size(dce["a"].c) > 0
-		if run1() == false # bör normalt vara true
+		if run1(code) == false # bör normalt vara true
 			return
-	res = run0()
+	res = run0(code)
 
 	if res # spara källkod EFTER exekvering
 		saveSourceCode()
@@ -337,14 +332,14 @@ editor_change = ->
 
 saveSourceCode = ->	localStorage[meny.exercise + "/d"] = myCodeMirror.getValue()
 
-run0 = ->
+run0 = (code) ->
 	if meny.exercise=="" then return false
 	src = myCodeMirror.getValue()
-	run 0, src + "\n" + call
+	run 0, src + "\n" + code
 
-run1 = ->
+run1 = (code) ->
 	if meny.exercise=="" then return
-	run 1, data[meny.chapter][meny.exercise]["a"] + "\n" + call
+	run 1, data[meny.chapter][meny.exercise].a + "\n" + code
 
 reset = ->
 	resetMatrix()

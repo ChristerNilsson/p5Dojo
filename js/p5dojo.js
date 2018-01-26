@@ -7,17 +7,11 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 // if the renew button is available, a new version of the b code is available.
 // Clicking renew prints the current b code on the console as a backup.
-var bg, block, buffer, buildKeywordLink, buildLink, call, calls, cc, cct, changeLayout, circle, co, compare, decorate, editor_change, fc, fetch, fillSelect, fillTable, firstDiff, fixColor, fix_frames, gap, grid, ip, kwl, kwlinks, linkAppend, linksClear, meny, mousePressed, msg, myCodeMirror, myprint, range, rd, renew, reset, resizeTimer, run, run0, run1, saveSourceCode, saveToKeyStorage, sc, sel4, setLinks, setMsg, setup, store, sw, tableAppend, tableClear, _unmark, updateTables;
+var bg, block, buffer, buildKeywordLink, buildLink, cc, cct, changeLayout, circle, co, compare, decorate, editor_change, fc, fetch, fillSelect, fillTable, firstDiff, fixColor, fix_frames, gap, grid, ip, kwl, kwlinks, linkAppend, linksClear, meny, mousePressed, msg, myCodeMirror, myprint, range, rd, renew, reset, resizeTimer, run, run0, run1, saveSourceCode, saveToKeyStorage, sc, setLinks, setMsg, setup, store, sw, tableAppend, tableClear, _unmark, updateTables;
 
 myCodeMirror = null;
 
 msg = null;
-
-sel4 = null;
-
-call = '';
-
-calls = {};
 
 renew = null;
 
@@ -261,7 +255,7 @@ buildKeywordLink = function buildKeywordLink() {
 };
 
 mousePressed = function mousePressed() {
-  var dict, objekt, p, ref, ref1, ref2, ref3;
+  var code, dict, objekt, p, ref, ref1, ref2, ref3;
   if (meny.chapter === '' || meny.exercise === '') {
     return;
   }
@@ -276,9 +270,9 @@ mousePressed = function mousePressed() {
     dict = data[meny.chapter][meny.exercise].c;
     if (dict != null) {
       objekt = _.keys(dict)[0];
-      call = objekt + ('.mousePressed(' + p[0] + ',' + p[1] + '); ') + objekt + ".draw(); " + objekt + ".store()";
-      if (run1() === true) {
-        run0();
+      code = objekt + ('.mousePressed(' + p[0] + ',' + p[1] + '); ') + objekt + ".draw(); " + objekt + ".store()";
+      if (run1(code) === true) {
+        run0(code);
         return compare();
       }
     }
@@ -388,15 +382,16 @@ setup = function setup() {
   pixelDensity(1);
   c.parent('canvas');
   msg = $('#msg');
-  sel4 = $('#sel4');
   renew = createButton('Renew');
   renew.position(0, 644);
   renew.hide();
   return renew.mousePressed(function () {
+    var exercise;
     //print myCodeMirror.getValue()
-    myCodeMirror.setValue(data[meny.chapter][meny.exercise]["b"]);
-    localStorage[meny.exercise + "/" + 'v'] = data[meny.chapter][meny.exercise]["v"];
-    localStorage[meny.exercise + "/" + 'd'] = data[meny.chapter][meny.exercise]["b"];
+    exercise = data[meny.chapter][meny.exercise];
+    myCodeMirror.setValue(exercise.b);
+    localStorage[meny.exercise + "/" + 'v'] = exercise.v;
+    localStorage[meny.exercise + "/" + 'd'] = exercise.b;
     return renew.hide();
   });
 };
@@ -472,24 +467,24 @@ saveToKeyStorage = function saveToKeyStorage(b) {
 };
 
 editor_change = function editor_change() {
-  var dce, res;
+  var code, dce, res;
   reset();
   if (meny.exercise === '') {
     return;
   }
-  if (_.size(calls) === 0) {
-    call = ""; // transpile, draw
+  if (_.size(meny.calls) === 0) {
+    code = ""; // transpile, draw
   } else {
-    call = calls["draw()"];
+    code = meny.calls["draw()"];
   }
   dce = data[meny.chapter][meny.exercise];
   if (dce && dce["a"] && _.size(dce["a"].c) > 0) {
-    if (run1() === false) {
+    if (run1(code) === false) {
       // bör normalt vara true
       return;
     }
   }
-  res = run0();
+  res = run0(code);
   if (res) {
     // spara källkod EFTER exekvering
     saveSourceCode();
@@ -501,20 +496,20 @@ saveSourceCode = function saveSourceCode() {
   return localStorage[meny.exercise + "/d"] = myCodeMirror.getValue();
 };
 
-run0 = function run0() {
+run0 = function run0(code) {
   var src;
   if (meny.exercise === "") {
     return false;
   }
   src = myCodeMirror.getValue();
-  return run(0, src + "\n" + call);
+  return run(0, src + "\n" + code);
 };
 
-run1 = function run1() {
+run1 = function run1(code) {
   if (meny.exercise === "") {
     return;
   }
-  return run(1, data[meny.chapter][meny.exercise]["a"] + "\n" + call);
+  return run(1, data[meny.chapter][meny.exercise].a + "\n" + code);
 };
 
 reset = function reset() {

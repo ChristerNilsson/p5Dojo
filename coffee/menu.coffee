@@ -3,6 +3,7 @@ class Menu
 		@state = 0
 		@chapter = ''
 		@exercise = ''
+		@calls = {}
 	rensa : -> @table.innerHTML = ""
 	clear : -> @branch = []
 
@@ -24,9 +25,16 @@ class Menu
 				keywords.sort()
 				@traverse keywords, level+1, br.concat i
 
-		if level == 2 # keyword
-			for item in items
+		if level == 2 
+			# keywords
+			for item in items 
 				@addTitle item, level, i, br
+
+			# commands
+			@calls = decorate data[@chapter][@exercise].c
+			for key of @calls
+				if key != 'draw()'
+					@addCommand key, level, i, br
 
 	handleRow : (b) ->
 		tr = document.createElement "tr"
@@ -54,27 +62,27 @@ class Menu
 			updateTables()
 
 		@handleRow b
+		b
+
+	addCommand : (title,level,i,br) ->
+		b = makeButton title, BLUE,YELLOW
+		b.style.width = '205px'
+		b.style.textAlign = 'left'
+		b.style.paddingLeft = 10*level + "px"
+		code = @calls[title]
+		b.onclick = -> 
+			if run1(code) == true
+				run0(code)
+			compare()
+		@handleRow b
+		b
 
 	setState : (st) ->
 		@state = st
 
 		if st==2 then $('#input').show() else $('#input').hide()
-		if st==2 then $('#sel4').show() else $('#sel4').hide()
 		if st==2 then msg.show() else msg.hide()
 		if st==2 then $(".CodeMirror").show() else $(".CodeMirror").hide()
-
-		if st==2
-			call = ""
-			calls = decorate data[@chapter][@exercise]["c"]
-			setLinks()
-			calls_without_draw = _.omit calls, 'draw()'
-			fillSelect sel4, calls_without_draw
-			if _.size(calls_without_draw) > 0
-				sel4.show()
-				$('#input').show()
-			else
-				sel4.hide()
-				$('#input').hide()
 
 		if st<=1
 			tableClear()
@@ -87,8 +95,7 @@ class Menu
 	sel1click : (chapter) ->
 		@chapter = chapter
 		@exercise = ""
-		call = ""
-		calls = {}
+		@calls = {}
 		@setState 1
 
 	sel2click : (exercise) ->
@@ -114,12 +121,10 @@ class Menu
 
 		tableClear()
 
-		if calls?
-			sel4.val("draw()").change()
-			call = calls["draw()"]
+		code = @calls["draw()"]
 
-		run1()
-		run0()
+		run1 code
+		run0 code 
 		myCodeMirror.focus()
 		compare()
 
@@ -128,9 +133,4 @@ class Menu
 		if url?
 			win = window.open url, '_blank'
 			win.focus()
-
-	sel4click : (sel) ->
-		if calls? then call = calls[sel.value]
-		if run1() == true
-			run0()
-		compare()
+	

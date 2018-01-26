@@ -20,6 +20,7 @@ Menu = function () {
     this.state = 0;
     this.chapter = '';
     this.exercise = '';
+    this.calls = {};
   }
 
   _createClass(Menu, [{
@@ -69,11 +70,21 @@ Menu = function () {
         }
       }
       if (level === 2) {
-        // keyword
-        results = [];
+
+        // keywords
         for (l = 0, len2 = items.length; l < len2; l++) {
           item = items[l];
-          results.push(this.addTitle(item, level, i, br));
+          this.addTitle(item, level, i, br);
+        }
+        // commands
+        this.calls = decorate(data[this.chapter][this.exercise].c);
+        results = [];
+        for (key in this.calls) {
+          if (key !== 'draw()') {
+            results.push(this.addCommand(key, level, i, br));
+          } else {
+            results.push(void 0);
+          }
         }
         return results;
       }
@@ -122,22 +133,35 @@ Menu = function () {
         }
         return updateTables();
       };
-      return this.handleRow(b);
+      this.handleRow(b);
+      return b;
+    }
+  }, {
+    key: 'addCommand',
+    value: function addCommand(title, level, i, br) {
+      var b, code;
+      b = makeButton(title, BLUE, YELLOW);
+      b.style.width = '205px';
+      b.style.textAlign = 'left';
+      b.style.paddingLeft = 10 * level + "px";
+      code = this.calls[title];
+      b.onclick = function () {
+        if (run1(code) === true) {
+          run0(code);
+        }
+        return compare();
+      };
+      this.handleRow(b);
+      return b;
     }
   }, {
     key: 'setState',
     value: function setState(st) {
-      var call, calls, calls_without_draw;
       this.state = st;
       if (st === 2) {
         $('#input').show();
       } else {
         $('#input').hide();
-      }
-      if (st === 2) {
-        $('#sel4').show();
-      } else {
-        $('#sel4').hide();
       }
       if (st === 2) {
         msg.show();
@@ -148,20 +172,6 @@ Menu = function () {
         $(".CodeMirror").show();
       } else {
         $(".CodeMirror").hide();
-      }
-      if (st === 2) {
-        call = "";
-        calls = decorate(data[this.chapter][this.exercise]["c"]);
-        setLinks();
-        calls_without_draw = _.omit(calls, 'draw()');
-        fillSelect(sel4, calls_without_draw);
-        if (_.size(calls_without_draw) > 0) {
-          sel4.show();
-          $('#input').show();
-        } else {
-          sel4.hide();
-          $('#input').hide();
-        }
       }
       if (st <= 1) {
         tableClear();
@@ -176,17 +186,15 @@ Menu = function () {
   }, {
     key: 'sel1click',
     value: function sel1click(chapter) {
-      var call, calls;
       this.chapter = chapter;
       this.exercise = "";
-      call = "";
-      calls = {};
+      this.calls = {};
       return this.setState(1);
     }
   }, {
     key: 'sel2click',
     value: function sel2click(exercise) {
-      var call, src;
+      var code, src;
       this.exercise = exercise;
       if (this.exercise === "") {
         myCodeMirror.setValue("");
@@ -207,12 +215,9 @@ Menu = function () {
         renew.hide();
       }
       tableClear();
-      if (typeof calls !== "undefined" && calls !== null) {
-        sel4.val("draw()").change();
-        call = calls["draw()"];
-      }
-      run1();
-      run0();
+      code = this.calls["draw()"];
+      run1(code);
+      run0(code);
       myCodeMirror.focus();
       return compare();
     }
@@ -225,18 +230,6 @@ Menu = function () {
         win = window.open(url, '_blank');
         return win.focus();
       }
-    }
-  }, {
-    key: 'sel4click',
-    value: function sel4click(sel) {
-      var call;
-      if (typeof calls !== "undefined" && calls !== null) {
-        call = calls[sel.value];
-      }
-      if (run1() === true) {
-        run0();
-      }
-      return compare();
     }
   }]);
 
