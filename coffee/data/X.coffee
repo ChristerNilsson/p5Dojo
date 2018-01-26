@@ -16,5 +16,7 @@ point 100,0
 point 200,0
 """
 	e :
+		"Coordinate Trainer 1" : "https://christernilsson.github.io/Lab/2017/131-CoordTrainer/index.html"
+		"Coordinate Trainer 2": "https://christernilsson.github.io/Lab/2017/133-CoordTrainer2/index.html"
 		Koordinatsystem : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 

@@ -10,6 +10,8 @@ ID_X = {
   b: "# Klicka på länken Koordinatsystem nedan till vänster för hjälp\nsw 10          # strokeWeight, strecktjocklek i pixlar\npoint  20, 40  # ritar en punkt med koordinaten x=20, y=40\npoint 100,200  # ritar en punkt med koordinaten x=100,y=200\n",
   a: "sw 20\npoint 0,0\npoint 100,0\npoint 200,0",
   e: {
+    "Coordinate Trainer 1": "https://christernilsson.github.io/Lab/2017/131-CoordTrainer/index.html",
+    "Coordinate Trainer 2": "https://christernilsson.github.io/Lab/2017/133-CoordTrainer2/index.html",
     Koordinatsystem: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
   }
 };
