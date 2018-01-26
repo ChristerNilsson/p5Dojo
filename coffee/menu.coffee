@@ -57,10 +57,10 @@ class Menu
 			# links
 			if @exercise != ''
 				for text,link of data[@chapter][@exercise].e
-					b = @addCommand text, level, DARKGREEN, WHITE
+					b = @addCommand text, level, GREEN, BLACK
 					do (link) -> b.onclick = -> window.open(link, '_blank').focus()
 				for text,link of LINKS 
-					b = @addCommand text, 0, GREEN, BLACK
+					b = @addCommand text, 0, DARKGREEN, WHITE
 					do (link) -> b.onclick = -> window.open(link, '_blank').focus()
 
 	handleRow : (b) ->

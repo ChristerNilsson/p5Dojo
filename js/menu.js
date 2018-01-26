@@ -117,13 +117,13 @@ Menu = function () {
           };
           for (text in ref2) {
             link = ref2[text];
-            b = this.addCommand(text, level, DARKGREEN, WHITE);
+            b = this.addCommand(text, level, GREEN, BLACK);
             fn(link);
           }
           results = [];
           for (text in LINKS) {
             link = LINKS[text];
-            b = this.addCommand(text, 0, GREEN, BLACK);
+            b = this.addCommand(text, 0, DARKGREEN, WHITE);
             results.push(function (link) {
               return b.onclick = function () {
                 return window.open(link, '_blank').focus();
