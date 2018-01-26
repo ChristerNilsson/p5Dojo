@@ -7,7 +7,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 // if the renew button is available, a new version of the b code is available.
 // Clicking renew prints the current b code on the console as a backup.
-var bg, block, buffer, buildKeywordLink, buildLink, cc, cct, changeLayout, circle, co, compare, decorate, editor_change, fc, fetch, fillSelect, fillTable, firstDiff, fixColor, fix_frames, gap, grid, ip, kwl, kwlinks, linkAppend, linksClear, meny, mousePressed, msg, myCodeMirror, myprint, range, rd, reset, resizeTimer, run, run0, run1, saveSourceCode, saveToKeyStorage, sc, setLinks, setMsg, setup, store, sw, tableAppend, tableClear, _unmark, updateTables;
+var bg, block, buffer, buildKeywordLink, buildLink, cc, cct, changeLayout, circle, co, compare, decorate, editor_change, fc, fetch, fillSelect, fillTable, firstDiff, fixColor, fix_frames, gap, grid, ip, kwl, kwlinks, meny, mousePressed, msg, myCodeMirror, myprint, range, rd, reset, resizeTimer, run, run0, run1, saveSourceCode, saveToKeyStorage, sc, setMsg, setup, store, sw, tableAppend, tableClear, _unmark, updateTables;
 
 myCodeMirror = null;
 
@@ -275,50 +275,6 @@ mousePressed = function mousePressed() {
       }
     }
   }
-};
-
-setLinks = function setLinks() {
-  var link, ref, text;
-  linksClear();
-  if (meny.exercise !== '') {
-    ref = data[meny.chapter][meny.exercise].e;
-    for (text in ref) {
-      link = ref[text];
-      linkAppend(links, link, text);
-    }
-  }
-  linkAppend(links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo", "p5Dojo");
-  linkAppend(links, "https://christernilsson.github.io/p5Color", "p5Color");
-  linkAppend(links, "https://p5js.org/reference", "p5");
-  linkAppend(links, "http://coffeescript.org", "Coffeescript");
-  linkAppend(links, "https://www.w3schools.com/js", "Javascript");
-  linkAppend(links, "http://underscorejs.org/", "Underscore");
-  return linkAppend(links, "https://github.com/ChristerNilsson/Nilsson/blob/master/README.md#nilsson", "Nilsson");
-};
-
-linksClear = function linksClear() {
-  return $("#links tr").remove();
-};
-
-linkAppend = function linkAppend(t, link, text) {
-  // exakt en kolumn
-  var cell1, d, dd, row, s;
-  d = function d(s) {
-    return "'" + s + "'";
-  };
-  dd = function dd(s) {
-    return '"' + s + '"';
-  };
-  row = t.insertRow(-1);
-  cell1 = row.insertCell(-1);
-  s = '<a href=' + d(link);
-  s += ' target=' + d('_blank');
-  s += ' onmouseover=' + d('this.style.color=' + dd('yellow') + ';');
-  s += ' onmouseout=' + d('this.style.color=' + dd('black') + ';');
-  s += '>';
-  s += text;
-  s += '</a>';
-  return cell1.innerHTML = s;
 };
 
 decorate = function decorate(dict) {

@@ -4,6 +4,7 @@ GREEN  = "#0F0"
 RED    = "#F00"
 YELLOW = "#FF0"
 BLUE   = "#00F"
+DARKGREEN = "#080"
 
 range = _.range
 

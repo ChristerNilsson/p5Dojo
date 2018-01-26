@@ -172,37 +172,6 @@ mousePressed = ->
 				run0(code)
 				compare()
 
-setLinks = ->
-	linksClear()
-
-	if meny.exercise != ''
-		for text,link of data[meny.chapter][meny.exercise].e
-			linkAppend links,link,text
-
-	linkAppend links, "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo", "p5Dojo"
-	linkAppend links, "https://christernilsson.github.io/p5Color", "p5Color"
-	linkAppend links, "https://p5js.org/reference", "p5"
-	linkAppend links, "http://coffeescript.org", "Coffeescript"
-	linkAppend links, "https://www.w3schools.com/js", "Javascript"
-	linkAppend links, "http://underscorejs.org/", "Underscore"
-	linkAppend links, "https://github.com/ChristerNilsson/Nilsson/blob/master/README.md#nilsson", "Nilsson"
-
-linksClear = -> $("#links tr").remove()
-
-linkAppend = (t, link, text) -> # exakt en kolumn
-	d = (s) -> "'" + s + "'"
-	dd = (s) -> '"' + s + '"'
-	row = t.insertRow -1
-	cell1 = row.insertCell -1
-	s = '<a href=' + d(link)
-	s += ' target=' + d('_blank')
-	s += ' onmouseover=' + d('this.style.color=' + dd('yellow') + ';')
-	s += ' onmouseout='  + d('this.style.color=' + dd('black') + ';')
-	s += '>'
-	s += text
-	s += '</a>'
-	cell1.innerHTML = s
-
 decorate = (dict) -> # {klocka: "draw|incr_hour"}
 	if dict==undefined then return {}
 	if dict==null then return {}

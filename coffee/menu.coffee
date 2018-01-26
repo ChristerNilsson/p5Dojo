@@ -1,3 +1,12 @@
+LINKS = 
+	"p5Dojo"       : "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo"
+	"p5Color"      : "https://christernilsson.github.io/p5Color"
+	"p5"           : "https://p5js.org/reference"
+	"Coffeescript" : "http://coffeescript.org"
+	"Javascript"   : "https://www.w3schools.com/js"
+	"Underscore"   : "http://underscorejs.org/"
+	"Nilsson"      : "https://github.com/ChristerNilsson/Nilsson/blob/master/README.md#nilsson"
+
 class Menu
 	constructor : (@items, @table=null, @branch=[]) ->
 		@state = 0
@@ -46,6 +55,21 @@ class Menu
 					localStorage[meny.exercise + "/" + 'v'] = exercise.v
 					localStorage[meny.exercise + "/" + 'd'] = exercise.b
 
+			# links
+			if @exercise != ''
+				for text,link of data[@chapter][@exercise].e
+					b = @addCommand text, level, GREEN, BLACK
+					do (link) ->
+						b.onclick = ->
+							win = window.open link, '_blank'
+							win.focus()
+				for text,link of LINKS 
+					b = @addCommand text, 0, GREEN, BLACK
+					do (link) ->
+						b.onclick = ->
+							win = window.open link, '_blank'
+							win.focus()
+
 	handleRow : (b) ->
 		tr = document.createElement "tr"
 		addCell tr,b,100
@@ -90,8 +114,6 @@ class Menu
 
 		if st<=1
 			tableClear()
-			linksClear()
-			setLinks()
 			bg 0.5
 
 		if st==1 then	@exercise = ""
