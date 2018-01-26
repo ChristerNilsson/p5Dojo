@@ -187,7 +187,7 @@ changeLayout = ->
 	$(".CodeMirror").width w-425
 	$("#canvas").css {top: 0, left: 205, position:'absolute'}
 	$("#msg").width w-430
-	$("#input").width w-75
+	$("#input").width w-218
 
 resizeTimer = 0
 $(window).resize ->

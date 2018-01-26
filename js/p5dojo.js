@@ -309,7 +309,7 @@ changeLayout = function changeLayout() {
     position: 'absolute'
   });
   $("#msg").width(w - 430);
-  return $("#input").width(w - 75);
+  return $("#input").width(w - 218);
 };
 
 resizeTimer = 0;
