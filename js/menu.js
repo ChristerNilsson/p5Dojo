@@ -196,12 +196,11 @@ Menu = function () {
   }, {
     key: "setState",
     value: function setState(st) {
-      var calls;
       this.state = st;
       if (st === 2) {
-        calls = data[this.chapter][this.exercise].c;
+        this.calls = data[this.chapter][this.exercise].c;
       }
-      if (st === 2 && _.size(calls) > 0) {
+      if (st === 2 && _.size(this.calls) > 0) {
         $('#input').show();
       } else {
         $('#input').hide();
@@ -235,7 +234,7 @@ Menu = function () {
   }, {
     key: "sel2click",
     value: function sel2click(exercise) {
-      var code, src;
+      var calls, code, src;
       this.exercise = exercise;
       if (this.exercise === "") {
         myCodeMirror.setValue("");
@@ -251,9 +250,16 @@ Menu = function () {
       }
       myCodeMirror.setValue(src);
       tableClear();
-      code = this.calls["draw()"];
-      run1(code);
-      run0(code);
+      calls = data[this.chapter][this.exercise].c;
+      if (_.size(calls) > 0) {
+        code = this.calls["draw()"];
+        if (code) {
+          print(code);
+          if (run1(code) === true) {
+            run0(code);
+          }
+        }
+      }
       myCodeMirror.focus();
       return compare();
     }

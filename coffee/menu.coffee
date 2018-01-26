@@ -101,8 +101,8 @@ class Menu
 	setState : (st) ->
 		@state = st
 
-		if st==2 then calls = data[@chapter][@exercise].c
-		if st==2 and _.size(calls) > 0 then $('#input').show() else $('#input').hide()
+		if st==2 then @calls = data[@chapter][@exercise].c
+		if st==2 and _.size(@calls) > 0 then $('#input').show() else $('#input').hide()
 		if st==2 then msg.show() else msg.hide()
 		if st==2 then $(".CodeMirror").show() else $(".CodeMirror").hide()
 
@@ -136,10 +136,14 @@ class Menu
 
 		tableClear()
 
-		code = @calls["draw()"]
+		calls = data[@chapter][@exercise].c		
+		if _.size(calls) > 0 
+			code = @calls["draw()"]
+			if code
+				print code 
+				if run1(code) == true
+					run0 code 
 
-		run1 code
-		run0 code 
 		myCodeMirror.focus()
 		compare()
 

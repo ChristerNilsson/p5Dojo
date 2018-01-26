@@ -440,6 +440,7 @@ saveSourceCode = function saveSourceCode() {
 
 run0 = function run0(code) {
   var src;
+  print('run0', code);
   if (meny.exercise === "") {
     return false;
   }
@@ -448,6 +449,7 @@ run0 = function run0(code) {
 };
 
 run1 = function run1(code) {
+  print('run1', code);
   if (meny.exercise === "") {
     return;
   }
