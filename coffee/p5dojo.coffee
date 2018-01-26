@@ -321,7 +321,7 @@ editor_change = ->
 		code = meny.calls["draw()"]
 
 	dce = data[meny.chapter][meny.exercise]
-	if dce and dce["a"] and _.size(dce["a"].c) > 0
+	if dce and dce.a and _.size(dce.a.c) > 0
 		if run1(code) == false # bör normalt vara true
 			return
 	res = run0(code)

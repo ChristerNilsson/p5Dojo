@@ -4,18 +4,18 @@
 var ID_Background1, ID_Background2, ID_Background3, ID_Background4, ID_BeeHaiku3D, ID_BlackBox2D, ID_Blank, ID_BoardGame, ID_BouncingBalls, ID_Braid, ID_Braider;
 
 ID_Background1 = {
-  v: '2017-05-10',
+  v: '2018-01-26',
   k: 'bg',
   l: 1,
-  b: "# Första bilden ska du efterlikna.\n# Andra bilden skapas av din kod.\n# Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.\n\n# Tryck på PgDn för att komma till sista raden.\n# Skriv in följande kommando: bg 1\n# Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.\n\n# Klicka därefter på Background1 följt av Background2 för att komma till nästa övning.\n",
+  b: "# Första bilden ska du efterlikna.\n# Andra bilden skapas av din kod.\n# Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.\n\n# Tryck på PgDn för att komma till sista raden.\n# Skriv in följande kommando: bg 1\n# Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.\n\n# Stäng övningen genom att klicka på den vita knappen Background1.\n# Öppna nästa övning genom att klicka på den svarta knappen Background2.\n",
   a: "bg 1"
 };
 
 ID_Background2 = {
-  v: '2017-04-29',
+  v: '2018-01-26',
   k: 'bg',
   l: 1,
-  b: "# Den gula listan med kommandon som behövs är klickbar för hjälp",
+  b: "# Listan med gul text på svart bakgrund innehåller kommandon som du behöver.\n# Klicka på dem för att läsa om dem.",
   a: "bg 0.5"
 };
 

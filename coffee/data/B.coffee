@@ -1,5 +1,5 @@
 ID_Background1 =
-	v:'2017-05-10'
+	v:'2018-01-26'
 	k:'bg'
 	l:1
 	b: """
@@ -11,17 +11,19 @@ ID_Background1 =
 # Skriv in följande kommando: bg 1
 # Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.
 
-# Klicka därefter på Background1 följt av Background2 för att komma till nästa övning.
+# Stäng övningen genom att klicka på den vita knappen Background1.
+# Öppna nästa övning genom att klicka på den svarta knappen Background2.
 
 """
 	a: "bg 1"
 
 ID_Background2 =
-	v:'2017-04-29'
+	v:'2018-01-26'
 	k:'bg'
 	l:1
 	b: """
-# Den gula listan med kommandon som behövs är klickbar för hjälp
+# Listan med gul text på svart bakgrund innehåller kommandon som du behöver.
+# Klicka på dem för att läsa om dem.
 	"""
 	a: "bg 0.5"
 
