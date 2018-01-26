@@ -117,7 +117,7 @@ Menu = function () {
           };
           for (text in ref2) {
             link = ref2[text];
-            b = this.addCommand(text, level, GREEN, BLACK);
+            b = this.addCommand(text, level, DARKGREEN, WHITE);
             fn(link);
           }
           results = [];
@@ -252,11 +252,9 @@ Menu = function () {
       calls = data[this.chapter][this.exercise].c;
       if (_.size(calls) > 0) {
         code = this.calls["draw()"];
-        if (code) {
-          if (run1(code) === true) {
-            run0(code);
-          }
-        }
+      }
+      if (run1(code) === true) {
+        run0(code);
       }
       myCodeMirror.focus();
       return compare();

@@ -57,7 +57,7 @@ class Menu
 			# links
 			if @exercise != ''
 				for text,link of data[@chapter][@exercise].e
-					b = @addCommand text, level, GREEN, BLACK
+					b = @addCommand text, level, DARKGREEN, WHITE
 					do (link) -> b.onclick = -> window.open(link, '_blank').focus()
 				for text,link of LINKS 
 					b = @addCommand text, 0, GREEN, BLACK
@@ -141,9 +141,8 @@ class Menu
 		calls = data[@chapter][@exercise].c		
 		if _.size(calls) > 0 
 			code = @calls["draw()"]
-			if code
-				if run1(code) == true
-					run0 code 
+		if run1(code) == true
+			run0 code 
 
 		myCodeMirror.focus()
 		compare()
