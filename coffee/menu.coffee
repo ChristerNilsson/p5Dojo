@@ -68,8 +68,13 @@ class Menu
 		addCell tr,b,100
 		@table.appendChild tr
 
+	lineCount : -> data[@chapter][@exercise].l
+
 	addTitle : (title,level,i,br) ->
 		if level == 2 then b = makeButton title, level, BLACK, YELLOW
+		else if @branch[level] == i 
+			if level==1 then b = makeButton "#{title} [#{@lineCount()}]", level, WHITE, BLACK
+			else b = makeButton title, level, WHITE, BLACK
 		else if @branch[level] == i then b = makeButton title, level, WHITE, BLACK
 		else b = makeButton title, level, BLACK, WHITE
 		b.branch = br
@@ -80,7 +85,7 @@ class Menu
 				if b.style.backgroundColor == 'rgb(255, 255, 255)'
 					@sel2click ""
 				else
-					@sel2click b.value					
+					@sel2click b.value				
 			if level == 2 then @sel3click b.value
 			if level in [0,1] then @branch = calcBranch @branch, b.branch
 			updateTables()

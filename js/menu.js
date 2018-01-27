@@ -143,6 +143,11 @@ Menu = function () {
       return this.table.appendChild(tr);
     }
   }, {
+    key: "lineCount",
+    value: function lineCount() {
+      return data[this.chapter][this.exercise].l;
+    }
+  }, {
     key: "addTitle",
     value: function addTitle(title, level, i, br) {
       var _this = this;
@@ -150,6 +155,12 @@ Menu = function () {
       var b;
       if (level === 2) {
         b = makeButton(title, level, BLACK, YELLOW);
+      } else if (this.branch[level] === i) {
+        if (level === 1) {
+          b = makeButton(title + " [" + this.lineCount() + "]", level, WHITE, BLACK);
+        } else {
+          b = makeButton(title, level, WHITE, BLACK);
+        }
       } else if (this.branch[level] === i) {
         b = makeButton(title, level, WHITE, BLACK);
       } else {
