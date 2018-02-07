@@ -77,8 +77,6 @@ ID_nyheter =
 """
 	a:"""
 """
-	e:
-		"Blandat" : "https://christernilsson.github.io/Lab"
 
 ID_Asserts =
 	v:'2017-04-29'

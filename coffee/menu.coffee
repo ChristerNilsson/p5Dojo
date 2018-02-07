@@ -1,11 +1,7 @@
 LINKS = 
 	"p5Dojo"       : "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo"
 	"p5Color"      : "https://christernilsson.github.io/p5Color"
-	"Nilsson"      : "https://github.com/ChristerNilsson/Nilsson/blob/master/README.md#nilsson"
-	"Underscore"   : "http://underscorejs.org/"
-	"p5"           : "https://p5js.org/reference"
-	"Coffeescript" : "http://coffeescript.org"
-	"Javascript"   : "https://www.w3schools.com/js"
+	"Links" 			 : "https://christernilsson.github.io/Lab"
 
 class Menu
 	constructor : (@items, @table=null, @branch=[]) ->
