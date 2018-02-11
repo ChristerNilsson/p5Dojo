@@ -3,6 +3,7 @@ ID_Y =
 	k:'sc sw point'
 	l:5
 	b: """
+# LÄXA: Hela uppgiften.
 sw 20
 sc 1,0,0   # strokeColor, streckfärg red,green,blue
 point 100,100

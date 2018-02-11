@@ -72,7 +72,7 @@ ID_GrowingCircles = {
   v: '2017-04-29',
   k: 'range fc circle for lerp',
   l: 6,
-  b: "",
+  b: "# LÄXA: Hela uppgiften",
   a: "for i in range 10\n	fc i/10.0,0,0\n	x = 10+20*i\n	y = 10\n	r = i\n	circle x,y,r"
 };
 

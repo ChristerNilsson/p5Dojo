@@ -6,8 +6,8 @@
     "coffee\\data\\Y.coffee"
   ],
   "names": [],
-  "mappings": ";;;AAAA,IAAA;;AAAA;AACC,KAAA,AAAE;AACF,KADA,AACE;AACF,KAFA,AAEE;AACF,KAHA,AAGG;AAMH,KATA,AASG;AAOH;AACC,qBAjBD,AAiBC,AAAkB;AAAlB;AAjBD",
+  "mappings": ";;;AAAA,IAAA;;AAAA;AACC,KAAA,AAAE;AACF,KADA,AACE;AACF,KAFA,AAEE;AACF,KAHA,AAGG;AAOH,KAVA,AAUG;AAOH;AACC,qBAlBD,AAkBC,AAAkB;AAAlB;AAlBD",
   "sourcesContent": [
-    "ID_Y =\n\tv:'2017-04-29'\n\tk:'sc sw point'\n\tl:5\n\tb: \"\"\"\nsw 20\nsc 1,0,0   # strokeColor, streckfärg red,green,blue\npoint 100,100\n\n\"\"\"\n\ta: \"\"\"\nsw 10\nsc 1,0,0\npoint 0,0\npoint 0,100\npoint 0,200\n\"\"\"\n\te :\n\t\tKoordinatsystem : \"http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem\"\n\n"
+    "ID_Y =\n\tv:'2017-04-29'\n\tk:'sc sw point'\n\tl:5\n\tb: \"\"\"\n# LÄXA: Hela uppgiften.\nsw 20\nsc 1,0,0   # strokeColor, streckfärg red,green,blue\npoint 100,100\n\n\"\"\"\n\ta: \"\"\"\nsw 10\nsc 1,0,0\npoint 0,0\npoint 0,100\npoint 0,200\n\"\"\"\n\te :\n\t\tKoordinatsystem : \"http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem\"\n\n"
   ]
 }

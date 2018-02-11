@@ -420,6 +420,7 @@ ID_ColorCross =
 	k:'bg sc lerp range for point'
 	l:11
 	b:"""
+# LÄXA: Sista tre sidorna.
 #    bM     blue
 #    BR     Black
 # bB BR RM  Red
@@ -800,6 +801,7 @@ ID_CornerPoints =
 	k:'sc sw point'
 	l:9
 	b: """
+# LÄXA: Grönt, gult och svart.
 sw
 sc
 point
@@ -823,7 +825,9 @@ ID_CornerPoints3 =
 	v:'2017-04-29'
 	k:'sc sw point'
 	l:17
-	b: ""
+	b: """
+# LÄXA: Grönt, gult, vitt
+"""
 	a: """
 sw 10
 sc 1,0,0
@@ -853,7 +857,9 @@ ID_CornerPoints7 =
 	v:'2017-04-29'
 	k:'sc sw point'
 	l:17
-	b: ""
+	b: """
+# LÄXA: Grönt
+"""
 	a: """
 sw 10
 sc 1,0,0
@@ -919,7 +925,9 @@ ID_Cross =
 	v:'2017-10-31'
 	k:'fc rect sc'
 	l:4
-	b:""
+	b:"""
+# LÄXA: Hela uppgiften
+"""
 	a:"""
 fc 1,0,0
 sc()

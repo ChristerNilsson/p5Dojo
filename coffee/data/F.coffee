@@ -2,7 +2,9 @@ ID_Five =
 	v:'2017-04-29'
 	k:'bg circle fc sc'
 	l:12
-	b: ""
+	b: """
+# LÄXA: Hela uppgiften utom vitt.
+"""
 	a: """
 bg 0.5
 sc()

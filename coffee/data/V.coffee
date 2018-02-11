@@ -14,6 +14,7 @@ ID_VerticalSquares =
 	k:'range rect for lerp'
 	l:3
 	b:"""
+# LÄXA: Hela uppgiften
 # Kopiera föregående exempel så här:
 # 1 Gå till HorizontalSquares
 # 2 Markera allt med ctrl-A

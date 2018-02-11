@@ -89,7 +89,7 @@ ID_ColorCross = {
   v: '2017-09-09',
   k: 'bg sc lerp range for point',
   l: 11,
-  b: "#    bM     blue\n#    BR     Black\n# bB BR RM  Red\n# CG GY YW  Magenta\n#    GY     Green\n#    CW     Cyan\n#    CW     White\n#    bM     Yellow",
+  b: "# LÄXA: Sista tre sidorna.\n#    bM     blue\n#    BR     Black\n# bB BR RM  Red\n# CG GY YW  Magenta\n#    GY     Green\n#    CW     Cyan\n#    CW     White\n#    bM     Yellow",
   a: "bg 0.5\nfor k in range 6\n	x = [3,1,3,5,3,3][k]\n	y = [0,2,2,2,4,6][k]\n	for i in range 50\n		r = [i,0,i,50,i,i][k]\n		for j in range 50\n			g = [0,j,j,j,50,50-j][k]\n			b = [50-j,50-i,0,i,j,50][k]\n			sc r/50,g/50,b/50\n			point 25*x+i,25*y+j",
   e: {
     'Color Cube': 'https://www.google.se/search?q=color+cube&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi7moKIxNDWAhXFC5oKHTn8B1MQ_AUICigB&biw=2133&bih=1187#imgrc=liFgIqI48junAM:'
@@ -167,7 +167,7 @@ ID_CornerPoints = {
   v: '2017-04-29',
   k: 'sc sw point',
   l: 9,
-  b: "sw\nsc\npoint\n",
+  b: "# LÄXA: Grönt, gult och svart.\nsw\nsc\npoint\n",
   a: "sw 10\nsc 1,0,0\npoint 0,0\nsc 0,1,0\npoint 200,0\nsc 1,1,0\npoint 0,200\nsc 0\npoint 200,200",
   e: {
     Koordinatsystem: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
@@ -178,7 +178,7 @@ ID_CornerPoints3 = {
   v: '2017-04-29',
   k: 'sc sw point',
   l: 17,
-  b: "",
+  b: "# LÄXA: Grönt, gult, vitt",
   a: "sw 10\nsc 1,0,0\npoint 20,0\npoint 20,20\npoint 0,20\n\nsc 0,1,0\npoint 180,0\npoint 180,20\npoint 200,20\n\nsc 1,1,0\npoint 20,180\npoint 20,200\npoint 0,180\n\nsc 1\npoint 180,180\npoint 180,200\npoint 200,180",
   e: {
     Koordinatsystem: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
@@ -189,7 +189,7 @@ ID_CornerPoints7 = {
   v: '2017-04-29',
   k: 'sc sw point',
   l: 17,
-  b: "",
+  b: "# LÄXA: Grönt",
   a: "sw 10\nsc 1,0,0\npoint 30,0\npoint 30,10\npoint 30,20\npoint 30,30\npoint 10,30\npoint 20,30\npoint 0,30\n\nsc 0,1,0\npoint 170,200\npoint 170,190\npoint 170,180\npoint 170,170\npoint 190,170\npoint 180,170\npoint 200,170",
   e: {
     Koordinatsystem: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
@@ -211,7 +211,7 @@ ID_Cross = {
   v: '2017-10-31',
   k: 'fc rect sc',
   l: 4,
-  b: "",
+  b: "# LÄXA: Hela uppgiften",
   a: "fc 1,0,0\nsc()\nrect 85,70, 70,10\nrect 115,40, 10,100"
 };
 //# sourceMappingURL=C.js.map

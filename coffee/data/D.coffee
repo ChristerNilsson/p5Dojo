@@ -59,7 +59,9 @@ ID_Dices =
 	v:'2017-09-09'
 	k:'sc sw point'
 	l:27
-	b : ""
+	b : """
+# LÄXA: 3, 4, 5 och 6
+"""
 	a: """
 # sw 1 ger ej ghosteffekt, men syns knappt
 sw 2

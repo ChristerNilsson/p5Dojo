@@ -37,7 +37,7 @@ ID_Dices = {
   v: '2017-09-09',
   k: 'sc sw point',
   l: 27,
-  b: "",
+  b: "# LÄXA: 3, 4, 5 och 6",
   a: "# sw 1 ger ej ghosteffekt, men syns knappt\nsw 2\npoint 10,10\nsc 1,0,0\npoint 185,5\npoint 195,15\nsc 0,1,0\npoint 85,65\npoint 90,70\npoint 95,75\nsc 1,1,0\npoint 165,105\npoint 165,115\npoint 175,105\npoint 175,115\nsc 1,0,1\npoint 45,125\npoint 45,135\npoint 50,130\npoint 55,125\npoint 55,135\nsc 0,1,1\npoint 105,165\npoint 105,170\npoint 105,175\npoint 115,165\npoint 115,170\npoint 115,175"
 };
 

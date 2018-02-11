@@ -15,7 +15,7 @@ ID_VerticalSquares = {
   v: '2017-10-05',
   k: 'range rect for lerp',
   l: 3,
-  b: "# Kopiera föregående exempel så här:\n# 1 Gå till HorizontalSquares\n# 2 Markera allt med ctrl-A\n# 3 Kopiera med ctrl-C\n# 4 Gå till VerticalSquares\n# 5 Klistra in med ctrl-V",
+  b: "# LÄXA: Hela uppgiften\n# Kopiera föregående exempel så här:\n# 1 Gå till HorizontalSquares\n# 2 Markera allt med ctrl-A\n# 3 Kopiera med ctrl-C\n# 4 Gå till VerticalSquares\n# 5 Klistra in med ctrl-V",
   a: "for i in range 10\n	y = 5+20*i\n	rect 5,y, 10,10"
 };
 //# sourceMappingURL=V.js.map

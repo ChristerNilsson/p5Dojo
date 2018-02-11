@@ -7,7 +7,7 @@ ID_Quad = {
   v: '2017-04-29',
   k: 'fc quad',
   l: 2,
-  b: "",
+  b: "# LÄXA: Hela uppgiften",
   a: "fc 1,1,0\nquad 150,100, 180,20, 40,20, 100,140"
 };
 

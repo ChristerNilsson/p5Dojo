@@ -193,7 +193,9 @@ ID_GrowingCircles =
 	v:'2017-04-29'
 	k:'range fc circle for lerp'
 	l:6
-	b:""
+	b:"""
+# LÄXA: Hela uppgiften
+"""
 	a:"""
 for i in range 10
 	fc i/10.0,0,0
