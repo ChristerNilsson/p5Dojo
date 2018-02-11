@@ -26,11 +26,11 @@ ID_GameOfLife = {
 };
 
 ID_Girlang = {
-  v: '2017-04-29',
+  v: '2018-02-11',
   k: 'sc bg sw range for line class',
-  l: 16,
-  b: "class Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n\ngirlang = (x,y,n,width,dx,dy) ->\n\ngirlang 0,0,9,5,20,20",
-  a: "class Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n		sc @r,@g,@b\n		line @x,@y,@x+dx,@y+dy\n		[@x,@y] = [@x+dx,@y+dy]\n\ngirlang = (x,y,n,width,dx,dy) ->\n	a = new Cartesius 1,0,0, x+dx/2,0\n	b = new Cartesius 1,1,0, x,y+dy/2\n\n	bg 0\n	sw width\n\n	for i in range n\n		a.go 0,dy\n		b.go dx,0\n		b.go 0,dy\n		a.go dx,0\n\ngirlang 0,0,9,5,20,20"
+  l: 15,
+  b: "class Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n\na = new Cartesius ...\nb = new Cartesius ...\nfor ...",
+  a: "class Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n		sc @r,@g,@b\n		line @x,@y,@x+dx,@y+dy\n		[@x,@y] = [@x+dx,@y+dy]\n\nbg 0\nr = new Cartesius 1,0,0, 10,0\ny = new Cartesius 1,1,0, 0,10\nsw 5\nfor i in range 9\n	r.go 0,20\n	y.go 20,0\n	y.go 0,20\n	r.go 20,0"
 };
 
 ID_GoldenStar = {

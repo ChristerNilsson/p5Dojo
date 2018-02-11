@@ -79,17 +79,17 @@ app = new GameOfLife "a"
 		Wikipedia : "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
 
 ID_Girlang =
-	v:'2017-04-29'
+	v:'2018-02-11'
 	k:'sc bg sw range for line class'
-	l:16
+	l:15
 	b:"""
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
 	go : (dx,dy) ->
 
-girlang = (x,y,n,width,dx,dy) ->
-
-girlang 0,0,9,5,20,20
+a = new Cartesius ...
+b = new Cartesius ...
+for ...
 """
 	a:"""
 class Cartesius
@@ -99,20 +99,15 @@ class Cartesius
 		line @x,@y,@x+dx,@y+dy
 		[@x,@y] = [@x+dx,@y+dy]
 
-girlang = (x,y,n,width,dx,dy) ->
-	a = new Cartesius 1,0,0, x+dx/2,0
-	b = new Cartesius 1,1,0, x,y+dy/2
-
-	bg 0
-	sw width
-
-	for i in range n
-		a.go 0,dy
-		b.go dx,0
-		b.go 0,dy
-		a.go dx,0
-
-girlang 0,0,9,5,20,20
+bg 0
+r = new Cartesius 1,0,0, 10,0
+y = new Cartesius 1,1,0, 0,10
+sw 5
+for i in range 9
+	r.go 0,20
+	y.go 20,0
+	y.go 0,20
+	r.go 20,0
 """
 
 ID_GoldenStar =

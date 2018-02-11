@@ -89,7 +89,7 @@ data = {
     Moire: ID_Moire,
     //Magnifier : ID_Magnifier
     RandomDice: ID_RandomDice,
-    BoardGame: ID_BoardGame,
+    //BoardGame : ID_BoardGame
     Girlang: ID_Girlang,
     Braid: ID_Braid,
     GUI: ID_GUI
