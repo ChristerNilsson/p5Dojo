@@ -97,7 +97,7 @@ ID_TwoArcs = {
   v: '2017-09-30',
   k: 'fc sc sw arc angleMode strokeCap',
   l: 8,
-  b: "",
+  b: "# Innan du går vidare med p5Dojo bör du gå\n# igenom lektionerna A0, A1 och A2 i p5Assert",
   a: "fc()\nsc 1,0,0\nsw 20\nangleMode DEGREES\narc 100,70, 100,100, -90,0\nsc 1,1,0\nstrokeCap SQUARE\narc 100,120, 100,100, 0, -90"
 };
 

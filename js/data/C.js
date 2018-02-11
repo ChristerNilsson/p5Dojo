@@ -200,7 +200,7 @@ ID_Counter = {
   v: '2017-10-22',
   k: 'bg fc sc text operators class',
   l: 12,
-  b: "# Innan du går vidare med p5Dojo bör du gå\n# igenom lektionerna A0, A1 och A2 i p5Assert\n\n# Klicka på reset() !\n\nclass Counter extends Application\n	reset : ->\n		super\n	draw  : ->\n	up    : ->\n	down  : ->\n	mousePressed : (mx,my) -> print \"mousePressed\",mx,my\napp = new Counter",
+  b: "# De blåa knapparna anropar metoder i de båda objekten\n# Klicka på reset() för att komma igång!\n\nclass Counter extends Application\n	reset : ->\n		super\n	draw  : ->\n	up    : ->\n	down  : ->\n	mousePressed : (mx,my) -> print \"mousePressed\",mx,my\napp = new Counter",
   a: "class Counter extends Application\n	reset : ->\n		super\n		@counter = 0\n	up : -> @counter += 1\n	down : -> @counter -= 1\n	draw : ->\n		bg 0.5\n		fc 1,1,0\n		sc()\n		textAlign CENTER,CENTER\n		textSize 100\n		text @counter,100,100\n	mousePressed : (mx,my) -> @counter += if my < 100 then 1 else -1\n\napp = new Counter \"a\"",
   c: {
     app: "reset()|up()|down()"

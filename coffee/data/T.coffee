@@ -425,7 +425,10 @@ ID_TwoArcs =
 	v:'2017-09-30'
 	k:'fc sc sw arc angleMode strokeCap'
 	l:8
-	b:""
+	b:"""
+# Innan du går vidare med p5Dojo bör du gå
+# igenom lektionerna A0, A1 och A2 i p5Assert
+"""
 	a:"""
 fc()
 sc 1,0,0

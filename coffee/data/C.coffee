@@ -882,10 +882,8 @@ ID_Counter =
 	k:'bg fc sc text operators class'
 	l:12
 	b:"""
-# Innan du går vidare med p5Dojo bör du gå
-# igenom lektionerna A0, A1 och A2 i p5Assert
-
-# Klicka på reset() !
+# De blåa knapparna anropar metoder i de båda objekten
+# Klicka på reset() för att komma igång!
 
 class Counter extends Application
 	reset : ->
