@@ -272,19 +272,18 @@ saveToKeyStorage = (b) ->
 editor_change = ->
 	reset()
 	if meny.exercise=='' then return
-	if _.size(meny.calls) == 0
+	if 0 == _.size meny.calls
 		code = ""
 	else # transpile, draw
 		code = meny.calls["draw()"]
 
 	dce = data[meny.chapter][meny.exercise]
 	if dce and dce.a and _.size(dce.a.c) > 0
-		if run1(code) == false # bör normalt vara true
-			return
-	res = run0(code)
+		if false == run1 code then return # bör normalt vara true
+	res = run0 code
 
-	if res # spara källkod EFTER exekvering
-		saveSourceCode()
+	#if res # spara källkod EFTER exekvering
+	saveSourceCode()
 	compare()
 
 saveSourceCode = ->	localStorage[meny.exercise + "/d"] = myCodeMirror.getValue()

@@ -414,23 +414,21 @@ editor_change = function editor_change() {
   if (meny.exercise === '') {
     return;
   }
-  if (_.size(meny.calls) === 0) {
+  if (0 === _.size(meny.calls)) {
     code = ""; // transpile, draw
   } else {
     code = meny.calls["draw()"];
   }
   dce = data[meny.chapter][meny.exercise];
   if (dce && dce.a && _.size(dce.a.c) > 0) {
-    if (run1(code) === false) {
+    if (false === run1(code)) {
       // bör normalt vara true
       return;
     }
   }
   res = run0(code);
-  if (res) {
-    // spara källkod EFTER exekvering
-    saveSourceCode();
-  }
+  //if res # spara källkod EFTER exekvering
+  saveSourceCode();
   return compare();
 };
 
