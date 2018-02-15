@@ -745,16 +745,3 @@ jakob = new Uggla "Jakob", 1968
 pluto.tala() # "voff!" skrivs ut.
 jakob.tala() # "simma lugnt!" skrivs ut.
 ```
-.....
-
-![biggrid](images/biggrid.jpg)
-![grid](images/grid.jpg)
-![biggrid](images/biggrid.jpg)
-![grid](images/grid.jpg)
-
-.....
-
-![biggrid](images/biggrid.jpg)
-![grid](images/grid.jpg)
-![biggrid](images/biggrid.jpg)
-![grid](images/grid.jpg)
