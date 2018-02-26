@@ -137,12 +137,13 @@ test -5,  map 0,10,20,5,15
 
 ID_MayFlower =
 	v:'2018-02-26'
-	k:'-> push pop translate rd scale circle fill'
+	k:'-> angleMode push pop translate rotate scale circle fill'
 	l:23
 	b : """
 
 flower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->
 	
+angleMode DEGREES
 flower '#F00','#FF0','#0F0','#000', 100,100, 50,25,35,20,5
 scale 0.25
 flower '#FF0','#F00','#FFF','#000', 100,100, 50,25,35,20,5
@@ -152,15 +153,15 @@ flower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->
 	push()
 	translate x,y
 	fill c1
-	rd 54
+	rotate 54
 	for i in range 5
 		circle r1,0,r2
-		rd 72
-	rd 36
+		rotate 72
+	rotate 36
 	fill c2
 	for i in range 5
 		circle r1,0,r2
-		rd 72
+		rotate 72
 	translate -x,-y
 	circle x,y,r3
 	fill c3
@@ -169,6 +170,7 @@ flower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->
 	circle x,y,r5
 	pop()
 	
+angleMode DEGREES
 flower '#F00','#FF0','#0F0','#000', 100,100, 50,25,35,20,5
 scale 0.25
 flower '#FF0','#F00','#FFF','#000', 100,100, 50,25,35,20,5

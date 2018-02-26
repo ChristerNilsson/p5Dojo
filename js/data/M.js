@@ -36,10 +36,10 @@ ID_Map = {
 
 ID_MayFlower = {
   v: '2018-02-26',
-  k: '-> push pop translate rd scale circle fill',
+  k: '-> angleMode push pop translate rotate scale circle fill',
   l: 23,
-  b: "\nflower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->\n	\nflower '#F00','#FF0','#0F0','#000', 100,100, 50,25,35,20,5\nscale 0.25\nflower '#FF0','#F00','#FFF','#000', 100,100, 50,25,35,20,5",
-  a: "flower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->\n	push()\n	translate x,y\n	fill c1\n	rd 54\n	for i in range 5\n		circle r1,0,r2\n		rd 72\n	rd 36\n	fill c2\n	for i in range 5\n		circle r1,0,r2\n		rd 72\n	translate -x,-y\n	circle x,y,r3\n	fill c3\n	circle x,y,r4\n	fill c4\n	circle x,y,r5\n	pop()\n	\nflower '#F00','#FF0','#0F0','#000', 100,100, 50,25,35,20,5\nscale 0.25\nflower '#FF0','#F00','#FFF','#000', 100,100, 50,25,35,20,5",
+  b: "\nflower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->\n	\nangleMode DEGREES\nflower '#F00','#FF0','#0F0','#000', 100,100, 50,25,35,20,5\nscale 0.25\nflower '#FF0','#F00','#FFF','#000', 100,100, 50,25,35,20,5",
+  a: "flower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->\n	push()\n	translate x,y\n	fill c1\n	rotate 54\n	for i in range 5\n		circle r1,0,r2\n		rotate 72\n	rotate 36\n	fill c2\n	for i in range 5\n		circle r1,0,r2\n		rotate 72\n	translate -x,-y\n	circle x,y,r3\n	fill c3\n	circle x,y,r4\n	fill c4\n	circle x,y,r5\n	pop()\n	\nangleMode DEGREES\nflower '#F00','#FF0','#0F0','#000', 100,100, 50,25,35,20,5\nscale 0.25\nflower '#FF0','#F00','#FFF','#000', 100,100, 50,25,35,20,5",
   e: {
     Majblomman: 'https://www.google.se/search?q=majblomman&dcr=0&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwiG2JGjo8TZAhWLhywKHWGeC6wQsAQITQ&biw=738&bih=409'
   }

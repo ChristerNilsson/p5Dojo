@@ -233,7 +233,7 @@ scale n         skalar upp eller ner
 ### [rotate](https://p5js.org/reference/#/p5/rotate)
 Roterar en vinkel medurs. _Rotate a given angle clockwise_
 ```coffeescript
-rotate vinkel
+rotate vinkel 
 ```
 
 ### [cos](https://p5js.org/reference/#/p5/cos)
