@@ -135,6 +135,47 @@ test -5,  map 0,10,20,5,15
 		Likformighet : 'https://www.matteboken.se/lektioner/matte-2/geometri/likformighet-och-kongruens'
 		Ekvationssystem : 'https://www.matteboken.se/lektioner/matte-2/linjara-funktioner-och-ekvationssystem/linjara-ekvationssystem-grafisk-losning'
 
+ID_MayFlower =
+	v:'2018-02-26'
+	k:'-> push pop translate rd scale circle fill'
+	l:23
+	b : """
+
+flower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->
+	
+flower '#F00','#FF0','#0F0','#000', 100,100, 50,25,35,20,5
+scale 0.25
+flower '#FF0','#F00','#FFF','#000', 100,100, 50,25,35,20,5
+"""
+	a:"""
+flower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->
+	push()
+	translate x,y
+	fill c1
+	rd 54
+	for i in range 5
+		circle r1,0,r2
+		rd 72
+	rd 36
+	fill c2
+	for i in range 5
+		circle r1,0,r2
+		rd 72
+	translate -x,-y
+	circle x,y,r3
+	fill c3
+	circle x,y,r4
+	fill c4
+	circle x,y,r5
+	pop()
+	
+flower '#F00','#FF0','#0F0','#000', 100,100, 50,25,35,20,5
+scale 0.25
+flower '#FF0','#F00','#FFF','#000', 100,100, 50,25,35,20,5
+"""
+	e:
+		Majblomman : 'https://www.google.se/search?q=majblomman&dcr=0&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwiG2JGjo8TZAhWLhywKHWGeC6wQsAQITQ&biw=738&bih=409'
+
 ID_MidPoints =
 	v:'2017-04-29'
 	k:'sc sw point'

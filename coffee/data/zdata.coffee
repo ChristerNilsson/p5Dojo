@@ -165,6 +165,7 @@ data =
 		SnowWhiteAndThe7Lerps : ID_SnowWhiteAndThe7Lerps
 		CoffeescriptClock : ID_CoffeescriptClock
 		Roulette : ID_Roulette
+		MayFlower : ID_MayFlower 
 		IndianSun : ID_IndianSun
 		Polygon : ID_Polygon
 		GoldenStar : ID_GoldenStar
