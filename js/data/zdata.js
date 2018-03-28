@@ -68,6 +68,7 @@ data = {
     ChessRow: ID_ChessRow,
     ChessBoard: ID_ChessBoard,
     GalaxiesColliding: ID_GalaxiesColliding,
+    ColorSide: ID_ColorSide,
     ColorCross: ID_ColorCross
   },
   "L7: function": {

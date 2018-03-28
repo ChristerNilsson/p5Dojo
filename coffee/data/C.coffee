@@ -586,6 +586,23 @@ app = new ColorPair "a"
 	e:
 		ColorPair : "https://christernilsson.github.io/ColorPair"
 
+ID_ColorSide =
+	v:'2018-03-28'
+	k:'sc lerp range for point'
+	l:6
+	b:"""
+"""
+	a:"""
+N = 200
+for i in range N
+	for j in range N
+		r = lerp 0,1/N,i
+		g = lerp 0,1/N,j
+		b = 0
+		sc r,g,b
+		point i,j
+"""
+
 ID_Complex =
 	v:'2017-04-29'
 	k:'bg fc sc range operators [] line circle text for if return int {} dist _.isEqual constrain class'
