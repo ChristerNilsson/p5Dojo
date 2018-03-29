@@ -125,11 +125,11 @@ ID_ColorPair = {
 };
 
 ID_ColorSide = {
-  v: '2018-03-28',
+  v: '2018-03-29',
   k: 'sc lerp range for point',
-  l: 6,
-  b: "",
-  a: "N = 200\nfor i in range N\n	for j in range N\n		r = lerp 0,1/N,i\n		g = lerp 0,1/N,j\n		b = 0\n		sc r,g,b\n		point i,j"
+  l: 10,
+  b: "n = 20\nfor i in range n\n	for j in range n\n		r =\n		g =\n		b =\n		sc r,g,b\n		x =\n		y =\n		point x,y",
+  a: "n = 200\nfor i in range n\n	for j in range n\n		r = i/n\n		g = j/n\n		b = 0\n		sc r,g,b\n		x = i\n		y = j\n		point x,y"
 };
 
 ID_Complex = {

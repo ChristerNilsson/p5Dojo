@@ -587,20 +587,32 @@ app = new ColorPair "a"
 		ColorPair : "https://christernilsson.github.io/ColorPair"
 
 ID_ColorSide =
-	v:'2018-03-28'
+	v:'2018-03-29'
 	k:'sc lerp range for point'
-	l:6
+	l:10
 	b:"""
+n = 20
+for i in range n
+	for j in range n
+		r =
+		g =
+		b =
+		sc r,g,b
+		x =
+		y =
+		point x,y
 """
 	a:"""
-N = 200
-for i in range N
-	for j in range N
-		r = lerp 0,1/N,i
-		g = lerp 0,1/N,j
+n = 200
+for i in range n
+	for j in range n
+		r = i/n
+		g = j/n
 		b = 0
 		sc r,g,b
-		point i,j
+		x = i
+		y = j
+		point x,y
 """
 
 ID_Complex =
