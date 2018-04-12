@@ -48,10 +48,10 @@ ID_Tetris = {
 };
 
 ID_TextA = {
-  v: '2017-04-29',
+  v: '2018-04-12',
   k: 'fc sc text textSize',
   l: 4,
-  b: "",
+  b: "# EXEMPEL\n#\n# textSize pixlar  # höjd\n# text string,x,y  # ritar ut string\n\nfc 1,1,0\nsc()\ntextSize 32\ntextAlign LEFT,BASELINE     # default\ntext \"Coffeescript\",0,100",
   a: "fc 1,1,0\nsc()\ntextSize 32\ntext 'Coffeescript',0,100"
 };
 
@@ -86,10 +86,10 @@ ID_TowerOfHanoi = {
 };
 
 ID_Triangle = {
-  v: '2017-04-29',
+  v: '2018-04-12',
   k: 'fc triangle',
   l: 2,
-  b: "",
+  b: "triangle x1,y1, x2,y2, x3,y3",
   a: "fc 1\ntriangle 20,40, 160,100, 100,140"
 };
 

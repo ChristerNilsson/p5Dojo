@@ -90,10 +90,10 @@ ID_SingaporeMultPolynom = {
 };
 
 ID_Skislope = {
-  v: '2017-10-31',
+  v: '2018-04-12',
   k: 'bg sc range for lerp line',
   l: 5,
-  b: "",
+  b: "# EXEMPEL\n\nsc 1,0,0\nline  0,0,200, 0\nline 10,0,200,10\n#    x1       y2  lerpa?  \n\nbg 0\nfor i in range 21\n	x1 = lerp 0,10,i\n	y1 = 0\n	x2 = 200\n	y2 = lerp 0,10,i\n	line x1,y1,x2,y2",
   a: "bg 0\nsc 1,0,0\nfor i in range 21\n	line i*10,0, 200,i*10"
 };
 
@@ -192,10 +192,10 @@ ID_Stopwatch = {
 };
 
 ID_Sunshine = {
-  v: '2017-04-29',
+  v: '2018-04-12',
   k: 'bg sc range for lerp line',
   l: 9,
-  b: "",
+  b: "# EXEMPEL\n\nsc 1,1,0\n\nline  0,0,200,200\nline 20,0,180,200\n#    x1    x2       lerpa?\n\nline 0,200,200, 0\nline 0,180,200,20\n#       y1     y2   lerpa? \n\nfor i in range 10\n	\n	x1 = lerp 0,20,i\n	y1 = 0\n	x2 = lerp 200,180,i\n	y2 = 200\n	line x1,y1,x2,y2\n\n	x1 = 0\n	y1 = lerp 200,180,i\n	x2 = 200\n	y2 = lerp 0,20,i\n	line x1,y1,x2,y2",
   a: "bg 0\nsc 1,1,0\nfor i in range 10\n	x1 = lerp 0,20,i\n	x2 = lerp 200,180,i\n	line x1,0, x2,200\n	y1 = lerp 20,40,i\n	y2 = lerp 180,160,i\n	line 0,y1, 200,y2"
 };
 

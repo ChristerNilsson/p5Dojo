@@ -56,11 +56,23 @@ for i in range 10
 """
 
 ID_Dices =
-	v:'2017-09-09'
+	v:'2018-04-12'
 	k:'sc sw point'
 	l:27
 	b : """
-# LÄXA: 3, 4, 5 och 6
+sw 2
+
+sc 1        # Etta
+point 10,10
+
+sc 1,0,0    # Tvåa
+point 190-5,10-5
+point 190+5,10+5
+
+sc
+point
+point
+point
 """
 	a: """
 # sw 1 ger ej ghosteffekt, men syns knappt
@@ -94,13 +106,23 @@ point 115,175
 """
 
 ID_DoubleForLoop =
-	v:'2017-10-05'
+	v:'2018-04-12'
 	k:'range rect for lerp'
 	l:5
 	b:"""
-for i in range 0
-	for j in range 0
-		x = lerp
+# EXEMPEL
+
+rect  5, 5,10,10
+rect 25,25,10,10
+#     Y  Y  N  N   lerpa?
+
+for i in range 10
+	x = lerp 5,25,i
+	for j in range 10
+		y = lerp 5,25,j
+		w = 10
+		h = 10
+		rect x,y,w,h
 """
 	a:"""
 for i in range 10

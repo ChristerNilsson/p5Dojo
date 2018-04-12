@@ -4,10 +4,10 @@
 var ID_X;
 
 ID_X = {
-  v: '2017-10-05',
+  v: '2018-04-12',
   k: 'sw point',
   l: 4,
-  b: "# Klicka på länken Koordinatsystem nedan till vänster för hjälp\nsw 10          # strokeWeight, strecktjocklek i pixlar\npoint  20, 40  # ritar en punkt med koordinaten x=20, y=40\npoint 100,200  # ritar en punkt med koordinaten x=100,y=200\n",
+  b: "# EXEMPEL\n#\n# Klicka \"Koordinatsystem\" till vänster för hjälp\n# Öva dig på koordinatsystem genom att klicka \"Coordinate Trainer 1\" till vänster\n# Öva dig på koordinatsystem genom att klicka \"Coordinate Trainer 2\" till vänster\n#\n# sw pixlar  # strokeWeight, strecktjocklek i pixlar\n# point x,y  # ritar en punkt\n\nsw 20          \npoint 0, 0      \npoint 100,0 \npoint 200,0",
   a: "sw 20\npoint 0,0\npoint 100,0\npoint 200,0",
   e: {
     "Coordinate Trainer 1": "https://christernilsson.github.io/Lab/2017/131-CoordTrainer/index.html",

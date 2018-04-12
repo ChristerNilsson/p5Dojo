@@ -1,8 +1,9 @@
 ID_Background1 =
-	v:'2018-01-25'
+	v:'2018-04-12'
 	k:'bg'
 	l:1
 	b: """
+# EXEMPEL
 # Första bilden ska du efterlikna.
 # Andra bilden skapas av din kod.
 # Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.
@@ -13,7 +14,7 @@ ID_Background1 =
 
 # Öppna nästa övning genom att klicka på den svarta knappen Background2.
 # Stäng dock först denna övning genom att klicka på den vita knappen Background1.
-
+bg 1
 """
 	a: "bg 1"
 

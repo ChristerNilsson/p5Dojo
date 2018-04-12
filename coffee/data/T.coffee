@@ -302,10 +302,21 @@ app = new Tetris "a"
 		"Meth Meth Method" : "https://www.youtube.com/watch?v=H2aW5V46khA"
 
 ID_TextA =
-	v:'2017-04-29'
+	v:'2018-04-12'
 	k:'fc sc text textSize'
 	l:4
-	b:""
+	b:"""
+# EXEMPEL
+#
+# textSize pixlar  # höjd
+# text string,x,y  # ritar ut string
+
+fc 1,1,0
+sc()
+textSize 32
+textAlign LEFT,BASELINE     # default
+text "Coffeescript",0,100
+"""	
 	a:"""
 fc 1,1,0
 sc()
@@ -412,10 +423,12 @@ app = new TowerOfHanoi "a"
 		Wikipedia : "https://en.wikipedia.org/wiki/Tower_of_Hanoi"
 
 ID_Triangle =
-	v:'2017-04-29'
+	v:'2018-04-12'
 	k:'fc triangle'
 	l:2
-	b:""
+	b:"""
+triangle x1,y1, x2,y2, x3,y3
+"""
 	a:"""
 fc 1
 triangle 20,40, 160,100, 100,140

@@ -83,12 +83,14 @@ Application = function () {
     key: 'draw',
     value: function draw() {}
   }, {
+    key: 'mousePressed',
+    value: function mousePressed(mx, my) {}
+  }, {
     key: 'mark',
     value: function mark() {
       var obj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this;
 
       var i, item, len, ref, results, value;
-      //if _.isNull(obj) then return
       if (_.isArray(obj)) {
         return function () {
           var i, len, results;
@@ -119,10 +121,6 @@ Application = function () {
         return results;
       }
     }
-  }, {
-    key: 'mousePressed',
-    value: function mousePressed(mx, my) {} // print "mousePressed", mx, mx
-
   }, {
     key: 'store',
     value: function store() {

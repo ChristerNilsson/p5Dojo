@@ -45,18 +45,18 @@ ID_GoldenStar = {
 };
 
 ID_GreenEllipse = {
-  v: '2017-04-29',
+  v: '2018-04-12',
   k: 'fc ellipse',
   l: 2,
-  b: "",
+  b: "# ellipse x,y,w,h\n\nfc \nellipse ",
   a: "fc 0,1,0\nellipse 120,60, 60,40"
 };
 
 ID_GreenRect = {
-  v: '2017-04-29',
+  v: '2018-04-12',
   k: 'fc rect',
   l: 2,
-  b: "",
+  b: "# rect x,y,w,h\n\nfc\nrect",
   a: "fc 0,1,0\nrect 60,80, 40,50"
 };
 
@@ -85,10 +85,10 @@ ID_GrowingRedSquares = {
 };
 
 ID_GrowingSquares = {
-  v: '2017-04-29',
+  v: '2018-04-12',
   k: 'range rect rectMode for lerp',
   l: 7,
-  b: "",
+  b: "rectMode CENTER",
   a: "rectMode CENTER\nfor i in range 10\n	x = 10+20*i\n	y = 10\n	w = 2*i\n	h = 2*i\n	rect x,y, w,h"
 };
 

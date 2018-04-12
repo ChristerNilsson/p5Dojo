@@ -581,10 +581,25 @@ app = new SingaporeMultPolynom "a"
 		polynom : "https://www.youtube.com/watch?v=fGy9UMSm-_M"
 
 ID_Skislope =
-	v:'2017-10-31'
+	v:'2018-04-12'
 	k:'bg sc range for lerp line'
 	l:5
-	b: ""
+	b: """
+# EXEMPEL
+
+sc 1,0,0
+line  0,0,200, 0
+line 10,0,200,10
+#    x1       y2  lerpa?  
+
+bg 0
+for i in range 21
+	x1 = lerp 0,10,i
+	y1 = 0
+	x2 = 200
+	y2 = lerp 0,10,i
+	line x1,y1,x2,y2
+"""
 	a: """
 bg 0
 sc 1,0,0
@@ -1049,10 +1064,36 @@ app = new Stopwatch "a"
 		app: "reset()"
 
 ID_Sunshine =
-	v:'2017-04-29'
+	v:'2018-04-12'
 	k:'bg sc range for lerp line'
 	l:9
-	b: ""
+	b: """
+# EXEMPEL
+
+sc 1,1,0
+
+line  0,0,200,200
+line 20,0,180,200
+#    x1    x2       lerpa?
+
+line 0,200,200, 0
+line 0,180,200,20
+#       y1     y2   lerpa? 
+
+for i in range 10
+	
+	x1 = lerp 0,20,i
+	y1 = 0
+	x2 = lerp 200,180,i
+	y2 = 200
+	line x1,y1,x2,y2
+
+	x1 = 0
+	y1 = lerp 200,180,i
+	x2 = 200
+	y2 = lerp 0,20,i
+	line x1,y1,x2,y2
+"""
 	a: """
 bg 0
 sc 1,1,0

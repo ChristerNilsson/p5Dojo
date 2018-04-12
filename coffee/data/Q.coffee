@@ -1,9 +1,9 @@
 ID_Quad =
-	v:'2017-04-29'
+	v:'2018-04-12'
 	k:'fc quad'
 	l:2
 	b:"""
-# LÄXA: Hela uppgiften
+quad x1,y1, x2,y2, x3,y3, x4,y4
 """
 	a:"""
 fc 1,1,0

@@ -4,10 +4,10 @@
 var ID_WhiteCircle, ID_WhiteEmptyCircle;
 
 ID_WhiteCircle = {
-  v: '2017-04-29',
+  v: '2018-04-12',
   k: 'circle fc',
   l: 2,
-  b: "",
+  b: "# EXEMPEL\n\n# fc r,g,b      # fyllnadsfärg\n# circle x,y,r  # cirkel med radien r\n\nfc 1\ncircle 60,80,30",
   a: "fc 1\ncircle 60,80,30"
 };
 

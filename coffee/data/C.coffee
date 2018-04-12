@@ -290,10 +290,29 @@ app = new ChessMany "a"
 		app : "reset()"
 
 ID_ChessRow =
-	v:'2017-04-29'
+	v:'2018-04-12'
 	k:'bg fc range operators for lerp rect'
 	l:5
-	b:""
+	b:"""
+# EXEMPEL
+
+fc 0
+rect 20,20,20,20
+fc 1
+rect 40,20,20,20
+#     x           lerpa? 
+
+for i in range 8
+	if i % 2 == 0
+		fc 0
+	else
+		fc 1
+	x = lerp 20,40,i
+	y = 20
+	w = 20
+	h = 20
+	rect x,y,w,h
+"""
 	a:"""
 bg 0.5
 for i in range 8
@@ -587,25 +606,46 @@ app = new ColorPair "a"
 		ColorPair : "https://christernilsson.github.io/ColorPair"
 
 ID_ColorSide =
-	v:'2018-03-29'
+	v:'2018-04-12'
 	k:'sc lerp range for point'
 	l:10
 	b:"""
-n = 20
-for i in range n
-	for j in range n
-		r =
-		g =
-		b =
+# EXEMPEL
+
+# BR (Black, Red)
+# GY (Green, Yellow)
+
+n =  20 # utveckling: snabb
+n = 200 # produktion: långsam
+
+steg = 1/n
+size = 200/n
+
+sc    0,    0, 0
+point 0,0
+
+sc steg, steg, 0
+point 1,1
+
+#     r     g  lerpa?
+#     x,y      lerpa?
+
+sw size
+
+for i in range n+1
+	for j in range n+1
+		r = lerp 0,steg,i
+		g = lerp 0,steg,j
+		b = 0
 		sc r,g,b
-		x =
-		y =
+		x = lerp 0,size,i
+		y = lerp 0,size,j
 		point x,y
 """
 	a:"""
 n = 200
-for i in range n
-	for j in range n
+for i in range n+1
+	for j in range n+1
 		r = i/n
 		g = j/n
 		b = 0
@@ -826,15 +866,27 @@ app = new Coordinator "a"
 		app : "reset()"
 
 ID_CornerPoints =
-	v:'2017-04-29'
+	v:'2018-04-12'
 	k:'sc sw point'
 	l:9
 	b: """
-# LÄXA: Grönt, gult och svart.
-sw
-sc
-point
+# EXEMPEL
+# 
+# sc r,g,b  # Väljer färg för punkter och streck
 
+sw 10
+
+sc 1,0,0
+point 0,0
+
+sc 0,1,0
+point 200,0
+
+sc 1,1,0
+point 0,200
+
+sc 0
+point 200,200
 """
 	a: """
 sw 10
@@ -913,21 +965,44 @@ point 200,170
 		Koordinatsystem : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID_Counter =
-	v:'2017-10-22'
+	v:'2018-04-12'
 	k:'bg fc sc text operators class'
 	l:12
 	b:"""
-# De blåa knapparna anropar metoder i de båda objekten
-# Klicka på reset() för att komma igång!
+# EXEMPEL
 
-class Counter extends Application
-	reset : ->
-		super
-	draw  : ->
-	up    : ->
-	down  : ->
-	mousePressed : (mx,my) -> print "mousePressed",mx,my
-app = new Counter
+# Klicka på reset() för att komma igång!
+# De blåa knapparna anropar metoder i de båda objekten
+
+#### markerar de rader du utgår ifrån. Dessa bör ej ändras.
+
+class Counter extends Application ####
+	
+	reset : ->                      ####
+		super                         ####
+		@counter = 0               
+		
+	draw  : ->                      ####
+		bg 0.5                     
+		fc 1,1,0                   
+		sc()                       
+		textSize 100               
+		textAlign CENTER,CENTER    
+		text @counter,100,100      
+		
+	up    : ->                      ####
+		@counter++        
+		
+	down  : ->                      ####
+		@counter--        
+		
+	mousePressed : (mx,my) ->       ####
+		if my < 100                
+			@up()                    
+		else                       
+			@down()                  
+			
+app = new Counter                 ####
 """
 	a:"""
 class Counter extends Application

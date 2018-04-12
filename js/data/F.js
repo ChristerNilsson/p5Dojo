@@ -7,7 +7,7 @@ ID_Five = {
   v: '2017-04-29',
   k: 'bg circle fc sc',
   l: 12,
-  b: "# LÄXA: Hela uppgiften utom vitt.",
+  b: "",
   a: "bg 0.5\nsc()\nfc 1\ncircle 100,100,20\nfc 1,0,0\ncircle 40,40,20\nfc 1,1,0\ncircle 40,160,20\nfc 0,1,0\ncircle 160,160,20\nfc 0,0,1\ncircle 160,40,20"
 };
 

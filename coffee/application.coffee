@@ -31,16 +31,15 @@ class Application
 		return obj # catches Number, String, Boolean, null etc
 
 	draw : ->
+	mousePressed : (mx,my) -> 
 
 	mark : (obj=@) ->
-		#if _.isNull(obj) then return
 		if _.isArray(obj) then return	(@mark(item) for item in obj) # array
 		if _.isObject(obj)
 			obj['_type'] = obj.constructor.name if obj.constructor.name != 'Object'
 			for value in _.values obj # annars kommer metoderna med.
 				if value? then @mark value
 
-	mousePressed : (mx,my) -> # print "mousePressed", mx, mx
 
 	store : ->
 		_name = meny.exercise + "/" + @_name

@@ -3,7 +3,6 @@ ID_Five =
 	k:'bg circle fc sc'
 	l:12
 	b: """
-# LÄXA: Hela uppgiften utom vitt.
 """
 	a: """
 bg 0.5
