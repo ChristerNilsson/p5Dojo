@@ -50,10 +50,7 @@ ID_MidPoints = {
   k: 'sc sw point',
   l: 11,
   b: "# LÄXA: Gult, svart, vitt",
-  a: "sw 10\nsc 1,0,0\npoint 100,100\nsc 0,1,0\npoint 100,0\nsc 1,1,0\npoint 0,100\nsc 0\npoint 200,100\nsc 1\npoint 100,200",
-  e: {
-    Koordinatsystem: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
-  }
+  a: "sw 10\nsc 1,0,0\npoint 100,100\nsc 0,1,0\npoint 100,0\nsc 1,1,0\npoint 0,100\nsc 0\npoint 200,100\nsc 1\npoint 100,200"
 };
 
 ID_MineSweeper = {

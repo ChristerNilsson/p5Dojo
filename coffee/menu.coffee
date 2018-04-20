@@ -22,6 +22,11 @@ class Menu
 				children = items[key]
 				@traverse children, level+1, br.concat i
 
+		if @branch.length == 0
+			for text,link of LINKS 
+				b = @addCommand text, 0, DARKGREEN, WHITE
+				do (link) -> b.onclick = -> window.open(link, '_blank').focus()				
+
 		if level == 1 # exercise
 			for key,i in _.keys items
 				if i == @branch[level] or @branch.length == level
@@ -55,9 +60,6 @@ class Menu
 				for text,link of data[@chapter][@exercise].e
 					b = @addCommand text, level, GREEN, BLACK
 					do (link) -> b.onclick = -> window.open(link, '_blank').focus()
-				for text,link of LINKS 
-					b = @addCommand text, 0, DARKGREEN, WHITE
-					do (link) -> b.onclick = -> window.open(link, '_blank').focus()
 
 	handleRow : (b) ->
 		tr = document.createElement "tr"
@@ -69,19 +71,20 @@ class Menu
 	addTitle : (title,level,i,br) ->
 		if level == 2 then b = makeButton title, level, BLACK, YELLOW
 		else if @branch[level] == i 
-			if level==1 then b = makeButton "#{title} [#{@lineCount()}]", level, WHITE, BLACK
-			else b = makeButton title, level, WHITE, BLACK
-		else if @branch[level] == i then b = makeButton title, level, WHITE, BLACK
-		else b = makeButton title, level, BLACK, WHITE
+			if level==1 then b = makeButton '- ' + "#{title} [#{@lineCount()}]", level, WHITE, BLACK
+			else b = makeButton '- ' + title, level, WHITE, BLACK
+		else if @branch[level] == i then b = 'z ' + makeButton title, level, WHITE, BLACK
+		else b = makeButton '+ ' + title, level, BLACK, WHITE
 		b.branch = br
 
 		b.onclick = => 
-			if level == 0 then @sel1click b.value
+			value = b.value[2..]
+			if level == 0 then @sel1click value
 			if level == 1 
 				if b.style.backgroundColor == 'rgb(255, 255, 255)'
 					@sel2click ""
 				else
-					@sel2click b.value				
+					@sel2click value				
 			if level == 2 then @sel3click b.value
 			if level in [0,1] then @branch = calcBranch @branch, b.branch
 			updateTables()
@@ -93,8 +96,7 @@ class Menu
 		b = makeButton title, level, color1, color2
 		code = @calls[title]
 		b.onclick = -> 
-			if run1(code) == true
-				run0 code
+			if run1(code) == true then run0 code
 			compare()
 		@handleRow b
 		b

@@ -17,6 +17,4 @@ point 0,0
 point 0,100
 point 0,200
 """
-	e :
-		Koordinatsystem : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 

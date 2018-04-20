@@ -198,8 +198,6 @@ point 200,100
 sc 1
 point 100,200
 """
-	e :
-		Koordinatsystem : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
 
 ID_MineSweeper =
 	v:'2017-05-19'

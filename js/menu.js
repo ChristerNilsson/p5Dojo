@@ -62,6 +62,18 @@ Menu = function () {
           this.traverse(children, level + 1, br.concat(i));
         }
       }
+      if (this.branch.length === 0) {
+        fn = function fn(link) {
+          return b.onclick = function () {
+            return window.open(link, '_blank').focus();
+          };
+        };
+        for (text in LINKS) {
+          link = LINKS[text];
+          b = this.addCommand(text, 0, DARKGREEN, WHITE);
+          fn(link);
+        }
+      }
       if (level === 1) {
         // exercise
         ref1 = _.keys(items);
@@ -106,20 +118,10 @@ Menu = function () {
         // links
         if (this.exercise !== '') {
           ref2 = data[this.chapter][this.exercise].e;
-          fn = function fn(link) {
-            return b.onclick = function () {
-              return window.open(link, '_blank').focus();
-            };
-          };
+          results = [];
           for (text in ref2) {
             link = ref2[text];
             b = this.addCommand(text, level, GREEN, BLACK);
-            fn(link);
-          }
-          results = [];
-          for (text in LINKS) {
-            link = LINKS[text];
-            b = this.addCommand(text, 0, DARKGREEN, WHITE);
             results.push(function (link) {
               return b.onclick = function () {
                 return window.open(link, '_blank').focus();
@@ -153,25 +155,27 @@ Menu = function () {
         b = makeButton(title, level, BLACK, YELLOW);
       } else if (this.branch[level] === i) {
         if (level === 1) {
-          b = makeButton(title + " [" + this.lineCount() + "]", level, WHITE, BLACK);
+          b = makeButton('- ' + (title + " [" + this.lineCount() + "]"), level, WHITE, BLACK);
         } else {
-          b = makeButton(title, level, WHITE, BLACK);
+          b = makeButton('- ' + title, level, WHITE, BLACK);
         }
       } else if (this.branch[level] === i) {
-        b = makeButton(title, level, WHITE, BLACK);
+        b = 'z ' + makeButton(title, level, WHITE, BLACK);
       } else {
-        b = makeButton(title, level, BLACK, WHITE);
+        b = makeButton('+ ' + title, level, BLACK, WHITE);
       }
       b.branch = br;
       b.onclick = function () {
+        var value;
+        value = b.value.slice(2);
         if (level === 0) {
-          _this.sel1click(b.value);
+          _this.sel1click(value);
         }
         if (level === 1) {
           if (b.style.backgroundColor === 'rgb(255, 255, 255)') {
             _this.sel2click("");
           } else {
-            _this.sel2click(b.value);
+            _this.sel2click(value);
           }
         }
         if (level === 2) {

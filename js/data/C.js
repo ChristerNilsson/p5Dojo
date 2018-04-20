@@ -176,10 +176,7 @@ ID_CornerPoints = {
   k: 'sc sw point',
   l: 9,
   b: "# EXEMPEL\n# \n# sc r,g,b  # Väljer färg för punkter och streck\n\nsw 10\n\nsc 1,0,0\npoint 0,0\n\nsc 0,1,0\npoint 200,0\n\nsc 1,1,0\npoint 0,200\n\nsc 0\npoint 200,200",
-  a: "sw 10\nsc 1,0,0\npoint 0,0\nsc 0,1,0\npoint 200,0\nsc 1,1,0\npoint 0,200\nsc 0\npoint 200,200",
-  e: {
-    Koordinatsystem: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
-  }
+  a: "sw 10\nsc 1,0,0\npoint 0,0\nsc 0,1,0\npoint 200,0\nsc 1,1,0\npoint 0,200\nsc 0\npoint 200,200"
 };
 
 ID_CornerPoints3 = {
@@ -187,10 +184,7 @@ ID_CornerPoints3 = {
   k: 'sc sw point',
   l: 17,
   b: "# LÄXA: Grönt, gult, vitt",
-  a: "sw 10\nsc 1,0,0\npoint 20,0\npoint 20,20\npoint 0,20\n\nsc 0,1,0\npoint 180,0\npoint 180,20\npoint 200,20\n\nsc 1,1,0\npoint 20,180\npoint 20,200\npoint 0,180\n\nsc 1\npoint 180,180\npoint 180,200\npoint 200,180",
-  e: {
-    Koordinatsystem: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
-  }
+  a: "sw 10\nsc 1,0,0\npoint 20,0\npoint 20,20\npoint 0,20\n\nsc 0,1,0\npoint 180,0\npoint 180,20\npoint 200,20\n\nsc 1,1,0\npoint 20,180\npoint 20,200\npoint 0,180\n\nsc 1\npoint 180,180\npoint 180,200\npoint 200,180"
 };
 
 ID_CornerPoints7 = {
@@ -198,10 +192,7 @@ ID_CornerPoints7 = {
   k: 'sc sw point',
   l: 17,
   b: "# LÄXA: Grönt",
-  a: "sw 10\nsc 1,0,0\npoint 30,0\npoint 30,10\npoint 30,20\npoint 30,30\npoint 10,30\npoint 20,30\npoint 0,30\n\nsc 0,1,0\npoint 170,200\npoint 170,190\npoint 170,180\npoint 170,170\npoint 190,170\npoint 180,170\npoint 200,170",
-  e: {
-    Koordinatsystem: "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
-  }
+  a: "sw 10\nsc 1,0,0\npoint 30,0\npoint 30,10\npoint 30,20\npoint 30,30\npoint 10,30\npoint 20,30\npoint 0,30\n\nsc 0,1,0\npoint 170,200\npoint 170,190\npoint 170,180\npoint 170,170\npoint 190,170\npoint 180,170\npoint 200,170"
 };
 
 ID_Counter = {
