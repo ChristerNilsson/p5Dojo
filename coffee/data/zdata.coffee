@@ -160,6 +160,7 @@ data =
 		C2048 : ID_2048
 		SingaporeMultPolynom : ID_SingaporeMultPolynom
 		Sokoban : ID_Sokoban
+		Mandelbrot : ID_Mandelbrot
 
 	"LF: sin cos translate rotate" :
 		TextC : ID_TextC

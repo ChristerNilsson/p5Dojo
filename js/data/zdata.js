@@ -163,7 +163,8 @@ data = {
     BeeHaiku3D: ID_BeeHaiku3D,
     C2048: ID_2048,
     SingaporeMultPolynom: ID_SingaporeMultPolynom,
-    Sokoban: ID_Sokoban
+    Sokoban: ID_Sokoban,
+    Mandelbrot: ID_Mandelbrot
   },
   "LF: sin cos translate rotate": {
     TextC: ID_TextC,

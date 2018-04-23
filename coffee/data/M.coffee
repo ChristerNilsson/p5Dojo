@@ -41,6 +41,63 @@ app = new Magnifier "a"
 	c:
 		app : "reset()|up()|down()"
 
+ID_Mandelbrot =
+	v:'2018-04-23'
+	k:'sc point'
+	l:36
+	h:3
+	b:"""
+class Mandelbrot extends Application
+	reset : ->
+		super
+	draw  : ->
+	undo  : ->
+	mousePressed : (mx,my) ->
+app = new Mandelbrot
+"""
+	a:"""
+class Mandelbrot extends Application
+	reset : ->
+		super
+		@SIZE = 100
+		@BITS = 3 
+		@N = 2**@BITS
+		@N1 = @N-1
+		@DEPTH = 2**(3*@BITS)
+		@hist = []
+		[@x,@y] = [-0.5,0]
+		@zoom = 0.01
+	draw  : ->
+		for i in range -@SIZE,@SIZE
+			for j in range -@SIZE,@SIZE
+				cx = @x + @zoom*i
+				cy = @y + @zoom*j
+				f = @calc cx,cy
+				r = f % @N; f //= @N
+				g = f % @N; f //= @N
+				b = f % @N; f //= @N
+				sc r/@N1, g/@N1, b/@N1
+				point @SIZE+i,@SIZE+j
+	undo : -> if @hist.length>0 then [@x,@y,@zoom] = @hist.pop()
+	calc : (cx,cy) ->
+		[x,y] = [0,0]
+		count = 0
+		for k in range @DEPTH
+			if 2 > dist x,y,0,0 then count++ else return count
+			[x,y] = [x*x-y*y+cx, 2*x*y+cy]
+		count
+	mousePressed : (mx,my) ->
+		@hist.push [@x,@y,@zoom]
+		@x = map mx, 0, 2*@SIZE, @x-@zoom*@SIZE, @x+@zoom*@SIZE
+		@y = map my, 0, 2*@SIZE, @y-@zoom*@SIZE, @y+@zoom*@SIZE
+		@zoom /= 2
+app = new Mandelbrot 'a'
+"""
+	c:
+		app : "reset()|undo()"
+	e:
+		Wikipedia : 'https://sv.wikipedia.org/wiki/Mandelbrotm%C3%A4ngden'
+		Youtube : 'https://www.youtube.com/watch?v=UuOTuFVnWv0'
 
 ID_ManyDices =
 	v : '2017-10-22'

@@ -11,6 +11,7 @@ ID_nyheter =
 #   GalaxiesOne
 #   ColorSide
 #   Function
+#   Mandelbrot
 # NYHETER 2017 NOV 03
 #   LinearRegression
 # NYHETER 2017 OKT 23
