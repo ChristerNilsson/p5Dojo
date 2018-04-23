@@ -2,6 +2,7 @@ ID_Alphanumeric =
 	v:'2017-04-29'
 	k:'bg sc fc range circle for operators [] splice dist if class'
 	l: 29
+	h:3
 	b:"""
 class AlphaNumeric extends Application
 	reset : ->
@@ -59,6 +60,7 @@ ID_Angle =
 	v:'2017-09-29'
 	k:'bg sc fc sw circle class dist if operators text sin cos atan2 angleMode arc _.min line for range abs'
 	l:54
+	h:3
 	b:"""
 # Försök klicka på rätt vinkel.
 # Gul sektor indikerar felmarginalen.
@@ -143,10 +145,60 @@ app = new Angle "a"
 	c:
 		app : "reset()"
 
+
+
+ID_Arc =
+	v:'2018-04-23'
+	k:'-> fc sc arc strokeCap sw angleMode'
+	l:14
+	h:0
+	b : """
+angleMode DEGREES
+
+sc()
+fc 0,0,1
+arc 120,120,100,100,0,90
+
+sc 1,1,0
+sw 10
+strokeCap ROUND
+arc 80,120,100,100,90,180
+
+strokeCap SQUARE
+fc 0,1,0
+arc 80,80,100,100,180,270
+
+fc()
+sw 5
+arc 120,80,100,100,270,0
+"""
+
+	a:"""
+angleMode DEGREES
+
+sc()
+fc 0,0,1
+arc 120,120,100,100,0,90
+
+sc 1,1,0
+sw 10
+strokeCap ROUND
+arc 80,120,100,100,90,180
+
+strokeCap SQUARE
+fc 0,1,0
+arc 80,80,100,100,180,270
+
+fc()
+sw 5
+arc 120,80,100,100,270,0
+"""
+
 ID_Average =
 	v:'2017-09-16'
 	k:'-> bg fc sc if text operators'
 	l:5
+	h:2
 	b : """
 average = (a,b) -> 0
 

@@ -264,20 +264,20 @@ saveToKeyStorage = (b) ->
 	for line in b.split '\n'
 		if line.indexOf("#") != 0
 			s += line
-	place = data[meny.chapter][meny.exercise]
+	place = data[meny.chapter][meny.exer()]
 	if !place.d
 		place.d = []
 	place.d.push s
 
 editor_change = ->
 	reset()
-	if meny.exercise=='' then return
+	if meny.exer()=='' then return
 	if 0 == _.size meny.calls
 		code = ""
 	else # transpile, draw
 		code = meny.calls["draw()"]
 
-	dce = data[meny.chapter][meny.exercise]
+	dce = data[meny.chapter][meny.exer()]
 	if dce and dce.a and _.size(dce.a.c) > 0
 		if false == run1 code then return # bör normalt vara true
 	res = run0 code
@@ -286,16 +286,16 @@ editor_change = ->
 	saveSourceCode()
 	compare()
 
-saveSourceCode = ->	localStorage[meny.exercise + "/d"] = myCodeMirror.getValue()
+saveSourceCode = ->	localStorage[meny.exer() + "/d"] = myCodeMirror.getValue()
 
 run0 = (code) ->
-	if meny.exercise=="" then return false
+	if meny.exer()=="" then return false
 	src = myCodeMirror.getValue()
 	run 0, src + "\n" + code
 
 run1 = (code) ->
-	if meny.exercise=="" then return
-	run 1, data[meny.chapter][meny.exercise].a + "\n" + code
+	if meny.exer()=="" then return
+	run 1, data[meny.chapter][meny.exer()].a + "\n" + code
 
 reset = ->
 	resetMatrix()

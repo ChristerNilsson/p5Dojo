@@ -2,6 +2,7 @@ ID_Five =
 	v:'2017-04-29'
 	k:'bg circle fc sc'
 	l:12
+	h:1
 	b: """
 """
 	a: """
@@ -265,3 +266,72 @@ app = new ForthHaiku3D "a"
 		ForthHaiku : "http://forthsalon.appspot.com/haiku-editor"
 		Exempel : 'ForthHaiku3D.html'
 		"Beck & Jung" : 'https://www.google.se/search?q=beck+jung&tbm=isch&imgil=fTDB34quIvQVtM%253A%253BujSokE1Q4La-QM%253Bhttp%25253A%25252F%25252Fonline.auktionsverket.se%25252F1111%25252F109534-beck-jung-computer-ink-plot&source=iu&pf=m&fir=fTDB34quIvQVtM%253A%252CujSokE1Q4La-QM%252C_&usg=__eBA4v2Ol5RdVComTBJqPkozH59s%3D&biw=1920&bih=1108&dpr=1&ved=0ahUKEwiH0qmqzInUAhVmDZoKHTcYD7wQyjcIQw&ei=hQsmWcf7EOaa6AS3sLzgCw#imgrc=fTDB34quIvQVtM:'
+
+ID_Function =
+	v:'2018-04-24'
+	k:'-> text fc sc textSize textAlign'
+	l:17
+	h:0
+	b:"""
+# Följande tre rader upprepas fem gånger:
+#
+#   textSize size
+#   fc r,g,b
+#   text txt,x,y
+#
+# Dessa kan man lämpligen göra en funktion av.
+# Funktioner används för att:
+#   Göra koden mera lättläst
+#   Spara rader
+#   Underlätta återanvändning
+#   Skapa struktur i programmet
+
+textAlign CENTER,CENTER
+sc()
+
+textSize 180
+fc 1,0,0
+text 'p5',100,100
+
+textSize 18
+fc 0,0,0
+text 'Lauren',155,43
+
+textSize 18
+fc 1,1,1
+text 'McCarthy',155,180
+
+textSize 24
+fc 1,1,0
+text 'Coding',50,20
+
+textSize 30
+fc 0,1,0
+text 'Train',50,48
+"""
+	a:"""
+textAlign CENTER,CENTER
+sc()
+
+textSize 180
+fc 1,0,0
+text 'p5',100,100
+
+textSize 18
+fc 0
+text 'Lauren',155,43
+
+textSize 18
+fc 1
+text 'McCarthy',155,180
+
+textSize 24
+fc 1,1,0
+text 'Coding',50,20
+
+textSize 30
+fc 0,1,0
+text 'Train',50,48
+"""
+	e:
+		Wikipedia : "https://sv.wikipedia.org/wiki/Funktion_(programmering)"

@@ -7,6 +7,7 @@ ID_Cards = {
   v: '2017-09-30',
   k: 'fc sc circle range angleMode rotate rect rectMode for lerp translate',
   l: 10,
+  h: 2,
   b: "",
   a: "rectMode CENTER\nangleMode DEGREES\nsc 1\ntranslate 100,100\nfor i in range 18,-1,-1\n	r = 1.0*i/18\n	fc r,0,0\n	w = 70+5*i\n	h = 70+5*i\n	rect 0,0, w,h\n	rotate 5"
 };
@@ -15,6 +16,7 @@ ID_ChessBoard = {
   v: '2017-04-29',
   k: 'bg fc range for lerp rect',
   l: 7,
+  h: 2,
   b: "",
   a: "bg 0.5\nfor i in range 8\n	for j in range 8\n		fc (i+j)%2\n		x = 20+20*i\n		y = 20+20*j\n		rect x,y, 20,20"
 };
@@ -56,10 +58,11 @@ ID_ChessMany = {
 };
 
 ID_ChessRow = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'bg fc range operators for lerp rect',
   l: 5,
-  b: "# EXEMPEL\n\nfc 0\nrect 20,20,20,20\nfc 1\nrect 40,20,20,20\n#     x           lerpa? \n\nfor i in range 8\n	if i % 2 == 0\n		fc 0\n	else\n		fc 1\n	x = lerp 20,40,i\n	y = 20\n	w = 20\n	h = 20\n	rect x,y,w,h",
+  h: 0,
+  b: "fc 0\nrect 20,20,20,20\nfc 1\nrect 40,20,20,20\n#     x           lerpa? \n\nfor i in range 8\n	if i % 2 == 0\n		fc 0\n	else\n		fc 1\n	x = lerp 20,40,i\n	y = 20\n	w = 20\n	h = 20\n	rect x,y,w,h",
   a: "bg 0.5\nfor i in range 8\n	fc i%2\n	x = 20+20*i\n	rect x,20, 20,20"
 };
 
@@ -81,6 +84,7 @@ ID_CoffeescriptClock = {
   v: '2017-09-30',
   k: 'bg fc sc range operators for "" text angleMode sin cos',
   l: 10,
+  h: 2,
   b: "",
   a: "bg 1\nfc 0\nsc()\ntextSize 20\ntextAlign CENTER,CENTER\nangleMode DEGREES\nfor i in range 12\n	v = 30*i-90\n	x = 100 + 90 * cos v\n	y = 100 + 90 * sin v\n	text \"Coffeescript\"[i],x,y"
 };
@@ -89,6 +93,7 @@ ID_ColorCross = {
   v: '2017-09-09',
   k: 'bg sc lerp range for point',
   l: 11,
+  h: 3,
   b: "# LÄXA: Sista tre sidorna.\n#    bM     blue\n#    BR     Black\n# bB BR RM  Red\n# CG GY YW  Magenta\n#    GY     Green\n#    CW     Cyan\n#    CW     White\n#    bM     Yellow",
   a: "bg 0.5\nfor k in range 6\n	x = [3,1,3,5,3,3][k]\n	y = [0,2,2,2,4,6][k]\n	for i in range 50\n		r = [i,0,i,50,i,i][k]\n		for j in range 50\n			g = [0,j,j,j,50,50-j][k]\n			b = [50-j,50-i,0,i,j,50][k]\n			sc r/50,g/50,b/50\n			point 25*x+i,25*y+j",
   e: {
@@ -125,11 +130,12 @@ ID_ColorPair = {
 };
 
 ID_ColorSide = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'sc lerp range for point',
-  l: 10,
-  b: "# EXEMPEL\n\n# BR (Black, Red)\n# GY (Green, Yellow)\n\nn =  20 # utveckling: snabb\nn = 200 # produktion: långsam\n\nsteg = 1/n\nsize = 200/n\n\nsc    0,    0, 0\npoint 0,0\n\nsc steg, steg, 0\npoint 1,1\n\n#     r     g  lerpa?\n#     x,y      lerpa?\n\nsw size\n\nfor i in range n+1\n	for j in range n+1\n		r = lerp 0,steg,i\n		g = lerp 0,steg,j\n		b = 0\n		sc r,g,b\n		x = lerp 0,size,i\n		y = lerp 0,size,j\n		point x,y",
-  a: "n = 200\nfor i in range n+1\n	for j in range n+1\n		r = i/n\n		g = j/n\n		b = 0\n		sc r,g,b\n		x = i\n		y = j\n		point x,y"
+  l: 9,
+  h: 0,
+  b: "# BR (Black, Red)\n# GY (Green, Yellow)\n\nfor i in range 200\n	for j in range 200\n		r = lerp 0,0.005,i\n		g = lerp 0,0.005,j\n		b = 0\n		sc r,g,b\n		x = i\n		y = j\n		point x,y",
+  a: "for i in range 200\n	for j in range 200\n		r = lerp 0,0.005,i\n		g = lerp 0,0.005,j\n		b = 0\n		sc r,g,b\n		x = i\n		y = j\n		point x,y"
 };
 
 ID_Complex = {
@@ -164,6 +170,7 @@ ID_Coordinator = {
   v: '2017-05-10',
   k: 'sc fc circle class dist if operators text',
   l: 30,
+  h: 1,
   b: "class Coordinator extends Application\n	reset : ->\n		super\n		@seed = 0\n	draw : ->\n	mousePressed : (mx,my) ->\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\napp = new Coordinator",
   a: "\nclass Coordinator extends Application\n	reset : ->\n		super\n		@seed = 0\n		@level = 1\n		@errors = 0\n		@newGame 0\n	newGame : (d) ->\n		if d==-1 then @errors++\n		@level = constrain @level+d, 1, 100\n		@radius = int 100/@level\n		@x = @randint 200\n		@y = @randint 200\n	draw : ->\n		fc 1,1,0\n		sc()\n		textAlign CENTER,CENTER\n		textSize 50\n		text @x + \",\" + @y,100,50\n		fc 0,1,0\n		text @level,67,150\n		fc 1,0,0\n		text @errors,133,150\n		fc()\n		sc 1,1,0\n		circle 100,100,@radius\n	mousePressed : (mx,my) ->\n		@seed += mx % 10\n		@newGame if @radius >= dist mx,my,@x,@y then 1 else -1\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n\napp = new Coordinator \"a\"",
   c: {
@@ -175,6 +182,7 @@ ID_CornerPoints = {
   v: '2018-04-12',
   k: 'sc sw point',
   l: 9,
+  h: 1,
   b: "# EXEMPEL\n# \n# sc r,g,b  # Väljer färg för punkter och streck\n\nsw 10\n\nsc 1,0,0\npoint 0,0\n\nsc 0,1,0\npoint 200,0\n\nsc 1,1,0\npoint 0,200\n\nsc 0\npoint 200,200",
   a: "sw 10\nsc 1,0,0\npoint 0,0\nsc 0,1,0\npoint 200,0\nsc 1,1,0\npoint 0,200\nsc 0\npoint 200,200"
 };
@@ -183,6 +191,7 @@ ID_CornerPoints3 = {
   v: '2017-04-29',
   k: 'sc sw point',
   l: 17,
+  h: 1,
   b: "# LÄXA: Grönt, gult, vitt",
   a: "sw 10\nsc 1,0,0\npoint 20,0\npoint 20,20\npoint 0,20\n\nsc 0,1,0\npoint 180,0\npoint 180,20\npoint 200,20\n\nsc 1,1,0\npoint 20,180\npoint 20,200\npoint 0,180\n\nsc 1\npoint 180,180\npoint 180,200\npoint 200,180"
 };
@@ -191,15 +200,17 @@ ID_CornerPoints7 = {
   v: '2017-04-29',
   k: 'sc sw point',
   l: 17,
+  h: 1,
   b: "# LÄXA: Grönt",
   a: "sw 10\nsc 1,0,0\npoint 30,0\npoint 30,10\npoint 30,20\npoint 30,30\npoint 10,30\npoint 20,30\npoint 0,30\n\nsc 0,1,0\npoint 170,200\npoint 170,190\npoint 170,180\npoint 170,170\npoint 190,170\npoint 180,170\npoint 200,170"
 };
 
 ID_Counter = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'bg fc sc text operators class',
   l: 12,
-  b: "# EXEMPEL\n\n# Klicka på reset() för att komma igång!\n# De blåa knapparna anropar metoder i de båda objekten\n\n#### markerar de rader du utgår ifrån. Dessa bör ej ändras.\n\nclass Counter extends Application ####\n	\n	reset : ->                      ####\n		super                         ####\n		@counter = 0               \n		\n	draw  : ->                      ####\n		bg 0.5                     \n		fc 1,1,0                   \n		sc()                       \n		textSize 100               \n		textAlign CENTER,CENTER    \n		text @counter,100,100      \n		\n	up    : ->                      ####\n		@counter++        \n		\n	down  : ->                      ####\n		@counter--        \n		\n	mousePressed : (mx,my) ->       ####\n		if my < 100                \n			@up()                    \n		else                       \n			@down()                  \n			\napp = new Counter                 ####",
+  h: 0,
+  b: "# Klicka på reset() för att komma igång!\n# De blåa knapparna anropar metoder i de båda objekten\n\n#### markerar de rader du utgår ifrån. Dessa bör ej ändras.\n\nclass Counter extends Application ####\n	\n	reset : ->                      ####\n		super                         ####\n		@counter = 0               \n		\n	draw  : ->                      ####\n		bg 0.5                     \n		fc 1,1,0                   \n		sc()                       \n		textSize 100               \n		textAlign CENTER,CENTER    \n		text @counter,100,100      \n		\n	up    : ->                      ####\n		@counter++        \n		\n	down  : ->                      ####\n		@counter--        \n		\n	mousePressed : (mx,my) ->       ####\n		if my < 100                \n			@up()                    \n		else                       \n			@down()                  \n			\napp = new Counter                 ####",
   a: "class Counter extends Application\n	reset : ->\n		super\n		@counter = 0\n	up : -> @counter += 1\n	down : -> @counter -= 1\n	draw : ->\n		bg 0.5\n		fc 1,1,0\n		sc()\n		textAlign CENTER,CENTER\n		textSize 100\n		text @counter,100,100\n	mousePressed : (mx,my) -> @counter += if my < 100 then 1 else -1\n\napp = new Counter \"a\"",
   c: {
     app: "reset()|up()|down()"
@@ -210,6 +221,7 @@ ID_Cross = {
   v: '2017-10-31',
   k: 'fc rect sc',
   l: 4,
+  h: 2,
   b: "# LÄXA: Hela uppgiften",
   a: "fc 1,0,0\nsc()\nrect 85,70, 70,10\nrect 115,40, 10,100"
 };

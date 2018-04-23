@@ -4,10 +4,11 @@
 var ID_Background1, ID_Background2, ID_Background3, ID_Background4, ID_BeeHaiku3D, ID_BlackBox2D, ID_Blank, ID_BoardGame, ID_BouncingBalls, ID_Braid, ID_Braider;
 
 ID_Background1 = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'bg',
   l: 1,
-  b: "# EXEMPEL\n# Första bilden ska du efterlikna.\n# Andra bilden skapas av din kod.\n# Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.\n\n# Tryck på PgDn för att komma till sista raden.\n# Skriv in följande kommando: bg 1\n# Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.\n\n# Öppna nästa övning genom att klicka på den svarta knappen Background2.\n# Stäng dock först denna övning genom att klicka på den vita knappen Background1.\nbg 1",
+  h: 0,
+  b: "# Första bilden ska du efterlikna.\n# Andra bilden skapas av din kod.\n# Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.\n\n# Tryck på PgDn för att komma till sista raden.\n# Skriv in följande kommando: bg 1\n# Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.\n\n# Öppna nästa övning genom att klicka på den svarta knappen Background2.\n# Stäng dock först denna övning genom att klicka på den vita knappen Background1.\nbg 1",
   a: "bg 1"
 };
 
@@ -15,6 +16,7 @@ ID_Background2 = {
   v: '2018-01-25',
   k: 'bg',
   l: 1,
+  h: 1,
   b: "# Listan med gul text på svart bakgrund innehåller kommandon som du behöver.\n# Klicka på dem för att läsa om dem.\n# Listan med svart text på grön bakgrund innehåller länkar med bakgrundsinformation.",
   a: "bg 0.5"
 };
@@ -23,6 +25,7 @@ ID_Background3 = {
   v: '2017-04-29',
   k: 'bg',
   l: 1,
+  h: 1,
   b: "",
   a: "bg 1,0,0"
 };
@@ -31,6 +34,7 @@ ID_Background4 = {
   v: '2017-04-29',
   k: 'bg',
   l: 1,
+  h: 1,
   b: "",
   a: "bg 1,1,0"
 };
@@ -69,6 +73,7 @@ ID_BlackBox2D = {
 ID_Blank = {
   v: '2017-05-12',
   k: '',
+  h: 1,
   b: "# Här kan du laborera med egna idéer!",
   a: "a=null"
 };
@@ -99,6 +104,7 @@ ID_Braid = {
   v: '2017-04-29',
   k: 'sc bg sw range for line class',
   l: 19,
+  h: 3,
   b: "class Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n\nbraid = (n,dx,dy,width) ->\n\nbraid 5,18,18,6",
   a: "class Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n		sc @r,@g,@b\n		line @x,@y,@x+dx,@y+dy\n		[@x,@y] = [@x+dx,@y+dy]\n\nbraid = (n,dx,dy,width) ->\n\n	a = new Cartesius 1,0,0, 100-dx/2,dy/3\n	b = new Cartesius 1,1,0, 100+dx/2,2*dy/3\n	c = new Cartesius 0,1,0, 100-dx/2,dy\n\n	bg 0\n	sw width\n\n	for i in range n\n		a.go dx,dy\n		b.go -dx,dy\n		c.go dx,dy\n\n		a.go -dx,dy\n		b.go dx,dy\n		c.go -dx,dy\n\nbraid 5,18,18,6",
   e: {

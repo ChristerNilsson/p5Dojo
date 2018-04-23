@@ -7,6 +7,7 @@ ID_Diagonal1 = {
   v: '2017-09-09',
   k: 'bg sc sw point',
   l: 8,
+  h: 2,
   b: "",
   a: "bg 0,1,0\nsw 20\nsc 0,0,0\npoint 0,0\n\nsc 0.5,0.5,0\npoint 100,100\n\nsc 1,1,0\npoint 200,200",
   e: {
@@ -18,6 +19,7 @@ ID_Diagonal2 = {
   v: '2017-04-29',
   k: 'sc sw point',
   l: 11,
+  h: 2,
   b: "",
   a: "sw 20\nsc 1,0,0\npoint 200,0\n\nsc 0.75,0.25,0\npoint 150,50\n\nsc 0.5,0.5,0\npoint 100,100\n\nsc 0.25,0.75,0\npoint 50,150\n\nsc 0,1,0\npoint 0,200",
   e: {
@@ -29,6 +31,7 @@ ID_DiagonalSquares = {
   v: '2017-04-29',
   k: 'range rect for lerp',
   l: 4,
+  h: 1,
   b: "",
   a: "for i in range 10\n	x = 5+20*i\n	y = 5+20*i\n	rect x,y, 10,10"
 };
@@ -37,15 +40,17 @@ ID_Dices = {
   v: '2018-04-12',
   k: 'sc sw point',
   l: 27,
+  h: 1,
   b: "sw 2\n\nsc 1        # Etta\npoint 10,10\n\nsc 1,0,0    # Tvåa\npoint 190-5,10-5\npoint 190+5,10+5\n\nsc\npoint\npoint\npoint",
   a: "# sw 1 ger ej ghosteffekt, men syns knappt\nsw 2\npoint 10,10\nsc 1,0,0\npoint 185,5\npoint 195,15\nsc 0,1,0\npoint 85,65\npoint 90,70\npoint 95,75\nsc 1,1,0\npoint 165,105\npoint 165,115\npoint 175,105\npoint 175,115\nsc 1,0,1\npoint 45,125\npoint 45,135\npoint 50,130\npoint 55,125\npoint 55,135\nsc 0,1,1\npoint 105,165\npoint 105,170\npoint 105,175\npoint 115,165\npoint 115,170\npoint 115,175"
 };
 
 ID_DoubleForLoop = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'range rect for lerp',
   l: 5,
-  b: "# EXEMPEL\n\nrect  5, 5,10,10\nrect 25,25,10,10\n#     Y  Y  N  N   lerpa?\n\nfor i in range 10\n	x = lerp 5,25,i\n	for j in range 10\n		y = lerp 5,25,j\n		w = 10\n		h = 10\n		rect x,y,w,h",
+  h: 0,
+  b: "rect  5, 5,10,10\nrect 25,25,10,10\n#     x  y       lerpa?\n\nfor i in range 10\n	x = lerp 5,25,i\n	for j in range 10\n		y = lerp 5,25,j\n		w = 10\n		h = 10\n		rect x,y,w,h",
   a: "for i in range 10\n	for j in range 10\n		x = 5+20*i\n		y = 5+20*j\n		rect x,y, 10,10"
 };
 //# sourceMappingURL=D.js.map

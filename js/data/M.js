@@ -18,6 +18,7 @@ ID_ManyDices = {
   v: '2017-10-22',
   k: '-> range for if circle sc fc "" split [] operators',
   l: 14,
+  h: 3,
   b: "# b   e\n# c a f\n# d   g\ndice = (i,j,side) ->",
   a: "# b   e\n# c a f\n# d   g\ndice = (i,j,side) ->\n	x = lerp 10,30, i\n	y = lerp 10,30, j\n	dots = 'a de dae bedg abedg bcdefg'.split(' ')[side]\n	for dot,k in 'abcdefg'\n		if dot in dots \n			dx = [0,-1,-1,-1, 1,1,1][k]\n			dy = [0,-1, 0, 1,-1,0,1][k]\n			circle x + 4*dx, y + 4*dy,1\n\nsc()\nfc 1\nfor i in range 10\n	for j in range 10\n		dice i, j, (i+j) % 6"
 };
@@ -26,6 +27,7 @@ ID_Map = {
   v: '2017-05-18',
   k: '-> bg fc sc if text map operators',
   l: 1,
+  h: 3,
   b: "map = (x,x0,x1,y0,y1) -> 0\n\n# Ändra ingenting nedanför denna rad!\nbg 0\ny = 19\ntest = (a,b) ->\n	sc()\n	textSize 20\n	fc 0,1,0\n	text a, 0,y\n	if a==b then fc 0,1,0 else fc 1,0,0\n	text b, 100,y\n	y+=20\n\ntest 50,  map 10,10,20,50,150\ntest 100, map 15,10,20,50,150\ntest 150, map 20,10,20,50,150\ntest 250, map 30,10,20,50,150\ntest -50, map 0,10,20,50,150\ntest 5,   map 10,10,20,5,15\ntest 10,  map 15,10,20,5,15\ntest 15,  map 20,10,20,5,15\ntest 25,  map 30,10,20,5,15\ntest -5,  map 0,10,20,5,15\n",
   a: "map = (x,x0,x1,y0,y1) -> y0 + (x-x0)*(y1-y0)/(x1-x0)\n\n# Ändra ingenting nedanför denna rad!\nbg 0\ny = 19\ntest = (a,b) ->\n	sc()\n	textSize 20\n	fc 0,1,0\n	text a, 0,y\n	if a==b then fc 0,1,0 else fc 1,0,0\n	text b, 100,y\n	y+=20\n\ntest 50,  map 10,10,20,50,150\ntest 100, map 15,10,20,50,150\ntest 150, map 20,10,20,50,150\ntest 250, map 30,10,20,50,150\ntest -50, map 0,10,20,50,150\ntest 5,   map 10,10,20,5,15\ntest 10,  map 15,10,20,5,15\ntest 15,  map 20,10,20,5,15\ntest 25,  map 30,10,20,5,15\ntest -5,  map 0,10,20,5,15",
   e: {
@@ -38,6 +40,7 @@ ID_MayFlower = {
   v: '2018-02-26',
   k: '-> angleMode push pop translate rotate scale circle fill',
   l: 23,
+  h: 2,
   b: "\nflower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->\n	\nangleMode DEGREES\nflower '#F00','#FF0','#0F0','#000', 100,100, 50,25,35,20,5\nscale 0.25\nflower '#FF0','#F00','#FFF','#000', 100,100, 50,25,35,20,5",
   a: "flower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->\n	push()\n	translate x,y\n	fill c1\n	rotate 54\n	for i in range 5\n		circle r1,0,r2\n		rotate 72\n	rotate 36\n	fill c2\n	for i in range 5\n		circle r1,0,r2\n		rotate 72\n	translate -x,-y\n	circle x,y,r3\n	fill c3\n	circle x,y,r4\n	fill c4\n	circle x,y,r5\n	pop()\n	\nangleMode DEGREES\nflower '#F00','#FF0','#0F0','#000', 100,100, 50,25,35,20,5\nscale 0.25\nflower '#FF0','#F00','#FFF','#000', 100,100, 50,25,35,20,5",
   e: {
@@ -49,6 +52,7 @@ ID_MidPoints = {
   v: '2017-04-29',
   k: 'sc sw point',
   l: 11,
+  h: 1,
   b: "# LÄXA: Gult, svart, vitt",
   a: "sw 10\nsc 1,0,0\npoint 100,100\nsc 0,1,0\npoint 100,0\nsc 1,1,0\npoint 0,100\nsc 0\npoint 200,100\nsc 1\npoint 100,200"
 };
@@ -72,6 +76,7 @@ ID_Moire = {
   v: '2017-04-29',
   k: 'bg range operators for line map class',
   l: 11,
+  h: 2,
   b: "class Moire extends Application\n	reset : ->\n		super\n	draw  : ->\n	mousePressed : (mx,my) ->\napp = new Moire",
   a: "class Moire extends Application\n	reset : ->\n		super\n		[@x,@y] = [100,100]\n	draw : ->\n		bg 0\n		for i in range 40\n			for j in range 4\n				[x,y] = [0,i*5,200,200-i*5,0][j..j+1]\n				line @x,@y,x,y\n	mousePressed : (mx,my) -> [@x,@y] = [mx,my]\n\napp = new Moire \"a\"",
   c: {

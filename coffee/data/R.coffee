@@ -2,6 +2,7 @@ ID_RandomDice =
 	v:'2017-05-21'
 	k:'bg sc circle operators [] int for class'
 	l:18
+	h:2
 	b: """
 class RandomDice extends Application
 	reset : ->
@@ -72,6 +73,7 @@ ID_RedCone =
 	v:'2017-04-29'
 	k:'range fc circle for lerp'
 	l:6
+	h:2
 	b:""
 	a:"""
 for i in range 10,0,-1
@@ -166,6 +168,7 @@ ID_RotatedEllipse =
 	v:'2017-09-30'
 	k:'angleMode rotate ellipse translate'
 	l:6
+	h:1
 	b:""
 	a:"""
 fc 1,0,0
@@ -180,6 +183,7 @@ ID_RotatedRectA =
 	v:'2017-04-29'
 	k:'fc rect'
 	l:4
+	h:1
 	b:""
 	a:"""
 fc 1,0,0
@@ -192,6 +196,7 @@ ID_RotatedRectB =
 	v:'2017-09-30'
 	k:'fc angleMode rotate rect translate push pop'
 	l:12
+	h:1
 	b:""
 	a:"""
 push()
@@ -213,6 +218,7 @@ ID_RotatedRectC =
 	v:'2017-09-30'
 	k:'fc angleMode rotate rect translate push pop'
 	l:13
+	h:1
 	b:""
 	a:"""
 rectMode CENTER
@@ -235,6 +241,7 @@ ID_Roulette =
 	v:'2017-09-30'
 	k:'bg sw fc sc range angleMode rotate for if operators [] "" PI text arc strokeCap translate'
 	l:15
+	h:2
 	b:"""
 numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
 """

@@ -6,7 +6,8 @@ var ID_P5, ID_PacMan, ID_Paint, ID_PentaLerp, ID_PickingBerries, ID_Polygon;
 ID_P5 = {
   v: '2017-05-20',
   k: '-> text fc sc',
-  l: 5,
+  l: 11,
+  h: 1,
   b: "skriv = (txt,x,y,r,g,b,size) ->\n	# Skriv din kod här!\n\n# Ändra ingenting nedanför denna rad!\n\nskriv \"p5\",      100,100,1,0,0,180\nskriv \"Lauren\",  155, 43,0,0,0, 18\nskriv \"McCarthy\",155,180,1,1,1, 18\nskriv \"Coding\",   50, 20,1,1,0, 24\nskriv \"Train\",    50, 48,0,1,0, 30",
   a: "skriv = (txt,x,y,r,g,b,size) ->\n	textAlign CENTER,CENTER\n	textSize size\n	fc r,g,b\n	sc()\n	text txt,x,y\n\nskriv \"p5\",      100,100,1,0,0,180\nskriv \"Lauren\",  155, 43,0,0,0, 18\nskriv \"McCarthy\",155,180,1,1,1, 18\nskriv \"Coding\",   50, 20,1,1,0, 24\nskriv \"Train\",    50, 48,0,1,0, 30"
 };
@@ -15,6 +16,7 @@ ID_PacMan = {
   v: '2017-04-29',
   k: 'fc arc angleMode',
   l: 2,
+  h: 2,
   b: "",
   a: "fc 1,1,0\nangleMode DEGREES\narc 100,100, 180,180, -135,135",
   e: {
@@ -38,6 +40,7 @@ ID_PentaLerp = {
   v: '2017-09-11',
   k: 'bg sc fc range circle for lerp',
   l: 11,
+  h: 3,
   b: "",
   a: "bg 0.5\nsc()\nfor i in range 11\n	for j in range 11\n		r = 0.1*i\n		g = 0.1*j\n		fc r,g,0\n		x = 20*i\n		y = 20*j\n		radius = lerp 0,1,(i+j)/2\n		circle x,y,radius"
 };
@@ -57,6 +60,7 @@ ID_Polygon = {
   v: '2017-09-30',
   k: 'bg sc range line for cos sin angleMode class',
   l: 23,
+  h: 2,
   b: "class Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n	rt : (a) ->\n\nclass Polygon extends Application\n	reset      : ->\n		super\n	draw       : ->\n	antalSidor : (d) ->\n	antalSteg  : (d) ->\napp = new Polygon",
   a: "class Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n		dx = d*cos @dir\n		dy = d*sin @dir\n		sc @r,@g,@b\n		line @x,@y,@x+dx,@y+dy\n		@x += dx\n		@y += dy\n	rt : (a) ->\n		@dir +=a\n\nclass Polygon extends Application\n	reset : ->\n		super\n		@n = 6\n		@steg = 60\n\n	draw : ->\n		t = new Turtle()\n		bg 0\n		angleMode DEGREES\n		for i in range @n\n			t.fd @steg\n			t.rt 360/@n\n\n	antalSidor : (d) -> @n += d\n	antalSteg : (d) -> @steg += d\n\napp = new Polygon \"a\"",
   c: {

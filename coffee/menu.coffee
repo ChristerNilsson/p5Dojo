@@ -18,7 +18,7 @@ class Menu
 		if level == 0 # chapter
 			for key,i in _.keys items
 				if i == @branch[level] or @branch.length == level
-					@addTitle key, level, i, br.concat i
+					@addTitle key, level, i, br.concat(i), [BLACK,WHITE]
 				children = items[key]
 				@traverse children, level+1, br.concat i
 
@@ -29,8 +29,9 @@ class Menu
 
 		if level == 1 # exercise
 			for key,i in _.keys items
+				print 'key',key,items[key].h,@hardness items[key].h
 				if i == @branch[level] or @branch.length == level
-					@addTitle key, level, i, br.concat i
+					@addTitle key, level, i, br.concat(i), @hardness items[key].h
 				keywords = items[key].k.split ' '
 				keywords.sort()
 				@traverse keywords, level+1, br.concat i
@@ -38,7 +39,7 @@ class Menu
 		if level == 2 
 			# keywords
 			for item in items 
-				if item != '' then @addTitle item, level, i, br
+				if item != '' then @addTitle item, level, i, br, [BLACK,YELLOW]
 
 			# commands
 			@calls = decorate data[@chapter][@exercise].c
@@ -68,23 +69,35 @@ class Menu
 
 	lineCount : -> data[@chapter][@exercise].l
 
-	addTitle : (title,level,i,br) ->
-		if level == 2 then b = makeButton title, level, BLACK, YELLOW
+	hardness : (h) ->
+		print typeof h
+		if h==0 then return [WHITE,BLACK]
+		if h==1 then return [GREEN,BLACK] 
+		if h==2 then return [YELLOW,BLACK]
+		if h==3 then return [RED,WHITE]
+		[RED,WHITE]
+
+	addTitle : (title,level,i,br,colors=[BLACK,RED]) ->
+		print colors
+		#print level
+		[c1,c2] = colors 
+
+		if level == 2 
+			b = makeButton title, level, c1, c2
 		else if @branch[level] == i 
-			if level==1 then b = makeButton '- ' + "#{title} [#{@lineCount()}]", level, WHITE, BLACK
-			else b = makeButton '- ' + title, level, WHITE, BLACK
-		else if @branch[level] == i then b = 'z ' + makeButton title, level, WHITE, BLACK
-		else b = makeButton '+ ' + title, level, BLACK, WHITE
+			if level == 1
+				b = makeButton ' - ' + "#{title} [#{@lineCount()}]", level, c1, c2
+			else 
+				b = makeButton ' - ' + title, level, c1, c2
+		else 
+			b = makeButton ' + ' + title, level, c1, c2 
+		
 		b.branch = br
 
 		b.onclick = => 
-			value = b.value[2..]
+			value = b.value[3..]
 			if level == 0 then @sel1click value
-			if level == 1 
-				if b.style.backgroundColor == 'rgb(255, 255, 255)'
-					@sel2click ""
-				else
-					@sel2click value				
+			if level == 1 then @sel2click value				
 			if level == 2 then @sel3click b.value
 			if level in [0,1] then @branch = calcBranch @branch, b.branch
 			updateTables()
@@ -100,6 +113,10 @@ class Menu
 			compare()
 		@handleRow b
 		b
+
+	exer : -> 
+		if @exercise == '' or @exercise == null then return ''
+		@exercise.split(' ')[0]	
 
 	setState : (st) ->
 		@state = st
@@ -125,23 +142,23 @@ class Menu
 
 	sel2click : (exercise) ->
 		@exercise = exercise
-		if @exercise == ""
+		if @exer() == ""
 			myCodeMirror.setValue ""
 			bg 0.5
 			return
-		@calls = data[@chapter][@exercise].c
+		@calls = data[@chapter][@exer()].c
 		@setState 2
 
-		src = localStorage[@exercise + "/d"]
+		src = localStorage[@exer() + "/d"]
 		if src == undefined or src == null or src == ''
-			src = data[@chapter][@exercise].b
-			localStorage[@exercise + "/d"] = src
-			localStorage[@exercise + "/v"] = data[@chapter][@exercise].v
+			src = data[@chapter][@exer()].b
+			localStorage[@exer() + "/d"] = src
+			localStorage[@exer() + "/v"] = data[@chapter][@exer()].v
 		myCodeMirror.setValue src
 
 		tableClear()
 
-		calls = data[@chapter][@exercise].c		
+		calls = data[@chapter][@exer()].c		
 		if _.size(calls) > 0 
 			code = @calls["draw()"]
 		if run1(code) == true

@@ -1,7 +1,8 @@
 ID_P5 =
 	v:'2017-05-20'
 	k:'-> text fc sc'
-	l:5
+	l:11
+	h:1
 	b:"""
 skriv = (txt,x,y,r,g,b,size) ->
 	# Skriv din kod här!
@@ -33,6 +34,7 @@ ID_PacMan =
 	v:'2017-04-29'
 	k:'fc arc angleMode'
 	l:2
+	h:2
 	b:""
 	a:"""
 fc 1,1,0
@@ -104,6 +106,7 @@ ID_PentaLerp =
 	v:'2017-09-11'
 	k:'bg sc fc range circle for lerp'
 	l:11
+	h:3
 	b:""
 	a:"""
 bg 0.5
@@ -217,6 +220,7 @@ ID_Polygon =
 	v:'2017-09-30'
 	k:'bg sc range line for cos sin angleMode class'
 	l:23
+	h:2
 	b:"""
 class Turtle
 	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->

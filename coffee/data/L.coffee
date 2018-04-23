@@ -2,6 +2,7 @@ ID_Laboratorium =
 	v:'2017-04-29'
 	k:''
 	l:0
+	h:1
 	b:"""
 # Här kan du laborera med egna idéer!
 
@@ -56,6 +57,7 @@ ID_Lerp =
 	v:'2017-05-18'
 	k:'-> bg fc sc if text lerp operators'
 	l:1
+	h:2
 	b : """
 lerp = (a,b,i) -> 0
 
@@ -116,6 +118,7 @@ ID_Line =
 	v:'2017-04-29'
 	k:'sc line'
 	l:2
+	h:1
 	b: ""
 	a: """
 sc 1,1,0
@@ -126,6 +129,7 @@ ID_LinearRegression =
 	v:'2017-11-02'
 	k:'class line [] for in'
 	l: 34
+	h:3
 	b: """
 class LinearRegression extends Application
 	reset : ->
@@ -187,6 +191,7 @@ ID_Lines =
 	v:'2017-04-29'
 	k:'bg range for lerp line'
 	l:5
+	h:2
 	b:"# (Noel Watson)\n"
 	a:"""
 bg 0

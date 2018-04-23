@@ -2,6 +2,7 @@ ID_WhiteCircle =
 	v:'2018-04-12'
 	k:'circle fc'
 	l:2
+	h:1
 	b:"""
 # EXEMPEL
 
@@ -20,6 +21,7 @@ ID_WhiteEmptyCircle =
 	v:'2017-10-30'
 	k:'circle fc sw'
 	l:3
+	h:1
 	b:""
 	a:"""
 fc()

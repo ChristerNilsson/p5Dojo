@@ -2,6 +2,7 @@ ID001 =  # clown:
 	v:'2017-05-02'
 	k:'bg circle fc sc sw line lerp'
 	l:30
+	h:1
 	b:"# (David Larsson)\n"
 	a:"""
 bg 0, 1, 0, 0.5
@@ -41,6 +42,7 @@ ID002 = #tomteluva:
 	v:'2017-05-02'
 	k:'circle fc sc triangle'
 	l:12
+	h:1
 	b:"# (Sabrina Larsson)\n"
 	a:"""
 bg 0,1,0
@@ -61,6 +63,7 @@ ID003 = # snowman:
 	v:'2017-05-02'
 	k:'circle fc line sc triangle'
 	l:21
+	h:1
 	b:"# (David Larsson)\n"
 	a:"""
 fc 1
@@ -90,6 +93,7 @@ ID004 = # christmasTree:
 	v:'2017-05-02'
 	k:'bg circle fc line rect quad sc triangle'
 	l:35
+	h:1
 	b:"# (Sabrina Larsson)\n"
 	a:"""
 bg 0
@@ -134,6 +138,7 @@ ID005 = # santa:
 	v:'2017-05-02'
 	k:'bg circle ellipse fc rect quad sc triangle'
 	l:18
+	h:1
 	b:"# (Sabrina Larsson)\n"
 	a:"""
 bg 0,0,1
@@ -160,6 +165,7 @@ ID006= # dist:
 	v:'2017-05-02'
 	k:'bg circle dist fc lerp map sc'
 	l:10
+	h:1
 	b:""
 	a:"""
 bg 0
@@ -178,6 +184,7 @@ ID007 = # bulge:
 	v:'2017-05-02'
 	k:'bg circle dist fill map noStroke sin'
 	l:10
+	h:1
 	b:""
 	a:"""
 bg 0
@@ -195,6 +202,7 @@ ID008 = # wave:
 	v:'2017-05-02'
 	k:'circle colorMode fill map noStroke sin PI'
 	l:9
+	h:1
 	b:""
 	a:"""
 colorMode HSB,360,100,100
@@ -212,6 +220,7 @@ ID009 = # circle:
 	v:'2017-05-02'
 	k:'bg circle colorMode cos fc map PI sc sin'
 	l:10
+	h:1
 	b:""
 	a:"""
 bg 0
@@ -230,6 +239,7 @@ ID010 = # circles:
 	v:'2017-05-02'
 	k:'bg circle colorMode cos fill map noStroke translate sin PI'
 	l:12
+	h:1
 	b:""
 	a:"""
 bg 0
@@ -250,6 +260,7 @@ ID011 = # sized_circles:
 	v:'2017-05-02'
 	k:'circle colorMode cos fill map noStroke PI sin translate'
 	l:12
+	h:1
 	b:""
 	a:"""
 bg 0
@@ -270,6 +281,7 @@ ID012 = # rotated_circles:
 	v:'2017-05-02'
 	k:'circle cos map PI push pop rotate sin translate'
 	l:17
+	h:1
 	b:""
 	a:"""
 colorMode HSB,360,100,100
@@ -293,6 +305,7 @@ ID013 = # gravity :
 	v:'2017-05-02'
 	k:'circle lerp'
 	l:6
+	h:1
 	b: ""
 	a: """
 fc 1
@@ -306,6 +319,7 @@ ID014 = # hypnoticA :
 	v:'2017-05-02'
 	k:'bg circle cos fc sc sin'
 	l:6
+	h:1
 	b: ""
 	a: """
 bg 0.5, 0, 0
@@ -321,6 +335,7 @@ ID015 = # hypnoticB :
 	v:'2017-05-02'
 	k:'bg circle cos fc map sc sin'
 	l:7
+	h:1
 	b: ""
 	a: """
 bg 0.5, 0, 0
@@ -338,6 +353,7 @@ ID016 = # Rainbow :
 	v:'2017-05-02'
 	k:'bg fc sc sw circle arc'
 	l:37
+	h:1
 	b:"# (Isabel T)\n"
 	a:"""
 bg 0.5,0.8,1
@@ -386,6 +402,7 @@ ID017 = # Melon :
 	v:'2017-05-15'
 	k:'bg fc sc rect'
 	l:44
+	h:1
 	b:"# (Sabrina)\n"
 	a:"""
 bg 0.866, 0.941, 1.000
@@ -438,6 +455,7 @@ ID018 = # Sailing Boat :
 	v:'2017-05-26'
 	k:'bg fc sw sc circle triangle line angleMode rotate arc ellipse'
 	l:24
+	h:1
 	b:"# (Sabrina)\n"
 	a:"""
 bg 0,1,1
@@ -464,4 +482,25 @@ fc 0,0,1
 ellipse 100,170,150,100
 ellipse 170,150,150,100
 ellipse 250,125,170,100
+"""
+
+ID019 = # Quadraticus :
+	v:'2018-04-23'
+	k:'bg fc rect rectMode'
+	l:12
+	h:1
+	b:"# (Sam)\n"
+	a:"""
+bg 0.5
+rectMode CENTER
+kvadrat = (z,n, r,g,b) ->
+	fc r,g,b
+	for i in range n
+		[a,b,c,d] = [z, 200-z, z+i*20, 20+z+i*20]
+		rect x,y,10,10 for [x,y] in [[c,a],[b,c],[a,d],[d,b]]
+kvadrat 10,9, 1,0,0
+kvadrat 30,7, 0,0,1
+kvadrat 50,5, 0,1,1
+kvadrat 70,3, 1,1,1
+kvadrat 90,1, 0,0,0
 """

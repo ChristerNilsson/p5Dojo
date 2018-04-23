@@ -7,7 +7,8 @@ ID_X = {
   v: '2018-04-12',
   k: 'sw point',
   l: 4,
-  b: "# EXEMPEL\n#\n# Klicka \"Koordinatsystem\" till vänster för hjälp\n# Öva dig på koordinatsystem genom att klicka \"Coordinate Trainer 1\" till vänster\n# Öva dig på koordinatsystem genom att klicka \"Coordinate Trainer 2\" till vänster\n#\n# sw pixlar  # strokeWeight, strecktjocklek i pixlar\n# point x,y  # ritar en punkt\n\nsw 20          \npoint 0, 0      \npoint 100,0 \npoint 200,0",
+  h: 0,
+  b: "# Klicka \"Koordinatsystem\" till vänster för hjälp\n# Öva dig på koordinatsystem genom att klicka \"Coordinate Trainer 1\" till vänster\n# Öva dig på koordinatsystem genom att klicka \"Coordinate Trainer 2\" till vänster\n#\n# sw pixlar  # strokeWeight, strecktjocklek i pixlar\n# point x,y  # ritar en punkt\n\nsw 20          \npoint 0, 0      \npoint 100,0 \npoint 200,0",
   a: "sw 20\npoint 0,0\npoint 100,0\npoint 200,0",
   e: {
     "Coordinate Trainer 1": "https://christernilsson.github.io/Lab/2017/131-CoordTrainer/index.html",

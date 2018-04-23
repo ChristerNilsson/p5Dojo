@@ -19,18 +19,20 @@ ID_Hex = {
 };
 
 ID_HorizontalLine = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'sc line',
   l: 2,
-  b: "# EXEMPEL\n\nsc 1,0,1\nx1 = 10\ny1 = 70\nx2 = 190\ny2 = 70\nline x1,y2,x2,y2",
+  h: 0,
+  b: "sc 1,0,1\nx1 = 10\ny1 = 70\nx2 = 190\ny2 = 70\nline x1,y2,x2,y2",
   a: "sc 1,0,1\nline 10,70, 190,70"
 };
 
 ID_HorizontalSquares = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'range rect for lerp',
   l: 3,
-  b: "# EXEMPEL\n# Börja med att rita de två första kvadraterna mha rect\n# Därefter kan du börja med for-loopen\n# De parametrar som är OLIKA är lämpliga att lerpas\n\nrect  5,5,10,10\nrect 25,5,10,10\n#     Y N  N  N    lerpa?\n\nfor i in range 10\n	x = lerp 5,25,i # eller x = 5 + 20 * i\n	y = 5\n	w = 10\n	h = 10\n	rect x,y,w,h",
+  h: 0,
+  b: "# Börja med att rita de två första kvadraterna mha rect\n# Därefter kan du börja med for-loopen\n# De parametrar som är OLIKA är lämpliga att lerpas\n\nrect  5,5,10,10\nrect 25,5,10,10\n#     x         lerpa?\n\nfor i in range 10\n	x = lerp 5,25,i # eller x = 5 + 20 * i\n	y = 5\n	w = 10\n	h = 10\n	rect x,y,w,h",
   a: "for i in range 10\n	x = 5+20*i\n	rect x,5, 10,10"
 };
 //# sourceMappingURL=H.js.map

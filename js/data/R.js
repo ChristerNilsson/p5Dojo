@@ -7,6 +7,7 @@ ID_RandomDice = {
   v: '2017-05-21',
   k: 'bg sc circle operators [] int for class',
   l: 18,
+  h: 2,
   b: "class RandomDice extends Application\n	reset : ->\n		super\n		@seed = 0\n	draw : ->\n	mousePressed : (mx,my) ->\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\napp = new RandomDice",
   a: "class RandomDice extends Application\n	reset : ->\n		super\n		@seed = 0\n		@throw()\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n	throw : -> @value = 1 + @randint 6\n	mousePressed : (mx,my) -> @throw()\n	draw : ->\n		bg 1\n		sc 1\n		coords = []\n		if @value in [1,3,5] then coords.push [100,100]\n		if @value in [4,5,6] then coords = coords.concat [[150,150],[ 50,50]]\n		if @value in [2,3,4,5,6] then coords = coords.concat [[ 150,50],[ 50,150]]\n		if @value in [6] then coords = coords.concat [[ 150,100],[ 50,100]]\n		circle x,y,20 for [x,y] in coords\napp = new RandomDice \"a\"\n",
   c: {
@@ -29,6 +30,7 @@ ID_RedCone = {
   v: '2017-04-29',
   k: 'range fc circle for lerp',
   l: 6,
+  h: 2,
   b: "",
   a: "for i in range 10,0,-1\n	fc i/10.0,0,0\n	x = 10*i\n	y = 10*i\n	r = 10*i\n	circle x,y,r"
 };
@@ -60,6 +62,7 @@ ID_RotatedEllipse = {
   v: '2017-09-30',
   k: 'angleMode rotate ellipse translate',
   l: 6,
+  h: 1,
   b: "",
   a: "fc 1,0,0\nsc()\ntranslate 100,100\nangleMode DEGREES\nrotate 45\nellipse 0,0, 80,40"
 };
@@ -68,6 +71,7 @@ ID_RotatedRectA = {
   v: '2017-04-29',
   k: 'fc rect',
   l: 4,
+  h: 1,
   b: "",
   a: "fc 1,0,0\nrect 60,100, 40,40\nfc 0,1,0\nrect 140,100, 40,40"
 };
@@ -76,6 +80,7 @@ ID_RotatedRectB = {
   v: '2017-09-30',
   k: 'fc angleMode rotate rect translate push pop',
   l: 12,
+  h: 1,
   b: "",
   a: "push()\nfc 1,0,0\ntranslate 60,100\nangleMode DEGREES\nrotate 45\nrect 0,0, 40,40\npop()\npush()\nfc 0,1,0\ntranslate 140,100\nrotate 45\nrect 0,0, 40,40\npop()"
 };
@@ -84,6 +89,7 @@ ID_RotatedRectC = {
   v: '2017-09-30',
   k: 'fc angleMode rotate rect translate push pop',
   l: 13,
+  h: 1,
   b: "",
   a: "rectMode CENTER\npush()\nfc 1,0,0\ntranslate 80,120\nangleMode DEGREES\nrotate 45\nrect 0,0, 40,40\npop()\npush()\nfc 0,1,0\ntranslate 160,120\nrotate 45\nrect 0,0, 40,40\npop()"
 };
@@ -92,6 +98,7 @@ ID_Roulette = {
   v: '2017-09-30',
   k: 'bg sw fc sc range angleMode rotate for if operators [] "" PI text arc strokeCap translate',
   l: 15,
+  h: 2,
   b: "numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]",
   a: "numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]\nbg 0.5\ntranslate 100,100\nd = 180/numbers.length\nsw 20\nstrokeCap SQUARE\ntextAlign CENTER,CENTER\nangleMode DEGREES\nfor number,i in numbers\n	fc()\n	if i==0 then sc 0,1,0 else sc i%2,0,0\n	arc 0,0,180,180,-90-d,-90+d\n	sc()\n	fc 1\n	text number,0,-90\n	rotate 360 / numbers.length",
   e: {

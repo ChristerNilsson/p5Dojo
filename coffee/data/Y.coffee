@@ -2,6 +2,7 @@ ID_Y =
 	v:'2018-02-11'
 	k:'sc sw point'
 	l:5
+	h:1
 	b: """
 # LÄXA: Hela uppgiften. Gör alltid läxorna hemma.
 #       Fråga nästa lektion om du kör fast.

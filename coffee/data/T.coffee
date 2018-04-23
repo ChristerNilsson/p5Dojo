@@ -302,12 +302,11 @@ app = new Tetris "a"
 		"Meth Meth Method" : "https://www.youtube.com/watch?v=H2aW5V46khA"
 
 ID_TextA =
-	v:'2018-04-12'
+	v:'2018-04-23'
 	k:'fc sc text textSize'
 	l:4
+	h:0
 	b:"""
-# EXEMPEL
-#
 # textSize pixlar  # höjd
 # text string,x,y  # ritar ut string
 
@@ -328,6 +327,7 @@ ID_TextB =
 	v:'2017-04-29'
 	k:'fc sc text textSize textAlign'
 	l:5
+	h:1
 	b:""
 	a:"""
 fc 1,1,0
@@ -341,6 +341,7 @@ ID_TextC =
 	v:'2017-09-30'
 	k:'sc fc angleMode rotate text translate textSize textAlign'
 	l:10
+	h:1
 	b:""
 	a:"""
 sc()
@@ -423,11 +424,12 @@ app = new TowerOfHanoi "a"
 		Wikipedia : "https://en.wikipedia.org/wiki/Tower_of_Hanoi"
 
 ID_Triangle =
-	v:'2018-04-12'
+	v:'2018-04-23'
 	k:'fc triangle'
 	l:2
+	h:1
 	b:"""
-triangle x1,y1, x2,y2, x3,y3
+# triangle x1,y1, x2,y2, x3,y3
 """
 	a:"""
 fc 1
@@ -438,6 +440,7 @@ ID_TwoArcs =
 	v:'2017-09-30'
 	k:'fc sc sw arc angleMode strokeCap'
 	l:8
+	h:2
 	b:"""
 # Innan du går vidare med p5Dojo bör du gå
 # igenom lektionerna A0, A1 och A2 i p5Assert
@@ -491,6 +494,7 @@ ID_TwoDiscsA =
 	v:'2017-04-29'
 	k:'circle fc'
 	l:4
+	h:1
 	b:""
 	a:"""
 fc 1,0,0
@@ -503,6 +507,7 @@ ID_TwoDiscsB =
 	v:'2017-04-29'
 	k:'circle fc'
 	l:4
+	h:1
 	b:""
 	a:"""
 fc 1,0,0

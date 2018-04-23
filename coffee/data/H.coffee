@@ -75,12 +75,11 @@ app = new Hex "a"
 		Wikipedia : "https://en.wikipedia.org/wiki/Hex_(board_game)"
 
 ID_HorizontalLine =
-	v:'2018-04-12'
+	v:'2018-04-23'
 	k:'sc line'
 	l:2
+	h:0
 	b: """
-# EXEMPEL
-
 sc 1,0,1
 x1 = 10
 y1 = 70
@@ -94,18 +93,18 @@ line 10,70, 190,70
 """
 
 ID_HorizontalSquares =
-	v:'2018-04-12'
+	v:'2018-04-23'
 	k:'range rect for lerp'
 	l:3
+	h:0
 	b:"""
-# EXEMPEL
 # Börja med att rita de två första kvadraterna mha rect
 # Därefter kan du börja med for-loopen
 # De parametrar som är OLIKA är lämpliga att lerpas
 
 rect  5,5,10,10
 rect 25,5,10,10
-#     Y N  N  N    lerpa?
+#     x         lerpa?
 
 for i in range 10
 	x = lerp 5,25,i # eller x = 5 + 20 * i

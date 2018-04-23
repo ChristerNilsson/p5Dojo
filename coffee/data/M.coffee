@@ -46,6 +46,7 @@ ID_ManyDices =
 	v : '2017-10-22'
 	k : '-> range for if circle sc fc "" split [] operators'
 	l : 14
+	h:3
 	b : """
 # b   e
 # c a f
@@ -77,6 +78,7 @@ ID_Map =
 	v:'2017-05-18'
 	k:'-> bg fc sc if text map operators'
 	l:1
+	h:3
 	b : """
 map = (x,x0,x1,y0,y1) -> 0
 
@@ -139,6 +141,7 @@ ID_MayFlower =
 	v:'2018-02-26'
 	k:'-> angleMode push pop translate rotate scale circle fill'
 	l:23
+	h:2
 	b : """
 
 flower = (c1,c2,c3,c4,x,y,r1,r2,r3,r4,r5) ->
@@ -182,6 +185,7 @@ ID_MidPoints =
 	v:'2017-04-29'
 	k:'sc sw point'
 	l:11
+	h:1
 	b: """
 # LÄXA: Gult, svart, vitt
 """
@@ -286,6 +290,7 @@ ID_Moire =
 	v:'2017-04-29'
 	k:'bg range operators for line map class'
 	l:11
+	h:2
 	b:"""
 class Moire extends Application
 	reset : ->

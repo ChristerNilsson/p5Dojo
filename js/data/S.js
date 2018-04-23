@@ -43,6 +43,7 @@ ID_ShrinkingCircles = {
   v: '2017-10-31',
   k: 'range fc circle for lerp',
   l: 5,
+  h: 2,
   b: "",
   a: "for i in range 10,0,-1\n	fc i/10.0,0,0\n	r = 10 * i\n	circle 100,100, r"
 };
@@ -90,10 +91,11 @@ ID_SingaporeMultPolynom = {
 };
 
 ID_Skislope = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'bg sc range for lerp line',
   l: 5,
-  b: "# EXEMPEL\n\nsc 1,0,0\nline  0,0,200, 0\nline 10,0,200,10\n#    x1       y2  lerpa?  \n\nbg 0\nfor i in range 21\n	x1 = lerp 0,10,i\n	y1 = 0\n	x2 = 200\n	y2 = lerp 0,10,i\n	line x1,y1,x2,y2",
+  h: 0,
+  b: "sc 1,0,0\nline  0,0,200, 0\nline 10,0,200,10\n#    x1       y2  lerpa?  \n\nbg 0\nfor i in range 21\n	x1 = lerp 0,10,i\n	y1 = 0\n	x2 = 200\n	y2 = lerp 0,10,i\n	line x1,y1,x2,y2",
   a: "bg 0\nsc 1,0,0\nfor i in range 21\n	line i*10,0, 200,i*10"
 };
 
@@ -131,6 +133,7 @@ ID_SnowWhiteAndThe7Lerps = {
   v: '2017-09-30',
   k: 'bg fc sc range angleMode rotate rect rectMode for lerp translate push pop',
   l: 17,
+  h: 2,
   b: "",
   a: "bg 1\nrectMode CENTER\nangleMode DEGREES\nsc()\nfor i in range 10\n	for j in range 10\n		push()\n		x = lerp 10,30,i\n		y = lerp 10,30,j\n		translate x,y\n		rotate lerp 0,10,i-j\n		r = lerp 0.1,0.2,i\n		g = lerp 0.1,0.2,j\n		fc r,g,0\n		w = lerp 5,6,i\n		h = lerp 5,6,j\n		rect 0,0, w,h\n		pop()"
 };
@@ -153,6 +156,7 @@ ID_Sokoban = {
 ID_SpaceShip = {
   v: '2017-09-30',
   k: 'sc sw angleMode rotate point triangle translate cos sin push pop class',
+  h: 3,
   l: 35,
   b: "class Shot\n	constructor : (@x,@y,@dir) ->\n	render      : ->\n	move        : ->\n\nclass Ship extends Application\n	classes : -> [Shot]\n	reset   : ->\n		super\n	draw    : ->\n	left    : ->\n	right   : ->\n	forward : ->\n	shoot   : ->\n\napp = new Ship",
   a: "\nclass Shot\n	constructor : (@x,@y,@dir) ->\n	render : ->	point @x,@y\n	move : ->\n		@x += int 5 * cos @dir\n		@y += int 5 * sin @dir\n\nclass Ship extends Application\n	classes : -> [Shot]\n	reset : ->\n		super\n		@S = 10\n		@x = 100\n		@y = 100\n		@dir = 0\n		@shots = []\n\n	left    : -> @dir -= 5\n	right   : -> @dir += 5\n	forward : ->\n		angleMode DEGREES\n		@x += 5 * cos @dir\n		@y += 5 * sin @dir\n\n	shoot : ->\n		@shots.push new Shot int(@x), int(@y), @dir\n\n	draw : ->\n		push()\n		translate @x,@y\n		angleMode DEGREES\n		rotate @dir\n		sc 1,1,0\n		sw 2\n		triangle 2*@S,0, -@S,@S, -@S,-@S\n		sw 5\n		point 0,0\n		pop()\n		for shot in @shots\n			shot.move()\n			shot.render()\n\napp = new Ship \"a\"",
@@ -165,6 +169,7 @@ ID_Square = {
   v: '2017-09-30',
   k: 'bg sw fc angleMode rotate rect rectMode translate operators class',
   l: 22,
+  h: 1,
   b: "class Square extends Application\n	reset        : ->\n		super\n	draw         : ->\n	horisontellt : (d) ->\n	vertikalt    : (d) ->\n	storlek      : (d) ->\n	tjocklek     : (d) ->\n	rotera       : (d) ->\napp = new Square",
   a: "class Square extends Application\n	reset : ->\n		super\n		@x = 100\n		@y = 100\n		@size = 100\n		@w = 1\n		@dir = 0\n	draw : ->\n		bg 0\n		rectMode CENTER\n		angleMode DEGREES\n		sw @w\n		fc 0.5\n		translate @x,@y\n		rotate @dir\n		rect 0,0,@size,@size\n\n	horisontellt : (d) -> @x += d\n	vertikalt : (d) -> @y += d\n	storlek : (d) -> @size += d\n	tjocklek : (d) -> @w += d\n	rotera : (d) -> @dir += d\n\napp = new Square \"a\"",
   c: {
@@ -176,6 +181,7 @@ ID_SquareHole = {
   v: '2017-04-29',
   k: 'fc sc sw rect',
   l: 11,
+  h: 2,
   b: "",
   a: "fc 0,1,1\nsc()\nrect 60,60, 80,20\nrect 60,120, 80,20\nrect 60,60, 20,80\nrect 120,60, 20,80\nfc()\nsc 1,0,0\nsw 3\nrect 60,60, 80,80\nrect 80,80, 40,40"
 };
@@ -184,6 +190,7 @@ ID_Stopwatch = {
   v: '2017-04-29',
   k: 'bg sc fc for [] text int millis nf class',
   l: 20,
+  h: 1,
   b: "# OBS! Tiderna kan skilja med flera millisekunder. Sorry!\n\nclass Stopwatch extends Application\n	reset : ->\n		super\n	draw  : ->\n	mousePressed : (mx,my) ->\napp = new Stopwatch",
   a: "class Stopwatch extends Application\n	reset : ->\n		super\n		@start = int millis()\n		@times = []\n		@count = 0\n	draw : ->\n		bg 0\n		textFont \"monospace\"\n		textSize 32\n		textAlign RIGHT,BOTTOM\n		fc 1,0,0\n		sc()\n		for time,i in @times\n			text @count-i, 50, 202-40*i\n			text nf(time/1000,1,3),195, 202-40*i\n	mousePressed : (mx,my) ->\n		@count++\n		@times.unshift int millis()-@start\n		if @times.length > 5 then @times.pop()\n\napp = new Stopwatch \"a\"",
   c: {
@@ -192,10 +199,11 @@ ID_Stopwatch = {
 };
 
 ID_Sunshine = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'bg sc range for lerp line',
   l: 9,
-  b: "# EXEMPEL\n\nsc 1,1,0\n\nline  0,0,200,200\nline 20,0,180,200\n#    x1    x2       lerpa?\n\nline 0,200,200, 0\nline 0,180,200,20\n#       y1     y2   lerpa? \n\nfor i in range 10\n	\n	x1 = lerp 0,20,i\n	y1 = 0\n	x2 = lerp 200,180,i\n	y2 = 200\n	line x1,y1,x2,y2\n\n	x1 = 0\n	y1 = lerp 200,180,i\n	x2 = 200\n	y2 = lerp 0,20,i\n	line x1,y1,x2,y2",
+  h: 0,
+  b: "sc 1,1,0\n\nline  0,0,200,200\nline 20,0,180,200\n#    x1    x2       lerpa?\n\nline 0,200,200, 0\nline 0,180,200,20\n#       y1     y2   lerpa? \n\nfor i in range 10\n	\n	x1 = lerp 0,20,i\n	y1 = 0\n	x2 = lerp 200,180,i\n	y2 = 200\n	line x1,y1,x2,y2\n\n	x1 = 0\n	y1 = lerp 200,180,i\n	x2 = 200\n	y2 = lerp 0,20,i\n	line x1,y1,x2,y2",
   a: "bg 0\nsc 1,1,0\nfor i in range 10\n	x1 = lerp 0,20,i\n	x2 = lerp 200,180,i\n	line x1,0, x2,200\n	y1 = lerp 20,40,i\n	y2 = lerp 180,160,i\n	line 0,y1, 200,y2"
 };
 
@@ -203,6 +211,7 @@ ID_SuperCircle = {
   v: '2017-04-29',
   k: 'bg range operators for line',
   l: 7,
+  h: 3,
   b: "",
   a: "bg 0\nfor i in range 21\n	ni = 5 * i\n	line ni,     200,   0, 100+ni\n	line ni,       0,   0, 100-ni\n	line 100+ni, 200, 200, 200-ni\n	line 100+ni,   0, 200, ni",
   e: {

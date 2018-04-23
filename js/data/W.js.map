@@ -6,8 +6,8 @@
     "coffee\\data\\W.coffee"
   ],
   "names": [],
-  "mappings": ";;;AAAA,IAAA,gBAAA;;AAAA;AACC,KAAA,AAAE;AACF,KADA,AACE;AACF,KAFA,AAEE;AACF,KAHA,AAGE;AASF,KAZA,AAYE;AAZF;;AAiBD;AACC,KAAA,AAAE;AACF,KADA,AACE;AACF,KAFA,AAEE;AACF,KAHA,AAGE;AACF,KAJA,AAIE;AAJF",
+  "mappings": ";;;AAAA,IAAA,gBAAA;;AAAA;AACC,KAAA,AAAE;AACF,KADA,AACE;AACF,KAFA,AAEE;AACF,KAHA,AAGE;AACF,KAJA,AAIE;AASF,KAbA,AAaE;AAbF;;AAkBD;AACC,KAAA,AAAE;AACF,KADA,AACE;AACF,KAFA,AAEE;AACF,KAHA,AAGE;AACF,KAJA,AAIE;AACF,KALA,AAKE;AALF",
   "sourcesContent": [
-    "ID_WhiteCircle =\n\tv:'2018-04-12'\n\tk:'circle fc'\n\tl:2\n\tb:\"\"\"\n# EXEMPEL\n\n# fc r,g,b      # fyllnadsfärg\n# circle x,y,r  # cirkel med radien r\n\nfc 1\ncircle 60,80,30\n\"\"\"\t\n\ta:\"\"\"\nfc 1\ncircle 60,80,30\n\"\"\"\n\nID_WhiteEmptyCircle =\n\tv:'2017-10-30'\n\tk:'circle fc sw'\n\tl:3\n\tb:\"\"\n\ta:\"\"\"\nfc()\nsw 2\ncircle 70,90,40\n\"\"\"\n"
+    "ID_WhiteCircle =\n\tv:'2018-04-12'\n\tk:'circle fc'\n\tl:2\n\th:1\n\tb:\"\"\"\n# EXEMPEL\n\n# fc r,g,b      # fyllnadsfärg\n# circle x,y,r  # cirkel med radien r\n\nfc 1\ncircle 60,80,30\n\"\"\"\t\n\ta:\"\"\"\nfc 1\ncircle 60,80,30\n\"\"\"\n\nID_WhiteEmptyCircle =\n\tv:'2017-10-30'\n\tk:'circle fc sw'\n\tl:3\n\th:1\n\tb:\"\"\n\ta:\"\"\"\nfc()\nsw 2\ncircle 70,90,40\n\"\"\"\n"
   ]
 }

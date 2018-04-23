@@ -2,6 +2,7 @@ ID_Diagonal1 =
 	v:'2017-09-09'
 	k:'bg sc sw point'
 	l:8
+	h:2
 	b: ""
 	a: """
 bg 0,1,0
@@ -22,6 +23,7 @@ ID_Diagonal2 =
 	v:'2017-04-29'
 	k:'sc sw point'
 	l:11
+	h:2
 	b: ""
 	a: """
 sw 20
@@ -47,6 +49,7 @@ ID_DiagonalSquares =
 	v:'2017-04-29'
 	k:'range rect for lerp'
 	l:4
+	h:1
 	b:""
 	a:"""
 for i in range 10
@@ -59,6 +62,7 @@ ID_Dices =
 	v:'2018-04-12'
 	k:'sc sw point'
 	l:27
+	h:1
 	b : """
 sw 2
 
@@ -106,15 +110,14 @@ point 115,175
 """
 
 ID_DoubleForLoop =
-	v:'2018-04-12'
+	v:'2018-04-23'
 	k:'range rect for lerp'
 	l:5
+	h:0
 	b:"""
-# EXEMPEL
-
 rect  5, 5,10,10
 rect 25,25,10,10
-#     Y  Y  N  N   lerpa?
+#     x  y       lerpa?
 
 for i in range 10
 	x = lerp 5,25,i

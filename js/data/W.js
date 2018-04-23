@@ -7,6 +7,7 @@ ID_WhiteCircle = {
   v: '2018-04-12',
   k: 'circle fc',
   l: 2,
+  h: 1,
   b: "# EXEMPEL\n\n# fc r,g,b      # fyllnadsfärg\n# circle x,y,r  # cirkel med radien r\n\nfc 1\ncircle 60,80,30",
   a: "fc 1\ncircle 60,80,30"
 };
@@ -15,6 +16,7 @@ ID_WhiteEmptyCircle = {
   v: '2017-10-30',
   k: 'circle fc sw',
   l: 3,
+  h: 1,
   b: "",
   a: "fc()\nsw 2\ncircle 70,90,40"
 };

@@ -401,7 +401,7 @@ saveToKeyStorage = function saveToKeyStorage(b) {
       s += line;
     }
   }
-  place = data[meny.chapter][meny.exercise];
+  place = data[meny.chapter][meny.exer()];
   if (!place.d) {
     place.d = [];
   }
@@ -411,7 +411,7 @@ saveToKeyStorage = function saveToKeyStorage(b) {
 editor_change = function editor_change() {
   var code, dce, res;
   reset();
-  if (meny.exercise === '') {
+  if (meny.exer() === '') {
     return;
   }
   if (0 === _.size(meny.calls)) {
@@ -419,7 +419,7 @@ editor_change = function editor_change() {
   } else {
     code = meny.calls["draw()"];
   }
-  dce = data[meny.chapter][meny.exercise];
+  dce = data[meny.chapter][meny.exer()];
   if (dce && dce.a && _.size(dce.a.c) > 0) {
     if (false === run1(code)) {
       // bör normalt vara true
@@ -433,12 +433,12 @@ editor_change = function editor_change() {
 };
 
 saveSourceCode = function saveSourceCode() {
-  return localStorage[meny.exercise + "/d"] = myCodeMirror.getValue();
+  return localStorage[meny.exer() + "/d"] = myCodeMirror.getValue();
 };
 
 run0 = function run0(code) {
   var src;
-  if (meny.exercise === "") {
+  if (meny.exer() === "") {
     return false;
   }
   src = myCodeMirror.getValue();
@@ -446,10 +446,10 @@ run0 = function run0(code) {
 };
 
 run1 = function run1(code) {
-  if (meny.exercise === "") {
+  if (meny.exer() === "") {
     return;
   }
-  return run(1, data[meny.chapter][meny.exercise].a + "\n" + code);
+  return run(1, data[meny.chapter][meny.exer()].a + "\n" + code);
 };
 
 reset = function reset() {

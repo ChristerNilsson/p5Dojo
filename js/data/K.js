@@ -27,6 +27,7 @@ ID_Klocka = {
   v: '2017-09-30',
   k: 'fc sc circle range angleMode rotate point rect rectMode for if translate push pop class Date',
   l: 49,
+  h: 3,
   b: "class Klocka extends Application\n	reset  : ->\n		super\n	draw   : ->\n	hour   : (h) ->\n	minute : (m) ->\n	second : (s) ->\n	now 	 : ->\napp = new Klocka",
   a: "class Klocka extends Application\n	reset : ->\n		super\n		@h=10\n		@m=9\n		@s=30\n	draw : ->\n		bg 0.5\n		rectMode CENTER\n		angleMode DEGREES\n		translate 100,100\n		@urtavla()\n		@visare (@h+@m/60.0)*30, 7,60,1,0,0\n		@visare (@m+@s/60.0)*6,5,80,0,1,0\n		@visare @s*6,2,80,1,1,0\n	hour   : (h) -> @adjust h,0,0\n	minute : (m) -> @adjust 0,m,0\n	second : (s) -> @adjust 0,0,s\n	now    : ->\n		d = new Date()\n		@h = d.getHours()\n		@m = d.getMinutes()\n		@s = d.getSeconds()\n	adjust : (h,m,s) ->\n		@h+=h\n		@m+=m\n		@s+=s\n		t = 3600 * @h + 60 * @m + @s\n		@s = t %% 60\n		t = (t - @s) / 60\n		@m = t %% 60\n		t = (t - @m) / 60\n		@h = t %% 24\n	visare : (v,w,l,r,g,b) ->\n		push()\n		rotate v-90\n		translate l/2,0\n		fc r,g,b\n		rect 0,0,l,w\n		pop()\n	urtavla : ->\n		fc 0\n		sc 1\n		sw 2\n		circle 0,0,90\n		fc 1\n		sc()\n		for i in range 60\n			circle 85,0, if i%5==0 then 3 else 2\n			rotate 6\n\napp = new Klocka \"a\"",
   c: {
@@ -38,6 +39,7 @@ ID_Korg = {
   v: '2017-04-29',
   k: 'bg fc sc sw rect for if class',
   l: 27,
+  h: 2,
   b: "class Korg extends Application\n	reset   : ->\n		super\n	draw    : ->\n	more    : ->\n	less    : ->\n	thinner : ->\n	thicker : ->\napp = new Korg",
   a: "class Korg extends Application\n	reset : ->\n		super\n		@n = 1\n		@w = 5\n\n	draw : ->\n		c1 = co 1,0,0\n		c2 = co 1,1,0\n		bg 0\n		sw @w\n		fill c1\n		stroke c2\n		q = 2*@n+1\n		d = 200.0/q\n		for i in range @n\n			rect d+i*2*d,0,d,200\n		for j in range @n\n			rect 0,d+j*2*d,200,d\n		for i in range @n\n			for j in range @n\n				if (i+j) % 2 == 1\n					rect i*2*d,d+j*2*d,3*d,d\n				else\n					rect d+i*2*d,j*2*d,d,3*d\n	more : -> @n = constrain @n+1,1,10\n	less : -> @n = constrain @n-1,1,10\n	thinner : -> @w = constrain @w-1,0,10\n	thicker : -> @w = constrain @w+1,0,10\n\napp = new Korg \"a\"",
   c: {
@@ -49,6 +51,7 @@ ID_Korsord = {
   v: '2017-04-29',
   k: 'bg fc sc readText operators text if for "" class []',
   l: 27,
+  h: 2,
   b: "# Mata in t ex b..l och få ut bill samt boll. Använd variabeln ordlista.\n\nclass Korsord extends Application\n	reset : ->\n		super\n	draw  : ->\n	enter : ->\napp = new Korsord",
   a: "class Korsord extends Application\n	reset : ->\n		super\n		@found = \"\"\n		@pattern = ''\n	draw : ->\n		n = 15\n		bg 0\n		textAlign LEFT,TOP\n		textSize 12\n		fc 1,1,0\n		sc()\n		for word,i in @found.split \" \"\n			x = int i / n\n			y = i % n\n			text word,5+200/4*x,200*y/n\n	match : (word,pattern) ->\n		for letter,i in pattern\n			if letter != '.' and letter != word[i] then	return false\n		true\n	enter : ->\n		words = ordlista.split \" \"\n		@pattern = @readText()\n		@found = []\n		for w in words\n			if w.length == @pattern.length and @match w,@pattern then @found.push w\n		@found = @found.join \" \"\n\napp = new Korsord \"a\"",
   c: {

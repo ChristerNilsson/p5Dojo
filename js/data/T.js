@@ -48,10 +48,11 @@ ID_Tetris = {
 };
 
 ID_TextA = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'fc sc text textSize',
   l: 4,
-  b: "# EXEMPEL\n#\n# textSize pixlar  # höjd\n# text string,x,y  # ritar ut string\n\nfc 1,1,0\nsc()\ntextSize 32\ntextAlign LEFT,BASELINE     # default\ntext \"Coffeescript\",0,100",
+  h: 0,
+  b: "# textSize pixlar  # höjd\n# text string,x,y  # ritar ut string\n\nfc 1,1,0\nsc()\ntextSize 32\ntextAlign LEFT,BASELINE     # default\ntext \"Coffeescript\",0,100",
   a: "fc 1,1,0\nsc()\ntextSize 32\ntext 'Coffeescript',0,100"
 };
 
@@ -59,6 +60,7 @@ ID_TextB = {
   v: '2017-04-29',
   k: 'fc sc text textSize textAlign',
   l: 5,
+  h: 1,
   b: "",
   a: "fc 1,1,0\nsc()\ntextSize 32\ntextAlign CENTER,CENTER\ntext 'Coffeescript',100,100"
 };
@@ -67,6 +69,7 @@ ID_TextC = {
   v: '2017-09-30',
   k: 'sc fc angleMode rotate text translate textSize textAlign',
   l: 10,
+  h: 1,
   b: "",
   a: "sc()\nfc 1,1,0\ntextSize 64\ntextAlign CENTER,CENTER\ntranslate 100,100\nangleMode DEGREES\nrotate 90\ntext 'Coffee',0,0\nfc 1,0,0\nrotate 90\ntext 'script',0,0"
 };
@@ -86,10 +89,11 @@ ID_TowerOfHanoi = {
 };
 
 ID_Triangle = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'fc triangle',
   l: 2,
-  b: "triangle x1,y1, x2,y2, x3,y3",
+  h: 1,
+  b: "# triangle x1,y1, x2,y2, x3,y3",
   a: "fc 1\ntriangle 20,40, 160,100, 100,140"
 };
 
@@ -97,6 +101,7 @@ ID_TwoArcs = {
   v: '2017-09-30',
   k: 'fc sc sw arc angleMode strokeCap',
   l: 8,
+  h: 2,
   b: "# Innan du går vidare med p5Dojo bör du gå\n# igenom lektionerna A0, A1 och A2 i p5Assert",
   a: "fc()\nsc 1,0,0\nsw 20\nangleMode DEGREES\narc 100,70, 100,100, -90,0\nsc 1,1,0\nstrokeCap SQUARE\narc 100,120, 100,100, 0, -90"
 };
@@ -116,6 +121,7 @@ ID_TwoDiscsA = {
   v: '2017-04-29',
   k: 'circle fc',
   l: 4,
+  h: 1,
   b: "",
   a: "fc 1,0,0\ncircle 80,100,40\nfc 0,1,0\ncircle 100,120,50"
 };
@@ -124,6 +130,7 @@ ID_TwoDiscsB = {
   v: '2017-04-29',
   k: 'circle fc',
   l: 4,
+  h: 1,
   b: "",
   a: "fc 1,0,0\ncircle 80,100,40\nfc 0,1,0, 0.5\ncircle 120,100,50"
 };

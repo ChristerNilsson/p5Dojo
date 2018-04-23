@@ -4,10 +4,11 @@
 var ID_Quad, ID_Quiz;
 
 ID_Quad = {
-  v: '2018-04-12',
+  v: '2018-04-23',
   k: 'fc quad',
   l: 2,
-  b: "quad x1,y1, x2,y2, x3,y3, x4,y4",
+  h: 1,
+  b: "# quad x1,y1, x2,y2, x3,y3, x4,y4",
   a: "fc 1,1,0\nquad 150,100, 180,20, 40,20, 100,140"
 };
 

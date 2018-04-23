@@ -295,6 +295,7 @@ ID_ShrinkingCircles =
 	v:'2017-10-31'
 	k:'range fc circle for lerp'
 	l:5
+	h:2
 	b:""
 	a:"""
 for i in range 10,0,-1
@@ -581,12 +582,11 @@ app = new SingaporeMultPolynom "a"
 		polynom : "https://www.youtube.com/watch?v=fGy9UMSm-_M"
 
 ID_Skislope =
-	v:'2018-04-12'
+	v:'2018-04-23'
 	k:'bg sc range for lerp line'
 	l:5
+	h:0
 	b: """
-# EXEMPEL
-
 sc 1,0,0
 line  0,0,200, 0
 line 10,0,200,10
@@ -749,6 +749,7 @@ ID_SnowWhiteAndThe7Lerps =
 	v:'2017-09-30'
 	k:'bg fc sc range angleMode rotate rect rectMode for lerp translate push pop'
 	l:17
+	h:2	
 	b:""
 	a:"""
 bg 1
@@ -889,6 +890,7 @@ app = new Sokoban "a"
 ID_SpaceShip =
 	v:'2017-09-30'
 	k:'sc sw angleMode rotate point triangle translate cos sin push pop class'
+	h:3
 	l:35
 	b:"""
 class Shot
@@ -961,6 +963,7 @@ ID_Square =
 	v:'2017-09-30'
 	k:'bg sw fc angleMode rotate rect rectMode translate operators class'
 	l:22
+	h:1
 	b: """
 class Square extends Application
 	reset        : ->
@@ -1007,6 +1010,7 @@ ID_SquareHole =
 	v : '2017-04-29'
 	k : 'fc sc sw rect'
 	l : 11
+	h:2
 	b : ""
 	a : """
 fc 0,1,1
@@ -1026,6 +1030,7 @@ ID_Stopwatch =
 	v:'2017-04-29'
 	k:'bg sc fc for [] text int millis nf class'
 	l:20
+	h:1
 	b:"""
 # OBS! Tiderna kan skilja med flera millisekunder. Sorry!
 
@@ -1064,12 +1069,11 @@ app = new Stopwatch "a"
 		app: "reset()"
 
 ID_Sunshine =
-	v:'2018-04-12'
+	v:'2018-04-23'
 	k:'bg sc range for lerp line'
 	l:9
+	h:0
 	b: """
-# EXEMPEL
-
 sc 1,1,0
 
 line  0,0,200,200
@@ -1110,6 +1114,7 @@ ID_SuperCircle =
 	v:'2017-04-29'
 	k:'bg range operators for line'
 	l:7
+	h:3
 	b: ""
 	a: """
 bg 0

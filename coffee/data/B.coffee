@@ -1,9 +1,9 @@
 ID_Background1 =
-	v:'2018-04-12'
-	k:'bg'
-	l:1
+	v: '2018-04-23'
+	k: 'bg'
+	l: 1
+	h: 0
 	b: """
-# EXEMPEL
 # Första bilden ska du efterlikna.
 # Andra bilden skapas av din kod.
 # Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.
@@ -19,9 +19,10 @@ bg 1
 	a: "bg 1"
 
 ID_Background2 =
-	v:'2018-01-25'
-	k:'bg'
-	l:1
+	v: '2018-01-25'
+	k: 'bg'
+	l: 1
+	h: 1
 	b: """
 # Listan med gul text på svart bakgrund innehåller kommandon som du behöver.
 # Klicka på dem för att läsa om dem.
@@ -33,6 +34,7 @@ ID_Background3 =
 	v:'2017-04-29'
 	k:'bg'
 	l:1
+	h:1
 	b: ""
 	a: "bg 1,0,0"
 
@@ -40,6 +42,7 @@ ID_Background4 =
 	v:'2017-04-29'
 	k:'bg'
 	l:1
+	h:1
 	b: ""
 	a: "bg 1,1,0"
 
@@ -219,6 +222,7 @@ app = new BlackBox2D "a"
 ID_Blank =
 	v:'2017-05-12'
 	k:''
+	h:1
 	b: """
 # Här kan du laborera med egna idéer!
 """
@@ -354,6 +358,7 @@ ID_Braid =
 	v:'2017-04-29'
 	k:'sc bg sw range for line class'
 	l:19
+	h:3
 	b : """
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->

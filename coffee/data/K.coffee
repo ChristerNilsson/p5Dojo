@@ -89,6 +89,7 @@ ID_Klocka =
 	v:'2017-09-30'
 	k:'fc sc circle range angleMode rotate point rect rectMode for if translate push pop class Date'
 	l:49
+	h:3
 	b: """
 class Klocka extends Application
 	reset  : ->
@@ -161,6 +162,7 @@ ID_Korg =
 	v:'2017-04-29'
 	k:'bg fc sc sw rect for if class'
 	l:27
+	h:2
 	b:"""
 class Korg extends Application
 	reset   : ->
@@ -212,6 +214,7 @@ ID_Korsord =
 	v:'2017-04-29'
 	k:'bg fc sc readText operators text if for "" class []'
 	l:27
+	h:2
 	b: """
 # Mata in t ex b..l och få ut bill samt boll. Använd variabeln ordlista.
 

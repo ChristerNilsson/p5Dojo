@@ -2,9 +2,8 @@ ID_X =
 	v:'2018-04-12'
 	k:'sw point'
 	l:4
+	h:0
 	b: """
-# EXEMPEL
-#
 # Klicka "Koordinatsystem" till vänster för hjälp
 # Öva dig på koordinatsystem genom att klicka "Coordinate Trainer 1" till vänster
 # Öva dig på koordinatsystem genom att klicka "Coordinate Trainer 2" till vänster

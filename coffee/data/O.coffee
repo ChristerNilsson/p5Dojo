@@ -2,6 +2,7 @@ ID_OlympicRingPrep =
 	v:'2017-04-29'
 	k:'sc fc sw arc angleMode strokeCap class'
 	l:21
+	h:1
 	b:"""
 class Ring extends Application
 	reset  : ->
@@ -42,6 +43,7 @@ ID_OlympicRings =
 	v:'2017-04-29'
 	k:'sc bg fc sw arc strokeCap class'
 	l:24
+	h:3
 	b: """
 class Ring
 	constructor : (@x,@y,@r,@g,@b) ->

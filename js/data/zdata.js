@@ -67,15 +67,18 @@ data = {
     Lines: ID_Lines,
     ChessRow: ID_ChessRow,
     ChessBoard: ID_ChessBoard,
+    GalaxiesOne: ID_GalaxiesOne,
     GalaxiesColliding: ID_GalaxiesColliding,
     ColorSide: ID_ColorSide,
     ColorCross: ID_ColorCross
   },
   "L7: function": {
+    Arc: ID_Arc,
     TwoArcs: ID_TwoArcs,
     PacMan: ID_PacMan,
     Diagonal1: ID_Diagonal1,
     Diagonal2: ID_Diagonal2,
+    Function: ID_Function,
     p5: ID_P5,
     Average: ID_Average,
     Lerp: ID_Lerp,
@@ -92,17 +95,17 @@ data = {
     RandomDice: ID_RandomDice,
     //BoardGame : ID_BoardGame
     Girlang: ID_Girlang,
-    Braid: ID_Braid,
-    GUI: ID_GUI
+    GUI: ID_GUI,
+    Braid: ID_Braid
   },
   "L9: GuessANumber": {
-    Korg: ID_Korg,
-    Korsord: ID_Korsord,
     Coordinator: ID_Coordinator,
     Stopwatch: ID_Stopwatch,
     OlympicRingPrep: ID_OlympicRingPrep,
-    OlympicRings: ID_OlympicRings,
     GuessANumber: ID_GuessANumber,
+    Korg: ID_Korg,
+    Korsord: ID_Korsord,
+    OlympicRings: ID_OlympicRings,
     LinearRegression: ID_LinearRegression
   },
   "LA: Connect4": {
@@ -203,7 +206,8 @@ data = {
     rotatedCircles: ID012,
     gravity: ID013,
     hypnoticA: ID014,
-    hypnoticB: ID015
+    hypnoticB: ID015,
+    quadraticus: ID019
   }
 };
 //# sourceMappingURL=zdata.js.map

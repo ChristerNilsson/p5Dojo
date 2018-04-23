@@ -2,6 +2,7 @@ ID_Cards =
 	v:'2017-09-30'
 	k:'fc sc circle range angleMode rotate rect rectMode for lerp translate'
 	l:10
+	h:2
 	b:""
 	a:"""
 rectMode CENTER
@@ -21,6 +22,7 @@ ID_ChessBoard =
 	v:'2017-04-29'
 	k:'bg fc range for lerp rect'
 	l:7
+	h:2
 	b:""
 	a:"""
 bg 0.5
@@ -290,12 +292,11 @@ app = new ChessMany "a"
 		app : "reset()"
 
 ID_ChessRow =
-	v:'2018-04-12'
+	v:'2018-04-23'
 	k:'bg fc range operators for lerp rect'
 	l:5
+	h:0
 	b:"""
-# EXEMPEL
-
 fc 0
 rect 20,20,20,20
 fc 1
@@ -419,6 +420,7 @@ ID_CoffeescriptClock =
 	v:'2017-09-30'
 	k:'bg fc sc range operators for "" text angleMode sin cos'
 	l:10
+	h:2
 	b:""
 	a:"""
 bg 1
@@ -438,6 +440,7 @@ ID_ColorCross =
 	v:'2017-09-09'
 	k:'bg sc lerp range for point'
 	l:11
+	h:3
 	b:"""
 # LÄXA: Sista tre sidorna.
 #    bM     blue
@@ -606,48 +609,29 @@ app = new ColorPair "a"
 		ColorPair : "https://christernilsson.github.io/ColorPair"
 
 ID_ColorSide =
-	v:'2018-04-12'
+	v:'2018-04-23'
 	k:'sc lerp range for point'
-	l:10
+	l:9
+	h:0
 	b:"""
-# EXEMPEL
-
 # BR (Black, Red)
 # GY (Green, Yellow)
 
-n =  20 # utveckling: snabb
-n = 200 # produktion: långsam
-
-steg = 1/n
-size = 200/n
-
-sc    0,    0, 0
-point 0,0
-
-sc steg, steg, 0
-point 1,1
-
-#     r     g  lerpa?
-#     x,y      lerpa?
-
-sw size
-
-for i in range n+1
-	for j in range n+1
-		r = lerp 0,steg,i
-		g = lerp 0,steg,j
+for i in range 200
+	for j in range 200
+		r = lerp 0,0.005,i
+		g = lerp 0,0.005,j
 		b = 0
 		sc r,g,b
-		x = lerp 0,size,i
-		y = lerp 0,size,j
+		x = i
+		y = j
 		point x,y
 """
 	a:"""
-n = 200
-for i in range n+1
-	for j in range n+1
-		r = i/n
-		g = j/n
+for i in range 200
+	for j in range 200
+		r = lerp 0,0.005,i
+		g = lerp 0,0.005,j
 		b = 0
 		sc r,g,b
 		x = i
@@ -817,6 +801,7 @@ ID_Coordinator =
 	v:'2017-05-10'
 	k:'sc fc circle class dist if operators text'
 	l:30
+	h:1
 	b:"""
 class Coordinator extends Application
 	reset : ->
@@ -869,6 +854,7 @@ ID_CornerPoints =
 	v:'2018-04-12'
 	k:'sc sw point'
 	l:9
+	h:1
 	b: """
 # EXEMPEL
 # 
@@ -904,6 +890,7 @@ ID_CornerPoints3 =
 	v:'2017-04-29'
 	k:'sc sw point'
 	l:17
+	h:1
 	b: """
 # LÄXA: Grönt, gult, vitt
 """
@@ -934,6 +921,7 @@ ID_CornerPoints7 =
 	v:'2017-04-29'
 	k:'sc sw point'
 	l:17
+	h:1
 	b: """
 # LÄXA: Grönt
 """
@@ -959,12 +947,11 @@ point 200,170
 """
 
 ID_Counter =
-	v:'2018-04-12'
+	v:'2018-04-23'
 	k:'bg fc sc text operators class'
 	l:12
+	h:0
 	b:"""
-# EXEMPEL
-
 # Klicka på reset() för att komma igång!
 # De blåa knapparna anropar metoder i de båda objekten
 
@@ -1023,6 +1010,7 @@ ID_Cross =
 	v:'2017-10-31'
 	k:'fc rect sc'
 	l:4
+	h:2
 	b:"""
 # LÄXA: Hela uppgiften
 """

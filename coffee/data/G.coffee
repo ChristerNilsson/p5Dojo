@@ -1,7 +1,32 @@
+ID_GalaxiesOne =
+	v:'2018-04-24'
+	k:'fc range for rect if'
+	l:7
+	h:0
+	b: """
+for i in range 10
+	for j in range 10
+		fc()
+		if i-j == 0 then fc 1,1,0
+		x = 20*i
+		y = 20*j
+		rect x,y, 20,20
+"""
+	a: """
+for i in range 10
+	for j in range 10
+		fc()
+		if i-j == 0 then fc 1,1,0
+		x = 20*i
+		y = 20*j
+		rect x,y, 20,20
+"""
+
 ID_GalaxiesColliding =
 	v:'2017-04-29'
-	k:'fc range for lerp rect if'
+	k:'fc range for rect if'
 	l:8
+	h:3
 	b: "# (David Larsson)\n"
 	a: """
 for i in range 10
@@ -82,6 +107,7 @@ ID_Girlang =
 	v:'2018-02-11'
 	k:'sc bg sw range for line class'
 	l:15
+	h:2
 	b:"""
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
@@ -114,6 +140,7 @@ ID_GoldenStar =
 	v:'2017-09-30'
 	k:'bg fc range for triangle translate angleMode rotate cos sin class'
 	l:23
+	h:2
 	b: """
 class GoldenStar extends Application
 	reset : ->
@@ -160,6 +187,7 @@ ID_GreenEllipse =
 	v:'2018-04-12'
 	k:'fc ellipse'
 	l:2
+	h:1
 	b:"""
 # ellipse x,y,w,h
 
@@ -175,6 +203,7 @@ ID_GreenRect =
 	v:'2018-04-12'
 	k:'fc rect'
 	l:2
+	h:1
 	b:"""
 # rect x,y,w,h
 
@@ -190,6 +219,7 @@ ID_Grid =
 	v:'2017-04-29'
 	k:'sc sw range for line'
 	l:5
+	h:2
 	b:""
 	a:"""
 sc 1,1,0
@@ -203,6 +233,7 @@ ID_GrowingCircles =
 	v:'2017-04-29'
 	k:'range fc circle for lerp'
 	l:6
+	h:2
 	b:"""
 # LÄXA: Hela uppgiften
 """
@@ -219,6 +250,7 @@ ID_GrowingRedSquares =
 	v:'2017-04-29'
 	k:'fc range for lerp rect rectMode'
 	l:8
+	h:2	
 	b:""
 	a:"""
 rectMode CENTER
@@ -235,6 +267,7 @@ ID_GrowingSquares =
 	v:'2018-04-12'
 	k:'range rect rectMode for lerp'
 	l:7
+	h:2
 	b:"""
 rectMode CENTER
 """
@@ -252,6 +285,7 @@ ID_GuessANumber =
 	v:'2017-04-29'
 	k:'bg fc sc range text for if operators int class'
 	l:29
+	h:2
 	b:"""
 class Guess extends Application
 	reset        : ->
@@ -354,6 +388,7 @@ ID_GUI =
 	v:'2017-09-29'
 	k:'bg fc sc text for if [] operators class'
 	l:30
+	h:2
 	b:"""
 class GUI extends Application
 	reset : ->

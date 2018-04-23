@@ -2,6 +2,7 @@ ID_nyheter =
 	v:'2017-11-03'
 	k:''
 	l:0
+	h:0
 	b:"""
 # NYHETER 2017 NOV 03
 #   LinearRegression
@@ -82,6 +83,7 @@ ID_Asserts =
 	v:'2017-04-29'
 	k:''
 	l:0
+	h:0
 	b:"""
 # Här kan du se några klargörande exempel.
 # Om de två parametrarna till assert är olika, skrivs de ut till console.
@@ -260,6 +262,7 @@ ID_LinesOfCode =
 	v:'2017-05-13'
 	k:'bg fc sc [] {} operators if parseInt _.max rect for text class'
 	l:60
+	h:3
 	b:"""
 class LinesOfCode extends Application
 	reset : -> super

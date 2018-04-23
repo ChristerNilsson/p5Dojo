@@ -2,6 +2,7 @@ ID_VerticalLine =
 	v:'2017-04-29'
 	k:'sc sw line'
 	l:3
+	h:1
 	b: ""
 	a: """
 sc 1,1,0
@@ -10,9 +11,10 @@ line 110,30, 110,170
 """
 
 ID_VerticalSquares =
-	v:'2017-10-05'
+	v:'2018-04-23'
 	k:'range rect for lerp'
 	l:3
+	h:1
 	b:"""
 # LÄXA: Hela uppgiften
 # Kopiera föregående exempel så här:
