@@ -1,6 +1,7 @@
 # v : version YY-MM-DD
 # k : keywords
 # l : lines of code
+# h : hardness 0=Example 1=Easy 2=Medium 3=Hard
 # b : user code
 # a : original code
 # c : commands
@@ -20,7 +21,6 @@ data =
 		CornerPoints3 : ID_CornerPoints3
 
 	"L2: circle fc text" :
-		Dices : ID_Dices
 		WhiteCircle : ID_WhiteCircle
 		WhiteEmptyCircle : ID_WhiteEmptyCircle
 		TwoDiscsA : ID_TwoDiscsA
@@ -28,15 +28,17 @@ data =
 		TextA : ID_TextA
 		TextB : ID_TextB
 		Five : ID_Five
+		Dices : ID_Dices
 
 	"L3: ellipse rect triangle" :
 		GreenEllipse : ID_GreenEllipse
 		GreenRect : ID_GreenRect
 		#RedRect : ID_RedRect
-		Cross : ID_Cross
-		SquareHole : ID_SquareHole
 		Triangle : ID_Triangle
 		Quad : ID_Quad
+		Cross : ID_Cross
+		SquareHole : ID_SquareHole
+		FlagSweden : ID_FlagSweden
 
 	"L4: for rect circle" :
 		HorizontalSquares : ID_HorizontalSquares
@@ -69,15 +71,15 @@ data =
 		ColorCross : ID_ColorCross
 
 	"L7: function" :
+		Function : ID_Function
+		p5 : ID_P5
+		Average : ID_Average
+		Lerp : ID_Lerp
 		Arc : ID_Arc
 		TwoArcs : ID_TwoArcs
 		PacMan : ID_PacMan
 		Diagonal1 : ID_Diagonal1
 		Diagonal2 : ID_Diagonal2
-		Function : ID_Function
-		p5 : ID_P5
-		Average : ID_Average
-		Lerp : ID_Lerp
 		Map : ID_Map
 		ManyDices : ID_ManyDices
 		#OneDiceHistogram : ID_OneDiceHistogram
@@ -173,6 +175,7 @@ data =
 		IndianSun : ID_IndianSun
 		Polygon : ID_Polygon
 		GoldenStar : ID_GoldenStar
+		FlagKorea : ID_FlagKorea
 		SpaceShip : ID_SpaceShip
 		Angle : ID_Angle
 		Klocka : ID_Klocka
@@ -180,9 +183,9 @@ data =
 	Information :
 		Nyheter : ID_nyheter
 		Asserts : ID_Asserts
-		LinesOfCode : ID_LinesOfCode
 		Blank : ID_Blank
 		Laboratorium : ID_Laboratorium
+		LinesOfCode : ID_LinesOfCode
 
 	Exhibition :
 		sailingBoat : ID018

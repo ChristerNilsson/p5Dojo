@@ -1,13 +1,11 @@
 ID_WhiteCircle =
-	v:'2018-04-12'
+	v:'2018-04-24'
 	k:'circle fc'
 	l:2
-	h:1
+	h:0
 	b:"""
-# EXEMPEL
-
 # fc r,g,b      # fyllnadsfärg
-# circle x,y,r  # cirkel med radien r
+# circle x,y,r  # cirkel med mittpunkt x,y och radie r
 
 fc 1
 circle 60,80,30

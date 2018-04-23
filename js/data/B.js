@@ -73,6 +73,7 @@ ID_BlackBox2D = {
 ID_Blank = {
   v: '2017-05-12',
   k: '',
+  l: 0,
   h: 1,
   b: "# Här kan du laborera med egna idéer!",
   a: "a=null"

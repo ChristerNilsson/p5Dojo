@@ -62,7 +62,7 @@ ID_Dices =
 	v:'2018-04-12'
 	k:'sc sw point'
 	l:27
-	h:1
+	h:3
 	b : """
 sw 2
 

@@ -20,6 +20,96 @@ fc 0,0,1
 circle 160,40,20
 """
 
+ID_FlagKorea =
+	v:'2018-04-23'
+	k:'bg sc fc rect sw arc circle push pop translate scale rotate'
+	l:44
+	h:3
+	b:""
+	a:"""
+angleMode DEGREES
+rectMode CENTER
+vinkel = atan2 2, 3
+
+ram = ->
+	fc 1
+	sw 1/60
+	sc 0
+	rect 0,0,3,2
+
+yinyang = ->
+	sc()
+
+	fc 1,0,0
+	arc 0,0,1,1,180,0
+
+	fc 0,0,1
+	arc 0,0,1,1,0,180
+
+	fc 1,0,0
+	circle -1/4,0,1/4
+
+	fc 0,0,1
+	circle 1/4,0,1/4
+
+streck = (pattern,offset,black,white) ->
+	push()
+	translate offset,0
+	for p in pattern
+		translate black/2,0
+		fc 0
+		sc 1
+		rect 0,0,1/12,1/2
+		if p == 0 
+			fc 1
+			sc 1
+			rect 0,0,1/12,1/24
+		translate black/2,0
+		translate white,0
+
+	pop()
+
+bg 0.5
+translate 100,100
+scale 60
+
+ram()
+
+rotate vinkel
+
+yinyang()
+
+streck [1,1,1],-1/2-1/4,-1/12,-1/24 
+streck [0,0,0],1/2+1/4,1/12,1/24 
+
+rotate -2 * vinkel
+
+streck [1,0,1],-1/2-1/4,-1/12,-1/24 
+streck [0,1,0],1/2+1/4,1/12,1/24 
+"""
+	e:
+		"Wikipedia" : "https://en.wikipedia.org/wiki/Flag_of_South_Korea#/media/File:Flag_of_South_Korea_(construction_sheet).svg"
+
+ID_FlagSweden =
+	v:'2018-04-23'
+	k:'bg sc fc rect'
+	l:7
+	h:3
+	b:""
+	a:"""
+bg 0.5
+sc()
+fc 0,0,1
+rect 20,50,160,100
+fc 1,1,0
+rect 70,50,20,100
+rect 20,90,160,20
+"""
+	e:
+		"Wikipedia" : "https://sv.wikipedia.org/wiki/Sveriges_flagga#/media/File:Sweden_flag_construction_sheet.png"
+
+
+
 ID_ForthHaiku =
 	v:'2017-04-29'
 	k:'fc range if [] _.last rect for parseFloat class'

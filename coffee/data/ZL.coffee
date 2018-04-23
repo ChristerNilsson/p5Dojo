@@ -1,9 +1,16 @@
 ID_nyheter =
-	v:'2017-11-03'
+	v:'2018-04-23'
 	k:''
 	l:0
 	h:0
 	b:"""
+# NYHETER 2018 APR 23
+#   FlagSweden
+#   FlagKorea
+# 	Arc
+#   GalaxiesOne
+#   ColorSide
+#   Function
 # NYHETER 2017 NOV 03
 #   LinearRegression
 # NYHETER 2017 OKT 23
