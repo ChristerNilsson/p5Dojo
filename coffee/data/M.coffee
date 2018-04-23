@@ -47,6 +47,7 @@ ID_Mandelbrot =
 	l:36
 	h:3
 	b:"""
+# The color is mapped as bbbgggrrr
 class Mandelbrot extends Application
 	reset : ->
 		super
@@ -73,18 +74,19 @@ class Mandelbrot extends Application
 				cx = @x + @zoom*i
 				cy = @y + @zoom*j
 				f = @calc cx,cy
-				r = f % @N; f //= @N
-				g = f % @N; f //= @N
 				b = f % @N; f //= @N
+				g = f % @N; f //= @N
+				r = f % @N; f //= @N
 				sc r/@N1, g/@N1, b/@N1
 				point @SIZE+i,@SIZE+j
 	undo : -> if @hist.length>0 then [@x,@y,@zoom] = @hist.pop()
 	calc : (cx,cy) ->
-		[x,y] = [0,0]
+		[x,y] = [cx,cy]
 		count = 0
-		for k in range @DEPTH
+		for k in range @DEPTH-1
 			if 2 > dist x,y,0,0 then count++ else return count
 			[x,y] = [x*x-y*y+cx, 2*x*y+cy]
+		if count == @DEPTH-1 then count = 0 
 		count
 	mousePressed : (mx,my) ->
 		@hist.push [@x,@y,@zoom]
