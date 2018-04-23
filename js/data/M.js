@@ -52,7 +52,7 @@ ID_MidPoints = {
   v: '2017-04-29',
   k: 'sc sw point',
   l: 11,
-  h: 1,
+  h: 2,
   b: "# LÄXA: Gult, svart, vitt",
   a: "sw 10\nsc 1,0,0\npoint 100,100\nsc 0,1,0\npoint 100,0\nsc 1,1,0\npoint 0,100\nsc 0\npoint 200,100\nsc 1\npoint 100,200"
 };

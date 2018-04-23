@@ -327,7 +327,7 @@ ID_TextB =
 	v:'2017-04-29'
 	k:'fc sc text textSize textAlign'
 	l:5
-	h:1
+	h:2
 	b:""
 	a:"""
 fc 1,1,0

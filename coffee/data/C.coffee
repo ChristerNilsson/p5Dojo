@@ -854,7 +854,7 @@ ID_CornerPoints =
 	v:'2018-04-12'
 	k:'sc sw point'
 	l:9
-	h:1
+	h:2
 	b: """
 # EXEMPEL
 # 
@@ -890,7 +890,7 @@ ID_CornerPoints3 =
 	v:'2017-04-29'
 	k:'sc sw point'
 	l:17
-	h:1
+	h:3
 	b: """
 # LÄXA: Grönt, gult, vitt
 """
@@ -921,7 +921,7 @@ ID_CornerPoints7 =
 	v:'2017-04-29'
 	k:'sc sw point'
 	l:17
-	h:1
+	h:3
 	b: """
 # LÄXA: Grönt
 """
