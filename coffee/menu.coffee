@@ -24,12 +24,11 @@ class Menu
 
 		if @branch.length == 0
 			for text,link of LINKS 
-				b = @addCommand text, 0, DARKGREEN, WHITE
+				b = @addCommand text, 0, [DARKGREEN, WHITE]
 				do (link) -> b.onclick = -> window.open(link, '_blank').focus()				
 
 		if level == 1 # exercise
 			for key,i in _.keys items
-				print 'key',key,items[key].h,@hardness items[key].h
 				if i == @branch[level] or @branch.length == level
 					@addTitle key, level, i, br.concat(i), @hardness items[key].h
 				keywords = items[key].k.split ' '
@@ -42,13 +41,13 @@ class Menu
 				if item != '' then @addTitle item, level, i, br, [BLACK,YELLOW]
 
 			# commands
-			@calls = decorate data[@chapter][@exercise].c
+			@calls = decorate data[@chapter][@exer()].c
 			for key of @calls
-				if key != 'draw()' then @addCommand key, level, BLUE, YELLOW
+				if key != 'draw()' then @addCommand key, level, [BLUE, YELLOW]
 
 			# renew
 			if localStorage[@exercise + "/v"]? and localStorage[@exercise + "/v"] != data[@chapter][@exercise].v
-				b = @addCommand "Renew", level, RED, WHITE
+				b = @addCommand "Renew", level, [RED, WHITE]
 				b.onclick = ->
 					print myCodeMirror.getValue() # Låt stå!
 					exercise = data[meny.chapter][meny.exercise]
@@ -59,7 +58,7 @@ class Menu
 			# links
 			if @exercise != ''
 				for text,link of data[@chapter][@exercise].e
-					b = @addCommand text, level, GREEN, BLACK
+					b = @addCommand text, level, [GREEN, BLACK]
 					do (link) -> b.onclick = -> window.open(link, '_blank').focus()
 
 	handleRow : (b) ->
@@ -70,7 +69,6 @@ class Menu
 	lineCount : -> data[@chapter][@exercise].l
 
 	hardness : (h) ->
-		print typeof h
 		if h==0 then return [WHITE,BLACK]
 		if h==1 then return [GREEN,BLACK] 
 		if h==2 then return [YELLOW,BLACK]
@@ -78,35 +76,34 @@ class Menu
 		[RED,WHITE]
 
 	addTitle : (title,level,i,br,colors=[BLACK,RED]) ->
-		print colors
-		#print level
-		[c1,c2] = colors 
-
 		if level == 2 
-			b = makeButton title, level, c1, c2
+			b = makeButton title, level, colors
 		else if @branch[level] == i 
 			if level == 1
-				b = makeButton ' - ' + "#{title} [#{@lineCount()}]", level, c1, c2
+				b = makeButton ' - ' + "#{title} [#{@lineCount()}]", level, colors
 			else 
-				b = makeButton ' - ' + title, level, c1, c2
+				b = makeButton ' - ' + title, level, colors
 		else 
-			b = makeButton ' + ' + title, level, c1, c2 
+			b = makeButton ' + ' + title, level, colors
 		
 		b.branch = br
 
 		b.onclick = => 
-			value = b.value[3..]
-			if level == 0 then @sel1click value
-			if level == 1 then @sel2click value				
-			if level == 2 then @sel3click b.value
-			if level in [0,1] then @branch = calcBranch @branch, b.branch
+			if level == 0 
+				@sel1click b.value
+				@branch = calcBranch @branch, b.branch
+			else if level == 1 
+				@sel2click b #.value
+				@branch = calcBranch @branch, b.branch				
+			else if level == 2 then @sel3click b.value
+			#if level in [0,1] then @branch = calcBranch @branch, b.branch
 			updateTables()
 
 		@handleRow b
 		b
 
-	addCommand : (title,level,color1, color2) ->
-		b = makeButton title, level, color1, color2
+	addCommand : (title,level,colors) ->
+		b = makeButton title, level, colors
 		code = @calls[title]
 		b.onclick = -> 
 			if run1(code) == true then run0 code
@@ -116,18 +113,17 @@ class Menu
 
 	exer : -> 
 		if @exercise == '' or @exercise == null then return ''
-		@exercise.split(' ')[0]	
+		@exercise #.split(' ')[0]	
 
 	setState : (st) ->
 		@state = st
 
 		#if st==2 then @calls = data[@chapter][@exercise].c else @calls = {}
-		$('#input').hide()
-		if _.size(@calls) > 0 then $('#input').show() 
+		if st==2 and _.size(@calls) > 0 then $('#input').show() else $('#input').hide()
 		if st==2 then msg.show() else msg.hide()
 		if st==2 then $(".CodeMirror").show() else $(".CodeMirror").hide()
 
-		if st<=1
+		if st<=2 # 1
 			@calls = {}
 			tableClear()
 			bg 0.5
@@ -135,38 +131,46 @@ class Menu
 		if st==1 then	@exercise = ""
 
 	sel1click : (chapter) ->
-		@chapter = chapter
+		value = chapter[3..]
+		@chapter = value
 		@exercise = ""
 		@calls = {}
 		@setState 1
 
-	sel2click : (exercise) ->
-		@exercise = exercise
+	sel2click : (b) ->
+		exercise = b.value 
+		value = exercise[3..]
+		arr = value.split ' '
+		@exercise = arr[0]
 		if @exer() == ""
 			myCodeMirror.setValue ""
 			bg 0.5
 			return
 		@calls = data[@chapter][@exer()].c
-		@setState 2
+		if exercise.indexOf('+') >= 0
+			@setState 2
+			src = localStorage[@exer() + "/d"]
+			if src == undefined or src == null or src == ''
+				if data[@chapter][@exer()] 
+					src = data[@chapter][@exer()].b
+					localStorage[@exer() + "/d"] = src
+					localStorage[@exer() + "/v"] = data[@chapter][@exer()].v
+			myCodeMirror.setValue src
 
-		src = localStorage[@exer() + "/d"]
-		if src == undefined or src == null or src == ''
-			src = data[@chapter][@exer()].b
-			localStorage[@exer() + "/d"] = src
-			localStorage[@exer() + "/v"] = data[@chapter][@exer()].v
-		myCodeMirror.setValue src
+			tableClear()
 
-		tableClear()
+			calls = data[@chapter][@exer()].c		
+			if _.size(calls) > 0 
+				code = @calls["draw()"]
+			if run1(code) == true
+				run0 code 
 
-		calls = data[@chapter][@exer()].c		
-		if _.size(calls) > 0 
-			code = @calls["draw()"]
-		if run1(code) == true
-			run0 code 
+			myCodeMirror.focus()
+			compare()
+		else
+			@setState 1
 
-		myCodeMirror.focus()
-		compare()
-
+	
 	sel3click : (keyword) ->
 		url = buildLink keyword
 		if url?

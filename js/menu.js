@@ -1,9 +1,5 @@
 "use strict";
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -74,7 +70,7 @@ Menu = function () {
         };
         for (text in LINKS) {
           link = LINKS[text];
-          b = this.addCommand(text, 0, DARKGREEN, WHITE);
+          b = this.addCommand(text, 0, [DARKGREEN, WHITE]);
           fn(link);
         }
       }
@@ -83,7 +79,6 @@ Menu = function () {
         ref1 = _.keys(items);
         for (i = k = 0, len1 = ref1.length; k < len1; i = ++k) {
           key = ref1[i];
-          print('key', key, items[key].h, this.hardness(items[key].h));
           if (i === this.branch[level] || this.branch.length === level) {
             this.addTitle(key, level, i, br.concat(i), this.hardness(items[key].h));
           }
@@ -102,15 +97,15 @@ Menu = function () {
           }
         }
         // commands
-        this.calls = decorate(data[this.chapter][this.exercise].c);
+        this.calls = decorate(data[this.chapter][this.exer()].c);
         for (key in this.calls) {
           if (key !== 'draw()') {
-            this.addCommand(key, level, BLUE, YELLOW);
+            this.addCommand(key, level, [BLUE, YELLOW]);
           }
         }
         // renew
         if (localStorage[this.exercise + "/v"] != null && localStorage[this.exercise + "/v"] !== data[this.chapter][this.exercise].v) {
-          b = this.addCommand("Renew", level, RED, WHITE);
+          b = this.addCommand("Renew", level, [RED, WHITE]);
           b.onclick = function () {
             var exercise;
             print(myCodeMirror.getValue()); // Låt stå!
@@ -126,7 +121,7 @@ Menu = function () {
           results = [];
           for (text in ref2) {
             link = ref2[text];
-            b = this.addCommand(text, level, GREEN, BLACK);
+            b = this.addCommand(text, level, [GREEN, BLACK]);
             results.push(function (link) {
               return b.onclick = function () {
                 return window.open(link, '_blank').focus();
@@ -153,7 +148,6 @@ Menu = function () {
   }, {
     key: "hardness",
     value: function hardness(h) {
-      print(typeof h === "undefined" ? "undefined" : _typeof(h));
       if (h === 0) {
         return [WHITE, BLACK];
       }
@@ -175,42 +169,30 @@ Menu = function () {
 
       var colors = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : [BLACK, RED];
 
-      var b, c1, c2;
-      print(colors);
-      //print level
-
-      var _colors = _slicedToArray(colors, 2);
-
-      c1 = _colors[0];
-      c2 = _colors[1];
-
+      var b;
       if (level === 2) {
-        b = makeButton(title, level, c1, c2);
+        b = makeButton(title, level, colors);
       } else if (this.branch[level] === i) {
         if (level === 1) {
-          b = makeButton(' - ' + (title + " [" + this.lineCount() + "]"), level, c1, c2);
+          b = makeButton(' - ' + (title + " [" + this.lineCount() + "]"), level, colors);
         } else {
-          b = makeButton(' - ' + title, level, c1, c2);
+          b = makeButton(' - ' + title, level, colors);
         }
       } else {
-        b = makeButton(' + ' + title, level, c1, c2);
+        b = makeButton(' + ' + title, level, colors);
       }
       b.branch = br;
       b.onclick = function () {
-        var value;
-        value = b.value.slice(3);
         if (level === 0) {
-          _this.sel1click(value);
-        }
-        if (level === 1) {
-          _this.sel2click(value);
-        }
-        if (level === 2) {
+          _this.sel1click(b.value);
+          _this.branch = calcBranch(_this.branch, b.branch);
+        } else if (level === 1) {
+          _this.sel2click(b); //.value
+          _this.branch = calcBranch(_this.branch, b.branch);
+        } else if (level === 2) {
           _this.sel3click(b.value);
         }
-        if (level === 0 || level === 1) {
-          _this.branch = calcBranch(_this.branch, b.branch);
-        }
+        //if level in [0,1] then @branch = calcBranch @branch, b.branch
         return updateTables();
       };
       this.handleRow(b);
@@ -218,9 +200,9 @@ Menu = function () {
     }
   }, {
     key: "addCommand",
-    value: function addCommand(title, level, color1, color2) {
+    value: function addCommand(title, level, colors) {
       var b, code;
-      b = makeButton(title, level, color1, color2);
+      b = makeButton(title, level, colors);
       code = this.calls[title];
       b.onclick = function () {
         if (run1(code) === true) {
@@ -237,16 +219,17 @@ Menu = function () {
       if (this.exercise === '' || this.exercise === null) {
         return '';
       }
-      return this.exercise.split(' ')[0];
+      return this.exercise; //.split(' ')[0]	
     }
   }, {
     key: "setState",
     value: function setState(st) {
       this.state = st;
       //if st==2 then @calls = data[@chapter][@exercise].c else @calls = {}
-      $('#input').hide();
-      if (_.size(this.calls) > 0) {
+      if (st === 2 && _.size(this.calls) > 0) {
         $('#input').show();
+      } else {
+        $('#input').hide();
       }
       if (st === 2) {
         msg.show();
@@ -258,7 +241,8 @@ Menu = function () {
       } else {
         $(".CodeMirror").hide();
       }
-      if (st <= 1) {
+      if (st <= 2) {
+        // 1
         this.calls = {};
         tableClear();
         bg(0.5);
@@ -270,40 +254,51 @@ Menu = function () {
   }, {
     key: "sel1click",
     value: function sel1click(chapter) {
-      this.chapter = chapter;
+      var value;
+      value = chapter.slice(3);
+      this.chapter = value;
       this.exercise = "";
       this.calls = {};
       return this.setState(1);
     }
   }, {
     key: "sel2click",
-    value: function sel2click(exercise) {
-      var calls, code, src;
-      this.exercise = exercise;
+    value: function sel2click(b) {
+      var arr, calls, code, exercise, src, value;
+      exercise = b.value;
+      value = exercise.slice(3);
+      arr = value.split(' ');
+      this.exercise = arr[0];
       if (this.exer() === "") {
         myCodeMirror.setValue("");
         bg(0.5);
         return;
       }
       this.calls = data[this.chapter][this.exer()].c;
-      this.setState(2);
-      src = localStorage[this.exer() + "/d"];
-      if (src === void 0 || src === null || src === '') {
-        src = data[this.chapter][this.exer()].b;
-        localStorage[this.exer() + "/d"] = src;
-        localStorage[this.exer() + "/v"] = data[this.chapter][this.exer()].v;
+      if (exercise.indexOf('+') >= 0) {
+        this.setState(2);
+        src = localStorage[this.exer() + "/d"];
+        if (src === void 0 || src === null || src === '') {
+          if (data[this.chapter][this.exer()]) {
+            src = data[this.chapter][this.exer()].b;
+            localStorage[this.exer() + "/d"] = src;
+            localStorage[this.exer() + "/v"] = data[this.chapter][this.exer()].v;
+          }
+        }
+        myCodeMirror.setValue(src);
+        tableClear();
+        calls = data[this.chapter][this.exer()].c;
+        if (_.size(calls) > 0) {
+          code = this.calls["draw()"];
+        }
+        if (run1(code) === true) {
+          run0(code);
+        }
+        myCodeMirror.focus();
+        return compare();
+      } else {
+        return this.setState(1);
       }
-      myCodeMirror.setValue(src);
-      tableClear();
-      calls = data[this.chapter][this.exer()].c;
-      if (_.size(calls) > 0) {
-        code = this.calls["draw()"];
-      }
-      if (run1(code) === true) {
-        run0(code);
-      }
-      myCodeMirror.focus();
-      return compare();
     }
   }, {
     key: "sel3click",

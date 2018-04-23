@@ -47,7 +47,7 @@ goDeeper = (a,b) ->
 # assert false, goDeeper [0,0],[0,1]
 # assert false, goDeeper [1,0],[0]
 
-makeButton = (value,level,bg,sc) ->
+makeButton = (value,level,[bg,sc]) ->
 	res = document.createElement "input"
 	res.type = 'button'
 	res.value = value 

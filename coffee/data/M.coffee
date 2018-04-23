@@ -83,10 +83,10 @@ class Mandelbrot extends Application
 	calc : (cx,cy) ->
 		[x,y] = [cx,cy]
 		count = 0
-		for k in range @DEPTH-1
+		for k in range @DEPTH
 			if 2 > dist x,y,0,0 then count++ else return count
 			[x,y] = [x*x-y*y+cx, 2*x*y+cy]
-		if count == @DEPTH-1 then count = 0 
+		#if count == @DEPTH-1 then count = 0 
 		count
 	mousePressed : (mx,my) ->
 		@hist.push [@x,@y,@zoom]
