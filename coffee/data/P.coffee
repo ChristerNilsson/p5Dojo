@@ -268,5 +268,4 @@ class Polygon extends Application
 app = new Polygon "a"
 """
 	c:
-		app : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
-
+		app : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1"

@@ -108,7 +108,55 @@ rect 20,90,160,20
 	e:
 		"Wikipedia" : "https://sv.wikipedia.org/wiki/Sveriges_flagga#/media/File:Sweden_flag_construction_sheet.png"
 
+ID_FlagUnitedKingdom =
+	v:'2018-04-24'
+	k:'bg sc fc rect rectMode rotate translate scale'
+	l:38
+	h:3
+	b:""
+	a:"""
 
+diagonal = ->
+	rectMode CORNER
+	fc 1
+	rect 0,-3,40,6
+	fc 1,0,0
+	rect 0,-2,40,2
+diagonal2 = (vinkel) ->
+	rotate vinkel
+	diagonal() 
+	rotate 180
+	diagonal() 
+	rotate -vinkel
+arm = (r,g,b,w,h) ->
+	rectMode CENTER
+	fc r,g,b
+	rect 0,0,w,h
+angleMode DEGREES
+vinkel = atan2 30, 60
+push()
+translate 100,100
+scale 3
+sc()
+bg 0,0,1
+diagonal2 vinkel
+diagonal2 -vinkel
+for i in range 2 # white
+	arm 1,1,1,10,70
+	rotate 90
+for i in range 2 # red
+	arm 1,0,0,6,70
+	rotate 90
+pop()
+fc 0.5
+sc()
+rect 0,0,10,200
+rect 190,0,11,200
+rect 0,0,201,55
+rect 0,145,201,56
+"""
+	e:
+		"Wikipedia" : "https://en.wikipedia.org/wiki/Union_Jack#/media/File:United_Kingdom_Flag_Specifications.svg"
 
 ID_ForthHaiku =
 	v:'2017-04-29'

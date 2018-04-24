@@ -167,12 +167,12 @@ ID_Connect4 = {
 };
 
 ID_Coordinator = {
-  v: '2017-05-10',
+  v: '2018-04-23',
   k: 'sc fc circle class dist if operators text',
   l: 30,
   h: 1,
   b: "class Coordinator extends Application\n	reset : ->\n		super\n		@seed = 0\n	draw : ->\n	mousePressed : (mx,my) ->\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\napp = new Coordinator",
-  a: "\nclass Coordinator extends Application\n	reset : ->\n		super\n		@seed = 0\n		@level = 1\n		@errors = 0\n		@newGame 0\n	newGame : (d) ->\n		if d==-1 then @errors++\n		@level = constrain @level+d, 1, 100\n		@radius = int 100/@level\n		@x = @randint 200\n		@y = @randint 200\n	draw : ->\n		fc 1,1,0\n		sc()\n		textAlign CENTER,CENTER\n		textSize 50\n		text @x + \",\" + @y,100,50\n		fc 0,1,0\n		text @level,67,150\n		fc 1,0,0\n		text @errors,133,150\n		fc()\n		sc 1,1,0\n		circle 100,100,@radius\n	mousePressed : (mx,my) ->\n		@seed += mx % 10\n		@newGame if @radius >= dist mx,my,@x,@y then 1 else -1\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n\napp = new Coordinator \"a\"",
+  a: "\nclass Coordinator extends Application\n	reset : ->\n		super\n		@seed = 0\n		@level = 1\n		@errors = 0\n		@newGame 0\n	newGame : (d) ->\n		if d==-1 then @errors++\n		@level = constrain @level+d, 1, 100\n		@radius = int 100/@level\n		@x = @randint 200\n		@y = @randint 200\n	draw : ->\n		fc 1,1,0\n		sc()\n		textAlign CENTER,CENTER\n		textSize 50\n		text @x + \",\" + @y,100,50\n		fc 0,1,0\n		text @level,67,150\n		fc 1,0,0\n		text @errors,133,150\n		fc()\n		sc 1,1,0\n		circle 100,100,@radius\n	mousePressed : (mx,my) ->\n		# @seed += mx % 10\n		@newGame if @radius >= dist mx,my,@x,@y then 1 else -1\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n\napp = new Coordinator \"a\"",
   c: {
     app: "reset()"
   }

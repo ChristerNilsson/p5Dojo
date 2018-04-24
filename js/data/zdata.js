@@ -180,6 +180,7 @@ data = {
     IndianSun: ID_IndianSun,
     Polygon: ID_Polygon,
     GoldenStar: ID_GoldenStar,
+    FlagUnitedKingdom: ID_FlagUnitedKingdom,
     FlagKorea: ID_FlagKorea,
     SpaceShip: ID_SpaceShip,
     Angle: ID_Angle,

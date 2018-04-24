@@ -64,7 +64,7 @@ ID_Polygon = {
   b: "class Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n	rt : (a) ->\n\nclass Polygon extends Application\n	reset      : ->\n		super\n	draw       : ->\n	antalSidor : (d) ->\n	antalSteg  : (d) ->\napp = new Polygon",
   a: "class Turtle\n	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->\n	fd : (d) ->\n		dx = d*cos @dir\n		dy = d*sin @dir\n		sc @r,@g,@b\n		line @x,@y,@x+dx,@y+dy\n		@x += dx\n		@y += dy\n	rt : (a) ->\n		@dir +=a\n\nclass Polygon extends Application\n	reset : ->\n		super\n		@n = 6\n		@steg = 60\n\n	draw : ->\n		t = new Turtle()\n		bg 0\n		angleMode DEGREES\n		for i in range @n\n			t.fd @steg\n			t.rt 360/@n\n\n	antalSidor : (d) -> @n += d\n	antalSteg : (d) -> @steg += d\n\napp = new Polygon \"a\"",
   c: {
-    app: "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1|"
+    app: "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1"
   }
 };
 //# sourceMappingURL=P.js.map

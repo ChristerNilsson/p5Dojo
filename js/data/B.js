@@ -8,7 +8,7 @@ ID_Background1 = {
   k: 'bg',
   l: 1,
   h: 0,
-  b: "# Första bilden ska du efterlikna.\n# Andra bilden skapas av din kod.\n# Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.\n\n# Tryck på PgDn för att komma till sista raden.\n# Skriv in följande kommando: bg 1\n# Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.\n\n# Öppna nästa övning genom att klicka på den svarta knappen Background2.\n# Stäng dock först denna övning genom att klicka på den vita knappen Background1.\nbg 1",
+  b: "# Första bilden ska du efterlikna.\n# Andra bilden skapas av din kod.\n# Tredje bilden visar skillnaden mellan de två andra. Ska bli svart när du är klar.\n\n# Tryck på PgDn för att komma till sista raden.\n# Skriv in följande kommando: bg 1\n# Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.\n\n# Stäng denna övning genom att klicka på knapparna \" - Background1\" och \" + Background2\".\nbg 1",
   a: "bg 1"
 };
 
@@ -17,7 +17,7 @@ ID_Background2 = {
   k: 'bg',
   l: 1,
   h: 1,
-  b: "# Listan med gul text på svart bakgrund innehåller kommandon som du behöver.\n# Klicka på dem för att läsa om dem.\n# Listan med svart text på grön bakgrund innehåller länkar med bakgrundsinformation.",
+  b: "# Listan med gul text på svart bakgrund innehåller kommandon som du behöver.\n# Klicka på dem för att läsa om dem.",
   a: "bg 0.5"
 };
 

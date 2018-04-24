@@ -798,7 +798,7 @@ app = new Connect4 "a"
 		Wikipedia : "https://en.wikipedia.org/wiki/Connect_Four"
 
 ID_Coordinator =
-	v:'2017-05-10'
+	v:'2018-04-23'
 	k:'sc fc circle class dist if operators text'
 	l:30
 	h:1
@@ -841,7 +841,7 @@ class Coordinator extends Application
 		sc 1,1,0
 		circle 100,100,@radius
 	mousePressed : (mx,my) ->
-		@seed += mx % 10
+		# @seed += mx % 10
 		@newGame if @radius >= dist mx,my,@x,@y then 1 else -1
 	randint : (n) -> int n * fraction 10000 * Math.sin @seed++
 
