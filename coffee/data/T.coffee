@@ -304,12 +304,13 @@ app = new Tetris "a"
 		"Meth Meth Method" : "https://www.youtube.com/watch?v=H2aW5V46khA"
 
 ID_TextA =
-	v:'2018-04-23'
-	k:'fc sc text textSize'
-	l:4
+	v:'2018-04-24'
+	k:'fc sc text textSize textAlign'
+	l:5
 	h:0
 	b:"""
 # textSize pixlar  # höjd
+# textAlign horizontal,vertical
 # text string,x,y  # ritar ut string
 
 fc 1,1,0
@@ -319,10 +320,6 @@ textAlign LEFT,BASELINE     # default
 text "Coffeescript",0,100
 """	
 	a:"""
-fc 1,1,0
-sc()
-textSize 32
-text 'Coffeescript',0,100
 """
 
 ID_TextB =
@@ -358,6 +355,39 @@ fc 1,0,0
 rotate 90
 text 'script',0,0
 """
+
+ID_TextRotate =
+	v:'2018-04-25'
+	k:'angleMode rotate text translate textSize'
+	l:7
+	h:0
+	b:"""
+angleMode DEGREES
+textSize 100
+fc 1,1,0,0.5
+translate 100,100
+for i in range 6
+	text "f",0,0
+	rotate 60
+"""
+	a:""
+
+ID_TextRotateAlign =
+	v:'2018-04-24'
+	k:'angleMode rotate text translate textSize textAlign'
+	l:8
+	h:0
+	b:"""
+angleMode DEGREES
+textAlign CENTER,CENTER
+textSize 200
+fc 1,0,0,0.5
+translate 100,100
+for i in range 4
+	text "A",0,0
+	rotate 90
+"""
+	a:""
 
 ID_TowerOfHanoi =
 	v:'2017-05-13'

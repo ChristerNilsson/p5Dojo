@@ -1,21 +1,21 @@
 ID_Scale =
-	v:'2018-04-24'
-	k:'angleMode rotate translate scale fc rect'
-	l:9
+	v:'2018-04-25'
+	k:'rotate translate scale fc rect'
+	l:7
 	h:0
 	b:"""
-angleMode DEGREES
+# scale x,y
+
 translate 40,40
 fc()
 rect 0,0,40,20
 translate 60,60
-scale 2
+scale 2,2
 fc 1,1,1,0.5
 rect 0,0,40,20
 """
 	a:"""
 """
-
 
 ID_SevenSegment =
 	v:'2017-04-29'

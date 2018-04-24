@@ -170,6 +170,8 @@ ID_Rotate =
 	l:7
 	h:0
 	b:"""
+# rotate angle
+
 angleMode DEGREES
 fc()
 rect 0,0,40,20

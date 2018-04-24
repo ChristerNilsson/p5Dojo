@@ -94,6 +94,8 @@ data = {
     TextA: ID_TextA,
     TextB: ID_TextB,
     TextC: ID_TextC,
+    TextRotate: ID_TextRotate,
+    TextRotateAlign: ID_TextRotateAlign,
     CoffeescriptClock: ID_CoffeescriptClock,
     Roulette: ID_Roulette
   },

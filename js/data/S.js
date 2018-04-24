@@ -4,11 +4,11 @@
 var ID_Scale, ID_SevenSegment, ID_Shortcut, ID_Shortcut2, ID_ShrinkingCircles, ID_SingaporeMult, ID_SingaporeMultComplex, ID_SingaporeMultPolynom, ID_Skislope, ID_Snake, ID_Snake4, ID_SnowWhiteAndThe7Lerps, ID_Sokoban, ID_SpaceShip, ID_Square, ID_SquareHole, ID_Stopwatch, ID_Sunshine, ID_SuperCircle, ID_SuperCircle2;
 
 ID_Scale = {
-  v: '2018-04-24',
-  k: 'angleMode rotate translate scale fc rect',
-  l: 9,
+  v: '2018-04-25',
+  k: 'rotate translate scale fc rect',
+  l: 7,
   h: 0,
-  b: "angleMode DEGREES\ntranslate 40,40\nfc()\nrect 0,0,40,20\ntranslate 60,60\nscale 2\nfc 1,1,1,0.5\nrect 0,0,40,20",
+  b: "# scale x,y\n\ntranslate 40,40\nfc()\nrect 0,0,40,20\ntranslate 60,60\nscale 2,2\nfc 1,1,1,0.5\nrect 0,0,40,20",
   a: ""
 };
 
