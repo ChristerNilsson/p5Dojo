@@ -1094,11 +1094,14 @@ app = new Stopwatch "a"
 		app: "reset()"
 
 ID_Sunshine =
-	v:'2018-04-23'
+	v:'2018-04-24'
 	k:'bg sc range for lerp line'
 	l:9
 	h:0
 	b: """
+# Prova att kommentera ut enstaka rader.
+# Försök att räkna ut effekten i förväg.
+
 sc 1,1,0
 
 line  0,0,200,200

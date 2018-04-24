@@ -11,6 +11,9 @@ ID_X =
 # sw pixlar  # strokeWeight, strecktjocklek i pixlar
 # point x,y  # ritar en punkt
 
+# Prova att kommentera ut enstaka rader.
+# Försök att räkna ut effekten i förväg.
+
 sw 20          
 point 0, 0      
 point 100,0 

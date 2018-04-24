@@ -40,7 +40,7 @@ ID_Girlang = {
   v: '2018-02-11',
   k: 'sc bg sw range for line class',
   l: 15,
-  h: 2,
+  h: 3,
   b: "class Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n\na = new Cartesius ...\nb = new Cartesius ...\nfor ...",
   a: "class Cartesius\n	constructor : (@r,@g,@b, @x,@y) ->\n	go : (dx,dy) ->\n		sc @r,@g,@b\n		line @x,@y,@x+dx,@y+dy\n		[@x,@y] = [@x+dx,@y+dy]\n\nbg 0\nr = new Cartesius 1,0,0, 10,0\ny = new Cartesius 1,1,0, 0,10\nsw 5\nfor i in range 9\n	r.go 0,20\n	y.go 20,0\n	y.go 0,20\n	r.go 20,0"
 };
@@ -49,7 +49,7 @@ ID_GoldenStar = {
   v: '2017-09-30',
   k: 'bg fc range for triangle translate angleMode rotate cos sin class',
   l: 23,
-  h: 3,
+  h: 1,
   b: "class GoldenStar extends Application\n	reset : ->\n		super\n	draw  : ->\n	n     : (d) ->\n	outer : (d) ->\n	inner : (d) ->\napp = new GoldenStar",
   a: "class GoldenStar extends Application\n	reset : ->\n		super\n		@_X = 100\n		@_Y = 100\n		@_n = 4\n		@_outer = 100\n		@_inner = 25\n	n : (d) -> @_n = constrain @_n+d,3,12\n	outer : (d) -> @_outer = constrain @_outer+d, 0, 100\n	inner : (d) -> @_inner = constrain @_inner+d, 0, 100\n	draw : ->\n		bg 0\n		angleMode DEGREES\n		translate @_X,@_Y\n		v = 360/@_n\n		rotate -90\n		x1 = @_inner * cos v/2\n		y1 = @_inner * sin v/2\n		for i in range @_n\n			fc 1,1,0\n			triangle 0,0, @_outer,0, x1,y1\n			fc 1,0.7,0\n			triangle 0,0, @_outer,0, x1,-y1\n			rotate v\n\napp = new GoldenStar \"a\"",
   c: {
@@ -139,7 +139,7 @@ ID_GUI = {
   v: '2017-09-29',
   k: 'bg fc sc text for if [] operators class',
   l: 30,
-  h: 2,
+  h: 3,
   b: "class GUI extends Application\n	reset : ->\n		super\n	draw : ->\n	up : ->\n	down : ->\n	left : ->\n	right : ->\napp = new GUI",
   a: "class GUI extends Application\n	reset : ->\n		super\n		@current = 0\n		@prompts = []\n		@labels = []\n		@values = []\n		@add 'Fan o--- -o-- --o- ---o'\n		@add 'Temp o----- -o---- --o--- ---o-- ----o- -----o'\n		@add 'Blink Off Left Right'\n		@add 'Music Beatles Jazz Rock Stones'\n		@add 'Radio P1 P2 P3 P4 P5'\n		@add 'Volume 0 1 2 3 4 5 6 7 8 9'\n		@add 'Wipers o--- -o-- --o- ---o'\n\n	add : (s) ->\n		arr = s.split ' '\n		@prompts.push arr.shift()\n		@labels.push arr\n		@values.push 0\n\n	draw : ->\n		bg 0.5\n		sc()\n		textSize 20\n		for prompt,i in @prompts\n			if @current == i then fc 1,1,0 else fc 0\n			text prompt,10,30+25*i\n			text @labels[i][@values[i]],120,30+25*i\n\n	up : -> @current = (@current - 1) %% @prompts.length\n	down : -> @current = (@current + 1) %% @prompts.length\n	left : -> @values[@current] = (@values[@current]-1) %% @labels[@current].length\n	right : -> @values[@current] = (@values[@current]+1) %% @labels[@current].length\n\napp = new GUI \"a\"",
   c: {

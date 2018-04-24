@@ -28,7 +28,7 @@ ID_Klocka = {
   v: '2017-09-30',
   k: 'fc sc circle range angleMode rotate point rect rectMode for if translate push pop class Date',
   l: 49,
-  h: 3,
+  h: 2,
   b: "class Klocka extends Application\n	reset  : ->\n		super\n	draw   : ->\n	hour   : (h) ->\n	minute : (m) ->\n	second : (s) ->\n	now 	 : ->\napp = new Klocka",
   a: "class Klocka extends Application\n	reset : ->\n		super\n		@h=10\n		@m=9\n		@s=30\n	draw : ->\n		bg 0.5\n		rectMode CENTER\n		angleMode DEGREES\n		translate 100,100\n		@urtavla()\n		@visare (@h+@m/60.0)*30, 7,60,1,0,0\n		@visare (@m+@s/60.0)*6,5,80,0,1,0\n		@visare @s*6,2,80,1,1,0\n	hour   : (h) -> @adjust h,0,0\n	minute : (m) -> @adjust 0,m,0\n	second : (s) -> @adjust 0,0,s\n	now    : ->\n		d = new Date()\n		@h = d.getHours()\n		@m = d.getMinutes()\n		@s = d.getSeconds()\n	adjust : (h,m,s) ->\n		@h+=h\n		@m+=m\n		@s+=s\n		t = 3600 * @h + 60 * @m + @s\n		@s = t %% 60\n		t = (t - @s) / 60\n		@m = t %% 60\n		t = (t - @m) / 60\n		@h = t %% 24\n	visare : (v,w,l,r,g,b) ->\n		push()\n		rotate v-90\n		translate l/2,0\n		fc r,g,b\n		rect 0,0,l,w\n		pop()\n	urtavla : ->\n		fc 0\n		sc 1\n		sw 2\n		circle 0,0,90\n		fc 1\n		sc()\n		for i in range 60\n			circle 85,0, if i%5==0 then 3 else 2\n			rotate 6\n\napp = new Klocka \"a\"",
   c: {

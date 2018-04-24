@@ -90,7 +90,7 @@ ID_Klocka =
 	v:'2017-09-30'
 	k:'fc sc circle range angleMode rotate point rect rectMode for if translate push pop class Date'
 	l:49
-	h:3
+	h:2
 	b: """
 class Klocka extends Application
 	reset  : ->

@@ -69,11 +69,11 @@ ID_Polygon = {
 };
 
 ID_PushPop = {
-  v: '2018-04-24',
-  k: 'angleMode rotate translate scale push pop for range circle',
-  l: 9,
+  v: '2018-04-25',
+  k: 'angleMode rotate translate scale push pop for range rect rectMode',
+  l: 11,
   h: 0,
-  b: "angleMode DEGREES\ntranslate 100,100\ncircle 0,0,20\nfor i in range 6\n	push()\n	translate 50,0\n	circle 0,0,10\n	pop()\n	rotate 60",
+  b: "# Prova att kommentera ut enstaka rader.\n# Försök att räkna ut effekten i förväg.\n\nangleMode DEGREES\nrectMode CENTER\nrect 0,0,20,20\ntranslate 100,100\nrect 0,0,20,20\nfor i in range 6\n	push()\n	translate 50,0\n	rect 0,0,10,10\n	pop()\n	rotate 60",
   a: ""
 };
 //# sourceMappingURL=P.js.map

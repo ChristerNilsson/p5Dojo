@@ -271,18 +271,23 @@ app = new Polygon "a"
 		app : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1"
 
 ID_PushPop =
-	v:'2018-04-24'
-	k:'angleMode rotate translate scale push pop for range circle'
-	l:9
+	v:'2018-04-25'
+	k:'angleMode rotate translate scale push pop for range rect rectMode'
+	l:11
 	h:0
 	b:"""
+# Prova att kommentera ut enstaka rader.
+# Försök att räkna ut effekten i förväg.
+
 angleMode DEGREES
+rectMode CENTER
+rect 0,0,20,20
 translate 100,100
-circle 0,0,20
+rect 0,0,20,20
 for i in range 6
 	push()
 	translate 50,0
-	circle 0,0,10
+	rect 0,0,10,10
 	pop()
 	rotate 60
 """

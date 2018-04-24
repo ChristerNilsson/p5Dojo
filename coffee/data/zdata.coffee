@@ -106,19 +106,17 @@ data =
 		Square : ID_Square
 		Moire : ID_Moire
 		RandomDice : ID_RandomDice
-		Girlang : ID_Girlang
-		GUI : ID_GUI
 		IndianSun : ID_IndianSun
 		Polygon : ID_Polygon
-		GoldenStar : ID_GoldenStar
-		Braid : ID_Braid
-		SpaceShip : ID_SpaceShip
-		Klocka : ID_Klocka
+		Girlang : ID_Girlang
+		GUI : ID_GUI
 
-	"A: 20-30 LOC" :
+	"A: 20-30 Lines Of Code" :
+		GoldenStar : ID_GoldenStar
 		Stopwatch : ID_Stopwatch
 		OlympicRingPrep : ID_OlympicRingPrep
 		GuessANumber : ID_GuessANumber
+		Braid : ID_Braid
 		Korg : ID_Korg
 		Korsord : ID_Korsord
 		OlympicRings : ID_OlympicRings
@@ -135,6 +133,7 @@ data =
 		Mandelbrot : ID_Mandelbrot
 		Nian : ID_Nian
 
+		SpaceShip : ID_SpaceShip
 		Coordinator : ID_Coordinator	
 		MultiTimer : ID_MultiTimer
 		BlackBox2D : ID_BlackBox2D
@@ -149,6 +148,7 @@ data =
 		Snake4 : ID_Snake4
 		BouncingBalls : ID_BouncingBalls
 
+		Klocka : ID_Klocka
 		Snake : ID_Snake
 		Kalkylator : ID_Kalkylator
 		Hex : ID_Hex

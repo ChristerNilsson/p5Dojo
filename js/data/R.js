@@ -63,7 +63,7 @@ ID_Rotate = {
   k: 'angleMode rotate translate rect',
   l: 7,
   h: 0,
-  b: "angleMode DEGREES\ntranslate 100,100\nfc()\nrect 0,0,40,20\nrotate 45\nfc 1,1,1,0.5\nrect 0,0,40,20",
+  b: "angleMode DEGREES\nfc()\nrect 0,0,40,20\ntranslate 100,100\nrect 0,0,40,20\nrotate 45\nfc 1,1,1,0.5\nrect 0,0,40,20",
   a: ""
 };
 

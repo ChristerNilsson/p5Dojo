@@ -863,6 +863,9 @@ ID_CornerPoints =
 	l:9
 	h:0
 	b: """
+# Prova att kommentera ut enstaka rader.
+# Försök att räkna ut effekten i förväg.
+
 # sc r,g,b  # Väljer färg för punkter och streck
 
 sw 10

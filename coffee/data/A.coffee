@@ -145,14 +145,15 @@ app = new Angle "a"
 	c:
 		app : "reset()"
 
-
-
 ID_Arc =
 	v:'2018-04-24'
-	k:'-> fc sc arc strokeCap sw angleMode'
+	k:'fc sc arc strokeCap sw angleMode'
 	l:14
 	h:0
 	b : """
+# Prova att kommentera ut enstaka rader.
+# Försök att räkna ut effekten i förväg.
+	
 angleMode DEGREES
 
 # arc x,y,w,h,start,stopp
@@ -175,26 +176,7 @@ sw 5
 arc 120,80,100,100,270,0
 """
 
-	a:"""
-angleMode DEGREES
-
-sc()
-fc 0,0,1
-arc 120,120,100,100,0,90
-
-sc 1,1,0
-sw 10
-strokeCap ROUND
-arc 80,120,100,100,90,180
-
-strokeCap SQUARE
-fc 0,1,0
-arc 80,80,100,100,180,270
-
-fc()
-sw 5
-arc 120,80,100,100,270,0
-"""
+	a:""
 
 ID_Average =
 	v:'2018-04-24'

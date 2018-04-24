@@ -214,11 +214,11 @@ ID_Stopwatch = {
 };
 
 ID_Sunshine = {
-  v: '2018-04-23',
+  v: '2018-04-24',
   k: 'bg sc range for lerp line',
   l: 9,
   h: 0,
-  b: "sc 1,1,0\n\nline  0,0,200,200\nline 20,0,180,200\n#    x1    x2       lerpa?\n\nline 0,200,200, 0\nline 0,180,200,20\n#       y1     y2   lerpa? \n\nfor i in range 10\n	\n	x1 = lerp 0,20,i\n	y1 = 0\n	x2 = lerp 200,180,i\n	y2 = 200\n	line x1,y1,x2,y2\n\n	x1 = 0\n	y1 = lerp 200,180,i\n	x2 = 200\n	y2 = lerp 0,20,i\n	line x1,y1,x2,y2",
+  b: "# Prova att kommentera ut enstaka rader.\n# Försök att räkna ut effekten i förväg.\n\nsc 1,1,0\n\nline  0,0,200,200\nline 20,0,180,200\n#    x1    x2       lerpa?\n\nline 0,200,200, 0\nline 0,180,200,20\n#       y1     y2   lerpa? \n\nfor i in range 10\n	\n	x1 = lerp 0,20,i\n	y1 = 0\n	x2 = lerp 200,180,i\n	y2 = 200\n	line x1,y1,x2,y2\n\n	x1 = 0\n	y1 = lerp 200,180,i\n	x2 = 200\n	y2 = lerp 0,20,i\n	line x1,y1,x2,y2",
   a: "bg 0\nsc 1,1,0\nfor i in range 10\n	x1 = lerp 0,20,i\n	x2 = lerp 200,180,i\n	line x1,0, x2,200\n	y1 = lerp 20,40,i\n	y2 = lerp 180,160,i\n	line 0,y1, 200,y2"
 };
 

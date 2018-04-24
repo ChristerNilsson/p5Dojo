@@ -108,7 +108,7 @@ ID_Girlang =
 	v:'2018-02-11'
 	k:'sc bg sw range for line class'
 	l:15
-	h:2
+	h:3
 	b:"""
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
@@ -141,7 +141,7 @@ ID_GoldenStar =
 	v:'2017-09-30'
 	k:'bg fc range for triangle translate angleMode rotate cos sin class'
 	l:23
-	h:3
+	h:1
 	b: """
 class GoldenStar extends Application
 	reset : ->
@@ -390,7 +390,7 @@ ID_GUI =
 	v:'2017-09-29'
 	k:'bg fc sc text for if [] operators class'
 	l:30
-	h:2
+	h:3
 	b:"""
 class GUI extends Application
 	reset : ->

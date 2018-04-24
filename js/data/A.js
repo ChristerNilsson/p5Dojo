@@ -34,11 +34,11 @@ ID_Angle = {
 
 ID_Arc = {
   v: '2018-04-24',
-  k: '-> fc sc arc strokeCap sw angleMode',
+  k: 'fc sc arc strokeCap sw angleMode',
   l: 14,
   h: 0,
-  b: "angleMode DEGREES\n\n# arc x,y,w,h,start,stopp\n\nsc()\nfc 0,0,1\narc 120,120,100,100,0,90\n\nsc 1,1,0\nsw 10\nstrokeCap ROUND\narc 80,120,100,100,90,180\n\nstrokeCap SQUARE\nfc 0,1,0\narc 80,80,100,100,180,270\n\nfc()\nsw 5\narc 120,80,100,100,270,0",
-  a: "angleMode DEGREES\n\nsc()\nfc 0,0,1\narc 120,120,100,100,0,90\n\nsc 1,1,0\nsw 10\nstrokeCap ROUND\narc 80,120,100,100,90,180\n\nstrokeCap SQUARE\nfc 0,1,0\narc 80,80,100,100,180,270\n\nfc()\nsw 5\narc 120,80,100,100,270,0"
+  b: "# Prova att kommentera ut enstaka rader.\n# Försök att räkna ut effekten i förväg.\n	\nangleMode DEGREES\n\n# arc x,y,w,h,start,stopp\n\nsc()\nfc 0,0,1\narc 120,120,100,100,0,90\n\nsc 1,1,0\nsw 10\nstrokeCap ROUND\narc 80,120,100,100,90,180\n\nstrokeCap SQUARE\nfc 0,1,0\narc 80,80,100,100,180,270\n\nfc()\nsw 5\narc 120,80,100,100,270,0",
+  a: ""
 };
 
 ID_Average = {

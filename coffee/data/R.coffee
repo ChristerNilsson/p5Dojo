@@ -171,8 +171,9 @@ ID_Rotate =
 	h:0
 	b:"""
 angleMode DEGREES
-translate 100,100
 fc()
+rect 0,0,40,20
+translate 100,100
 rect 0,0,40,20
 rotate 45
 fc 1,1,1,0.5

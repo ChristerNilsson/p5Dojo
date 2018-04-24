@@ -358,7 +358,7 @@ ID_Braid =
 	v:'2017-04-29'
 	k:'sc bg sw range for line class'
 	l:19
-	h:3
+	h:2
 	b : """
 class Cartesius
 	constructor : (@r,@g,@b, @x,@y) ->
