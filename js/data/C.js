@@ -36,6 +36,7 @@ ID_ChessOne = {
   v: '2017-10-10',
   k: 'bg fc range for rect circle class if [] {} text',
   l: 52,
+  h: 1,
   b: "class ChessOne extends Application\n	reset : ->\n		super\n	draw  : ->\n	mousePressed : (mx,my) ->\napp = new ChessOne\n",
   a: "class ChessOne extends Application\n	reset : ->\n		super\n		@moves =\n			King   : [false,[[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,1],[1,-1],[-1,1]]]\n			Queen  : [true,[[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,1],[1,-1],[-1,1]]]\n			Rook   : [true,[[-1,0],[1,0],[0,-1],[0,1]]]\n			Bishop : [true,[[-1,-1],[1,1],[1,-1],[-1,1]]]\n			Knight : [false,[[-1,-2],[-1,2],[1,-2],[1,2],[-2,-1],[-2,1],[2,-1],[2,1]]]\n		@currentPiece = 'King'\n		@currentCol = 4\n		@currentRow = 7\n\n	genDir : (multi,sq,dxdy) ->\n		[dx,dy] = dxdy\n		squares = []\n		maximum = if multi then 7 else 1\n		[col,row] = sq\n		for i in range maximum\n			col += dx\n			row += dy\n			if 0<=col<=7 and 0<=row<=7 then squares.push [col,row]\n		squares\n\n	oneGeneration : (piece,sq) ->\n		[multi,drag] = piece\n		squares = []\n		squares = squares.concat @genDir multi,sq,dxdy for dxdy in drag\n		squares\n\n	draw  : ->\n		bg 0.5\n		textAlign RIGHT,CENTER\n		textSize 13\n\n		for i in range 8\n			for j in range 8\n				fc (i+j+1)%2\n				rect 20*i,20*j,20,20\n\n		sc()\n		for piece,i in _.keys @moves\n			if piece == @currentPiece then fc 1,1,0 else fc 0\n			text piece,200,10+20*i\n\n		sq = [@currentCol,@currentRow]\n		[x,y] = sq\n		fc 0,1,0\n		circle 10+20*x,10+20*y,5\n\n		fc 1,0,0\n		for [x,y] in @oneGeneration @moves[@currentPiece],sq\n			circle 10+20*x,10+20*y,5\n\n	mousePressed : (mx,my) ->\n		if mx < 160\n			@currentCol = int mx/20\n			@currentRow = int my/20\n		else\n			@currentPiece = _.keys(@moves)[int my/20]\n\napp = new ChessOne \"a\"",
   c: {
@@ -50,6 +51,7 @@ ID_ChessMany = {
   v: '2017-10-10',
   k: 'bg fc range for rect circle class if [] {} text',
   l: 70,
+  h: 2,
   b: "class ChessMany extends Application\n	reset : ->\n		super\n	draw  : ->\n	mousePressed : (mx,my) ->\napp = new ChessMany\n",
   a: "class ChessMany extends Application\n	reset : ->\n		super\n		@moves =\n			King   : [false,[[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,1],[1,-1],[-1,1]]]\n			Queen  : [true,[[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,1],[1,-1],[-1,1]]]\n			Rook   : [true,[[-1,0],[1,0],[0,-1],[0,1]]]\n			Bishop : [true,[[-1,-1],[1,1],[1,-1],[-1,1]]]\n			Knight : [false,[[-1,-2],[-1,2],[1,-2],[1,2],[-2,-1],[-2,1],[2,-1],[2,1]]]\n		@currentPiece = 'King'\n		@currentCol = 4\n		@currentRow = 7\n\n	genDir : (multi,sq,dxdy) ->\n		[dx,dy] = dxdy\n		squares = []\n		maximum = if multi then 7 else 1\n		[col,row] = sq\n		for i in range maximum\n			col += dx\n			row += dy\n			if 0<=col<=7 and 0<=row<=7 then squares.push [col,row]\n		squares\n\n	oneGeneration : (piece,sq) ->\n		[multi,drag] = @moves[piece]\n		squares = []\n		squares = squares.concat @genDir multi,sq,dxdy for dxdy in drag\n		squares\n\n	recurse : (level,piece,front,reached) ->\n		if front.length==0 then return reached\n		candidates = []\n		candidates = candidates.concat @oneGeneration piece,sq for sq in front\n		newFront = []\n		for candidate in candidates\n			key = candidate.toString()\n			if key not in _.keys reached\n				reached[key] = level\n				newFront.push candidate\n		@recurse level+1, piece, newFront, reached\n\n	solve : (piece,sq) ->\n		reached = {}\n		reached[sq.toString()] = 0\n		@recurse 1,piece,[sq],reached\n\n	draw  : ->\n		bg 0.5\n\n		for i in range 8\n			for j in range 8\n				fc (i+j+1)%2\n				rect 20*i,20*j,20,20\n\n		sc()\n		textAlign RIGHT,CENTER\n		textSize 13\n		for piece,i in _.keys @moves\n			if piece == @currentPiece then fc 1,1,0 else fc 0\n			text piece,200,10+20*i\n\n		textAlign CENTER,CENTER\n		textSize 16\n		reached = @solve @currentPiece,[@currentCol,@currentRow]\n		fc 1,0,0\n		for key,level of reached\n			arr = key.split ','\n			col = int arr[0]\n			row = int arr[1]\n			text level, 10+20*col,12+20*row\n\n	mousePressed : (mx,my) ->\n		if my >= 160 then return\n		if mx < 160\n			@currentCol = int mx/20\n			@currentRow = int my/20\n		else if my < 100\n			@currentPiece = _.keys(@moves)[int my/20]\n\napp = new ChessMany \"a\"",
   c: {
@@ -70,6 +72,7 @@ ID_ClickDetector = {
   v: '2017-04-29',
   k: 'bg sc fc range circle quad rect triangle class dist if operators text rectMode',
   l: 62,
+  h: 1,
   b: "class Vector\n	constructor : (@x,@y) ->\n	add : (b) -> new Vector @x+b.x,@y+b.y\n	div : (n) -> new Vector @x/n,@y/n\n\nclass ClickDetector extends Application\n	reset : ->\n		super\n	draw  : ->\n	mousePressed : (mx,my) ->\napp = new ClickDetector",
   a: "class Vector # pga att p5.Vector krockar med min serialisering\n	constructor : (@x,@y) ->\n	add : (b) -> cv @x+b.x,@y+b.y\n	div : (n) -> cv @x/n,@y/n\ncv = (x,y) -> new Vector x,y\n\nclass Figure\n	constructor : (pc) ->\n		@pc = cv(int(pc.x),int(pc.y))\n		@counter = 0\n	draw : -> text @counter,@pc.x,@pc.y\n	detect : (bool) ->\n		if bool then @counter++\n		bool\n\nclass Circle extends Figure\n	constructor : (@p,@radius,@r,@g,@b) -> super @p\n	detect : (mx,my) -> super @radius > dist @p.x,@p.y,mx,my\n	draw : -> super circle @p.x,@p.y, @radius\n\nclass Rect extends Figure\n	constructor : (@p,@w,@h,@r,@g,@b) -> super @p\n	detect : (mx,my) -> super @p.x-@w/2 < mx < @p.x+@w/2 and @p.y-@h/2 < my < @p.y+@h/2\n	draw : -> super rect @p.x,@p.y,@w,@h\n\nclass Triangle extends Figure\n	constructor : (@v1,@v2,@v3,@r=0,@g=0,@b=0) -> super @v1.add(@v2).add(@v3).div(3)\n	detect : (mx,my) ->\n		pt = cv mx,my\n		sign = (p1,p2,p3) -> (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y)\n		b1 = 0 > sign pt, @v1, @v2\n		b2 = 0 > sign pt, @v2, @v3\n		b3 = 0 > sign pt, @v3, @v1\n		super b1 == b2 and b2 == b3\n	draw : -> super triangle @v1.x,@v1.y, @v2.x,@v2.y, @v3.x,@v3.y\n\nclass Quad extends Figure\n	constructor : (@v1,@v2,@v3,@v4, @r,@g,@b) -> super @v1.add(@v2).add(@v3).add(@v4).div(4)\n	detect : (mx,my) ->\n		t1 = new Triangle @v1,@v2,@v3\n		t2 = new Triangle @v1,@v3,@v4\n		super t1.detect(mx,my) or t2.detect(mx,my)\n	draw : -> super quad @v1.x,@v1.y, @v2.x,@v2.y, @v3.x,@v3.y, @v4.x,@v4.y\n\nclass ClickDetector extends Application\n	classes : -> [Vector,Circle,Rect,Triangle,Quad]\n	reset : ->\n		super\n		@figures = []\n		@figures.push new Circle cv(70,70), 50, 1,0,0\n		@figures.push new Rect cv(130,130), 100,100, 1,1,0\n		@figures.push new Triangle cv(100,100), cv(120,0), cv(190,120), 0,1,0\n		@figures.push new Quad cv(0,160), cv(60,100), cv(100,120), cv(60,200), 0.5,0.5,0.5\n	draw : ->\n		rectMode CENTER\n		textAlign CENTER,CENTER\n		textSize 50\n		bg 0.5\n		sc 0\n		sw 2\n		for figure in @figures\n			fc figure.r,figure.g,figure.b,0.5\n			figure.draw()\n	mousePressed : (mx,my) ->\n		rev = @figures[..]\n		rev.reverse()\n		for figure in rev\n			return if figure.detect mx,my\n\napp = new ClickDetector \"a\"",
   c: {
@@ -105,6 +108,7 @@ ID_ColorCube = {
   v: '2017-04-29',
   k: 'bg range for class quad [] stroke if operators return',
   l: 33,
+  h: 1,
   b: "class ColorCube extends Application\n	reset       : ->\n		super\n	draw        : ->\n	undo 				: ->\n	mousePressed : (mx,my) ->\napp = new ColorCube",
   a: "class ColorCube extends Application\n	reset : ->\n		super\n		@r = 0\n		@g = 0\n		@b = 0\n		@size = 256\n		@history = []\n	draw : ->\n		bg 0\n		@c = @size / 4\n		for b in range 4\n			for r in range 4\n				for g in range 4\n					fill   @r+r*@c+@c/2, @g+g*@c+@c/2, @b+b*@c+@c/2\n					stroke @r+r*@c+@c/2, @g+g*@c+@c/2, @b+b*@c+@c/2\n					x = r*40-g*10\n					y = g*10+b*50 + 5\n					quad x+40,y+0, x+80,y+0, x+70,y+10, x+30,y+10\n	mousePressed : (mx,my) ->\n		if @size == 4 then return\n		for b in range 4\n			for r in range 4\n				for g in range 4\n					x = r*40-g*10\n					y = g*10+b*50 + 5\n					if x+35 <= mx <= x+75 and y <= my <= y+10\n						@history.push [@r,@g,@b,@size]\n						@size /= 4\n						@r += r * @size\n						@g += g * @size\n						@b += b * @size\n						return\n\n	undo : -> if @history.length > 0 then [@r,@g,@b,@size] = @history.pop()\n\napp = new ColorCube \"a\"",
   c: {
@@ -119,6 +123,7 @@ ID_ColorPair = {
   v: '2017-04-29',
   k: 'fc circle [] .. dist _.isEqual colorMode HSB _.max _.pairs _.sortBy for class',
   l: 41,
+  h: 1,
   b: "class ColorPair extends Application\n	reset : ->\n		super\n		@seed = 0\n	draw : ->\n	mousePressed : (mx,my) ->\n	enterName : ->\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\napp = new ColorPair",
   a: "class ColorPair extends Application\n	reset : ->\n		super\n		@radius = 0\n		@seed = 0\n		@level = 0\n		@changeLevel 1\n		@name = \"\"\n		@highScore = {}\n\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n\n	draw : ->\n		bg 1\n		sw 2\n		sc 1,1,1,0.5\n		colorMode HSB\n		for [x,y,c] in @circles\n			fill color c,100,100,0.5\n			circle x,y,@radius\n\n	mousePressed : (mx,my) ->\n		hitlist = []\n		for [x,y,c],i in @circles\n			if dist(x,y,mx,my) < @radius then hitlist.push i\n		if hitlist.length == 1\n			i = hitlist[0]\n			circle = @circles[i]\n			if @memory == -1\n				@memory = circle[2]\n				@circles.splice i,1\n			else if _.isEqual(@memory, circle[2])\n				@memory = -1\n				@circles.splice i,1\n				if @circles.length == 0\n					@updateHighScore() if @name != \"\"\n					@changeLevel 1\n			else\n				@changeLevel -1\n		else\n			@changeLevel -1\n\n	updateHighScore : ->\n		@highScore[@name] = _.max [@level, @highScore[@name]]\n		@topList = _.pairs @highScore\n		@topList = _.sortBy @topList, ([name,level]) -> -level\n\n	changeLevel : (d) ->\n		@memory = -1\n		@level = constrain @level+d, 1, 20\n		@circles = []\n		@radius = 50\n		for i in range @level\n			@radius *= 0.95\n			c = int i * 360 / @level\n			@circles.push [@randint(200), @randint(200), c]\n			@circles.push [@randint(200), @randint(200), c]\n\n	enterName : -> @name = @readText()\n\napp = new ColorPair \"a\"",
   c: {
@@ -142,6 +147,7 @@ ID_Complex = {
   v: '2017-04-29',
   k: 'bg fc sc range operators [] line circle text for if return int {} dist _.isEqual constrain class',
   l: 80,
+  h: 1,
   b: "class Complex extends Application\n	reset : ->\n		super\n	draw : ->\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n	mousePressed : (mx,my) ->\napp = new Complex",
   a: "class Complex extends Application\n	reset : ->\n		super\n		@RADIUS = 25\n		@buttons = [[30,130,'m'],[70,170,'*i'],[130,170,'*2'],[170,130,'+1'],[30,30,'undo'], [170,30,'new']]\n		@seed = 0\n		@level = 1\n		@createGame()\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n	gr : ->\n		sc 1,1,1,0.5\n		for i in range 21\n			line 0, 10 * i, 200, 10 * i\n			line 10 * i, 0, 10 * i, 200\n		sc 1,1,1\n		line 100,0, 100,200\n		line 0,100, 200,100\n	draw : ->\n		@buttons[4][2] = @level - @history.length\n		bg 0\n		@gr()\n		textAlign CENTER,CENTER\n		textSize 25\n		sc()\n		fc 1,0,0\n		circle 100+10*@b[0], 100-10*@b[1], 5\n		fc 0,1,0\n		circle 100+10*@a[0], 100-10*@a[1], 4\n		for [x,y,txt],i in @buttons\n			fc 1,1,0,0.4\n			circle x,y,@RADIUS\n			fc 1,1,0\n			text txt,x,y\n	newGame : ->\n		if @level >= @history.length and _.isEqual(@a,@b) then d=1 else d=-1\n		@level = constrain @level+d,1,16\n		@createGame()\n	createGame : ->\n		@history = []\n		@a = [-10 + @randint(20), -10 + @randint(20)]\n		q1 = [@a]\n		q2 = []\n		visited = {}\n		visited[@a] = true\n		expand = (n) ->\n			if visited[n] then return\n			if n[0]*n[0] + n[1]*n[1] > 1000 then return\n			visited[n] = true\n			q2.push n\n		for level in range @level\n			for [x,y] in q1\n				expand [y,x]\n				expand [-y,x]\n				expand [2*x,2*y]\n				expand [x+1,y]\n			q1 = q2\n			q2 = []\n		@b = @selectTarget q1\n	selectTarget : (lst) -> # within 21x21 window, if possible\n		bs = ([x,y] for [x,y] in lst when -10 <= x <= 10 and -10 <= y <= 10)\n		return bs[@randint(bs.length)] if bs.length > 0\n		_.min lst, ([x,y]) -> dist 0,0,x,y\n	undo : ->\n		if @history.length == 0 then return\n		@a = @history.pop()\n	mousePressed : (mx,my) ->\n		index = -1\n		for [x,y,txt],i in @buttons\n			if dist(mx,my,x,y) < @RADIUS then index = i\n		[x,y] = @a\n		a = []\n		if index == 0 then a = [y,x]\n		if index == 1 then a = [-y,x]\n		if index == 2 then a = [2*x,2*y]\n		if index == 3 then a = [x+1,y]\n		if index == 4 then @undo()\n		if index == 5 then @newGame()\n		if a.length != 0\n			@history.push @a\n			@a = a\n\napp = new Complex \"a\"\n",
   c: {
@@ -156,6 +162,7 @@ ID_Connect4 = {
   v: '2017-04-29',
   k: 'operators bg fc sc sw circle range text for class',
   l: 33,
+  h: 1,
   b: "class Connect4 extends Application\n	reset : ->\n		super\n	draw  : ->\n	undo  : ->\n	mousePressed : (mx,my) ->\napp = new Connect4",
   a: "class Connect4 extends Application\n	reset : ->\n		super\n		@SIZE = 27\n		@list = ([] for i in range 7)\n		@moves = []\n	draw : ->\n		bg 0\n		textAlign CENTER,CENTER\n		textSize @SIZE/2\n		fc()\n		sc 0.1,0.3,1\n		sw 0.2 * @SIZE\n		for i in range 7\n			for j in range 6\n				circle 100-@SIZE*3+@SIZE*i, 180-@SIZE*j, @SIZE/2\n		for column,i in @list\n			for nr,j in column\n				fc 1,nr%2,0\n				sw 1\n				circle 100-@SIZE*3+@SIZE*i, 180-@SIZE*j, @SIZE*0.4\n				fc 0\n				sc()\n				text nr, 100-@SIZE*3+@SIZE*i, 180-@SIZE*j\n		sc()\n		fc 1,(@moves.length+1)%2,0\n		circle 100,15,10\n	mousePressed : (mx,my) ->\n		nr = int (mx-(200-7*@SIZE)/2)/@SIZE\n		if 0 <= nr <= 6\n			@moves.push nr\n			@list[nr].push @moves.length\n	undo : -> if @moves.length > 0 then @list[@moves.pop()].pop()\n\napp = new Connect4 \"a\"",
   c: {
@@ -170,7 +177,7 @@ ID_Coordinator = {
   v: '2018-04-23',
   k: 'sc fc circle class dist if operators text',
   l: 30,
-  h: 1,
+  h: 3,
   b: "class Coordinator extends Application\n	reset : ->\n		super\n		@seed = 0\n	draw : ->\n	mousePressed : (mx,my) ->\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\napp = new Coordinator",
   a: "\nclass Coordinator extends Application\n	reset : ->\n		super\n		@seed = 0\n		@level = 1\n		@errors = 0\n		@newGame 0\n	newGame : (d) ->\n		if d==-1 then @errors++\n		@level = constrain @level+d, 1, 100\n		@radius = int 100/@level\n		@x = @randint 200\n		@y = @randint 200\n	draw : ->\n		fc 1,1,0\n		sc()\n		textAlign CENTER,CENTER\n		textSize 50\n		text @x + \",\" + @y,100,50\n		fc 0,1,0\n		text @level,67,150\n		fc 1,0,0\n		text @errors,133,150\n		fc()\n		sc 1,1,0\n		circle 100,100,@radius\n	mousePressed : (mx,my) ->\n		# @seed += mx % 10\n		@newGame if @radius >= dist mx,my,@x,@y then 1 else -1\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n\napp = new Coordinator \"a\"",
   c: {
@@ -191,7 +198,7 @@ ID_CornerPoints3 = {
   v: '2017-04-29',
   k: 'sc sw point',
   l: 17,
-  h: 3,
+  h: 2,
   b: "# LÄXA: Grönt, gult, vitt",
   a: "sw 10\nsc 1,0,0\npoint 20,0\npoint 20,20\npoint 0,20\n\nsc 0,1,0\npoint 180,0\npoint 180,20\npoint 200,20\n\nsc 1,1,0\npoint 20,180\npoint 20,200\npoint 0,180\n\nsc 1\npoint 180,180\npoint 180,200\npoint 200,180"
 };
@@ -200,7 +207,7 @@ ID_CornerPoints7 = {
   v: '2017-04-29',
   k: 'sc sw point',
   l: 17,
-  h: 3,
+  h: 2,
   b: "# LÄXA: Grönt",
   a: "sw 10\nsc 1,0,0\npoint 30,0\npoint 30,10\npoint 30,20\npoint 30,30\npoint 10,30\npoint 20,30\npoint 0,30\n\nsc 0,1,0\npoint 170,200\npoint 170,190\npoint 170,180\npoint 170,170\npoint 190,170\npoint 180,170\npoint 200,170"
 };

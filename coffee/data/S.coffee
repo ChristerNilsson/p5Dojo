@@ -1,7 +1,27 @@
+ID_Scale =
+	v:'2018-04-24'
+	k:'angleMode rotate translate scale fc rect'
+	l:9
+	h:0
+	b:"""
+angleMode DEGREES
+translate 40,40
+fc()
+rect 0,0,40,20
+translate 60,60
+scale 2
+fc 1,1,1,0.5
+rect 0,0,40,20
+"""
+	a:"""
+"""
+
+
 ID_SevenSegment =
 	v:'2017-04-29'
 	k:'bg sc fc rect rectMode if operators [] class'
 	l:31
+	h:1
 	b : """
 class Digit extends Application
 	reset : ->
@@ -55,6 +75,7 @@ ID_Shortcut =
 	v:'2017-04-29'
 	k:'bg fc sc range operators [] text for if return {} constrain class'
 	l:65
+	h:1
 	b:"""
 class Shortcut extends Application
 	reset : ->
@@ -141,6 +162,7 @@ ID_Shortcut2 =
 	v:'2017-05-04'
 	k:'bg fc sc range operators [] for if return _.min text dist int {} constrain class'
 	l:126
+	h:1
 	b:"""
 class Shortcut2 extends Application
 	reset : ->
@@ -381,6 +403,7 @@ ID_SingaporeMultComplex =
 	v:'2017-10-22'
 	k:'bg fc sc rect for class readText parseFloat [] split text'
 	l:53
+	h:2
 	b: """
 # 3 1 innebär det komplexa talet 3+i
 class SingaporeMultComplex extends Application
@@ -611,6 +634,7 @@ ID_Snake =
 	v:'2017-04-29'
 	k:'bg fc [] rect operators dist for if class'
 	l:47
+	h:2
 	b: """
 class Snake extends Application
 	reset : ->
@@ -681,6 +705,7 @@ ID_Snake4 =
 	v:'2017-04-29'
 	k:'bg fc [] rect operators dist for if class'
 	l:43
+	h:1
 	b: """
 class Snake4 extends Application
 	reset : ->

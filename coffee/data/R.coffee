@@ -2,7 +2,7 @@ ID_RandomDice =
 	v:'2017-05-21'
 	k:'bg sc circle operators [] int for class'
 	l:18
-	h:2
+	h:1
 	b: """
 class RandomDice extends Application
 	reset : ->
@@ -164,6 +164,23 @@ app = new Reversi "a"
 	e:
 		Reversi : "https://en.wikipedia.org/wiki/Reversi"
 
+ID_Rotate =
+	v:'2018-04-24'
+	k:'angleMode rotate translate rect'
+	l:7
+	h:0
+	b:"""
+angleMode DEGREES
+translate 100,100
+fc()
+rect 0,0,40,20
+rotate 45
+fc 1,1,1,0.5
+rect 0,0,40,20
+"""
+	a:"""
+"""
+
 ID_RotatedEllipse =
 	v:'2017-09-30'
 	k:'angleMode rotate ellipse translate'
@@ -241,7 +258,7 @@ ID_Roulette =
 	v:'2017-09-30'
 	k:'bg sw fc sc range angleMode rotate for if operators [] "" PI text arc strokeCap translate'
 	l:15
-	h:2
+	h:3
 	b:"""
 numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
 """
@@ -270,6 +287,7 @@ ID_RubikCube =
 	v:'2017-04-29'
 	k:'bg fc sc range [] if constrain for int quad text dist operators class'
 	l:121
+	h:2
 	b:"""
 class RubikCube extends Application
 	reset : ->
@@ -415,6 +433,7 @@ ID_RubikSquare =
 	v:'2017-04-29'
 	k:'bg fc sc circle [] int .. operators if rectMode rect "" parseInt _.isEqual text while constrain class'
 	l:85
+	h:1
 	b:"""
 # OBS: Du bör använda variabeln rubikSquareData.
 

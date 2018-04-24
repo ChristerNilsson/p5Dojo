@@ -269,3 +269,22 @@ app = new Polygon "a"
 """
 	c:
 		app : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1"
+
+ID_PushPop =
+	v:'2018-04-24'
+	k:'angleMode rotate translate scale push pop for range circle'
+	l:9
+	h:0
+	b:"""
+angleMode DEGREES
+translate 100,100
+circle 0,0,20
+for i in range 6
+	push()
+	translate 50,0
+	circle 0,0,10
+	pop()
+	rotate 60
+"""
+	a:"""
+"""

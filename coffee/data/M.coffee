@@ -45,7 +45,7 @@ ID_Mandelbrot =
 	v:'2018-04-23'
 	k:'sc point'
 	l:36
-	h:3
+	h:2
 	b:"""
 # The color is mapped as bbbgggrrr
 class Mandelbrot extends Application
@@ -349,7 +349,7 @@ ID_Moire =
 	v:'2017-04-29'
 	k:'bg range operators for line map class'
 	l:11
-	h:2
+	h:1
 	b:"""
 class Moire extends Application
 	reset : ->

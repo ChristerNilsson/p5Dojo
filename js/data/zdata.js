@@ -12,7 +12,7 @@
 var data;
 
 data = {
-  "L1: bg point sc sw": {
+  "1: bg point sc sw": {
     Background1: ID_Background1,
     Background2: ID_Background2,
     Background3: ID_Background3,
@@ -22,170 +22,169 @@ data = {
     CornerPoints: ID_CornerPoints,
     MidPoints: ID_MidPoints,
     CornerPoints7: ID_CornerPoints7,
-    CornerPoints3: ID_CornerPoints3
+    CornerPoints3: ID_CornerPoints3,
+    Diagonal1: ID_Diagonal1,
+    Diagonal2: ID_Diagonal2,
+    Dices: ID_Dices
   },
-  "L2: circle fc text": {
+  "2: circle rect line fc": {
+    GreenRect: ID_GreenRect,
     WhiteCircle: ID_WhiteCircle,
     WhiteEmptyCircle: ID_WhiteEmptyCircle,
     TwoDiscsA: ID_TwoDiscsA,
     TwoDiscsB: ID_TwoDiscsB,
-    TextA: ID_TextA,
-    TextB: ID_TextB,
+    HorizontalLine: ID_HorizontalLine,
+    VerticalLine: ID_VerticalLine,
+    Line: ID_Line,
     Five: ID_Five,
-    Dices: ID_Dices
-  },
-  "L3: ellipse rect triangle": {
-    GreenEllipse: ID_GreenEllipse,
-    GreenRect: ID_GreenRect,
-    //RedRect : ID_RedRect
-    Triangle: ID_Triangle,
-    Quad: ID_Quad,
     Cross: ID_Cross,
     SquareHole: ID_SquareHole,
     FlagSweden: ID_FlagSweden
   },
-  "L4: for rect circle": {
+  "3: ellipse arc triangle quad": {
+    GreenEllipse: ID_GreenEllipse,
+    Triangle: ID_Triangle,
+    Quad: ID_Quad,
+    Arc: ID_Arc,
+    TwoArcs: ID_TwoArcs,
+    PacMan: ID_PacMan
+  },
+  "4: for range lerp []": {
     HorizontalSquares: ID_HorizontalSquares,
     VerticalSquares: ID_VerticalSquares,
     DiagonalSquares: ID_DiagonalSquares,
-    DoubleForLoop: ID_DoubleForLoop,
     GrowingSquares: ID_GrowingSquares,
     GrowingRedSquares: ID_GrowingRedSquares,
     GrowingCircles: ID_GrowingCircles,
     ShrinkingCircles: ID_ShrinkingCircles,
     RedCone: ID_RedCone,
-    PentaLerp: ID_PentaLerp
-  },
-  "L5: for line circle": {
-    HorizontalLine: ID_HorizontalLine,
-    VerticalLine: ID_VerticalLine,
-    Line: ID_Line,
-    Grid: ID_Grid,
-    Skislope: ID_Skislope,
-    SuperCircle: ID_SuperCircle
-  },
-  "L6: if for line rect point": {
     Sunshine: ID_Sunshine,
     Lines: ID_Lines,
-    ChessRow: ID_ChessRow,
-    ChessBoard: ID_ChessBoard,
-    GalaxiesOne: ID_GalaxiesOne,
-    GalaxiesColliding: ID_GalaxiesColliding,
+    Grid: ID_Grid,
+    DoubleForLoop: ID_DoubleForLoop,
+    PentaLerp: ID_PentaLerp,
+    Skislope: ID_Skislope,
+    SuperCircle: ID_SuperCircle,
     ColorSide: ID_ColorSide,
     ColorCross: ID_ColorCross
   },
-  "L7: function": {
-    Function: ID_Function,
-    p5: ID_P5,
-    Average: ID_Average,
-    Lerp: ID_Lerp,
-    Arc: ID_Arc,
-    TwoArcs: ID_TwoArcs,
-    PacMan: ID_PacMan,
-    Diagonal1: ID_Diagonal1,
-    Diagonal2: ID_Diagonal2,
-    Map: ID_Map,
-    ManyDices: ID_ManyDices
+  "5: if then else": {
+    ChessRow: ID_ChessRow,
+    ChessBoard: ID_ChessBoard,
+    GalaxiesOne: ID_GalaxiesOne,
+    GalaxiesColliding: ID_GalaxiesColliding
   },
-  //OneDiceHistogram : ID_OneDiceHistogram
-  //TwoDiceHistogram : ID_TwoDiceHistogram
-  "L8: class": {
-    Counter: ID_Counter,
-    Square: ID_Square,
-    Moire: ID_Moire,
-    //Magnifier : ID_Magnifier
-    RandomDice: ID_RandomDice,
-    //BoardGame : ID_BoardGame
-    Girlang: ID_Girlang,
-    GUI: ID_GUI,
-    Braid: ID_Braid
-  },
-  "L9: GuessANumber": {
-    Coordinator: ID_Coordinator,
-    Stopwatch: ID_Stopwatch,
-    OlympicRingPrep: ID_OlympicRingPrep,
-    GuessANumber: ID_GuessANumber,
-    Korg: ID_Korg,
-    Korsord: ID_Korsord,
-    OlympicRings: ID_OlympicRings,
-    LinearRegression: ID_LinearRegression
-  },
-  "LA: Connect4": {
-    MultiTimer: ID_MultiTimer,
-    SevenSegment: ID_SevenSegment,
-    ColorCube: ID_ColorCube,
-    BlackBox2D: ID_BlackBox2D,
-    Alphanumeric: ID_Alphanumeric,
-    GuessANumberHex: ID_GuessANumberHex,
-    SingaporeMult: ID_SingaporeMult,
-    Connect4: ID_Connect4
-  },
-  "LB: GameOfLife": {
-    Nian: ID_Nian,
-    ChessOne: ID_ChessOne,
-    BouncingBalls: ID_BouncingBalls,
-    Snake4: ID_Snake4,
-    ForthHaiku: ID_ForthHaiku,
-    Kalkylator: ID_Kalkylator,
-    Quiz: ID_Quiz,
-    Paint: ID_Paint,
-    GameOfLife: ID_GameOfLife
-  },
-  "LC: ColorPair": {
-    Hex: ID_Hex,
-    PickingBerries: ID_PickingBerries,
-    Snake: ID_Snake,
-    ChessMany: ID_ChessMany,
-    RecursiveCircle: ID_RecursiveCircle,
-    Reversi: ID_Reversi,
-    TowerOfHanoi: ID_TowerOfHanoi,
-    MineSweeper: ID_MineSweeper,
-    SingaporeMultComplex: ID_SingaporeMultComplex,
-    ColorPair: ID_ColorPair
-  },
-  "LD: RushHour": {
-    ClickDetector: ID_ClickDetector,
-    Nim: ID_Nim,
-    Shortcut: ID_Shortcut,
-    Braider: ID_Braider,
-    Nand2TetrisALU: ID_Nand2TetrisALU,
-    Tetramino: ID_Tetramino,
-    Tetris: ID_Tetris,
-    EngineeringNotation: ID_EngineeringNotation,
-    RushHour: ID_RushHour
-  },
-  "LE: Sokoban": {
-    Complex: ID_Complex,
-    RubikSquare: ID_RubikSquare,
-    RubikCube: ID_RubikCube,
-    Shortcut2: ID_Shortcut2,
-    ForthHaiku3D: ID_ForthHaiku3D,
-    BeeHaiku3D: ID_BeeHaiku3D,
-    C2048: ID_2048,
-    SingaporeMultPolynom: ID_SingaporeMultPolynom,
-    Sokoban: ID_Sokoban,
-    Mandelbrot: ID_Mandelbrot
-  },
-  "LF: translate rotate scale": {
-    TextC: ID_TextC,
+  "6: translate rotate scale": {
+    Translate: ID_Translate,
+    Rotate: ID_Rotate,
+    Scale: ID_Scale,
+    PushPop: ID_PushPop,
     RotatedEllipse: ID_RotatedEllipse,
     RotatedRectA: ID_RotatedRectA,
     RotatedRectB: ID_RotatedRectB,
     RotatedRectC: ID_RotatedRectC,
     Cards: ID_Cards,
     SnowWhiteAndThe7Lerps: ID_SnowWhiteAndThe7Lerps,
-    CoffeescriptClock: ID_CoffeescriptClock,
-    Roulette: ID_Roulette,
     MayFlower: ID_MayFlower,
+    FlagUnitedKingdom: ID_FlagUnitedKingdom,
+    FlagKorea: ID_FlagKorea,
+    SuperCircle2: ID_SuperCircle2
+  },
+  "7: text textAlign textSize": {
+    TextA: ID_TextA,
+    TextB: ID_TextB,
+    TextC: ID_TextC,
+    CoffeescriptClock: ID_CoffeescriptClock,
+    Roulette: ID_Roulette
+  },
+  "8: -> (function)": {
+    Function: ID_Function,
+    p5: ID_P5,
+    Average: ID_Average,
+    Lerp: ID_Lerp,
+    Map: ID_Map,
+    ManyDices: ID_ManyDices
+  },
+  "9: class": {
+    Counter: ID_Counter,
+    Square: ID_Square,
+    Moire: ID_Moire,
+    RandomDice: ID_RandomDice,
+    Girlang: ID_Girlang,
+    GUI: ID_GUI,
     IndianSun: ID_IndianSun,
     Polygon: ID_Polygon,
     GoldenStar: ID_GoldenStar,
-    FlagUnitedKingdom: ID_FlagUnitedKingdom,
-    FlagKorea: ID_FlagKorea,
+    Braid: ID_Braid,
     SpaceShip: ID_SpaceShip,
-    Angle: ID_Angle,
-    Klocka: ID_Klocka,
-    SuperCircle2: ID_SuperCircle2
+    Klocka: ID_Klocka
+  },
+  "A: 20-30 LOC": {
+    Stopwatch: ID_Stopwatch,
+    OlympicRingPrep: ID_OlympicRingPrep,
+    GuessANumber: ID_GuessANumber,
+    Korg: ID_Korg,
+    Korsord: ID_Korsord,
+    OlympicRings: ID_OlympicRings,
+    Alphanumeric: ID_Alphanumeric,
+    RecursiveCircle: ID_RecursiveCircle,
+    EngineeringNotation: ID_EngineeringNotation
+  },
+  "B: 30-40 LOC": {
+    SevenSegment: ID_SevenSegment,
+    ColorCube: ID_ColorCube,
+    Connect4: ID_Connect4,
+    GuessANumberHex: ID_GuessANumberHex,
+    Mandelbrot: ID_Mandelbrot,
+    Nian: ID_Nian,
+    Coordinator: ID_Coordinator,
+    MultiTimer: ID_MultiTimer,
+    BlackBox2D: ID_BlackBox2D,
+    LinearRegression: ID_LinearRegression,
+    Quiz: ID_Quiz,
+    Paint: ID_Paint,
+    Tetramino: ID_Tetramino
+  },
+  "C: 40-50 LOC": {
+    ColorPair: ID_ColorPair,
+    GameOfLife: ID_GameOfLife,
+    Snake4: ID_Snake4,
+    BouncingBalls: ID_BouncingBalls,
+    Snake: ID_Snake,
+    Kalkylator: ID_Kalkylator,
+    Hex: ID_Hex,
+    Braider: ID_Braider,
+    TowerOfHanoi: ID_TowerOfHanoi,
+    Reversi: ID_Reversi,
+    ForthHaiku: ID_ForthHaiku,
+    SingaporeMult: ID_SingaporeMult,
+    PickingBerries: ID_PickingBerries
+  },
+  "D: 50-60 LOC": {
+    ChessOne: ID_ChessOne,
+    SingaporeMultComplex: ID_SingaporeMultComplex,
+    Angle: ID_Angle
+  },
+  "E: 60-80 LOC": {
+    Shortcut: ID_Shortcut,
+    ClickDetector: ID_ClickDetector,
+    Nim: ID_Nim,
+    ChessMany: ID_ChessMany,
+    MineSweeper: ID_MineSweeper,
+    Nand2TetrisALU: ID_Nand2TetrisALU,
+    RushHour: ID_RushHour // 71
+  },
+  "F: 80-140 LOC": {
+    RubikSquare: ID_RubikSquare, // 85
+    Shortcut2: ID_Shortcut2, // 126
+    Complex: ID_Complex, // 80
+    Tetris: ID_Tetris, // 109
+    RubikCube: ID_RubikCube, // 121
+    C2048: ID_2048, // 103
+    BeeHaiku3D: ID_BeeHaiku3D, // 81
+    SingaporeMultPolynom: ID_SingaporeMultPolynom, // 86
+    Sokoban: ID_Sokoban, // 94
+    ForthHaiku3D: ID_ForthHaiku3D // 138
   },
   Information: {
     Nyheter: ID_nyheter,

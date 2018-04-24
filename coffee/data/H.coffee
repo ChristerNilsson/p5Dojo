@@ -2,6 +2,7 @@ ID_Hex =
 	v:'2017-04-29'
 	k:'bg fc sc range operators dist for [] quad circle if text class'
 	l:47
+	h:2
 	b:"""
 class Hex extends Application
 	reset : ->

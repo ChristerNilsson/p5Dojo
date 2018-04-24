@@ -274,6 +274,7 @@ ID_BouncingBalls =
 	v:'2017-04-29'
 	k:'fc sw sc circle operators [] if for class'
 	l:43
+	h:1
 	b : """
 class Ball
 	constructor : ->
@@ -404,6 +405,7 @@ ID_Braider =
 	v:'2017-04-29'
 	k:'sc bg sw range for if operators line class'
 	l:49
+	h:2
 	b: """
 class Cartesius
 	constructor : (x,y,c) ->

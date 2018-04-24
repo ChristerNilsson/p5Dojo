@@ -7,7 +7,7 @@ ID_Diagonal1 = {
   v: '2017-09-09',
   k: 'bg sc sw point',
   l: 8,
-  h: 2,
+  h: 3,
   b: "",
   a: "bg 0,1,0\nsw 20\nsc 0,0,0\npoint 0,0\n\nsc 0.5,0.5,0\npoint 100,100\n\nsc 1,1,0\npoint 200,200",
   e: {
@@ -19,7 +19,7 @@ ID_Diagonal2 = {
   v: '2017-04-29',
   k: 'sc sw point',
   l: 11,
-  h: 2,
+  h: 3,
   b: "",
   a: "sw 20\nsc 1,0,0\npoint 200,0\n\nsc 0.75,0.25,0\npoint 150,50\n\nsc 0.5,0.5,0\npoint 100,100\n\nsc 0.25,0.75,0\npoint 50,150\n\nsc 0,1,0\npoint 0,200",
   e: {

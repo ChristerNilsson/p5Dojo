@@ -43,6 +43,7 @@ ID_GameOfLife =
 	v:'2017-04-29'
 	k:'bg range for [] operators if int class'
 	l:40
+	h:1
 	b:"""
 class GameOfLife extends Application
 	reset : (n) ->
@@ -140,7 +141,7 @@ ID_GoldenStar =
 	v:'2017-09-30'
 	k:'bg fc range for triangle translate angleMode rotate cos sin class'
 	l:23
-	h:2
+	h:3
 	b: """
 class GoldenStar extends Application
 	reset : ->
@@ -334,6 +335,7 @@ ID_GuessANumberHex =
 	v:'2017-05-11'
 	k:'bg fc sc range text for if operators int class'
 	l:33
+	h:2
 	b:"""
 class GuessANumberHex extends Application
 	reset        : ->

@@ -25,6 +25,7 @@ ID_GameOfLife = {
   v: '2017-04-29',
   k: 'bg range for [] operators if int class',
   l: 40,
+  h: 1,
   b: "class GameOfLife extends Application\n	reset : (n) ->\n		super\n	draw : ->\n	mousePressed : (mx,my) ->\n	tick : ->\napp = new GameOfLife\n",
   a: "class GameOfLife extends Application\n	reset : (n) ->\n		super\n		@n = n\n		@size = 200/@n\n		@matrix = {}\n		@ticks = 0\n		for [i,j] in [[0,0],[2,0],[1,1],[2,1],[1,2]]\n			@matrix[i+','+j] = 1\n	draw : ->\n		bg 0.5\n		for i in range @n\n			for j in range @n\n				if @matrix[i+','+j]==1\n					rect @size*i, @size*j, @size, @size\n	count : (x,y) ->\n		res = 0\n		for dx in [-1,0,1]\n			for dy in [-1,0,1]\n				i = (x+dx) %% @n\n				j = (y+dy) %% @n\n				res++ if @matrix[i+','+j]==1 and (dx!=0 or dy!=0)\n		res\n	tick : ->\n		@ticks++\n		m = {}\n		for i in range @n\n			for j in range @n\n				c = @count(i,j)\n				key = i+','+j\n				if @matrix[key] == 1\n					if 2 <= c <= 3 then m[key]=1\n				else\n					if c==3 then m[key]=1\n		@matrix = m\n	mousePressed : (mx,my) ->\n		i = int mx/@size\n		j = int my/@size\n		key = i+','+j\n		@matrix[key] = if @matrix[key] == 1 then undefined else 1\n\napp = new GameOfLife \"a\"\n",
   c: {
@@ -48,7 +49,7 @@ ID_GoldenStar = {
   v: '2017-09-30',
   k: 'bg fc range for triangle translate angleMode rotate cos sin class',
   l: 23,
-  h: 2,
+  h: 3,
   b: "class GoldenStar extends Application\n	reset : ->\n		super\n	draw  : ->\n	n     : (d) ->\n	outer : (d) ->\n	inner : (d) ->\napp = new GoldenStar",
   a: "class GoldenStar extends Application\n	reset : ->\n		super\n		@_X = 100\n		@_Y = 100\n		@_n = 4\n		@_outer = 100\n		@_inner = 25\n	n : (d) -> @_n = constrain @_n+d,3,12\n	outer : (d) -> @_outer = constrain @_outer+d, 0, 100\n	inner : (d) -> @_inner = constrain @_inner+d, 0, 100\n	draw : ->\n		bg 0\n		angleMode DEGREES\n		translate @_X,@_Y\n		v = 360/@_n\n		rotate -90\n		x1 = @_inner * cos v/2\n		y1 = @_inner * sin v/2\n		for i in range @_n\n			fc 1,1,0\n			triangle 0,0, @_outer,0, x1,y1\n			fc 1,0.7,0\n			triangle 0,0, @_outer,0, x1,-y1\n			rotate v\n\napp = new GoldenStar \"a\"",
   c: {
@@ -126,6 +127,7 @@ ID_GuessANumberHex = {
   v: '2017-05-11',
   k: 'bg fc sc range text for if operators int class',
   l: 33,
+  h: 2,
   b: "class GuessANumberHex extends Application\n	reset        : ->\n		super\n	draw         : ->\n	newGame : ->\n	mousePressed : (mx,my) ->\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\napp = new GuessANumberHex",
   a: "class GuessANumberHex extends Application\n	reset : ->\n		super\n		@BASE = 16\n		@N = @BASE*@BASE\n		@S = 200 / @BASE\n		@seed = 1\n		@newGame()\n	randint : (n) -> int n * fraction 10000 * Math.sin @seed++\n	newGame : ->\n		@start = 0\n		@stopp = @N-1\n		@secret = @randint @N\n		@count = 0\n	draw : ->\n		bg 0\n		textAlign CENTER,CENTER\n		textSize 9\n		for i in range @N\n			if @start <= i <= @stopp then fc 1 else fc 0.5\n			sc()\n			x = i % @BASE\n			y = int i / @BASE\n			text hex(i,2), @S/2 + @S * x, @S/2 + @S * y\n		fc 1,1,1,0.5\n		textSize 100\n		text @count,100,100\n	mousePressed : (mx,my) ->\n		guess = int mx/@S + @BASE * int my/@S\n		@seed += mx % 2\n		@count++\n		if guess <= @secret then @start = guess+1\n		if guess >= @secret then @stopp = guess-1\n\napp = new GuessANumberHex \"a\"",
   c: {

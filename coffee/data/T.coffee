@@ -2,6 +2,7 @@ ID_2048 =
 	v:'2017-10-19'
 	k:'fc sc range [] for rect if operators class text'
 	l:103
+	h:2
 	b:"""
 class Button 
 	constructor : (@number,@i,@j) ->
@@ -174,6 +175,7 @@ ID_Tetris =
 	v:'2017-05-07'
 	k:'bg fc range [] {} for rect if while _.contains operators class'
 	l:109
+	h:2
 	b:"""
 class Tetris extends Application
 	reset : ->
@@ -327,7 +329,7 @@ ID_TextB =
 	v:'2017-04-29'
 	k:'fc sc text textSize textAlign'
 	l:5
-	h:2
+	h:1
 	b:""
 	a:"""
 fc 1,1,0
@@ -341,7 +343,7 @@ ID_TextC =
 	v:'2017-09-30'
 	k:'sc fc angleMode rotate text translate textSize textAlign'
 	l:10
-	h:1
+	h:2
 	b:""
 	a:"""
 sc()
@@ -422,6 +424,23 @@ app = new TowerOfHanoi "a"
 		app : "reset()"
 	e:
 		Wikipedia : "https://en.wikipedia.org/wiki/Tower_of_Hanoi"
+
+ID_Translate =
+	v:'2018-04-24'
+	k:'translate'
+	l:2
+	h:0
+	b:"""
+# translate x,y
+
+fc()
+rect 0,0,20,20
+translate 100,100
+fc 1
+rect 0,0,20,20
+"""
+	a:"""
+"""
 
 ID_Triangle =
 	v:'2018-04-23'

@@ -114,6 +114,7 @@ ID_ChessOne =
 	v:'2017-10-10'
 	k:'bg fc range for rect circle class if [] {} text'
 	l:52
+	h:1
 	b:"""
 class ChessOne extends Application
 	reset : ->
@@ -196,6 +197,7 @@ ID_ChessMany =
 	v:'2017-10-10'
 	k:'bg fc range for rect circle class if [] {} text'
 	l:70
+	h:2
 	b:"""
 class ChessMany extends Application
 	reset : ->
@@ -326,6 +328,7 @@ ID_ClickDetector =
 	v:'2017-04-29'
 	k:'bg sc fc range circle quad rect triangle class dist if operators text rectMode'
 	l:62
+	h:1
 	b:"""
 class Vector
 	constructor : (@x,@y) ->
@@ -472,6 +475,7 @@ ID_ColorCube =
 	v:'2017-04-29'
 	k:'bg range for class quad [] stroke if operators return'
 	l:33
+	h:1
 	b: """
 class ColorCube extends Application
 	reset       : ->
@@ -529,6 +533,7 @@ ID_ColorPair =
 	v:'2017-04-29'
 	k:'fc circle [] .. dist _.isEqual colorMode HSB _.max _.pairs _.sortBy for class'
 	l:41
+	h:1
 	b: """
 class ColorPair extends Application
 	reset : ->
@@ -643,6 +648,7 @@ ID_Complex =
 	v:'2017-04-29'
 	k:'bg fc sc range operators [] line circle text for if return int {} dist _.isEqual constrain class'
 	l:80
+	h:1
 	b:"""
 class Complex extends Application
 	reset : ->
@@ -746,6 +752,7 @@ ID_Connect4 =
 	v:'2017-04-29'
 	k:'operators bg fc sc sw circle range text for class'
 	l:33
+	h:1
 	b:"""
 class Connect4 extends Application
 	reset : ->
@@ -801,7 +808,7 @@ ID_Coordinator =
 	v:'2018-04-23'
 	k:'sc fc circle class dist if operators text'
 	l:30
-	h:1
+	h:3
 	b:"""
 class Coordinator extends Application
 	reset : ->
@@ -888,7 +895,7 @@ ID_CornerPoints3 =
 	v:'2017-04-29'
 	k:'sc sw point'
 	l:17
-	h:3
+	h:2
 	b: """
 # LÄXA: Grönt, gult, vitt
 """
@@ -919,7 +926,7 @@ ID_CornerPoints7 =
 	v:'2017-04-29'
 	k:'sc sw point'
 	l:17
-	h:3
+	h:2
 	b: """
 # LÄXA: Grönt
 """

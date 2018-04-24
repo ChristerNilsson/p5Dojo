@@ -2,6 +2,7 @@ ID_Kalkylator =
 	v:'2017-04-29'
 	k:'bg sc fc range readText operators {} [] text for sqrt PI parseFloat "" class'
 	l:46
+	h:2
 	b:"""
 # TIPS! Börja med de fyra räknesätten.
 #       @words ska kunna utökas med ":". T ex ": sq dup *"

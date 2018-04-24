@@ -92,6 +92,7 @@ ID_Nian =
 	v:'2017-04-29'
 	k:'bg fc sc [] "" reduce operators text for {} _.countBy if class'
 	l:35
+	h:2
 	b:"""
 # Bilda ord med fyra till nio bokstäver. Använd variabeln ordlista.
 # Den mittersta bokstaven måste ingå. Prova med "aaefkrrtu"
@@ -155,6 +156,7 @@ ID_Nim =
 	v:'2017-04-29'
 	k:'bg fc sc circle operators if _.isEqual return constrain text class'
 	l:62
+	h:2
 	b:"""
 class Nim extends Application
 	reset : ->

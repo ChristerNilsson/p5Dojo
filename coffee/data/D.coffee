@@ -2,7 +2,7 @@ ID_Diagonal1 =
 	v:'2017-09-09'
 	k:'bg sc sw point'
 	l:8
-	h:2
+	h:3
 	b: ""
 	a: """
 bg 0,1,0
@@ -23,7 +23,7 @@ ID_Diagonal2 =
 	v:'2017-04-29'
 	k:'sc sw point'
 	l:11
-	h:2
+	h:3
 	b: ""
 	a: """
 sw 20

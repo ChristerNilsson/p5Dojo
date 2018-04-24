@@ -18,7 +18,7 @@ ID_Mandelbrot = {
   v: '2018-04-23',
   k: 'sc point',
   l: 36,
-  h: 3,
+  h: 2,
   b: "# The color is mapped as bbbgggrrr\nclass Mandelbrot extends Application\n	reset : ->\n		super\n	draw  : ->\n	undo  : ->\n	mousePressed : (mx,my) ->\napp = new Mandelbrot",
   a: "class Mandelbrot extends Application\n	reset : ->\n		super\n		@SIZE = 100\n		@BITS = 3 \n		@N = 2**@BITS\n		@N1 = @N-1\n		@DEPTH = 2**(3*@BITS)\n		@hist = []\n		[@x,@y] = [-0.5,0]\n		@zoom = 0.01\n	draw  : ->\n		for i in range -@SIZE,@SIZE\n			for j in range -@SIZE,@SIZE\n				cx = @x + @zoom*i\n				cy = @y + @zoom*j\n				f = @calc cx,cy\n				b = f % @N; f //= @N\n				g = f % @N; f //= @N\n				r = f % @N; f //= @N\n				sc r/@N1, g/@N1, b/@N1\n				point @SIZE+i,@SIZE+j\n	undo : -> if @hist.length>0 then [@x,@y,@zoom] = @hist.pop()\n	calc : (cx,cy) ->\n		[x,y] = [cx,cy]\n		count = 0\n		for k in range @DEPTH\n			if 2 > dist x,y,0,0 then count++ else return count\n			[x,y] = [x*x-y*y+cx, 2*x*y+cy]\n		#if count == @DEPTH-1 then count = 0 \n		count\n	mousePressed : (mx,my) ->\n		@hist.push [@x,@y,@zoom]\n		@x = map mx, 0, 2*@SIZE, @x-@zoom*@SIZE, @x+@zoom*@SIZE\n		@y = map my, 0, 2*@SIZE, @y-@zoom*@SIZE, @y+@zoom*@SIZE\n		@zoom /= 2\napp = new Mandelbrot 'a'",
   c: {
@@ -92,7 +92,7 @@ ID_Moire = {
   v: '2017-04-29',
   k: 'bg range operators for line map class',
   l: 11,
-  h: 2,
+  h: 1,
   b: "class Moire extends Application\n	reset : ->\n		super\n	draw  : ->\n	mousePressed : (mx,my) ->\napp = new Moire",
   a: "class Moire extends Application\n	reset : ->\n		super\n		[@x,@y] = [100,100]\n	draw : ->\n		bg 0\n		for i in range 40\n			for j in range 4\n				[x,y] = [0,i*5,200,200-i*5,0][j..j+1]\n				line @x,@y,x,y\n	mousePressed : (mx,my) -> [@x,@y] = [mx,my]\n\napp = new Moire \"a\"",
   c: {
