@@ -851,13 +851,11 @@ app = new Coordinator "a"
 		app : "reset()"
 
 ID_CornerPoints =
-	v:'2018-04-12'
+	v:'2018-04-24'
 	k:'sc sw point'
 	l:9
-	h:2
+	h:0
 	b: """
-# EXEMPEL
-# 
 # sc r,g,b  # Väljer färg för punkter och streck
 
 sw 10

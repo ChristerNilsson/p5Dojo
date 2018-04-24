@@ -33,20 +33,20 @@ ID_Angle = {
 };
 
 ID_Arc = {
-  v: '2018-04-23',
+  v: '2018-04-24',
   k: '-> fc sc arc strokeCap sw angleMode',
   l: 14,
   h: 0,
-  b: "angleMode DEGREES\n\nsc()\nfc 0,0,1\narc 120,120,100,100,0,90\n\nsc 1,1,0\nsw 10\nstrokeCap ROUND\narc 80,120,100,100,90,180\n\nstrokeCap SQUARE\nfc 0,1,0\narc 80,80,100,100,180,270\n\nfc()\nsw 5\narc 120,80,100,100,270,0",
+  b: "angleMode DEGREES\n\n# arc x,y,w,h,start,stopp\n\nsc()\nfc 0,0,1\narc 120,120,100,100,0,90\n\nsc 1,1,0\nsw 10\nstrokeCap ROUND\narc 80,120,100,100,90,180\n\nstrokeCap SQUARE\nfc 0,1,0\narc 80,80,100,100,180,270\n\nfc()\nsw 5\narc 120,80,100,100,270,0",
   a: "angleMode DEGREES\n\nsc()\nfc 0,0,1\narc 120,120,100,100,0,90\n\nsc 1,1,0\nsw 10\nstrokeCap ROUND\narc 80,120,100,100,90,180\n\nstrokeCap SQUARE\nfc 0,1,0\narc 80,80,100,100,180,270\n\nfc()\nsw 5\narc 120,80,100,100,270,0"
 };
 
 ID_Average = {
-  v: '2017-09-16',
+  v: '2018-04-24',
   k: '-> bg fc sc if text operators',
   l: 5,
   h: 2,
-  b: "average = (a,b) -> 0\n\n# Ändra ingenting nedanför denna rad!\nbg 0\ny = 19\ntest = (a,b) ->\n	sc()\n	textSize 20\n	fc 0,1,0\n	text a, 0,y\n	if a==b then fc 0,1,0 else fc 1,0,0\n	text b, 100,y\n	y+=20\n\ntest 5,  average 0,10\ntest 20, average 10,30\ntest 10, average -10,30",
+  b: "average = (a,b) -> 0\n\n# Ändra ingenting nedanför denna rad!\nbg 0\ny = 19\ntest = (c,d) ->\n	sc()\n	textSize 20\n	fc 0,1,0\n	text c, 0,y\n	if c==d then fc 0,1,0 else fc 1,0,0\n	text d, 100,y\n	y+=20\n\ntest 5,  average 0,10\ntest 20, average 10,30\ntest 10, average -10,30",
   a: "average = (a,b) -> (a+b)/2\n\n# Ändra ingenting nedanför denna rad!\nbg 0\ny = 19\ntest = (a,b) ->\n	sc()\n	textSize 20\n	fc 0,1,0\n	text a, 0,y\n	if a==b then fc 0,1,0 else fc 1,0,0\n	text b, 100,y\n	y+=20\n\ntest 5,  average 0,10\ntest 20, average 10,30\ntest 10, average -10,30",
   e: {
     Matteboken: 'https://www.matteboken.se/lektioner/skolar-5/statistik/medelvarde'

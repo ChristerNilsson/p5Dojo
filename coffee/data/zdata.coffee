@@ -162,7 +162,7 @@ data =
 		Sokoban : ID_Sokoban
 		Mandelbrot : ID_Mandelbrot
 
-	"LF: sin cos translate rotate" :
+	"LF: translate rotate scale" :
 		TextC : ID_TextC
 		RotatedEllipse : ID_RotatedEllipse
 		RotatedRectA : ID_RotatedRectA
@@ -181,6 +181,7 @@ data =
 		SpaceShip : ID_SpaceShip
 		Angle : ID_Angle
 		Klocka : ID_Klocka
+		SuperCircle2 : ID_SuperCircle2
 
 	Information :
 		Nyheter : ID_nyheter

@@ -40,8 +40,8 @@ Ingen annan programvara behöver installeras. _No other software is needed._
  - [funprogramming](https://www.youtube.com/user/hamoid)
  - [p5.js video tutorial](https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=14)
 
-Kontakt: janchrister.nilsson kanelbulle gmail.com
-.....
+Kontakt: janchrister.nilsson snabel gmail.com
+
 ### färger  _colors_
 ```
 r,g,b  färg    colors
@@ -96,7 +96,7 @@ strecktjocklek  [_strokeWeight_](https://p5js.org/reference/#/p5/strokeWeight)
 ```
 sw pixlar
 ```
-.....
+
 ## Ritkommandon  _Drawing commands_
 
 ### circle
@@ -154,7 +154,6 @@ Anger rektangelns ankarpunkt
   * CENTER
   * RADIUS
 
-.....
 ### [ellipseMode](https://p5js.org/reference/#/p5/ellipseMode)
 Anger hur ellipsens parametrar ska tolkas
   * CORNER
@@ -218,18 +217,21 @@ _Linear interpolation and extrapolation_
 12 == lerp 10,12,1
 14 == lerp 10,12,2
 ```
-.....
 
 ### [if](http://coffeescript.org/#conditionals)
 ```coffeescript
-if i % 3 == 0
+# Fyra olika sätt att göra samma sak:
+
+if i % 2 == 0
   fc 0
-else if i % 3 == 1
-  fc 0.5
-else
+else 
   fc 1
 
-fc if i % 3 == 0 then 0 else 0.5
+if i % 2 == 0 then fc 0 else fc 1
+
+fc if i % 2 == 0 then 0 else 1
+
+fc i%2
 ```
 
 ### koordinatsystemet
@@ -282,7 +284,6 @@ _Linear interpolation and extrapolation_
 250 == map 25,  0,100,  0,1000
  30 == map  1,  0, 10, 25,  75
 ```
-.....
 
 ### [constrain](https://p5js.org/reference/#/p5/constrain)
 Begränsar ett värde
@@ -350,7 +351,6 @@ Kvadratrot
 2             == sqrt 4
 5             == sqrt 25
 ```
-.....
 
 ### log10
 Logaritm
@@ -482,7 +482,6 @@ false or true  == true
 true  or false == true
 true  or true  == true
 ```
-.....
 
 ### while
 Används när man inte vet hur många gånger man vill loopa
@@ -525,7 +524,6 @@ Används för att komma åt egenskaper och metoder i det egna objektet.
 class Animal
   constructor : -> @legs = 4  # javascript: this.legs = 4
 ```
-.....
 
 ### [pil](http://coffeescript.org/#language)
 Används av Coffeescript i stället för _function_ i Javascript.
@@ -622,8 +620,6 @@ Den rödgröna tabellen längst ner innehåller aktuellt tillstånd. Denna ska b
 * Klicka på _reset()_ om kod och data är i otakt.
 * _draw()_ anropas automatiskt.
 
-.....
-
 ### readText
 ```coffeescript
 @readText()  # Läser en textrad från textrutan under skillnadsbitmappen
@@ -665,7 +661,6 @@ class Counter extends Application
   mousePressed : (mx,my) ->
 counter = new Counter
 ```
-.....
 
 ### class
 
@@ -730,7 +725,6 @@ Ett arv innebär oftast en specialisering.
 class Hund extends Djur
 class Uggla extends Djur
 ```
-.....
 
 ![pluto](images/pluto.gif)
 ![jakob](images/jakob.jpg)

@@ -148,12 +148,14 @@ app = new Angle "a"
 
 
 ID_Arc =
-	v:'2018-04-23'
+	v:'2018-04-24'
 	k:'-> fc sc arc strokeCap sw angleMode'
 	l:14
 	h:0
 	b : """
 angleMode DEGREES
+
+# arc x,y,w,h,start,stopp
 
 sc()
 fc 0,0,1
@@ -195,7 +197,7 @@ arc 120,80,100,100,270,0
 """
 
 ID_Average =
-	v:'2017-09-16'
+	v:'2018-04-24'
 	k:'-> bg fc sc if text operators'
 	l:5
 	h:2
@@ -205,13 +207,13 @@ average = (a,b) -> 0
 # Ändra ingenting nedanför denna rad!
 bg 0
 y = 19
-test = (a,b) ->
+test = (c,d) ->
 	sc()
 	textSize 20
 	fc 0,1,0
-	text a, 0,y
-	if a==b then fc 0,1,0 else fc 1,0,0
-	text b, 100,y
+	text c, 0,y
+	if c==d then fc 0,1,0 else fc 1,0,0
+	text d, 100,y
 	y+=20
 
 test 5,  average 0,10

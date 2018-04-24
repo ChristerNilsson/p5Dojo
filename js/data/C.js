@@ -179,11 +179,11 @@ ID_Coordinator = {
 };
 
 ID_CornerPoints = {
-  v: '2018-04-12',
+  v: '2018-04-24',
   k: 'sc sw point',
   l: 9,
-  h: 2,
-  b: "# EXEMPEL\n# \n# sc r,g,b  # Väljer färg för punkter och streck\n\nsw 10\n\nsc 1,0,0\npoint 0,0\n\nsc 0,1,0\npoint 200,0\n\nsc 1,1,0\npoint 0,200\n\nsc 0\npoint 200,200",
+  h: 0,
+  b: "# sc r,g,b  # Väljer färg för punkter och streck\n\nsw 10\n\nsc 1,0,0\npoint 0,0\n\nsc 0,1,0\npoint 200,0\n\nsc 1,1,0\npoint 0,200\n\nsc 0\npoint 200,200",
   a: "sw 10\nsc 1,0,0\npoint 0,0\nsc 0,1,0\npoint 200,0\nsc 1,1,0\npoint 0,200\nsc 0\npoint 200,200"
 };
 

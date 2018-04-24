@@ -1,12 +1,13 @@
 ID_nyheter =
-	v:'2018-04-23'
+	v:'2018-04-24'
 	k:''
 	l:0
 	h:0
 	b:"""
-# NYHETER 2018 APR 23
+# NYHETER 2018 APR 24
 #   FlagSweden
 #   FlagKorea
+#   FlagUnitedKingdom
 # 	Arc
 #   GalaxiesOne
 #   ColorSide

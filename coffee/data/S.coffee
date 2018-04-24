@@ -1129,3 +1129,28 @@ for i in range 21
 		PietHein : "https://sv.wikipedia.org/wiki/Piet_Hein"
 		SuperEllips : "https://sv.wikipedia.org/wiki/Superellips"
 		SergelsTorg : "https://www.google.se/search?q=sergels+torg&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjGpt-jmanTAhWSKCwKHSsMDcQQ_AUICCgB&biw=925&bih=919#tbm=isch&q=superellips+sergels+torg&imgrc=rK6GQHPFiDHQGM:"
+
+ID_SuperCircle2 =
+	v:'2018-04-24'
+	k:'bg range for line translate rotate'
+	l:12
+	h:3
+	b: """
+# Use rotate and translate.
+"""
+	a: """
+skislope = ->
+	for i in range 21
+		x1 = lerp -100,-95,i
+		y1 = -100
+		x2 = -100
+		y2 = lerp 0,-5,i
+		line x1,y1,x2,y2
+		
+bg 0
+translate 100,100
+
+for i in range 4
+	skislope()
+	rotate HALF_PI
+"""
