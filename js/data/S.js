@@ -4,8 +4,8 @@
 var ID_Scale, ID_SevenSegment, ID_Shortcut, ID_Shortcut2, ID_SingaporeMult, ID_SingaporeMultComplex, ID_SingaporeMultPolynom, ID_Skislope, ID_Snake, ID_Snake4, ID_SnowWhiteAndThe7Lerps, ID_Sokoban, ID_SpaceShip, ID_Square, ID_Stopwatch, ID_SuperCircle, ID_SuperCircle2, ID_sc, ID_sw;
 
 ID_sc = {
-  v: '2018-04-26',
-  k: 'sc',
+  v: '2018-04-27',
+  k: 'sc sw point',
   l: 14,
   h: 0,
   b: "# Välj streckfärg\n\n# Set stroke color\n\n# sc r,g,b\n\nsw 40\nsc 0\npoint 100,30\n\nsc 1\npoint 100,60\n\nsc 1,0,0\npoint 100,90\n\nsc 1\npoint 160,140\n\n#        alpha = halvt genomskinlig\nsc 1,0,0,0.5\npoint 160,170",
@@ -228,8 +228,8 @@ ID_SuperCircle2 = {
 };
 
 ID_sw = {
-  v: '2018-04-26',
-  k: 'sw',
+  v: '2018-04-27',
+  k: 'sw point',
   l: 6,
   h: 0,
   b: "# Välj pennans storlek\n\n# Set size of pen\n\n# sw pixels\n\n# Prova att ändra enstaka värden.\n# Försök att förutse effekten.\n# Ändra t ex \"sw 10\" till \"sw 100\"\n\nsw 10\npoint 100,40 \n\nsw 20\npoint 100,100 \n\nsw 30\npoint 100,160 ",

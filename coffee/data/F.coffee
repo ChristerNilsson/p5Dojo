@@ -168,8 +168,8 @@ rect 0,145,201,56
 
 ID_for =
 	v: '2018-04-27'
-	k: 'for range sw point sc'
-	l: 11
+	k: 'for range sw point'
+	l: 5
 	h: 0
 	b: """
 # for loop
@@ -179,7 +179,7 @@ ID_for =
 # Prova att halvera alla tal, ett i taget!
 # Försök förutse effekterna!
 
-# Try to half all numbers, one at a time!
+# Try to half the numbers, one at a time!
 # Try to anticipate the effects!
 
 sw 10
@@ -187,13 +187,6 @@ for i in range 10
 	x = 10 + 20 * i
 	y = 90
 	point x,y 
-	
-sw 5
-sc 1,0,0
-for i in range 10
-	x = 110
-	y = 10 + 20 *i
-	point x,y
 """
 	a: """
 # for loop
@@ -203,7 +196,7 @@ for i in range 10
 # Prova att halvera alla tal, ett i taget!
 # Försök förutse effekterna!
 
-# Try to half all numbers, one at a time!
+# Try to half the numbers, one at a time!
 # Try to anticipate the effects!
 
 sw 10
@@ -211,13 +204,6 @@ for i in range 10
 	x = 10 + 20 * i
 	y = 90
 	point x,y 
-	
-sw 5
-sc 1,0,0
-for i in range 10
-	x = 110
-	y = 10 + 20 *i
-	point x,y
 """
 
 ID_for_1 =

@@ -363,10 +363,10 @@ sc()
 text "Fr",140,160
 """
 
-ID_TextA =
-	v:'2018-04-27'
-	k:'fc sc text textSize textAlign'
-	l:5
+ID_Texts =
+	v:'2018-04-26'
+	k:'bg for range text textSize textAlign'
+	l:10
 	h:1
 	b:"""
 """	
@@ -375,28 +375,33 @@ ID_TextA =
 # textAlign horizontal,vertical
 # text string,x,y  # ritar ut string
 
-fc 1,1,0
-sc()
-textSize 32
-textAlign LEFT,BASELINE     # default
-text "Coffeescript",0,100
+bg 1
+textSize 20
+for i in range 10
+	letter = "ABCDEFGHIJ"[i]
+	textAlign LEFT
+	text letter,40,20+i*20
+	textAlign CENTER
+	text letter,100,20+i*20	
+	textAlign RIGHT
+	text letter,160,20+i*20
 """
 
-ID_TextB =
-	v:'2017-04-29'
-	k:'fc sc text textSize textAlign'
-	l:5
-	h:1
-	b:""
-	a:"""
-fc 1,1,0
-sc()
-textSize 32
-textAlign CENTER,CENTER
-text 'Coffeescript',100,100
-"""
+# ID_TextB =
+# 	v:'2017-04-29'
+# 	k:'fc sc text textSize textAlign'
+# 	l:5
+# 	h:1
+# 	b:""
+# 	a:"""
+# fc 1,1,0
+# sc()
+# textSize 32
+# textAlign CENTER,CENTER
+# text 'Coffeescript',100,100
+# """
 
-ID_TextC =
+ID_TextCoffee =
 	v:'2017-09-30'
 	k:'sc fc angleMode rotate text translate textSize textAlign'
 	l:10
@@ -516,8 +521,8 @@ app = new TowerOfHanoi "a"
 		Wikipedia : "https://en.wikipedia.org/wiki/Tower_of_Hanoi"
 
 ID_Translate =
-	v:'2018-04-24'
-	k:'translate'
+	v:'2018-04-26'
+	k:'translate fc rect'
 	l:5
 	h:0
 	b:"""
@@ -530,6 +535,13 @@ fc 1
 rect 0,0,20,20
 """
 	a:"""
+# translate x,y
+
+fc()
+rect 0,0,20,20
+translate 100,100
+fc 1
+rect 0,0,20,20
 """
 
 ID_triangle =

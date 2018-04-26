@@ -46,8 +46,8 @@ ID_line = {
 };
 
 ID_lines = {
-  v: '2018-04-26',
-  k: 'sc line',
+  v: '2018-04-27',
+  k: 'sc line sw',
   l: 5,
   h: 1,
   b: "# line x1,y1,x2,y2",

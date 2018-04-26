@@ -38,11 +38,11 @@ ID_FlagUnitedKingdom = {
 
 ID_for = {
   v: '2018-04-27',
-  k: 'for range sw point sc',
-  l: 11,
+  k: 'for range sw point',
+  l: 5,
   h: 0,
-  b: "# for loop\n\n# for i in range n\n\n# Prova att halvera alla tal, ett i taget!\n# Försök förutse effekterna!\n\n# Try to half all numbers, one at a time!\n# Try to anticipate the effects!\n\nsw 10\nfor i in range 10\n	x = 10 + 20 * i\n	y = 90\n	point x,y \n	\nsw 5\nsc 1,0,0\nfor i in range 10\n	x = 110\n	y = 10 + 20 *i\n	point x,y",
-  a: "# for loop\n\n# for i in range n\n\n# Prova att halvera alla tal, ett i taget!\n# Försök förutse effekterna!\n\n# Try to half all numbers, one at a time!\n# Try to anticipate the effects!\n\nsw 10\nfor i in range 10\n	x = 10 + 20 * i\n	y = 90\n	point x,y \n	\nsw 5\nsc 1,0,0\nfor i in range 10\n	x = 110\n	y = 10 + 20 *i\n	point x,y"
+  b: "# for loop\n\n# for i in range n\n\n# Prova att halvera alla tal, ett i taget!\n# Försök förutse effekterna!\n\n# Try to half the numbers, one at a time!\n# Try to anticipate the effects!\n\nsw 10\nfor i in range 10\n	x = 10 + 20 * i\n	y = 90\n	point x,y ",
+  a: "# for loop\n\n# for i in range n\n\n# Prova att halvera alla tal, ett i taget!\n# Försök förutse effekterna!\n\n# Try to half the numbers, one at a time!\n# Try to anticipate the effects!\n\nsw 10\nfor i in range 10\n	x = 10 + 20 * i\n	y = 90\n	point x,y "
 };
 
 ID_for_1 = {

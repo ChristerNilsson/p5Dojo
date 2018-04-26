@@ -46,10 +46,10 @@ ID_Girlang = {
 };
 
 ID_GoldenStar = {
-  v: '2017-09-30',
+  v: '2017-10-30',
   k: 'bg fc range for triangle translate angleMode rotate cos sin class',
   l: 23,
-  h: 1,
+  h: 3,
   b: "class GoldenStar extends Application\n	reset : ->\n		super\n	draw  : ->\n	n     : (d) ->\n	outer : (d) ->\n	inner : (d) ->\napp = new GoldenStar",
   a: "class GoldenStar extends Application\n	reset : ->\n		super\n		@_X = 100\n		@_Y = 100\n		@_n = 4\n		@_outer = 100\n		@_inner = 25\n	n : (d) -> @_n = constrain @_n+d,3,12\n	outer : (d) -> @_outer = constrain @_outer+d, 0, 100\n	inner : (d) -> @_inner = constrain @_inner+d, 0, 100\n	draw : ->\n		bg 0\n		angleMode DEGREES\n		translate @_X,@_Y\n		v = 360/@_n\n		rotate -90\n		x1 = @_inner * cos v/2\n		y1 = @_inner * sin v/2\n		for i in range @_n\n			fc 1,1,0\n			triangle 0,0, @_outer,0, x1,y1\n			fc 1,0.7,0\n			triangle 0,0, @_outer,0, x1,-y1\n			rotate v\n\napp = new GoldenStar \"a\"",
   c: {

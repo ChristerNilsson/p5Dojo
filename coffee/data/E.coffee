@@ -47,9 +47,9 @@ ellipse 100,170, 20, 10
 """
 
 ID_ellipses =
-	v:'2018-04-26'
+	v:'2018-04-27'
 	k:'fc ellipse'
-	l:2
+	l:6
 	h:1
 	b:""
 	a:"""

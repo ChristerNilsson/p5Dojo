@@ -19,8 +19,8 @@ for i in range 18,-1,-1
 """
 
 ID_ChessBoard =
-	v:'2017-04-29'
-	k:'bg fc range for lerp rect'
+	v:'2017-04-26'
+	k:'bg fc range for lerp rect if'
 	l:7
 	h:2
 	b:""
@@ -294,8 +294,8 @@ app = new ChessMany "a"
 		app : "reset()"
 
 ID_ChessRow =
-	v:'2018-04-26'
-	k:'bg fc range operators for lerp rect'
+	v:'2018-04-27'
+	k:'bg fc range operators for lerp rect if'
 	l:5
 	h:0
 	b:"""

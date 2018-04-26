@@ -301,77 +301,83 @@ rect 0,0,40,20
 """
 
 ID_RotatedEllipse =
-	v:'2017-09-30'
-	k:'angleMode rotate ellipse translate'
+	v:'2018-04-26'
+	k:'angleMode ellipseMode rotate ellipse translate for range'
 	l:6
 	h:1
 	b:""
 	a:"""
-fc 1,0,0
-sc()
+angleMode DEGREES
+ellipseMode CENTER
 translate 100,100
+for i in range 4
+	ellipse 0,0,20,80
+	rotate 45
+"""
+
+ID_RotatedRect =
+	v:'2018-04-26'
+	k:'angleMode rectMode bg translate sw sc fc for range rect rotate'
+	l:10
+	h:3
+	b:""
+	a:"""
 angleMode DEGREES
-rotate 45
-ellipse 0,0, 80,40
-"""
-
-ID_RotatedRectA =
-	v:'2017-04-29'
-	k:'fc rect'
-	l:4
-	h:1
-	b:""
-	a:"""
-fc 1,0,0
-rect 60,100, 40,40
-fc 0,1,0
-rect 140,100, 40,40
-"""
-
-ID_RotatedRectB =
-	v:'2017-09-30'
-	k:'fc angleMode rotate rect translate push pop'
-	l:12
-	h:1
-	b:""
-	a:"""
-push()
-fc 1,0,0
-translate 60,100
-angleMode DEGREES
-rotate 45
-rect 0,0, 40,40
-pop()
-push()
-fc 0,1,0
-translate 140,100
-rotate 45
-rect 0,0, 40,40
-pop()
-"""
-
-ID_RotatedRectC =
-	v:'2017-09-30'
-	k:'fc angleMode rotate rect translate push pop'
-	l:13
-	h:1
-	b:""
-	a:"""
 rectMode CENTER
-push()
-fc 1,0,0
-translate 80,120
-angleMode DEGREES
-rotate 45
-rect 0,0, 40,40
-pop()
-push()
-fc 0,1,0
-translate 160,120
-rotate 45
-rect 0,0, 40,40
-pop()
+bg 0.5
+translate 100,100
+sw 5
+sc 0,0,0,0.5
+fc 1,1,0,0.25
+for i in range 10
+	rect 0,0,40,180
+	rotate 10
 """
+
+# ID_RotatedRectB =
+# 	v:'2017-09-30'
+# 	k:'fc angleMode rotate rect translate push pop'
+# 	l:12
+# 	h:1
+# 	b:""
+# 	a:"""
+# push()
+# fc 1,0,0
+# translate 60,100
+# angleMode DEGREES
+# rotate 45
+# rect 0,0, 40,40
+# pop()
+# push()
+# fc 0,1,0
+# translate 140,100
+# rotate 45
+# rect 0,0, 40,40
+# pop()
+# """
+
+# ID_RotatedRectC =
+# 	v:'2017-09-30'
+# 	k:'fc angleMode rotate rect translate push pop'
+# 	l:13
+# 	h:1
+# 	b:""
+# 	a:"""
+# rectMode CENTER
+# push()
+# fc 1,0,0
+# translate 80,120
+# angleMode DEGREES
+# rotate 45
+# rect 0,0, 40,40
+# pop()
+# push()
+# fc 0,1,0
+# translate 160,120
+# rotate 45
+# rect 0,0, 40,40
+# pop()
+# """
 
 ID_Roulette =
 	v:'2017-09-30'

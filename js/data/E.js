@@ -13,9 +13,9 @@ ID_ellipse = {
 };
 
 ID_ellipses = {
-  v: '2018-04-26',
+  v: '2018-04-27',
   k: 'fc ellipse',
-  l: 2,
+  l: 6,
   h: 1,
   b: "",
   a: "fc 1,0,0,0.5\nellipse 80,100,120,180\nellipse 90,100,120,120\nfc 0,0,0,0.5\nellipse 120,100,80,120\nellipse 140,100,80,60"

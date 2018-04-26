@@ -55,6 +55,9 @@ data =
 	"L4: for lerp" :
 		for : ID_for 
 		lerp : ID_lerp
+		DoubleFor : ID_for_for
+		Skislope : ID_Skislope
+		ColorSide : ID_ColorSide
 		for_1 : ID_for_1
 		for_2 : ID_for_2
 		for_3 : ID_for_3
@@ -66,17 +69,14 @@ data =
 		for_9 : ID_for_9
 		for_10 : ID_for_10
 		for_11 : ID_for_11
-		DoubleFor : ID_for_for
 		PentaLerp : ID_PentaLerp
-		Skislope : ID_Skislope
 		SuperCircle : ID_SuperCircle
-		ColorSide : ID_ColorSide
 		ColorCross : ID_ColorCross
 
 	"L5: if then else" :	
 		ChessRow : ID_ChessRow 
-		ChessBoard : ID_ChessBoard 
 		GalaxiesOne : ID_GalaxiesOne 
+		ChessBoard : ID_ChessBoard 
 		GalaxiesColliding : ID_GalaxiesColliding 
 
 	"L6: translate rotate scale" :
@@ -85,23 +85,20 @@ data =
 		scale : ID_Scale 
 		"push_pop" : ID_PushPop
 		RotatedEllipse : ID_RotatedEllipse
-		RotatedRectA : ID_RotatedRectA
-		RotatedRectB : ID_RotatedRectB
-		RotatedRectC : ID_RotatedRectC
 		Cards : ID_Cards
 		SnowWhiteAndThe7Lerps : ID_SnowWhiteAndThe7Lerps
 		MayFlower : ID_MayFlower 
+		RotatedRect : ID_RotatedRect
 		FlagUnitedKingdom : ID_FlagUnitedKingdom		
 		FlagKorea : ID_FlagKorea
 		SuperCircle2 : ID_SuperCircle2
 
 	"L7: text textAlign textSize" :
 		text : ID_text
-		TextA : ID_TextA
-		TextB : ID_TextB
 		TextRotate : ID_TextRotate
 		TextRotateAlign : ID_TextRotateAlign
-		TextC : ID_TextC
+		Texts : ID_Texts
+		TextCoffee : ID_TextCoffee
 		CoffeescriptClock : ID_CoffeescriptClock
 		Roulette : ID_Roulette
 
@@ -124,13 +121,13 @@ data =
 		Polygon : ID_Polygon
 
 	"LA: 20-30 Lines Of Code" :
-		GoldenStar : ID_GoldenStar
 		Stopwatch : ID_Stopwatch
 		OlympicRingPrep : ID_OlympicRingPrep
 		GuessANumber : ID_GuessANumber
 		Braid : ID_Braid
 		Korg : ID_Korg
 		Korsord : ID_Korsord
+		GoldenStar : ID_GoldenStar
 		OlympicRings : ID_OlympicRings
 		Alphanumeric : ID_Alphanumeric
 		RecursiveCircle : ID_RecursiveCircle

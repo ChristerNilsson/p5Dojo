@@ -142,10 +142,10 @@ for i in range 9
 """
 
 ID_GoldenStar =
-	v:'2017-09-30'
+	v:'2017-10-30'
 	k:'bg fc range for triangle translate angleMode rotate cos sin class'
 	l:23
-	h:1
+	h:3
 	b: """
 class GoldenStar extends Application
 	reset : ->

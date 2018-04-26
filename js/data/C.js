@@ -13,8 +13,8 @@ ID_Cards = {
 };
 
 ID_ChessBoard = {
-  v: '2017-04-29',
-  k: 'bg fc range for lerp rect',
+  v: '2017-04-26',
+  k: 'bg fc range for lerp rect if',
   l: 7,
   h: 2,
   b: "",
@@ -60,8 +60,8 @@ ID_ChessMany = {
 };
 
 ID_ChessRow = {
-  v: '2018-04-26',
-  k: 'bg fc range operators for lerp rect',
+  v: '2018-04-27',
+  k: 'bg fc range operators for lerp rect if',
   l: 5,
   h: 0,
   b: "# ChessRow\n\nfc 0\nrect 20,20,20,20\nfc 1\nrect 40,20,20,20\n#     x           lerp \n\nfor i in range 8\n	if i % 2 == 0\n		fc 0\n	else\n		fc 1\n	x = lerp 20,40,i\n	y = 20\n	w = 20\n	h = 20\n	rect x,y,w,h",
