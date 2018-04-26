@@ -85,20 +85,25 @@ rectMode RADIUS
 rect 100,170, 20, 10
 """
 
-ID_rect_1 =
-	v:'2018-04-24'
-	k:'fc rect'
-	l:2
+ID_rects =
+	v:'2018-04-26'
+	k:'fc rect sc sw'
+	l:6
 	h:1
 	b:"""
 # rect x,y,w,h
-
-fc
-rect
 """
 	a:"""
+# rect x,y,w,h
+
+sw 10
+sc 0,0,0,0.5
+
 fc 0,1,0
-rect 60,80, 40,50
+rect 20,20,100,120
+
+fc 1,1,0,0.5
+rect 60,80,120,100
 """
 
 ID_rect_2 =

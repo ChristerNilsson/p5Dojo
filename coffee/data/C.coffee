@@ -362,9 +362,9 @@ circle 100,90,30
 circle 100,160,40
 """
 
-ID_circle_1 =
-	v:'2018-04-24'
-	k:'circle fc'
+ID_circles =
+	v:'2018-04-27'
+	k:'circle fc sw'
 	l:2
 	h:1
 	b:"""
@@ -372,47 +372,62 @@ ID_circle_1 =
 # circle x,y,r  # cirkel med mittpunkt x,y och radie r
 """	
 	a:"""
-fc 1
-circle 60,80,30
-"""
+# fc r,g,b      # fyllnadsfärg
+# circle x,y,r  # cirkel med mittpunkt x,y och radie r
+circle 40,40,30
 
-ID_circle_2 =
-	v:'2017-10-30'
-	k:'circle fc sw'
-	l:3
-	h:1
-	b:""
-	a:"""
 fc()
 sw 2
-circle 70,90,40
-"""
+circle 50,140,40
 
-ID_circle_3 =
-	v:'2017-04-29'
-	k:'circle fc'
-	l:4
-	h:1
-	b:""
-	a:"""
 fc 1,0,0
-circle 80,100,40
+circle 130,40,30
 fc 0,1,0
-circle 100,120,50
+circle 150,60,40
+
+fc 1,0,0
+circle 130,130,30
+fc 0,1,0, 0.5
+circle 150,150,40
 """
 
-ID_circle_4 =
-	v:'2017-04-29'
-	k:'circle fc'
-	l:4
-	h:1
-	b:""
-	a:"""
-fc 1,0,0
-circle 80,100,40
-fc 0,1,0, 0.5
-circle 120,100,50
-"""
+# ID_circle_2 =
+# 	v:'2017-10-30'
+# 	k:'circle fc sw'
+# 	l:3
+# 	h:1
+# 	b:""
+# 	a:"""
+# fc()
+# sw 2
+# circle 70,90,40
+# """
+
+# ID_circle_3 =
+# 	v:'2017-04-29'
+# 	k:'circle fc'
+# 	l:4
+# 	h:1
+# 	b:""
+# 	a:"""
+# fc 1,0,0
+# circle 80,100,40
+# fc 0,1,0
+# circle 100,120,50
+# """
+
+# ID_circle_4 =
+# 	v:'2017-04-29'
+# 	k:'circle fc'
+# 	l:4
+# 	h:1
+# 	b:""
+# 	a:"""
+# fc 1,0,0
+# circle 80,100,40
+# fc 0,1,0, 0.5
+# circle 120,100,50
+# """
 
 ID_circle_5 =
 	v:'2017-04-29'

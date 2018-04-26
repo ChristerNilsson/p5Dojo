@@ -1,6 +1,6 @@
 ID_ellipse =
 	v: '2018-04-26'
-	k: 'ellipse'
+	k: 'ellipse ellipseMode'
 	l: 7
 	h: 0
 	b: """
@@ -46,15 +46,19 @@ ellipseMode RADIUS
 ellipse 100,170, 20, 10
 """
 
-ID_ellipse_1 =
-	v:'2018-04-24'
+ID_ellipses =
+	v:'2018-04-26'
 	k:'fc ellipse'
 	l:2
 	h:1
 	b:""
 	a:"""
-fc 0,1,0
-ellipse 120,60, 60,40
+fc 1,0,0,0.5
+ellipse 80,100,120,180
+ellipse 90,100,120,120
+fc 0,0,0,0.5
+ellipse 120,100,80,120
+ellipse 140,100,80,60
 """
 
 ID_EngineeringNotation =

@@ -554,17 +554,19 @@ triangle 20,20,20,80,100,80
 triangle 20,20,20,80,100,80
 """
 
-ID_triangle_1 =
-	v:'2018-04-23'
+ID_triangles =
+	v:'2018-04-26'
 	k:'fc triangle'
-	l:2
+	l:4
 	h:1
 	b:"""
 # triangle x1,y1, x2,y2, x3,y3
 """
 	a:"""
-fc 1
+fc 1,1,0,0.5
 triangle 20,40, 160,100, 100,140
+fc 0,1,0,0.5
+triangle 100,20, 160,80, 60,140
 """
 
 ID_TwoDiceHistogram =

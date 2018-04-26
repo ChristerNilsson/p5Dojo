@@ -1,6 +1,6 @@
 ID_fc =
-	v: '2018-04-26'
-	k: 'fc'
+	v: '2018-04-27'
+	k: 'fc circle sw sc'
 	l: 11
 	h: 0
 	b: """
@@ -167,9 +167,9 @@ rect 0,145,201,56
 		"Wikipedia" : "https://en.wikipedia.org/wiki/Union_Jack#/media/File:United_Kingdom_Flag_Specifications.svg"
 
 ID_for =
-	v: '2018-04-28'
-	k: 'for range sw point'
-	l: 5
+	v: '2018-04-27'
+	k: 'for range sw point sc'
+	l: 11
 	h: 0
 	b: """
 # for loop
@@ -179,11 +179,21 @@ ID_for =
 # Prova att halvera alla tal, ett i taget!
 # Försök förutse effekterna!
 
+# Try to half all numbers, one at a time!
+# Try to anticipate the effects!
+
 sw 10
 for i in range 10
 	x = 10 + 20 * i
 	y = 90
 	point x,y 
+	
+sw 5
+sc 1,0,0
+for i in range 10
+	x = 110
+	y = 10 + 20 *i
+	point x,y
 """
 	a: """
 # for loop
@@ -193,11 +203,21 @@ for i in range 10
 # Prova att halvera alla tal, ett i taget!
 # Försök förutse effekterna!
 
+# Try to half all numbers, one at a time!
+# Try to anticipate the effects!
+
 sw 10
 for i in range 10
 	x = 10 + 20 * i
 	y = 90
 	point x,y 
+	
+sw 5
+sc 1,0,0
+for i in range 10
+	x = 110
+	y = 10 + 20 *i
+	point x,y
 """
 
 ID_for_1 =

@@ -4,8 +4,8 @@
 var ID_FlagKorea, ID_FlagUnitedKingdom, ID_ForthHaiku, ID_ForthHaiku3D, ID_Function, ID_fc, ID_for, ID_for_1, ID_for_10, ID_for_11, ID_for_2, ID_for_3, ID_for_4, ID_for_5, ID_for_6, ID_for_7, ID_for_8, ID_for_9, ID_for_for;
 
 ID_fc = {
-  v: '2018-04-26',
-  k: 'fc',
+  v: '2018-04-27',
+  k: 'fc circle sw sc',
   l: 11,
   h: 0,
   b: "# Välj fyllningsfärg\n\n# Set fill color\n\n# fc r,g,b\n\ncircle 100,20,10 \n\nfc 1,0,0 \ncircle 100,50,10\n\nfc()\ncircle 100,80,10\n\nsw 10\ncircle 100,110,20\n\nsc 0\ncircle 100,140,20\n\nfc 1,1,0\ncircle 100,170,20",
@@ -37,12 +37,12 @@ ID_FlagUnitedKingdom = {
 };
 
 ID_for = {
-  v: '2018-04-28',
-  k: 'for range sw point',
-  l: 5,
+  v: '2018-04-27',
+  k: 'for range sw point sc',
+  l: 11,
   h: 0,
-  b: "# for loop\n\n# for i in range n\n\n# Prova att halvera alla tal, ett i taget!\n# Försök förutse effekterna!\n\nsw 10\nfor i in range 10\n	x = 10 + 20 * i\n	y = 90\n	point x,y ",
-  a: "# for loop\n\n# for i in range n\n\n# Prova att halvera alla tal, ett i taget!\n# Försök förutse effekterna!\n\nsw 10\nfor i in range 10\n	x = 10 + 20 * i\n	y = 90\n	point x,y "
+  b: "# for loop\n\n# for i in range n\n\n# Prova att halvera alla tal, ett i taget!\n# Försök förutse effekterna!\n\n# Try to half all numbers, one at a time!\n# Try to anticipate the effects!\n\nsw 10\nfor i in range 10\n	x = 10 + 20 * i\n	y = 90\n	point x,y \n	\nsw 5\nsc 1,0,0\nfor i in range 10\n	x = 110\n	y = 10 + 20 *i\n	point x,y",
+  a: "# for loop\n\n# for i in range n\n\n# Prova att halvera alla tal, ett i taget!\n# Försök förutse effekterna!\n\n# Try to half all numbers, one at a time!\n# Try to anticipate the effects!\n\nsw 10\nfor i in range 10\n	x = 10 + 20 * i\n	y = 90\n	point x,y \n	\nsw 5\nsc 1,0,0\nfor i in range 10\n	x = 110\n	y = 10 + 20 *i\n	point x,y"
 };
 
 ID_for_1 = {

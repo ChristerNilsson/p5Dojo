@@ -203,7 +203,7 @@ fc 0,1,0
 arc 100,180,80,80,270,0
 """
 
-ID_arc_1 =
+ID_arcs =
 	v:'2017-09-30'
 	k:'fc sc sw arc angleMode strokeCap'
 	l:8
