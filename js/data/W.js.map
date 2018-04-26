@@ -6,8 +6,8 @@
     "coffee\\data\\W.coffee"
   ],
   "names": [],
-  "mappings": ";;;AAAA,IAAA,gBAAA;;AAAA;AACC,KAAA,AAAE;AACF,KADA,AACE;AACF,KAFA,AAEE;AACF,KAHA,AAGE;AACF,KAJA,AAIE;AAOF,KAXA,AAWE;AAXF;;AAgBD;AACC,KAAA,AAAE;AACF,KADA,AACE;AACF,KAFA,AAEE;AACF,KAHA,AAGE;AACF,KAJA,AAIE;AACF,KALA,AAKE;AALF",
+  "mappings": "",
   "sourcesContent": [
-    "ID_WhiteCircle =\n\tv:'2018-04-24'\n\tk:'circle fc'\n\tl:2\n\th:0\n\tb:\"\"\"\n# fc r,g,b      # fyllnadsfärg\n# circle x,y,r  # cirkel med mittpunkt x,y och radie r\n\nfc 1\ncircle 60,80,30\n\"\"\"\t\n\ta:\"\"\"\nfc 1\ncircle 60,80,30\n\"\"\"\n\nID_WhiteEmptyCircle =\n\tv:'2017-10-30'\n\tk:'circle fc sw'\n\tl:3\n\th:1\n\tb:\"\"\n\ta:\"\"\"\nfc()\nsw 2\ncircle 70,90,40\n\"\"\"\n"
+    ""
   ]
 }

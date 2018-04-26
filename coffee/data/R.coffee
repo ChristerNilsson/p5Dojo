@@ -37,6 +37,122 @@ app = new RandomDice "a"
 	c:
 		app : "reset()"
 
+ID_rect =
+	v: '2018-04-27'
+	k: 'rect'
+	l: 7
+	h: 0
+	b: """
+# Rita en rektangel
+
+# Draw a rectangle
+
+# rectMode CORNER
+#    x1,y1, w, h
+rect 80,40,40,20     
+
+rectMode CENTER
+#      x, y, w, h
+rect 100,90,40,20    
+
+rectMode CORNERS
+#    x1, y1, x2, y2
+rect 80,120,120,140  
+
+rectMode RADIUS
+#      x,  y,w/2,h/2 
+rect 100,170, 20, 10
+"""
+	a: """
+# Rita en rektangel
+
+# Draw a rectangle
+
+# rectMode CORNER
+#    x1,y1, w, h
+rect 80,40,40,20     
+
+rectMode CENTER
+#      x, y, w, h
+rect 100,90,40,20    
+
+rectMode CORNERS
+#    x1, y1, x2, y2
+rect 80,120,120,140  
+
+rectMode RADIUS
+#      x,  y,w/2,h/2 
+rect 100,170, 20, 10
+"""
+
+ID_rect_1 =
+	v:'2018-04-24'
+	k:'fc rect'
+	l:2
+	h:1
+	b:"""
+# rect x,y,w,h
+
+fc
+rect
+"""
+	a:"""
+fc 0,1,0
+rect 60,80, 40,50
+"""
+
+ID_rect_2 =
+	v:'2017-10-31'
+	k:'fc rect sc'
+	l:4
+	h:2
+	b:"""
+"""
+	a:"""
+fc 1,0,0
+sc()
+rect 85,70, 70,10
+rect 115,40, 10,100
+"""
+
+ID_rect_3 =
+	v : '2017-04-29'
+	k : 'fc sc sw rect'
+	l : 11
+	h:2
+	b : ""
+	a : """
+fc 0,1,1
+sc()
+rect 60,60, 80,20
+rect 60,120, 80,20
+rect 60,60, 20,80
+rect 120,60, 20,80
+fc()
+sc 1,0,0
+sw 3
+rect 60,60, 80,80
+rect 80,80, 40,40
+"""
+
+ID_rect_4 =
+	v:'2018-04-23'
+	k:'bg sc fc rect'
+	l:7
+	h:3
+	b:""
+	a:"""
+bg 0.5
+sc()
+fc 0,0,1
+rect 20,50,160,100
+fc 1,1,0
+rect 70,50,20,100
+rect 20,90,160,20
+"""
+	e:
+		"Wikipedia" : "https://sv.wikipedia.org/wiki/Sveriges_flagga#/media/File:Sweden_flag_construction_sheet.png"
+
 ID_RecursiveCircle =
 	v:'2017-04-29'
 	k:'sc circle if return operators class'
@@ -68,21 +184,6 @@ app = new RecursiveCircle "a"
 """
 	c:
 		app : "reset()"
-
-ID_RedCone =
-	v:'2017-04-29'
-	k:'range fc circle for lerp'
-	l:6
-	h:2
-	b:""
-	a:"""
-for i in range 10,0,-1
-	fc i/10.0,0,0
-	x = 10*i
-	y = 10*i
-	r = 10*i
-	circle x,y,r
-"""
 
 # ID_RedRect =
 # 	v:'2017-04-29'
@@ -165,9 +266,9 @@ app = new Reversi "a"
 		Reversi : "https://en.wikipedia.org/wiki/Reversi"
 
 ID_Rotate =
-	v:'2018-04-24'
-	k:'angleMode rotate translate rect'
-	l:7
+	v:'2018-04-26'
+	k:'angleMode rotate translate rect fc'
+	l:8
 	h:0
 	b:"""
 # rotate angle
@@ -182,6 +283,16 @@ fc 1,1,1,0.5
 rect 0,0,40,20
 """
 	a:"""
+# rotate angle
+
+angleMode DEGREES
+fc()
+rect 0,0,40,20
+translate 100,100
+rect 0,0,40,20
+rotate 45
+fc 1,1,1,0.5
+rect 0,0,40,20
 """
 
 ID_RotatedEllipse =

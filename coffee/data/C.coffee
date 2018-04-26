@@ -294,16 +294,18 @@ app = new ChessMany "a"
 		app : "reset()"
 
 ID_ChessRow =
-	v:'2018-04-23'
+	v:'2018-04-26'
 	k:'bg fc range operators for lerp rect'
 	l:5
 	h:0
 	b:"""
+# ChessRow
+
 fc 0
 rect 20,20,20,20
 fc 1
 rect 40,20,20,20
-#     x           lerpa? 
+#     x           lerp 
 
 for i in range 8
 	if i % 2 == 0
@@ -317,11 +319,120 @@ for i in range 8
 	rect x,y,w,h
 """
 	a:"""
-bg 0.5
+# ChessRow
+
+fc 0
+rect 20,20,20,20
+fc 1
+rect 40,20,20,20
+#     x           lerp 
+
 for i in range 8
-	fc i%2
-	x = 20+20*i
-	rect x,20, 20,20
+	if i % 2 == 0
+		fc 0
+	else
+		fc 1
+	x = lerp 20,40,i
+	y = 20
+	w = 20
+	h = 20
+	rect x,y,w,h
+"""
+
+ID_circle =
+	v:'2018-04-27'
+	k:'circle'
+	l:4
+	h:0
+	b: """
+# Rita en cirkel 
+# Draw a circle
+
+# circle x,y,r  # r = radie
+
+circle 100,10,10
+circle 100,40,20
+circle 100,90,30
+circle 100,160,40
+"""
+	a: """
+circle 100,10,10
+circle 100,40,20
+circle 100,90,30
+circle 100,160,40
+"""
+
+ID_circle_1 =
+	v:'2018-04-24'
+	k:'circle fc'
+	l:2
+	h:1
+	b:"""
+# fc r,g,b      # fyllnadsfärg
+# circle x,y,r  # cirkel med mittpunkt x,y och radie r
+"""	
+	a:"""
+fc 1
+circle 60,80,30
+"""
+
+ID_circle_2 =
+	v:'2017-10-30'
+	k:'circle fc sw'
+	l:3
+	h:1
+	b:""
+	a:"""
+fc()
+sw 2
+circle 70,90,40
+"""
+
+ID_circle_3 =
+	v:'2017-04-29'
+	k:'circle fc'
+	l:4
+	h:1
+	b:""
+	a:"""
+fc 1,0,0
+circle 80,100,40
+fc 0,1,0
+circle 100,120,50
+"""
+
+ID_circle_4 =
+	v:'2017-04-29'
+	k:'circle fc'
+	l:4
+	h:1
+	b:""
+	a:"""
+fc 1,0,0
+circle 80,100,40
+fc 0,1,0, 0.5
+circle 120,100,50
+"""
+
+ID_circle_5 =
+	v:'2017-04-29'
+	k:'bg circle fc sc'
+	l:12
+	h:2
+	b: ""
+	a: """
+bg 0.5
+sc()
+fc 1
+circle 100,100,20
+fc 1,0,0
+circle 40,40,20
+fc 1,1,0
+circle 40,160,20
+fc 0,1,0
+circle 160,160,20
+fc 0,0,1
+circle 160,40,20
 """
 
 ID_ClickDetector =
@@ -440,12 +551,11 @@ for i in range 12
 """
 
 ID_ColorCross =
-	v:'2017-09-09'
+	v:'2018-04-24'
 	k:'bg sc lerp range for point'
 	l:11
 	h:3
 	b:"""
-# LÄXA: Sista tre sidorna.
 #    bM     blue
 #    BR     Black
 # bB BR RM  Red
@@ -614,13 +724,20 @@ app = new ColorPair "a"
 		ColorPair : "https://christernilsson.github.io/ColorPair"
 
 ID_ColorSide =
-	v:'2018-04-23'
+	v:'2018-04-26'
 	k:'sc lerp range for point'
 	l:9
 	h:0
 	b:"""
-# BR (Black, Red)
-# GY (Green, Yellow)
+# ColorSide
+
+# Tag reda på de fyra hörnens färger.
+# Lerpa de färger som ändras.
+# Minska 200 till 50 om datorn känns seg.
+# eller skapa ett syntaxfel.
+
+# BR (Black, Red)      0,0,0    1,0,0
+# GY (Green, Yellow)   0,1,0    1,1,0
 
 for i in range 200
 	for j in range 200
@@ -633,6 +750,16 @@ for i in range 200
 		point x,y
 """
 	a:"""
+# ColorSide
+
+# Tag reda på de fyra hörnens färger.
+# Lerpa de färger som ändras.
+# Minska 200 till 50 om datorn känns seg.
+# eller skapa ett syntaxfel.
+
+# BR (Black, Red)      0,0,0    1,0,0
+# GY (Green, Yellow)   0,1,0    1,1,0
+
 for i in range 200
 	for j in range 200
 		r = lerp 0,0.005,i
@@ -857,102 +984,6 @@ app = new Coordinator "a"
 	c:
 		app : "reset()"
 
-ID_CornerPoints =
-	v:'2018-04-24'
-	k:'sc sw point'
-	l:9
-	h:0
-	b: """
-# Prova att kommentera ut enstaka rader.
-# Försök att räkna ut effekten i förväg.
-
-# sc r,g,b  # Väljer färg för punkter och streck
-
-sw 10
-
-sc 1,0,0
-point 0,0
-
-sc 0,1,0
-point 200,0
-
-sc 1,1,0
-point 0,200
-
-sc 0
-point 200,200
-"""
-	a: """
-sw 10
-sc 1,0,0
-point 0,0
-sc 0,1,0
-point 200,0
-sc 1,1,0
-point 0,200
-sc 0
-point 200,200
-"""
-
-ID_CornerPoints3 =
-	v:'2017-04-29'
-	k:'sc sw point'
-	l:17
-	h:2
-	b: """
-# LÄXA: Grönt, gult, vitt
-"""
-	a: """
-sw 10
-sc 1,0,0
-point 20,0
-point 20,20
-point 0,20
-
-sc 0,1,0
-point 180,0
-point 180,20
-point 200,20
-
-sc 1,1,0
-point 20,180
-point 20,200
-point 0,180
-
-sc 1
-point 180,180
-point 180,200
-point 200,180
-"""
-
-ID_CornerPoints7 =
-	v:'2017-04-29'
-	k:'sc sw point'
-	l:17
-	h:2
-	b: """
-# LÄXA: Grönt
-"""
-	a: """
-sw 10
-sc 1,0,0
-point 30,0
-point 30,10
-point 30,20
-point 30,30
-point 10,30
-point 20,30
-point 0,30
-
-sc 0,1,0
-point 170,200
-point 170,190
-point 170,180
-point 170,170
-point 190,170
-point 180,170
-point 200,170
-"""
 
 ID_Counter =
 	v:'2018-04-23'
@@ -1014,17 +1045,3 @@ app = new Counter "a"
 	c:
 		app : "reset()|up()|down()"
 
-ID_Cross =
-	v:'2017-10-31'
-	k:'fc rect sc'
-	l:4
-	h:2
-	b:"""
-# LÄXA: Hela uppgiften
-"""
-	a:"""
-fc 1,0,0
-sc()
-rect 85,70, 70,10
-rect 115,40, 10,100
-"""

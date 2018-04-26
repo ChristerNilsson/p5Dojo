@@ -145,38 +145,95 @@ app = new Angle "a"
 	c:
 		app : "reset()"
 
-ID_Arc =
-	v:'2018-04-24'
+ID_arc =
+	v:'2018-04-26'
 	k:'fc sc arc strokeCap sw angleMode'
 	l:14
 	h:0
 	b : """
-# Prova att kommentera ut enstaka rader.
-# Försök att räkna ut effekten i förväg.
-	
-angleMode DEGREES
+# rita en båge
 
+# draw an arc
+	
 # arc x,y,w,h,start,stopp
+
+# Ange att start och stopp uttrycks i grader
+angleMode DEGREES
 
 sc()
 fc 0,0,1
-arc 120,120,100,100,0,90
+arc 100,20,80,80,0,90
 
 sc 1,1,0
 sw 10
 strokeCap ROUND
-arc 80,120,100,100,90,180
+arc 80,60,80,80,90,180
+
+fc()
+arc 80,160,80,80,180,270
 
 strokeCap SQUARE
 fc 0,1,0
-arc 80,80,100,100,180,270
+arc 100,180,80,80,270,0
+"""
+	a:"""
+# rita en båge
+
+# draw an arc
+	
+# arc x,y,w,h,start,stopp
+
+# Ange att start och stopp uttrycks i grader
+angleMode DEGREES
+
+sc()
+fc 0,0,1
+arc 100,20,80,80,0,90
+
+sc 1,1,0
+sw 10
+strokeCap ROUND
+arc 80,60,80,80,90,180
 
 fc()
-sw 5
-arc 120,80,100,100,270,0
+arc 80,160,80,80,180,270
+
+strokeCap SQUARE
+fc 0,1,0
+arc 100,180,80,80,270,0
 """
 
-	a:""
+ID_arc_1 =
+	v:'2017-09-30'
+	k:'fc sc sw arc angleMode strokeCap'
+	l:8
+	h:2
+	b:""
+	a:"""
+fc()
+sc 1,0,0
+sw 20
+angleMode DEGREES
+arc 100,70, 100,100, -90,0
+sc 1,1,0
+strokeCap SQUARE
+arc 100,120, 100,100, 0, -90
+"""
+
+ID_arc_2 =
+	v:'2017-04-29'
+	k:'fc arc angleMode'
+	l:2
+	h:2
+	b:""
+	a:"""
+fc 1,1,0
+angleMode DEGREES
+arc 100,100, 180,180, -135,135
+"""
+	e :
+		Play : "https://www.google.se/#q=pacman&clb=clb"
+		Wikipedia : "https://en.wikipedia.org/wiki/Pac-Man"
 
 ID_Average =
 	v:'2018-04-24'

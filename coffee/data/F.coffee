@@ -1,23 +1,49 @@
-ID_Five =
-	v:'2017-04-29'
-	k:'bg circle fc sc'
-	l:12
-	h:2
+ID_fc =
+	v: '2018-04-26'
+	k: 'fc'
+	l: 11
+	h: 0
 	b: """
+# Välj fyllningsfärg
+
+# Set fill color
+
+# fc r,g,b
+
+circle 100,20,10 
+
+fc 1,0,0 
+circle 100,50,10
+
+fc()
+circle 100,80,10
+
+sw 10
+circle 100,110,20
+
+sc 0
+circle 100,140,20
+
+fc 1,1,0
+circle 100,170,20
 """
 	a: """
-bg 0.5
-sc()
-fc 1
-circle 100,100,20
-fc 1,0,0
-circle 40,40,20
+circle 100,20,10 
+
+fc 1,0,0 
+circle 100,50,10
+
+fc()
+circle 100,80,10
+
+sw 10
+circle 100,110,20
+
+sc 0
+circle 100,140,20
+
 fc 1,1,0
-circle 40,160,20
-fc 0,1,0
-circle 160,160,20
-fc 0,0,1
-circle 160,40,20
+circle 100,170,20
 """
 
 ID_FlagKorea =
@@ -90,24 +116,6 @@ streck [0,1,0],1/2+1/4,1/12,1/24
 	e:
 		"Wikipedia" : "https://en.wikipedia.org/wiki/Flag_of_South_Korea#/media/File:Flag_of_South_Korea_(construction_sheet).svg"
 
-ID_FlagSweden =
-	v:'2018-04-23'
-	k:'bg sc fc rect'
-	l:7
-	h:3
-	b:""
-	a:"""
-bg 0.5
-sc()
-fc 0,0,1
-rect 20,50,160,100
-fc 1,1,0
-rect 70,50,20,100
-rect 20,90,160,20
-"""
-	e:
-		"Wikipedia" : "https://sv.wikipedia.org/wiki/Sveriges_flagga#/media/File:Sweden_flag_construction_sheet.png"
-
 ID_FlagUnitedKingdom =
 	v:'2018-04-24'
 	k:'bg sc fc rect rectMode rotate translate scale'
@@ -157,6 +165,288 @@ rect 0,145,201,56
 """
 	e:
 		"Wikipedia" : "https://en.wikipedia.org/wiki/Union_Jack#/media/File:United_Kingdom_Flag_Specifications.svg"
+
+ID_for =
+	v: '2018-04-28'
+	k: 'for range sw point'
+	l: 5
+	h: 0
+	b: """
+# for loop
+
+# for i in range n
+
+# Prova att halvera alla tal, ett i taget!
+# Försök förutse effekterna!
+
+sw 10
+for i in range 10
+	x = 10 + 20 * i
+	y = 90
+	point x,y 
+"""
+	a: """
+# for loop
+
+# for i in range n
+
+# Prova att halvera alla tal, ett i taget!
+# Försök förutse effekterna!
+
+sw 10
+for i in range 10
+	x = 10 + 20 * i
+	y = 90
+	point x,y 
+"""
+
+ID_for_1 =
+	v:'2018-04-23'
+	k:'range rect for lerp'
+	l:3
+	h:1
+	b:"""
+# Börja med att rita de två första kvadraterna mha rect
+# Därefter kan du börja med for-loopen
+# De parametrar som är OLIKA är lämpliga att lerpas
+
+rect  5,5,10,10
+rect 25,5,10,10
+#     x         lerpa?
+
+for i in range 10
+	x = lerp 5,25,i # eller x = 5 + 20 * i
+	y = 5
+	w = 10
+	h = 10
+	rect x,y,w,h
+"""
+	a:"""
+for i in range 10
+	x = 5+20*i
+	rect x,5, 10,10
+"""
+
+ID_for_2 =
+	v:'2018-04-23'
+	k:'range rect for lerp'
+	l:3
+	h:1
+	b:"""
+# Kopiera föregående exempel så här:
+# 1 Gå till HorizontalSquares
+# 2 Markera allt med ctrl-A
+# 3 Kopiera med ctrl-C
+# 4 Gå till VerticalSquares
+# 5 Klistra in med ctrl-V
+"""
+	a:"""
+for i in range 10
+	y = 5+20*i
+	rect 5,y, 10,10
+"""
+
+ID_for_3 =
+	v:'2017-04-29'
+	k:'range rect for lerp'
+	l:4
+	h:1
+	b:""
+	a:"""
+for i in range 10
+	x = 5+20*i
+	y = 5+20*i
+	rect x,y, 10,10
+"""
+
+ID_for_4 =
+	v:'2018-04-12'
+	k:'range rect rectMode for lerp'
+	l:7
+	h:2
+	b:"""
+rectMode CENTER
+"""
+	a:"""
+rectMode CENTER
+for i in range 10
+	x = 10+20*i
+	y = 10
+	w = 2*i
+	h = 2*i
+	rect x,y, w,h
+"""
+
+ID_for_5 =
+	v:'2017-04-29'
+	k:'fc range for lerp rect rectMode'
+	l:8
+	h:2	
+	b:""
+	a:"""
+rectMode CENTER
+for i in range 10
+	fc i/10.0,0,0
+	x = 10+20*i
+	y = 10
+	w = 2*i
+	h = 2*i
+	rect x,y,w,h
+"""
+
+ID_for_6 =
+	v:'2017-04-29'
+	k:'range fc circle for lerp'
+	l:6
+	h:2
+	b:"""
+"""
+	a:"""
+for i in range 10
+	fc i/10.0,0,0
+	x = 10+20*i
+	y = 10
+	r = i
+	circle x,y,r
+"""
+
+ID_for_7 =
+	v:'2017-10-31'
+	k:'range fc circle for lerp'
+	l:5
+	h:2
+	b:""
+	a:"""
+for i in range 10,0,-1
+	fc i/10.0,0,0
+	r = 10 * i
+	circle 100,100, r
+"""
+
+ID_for_8 =
+	v:'2017-04-29'
+	k:'range fc circle for lerp'
+	l:6
+	h:2
+	b:""
+	a:"""
+for i in range 10,0,-1
+	fc i/10.0,0,0
+	x = 10*i
+	y = 10*i
+	r = 10*i
+	circle x,y,r
+"""
+
+ID_for_9 =
+	v:'2018-04-24'
+	k:'bg sc range for lerp line'
+	l:9
+	h:2
+	b: """
+sc 1,1,0
+
+line  0,0,200,200
+line 20,0,180,200
+#    x1    x2       lerpa?
+
+line 0,200,200, 0
+line 0,180,200,20
+#       y1     y2   lerpa? 
+
+for i in range 10
+	
+	x1 = lerp 0,20,i
+	y1 = 0
+	x2 = lerp 200,180,i
+	y2 = 200
+	line x1,y1,x2,y2
+
+	x1 = 0
+	y1 = lerp 200,180,i
+	x2 = 200
+	y2 = lerp 0,20,i
+	line x1,y1,x2,y2
+"""
+	a: """
+bg 0
+sc 1,1,0
+for i in range 10
+	x1 = lerp 0,20,i
+	x2 = lerp 200,180,i
+	line x1,0, x2,200
+	y1 = lerp 20,40,i
+	y2 = lerp 180,160,i
+	line 0,y1, 200,y2
+"""
+
+ID_for_10 =
+	v:'2017-04-29'
+	k:'bg range for lerp line'
+	l:5
+	h:2
+	b:"# (Noel Watson)\n"
+	a:"""
+bg 0
+for i in range 37
+	line 10,10, 190,10+i*5
+	line 10,100, 190,10+i*5
+	line 10,190, 190,10+i*5
+"""
+
+ID_for_11 =
+	v:'2017-04-29'
+	k:'sc sw range for line'
+	l:5
+	h:2
+	b:""
+	a:"""
+sc 1,1,0
+sw 2
+for i in range 10,200,10
+	line 10,i,190,i
+	line i,190, i,10
+"""
+
+ID_for_for =
+	v:'2018-04-27'
+	k:'range rect for lerp'
+	l:7
+	h:0
+	b:"""
+# dubbel for loop
+
+# double for loop
+
+rect  5, 5,10,10
+rect 25,25,10,10
+#     x  y       lerp
+
+for i in range 9
+	for j in range 5
+		x = lerp 5,25,i
+		y = lerp 5,25,j
+		w = 10
+		h = 10
+		rect x,y,w,h
+"""
+	a:"""
+# dubbel for loop
+
+# double for loop
+
+rect  5, 5,10,10
+rect 25,25,10,10
+#     x  y       lerp
+
+for i in range 9
+	for j in range 5
+		x = lerp 5,25,i
+		y = lerp 5,25,j
+		w = 10
+		h = 10
+		rect x,y,w,h
+"""
 
 ID_ForthHaiku =
 	v:'2017-04-29'

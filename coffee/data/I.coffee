@@ -1,8 +1,8 @@
 ID_IndianSun =
-	v:'2017-09-30'
+	v:'2018-04-26'
 	k:'range line sin cos angleMode for if constrain operators class'
 	l:10
-	h:2
+	h:3
 	b:"""
 class IndianSun extends Application
 	reset : ->

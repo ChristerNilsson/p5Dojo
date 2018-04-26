@@ -30,21 +30,6 @@ skriv "Coding",   50, 20,1,1,0, 24
 skriv "Train",    50, 48,0,1,0, 30
 """
 
-ID_PacMan =
-	v:'2017-04-29'
-	k:'fc arc angleMode'
-	l:2
-	h:2
-	b:""
-	a:"""
-fc 1,1,0
-angleMode DEGREES
-arc 100,100, 180,180, -135,135
-"""
-	e :
-		Play : "https://www.google.se/#q=pacman&clb=clb"
-		Wikipedia : "https://en.wikipedia.org/wiki/Pac-Man"
-
 ID_Paint =
 	v:'2017-05-15'
 	k:'bg sc range rect circle for class []'
@@ -216,11 +201,264 @@ app = new PickingBerries "a"
 	c:
 		app : "reset()|left()|right()|up()|down()|snailSpeed()|slowSpeed()|highSpeed()|warpSpeed()|pick()"
 
+ID_point =
+	v: '2018-04-26'
+	k: 'point'
+	l: 1
+	h: 0
+	b: """
+# Rita en punkt
+
+# Draw a point
+
+# point x,y
+
+point 170,10
+"""
+	a: """
+point 170,10    
+"""
+
+ID_point_1 =
+	v:'2018-04-25'
+	k:'sw point'
+	l:4
+	h:1
+	b: """
+# Klicka "Koordinatsystem" till vänster för hjälp
+# Öva dig på koordinatsystem genom att klicka "Coordinate Trainer 1" till vänster
+# Öva dig på koordinatsystem genom att klicka "Coordinate Trainer 2" till vänster
+#
+# sw pixlar  # strokeWeight, strecktjocklek i pixlar
+# point x,y  # ritar en punkt
+"""
+	a: """
+sw 20
+point 0,0
+point 100,0
+point 200,0
+"""
+	e :
+		"Coordinate Trainer 1" : "https://christernilsson.github.io/Lab/2017/131-CoordTrainer/index.html"
+		"Coordinate Trainer 2": "https://christernilsson.github.io/Lab/2017/133-CoordTrainer2/index.html"
+		Koordinatsystem : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
+
+ID_point_2 =
+	v:'2018-04-25'
+	k:'sc sw point'
+	l:5
+	h:1
+	b: """
+"""
+	a: """
+sw 10
+sc 1,0,0
+point 0,0
+point 0,100
+point 0,200
+"""
+
+ID_point_3 =
+	v:'2018-04-24'
+	k:'sc sw point'
+	l:9
+	h:1
+	b: """
+"""
+	a: """
+sw 10
+sc 1,0,0
+point 0,0
+sc 0,1,0
+point 200,0
+sc 1,1,0
+point 0,200
+sc 0
+point 200,200
+"""
+
+ID_point_4 =
+	v:'2017-04-29'
+	k:'sc sw point'
+	l:11
+	h:1
+	b: """
+"""
+	a: """
+sw 10
+sc 1,0,0
+point 100,100
+sc 0,1,0
+point 100,0
+sc 1,1,0
+point 0,100
+sc 0
+point 200,100
+sc 1
+point 100,200
+"""
+
+ID_point_5 =
+	v:'2017-04-29'
+	k:'sc sw point'
+	l:17
+	h:2
+	b: """
+"""
+	a: """
+sw 10
+sc 1,0,0
+point 30,0
+point 30,10
+point 30,20
+point 30,30
+point 10,30
+point 20,30
+point 0,30
+
+sc 0,1,0
+point 170,200
+point 170,190
+point 170,180
+point 170,170
+point 190,170
+point 180,170
+point 200,170
+"""
+
+ID_point_6 =
+	v:'2017-04-29'
+	k:'sc sw point'
+	l:17
+	h:2
+	b: """
+"""
+	a: """
+sw 10
+sc 1,0,0
+point 20,0
+point 20,20
+point 0,20
+
+sc 0,1,0
+point 180,0
+point 180,20
+point 200,20
+
+sc 1,1,0
+point 20,180
+point 20,200
+point 0,180
+
+sc 1
+point 180,180
+point 180,200
+point 200,180
+"""
+
+ID_point_7 =
+	v:'2017-09-09'
+	k:'bg sc sw point'
+	l:8
+	h:3
+	b: ""
+	a: """
+bg 0,1,0
+sw 20
+sc 0,0,0
+point 0,0
+
+sc 0.5,0.5,0
+point 100,100
+
+sc 1,1,0
+point 200,200
+"""
+	e:
+		Matteboken : 'https://www.matteboken.se/lektioner/skolar-5/statistik/medelvarde'
+
+ID_point_8 =
+	v:'2017-04-29'
+	k:'sc sw point'
+	l:11
+	h:3
+	b: ""
+	a: """
+sw 20
+sc 1,0,0
+point 200,0
+
+sc 0.75,0.25,0
+point 150,50
+
+sc 0.5,0.5,0
+point 100,100
+
+sc 0.25,0.75,0
+point 50,150
+
+sc 0,1,0
+point 0,200
+"""
+	e:
+		Matteboken : 'https://www.matteboken.se/lektioner/skolar-5/statistik/medelvarde'
+
+ID_point_9 =
+	v:'2018-04-12'
+	k:'sc sw point'
+	l:27
+	h:3
+	b : """
+sw 2
+
+sc 1        # Etta
+point 10,10
+
+sc 1,0,0    # Tvåa
+point 190-5,10-5
+point 190+5,10+5
+
+sc
+point
+point
+point
+"""
+	a: """
+# sw 1 ger ej ghosteffekt, men syns knappt
+sw 2
+point 10,10
+sc 1,0,0
+point 185,5
+point 195,15
+sc 0,1,0
+point 85,65
+point 90,70
+point 95,75
+sc 1,1,0
+point 165,105
+point 165,115
+point 175,105
+point 175,115
+sc 1,0,1
+point 45,125
+point 45,135
+point 50,130
+point 55,125
+point 55,135
+sc 0,1,1
+point 105,165
+point 105,170
+point 105,175
+point 115,165
+point 115,170
+point 115,175
+"""
+
 ID_Polygon =
-	v:'2017-09-30'
+	v:'2018-04-26'
 	k:'bg sc range line for cos sin angleMode class'
 	l:23
-	h:2
+	h:3
 	b:"""
 class Turtle
 	constructor : (@r=1,@g=0,@b=0, @x=100,@y=10,@dir=0) ->
@@ -271,13 +509,13 @@ app = new Polygon "a"
 		app : "reset()|antalSidor -1|antalSidor +1|antalSteg -1|antalSteg +1"
 
 ID_PushPop =
-	v:'2018-04-25'
+	v:'2018-04-26'
 	k:'angleMode rotate translate scale push pop for range rect rectMode'
 	l:11
 	h:0
 	b:"""
-# Prova att kommentera ut enstaka rader.
-# Försök att räkna ut effekten i förväg.
+# push sparar bl a translate, rotate och scale.
+# pop återställer.
 
 angleMode DEGREES
 rectMode CENTER
@@ -292,4 +530,18 @@ for i in range 6
 	rotate 60
 """
 	a:"""
+# push sparar bl a translate, rotate och scale.
+# pop återställer.
+
+angleMode DEGREES
+rectMode CENTER
+rect 0,0,20,20
+translate 100,100
+rect 0,0,20,20
+for i in range 6
+	push()
+	translate 50,0
+	rect 0,0,10,10
+	pop()
+	rotate 60
 """

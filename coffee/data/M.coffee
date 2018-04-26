@@ -240,28 +240,6 @@ flower '#FF0','#F00','#FFF','#000', 100,100, 50,25,35,20,5
 	e:
 		Majblomman : 'https://www.google.se/search?q=majblomman&dcr=0&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwiG2JGjo8TZAhWLhywKHWGeC6wQsAQITQ&biw=738&bih=409'
 
-ID_MidPoints =
-	v:'2017-04-29'
-	k:'sc sw point'
-	l:11
-	h:2
-	b: """
-# LÄXA: Gult, svart, vitt
-"""
-	a: """
-sw 10
-sc 1,0,0
-point 100,100
-sc 0,1,0
-point 100,0
-sc 1,1,0
-point 0,100
-sc 0
-point 200,100
-sc 1
-point 100,200
-"""
-
 ID_MineSweeper =
 	v:'2017-05-19'
 	k:'for range if while [] operators text rect circle class'

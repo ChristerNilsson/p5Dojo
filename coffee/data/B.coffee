@@ -1,8 +1,39 @@
-ID_Background1 =
-	v: '2018-04-23'
+ID_bg =
+	v: '2018-04-26'
+	k: 'bg'
+	l: 12
+	h: 0
+	b: """
+# Välj bakgrundsfärg
+
+# Set background color
+
+# bg r,g,b
+
+bg 0,0,0 # black 
+bg 1,0,0 # red
+bg 0,1,0 # green
+bg 0,0,1 # blue
+bg 1,1,1 # white 
+bg 0.5, 0.5, 0.5 # gray 
+
+bg 0,1,1 # cyan
+bg 1,0,1 # magenta
+bg 1,1,0 # yellow
+
+bg 0   # black 
+bg 0.5 # gray
+bg 1   # white
+"""
+	a: """
+bg 1
+"""
+
+ID_bg_1 =
+	v: '2018-04-25'
 	k: 'bg'
 	l: 1
-	h: 0
+	h: 1
 	b: """
 # Första bilden ska du efterlikna.
 # Andra bilden skapas av din kod.
@@ -13,11 +44,10 @@ ID_Background1 =
 # Kontrollera att de två första bilderna nu är lika, och att den tredje är helt svart.
 
 # Stäng denna övning genom att klicka på knapparna " - Background1" och " + Background2".
-bg 1
 """
 	a: "bg 1"
 
-ID_Background2 =
+ID_bg_2 =
 	v: '2018-01-25'
 	k: 'bg'
 	l: 1
@@ -28,7 +58,7 @@ ID_Background2 =
 	"""
 	a: "bg 0.5"
 
-ID_Background3 =
+ID_bg_3 =
 	v:'2017-04-29'
 	k:'bg'
 	l:1
@@ -36,7 +66,7 @@ ID_Background3 =
 	b: ""
 	a: "bg 1,0,0"
 
-ID_Background4 =
+ID_bg_4 =
 	v:'2017-04-29'
 	k:'bg'
 	l:1

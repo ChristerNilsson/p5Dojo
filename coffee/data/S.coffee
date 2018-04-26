@@ -1,3 +1,57 @@
+ID_sc =
+	v: '2018-04-26'
+	k: 'sc'
+	l: 14
+	h: 0
+	b: """
+# Välj streckfärg
+
+# Set stroke color
+
+# sc r,g,b
+
+sw 40
+sc 0
+point 100,30
+
+sc 1
+point 100,60
+
+sc 1,0,0
+point 100,90
+
+sc 1
+point 160,140
+
+#        alpha = halvt genomskinlig
+sc 1,0,0,0.5
+point 160,170
+"""
+	a: """
+# Välj streckfärg
+
+# Set stroke color
+
+# sc r,g,b
+
+sw 40
+sc 0
+point 100,30
+
+sc 1
+point 100,60
+
+sc 1,0,0
+point 100,90
+
+sc 1
+point 160,140
+
+#        alpha = halvt genomskinlig
+sc 1,0,0,0.5
+point 160,170
+"""
+
 ID_Scale =
 	v:'2018-04-25'
 	k:'rotate translate scale fc rect'
@@ -313,19 +367,6 @@ app = new Shortcut2 "a"
 	c:
 		app : "reset()"
 
-ID_ShrinkingCircles =
-	v:'2017-10-31'
-	k:'range fc circle for lerp'
-	l:5
-	h:2
-	b:""
-	a:"""
-for i in range 10,0,-1
-	fc i/10.0,0,0
-	r = 10 * i
-	circle 100,100, r
-"""
-
 ID_SingaporeMult =
 	v:'2017-10-23'
 	k:'bg fc sc rect for class readText parseFloat [] split text'
@@ -605,15 +646,20 @@ app = new SingaporeMultPolynom "a"
 		polynom : "https://www.youtube.com/watch?v=fGy9UMSm-_M"
 
 ID_Skislope =
-	v:'2018-04-23'
+	v:'2018-04-26'
 	k:'bg sc range for lerp line'
-	l:5
+	l:8
 	h:0
 	b: """
+# Skislope
+
+# x1,y1 vandrar från vänster till höger
+# x2,y2 vandrar uppifrån och neråt.
+
 sc 1,0,0
 line  0,0,200, 0
 line 10,0,200,10
-#    x1       y2  lerpa?  
+#    x1       y2  lerp
 
 bg 0
 for i in range 21
@@ -624,10 +670,23 @@ for i in range 21
 	line x1,y1,x2,y2
 """
 	a: """
-bg 0
+# Skislope
+
+# x1,y1 vandrar från vänster till höger
+# x2,y2 vandrar uppifrån och neråt.
+
 sc 1,0,0
+line  0,0,200, 0
+line 10,0,200,10
+#    x1       y2  lerp
+
+bg 0
 for i in range 21
-	line i*10,0, 200,i*10
+	x1 = lerp 0,10,i
+	y1 = 0
+	x2 = 200
+	y2 = lerp 0,10,i
+	line x1,y1,x2,y2
 """
 
 ID_Snake =
@@ -1031,25 +1090,6 @@ app = new Square "a"
 	c:
 		app : "reset()|horisontellt -1|horisontellt +1|vertikalt -1|vertikalt +1|storlek -1|storlek +1|tjocklek -1|tjocklek +1|rotera -1|rotera +1"
 
-ID_SquareHole =
-	v : '2017-04-29'
-	k : 'fc sc sw rect'
-	l : 11
-	h:2
-	b : ""
-	a : """
-fc 0,1,1
-sc()
-rect 60,60, 80,20
-rect 60,120, 80,20
-rect 60,60, 20,80
-rect 120,60, 20,80
-fc()
-sc 1,0,0
-sw 3
-rect 60,60, 80,80
-rect 80,80, 40,40
-"""
 
 ID_Stopwatch =
 	v:'2017-04-29'
@@ -1092,51 +1132,6 @@ app = new Stopwatch "a"
 """
 	c:
 		app: "reset()"
-
-ID_Sunshine =
-	v:'2018-04-24'
-	k:'bg sc range for lerp line'
-	l:9
-	h:0
-	b: """
-# Prova att kommentera ut enstaka rader.
-# Försök att räkna ut effekten i förväg.
-
-sc 1,1,0
-
-line  0,0,200,200
-line 20,0,180,200
-#    x1    x2       lerpa?
-
-line 0,200,200, 0
-line 0,180,200,20
-#       y1     y2   lerpa? 
-
-for i in range 10
-	
-	x1 = lerp 0,20,i
-	y1 = 0
-	x2 = lerp 200,180,i
-	y2 = 200
-	line x1,y1,x2,y2
-
-	x1 = 0
-	y1 = lerp 200,180,i
-	x2 = 200
-	y2 = lerp 0,20,i
-	line x1,y1,x2,y2
-"""
-	a: """
-bg 0
-sc 1,1,0
-for i in range 10
-	x1 = lerp 0,20,i
-	x2 = lerp 200,180,i
-	line x1,0, x2,200
-	y1 = lerp 20,40,i
-	y2 = lerp 180,160,i
-	line 0,y1, 200,y2
-"""
 
 ID_SuperCircle =
 	v:'2017-04-29'
@@ -1181,4 +1176,50 @@ translate 100,100
 for i in range 4
 	skislope()
 	rotate HALF_PI
+"""
+
+ID_sw =
+	v: '2018-04-26'
+	k: 'sw'
+	l: 6
+	h: 0
+	b: """
+# Välj pennans storlek
+
+# Set size of pen
+
+# sw pixels
+
+# Prova att ändra enstaka värden.
+# Försök att förutse effekten.
+# Ändra t ex "sw 10" till "sw 100"
+
+sw 10
+point 100,40 
+
+sw 20
+point 100,100 
+
+sw 30
+point 100,160 
+"""
+	a: """
+# Välj pennans storlek
+
+# Set size of pen
+
+# sw pixels
+
+# Prova att ändra enstaka värden.
+# Försök att förutse effekten.
+# Ändra t ex "sw 10" till "sw 100"
+
+sw 10
+point 100,40 
+
+sw 20
+point 100,100 
+
+sw 30
+point 100,160 
 """

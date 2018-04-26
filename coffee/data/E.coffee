@@ -1,3 +1,62 @@
+ID_ellipse =
+	v: '2018-04-26'
+	k: 'ellipse'
+	l: 7
+	h: 0
+	b: """
+# Rita en ellips
+
+# Draw an ellipse
+
+# ellipseMode CENTER
+#         x, y, w, h
+ellipse 100,50,40,20    
+
+ellipseMode CORNER
+#       x1,y1, w, h
+ellipse 80,80,40,20     
+
+ellipseMode CORNERS
+#       x1, y1, x2, y2
+ellipse 80,120,120,140  
+
+ellipseMode RADIUS
+#         x,  y,w/2,h/2 
+ellipse 100,170, 20, 10
+"""
+	a: """
+# Rita en ellips
+
+# Draw an ellipse
+
+# ellipseMode CENTER
+#         x, y, w, h
+ellipse 100,50,40,20    
+
+ellipseMode CORNER
+#       x1,y1, w, h
+ellipse 80,80,40,20     
+
+ellipseMode CORNERS
+#       x1, y1, x2, y2
+ellipse 80,120,120,140  
+
+ellipseMode RADIUS
+#         x,  y,w/2,h/2 
+ellipse 100,170, 20, 10
+"""
+
+ID_ellipse_1 =
+	v:'2018-04-24'
+	k:'fc ellipse'
+	l:2
+	h:1
+	b:""
+	a:"""
+fc 0,1,0
+ellipse 120,60, 60,40
+"""
+
 ID_EngineeringNotation =
 	v:'2017-04-29'
 	k:'fc sc bg int log10 constrain operators text class'

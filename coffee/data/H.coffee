@@ -75,48 +75,4 @@ app = new Hex "a"
 		Play : "http://www.lutanho.net/play/hex.html"
 		Wikipedia : "https://en.wikipedia.org/wiki/Hex_(board_game)"
 
-ID_HorizontalLine =
-	v:'2018-04-23'
-	k:'sc line'
-	l:2
-	h:0
-	b: """
-sc 1,0,1
-x1 = 10
-y1 = 70
-x2 = 190
-y2 = 70
-line x1,y2,x2,y2
-"""
-	a: """
-sc 1,0,1
-line 10,70, 190,70
-"""
-
-ID_HorizontalSquares =
-	v:'2018-04-23'
-	k:'range rect for lerp'
-	l:3
-	h:0
-	b:"""
-# Börja med att rita de två första kvadraterna mha rect
-# Därefter kan du börja med for-loopen
-# De parametrar som är OLIKA är lämpliga att lerpas
-
-rect  5,5,10,10
-rect 25,5,10,10
-#     x         lerpa?
-
-for i in range 10
-	x = lerp 5,25,i # eller x = 5 + 20 * i
-	y = 5
-	w = 10
-	h = 10
-	rect x,y,w,h
-"""
-	a:"""
-for i in range 10
-	x = 5+20*i
-	rect x,5, 10,10
-"""
 

@@ -1,4 +1,26 @@
-ID_Quad =
+ID_quad =
+	v: '2018-04-27'
+	k: 'quad'
+	l: 1
+	h: 0
+	b: """
+# Rita en fyrhörning
+
+# Draw a quadrangle
+
+#    x1,y1,x2,y2, x3,y3,x4,y4
+quad 20,20,20,80,100,80,80,40
+"""
+	a: """
+# Rita en fyrhörning
+
+# Draw a quadrangle
+
+#    x1,y1,x2,y2, x3,y3,x4,y4
+quad 20,20,20,80,100,80,80,40
+"""
+
+ID_quad_1 =
 	v:'2018-04-23'
 	k:'fc quad'
 	l:2

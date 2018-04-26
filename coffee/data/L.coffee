@@ -53,6 +53,60 @@ app = new Laboratorium "a"
 	c:
 		app : "reset()|left()|right()|up()|down()|a()|b()|c()|d()|e()|f()"
 
+ID_lerp =
+	v: '2018-04-26'
+	k: 'lerp sw point for range'
+	l: 15
+	h: 0
+	b: """
+# lerp a,b,i
+
+sw 10
+point 10,90 # Från vänster till höger
+point 30,90
+#     x     lerp 
+
+for i in range 10
+	x = lerp 10,30,i # 10,30,50,70...
+	y = 90
+	point x,y
+	
+sw 5
+sc 1,0,0
+point 110,190 # Nerifrån och upp
+point 110,170
+#         y   lerp 
+
+for i in range 10
+	x = 110
+	y = lerp 190,170,i # 190,170,150,130...
+	point x,y
+"""
+	a: """
+# lerp a,b,i
+
+sw 10
+point 10,90 # Från vänster till höger
+point 30,90
+#     x     lerp 
+
+for i in range 10
+	x = lerp 10,30,i # 10,30,50,70...
+	y = 90
+	point x,y
+	
+sw 5
+sc 1,0,0
+point 110,190 # Nerifrån och upp
+point 110,170
+#         y   lerp 
+
+for i in range 10
+	x = 110
+	y = lerp 190,170,i # 190,170,150,130...
+	point x,y
+"""
+
 ID_Lerp =
 	v:'2017-05-18'
 	k:'-> bg fc sc if text lerp operators'
@@ -114,7 +168,62 @@ test 2,  lerp 10,9,8
 test 0.4,lerp 0.1,0.2,3
 """
 
-ID_Line =
+ID_line =
+	v: '2018-04-27'
+	k: 'line'
+	l: 6
+	h: 0
+	b: """
+# Rita en linje mellan två punkter
+
+# Draw a line between two points
+
+# line x1,y1,x2,y2
+
+sw 2
+line 60,20,140,20 
+
+sw 4
+line 60,40,140,120 
+
+sw 6
+line 60,100,60,180 
+"""
+	a: """
+sw 2
+line 60,20,140,20 
+
+sw 4
+line 60,40,140,120 
+
+sw 6
+line 60,100,60,180 
+"""
+
+ID_line_1 =
+	v:'2018-04-23'
+	k:'sc line'
+	l:2
+	h:1
+	b: ""
+	a: """
+sc 1,0,1
+line 10,70, 190,70
+"""
+
+ID_line_2 =
+	v:'2017-04-29'
+	k:'sc sw line'
+	l:3
+	h:1
+	b: ""
+	a: """
+sc 1,1,0
+sw 10
+line 110,30, 110,170
+"""
+
+ID_line_3 =
 	v:'2017-04-29'
 	k:'sc line'
 	l:2
@@ -187,16 +296,3 @@ app = new LinearRegression "a"
 		r : "images/r.PNG"
 		"LinearRegression" : "https://www.youtube.com/watch?v=9ytvxgxq0OQ"
 
-ID_Lines =
-	v:'2017-04-29'
-	k:'bg range for lerp line'
-	l:5
-	h:2
-	b:"# (Noel Watson)\n"
-	a:"""
-bg 0
-for i in range 37
-	line 10,10, 190,10+i*5
-	line 10,100, 190,10+i*5
-	line 10,190, 190,10+i*5
-"""

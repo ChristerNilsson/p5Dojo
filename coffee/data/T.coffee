@@ -303,12 +303,74 @@ app = new Tetris "a"
 		"Wikipedia" : "https://en.wikipedia.org/wiki/Tetris"
 		"Meth Meth Method" : "https://www.youtube.com/watch?v=H2aW5V46khA"
 
-ID_TextA =
-	v:'2018-04-24'
-	k:'fc sc text textSize textAlign'
-	l:5
+ID_text =
+	v:'2018-04-26'
+	k:'text textSize textAlign sw sc'
+	l:13
 	h:0
 	b:"""
+# Ritar en text
+# Draws a text
+
+# textSize pixles  # höjd
+# textAlign horizontal,vertical
+# text string,x,y  # ritar ut string
+
+text "Aj",60,40
+
+sw 3
+textSize 40
+text "Bg",140,40
+
+textAlign CENTER
+text "Cq",60,100
+
+textAlign CENTER,CENTER
+fc 0,1,0
+text "Dp",140,100
+
+sc 1,0,0
+text "Ew",60,160
+
+sc()
+text "Fr",140,160
+"""	
+	a:"""
+# Ritar en text
+# Draws a text
+
+# textSize pixles  # höjd
+# textAlign horizontal,vertical
+# text string,x,y  # ritar ut string
+
+text "Aj",60,40
+
+sw 3
+textSize 40
+text "Bg",140,40
+
+textAlign CENTER
+text "Cq",60,100
+
+textAlign CENTER,CENTER
+fc 0,1,0
+text "Dp",140,100
+
+sc 1,0,0
+text "Ew",60,160
+
+sc()
+text "Fr",140,160
+"""
+
+ID_TextA =
+	v:'2018-04-27'
+	k:'fc sc text textSize textAlign'
+	l:5
+	h:1
+	b:"""
+"""	
+	a:"""
 # textSize pixlar  # höjd
 # textAlign horizontal,vertical
 # text string,x,y  # ritar ut string
@@ -318,8 +380,6 @@ sc()
 textSize 32
 textAlign LEFT,BASELINE     # default
 text "Coffeescript",0,100
-"""	
-	a:"""
 """
 
 ID_TextB =
@@ -458,7 +518,7 @@ app = new TowerOfHanoi "a"
 ID_Translate =
 	v:'2018-04-24'
 	k:'translate'
-	l:2
+	l:5
 	h:0
 	b:"""
 # translate x,y
@@ -472,7 +532,29 @@ rect 0,0,20,20
 	a:"""
 """
 
-ID_Triangle =
+ID_triangle =
+	v: '2018-04-27'
+	k: 'triangle'
+	l: 1
+	h: 0
+	b: """
+# Rita en triangel
+
+# Draw a triangle
+
+#        x1,y1,x2,y2, x3,y3
+triangle 20,20,20,80,100,80
+"""
+	a: """
+# Rita en triangel
+
+# Draw a triangle
+
+#        x1,y1,x2,y2, x3,y3
+triangle 20,20,20,80,100,80
+"""
+
+ID_triangle_1 =
 	v:'2018-04-23'
 	k:'fc triangle'
 	l:2
@@ -483,26 +565,6 @@ ID_Triangle =
 	a:"""
 fc 1
 triangle 20,40, 160,100, 100,140
-"""
-
-ID_TwoArcs =
-	v:'2017-09-30'
-	k:'fc sc sw arc angleMode strokeCap'
-	l:8
-	h:2
-	b:"""
-# Innan du går vidare med p5Dojo bör du gå
-# igenom lektionerna A0, A1 och A2 i p5Assert
-"""
-	a:"""
-fc()
-sc 1,0,0
-sw 20
-angleMode DEGREES
-arc 100,70, 100,100, -90,0
-sc 1,1,0
-strokeCap SQUARE
-arc 100,120, 100,100, 0, -90
 """
 
 ID_TwoDiceHistogram =
@@ -538,30 +600,4 @@ for count,i in counts
 """
 	e:
 		Animering : "https://www.openprocessing.org/sketch/124236"
-
-ID_TwoDiscsA =
-	v:'2017-04-29'
-	k:'circle fc'
-	l:4
-	h:1
-	b:""
-	a:"""
-fc 1,0,0
-circle 80,100,40
-fc 0,1,0
-circle 100,120,50
-"""
-
-ID_TwoDiscsB =
-	v:'2017-04-29'
-	k:'circle fc'
-	l:4
-	h:1
-	b:""
-	a:"""
-fc 1,0,0
-circle 80,100,40
-fc 0,1,0, 0.5
-circle 120,100,50
-"""
 
