@@ -363,9 +363,9 @@ circle 100,160,40
 """
 
 ID_circles =
-	v:'2018-04-27'
+	v:'2018-04-28'
 	k:'circle fc sw'
-	l:2
+	l:12
 	h:1
 	b:"""
 # fc r,g,b      # fyllnadsfärg

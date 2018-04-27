@@ -8,6 +8,6 @@
   "names": [],
   "mappings": ";;;AAAA,IAAA;;AAAA;AACC,KAAA,AAAE;AACF,KADA,AACE;AACF,KAFA,AAEE;AACF,KAHA,AAGE;AACF,KAJA,AAIE;AACF,KALA,AAKE;AAeF;AACC,aArBD,AAqBC,AAAU;AAAV;AArBD",
   "sourcesContent": [
-    "ID_YinYang =\n\tv:'2018-04-26'\n\tk:'bg fc sc arc angleMode circle'\n\tl:10\n\th:3\n\tb:\"\"\n\ta:\"\"\"\nangleMode DEGREES\nbg 0.5\nsc()\n\nfc 1\narc 100,100,160,160,180,0\n\nfc 0\narc 100,100,160,160,0,180\ncircle 140,100,40\n\nfc 1\ncircle 60,100,40\n\"\"\"\n\te:\n\t\tYinYang : \"https://en.wikipedia.org/wiki/Yin_and_yang\""
+    "ID_YinYang =\n\tv:'2018-04-27'\n\tk:'bg fc sc arc angleMode circle'\n\tl:10\n\th:3\n\tb:\"\"\n\ta:\"\"\"\nangleMode DEGREES\nbg 0.5\nsc()\n\nfc 1\narc 100,100,160,160,90,270\n\nfc 0\narc 100,100,160,160,270,90\ncircle 100,140,40\n\nfc 1\ncircle 100,60,40\n\"\"\"\n\te:\n\t\tYinYang : \"https://en.wikipedia.org/wiki/Yin_and_yang\""
   ]
 }

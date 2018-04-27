@@ -78,9 +78,9 @@ ID_circle = {
 };
 
 ID_circles = {
-  v: '2018-04-27',
+  v: '2018-04-28',
   k: 'circle fc sw',
-  l: 2,
+  l: 12,
   h: 1,
   b: "# fc r,g,b      # fyllnadsfärg\n# circle x,y,r  # cirkel med mittpunkt x,y och radie r",
   a: "# fc r,g,b      # fyllnadsfärg\n# circle x,y,r  # cirkel med mittpunkt x,y och radie r\ncircle 40,40,30\n\nfc()\nsw 2\ncircle 50,140,40\n\nfc 1,0,0\ncircle 130,40,30\nfc 0,1,0\ncircle 150,60,40\n\nfc 1,0,0\ncircle 130,130,30\nfc 0,1,0, 0.5\ncircle 150,150,40"

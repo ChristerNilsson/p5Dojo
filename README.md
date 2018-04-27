@@ -9,7 +9,7 @@
 * Skillnaden visas i den tredje bitmappen. Den ska bli helt svart när du har löst uppgiften.
 * _The third bitmap contains the difference. When you are finished, it will be completely black._
 
-### Svårighetsnivåer _Difficulty_
+### Svårighetsnivåer _Difficulty Levels_
 
 * Vit _White_
   * Exempel _Example_
@@ -19,6 +19,11 @@
   * Medel _Medium_
 * Röd _Red_
   * Svår _Hard_
+
+### Menyn _The Menu_
+
+* + innebär öppna _Open_
+* - innebär stäng _Close_
 
 ### Länkar  _Links_
  - [p5Dojo](https://christernilsson.github.io/p5Dojo) p5dojo.com
