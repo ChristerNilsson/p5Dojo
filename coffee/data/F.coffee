@@ -117,51 +117,46 @@ streck [0,1,0],1/2+1/4,1/12,1/24
 		"Wikipedia" : "https://en.wikipedia.org/wiki/Flag_of_South_Korea#/media/File:Flag_of_South_Korea_(construction_sheet).svg"
 
 ID_FlagUnitedKingdom =
-	v:'2018-04-24'
+	v:'2018-04-28'
 	k:'bg sc fc rect rectMode rotate translate scale'
-	l:38
+	l:28
 	h:3
-	b:""
+	b:"""
+vinkel = atan2 30,60
+"""
 	a:"""
-
-diagonal = ->
-	rectMode CORNER
-	fc 1
-	rect 0,-3,40,6
-	fc 1,0,0
-	rect 0,-2,40,2
-diagonal2 = (vinkel) ->
-	rotate vinkel
-	diagonal() 
-	rotate 180
-	diagonal() 
-	rotate -vinkel
-arm = (r,g,b,w,h) ->
-	rectMode CENTER
-	fc r,g,b
-	rect 0,0,w,h
-angleMode DEGREES
-vinkel = atan2 30, 60
+vinkel = atan2 30,60
+sc()
 push()
+rectMode CENTER
 translate 100,100
 scale 3
-sc()
-bg 0,0,1
-diagonal2 vinkel
-diagonal2 -vinkel
-for i in range 2 # white
-	arm 1,1,1,10,70
-	rotate 90
-for i in range 2 # red
-	arm 1,0,0,6,70
-	rotate 90
-pop()
+fc 0,0,1
+rect 0,0,60,30 
+
+for v in [vinkel, -2*vinkel]
+	rotate v
+	fc 1
+	rect 0,0,100,6
+	fc 1,0,0
+	rect 30,-1,50,2
+	rect -30,1,50,2
+rotate vinkel
+
+fc 1
+rect 0,0,10,30
+rect 0,0,60,10
+fc 1,0,0
+rect 0,0,6,30
+rect 0,0,60,6
+
+pop() 
+
 fc 0.5
-sc()
-rect 0,0,10,200
-rect 190,0,11,200
 rect 0,0,201,55
-rect 0,145,201,56
+rect 0,145,201,55
+rect 0,0,10,201
+rect 190,0,11,201	
 """
 	e:
 		"Wikipedia" : "https://en.wikipedia.org/wiki/Union_Jack#/media/File:United_Kingdom_Flag_Specifications.svg"

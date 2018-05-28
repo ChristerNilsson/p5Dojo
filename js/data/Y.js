@@ -6,7 +6,7 @@ var ID_YinYang;
 ID_YinYang = {
   v: '2018-04-27',
   k: 'bg fc sc arc angleMode circle',
-  l: 10,
+  l: 9,
   h: 3,
   b: "",
   a: "angleMode DEGREES\nbg 0.5\nsc()\n\nfc 1\narc 100,100,160,160,90,270\n\nfc 0\narc 100,100,160,160,270,90\ncircle 100,140,40\n\nfc 1\ncircle 100,60,40",

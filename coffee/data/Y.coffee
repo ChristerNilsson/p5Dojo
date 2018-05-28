@@ -1,7 +1,7 @@
 ID_YinYang =
 	v:'2018-04-27'
 	k:'bg fc sc arc angleMode circle'
-	l:10
+	l:9
 	h:3
 	b:""
 	a:"""

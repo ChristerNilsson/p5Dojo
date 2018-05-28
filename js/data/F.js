@@ -25,12 +25,12 @@ ID_FlagKorea = {
 };
 
 ID_FlagUnitedKingdom = {
-  v: '2018-04-24',
+  v: '2018-04-28',
   k: 'bg sc fc rect rectMode rotate translate scale',
-  l: 38,
+  l: 28,
   h: 3,
-  b: "",
-  a: "\ndiagonal = ->\n	rectMode CORNER\n	fc 1\n	rect 0,-3,40,6\n	fc 1,0,0\n	rect 0,-2,40,2\ndiagonal2 = (vinkel) ->\n	rotate vinkel\n	diagonal() \n	rotate 180\n	diagonal() \n	rotate -vinkel\narm = (r,g,b,w,h) ->\n	rectMode CENTER\n	fc r,g,b\n	rect 0,0,w,h\nangleMode DEGREES\nvinkel = atan2 30, 60\npush()\ntranslate 100,100\nscale 3\nsc()\nbg 0,0,1\ndiagonal2 vinkel\ndiagonal2 -vinkel\nfor i in range 2 # white\n	arm 1,1,1,10,70\n	rotate 90\nfor i in range 2 # red\n	arm 1,0,0,6,70\n	rotate 90\npop()\nfc 0.5\nsc()\nrect 0,0,10,200\nrect 190,0,11,200\nrect 0,0,201,55\nrect 0,145,201,56",
+  b: "vinkel = atan2 30,60",
+  a: "vinkel = atan2 30,60\nsc()\npush()\nrectMode CENTER\ntranslate 100,100\nscale 3\nfc 0,0,1\nrect 0,0,60,30 \n\nfor v in [vinkel, -2*vinkel]\n	rotate v\n	fc 1\n	rect 0,0,100,6\n	fc 1,0,0\n	rect 30,-1,50,2\n	rect -30,1,50,2\nrotate vinkel\n\nfc 1\nrect 0,0,10,30\nrect 0,0,60,10\nfc 1,0,0\nrect 0,0,6,30\nrect 0,0,60,6\n\npop() \n\nfc 0.5\nrect 0,0,201,55\nrect 0,145,201,55\nrect 0,0,10,201\nrect 190,0,11,201	",
   e: {
     "Wikipedia": "https://en.wikipedia.org/wiki/Union_Jack#/media/File:United_Kingdom_Flag_Specifications.svg"
   }
