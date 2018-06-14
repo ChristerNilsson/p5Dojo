@@ -103,7 +103,6 @@ data = {
     TextRotateAlign: ID_TextRotateAlign,
     Texts: ID_Texts,
     TextCoffee: ID_TextCoffee,
-    CoffeescriptClock: ID_CoffeescriptClock,
     Roulette: ID_Roulette
   },
   "L8: -> (function)": {
@@ -120,18 +119,16 @@ data = {
     Moire: ID_Moire,
     RandomDice: ID_RandomDice,
     Girlang: ID_Girlang,
-    GUI: ID_GUI,
-    IndianSun: ID_IndianSun,
-    Polygon: ID_Polygon
+    GUI: ID_GUI
   },
   "LA: 20-30 Lines Of Code": {
     Stopwatch: ID_Stopwatch,
     OlympicRingPrep: ID_OlympicRingPrep,
     GuessANumber: ID_GuessANumber,
     Braid: ID_Braid,
+    DavidStar: ID_DavidStar,
     Korg: ID_Korg,
     Korsord: ID_Korsord,
-    GoldenStar: ID_GoldenStar,
     OlympicRings: ID_OlympicRings,
     Alphanumeric: ID_Alphanumeric,
     RecursiveCircle: ID_RecursiveCircle,
@@ -144,7 +141,6 @@ data = {
     GuessANumberHex: ID_GuessANumberHex,
     Mandelbrot: ID_Mandelbrot,
     Nian: ID_Nian,
-    SpaceShip: ID_SpaceShip,
     Coordinator: ID_Coordinator,
     MultiTimer: ID_MultiTimer,
     BlackBox2D: ID_BlackBox2D,
@@ -153,7 +149,8 @@ data = {
     Paint: ID_Paint,
     Tetramino: ID_Tetramino
   },
-  "LC: 40-50 LOC": {
+  "LC: 40-60 LOC": {
+    ChessOne: ID_ChessOne,
     ColorPair: ID_ColorPair,
     GameOfLife: ID_GameOfLife,
     Snake4: ID_Snake4,
@@ -167,11 +164,15 @@ data = {
     Reversi: ID_Reversi,
     ForthHaiku: ID_ForthHaiku,
     SingaporeMult: ID_SingaporeMult,
-    PickingBerries: ID_PickingBerries
+    PickingBerries: ID_PickingBerries,
+    SingaporeMultComplex: ID_SingaporeMultComplex
   },
-  "LD: 50-60 LOC": {
-    ChessOne: ID_ChessOne,
-    SingaporeMultComplex: ID_SingaporeMultComplex,
+  "LD: Trigonometry": {
+    CoffeescriptClock: ID_CoffeescriptClock,
+    IndianSun: ID_IndianSun,
+    GoldenStar: ID_GoldenStar,
+    SpaceShip: ID_SpaceShip,
+    Polygon: ID_Polygon,
     Angle: ID_Angle
   },
   "LE: 60-80 LOC": {

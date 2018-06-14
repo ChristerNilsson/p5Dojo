@@ -553,16 +553,12 @@ ID_CoffeescriptClock =
 	b:""
 	a:"""
 bg 1
-fc 0
-sc()
-textSize 20
 textAlign CENTER,CENTER
-angleMode DEGREES
+textSize 20
+translate 100,100
 for i in range 12
-	v = 30*i-90
-	x = 100 + 90 * cos v
-	y = 100 + 90 * sin v
-	text "Coffeescript"[i],x,y
+	text "Coffeescript"[i],0,-90
+	rotate radians 30
 """
 
 ID_ColorCross =

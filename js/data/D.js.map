@@ -6,8 +6,8 @@
     "coffee\\data\\D.coffee"
   ],
   "names": [],
-  "mappings": "",
+  "mappings": ";;;AAAA,IAAA;;AAAA;AACC,KAAA,AAAE;AACF,KADA,AACE;AACF,KAFA,AAEE;AACF,KAHA,AAGE;AACF,KAJA,AAIE;AAcF,KAlBA,AAkBE;AAlBF",
   "sourcesContent": [
-    ""
+    "ID_DavidStar = \r\n\tv:'2018-06-14'\r\n\tk:'class sc if angleMode sw bg for'\r\n\tl:30\r\n\th:2\r\n\tb:\"\"\"\r\nclass Turtle\r\n\tconstructor : (@x,@y,@r=1,@g=1,@b=1,@dir=0) -> @draw = false\r\n\tfd : (d) ->\r\n\t\tsc @r,@g,@b\r\n\t\tdx = d * cos @dir\r\n\t\tdy = d * sin @dir \r\n\t\tif @draw then line @x,@y,@x+dx,@y+dy\r\n\t\t[@x,@y] = [@x+dx,@y+dy]\r\n\trt : (d) ->\r\n\tlt : (d) ->\r\n\tup   : ->\r\n\tdown : -> \r\n\"\"\"\r\n\ta:\"\"\"\r\nclass Turtle\r\n\tconstructor : (@x,@y,@r=1,@g=1,@b=1,@dir=0) -> @draw = false\r\n\tfd : (d) ->\r\n\t\tsc @r,@g,@b\r\n\t\tdx = d * cos @dir\r\n\t\tdy = d * sin @dir \r\n\t\tif @draw then line @x,@y,@x+dx,@y+dy\r\n\t\t[@x,@y] = [@x+dx,@y+dy]\r\n\trt : (d) -> @dir += d\r\n\tlt : (d) -> @dir -= d\r\n\tup   : -> @draw = false\r\n\tdown : -> @draw = true\r\n\r\nr = new Turtle 100,60,1,0,0\r\ng = new Turtle 100,60,0,1,0\r\nangleMode DEGREES\r\nsw 16\r\nbg 0\r\ns = 72\r\nr.fd s*2/3\r\nr.lt 60\r\nr.fd -s/3\r\nr.rt 120\r\nr.down()\r\ng.down()\r\n\r\nfor i in range 6\r\n\tif i%2==0 then x = g else x = r\r\n\tx.fd s \r\n\tx.rt 120\r\n\tx.fd s \r\ng.fd s\r\n\"\"\"\r\n"
   ]
 }

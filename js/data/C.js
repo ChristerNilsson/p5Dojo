@@ -153,7 +153,7 @@ ID_CoffeescriptClock = {
   l: 10,
   h: 2,
   b: "",
-  a: "bg 1\nfc 0\nsc()\ntextSize 20\ntextAlign CENTER,CENTER\nangleMode DEGREES\nfor i in range 12\n	v = 30*i-90\n	x = 100 + 90 * cos v\n	y = 100 + 90 * sin v\n	text \"Coffeescript\"[i],x,y"
+  a: "bg 1\ntextAlign CENTER,CENTER\ntextSize 20\ntranslate 100,100\nfor i in range 12\n	text \"Coffeescript\"[i],0,-90\n	rotate radians 30"
 };
 
 ID_ColorCross = {
