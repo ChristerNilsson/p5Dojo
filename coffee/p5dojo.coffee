@@ -292,7 +292,7 @@ run0 = (code) ->
 	if meny.exer()=="" then return false
 	src = myCodeMirror.getValue()
 	checkBox = document.getElementById("chkAutoRun")
-	if checkBox.checked then run 0, src + "\n" + code
+	if checkBox.checked then run 0, src + "\n" + code else run 0, "\n" + code
 
 run1 = (code) ->
 	if meny.exer()=="" then return

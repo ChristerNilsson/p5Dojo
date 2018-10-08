@@ -445,6 +445,8 @@ run0 = function run0(code) {
   checkBox = document.getElementById("chkAutoRun");
   if (checkBox.checked) {
     return run(0, src + "\n" + code);
+  } else {
+    return run(0, "\n" + code);
   }
 };
 
