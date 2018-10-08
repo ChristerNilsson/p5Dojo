@@ -591,7 +591,16 @@ function lerp(x0,x1,i) {
 
 Din källkod sparas på din dator automatiskt. Töm editorfönstret (ctrl-A) om du vill starta om. Flera personer kan dela på samma maskin, men de måste då ha egna inloggningar.
 
-Om du tycker att editorn är långsam, skapa medvetet ett syntaxfel.
+Om du tycker att editorn är långsam:
+* avmarkera kryssrutan Run 
+
+Om du tror att p5Dojo har hängt sig:
+* stäng ner Chrome
+* gå in på första uppgiften
+* avmarkera kryssrutan Run
+* gå in på uppgiften som hängt sig
+* korrigera felet
+* utför Refresh
 
 ### Javascript till Coffeescript
 [js2coffee](js2coffee.md)

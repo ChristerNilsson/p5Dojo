@@ -437,12 +437,15 @@ saveSourceCode = function saveSourceCode() {
 };
 
 run0 = function run0(code) {
-  var src;
+  var checkBox, src;
   if (meny.exer() === "") {
     return false;
   }
   src = myCodeMirror.getValue();
-  return run(0, src + "\n" + code);
+  checkBox = document.getElementById("chkAutoRun");
+  if (checkBox.checked) {
+    return run(0, src + "\n" + code);
+  }
 };
 
 run1 = function run1(code) {

@@ -291,7 +291,8 @@ saveSourceCode = ->	localStorage[meny.exer() + "/d"] = myCodeMirror.getValue()
 run0 = (code) ->
 	if meny.exer()=="" then return false
 	src = myCodeMirror.getValue()
-	run 0, src + "\n" + code
+	checkBox = document.getElementById("chkAutoRun")
+	if checkBox.checked then run 0, src + "\n" + code
 
 run1 = (code) ->
 	if meny.exer()=="" then return
