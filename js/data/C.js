@@ -148,12 +148,12 @@ ID_ClickDetector = {
 };
 
 ID_CoffeescriptClock = {
-  v: '2017-09-30',
-  k: 'bg fc sc range operators for "" text angleMode sin cos',
-  l: 10,
+  v: '2018-10-08',
+  k: 'bg for "" text angleMode translate rotate textSize textAlign',
+  l: 8,
   h: 2,
   b: "",
-  a: "bg 1\ntextAlign CENTER,CENTER\ntextSize 20\ntranslate 100,100\nfor i in range 12\n	text \"Coffeescript\"[i],0,-90\n	rotate radians 30"
+  a: "bg 1\ntextAlign CENTER,CENTER\ntranslate 100,100\ntextSize 20\nangleMode DEGREES\nfor letter in \"Coffeescript\"\n	text letter,0,-90\n	rotate 30"
 };
 
 ID_ColorCross = {
