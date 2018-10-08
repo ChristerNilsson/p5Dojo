@@ -193,12 +193,12 @@ ID_Square = {
 };
 
 ID_Stopwatch = {
-  v: '2017-04-29',
-  k: 'bg sc fc for [] text int millis nf class',
+  v: '2018-10-08',
+  k: 'bg sc fc for [] text textSize textFont textAlign int millis nf class',
   l: 20,
   h: 1,
   b: "# OBS! Tiderna kan skilja med flera millisekunder. Sorry!\n\nclass Stopwatch extends Application\n	reset : ->\n		super\n	draw  : ->\n	mousePressed : (mx,my) ->\napp = new Stopwatch",
-  a: "class Stopwatch extends Application\n	reset : ->\n		super\n		@start = int millis()\n		@times = []\n		@count = 0\n	draw : ->\n		bg 0\n		textFont \"monospace\"\n		textSize 32\n		textAlign RIGHT,BOTTOM\n		fc 1,0,0\n		sc()\n		for time,i in @times\n			text @count-i, 50, 202-40*i\n			text nf(time/1000,1,3),195, 202-40*i\n	mousePressed : (mx,my) ->\n		@count++\n		@times.unshift int millis()-@start\n		if @times.length > 5 then @times.pop()\n\napp = new Stopwatch \"a\"",
+  a: "class Stopwatch extends Application\n	reset : ->\n		super\n		@start = int millis()\n		@times = []\n	draw  : ->\n		fc 1,0,0\n		sc()\n		textSize 32\n		textFont \"monospace\"\n		n = @times.length\n		for t,i in @times\n			textAlign RIGHT,BOTTOM\n			y = 40+200-(n-i)*40\n			text i+1,50,y\n			s = nf t/1000,0,3\n			text s,200,y\n	mousePressed : (mx,my) ->\n		@times.push int millis()-@start\napp = new Stopwatch \"a\"",
   c: {
     app: "reset()"
   }

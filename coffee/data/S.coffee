@@ -1092,8 +1092,8 @@ app = new Square "a"
 
 
 ID_Stopwatch =
-	v:'2017-04-29'
-	k:'bg sc fc for [] text int millis nf class'
+	v:'2018-10-08'
+	k:'bg sc fc for [] text textSize textFont textAlign int millis nf class'
 	l:20
 	h:1
 	b:"""
@@ -1112,22 +1112,20 @@ class Stopwatch extends Application
 		super
 		@start = int millis()
 		@times = []
-		@count = 0
-	draw : ->
-		bg 0
-		textFont "monospace"
-		textSize 32
-		textAlign RIGHT,BOTTOM
+	draw  : ->
 		fc 1,0,0
 		sc()
-		for time,i in @times
-			text @count-i, 50, 202-40*i
-			text nf(time/1000,1,3),195, 202-40*i
+		textSize 32
+		textFont "monospace"
+		n = @times.length
+		for t,i in @times
+			textAlign RIGHT,BOTTOM
+			y = 40+200-(n-i)*40
+			text i+1,50,y
+			s = nf t/1000,0,3
+			text s,200,y
 	mousePressed : (mx,my) ->
-		@count++
-		@times.unshift int millis()-@start
-		if @times.length > 5 then @times.pop()
-
+		@times.push int millis()-@start
 app = new Stopwatch "a"
 """
 	c:
