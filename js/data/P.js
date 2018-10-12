@@ -173,7 +173,8 @@ ID_Pyramid_1 = {
   b: "",
   a: "textAlign CENTER,CENTER\nfor i in range 10\n	for j in range i+1\n		text 'X',10+i*20,10+j*20",
   e: {
-    SlideNerd: "https://www.youtube.com/watch?v=a2b0WtMyXXE"
+    SlideNerd: "https://www.youtube.com/watch?v=a2b0WtMyXXE",
+    VeeKay: "https://www.youtube.com/watch?v=Nvbon7YFjGU"
   }
 };
 

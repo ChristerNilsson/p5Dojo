@@ -560,6 +560,7 @@ for i in range 10
 """
 	e:
 		SlideNerd : "https://www.youtube.com/watch?v=a2b0WtMyXXE"
+		VeeKay : "https://www.youtube.com/watch?v=Nvbon7YFjGU"
 
 ID_Pyramid_2 =
 	v:'2018-10-12'
