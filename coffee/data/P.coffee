@@ -545,3 +545,142 @@ for i in range 6
 	pop()
 	rotate 60
 """
+
+ID_Pyramid_1 =
+	v:'2018-10-12'
+	k:'textAlign for range text'
+	l:4
+	h:2
+	b:""
+	a:"""
+textAlign CENTER,CENTER
+for i in range 10
+	for j in range i+1
+		text 'X',10+i*20,10+j*20
+"""
+	e:
+		SlideNerd : "https://www.youtube.com/watch?v=a2b0WtMyXXE"
+
+ID_Pyramid_2 =
+	v:'2018-10-12'
+	k:'textAlign for range text'
+	l:4
+	h:2
+	b:""
+	a:"""
+textAlign CENTER,CENTER
+for i in range 10
+	for j in range i+1
+		text 'X',10+(i-j)*20,10+j*20
+"""
+
+ID_Pyramid_3 =
+	v:'2018-10-12'
+	k:'textAlign for range text'
+	l:4
+	h:2
+	b:""
+	a:"""
+textAlign CENTER,CENTER
+for i in range 10
+	for j in range i+1
+		text 'X',10+(i-j)*20,10+(9-j)*20
+"""
+
+ID_Pyramid_4 =
+	v:'2018-10-12'
+	k:'textAlign for range text'
+	l:4
+	h:2
+	b:""
+	a:"""
+textAlign CENTER,CENTER
+for i in range 10
+	for j in range i+1
+		text 'X',10+(i)*20,10+(9-j)*20
+"""
+
+ID_Pyramid_5 =
+	v:'2018-10-12'
+	k:'textAlign for range text'
+	l:4
+	h:2
+	b:""
+	a:"""
+textAlign CENTER,CENTER
+for i in range 10
+	for j in range i+1
+		text i,10+(9-i)*20,10+j*20
+"""
+
+ID_Pyramid_6 =
+	v:'2018-10-12'
+	k:'textAlign for range text abs'
+	l:9
+	h:2
+	b:""
+	a:"""
+textAlign CENTER,CENTER
+textSize 20
+bg 0
+n = 5
+for i in range 2*n-1
+	for j in range 2*n-1
+		dx = i-n+1
+		dy = j-n+1
+		if abs(dx)+abs(dy) < n then text 'X', 100+20 * dx, 100+20 * dy
+"""
+
+ID_Pyramid_Diamond =
+	v:'2018-10-12'
+	k:'for range abs text textSize textAlign'
+	l:6
+	h:3
+	b:""
+	a:"""
+textAlign CENTER,CENTER
+textSize 20
+bg 0
+for i in range 5
+	for j in range 5
+		text abs(i-j)+1,100+(j-i)*20,100+(4-j-i)*20
+"""
+
+ID_Pyramid_Distance =
+	v:'2018-10-12'
+	k:'sc for range dist text textSize textAlign'
+	l:11
+	h:3
+	b:""
+	a:"""
+textAlign CENTER,CENTER
+textSize 10
+bg 1
+n = 10
+sc()
+for i in range 2*n-1
+	for j in range 2*n-1
+		dx = i-n+1
+		dy = j-n+1
+		d = floor dist 0,0,dx,dy
+		if d < n then text d, 100+10 * dx, 100+10 * dy
+"""
+
+ID_Pyramid_Manhattan =
+	v:'2018-10-12'
+	k:'for range abs text textSize textAlign'
+	l:9
+	h:3
+	b:""
+	a:"""
+textAlign CENTER,CENTER
+textSize 20
+bg 0
+n = 4
+for i in range 2*n-1
+	for j in range 2*n-1
+		dx = i-n+1
+		dy = j-n+1
+		if abs(dx)+abs(dy) < n then text abs(dx)+1, 100+20 * dx, 100+20 * dy
+"""
+

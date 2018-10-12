@@ -81,6 +81,15 @@ data = {
     ChessRow: ID_ChessRow,
     GalaxiesOne: ID_GalaxiesOne,
     ChessBoard: ID_ChessBoard,
+    Pyramid_1: ID_Pyramid_1,
+    Pyramid_2: ID_Pyramid_2,
+    Pyramid_3: ID_Pyramid_3,
+    Pyramid_4: ID_Pyramid_4,
+    Pyramid_5: ID_Pyramid_5,
+    Pyramid_6: ID_Pyramid_6,
+    PyramidDiamond: ID_Pyramid_Diamond,
+    PyramidManhattan: ID_Pyramid_Manhattan,
+    PyramidDistance: ID_Pyramid_Distance,
     GalaxiesColliding: ID_GalaxiesColliding
   },
   "L6: translate rotate scale": {
