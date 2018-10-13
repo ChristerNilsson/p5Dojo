@@ -233,12 +233,12 @@ ID_Pyramid_Diamond = {
 };
 
 ID_Pyramid_Distance = {
-  v: '2018-10-12',
-  k: 'sc for range dist text textSize textAlign',
-  l: 11,
+  v: '2018-10-13',
+  k: 'bg sc for range dist text textSize textAlign int',
+  l: 8,
   h: 3,
   b: "",
-  a: "textAlign CENTER,CENTER\ntextSize 10\nbg 1\nn = 10\nsc()\nfor i in range 2*n-1\n	for j in range 2*n-1\n		dx = i-n+1\n		dy = j-n+1\n		d = floor dist 0,0,dx,dy\n		if d < n then text d, 100+10 * dx, 100+10 * dy"
+  a: "textAlign CENTER,CENTER\ntextSize 10\nsc()\nbg 1\nfor i in range 20\n	for j in range 20\n		d = int dist 10,10,i,j\n		if d<10 then text d,10*i,10*j"
 };
 
 ID_Pyramid_Manhattan = {

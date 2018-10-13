@@ -648,23 +648,20 @@ for i in range 5
 """
 
 ID_Pyramid_Distance =
-	v:'2018-10-12'
-	k:'sc for range dist text textSize textAlign'
-	l:11
+	v:'2018-10-13'
+	k:'bg sc for range dist text textSize textAlign int'
+	l:8
 	h:3
 	b:""
 	a:"""
 textAlign CENTER,CENTER
 textSize 10
-bg 1
-n = 10
 sc()
-for i in range 2*n-1
-	for j in range 2*n-1
-		dx = i-n+1
-		dy = j-n+1
-		d = floor dist 0,0,dx,dy
-		if d < n then text d, 100+10 * dx, 100+10 * dy
+bg 1
+for i in range 20
+	for j in range 20
+		d = int dist 10,10,i,j
+		if d<10 then text d,10*i,10*j
 """
 
 ID_Pyramid_Manhattan =
