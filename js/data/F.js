@@ -13,12 +13,12 @@ ID_fc = {
 };
 
 ID_FlagKorea = {
-  v: '2018-04-23',
-  k: 'bg sc fc rect sw arc circle push pop translate scale rotate',
+  v: '2018-10-13',
+  k: 'bg sc fc rect sw arc circle push pop translate scale rotate angleMode rectMode atan2 for',
   l: 44,
   h: 3,
   b: "",
-  a: "angleMode DEGREES\nrectMode CENTER\nvinkel = atan2 2, 3\n\nram = ->\n	fc 1\n	sw 1/60\n	sc 0\n	rect 0,0,3,2\n\nyinyang = ->\n	sc()\n\n	fc 1,0,0\n	arc 0,0,1,1,180,0\n\n	fc 0,0,1\n	arc 0,0,1,1,0,180\n\n	fc 1,0,0\n	circle -1/4,0,1/4\n\n	fc 0,0,1\n	circle 1/4,0,1/4\n\nstreck = (pattern,offset,black,white) ->\n	push()\n	translate offset,0\n	for p in pattern\n		translate black/2,0\n		fc 0\n		sc 1\n		rect 0,0,1/12,1/2\n		if p == 0 \n			fc 1\n			sc 1\n			rect 0,0,1/12,1/24\n		translate black/2,0\n		translate white,0\n\n	pop()\n\nbg 0.5\ntranslate 100,100\nscale 60\n\nram()\n\nrotate vinkel\n\nyinyang()\n\nstreck [1,1,1],-1/2-1/4,-1/12,-1/24 \nstreck [0,0,0],1/2+1/4,1/12,1/24 \n\nrotate -2 * vinkel\n\nstreck [1,0,1],-1/2-1/4,-1/12,-1/24 \nstreck [0,1,0],1/2+1/4,1/12,1/24 ",
+  a: "angleMode DEGREES\nrectMode CENTER\nvinkel = atan2 2, 3\n\nram = ->\n	fc 1\n	sw 1/60\n	sc 0\n	rect 0,0,3,2\n\nyinyang = ->\n\n	fc 1,0,0\n	arc 0,0,1,1,180,0\n\n	fc 0,0,1\n	arc 0,0,1,1,0,180\n\n	fc 1,0,0\n	circle -1/4,0,1/4\n\n	fc 0,0,1\n	circle 1/4,0,1/4\n\nstreck = (pattern,a,b) ->\n	push()\n	translate a,0\n	h = (1/2-1/24)/2\n	for p in pattern\n		if p == 1\n			rect 0,0,1/12,1/2\n		else \n			rect 0,-h/2-1/48,1/12,h\n			rect 0,+h/2+1/48,1/12,h\n		translate b,0\n	pop()\n\nbg 0.5\ntranslate 100,100\nscale 60\n\nram()\n\nrotate vinkel\n\nsc()\nyinyang()\n\na = 1/2 + 1/4 + 1/24\nb = 1/12 + 1/24\nfc 0\nstreck [1,1,1],-a,-b \nstreck [0,0,0],+a,+b \n\nrotate -2 * vinkel\n\nstreck [1,0,1],-a,-b \nstreck [0,1,0],+a,+b",
   e: {
     "Wikipedia": "https://en.wikipedia.org/wiki/Flag_of_South_Korea#/media/File:Flag_of_South_Korea_(construction_sheet).svg"
   }

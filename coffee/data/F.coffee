@@ -47,8 +47,8 @@ circle 100,170,20
 """
 
 ID_FlagKorea =
-	v:'2018-04-23'
-	k:'bg sc fc rect sw arc circle push pop translate scale rotate'
+	v:'2018-10-13'
+	k:'bg sc fc rect sw arc circle push pop translate scale rotate angleMode rectMode atan2 for'
 	l:44
 	h:3
 	b:""
@@ -64,7 +64,6 @@ ram = ->
 	rect 0,0,3,2
 
 yinyang = ->
-	sc()
 
 	fc 1,0,0
 	arc 0,0,1,1,180,0
@@ -78,21 +77,17 @@ yinyang = ->
 	fc 0,0,1
 	circle 1/4,0,1/4
 
-streck = (pattern,offset,black,white) ->
+streck = (pattern,a,b) ->
 	push()
-	translate offset,0
+	translate a,0
+	h = (1/2-1/24)/2
 	for p in pattern
-		translate black/2,0
-		fc 0
-		sc 1
-		rect 0,0,1/12,1/2
-		if p == 0 
-			fc 1
-			sc 1
-			rect 0,0,1/12,1/24
-		translate black/2,0
-		translate white,0
-
+		if p == 1
+			rect 0,0,1/12,1/2
+		else 
+			rect 0,-h/2-1/48,1/12,h
+			rect 0,+h/2+1/48,1/12,h
+		translate b,0
 	pop()
 
 bg 0.5
@@ -103,15 +98,19 @@ ram()
 
 rotate vinkel
 
+sc()
 yinyang()
 
-streck [1,1,1],-1/2-1/4,-1/12,-1/24 
-streck [0,0,0],1/2+1/4,1/12,1/24 
+a = 1/2 + 1/4 + 1/24
+b = 1/12 + 1/24
+fc 0
+streck [1,1,1],-a,-b 
+streck [0,0,0],+a,+b 
 
 rotate -2 * vinkel
 
-streck [1,0,1],-1/2-1/4,-1/12,-1/24 
-streck [0,1,0],1/2+1/4,1/12,1/24 
+streck [1,0,1],-a,-b 
+streck [0,1,0],+a,+b
 """
 	e:
 		"Wikipedia" : "https://en.wikipedia.org/wiki/Flag_of_South_Korea#/media/File:Flag_of_South_Korea_(construction_sheet).svg"
