@@ -160,20 +160,11 @@ rect 20,90,160,20
 
 
 ID_RecurrenceEngine =
-	v:'2018-10-19'
+	v:'2018-10-17'
 	k:'bg fc sc sw range circle class if text textAlign for []'
 	l:53
 	h:3
 	b:"""
-# b0 = a7b7 + .. + a0b0
-# Klicka ClrA och ClrB
-# Ställ in [a1,a0]=[-1,2] samt [b0]=[1]. Klicka upprepat på Calc
-# 1 2 3 4 5 6 ...
-# 2 4 6 8 10 ...
-# 1 1 2 3 5 8 13 ... Fibonacci
-# 1 4 9 16 25 36 ... Potensserie
-# 6 13 27 55 111 ...
-# 1,2,4,7,12,20,33,54,88 ...
 class Button
 	constructor : (@title,@x,@y,@r) ->
 	inside : (x,y) ->
@@ -185,6 +176,16 @@ class Engine extends Application
 	draw : ->
 	mousePressed : (mx,my) ->
 app = new Engine
+
+# b0 = a7b7 + .. + a0b0
+# Klicka ClrA och ClrB
+# Ställ in [a1,a0]=[-1,2] samt [b0]=[1]. Klicka upprepat på Calc
+# 1 2 3 4 5 6 ...
+# 2 4 6 8 10 ...
+# 1 1 2 3 5 8 13 ... Fibonacci
+# 1 4 9 16 25 36 ... Potensserie
+# 6 13 27 55 111 ...
+# 1 2 4 7 12 20 33 54 88 ...
 """
 	a:"""
 # Ställ in [1,-3,3] resp [1,4,9]. Klicka upprepat på Calc
