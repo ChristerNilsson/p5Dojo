@@ -160,16 +160,18 @@ rect 20,90,160,20
 
 
 ID_RecurrenceEngine =
-	v:'2018-10-18'
+	v:'2018-10-19'
 	k:'bg fc sc sw range circle class if text textAlign for []'
 	l:58
 	h:3
 	b:"""
-# Ställ in [1,0,0,0,0,0,0,1] resp [0,0,0,0,0,0,0]. Klicka upprepat på Calc
+# b0 = c + a0b0 + .. + a6b6
+# Klicka ClrA och ClrB
+# Ställ in c=1 och a0=1. Klicka upprepat på Calc
 # 1 2 3 4 5 6 ...
 # 2 4 6 8 10 ...
 # 1 1 2 3 5 8 13 ... Fibonacci
-# 1 4 9 16 25 ...
+# 1 4 9 16 25 36 ... Potensserie
 
 class Button
 	constructor : (@title,@x,@y,@r) ->
@@ -184,7 +186,7 @@ class Engine extends Application
 app = new Engine
 """
 	a:"""
-# Ställ in [2,0,0,0,0,0,-1,2] resp [0,0,0,0,0,0,1]. Klicka upprepat på Calc
+# Ställ in [-1,2,2] resp [1]. Klicka upprepat på Calc
 # 1 4 9 16 25 ...
 class Button
 	constructor : (@title,@x,@y,@r) ->
@@ -199,8 +201,8 @@ class Engine extends Application
 	reset : ->
 		super
 		@buttons = []
-		@a = []
-		@b = []
+		@a = 'c a0 a1 a2 a3 a4 a5 a6'.split ' '
+		@b =   'b0 b1 b2 b3 b4 b5 b6'.split ' '
 		@buttons.push new Button 'ClrA',80,20,15
 		@buttons.push new Button 'Calc',130,20,15 
 		@buttons.push new Button 'ClrB',180,20,15
@@ -208,9 +210,8 @@ class Engine extends Application
 			@buttons.push new Button '+', 70,190-20*i,8 
 			@buttons.push new Button '-', 90,190-20*i,8
 			if i<7 
-				@buttons.push new Button '+',170,190-20*i,8 
-				@buttons.push new Button '-',190,190-20*i,8
-		@clr()	
+				@buttons.push new Button '+',170,170-20*i,8 
+				@buttons.push new Button '-',190,170-20*i,8
 		@draw()	
 	draw : ->
 		bg 0.5
@@ -223,14 +224,14 @@ class Engine extends Application
 		text t,0,5+15*i for t,i in 'Recurrence Engine 2018'.split ' '
 		textAlign RIGHT,CENTER
 		text v,55,190-20*i for v,i in @a
-		text v,155,190-20*i for v,i in @b
+		text v,155,170-20*i for v,i in @b
 	clr : -> 
 		@a = [0,0,0,0,0,0,0,0] 
 		@b = [0,0,0,0,0,0,0] 
 	calc : -> 
-		res = @a[7]
+		res = @a[0]
 		for i in range 7
-			res += @a[i]*@b[i]
+			res += @a[i+1]*@b[i]
 		@b.unshift res
 		@b.pop() 
 	mousePressed : (mx,my) ->
@@ -238,8 +239,8 @@ class Engine extends Application
 			if button.inside mx,my 
 				index = (i-3)//4
 				if button.title == 'Calc' then @calc()
-				if button.title == 'ClrA'  then @a = [0,0,0,0,0,0,0,0]
-				if button.title == 'ClrB'  then @b = [0,0,0,0,0,0,0] 
+				if button.title == 'ClrA' then @a = [0,0,0,0,0,0,0,0]
+				if button.title == 'ClrB' then @b = [0,0,0,0,0,0,0] 
 				if button.x== 70 then @a[index]++
 				if button.x== 90 then @a[index]--
 				if button.x==170 then @b[index]++
