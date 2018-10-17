@@ -162,17 +162,18 @@ rect 20,90,160,20
 ID_RecurrenceEngine =
 	v:'2018-10-19'
 	k:'bg fc sc sw range circle class if text textAlign for []'
-	l:58
+	l:53
 	h:3
 	b:"""
-# b0 = c + a0b0 + .. + a6b6
+# b0 = a7b7 + .. + a0b0
 # Klicka ClrA och ClrB
-# Ställ in c=1 och a0=1. Klicka upprepat på Calc
+# Ställ in [a1,a0]=[-1,2] samt [b0]=[1]. Klicka upprepat på Calc
 # 1 2 3 4 5 6 ...
 # 2 4 6 8 10 ...
 # 1 1 2 3 5 8 13 ... Fibonacci
 # 1 4 9 16 25 36 ... Potensserie
-
+# 6 13 27 55 111 ...
+# 1,2,4,7,12,20,33,54,88 ...
 class Button
 	constructor : (@title,@x,@y,@r) ->
 	inside : (x,y) ->
@@ -186,8 +187,9 @@ class Engine extends Application
 app = new Engine
 """
 	a:"""
-# Ställ in [-1,2,2] resp [1]. Klicka upprepat på Calc
+# Ställ in [1,-3,3] resp [1,4,9]. Klicka upprepat på Calc
 # 1 4 9 16 25 ...
+# Wolfram Alpha: LinearRecurrence, FindLinearRecurrence
 class Button
 	constructor : (@title,@x,@y,@r) ->
 	inside : (x,y) -> @r > dist x,y,@x,@y
@@ -201,17 +203,16 @@ class Engine extends Application
 	reset : ->
 		super
 		@buttons = []
-		@a = 'c a0 a1 a2 a3 a4 a5 a6'.split ' '
-		@b =   'b0 b1 b2 b3 b4 b5 b6'.split ' '
+		@a = 'a0 a1 a2 a3 a4 a5 a6 a7'.split ' '
+		@b = 'b0 b1 b2 b3 b4 b5 b6 b7'.split ' '
 		@buttons.push new Button 'ClrA',80,20,15
 		@buttons.push new Button 'Calc',130,20,15 
 		@buttons.push new Button 'ClrB',180,20,15
 		for i in range 8
 			@buttons.push new Button '+', 70,190-20*i,8 
 			@buttons.push new Button '-', 90,190-20*i,8
-			if i<7 
-				@buttons.push new Button '+',170,170-20*i,8 
-				@buttons.push new Button '-',190,170-20*i,8
+			@buttons.push new Button '+',170,190-20*i,8 
+			@buttons.push new Button '-',190,190-20*i,8
 		@draw()	
 	draw : ->
 		bg 0.5
@@ -224,14 +225,11 @@ class Engine extends Application
 		text t,0,5+15*i for t,i in 'Recurrence Engine 2018'.split ' '
 		textAlign RIGHT,CENTER
 		text v,55,190-20*i for v,i in @a
-		text v,155,170-20*i for v,i in @b
-	clr : -> 
-		@a = [0,0,0,0,0,0,0,0] 
-		@b = [0,0,0,0,0,0,0] 
+		text v,155,190-20*i for v,i in @b
 	calc : -> 
-		res = @a[0]
-		for i in range 7
-			res += @a[i+1]*@b[i]
+		res = 0
+		for i in range 8
+			res += @a[i] * @b[i]
 		@b.unshift res
 		@b.pop() 
 	mousePressed : (mx,my) ->
@@ -240,7 +238,7 @@ class Engine extends Application
 				index = (i-3)//4
 				if button.title == 'Calc' then @calc()
 				if button.title == 'ClrA' then @a = [0,0,0,0,0,0,0,0]
-				if button.title == 'ClrB' then @b = [0,0,0,0,0,0,0] 
+				if button.title == 'ClrB' then @b = [0,0,0,0,0,0,0,0]
 				if button.x== 70 then @a[index]++
 				if button.x== 90 then @a[index]--
 				if button.x==170 then @b[index]++
