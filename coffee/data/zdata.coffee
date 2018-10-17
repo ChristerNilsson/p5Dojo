@@ -134,6 +134,8 @@ data =
 		DavidStar : ID_DavidStar
 		Korg : ID_Korg
 		Korsord : ID_Korsord
+		DifferenceEngine : ID_DifferenceEngine
+		RecurrenceEngine : ID_RecurrenceEngine
 		OlympicRings : ID_OlympicRings
 		Alphanumeric : ID_Alphanumeric
 		RecursiveCircle : ID_RecursiveCircle

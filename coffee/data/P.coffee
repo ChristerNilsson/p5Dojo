@@ -87,6 +87,7 @@ app = new Paint "a"
 	c:
 		app : "reset()|undo()"
 
+
 ID_PentaLerp =
 	v:'2017-09-11'
 	k:'bg sc fc range circle for lerp'
