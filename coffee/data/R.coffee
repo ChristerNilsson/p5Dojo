@@ -160,7 +160,7 @@ rect 20,90,160,20
 
 
 ID_RecurrenceEngine =
-	v:'2018-10-17'
+	v:'2018-10-18'
 	k:'bg fc sc sw range circle class if text textAlign for []'
 	l:53
 	h:3
@@ -194,7 +194,7 @@ app = new Engine
 class Button
 	constructor : (@title,@x,@y,@r) ->
 	inside : (x,y) -> @r > dist x,y,@x,@y
-	render : ->
+	draw : ->
 		fc 1
 		circle @x,@y,@r
 		fc 0
@@ -204,8 +204,7 @@ class Engine extends Application
 	reset : ->
 		super
 		@buttons = []
-		@a = 'a0 a1 a2 a3 a4 a5 a6 a7'.split ' '
-		@b = 'b0 b1 b2 b3 b4 b5 b6 b7'.split ' '
+		@a = @b = range 8
 		@buttons.push new Button 'ClrA',80,20,15
 		@buttons.push new Button 'Calc',130,20,15 
 		@buttons.push new Button 'ClrB',180,20,15
@@ -220,26 +219,27 @@ class Engine extends Application
 		fc 0
 		sc()
 		textAlign CENTER,CENTER
-		button.render() for button in @buttons
+		button.draw() for button in @buttons
 		fc 1,1,0
 		textAlign LEFT,CENTER
-		text t,0,5+15*i for t,i in 'Recurrence Engine 2018'.split ' '
+		text t,0,5+15*i for t,i in 'Recurrence Engine'.split ' '
 		textAlign RIGHT,CENTER
 		text v,55,190-20*i for v,i in @a
 		text v,155,190-20*i for v,i in @b
 	calc : -> 
-		res = 0
-		for i in range 8
-			res += @a[i] * @b[i]
-		@b.unshift res
+		@b.unshift (a*b for [a,b] in _.zip(@a,@b)).reduce (acc,x) => acc+x 
 		@b.pop() 
+		@buttons[1].title++
+	clr : ->
+		@buttons[1].title = 0
+		[0,0,0,0,0,0,0,0]
 	mousePressed : (mx,my) ->
 		for button,i in @buttons
 			if button.inside mx,my 
 				index = (i-3)//4
-				if button.title == 'Calc' then @calc()
-				if button.title == 'ClrA' then @a = [0,0,0,0,0,0,0,0]
-				if button.title == 'ClrB' then @b = [0,0,0,0,0,0,0,0]
+				if i==1 then @calc()
+				if button.title == 'ClrA' then @a = @clr()
+				if button.title == 'ClrB' then @b = @clr()
 				if button.x== 70 then @a[index]++
 				if button.x== 90 then @a[index]--
 				if button.x==170 then @b[index]++
