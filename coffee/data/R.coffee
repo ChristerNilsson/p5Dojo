@@ -186,6 +186,7 @@ app = new Engine
 # 1 4 9 16 25 36 ... Potensserie
 # 6 13 27 55 111 ...
 # 1 2 4 7 12 20 33 54 88 ...
+# 1 2 6 24 120 720 ... Fakultet (omöjlig)
 """
 	a:"""
 # Ställ in [1,-3,3] resp [1,4,9]. Klicka upprepat på Calc
