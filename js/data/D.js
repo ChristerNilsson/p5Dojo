@@ -13,23 +13,23 @@ ID_DavidStar = {
 };
 
 ID_DifferenceEngine = {
-  v: '2018-10-18',
+  v: '2018-10-19',
   k: 'bg fc sc sw range circle class if text textAlign for []',
   l: 44,
   h: 3,
-  b: "# Ställ t ex in [1,0] längst ner. \n# Klicka därefter upprepat på Forward. \n# Nu har du löst 1 2 3 4 5 ...\n#\n# 1 2 3 4 5 ...\n# 2 4 6 8 10 ... Jämna tal\n# 1 4 9 16 25 ... Kvadrater\n# 1 8 27 64 125 ... Kuber\nclass Button\n	constructor : (@title,@x,@y,@r) ->\n	inside : (x,y) ->\n	render : ->\nclass DifferenceEngine extends Application\n	classes : -> [Button]\n	reset : ->\n		super\n	draw : ->\n	mousePressed : (mx,my) ->\napp = new DifferenceEngine",
-  a: "# events lagras inte i Buttons eftersom kod inte serialiseras till localStorage\n# Därför hanteras events i mousePressed istället\nclass Button\n	constructor : (@title,@x,@y,@r) ->\n	inside : (x,y) -> @r > dist x,y,@x,@y\n	render : ->\n		fc 1\n		circle @x,@y,@r\n		fc 0\n		text @title,@x,@y\nclass DifferenceEngine extends Application\n	classes : -> [Button]\n	reset : ->\n		super\n		@buttons = []\n		@vars = []\n		@buttons.push new Button 'Back',135,135,17 \n		@buttons.push new Button 'Forw',175,135,17 \n		@buttons.push new Button 'Clr',155,170,17\n		for i in range 10 \n			@buttons.push new Button '+',80,190-20*i,8 \n			@buttons.push new Button '-',100,190-20*i,8\n		@clr()	\n		@draw()	\n	draw : ->\n		bg 0.5\n		fc 0\n		sc()\n		textAlign CENTER,CENTER\n		button.render() for button in @buttons\n		fc 1,1,0\n		text t,155,30+20*i for t,i in 'Scheutz Difference Engine 1843'.split ' '\n		textAlign RIGHT,CENTER\n		text v,60,190-20*i for v,i in @vars\n	clr : -> @vars = [0,0,0,0,0,0,0,0,0,0] # 0th to 9th differnce\n	forw : -> @vars[i] += @vars[i+1] for i in range 9\n	back : -> @vars[i] -= @vars[i+1] for i in range 8,-1,-1	\n	mousePressed : (mx,my) ->\n		for button,i in @buttons\n			if button.inside mx,my \n				index = (i-3)//2\n				if button.title == 'Back' then @back()\n				if button.title == 'Forw' then @forw()\n				if button.title == 'Clr' then @clr()\n				if button.title == '+' then @vars[index]++\n				if button.title == '-' then @vars[index]--\n\napp = new DifferenceEngine \"a\"",
+  b: "class Button\n	constructor : (@title,@x,@y,@r) ->\n	inside : (x,y) ->\n	render : ->\nclass DifferenceEngine extends Application\n	classes : -> [Button]\n	reset : ->\n		super\n	draw : ->\n	mousePressed : (mx,my) ->\napp = new DifferenceEngine\n\n# Ställ t ex in [1,0] längst ner. \n# Klicka därefter upprepat på Forward. \n# Nu har du löst 1 2 3 4 5 ...\n#\n# 1 2 3 4 5 ...\n# 2 4 6 8 10 ... Jämna tal\n# 1 4 9 16 25 ... Kvadrater\n# 1 8 27 64 125 ... Kuber\n# 1 1 2 3 5 8 13 21 ... Fibonacci (omöjlig)",
+  a: "# events lagras inte i Buttons eftersom kod inte serialiseras till localStorage\n# Därför hanteras events i mousePressed istället\nclass Button\n	constructor : (@title,@x,@y,@r) ->\n	inside : (x,y) -> @r > dist x,y,@x,@y\n	render : ->\n		fc 1\n		circle @x,@y,@r\n		fc 0\n		text @title,@x,@y\nclass DifferenceEngine extends Application\n	classes : -> [Button]\n	reset : ->\n		super\n		@buttons = []\n		@vars = []\n		@buttons.push new Button 'Back',135,135,17 \n		@buttons.push new Button 'Forw',175,135,17 \n		@buttons.push new Button 'Clr',155,170,17\n		for i in range 10 \n			@buttons.push new Button '+',80,190-20*i,8 \n			@buttons.push new Button '-',100,190-20*i,8\n		@clr()	\n		@draw()	\n	draw : ->\n		bg 0.5\n		fc 0\n		sc()\n		textAlign CENTER,CENTER\n		button.render() for button in @buttons\n		fc 1,1,0\n		text t,155,30+20*i for t,i in 'Difference Engine'.split ' '\n		textAlign RIGHT,CENTER\n		text v,60,190-20*i for v,i in @vars\n	clr : -> @vars = [0,0,0,0,0,0,0,0,0,0] # 0th to 9th differnce\n	forw : -> @vars[i] += @vars[i+1] for i in range 9\n	back : -> @vars[i] -= @vars[i+1] for i in range 8,-1,-1	\n	mousePressed : (mx,my) ->\n		for button,i in @buttons\n			if button.inside mx,my \n				index = (i-3)//2\n				if button.title == 'Back' then @back()\n				if button.title == 'Forw' then @forw()\n				if button.title == 'Clr' then @clr()\n				if button.title == '+' then @vars[index]++\n				if button.title == '-' then @vars[index]--\n\napp = new DifferenceEngine \"a\"",
   c: {
     app: "reset()"
   },
   e: {
     Youtube1: 'https://www.youtube.com/watch?v=be1EM3gQkAY',
     Youtube2: 'https://www.youtube.com/watch?v=0anIyVGeWOI',
-    Babbage: 'https://en.wikipedia.org/wiki/Difference_engine',
-    Scheutz_1: "https://en.wikipedia.org/wiki/Difference_engine#Scheutzian_calculation_engine",
+    'Babbage 1822': 'https://en.wikipedia.org/wiki/Difference_engine',
+    'Scheutz 1843': "https://en.wikipedia.org/wiki/Difference_engine#Scheutzian_calculation_engine",
     Scheutz_2: 'https://en.wikipedia.org/wiki/Per_Georg_Scheutz',
     Scheutz_3: 'http://history-computer.com/Babbage/NextDifferentialEngines/Scheutz.html',
-    Wiberg: 'https://en.wikipedia.org/wiki/Martin_Wiberg'
+    'Wiberg 1860': 'https://en.wikipedia.org/wiki/Martin_Wiberg'
   }
 };
 //# sourceMappingURL=D.js.map

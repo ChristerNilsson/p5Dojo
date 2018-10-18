@@ -53,19 +53,11 @@ g.fd s
 """
 
 ID_DifferenceEngine =
-	v:'2018-10-18'
+	v:'2018-10-19'
 	k:'bg fc sc sw range circle class if text textAlign for []'
 	l:44
 	h:3
 	b:"""
-# Ställ t ex in [1,0] längst ner. 
-# Klicka därefter upprepat på Forward. 
-# Nu har du löst 1 2 3 4 5 ...
-#
-# 1 2 3 4 5 ...
-# 2 4 6 8 10 ... Jämna tal
-# 1 4 9 16 25 ... Kvadrater
-# 1 8 27 64 125 ... Kuber
 class Button
 	constructor : (@title,@x,@y,@r) ->
 	inside : (x,y) ->
@@ -77,6 +69,16 @@ class DifferenceEngine extends Application
 	draw : ->
 	mousePressed : (mx,my) ->
 app = new DifferenceEngine
+
+# Ställ t ex in [1,0] längst ner. 
+# Klicka därefter upprepat på Forward. 
+# Nu har du löst 1 2 3 4 5 ...
+#
+# 1 2 3 4 5 ...
+# 2 4 6 8 10 ... Jämna tal
+# 1 4 9 16 25 ... Kvadrater
+# 1 8 27 64 125 ... Kuber
+# 1 1 2 3 5 8 13 21 ... Fibonacci (omöjlig)
 """
 	a:"""
 # events lagras inte i Buttons eftersom kod inte serialiseras till localStorage
@@ -110,7 +112,7 @@ class DifferenceEngine extends Application
 		textAlign CENTER,CENTER
 		button.render() for button in @buttons
 		fc 1,1,0
-		text t,155,30+20*i for t,i in 'Scheutz Difference Engine 1843'.split ' '
+		text t,155,30+20*i for t,i in 'Difference Engine'.split ' '
 		textAlign RIGHT,CENTER
 		text v,60,190-20*i for v,i in @vars
 	clr : -> @vars = [0,0,0,0,0,0,0,0,0,0] # 0th to 9th differnce
@@ -134,8 +136,8 @@ app = new DifferenceEngine "a"
 	e:
 		Youtube1 : 'https://www.youtube.com/watch?v=be1EM3gQkAY'
 		Youtube2 : 'https://www.youtube.com/watch?v=0anIyVGeWOI'
-		Babbage : 'https://en.wikipedia.org/wiki/Difference_engine'
-		Scheutz_1 : "https://en.wikipedia.org/wiki/Difference_engine#Scheutzian_calculation_engine"
+		'Babbage 1822': 'https://en.wikipedia.org/wiki/Difference_engine'
+		'Scheutz 1843' : "https://en.wikipedia.org/wiki/Difference_engine#Scheutzian_calculation_engine"
 		Scheutz_2 : 'https://en.wikipedia.org/wiki/Per_Georg_Scheutz'
 		Scheutz_3 : 'http://history-computer.com/Babbage/NextDifferentialEngines/Scheutz.html'
-		Wiberg : 'https://en.wikipedia.org/wiki/Martin_Wiberg'
+		'Wiberg 1860' : 'https://en.wikipedia.org/wiki/Martin_Wiberg'

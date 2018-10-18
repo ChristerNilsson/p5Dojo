@@ -222,7 +222,7 @@ class Engine extends Application
 		button.draw() for button in @buttons
 		fc 1,1,0
 		textAlign LEFT,CENTER
-		text t,0,5+15*i for t,i in 'Recurrence Engine'.split ' '
+		text t,0,5+15*i for t,i in 'Linear Recurrence Engine'.split ' '
 		textAlign RIGHT,CENTER
 		text v,55,190-20*i for v,i in @a
 		text v,155,190-20*i for v,i in @b
@@ -251,6 +251,7 @@ app = new Engine "a"
 		app : "reset()"
 	e:
 		Recurrence : "https://www.youtube.com/watch?v=II3HVCw_Yr8"
+		'Wolfram: Linear Recurrence' : 'https://reference.wolfram.com/language/ref/LinearRecurrence.html'
 
 
 ID_RecursiveCircle =
