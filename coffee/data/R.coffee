@@ -121,23 +121,20 @@ rect 115,40, 10,100
 """
 
 ID_rect_3 =
-	v : '2017-04-29'
+	v : '2018-10-20'
 	k : 'fc sc sw rect'
-	l : 11
-	h:2
+	l : 7
+	h : 2
 	b : ""
 	a : """
-fc 0,1,1
-sc()
-rect 60,60, 80,20
-rect 60,120, 80,20
-rect 60,60, 20,80
-rect 120,60, 20,80
-fc()
+# 5 lines possible using a for loop
 sc 1,0,0
-sw 3
-rect 60,60, 80,80
-rect 80,80, 40,40
+sw 23
+fc()
+rect 70,70,60,60
+sc 0,1,1
+sw 17
+rect 70,70,60,60
 """
 
 ID_rect_4 =

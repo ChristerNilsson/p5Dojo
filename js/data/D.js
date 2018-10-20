@@ -23,6 +23,8 @@ ID_DifferenceEngine = {
     app: "reset()"
   },
   e: {
+    "Babbage's Difference Part 1": 'https://www.youtube.com/watch?v=PFMBU17eo_4',
+    'Finite Differences Tutorial': 'https://www.youtube.com/watch?v=vIriKhGsaPk',
     Youtube1: 'https://www.youtube.com/watch?v=be1EM3gQkAY',
     Youtube2: 'https://www.youtube.com/watch?v=0anIyVGeWOI',
     'Babbage 1822': 'https://en.wikipedia.org/wiki/Difference_engine',

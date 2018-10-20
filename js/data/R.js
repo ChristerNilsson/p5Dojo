@@ -43,12 +43,12 @@ ID_rect_2 = {
 };
 
 ID_rect_3 = {
-  v: '2017-04-29',
+  v: '2018-10-20',
   k: 'fc sc sw rect',
-  l: 11,
+  l: 7,
   h: 2,
   b: "",
-  a: "fc 0,1,1\nsc()\nrect 60,60, 80,20\nrect 60,120, 80,20\nrect 60,60, 20,80\nrect 120,60, 20,80\nfc()\nsc 1,0,0\nsw 3\nrect 60,60, 80,80\nrect 80,80, 40,40"
+  a: "# 5 lines possible using a for loop\nsc 1,0,0\nsw 23\nfc()\nrect 70,70,60,60\nsc 0,1,1\nsw 17\nrect 70,70,60,60"
 };
 
 ID_rect_4 = {
