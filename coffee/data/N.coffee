@@ -129,7 +129,7 @@ class Nian extends Application
 	enter : ->
 		words = ordlista.split " "
 		patterns = (@bits word for word in words)
-		@letters = @readText()
+		@letters = @readText().toLowerCase()
 		mandatory = @letters[4]
 		@found = []
 		p = @bits @letters
