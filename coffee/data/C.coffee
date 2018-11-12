@@ -887,6 +887,96 @@ app = new Complex "a"
 	e:
 		"Komplexa tal" : "http://www.matteboken.se/lektioner/matte-4/komplexa-tal/rakna-med-komplexa-tal"
 
+
+ID_ComputerHistory =
+	v:'2018-11-02'
+	k:''
+	l:33
+	h:1
+	b:"""
+class ComputerHistory extends Application
+	reset : ->
+		super
+				
+	draw  : ->
+	mousePressed : (mx,my) ->
+
+app = new ComputerHistory
+"""
+	a:"""
+
+class ComputerHistory extends Application
+	reset : ->
+		super
+		@screens = []
+		@index = 0
+		@save 2016,'p5Dojo',3*40000
+		@save 1843,'Difference Engine',100
+		@save 1943,'Colossus',200
+		@save 1949,'Whirlwind',4096
+		@save 1953,'BESK',2500
+		@save 1954,'IBM 704',18432
+		@save 1956,'ENIAC',2500
+		@save 1959,'PDP-1',9216
+		@save 1964,'IBM 360',8192
+		@save 1966,'Apollo Moon Calculator',4096
+		@save 1972,'HP-35 Kalkylator',960+49
+		@save 1978,'ABC-80',32768
+		@save 1981,'IBM PC',16384
+		@save 1984,'Turbo Pascal',32*1024
+		@save 2003,'Arduino',34*1024
+		@save 2015,'micro:bit',16*1024
+		@save 2017,'8-bit music iftkryo',256
+				
+	draw  : ->
+		textAlign CENTER,CENTER
+		[year,title,bytes] = @screens[@index]
+		bg 0.5
+		sc 1,1,0
+		for i in range bytes/3
+			x = i%%200
+			y = i//200
+			point x,y
+		fc 0,0,0
+		sc()
+		textSize 64
+		text year,100,60
+		textSize 18
+		text title,100,100
+		textSize 32
+		text bytes,100,140
+		text 'bytes',100,170
+			
+	save : (year,title,bytes) ->
+		@screens.push [year,title,bytes]
+
+	mousePressed : (mx,my) ->
+		if mx > 100 then @index++ else @index--
+		@index = constrain @index,0,@screens.length-1
+
+app = new ComputerHistory 'a'
+"""
+	c:
+		app : "reset()"
+	e:
+		"Difference Engine" : "https://en.wikipedia.org/wiki/Difference_engine"
+		"Colossus" : "https://en.wikipedia.org/wiki/Colossus_computer"
+		"Whirlwind" : "https://en.wikipedia.org/wiki/Whirlwind_I"
+		"BESK" : "https://en.wikipedia.org/wiki/BESK"
+		"IBM 704" : "https://en.wikipedia.org/wiki/IBM_704"
+		"ENIAC" : "https://en.wikipedia.org/wiki/ENIAC"
+		"PDP-1" : "https://en.wikipedia.org/wiki/PDP-1"
+		"IBM 360" : "https://en.wikipedia.org/wiki/IBM_System/360"
+		"Apollo Moon Calculator" : "https://en.wikipedia.org/wiki/Apollo_Guidance_Computer"
+		"HP-35 Kalkylator" : "https://en.wikipedia.org/wiki/HP-35"
+		"ABC-80" : "https://en.wikipedia.org/wiki/ABC_80"
+		"IBM PC" : "https://en.wikipedia.org/wiki/IBM_Personal_Computer"
+		"Turbo Pascal" : "https://en.wikipedia.org/wiki/Turbo_Pascal"
+		"Arduino" : "https://en.wikipedia.org/wiki/Arduino"
+		"micro:bit" : "https://en.wikipedia.org/wiki/Micro_Bit"
+		"8-bit music iftkryo" : "https://www.youtube.com/watch?v=sWblpsLZ-O8"
+
+
 ID_Connect4 =
 	v:'2017-04-29'
 	k:'operators bg fc sc sw circle range text for class'

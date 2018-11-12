@@ -210,6 +210,7 @@ data =
 		SingaporeMultPolynom : ID_SingaporeMultPolynom # 86
 		Sokoban : ID_Sokoban # 94
 		ForthHaiku3D : ID_ForthHaiku3D # 138
+		ComputerHistory : ID_ComputerHistory
 	
 	Information :
 		Nyheter : ID_nyheter
