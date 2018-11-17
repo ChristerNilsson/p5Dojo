@@ -889,7 +889,7 @@ app = new Complex "a"
 
 
 ID_ComputerHistory =
-	v:'2018-11-02'
+	v:'2018-11-17'
 	k:''
 	l:33
 	h:1
@@ -910,45 +910,57 @@ class ComputerHistory extends Application
 		super
 		@screens = []
 		@index = 0
-		@save 2016,'p5Dojo',3*40000
-		@save 1843,'Difference Engine',100
-		@save 1943,'Colossus',200
-		@save 1949,'Whirlwind',4096
-		@save 1953,'BESK',2500
-		@save 1954,'IBM 704',18432
-		@save 1956,'ENIAC',2500
-		@save 1959,'PDP-1',9216
-		@save 1964,'IBM 360',8192
-		@save 1966,'Apollo Moon Calculator',4096
-		@save 1972,'HP-35 Kalkylator',960+49
-		@save 1978,'ABC-80',32768
-		@save 1981,'IBM PC',16384
-		@save 1984,'Turbo Pascal',32*1024
-		@save 2003,'Arduino',34*1024
-		@save 2015,'micro:bit',16*1024
-		@save 2017,'8-bit music iftkryo',256
+		Hz = 1
+		kHz = 1000*Hz
+		MHz = 1000*kHz
+		# year name ROM RAM Clockspeed
+		@save 2016,'p5Dojo',0,3*40000,''
+		@save 1843,'Difference Engine',0,8*12.5,'1 Hz'
+		@save 1943,'Colossus',0,0,'5 kHz'
+		@save 1949,'Whirlwind',0,2*2048,'20 kHz'
+		@save 1953,'BESK',2*5*4096,5*1024,'20 kHz'
+		@save 1954,'IBM 704',0,18432,'4 kHz'
+		@save 1956,'ENIAC',0,2500,'5 kHz'
+		@save 1959,'PDP-1',0,9216,'187 kHz'
+		@save 1964,'IBM 360',0,8*1024,'34.5 kHz'
+		@save 1966,'Apollo Moon Calculator',2*36864,2*2048,'2 MHz'
+		@save 1971,'Busicom 141-PF',4*256,2*40,'750 kHz'
+		@save 1972,'HP-35 Kalkylator',3*320,7*7,'200 kHz'
+		@save 1978,'ABC-80',16384,16384,'3 MHz'
+		@save 1981,'IBM PC',8192,16384,'4.77 MHz'
+		@save 2003,'Arduino',32*1024,2*1024,'20 MHz'
+		#@save 2015,'micro:bit',256*1024,16*1024,'16 MHz'
 				
 	draw  : ->
 		textAlign CENTER,CENTER
-		[year,title,bytes] = @screens[@index]
+		[year,title,rom,ram,speed] = @screens[@index]
 		bg 0.5
+
 		sc 1,1,0
-		for i in range bytes/3
+		for i in range rom/3
 			x = i%%200
-			y = i//200
+			y = i // 200
 			point x,y
+
+		sc 1,0,0
+		for i in range ram/3
+			x = i%%200
+			y = 200 - i // 200
+			point x,y
+
 		fc 0,0,0
 		sc()
 		textSize 64
-		text year,100,60
+		text year,100,40
 		textSize 18
-		text title,100,100
-		textSize 32
-		text bytes,100,140
-		text 'bytes',100,170
+		text title,100,90
+		textSize 20
+		text rom.toString() + " bytes ROM",100,120
+		text ram.toString() + " bytes RAM",100,150
+		text speed,100,180
 			
-	save : (year,title,bytes) ->
-		@screens.push [year,title,bytes]
+	save : (year,title,rom,ram,speed) ->
+		@screens.push [year,title,rom,ram,speed]
 
 	mousePressed : (mx,my) ->
 		if mx > 100 then @index++ else @index--
@@ -968,12 +980,11 @@ app = new ComputerHistory 'a'
 		"PDP-1" : "https://en.wikipedia.org/wiki/PDP-1"
 		"IBM 360" : "https://en.wikipedia.org/wiki/IBM_System/360"
 		"Apollo Moon Calculator" : "https://en.wikipedia.org/wiki/Apollo_Guidance_Computer"
+		"Busicom 141-PF" : "http://www.vintagecalculators.com/html/busicom_141-pf.html"
 		"HP-35 Kalkylator" : "https://en.wikipedia.org/wiki/HP-35"
 		"ABC-80" : "https://en.wikipedia.org/wiki/ABC_80"
 		"IBM PC" : "https://en.wikipedia.org/wiki/IBM_Personal_Computer"
-		"Turbo Pascal" : "https://en.wikipedia.org/wiki/Turbo_Pascal"
 		"Arduino" : "https://en.wikipedia.org/wiki/Arduino"
-		"micro:bit" : "https://en.wikipedia.org/wiki/Micro_Bit"
 		"8-bit music iftkryo" : "https://www.youtube.com/watch?v=sWblpsLZ-O8"
 
 

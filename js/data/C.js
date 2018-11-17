@@ -223,12 +223,12 @@ ID_Complex = {
 };
 
 ID_ComputerHistory = {
-  v: '2018-11-02',
+  v: '2018-11-17',
   k: '',
   l: 33,
   h: 1,
   b: "class ComputerHistory extends Application\n	reset : ->\n		super\n				\n	draw  : ->\n	mousePressed : (mx,my) ->\n\napp = new ComputerHistory",
-  a: "\nclass ComputerHistory extends Application\n	reset : ->\n		super\n		@screens = []\n		@index = 0\n		@save 2016,'p5Dojo',3*40000\n		@save 1843,'Difference Engine',100\n		@save 1943,'Colossus',200\n		@save 1949,'Whirlwind',4096\n		@save 1953,'BESK',2500\n		@save 1954,'IBM 704',18432\n		@save 1956,'ENIAC',2500\n		@save 1959,'PDP-1',9216\n		@save 1964,'IBM 360',8192\n		@save 1966,'Apollo Moon Calculator',4096\n		@save 1972,'HP-35 Kalkylator',960+49\n		@save 1978,'ABC-80',32768\n		@save 1981,'IBM PC',16384\n		@save 1984,'Turbo Pascal',32*1024\n		@save 2003,'Arduino',34*1024\n		@save 2015,'micro:bit',16*1024\n		@save 2017,'8-bit music iftkryo',256\n				\n	draw  : ->\n		textAlign CENTER,CENTER\n		[year,title,bytes] = @screens[@index]\n		bg 0.5\n		sc 1,1,0\n		for i in range bytes/3\n			x = i%%200\n			y = i//200\n			point x,y\n		fc 0,0,0\n		sc()\n		textSize 64\n		text year,100,60\n		textSize 18\n		text title,100,100\n		textSize 32\n		text bytes,100,140\n		text 'bytes',100,170\n			\n	save : (year,title,bytes) ->\n		@screens.push [year,title,bytes]\n\n	mousePressed : (mx,my) ->\n		if mx > 100 then @index++ else @index--\n		@index = constrain @index,0,@screens.length-1\n\napp = new ComputerHistory 'a'",
+  a: "\nclass ComputerHistory extends Application\n	reset : ->\n		super\n		@screens = []\n		@index = 0\n		Hz = 1\n		kHz = 1000*Hz\n		MHz = 1000*kHz\n		# year name ROM RAM Clockspeed\n		@save 2016,'p5Dojo',0,3*40000,''\n		@save 1843,'Difference Engine',0,8*12.5,'1 Hz'\n		@save 1943,'Colossus',0,0,'5 kHz'\n		@save 1949,'Whirlwind',0,2*2048,'20 kHz'\n		@save 1953,'BESK',2*5*4096,5*1024,'20 kHz'\n		@save 1954,'IBM 704',0,18432,'4 kHz'\n		@save 1956,'ENIAC',0,2500,'5 kHz'\n		@save 1959,'PDP-1',0,9216,'187 kHz'\n		@save 1964,'IBM 360',0,8*1024,'34.5 kHz'\n		@save 1966,'Apollo Moon Calculator',2*36864,2*2048,'2 MHz'\n		@save 1971,'Busicom 141-PF',4*256,2*40,'750 kHz'\n		@save 1972,'HP-35 Kalkylator',3*320,7*7,'200 kHz'\n		@save 1978,'ABC-80',16384,16384,'3 MHz'\n		@save 1981,'IBM PC',8192,16384,'4.77 MHz'\n		@save 2003,'Arduino',32*1024,2*1024,'20 MHz'\n		#@save 2015,'micro:bit',256*1024,16*1024,'16 MHz'\n				\n	draw  : ->\n		textAlign CENTER,CENTER\n		[year,title,rom,ram,speed] = @screens[@index]\n		bg 0.5\n\n		sc 1,1,0\n		for i in range rom/3\n			x = i%%200\n			y = i // 200\n			point x,y\n\n		sc 1,0,0\n		for i in range ram/3\n			x = i%%200\n			y = 200 - i // 200\n			point x,y\n\n		fc 0,0,0\n		sc()\n		textSize 64\n		text year,100,40\n		textSize 18\n		text title,100,90\n		textSize 20\n		text rom.toString() + \" bytes ROM\",100,120\n		text ram.toString() + \" bytes RAM\",100,150\n		text speed,100,180\n			\n	save : (year,title,rom,ram,speed) ->\n		@screens.push [year,title,rom,ram,speed]\n\n	mousePressed : (mx,my) ->\n		if mx > 100 then @index++ else @index--\n		@index = constrain @index,0,@screens.length-1\n\napp = new ComputerHistory 'a'",
   c: {
     app: "reset()"
   },
@@ -242,12 +242,11 @@ ID_ComputerHistory = {
     "PDP-1": "https://en.wikipedia.org/wiki/PDP-1",
     "IBM 360": "https://en.wikipedia.org/wiki/IBM_System/360",
     "Apollo Moon Calculator": "https://en.wikipedia.org/wiki/Apollo_Guidance_Computer",
+    "Busicom 141-PF": "http://www.vintagecalculators.com/html/busicom_141-pf.html",
     "HP-35 Kalkylator": "https://en.wikipedia.org/wiki/HP-35",
     "ABC-80": "https://en.wikipedia.org/wiki/ABC_80",
     "IBM PC": "https://en.wikipedia.org/wiki/IBM_Personal_Computer",
-    "Turbo Pascal": "https://en.wikipedia.org/wiki/Turbo_Pascal",
     "Arduino": "https://en.wikipedia.org/wiki/Arduino",
-    "micro:bit": "https://en.wikipedia.org/wiki/Micro_Bit",
     "8-bit music iftkryo": "https://www.youtube.com/watch?v=sWblpsLZ-O8"
   }
 };
