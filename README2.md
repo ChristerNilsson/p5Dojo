@@ -27,24 +27,16 @@ Byta namn             x       x
 npm install -g coffeescript
 ```
 - download [Sublime Text](https://www.sublimetext.com/3)
-
-### Hämta Mallen
-
-* Hämta [mallen](https://github.com/ChristerNilsson/000-Mall/archive/master.zip)
-* Du ska klicka på den gröna knappen och välja "Clone or download"
-* Välj "Download ZIP"
+- Hämta [mallen](https://github.com/ChristerNilsson/000-Mall/archive/master.zip)
   * Dubbelklicka på den nerladdade filen
   * Markera den enda katalogen och kopiera den
   * Klistra in den i en katalog med t ex namnet p5Dojo
   * Denna katalog ska du INTE arbeta i, enbart kopiera
-
-* Mallen innehåller filer du behöver i ett projekt
-* index.html startar du med
-* Filen sketch.coffee skriver du koden i
-* Den transpileras till sketch.js
-* sketch.js anropas av index.html
-* p5-filer finns i libraries
-
+  * Mallen innehåller filer du behöver i ett projekt
+  * index.html startar du med
+  * Filen sketch.coffee skriver du koden i
+  * Den transpileras till sketch.js
+  * sketch.js anropas av index.html
 
 ### Start av nytt projekt 
 
