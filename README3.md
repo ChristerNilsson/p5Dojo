@@ -14,10 +14,9 @@ Då kan du t ex göra animerade 3D-spel som dina vänner kan köra via webben.
 
 Nedanstående inställningar är redan gjorda i Mallen ovan:
 
-* Prefixera följande
-  * window.setup
-  * window.draw
-  * window.mousePressed osv
+* Prefixera följande med window.
+  * externa klasser t ex Digit
+  * setup, draw, mousePressed osv
 * HTML kan vara tomt
 * CSS kan vara tomt
 * JS Kugghjul ska vara inställd på Coffeescript
