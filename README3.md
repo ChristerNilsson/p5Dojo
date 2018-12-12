@@ -3,6 +3,8 @@
 Lämpligt att göra när du är klar med alla övningar i p5Dojo.
 Då kan du t ex göra animerade 3D-spel som dina vänner kan köra via webben.
 
+![CodePen](https://raw.githubusercontent.com/ChristerNilsson/p5Dojo/master/images/codepen.JPG "CodePen")
+
 ## Så här gör du
 
 * [Skapa en inloggning](https://codepen.io)
