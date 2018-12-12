@@ -5,10 +5,12 @@ Då kan du t ex göra animerade 3D-spel som dina vänner kan köra via webben.
 
 ## Så här gör du
 
-[Skapa en inloggning](https://codepen.io)
-[Forka](https://codepen.io/ChristerNilsson/pen/wRKGEa)
+* [Skapa en inloggning](https://codepen.io)
+* [Mall](https://codepen.io/ChristerNilsson/pen/wRKGEa)
 
 ## Rekommendationer
+
+Nedanstående inställningar är redan gjorda i Mallen ovan:
 
 * Prefixera följande
   * window.setup
