@@ -137,24 +137,6 @@ sw 17
 rect 70,70,60,60
 """
 
-ID_rect_4 =
-	v:'2018-04-23'
-	k:'bg sc fc rect'
-	l:7
-	h:3
-	b:""
-	a:"""
-bg 0.5
-sc()
-fc 0,0,1
-rect 20,50,160,100
-fc 1,1,0
-rect 70,50,20,100
-rect 20,90,160,20
-"""
-	e:
-		"Wikipedia" : "https://sv.wikipedia.org/wiki/Sveriges_flagga#/media/File:Sweden_flag_construction_sheet.png"
-
 
 ID_RecurrenceEngine =
 	v:'2018-10-18'

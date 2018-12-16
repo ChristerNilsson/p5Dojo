@@ -454,6 +454,62 @@ for i in range 4
 """
 	a:""
 
+
+ID_Totalisator =
+	v:'2018-12-16'
+	k:'bg [] text for if return class'
+	l:20
+	h:3
+	b:"""
+class Totalisator extends Application
+	reset : ->
+		super
+	draw : ->
+	mousePressed : (mx,my) ->
+app = new Totalisator
+"""
+	a:"""
+class Totalisator extends Application
+
+	reset : ->
+		super
+		@bets = (0 for i in range 10)
+		@total = 0
+
+	draw : ->
+		textAlign CENTER,CENTER
+		textSize 20
+		sc()
+		bg 0.5
+		for name,i in 'Adam Bertil Cesar David Erik Filip Gustav Helge Ivar Johan'.split ' '
+			text name,50,10+i*20
+			if @bets[i]>0 then text @bets[i],100,10+i*20
+			p = @pretty @total,@bets[i]
+			text p,150,10+i*20
+
+	gcd : (x, y) -> if y == 0 then x else @gcd y, x % y
+
+	pretty : (a,b) ->
+		if b == 0 then return ''
+		g = @gcd a,b
+		a //= g
+		b //= g
+		if b == 1 then a else a + '/' + b
+
+	mousePressed : (mx,my) ->
+		i = my//20
+		@bets[i]++
+		@total++
+
+app = new Totalisator "a"
+
+"""
+	c:
+		app : "reset()"
+	e:
+		Wikipedia : "https://en.wikipedia.org/wiki/Totalisator"
+
+
 ID_TowerOfHanoi =
 	v:'2017-05-13'
 	k:'bg fc sc range operators [] text for if return constrain class line'

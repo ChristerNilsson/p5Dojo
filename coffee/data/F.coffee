@@ -115,6 +115,27 @@ streck [0,1,0],+a,+b
 	e:
 		"Wikipedia" : "https://en.wikipedia.org/wiki/Flag_of_South_Korea#/media/File:Flag_of_South_Korea_(construction_sheet).svg"
 
+
+ID_FlagSweden =
+	v:'2018-12-16'
+	k:'bg sc fc rect scale'
+	l:8
+	h:3
+	b:""
+	a:"""
+bg 0.5
+sc()
+scale 10
+fc 0,0,1
+rect 2,5,16,10
+fc 1,1,0
+rect 7,5,2,10
+rect 2,9,16,2
+"""
+	e:
+		"Wikipedia" : "https://sv.wikipedia.org/wiki/Sveriges_flagga#/media/File:Sweden_flag_construction_sheet.png"
+
+
 ID_FlagUnitedKingdom =
 	v:'2018-11-18'
 	k:'bg sc fc rect rectMode rotate translate scale'

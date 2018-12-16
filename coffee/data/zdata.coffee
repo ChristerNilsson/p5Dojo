@@ -38,7 +38,7 @@ data =
 		Five : ID_circle_5
 		Cross : ID_rect_2
 		SquareHole : ID_rect_3
-		FlagSweden : ID_rect_4
+		FlagSweden : ID_FlagSweden
 
 	"L3: ellipse triangle quad arc" :
 		ellipse : ID_ellipse
@@ -125,6 +125,7 @@ data =
 		RandomDice : ID_RandomDice
 		Girlang : ID_Girlang
 		GUI : ID_GUI
+		Totalisator : ID_Totalisator
 
 	"LA: 20-30 Lines Of Code" :
 		Stopwatch : ID_Stopwatch
