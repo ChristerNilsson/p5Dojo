@@ -1,5 +1,7 @@
 # p5Dojo
 
+[Try it!](https://christernilsson.github.io/p5Dojo)
+
 ### Så här arbetar du!  _This is the way you work!_
 
 * Du ska med kod återskapa den första bitmappen.
@@ -27,6 +29,7 @@
 
 ### Länkar  _Links_
  - [p5Dojo](https://christernilsson.github.io/p5Dojo) p5dojo.com
+ - [Bok](https://docs.google.com/document/d/e/2PACX-1vSborgDOBQXKUSipzyGEru5qrnsFdsK1TWl59Esqu_tIshFh2QeoTgUT4pBY1Dvlp6N-sXHN7hGa4Ex/pub)
  - [p5](https://p5js.org/reference)
  - [Coffeescript](http://coffeescript.org)
  - [Javascript](https://www.w3schools.com/js)
