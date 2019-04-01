@@ -405,7 +405,7 @@ ID_TextCoffee =
 	v:'2017-09-30'
 	k:'sc fc angleMode rotate text translate textSize textAlign'
 	l:10
-	h:2
+	h:1
 	b:""
 	a:"""
 sc()

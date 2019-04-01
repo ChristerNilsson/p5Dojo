@@ -77,7 +77,13 @@ data = {
     SuperCircle: ID_SuperCircle,
     ColorCross: ID_ColorCross
   },
-  "L5: if then else": {
+  "L5: text textAlign textSize": {
+    text: ID_text,
+    TextRotate: ID_TextRotate,
+    TextRotateAlign: ID_TextRotateAlign,
+    Texts: ID_Texts
+  },
+  "L6: if then else": {
     ChessRow: ID_ChessRow,
     GalaxiesOne: ID_GalaxiesOne,
     ChessBoard: ID_ChessBoard,
@@ -92,11 +98,12 @@ data = {
     PyramidDistance: ID_Pyramid_Distance,
     GalaxiesColliding: ID_GalaxiesColliding
   },
-  "L6: translate rotate scale": {
+  "L7: translate rotate scale": {
     translate: ID_Translate,
     rotate: ID_Rotate,
     scale: ID_Scale,
     "push_pop": ID_PushPop,
+    TextCoffee: ID_TextCoffee,
     RotatedEllipse: ID_RotatedEllipse,
     Cards: ID_Cards,
     SnowWhiteAndThe7Lerps: ID_SnowWhiteAndThe7Lerps,
@@ -104,14 +111,7 @@ data = {
     RotatedRect: ID_RotatedRect,
     FlagUnitedKingdom: ID_FlagUnitedKingdom,
     FlagKorea: ID_FlagKorea,
-    SuperCircle2: ID_SuperCircle2
-  },
-  "L7: text textAlign textSize": {
-    text: ID_text,
-    TextRotate: ID_TextRotate,
-    TextRotateAlign: ID_TextRotateAlign,
-    Texts: ID_Texts,
-    TextCoffee: ID_TextCoffee,
+    SuperCircle2: ID_SuperCircle2,
     Roulette: ID_Roulette
   },
   "L8: -> (function)": {

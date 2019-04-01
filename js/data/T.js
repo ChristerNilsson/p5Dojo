@@ -84,7 +84,7 @@ ID_TextCoffee = {
   v: '2017-09-30',
   k: 'sc fc angleMode rotate text translate textSize textAlign',
   l: 10,
-  h: 2,
+  h: 1,
   b: "",
   a: "sc()\nfc 1,1,0\ntextSize 64\ntextAlign CENTER,CENTER\ntranslate 100,100\nangleMode DEGREES\nrotate 90\ntext 'Coffee',0,0\nfc 1,0,0\nrotate 90\ntext 'script',0,0"
 };
