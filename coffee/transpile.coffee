@@ -1,4 +1,5 @@
-assert = (a,b=true) -> if not _.isEqual(a, b) then print JSON.stringify(a) + " != " + JSON.stringify(b)
+#assert = (a,b=true) -> if not _.isEqual(a, b) then print JSON.stringify(a) + " != " + JSON.stringify(b)
+assert = chai.assert.deepStrictEqual
 
 spacesToTabs = (line) ->
 	if line.indexOf('  ') == 0  then return '\t' + spacesToTabs line.substring 2
