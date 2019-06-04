@@ -3,6 +3,8 @@ ID_ImagiCharm =
 	k:'bg fill color rect for {} []'
 	l:25
 	h:1
+	e: 
+		imagiLabs:'https://www.imagilabs.se'
 	b:"""
 matrix = [
 	'y.m.....' # 0
