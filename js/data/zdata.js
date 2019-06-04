@@ -62,6 +62,7 @@ data = {
     DoubleFor: ID_for_for,
     Skislope: ID_Skislope,
     ColorSide: ID_ColorSide,
+    imagiCharm: ID_ImagiCharm,
     for_1: ID_for_1,
     for_2: ID_for_2,
     for_3: ID_for_3,

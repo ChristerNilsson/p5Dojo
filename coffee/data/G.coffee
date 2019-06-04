@@ -348,3 +348,4 @@ app = new GUI "a"
 """
 	c:
 		app : "reset()|up()|down()|left()|right()"
+
