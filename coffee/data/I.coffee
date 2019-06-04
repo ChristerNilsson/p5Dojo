@@ -46,8 +46,7 @@ for i in range 8
 		y = 20+20*j
 		w = 18
 		h = 18
-		r = 3
-		rect x,y,w,h,r
+		rect x,y,w,h
 """
 
 
