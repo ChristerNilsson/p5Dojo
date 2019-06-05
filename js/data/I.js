@@ -4,15 +4,15 @@
 var ID_ImagiCharm, ID_IndianSun;
 
 ID_ImagiCharm = {
-  v: '2019-06-04',
-  k: 'bg fill color rect for {} []',
+  v: '2019-06-05',
+  k: 'bg fill sc rect for {} []',
   l: 25,
   h: 1,
   e: {
     imagiLabs: 'https://www.imagilabs.se'
   },
   b: "matrix = [\n	'y.m.....' # 0\n	'.ymmm...' # 1 \n	'.mcmmm..' # 2 \n	'mmmmmmm.' # 3 \n	'mmmmmmmm' # 4 \n	'.m..mmmm' # 5 \n	'....mmmm' # 6\n	'....mmmm' # 7\n] #01234567\n\nfill 255,0,0\nrect 40,60,80,100,5\n",
-  a: "matrix = [\n	'y.m.....'\n	'.ymmm...'\n	'.mcmmm..'\n	'mmmmmmm.' \n	'mmmmmmmm' \n	'.m..mmmm'\n	'....mmmm'\n	'....mmmm'\n]\n\ncolors =\n	'.': color 0\n	y: color 255,255,0\n	c: color 0,255,255\n	m: color 255,0,255\n\nbg 0\nfor i in range 8\n	for j in range 8\n		letter = matrix[j][i]\n		fill colors[letter]\n		x = 20+20*i\n		y = 20+20*j\n		w = 18\n		h = 18\n		rect x,y,w,h"
+  a: "matrix = [\n	'y.m.....'\n	'.ymmm...'\n	'.mcmmm..'\n	'mmmmmmm.' \n	'mmmmmmmm' \n	'.m..mmmm'\n	'....mmmm'\n	'....mmmm'\n]\n\ncolors =\n	'.': color 0\n	y: color 255,255,0\n	c: color 0,255,255\n	m: color 255,0,255\n\nbg 0\nsc()\nfor i in range 8\n	for j in range 8\n		letter = matrix[j][i]\n		fill colors[letter]\n		x = 20+20*i\n		y = 20+20*j\n		w = 18\n		h = 18\n		rect x,y,w,h"
 };
 
 ID_IndianSun = {

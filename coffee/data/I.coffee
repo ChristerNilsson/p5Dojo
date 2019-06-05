@@ -1,6 +1,6 @@
 ID_ImagiCharm =
-	v:'2019-06-04'
-	k:'bg fill color rect for {} []'
+	v:'2019-06-05'
+	k:'bg fill sc rect for {} []'
 	l:25
 	h:1
 	e: 
@@ -40,6 +40,7 @@ colors =
 	m: color 255,0,255
 
 bg 0
+sc()
 for i in range 8
 	for j in range 8
 		letter = matrix[j][i]
