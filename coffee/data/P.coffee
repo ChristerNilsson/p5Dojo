@@ -227,6 +227,8 @@ ID_point_1 =
 	h:1
 	b: """
 # Klicka "Koordinatsystem" till vänster för hjälp
+# Öva dig på tallinjen genom att klicka "Coordinate Trainer X" till vänster
+# Öva dig på tallinjen genom att klicka "Coordinate Trainer Y" till vänster
 # Öva dig på koordinatsystem genom att klicka "Coordinate Trainer 1" till vänster
 # Öva dig på koordinatsystem genom att klicka "Coordinate Trainer 2" till vänster
 #
@@ -239,7 +241,9 @@ point 0,0
 point 100,0
 point 200,0
 """
-	e :
+	e :  
+		"Coordinate Trainer X" : "https://christernilsson.github.io/Lab/2019/073-CoordTrainerX-1D/index.html"
+		"Coordinate Trainer Y" : "https://christernilsson.github.io/Lab/2019/074-CoordTrainerY-1D/index.html"
 		"Coordinate Trainer 1" : "https://christernilsson.github.io/Lab/2017/131-CoordTrainer/index.html"
 		"Coordinate Trainer 2": "https://christernilsson.github.io/Lab/2017/133-CoordTrainer2/index.html"
 		Koordinatsystem : "http://www.matteboken.se/lektioner/matte-1/funktioner/koordinatsystem"
