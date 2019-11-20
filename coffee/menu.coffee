@@ -2,7 +2,8 @@ LINKS =
 	"p5Dojo"       : "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo"
 	"p5Color"      : "https://christernilsson.github.io/p5Color"
 	"Links" 			 : "https://christernilsson.github.io/Lab"
-
+	"Svelte"			 : "https://github.com/ChristerNilsson/svelte-projects/wiki/Svelte"
+	
 class Menu
 	constructor : (@items, @table=null, @branch=[]) ->
 		@state = 0
