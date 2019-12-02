@@ -119,107 +119,107 @@ data =
 		Map : ID_Map
 		ManyDices : ID_ManyDices
 
-	"L9: class" :
-		Counter : ID_Counter
-		Square : ID_Square
-		Moire : ID_Moire
-		RandomDice : ID_RandomDice
-		Girlang : ID_Girlang
-		GUI : ID_GUI
-		Totalisator : ID_Totalisator
+	# "L9: class" :
+	# 	Counter : ID_Counter
+	# 	Square : ID_Square
+	# 	Moire : ID_Moire
+	# 	RandomDice : ID_RandomDice
+	# 	Girlang : ID_Girlang
+	# 	GUI : ID_GUI
+	# 	Totalisator : ID_Totalisator
 
-	"LA: 20-30 Lines Of Code" :
-		Stopwatch : ID_Stopwatch
-		OlympicRingPrep : ID_OlympicRingPrep
-		GuessANumber : ID_GuessANumber
-		Braid : ID_Braid
-		DavidStar : ID_DavidStar
-		Korg : ID_Korg
-		Korsord : ID_Korsord
-		DifferenceEngine : ID_DifferenceEngine
-		RecurrenceEngine : ID_RecurrenceEngine
-		OlympicRings : ID_OlympicRings
-		Alphanumeric : ID_Alphanumeric
-		RecursiveCircle : ID_RecursiveCircle
-		EngineeringNotation : ID_EngineeringNotation		
+	# "LA: 20-30 Lines Of Code" :
+	# 	Stopwatch : ID_Stopwatch
+	# 	OlympicRingPrep : ID_OlympicRingPrep
+	# 	GuessANumber : ID_GuessANumber
+	# 	Braid : ID_Braid
+	# 	DavidStar : ID_DavidStar
+	# 	Korg : ID_Korg
+	# 	Korsord : ID_Korsord
+	# 	DifferenceEngine : ID_DifferenceEngine
+	# 	RecurrenceEngine : ID_RecurrenceEngine
+	# 	OlympicRings : ID_OlympicRings
+	# 	Alphanumeric : ID_Alphanumeric
+	# 	RecursiveCircle : ID_RecursiveCircle
+	# 	EngineeringNotation : ID_EngineeringNotation		
 
-	"LB: 30-40 LOC" :	
-		SevenSegment : ID_SevenSegment
-		ColorCube : ID_ColorCube
-		Connect4 : ID_Connect4
+	# "LB: 30-40 LOC" :	
+	# 	SevenSegment : ID_SevenSegment
+	# 	ColorCube : ID_ColorCube
+	# 	Connect4 : ID_Connect4
 
-		GuessANumberHex : ID_GuessANumberHex
-		Mandelbrot : ID_Mandelbrot
-		Nian : ID_Nian
+	# 	GuessANumberHex : ID_GuessANumberHex
+	# 	Mandelbrot : ID_Mandelbrot
+	# 	Nian : ID_Nian
 
-		Coordinator : ID_Coordinator	
-		MultiTimer : ID_MultiTimer
-		BlackBox2D : ID_BlackBox2D
-		LinearRegression : ID_LinearRegression
-		Quiz : ID_Quiz
-		Paint : ID_Paint
-		Tetramino : ID_Tetramino
+	# 	Coordinator : ID_Coordinator	
+	# 	MultiTimer : ID_MultiTimer
+	# 	BlackBox2D : ID_BlackBox2D
+	# 	LinearRegression : ID_LinearRegression
+	# 	Quiz : ID_Quiz
+	# 	Paint : ID_Paint
+	# 	Tetramino : ID_Tetramino
 
-	"LC: 40-60 LOC" :
-		ChessOne : ID_ChessOne
-		ColorPair : ID_ColorPair
-		GameOfLife : ID_GameOfLife
-		Snake4 : ID_Snake4
-		BouncingBalls : ID_BouncingBalls
+	# "LC: 40-60 LOC" :
+	# 	ChessOne : ID_ChessOne
+	# 	ColorPair : ID_ColorPair
+	# 	GameOfLife : ID_GameOfLife
+	# 	Snake4 : ID_Snake4
+	# 	BouncingBalls : ID_BouncingBalls
 
-		Klocka : ID_Klocka
-		Snake : ID_Snake
-		Kalkylator : ID_Kalkylator
-		Hex : ID_Hex
-		Braider : ID_Braider
+	# 	Klocka : ID_Klocka
+	# 	Snake : ID_Snake
+	# 	Kalkylator : ID_Kalkylator
+	# 	Hex : ID_Hex
+	# 	Braider : ID_Braider
 
-		TowerOfHanoi : ID_TowerOfHanoi
-		Reversi : ID_Reversi
-		ForthHaiku : ID_ForthHaiku
-		SingaporeMult : ID_SingaporeMult
-		PickingBerries : ID_PickingBerries
-		SingaporeMultComplex : ID_SingaporeMultComplex
+	# 	TowerOfHanoi : ID_TowerOfHanoi
+	# 	Reversi : ID_Reversi
+	# 	ForthHaiku : ID_ForthHaiku
+	# 	SingaporeMult : ID_SingaporeMult
+	# 	PickingBerries : ID_PickingBerries
+	# 	SingaporeMultComplex : ID_SingaporeMultComplex
 
-	"LD: Trigonometry" :
-		CoffeescriptClock : ID_CoffeescriptClock		
-		IndianSun : ID_IndianSun
-		GoldenStar : ID_GoldenStar
-		SpaceShip : ID_SpaceShip
-		Polygon : ID_Polygon		
-		Angle : ID_Angle
+	# "LD: Trigonometry" :
+	# 	CoffeescriptClock : ID_CoffeescriptClock		
+	# 	IndianSun : ID_IndianSun
+	# 	GoldenStar : ID_GoldenStar
+	# 	SpaceShip : ID_SpaceShip
+	# 	Polygon : ID_Polygon		
+	# 	Angle : ID_Angle
 
-	"LE: 60-80 LOC" :
-		Shortcut : ID_Shortcut
-		ClickDetector : ID_ClickDetector 
+	# "LE: 60-80 LOC" :
+	# 	Shortcut : ID_Shortcut
+	# 	ClickDetector : ID_ClickDetector 
 
-		Nim : ID_Nim
-		ChessMany : ID_ChessMany
+	# 	Nim : ID_Nim
+	# 	ChessMany : ID_ChessMany
 
-		MineSweeper : ID_MineSweeper
-		Nand2TetrisALU : ID_Nand2TetrisALU
-		RushHour : ID_RushHour # 71
+	# 	MineSweeper : ID_MineSweeper
+	# 	Nand2TetrisALU : ID_Nand2TetrisALU
+	# 	RushHour : ID_RushHour # 71
 
-	"LF: 80-140 LOC" :
-		RubikSquare : ID_RubikSquare # 85
-		Shortcut2 : ID_Shortcut2 # 126
-		Complex : ID_Complex # 80
+	# "LF: 80-140 LOC" :
+	# 	RubikSquare : ID_RubikSquare # 85
+	# 	Shortcut2 : ID_Shortcut2 # 126
+	# 	Complex : ID_Complex # 80
 
-		Tetris : ID_Tetris # 109
-		RubikCube : ID_RubikCube # 121
-		C2048 : ID_2048 # 103
+	# 	Tetris : ID_Tetris # 109
+	# 	RubikCube : ID_RubikCube # 121
+	# 	C2048 : ID_2048 # 103
 
-		BeeHaiku3D : ID_BeeHaiku3D # 81
-		SingaporeMultPolynom : ID_SingaporeMultPolynom # 86
-		Sokoban : ID_Sokoban # 94
-		ForthHaiku3D : ID_ForthHaiku3D # 138
-		ComputerHistory : ID_ComputerHistory
+	# 	BeeHaiku3D : ID_BeeHaiku3D # 81
+	# 	SingaporeMultPolynom : ID_SingaporeMultPolynom # 86
+	# 	Sokoban : ID_Sokoban # 94
+	# 	ForthHaiku3D : ID_ForthHaiku3D # 138
+	# 	ComputerHistory : ID_ComputerHistory
 	
 	Information :
 		Nyheter : ID_nyheter
 		Asserts : ID_Asserts
 		Blank : ID_Blank
-		Laboratorium : ID_Laboratorium
-		LinesOfCode : ID_LinesOfCode
+		# Laboratorium : ID_Laboratorium
+		# LinesOfCode : ID_LinesOfCode
 
 	Exhibition :
 		sailingBoat : ID018
