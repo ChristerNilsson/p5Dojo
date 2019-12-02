@@ -2,6 +2,7 @@ LINKS =
 	"p5Dojo"       : "https://github.com/ChristerNilsson/p5Dojo/blob/master/README.md#p5dojo"
 	"p5Color"      : "https://christernilsson.github.io/p5Color"
 	"Links" 			 : "https://christernilsson.github.io/Lab"
+	"p5Dojo2"      : "https://github.com/ChristerNilsson/p5Dojo2/wiki"
 	"Svelte"			 : "https://github.com/ChristerNilsson/sveltes/wiki/Svelte"
 	
 class Menu
