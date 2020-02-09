@@ -563,19 +563,16 @@ for letter in "Coffeescript"
 """
 
 ID_ColorCross =
-	v:'2018-04-24'
-	k:'bg sc lerp range for point'
+	v:'2020-02-09'
+	k:'bg sc range for point'
 	l:11
 	h:3
 	b:"""
-#    bM     blue
-#    BR     Black
-# bB BR RM  Red
-# CG GY YW  Magenta
-#    GY     Green
-#    CW     Cyan
-#    CW     White
-#    bM     Yellow
+#  bM   Black
+# bBRM  Red Green Blue
+# CGYW  Magenta Cyan Yellow
+#  CW   White
+#  bM   
 """
 	a:"""
 bg 0.5
@@ -583,8 +580,8 @@ for k in range 6
 	x = [3,1,3,5,3,3][k]
 	y = [0,2,2,2,4,6][k]
 	for i in range 50
-		r = [i,0,i,50,i,i][k]
 		for j in range 50
+			r = [i,0,i,50,i,i][k]
 			g = [0,j,j,j,50,50-j][k]
 			b = [50-j,50-i,0,i,j,50][k]
 			sc r/50,g/50,b/50

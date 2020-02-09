@@ -456,8 +456,8 @@ for i in range 10
 # """
 
 ID_Roulette =
-	v:'2017-09-30'
-	k:'bg sw fc sc range angleMode rotate for if operators [] "" PI text arc strokeCap translate'
+	v:'2020-02-09'
+	k:'bg sw fc sc angleMode rotate for if operators [] "" text arc strokeCap translate'
 	l:15
 	h:3
 	b:"""
@@ -479,7 +479,7 @@ for number,i in numbers
 	sc()
 	fc 1
 	text number,0,-90
-	rotate 360 / numbers.length
+	rotate d+d
 """
 	e :
 		Wikipedia : "https://en.wikipedia.org/wiki/Roulette"
